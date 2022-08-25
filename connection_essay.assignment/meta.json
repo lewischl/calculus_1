@@ -1,0 +1,9 @@
+{
+  "name":"🔌 Connection essay",
+  "type": "assignment",
+  "points_possible": 100,
+  "allowed_extensions": ["pdf"],
+  "style":"_styles/assignments",
+  "due":{"week":8, "day":"W"},
+  "assignment_group_name":"Homework"
+}
