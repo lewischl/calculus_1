@@ -101,5 +101,5 @@
 	"integrals by substitution - speedrun level 2": {"name":"⏩ Integration By Substitution - Speedrun Level 2", "modules":["Week X"], "assignment_group_name":"⛰️⏩ Challenges and Speedruns"},
 	"integrals applied as net change - training": {"name":"🏋️ Applied Integration As Net Change - Training", "modules":["Week X"], "assignment_group_name":"🏋️ Training"},
 
-	"quiz - comprehensive review - limits derivs applderivs integrals - problems same for all student": {"name":"🎽 Team Quiz - Comprehensive Review - Limits Derivs Applderivs Integrals", "modules":["Week 14", "Finals Week"], "assignment_group_name":"Final Exam"}
+	"quiz - comprehensive review - limits derivs applderivs integrals - problems same for all students": {"name":"🎽 Team Quiz - Comprehensive Review - Limits Derivs Applderivs Integrals", "modules":["Week 14", "Finals Week"], "assignment_group_name":"Final Exam"}
 }
