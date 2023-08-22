@@ -56,16 +56,15 @@ $power = $a - 1;
 $coeff = 1 / $a;
 $funct = "$coeff * e^(x^$a)";
 
-TEXT(EV2(<<EOT));
+BEGIN_TEXT
 Evaluate the indefinite integral.
 $BR \[ \int x^$power e^{x^$a} dx \]
 $BR 
 \(\displaystyle \int x^$power e^{x^$a} \, dx = \) \{ans_rule( 40) \} \(+C\)
 
-$PAR
 
-\{ theresahint \}
-EOT
+
+END_TEXT
 
 
 ANS(fun_cmp($funct, limits=>[0.75,1.25], mode=>"antider"));

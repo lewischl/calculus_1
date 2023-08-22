@@ -82,8 +82,8 @@ $PAR
 How fast is the height of the pile increasing when the pile is $h ft high?
 $PAR
 The height is increasing at \{ans_rule(20) \} ft/min.
-$BR$BR
-\{ theresahint \}
+
+
 END_TEXT
 ###################################
 # Answers

@@ -83,8 +83,6 @@ $BR
  \(f(x) = \) \{ ans_rule(15) \} $BR
 \(g(x) = \) \{ ans_rule(15) \} $BR
 
-$PAR
-\{theresahint\}
 END_TEXT
 
 Context()->normalStrings;

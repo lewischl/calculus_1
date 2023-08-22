@@ -67,10 +67,6 @@ $b x - $d, &x > c\\
 \]
 \(c = \) \{ans_rule(20)\}
 
-$PAR
-$HR
-$PAR
-\{theresahint\}
 END_TEXT
 
 BEGIN_HINT

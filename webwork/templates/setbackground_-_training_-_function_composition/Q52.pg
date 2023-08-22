@@ -111,10 +111,8 @@ $PAR
 \{ $checkbox_mc -> print_q \}
 $BR
 \{ $checkbox_mc -> print_a \}
-$BR
 
-$PAR
-\{theresahint\}
+
 END_TEXT
 
 BEGIN_HINT

@@ -98,12 +98,12 @@ What is the shortest total length of fence that the rancher can use?
 $PAR
 Shortest total length of fence = \{ans_rule(20)\} meters.
 
-$PAR
 
-\{ theresahint \}
+
 END_TEXT
 
-$show_hint=-1;
+
+
 BEGIN_HINT
 Draw a picture, a rectangle with a fence down the middle.  
 

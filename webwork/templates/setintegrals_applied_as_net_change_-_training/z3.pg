@@ -38,7 +38,7 @@ TEXT(beginproblem());
 $v = random(60,85,5);
 $g = random(8,20);
 
-TEXT(EV2(<<EOT));
+BEGIN_TEXT
 
 Assume that you are driving a car at $v miles per hour.
 
@@ -66,9 +66,9 @@ before you start braking, at the same initial speed, and the same
 constant deceleration, what is the total distance the car will travel before coming to a stop?$BR
 Including travel during the reaction time, the car will travel \{ans_rule( 25) \} feet before stopping.
 
-$PAR
-\{ theresahint \}
-EOT
+
+
+END_TEXT
 
 
 BEGIN_HINT

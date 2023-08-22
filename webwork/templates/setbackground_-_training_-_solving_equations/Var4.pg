@@ -161,9 +161,6 @@ $PAR
 Your answer should be a pair of expressions, one each for the numerator and denominator, in \($var1\) and \($var3\).
 \{ closeDiv() \}
 
-$HR
-
-\{ theresahint \}
 
 END_TEXT
 Context()->normalStrings;

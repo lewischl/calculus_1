@@ -69,7 +69,8 @@ $b1 = random(2,18,2);
 $c1 = random(1,17,1);
 $d1 = random(1,17,1);
 $t1 = random(3,15,1);
-TEXT(EV2(<<EOT));
+
+BEGIN_TEXT
 A particle is moving with acceleration \( a(t) = $a1 t + $b1 \).
 $BR
 Its position at time \( t =0 \) is \( s(0) = $d1 \), and
@@ -78,10 +79,9 @@ $BR$BR
 What is its position at time \( t = $t1 \)? $BR
 $BR\(s($t1) = \) \{ans_rule(30) \}
 
-$PAR 
 
-\{ theresahint \}
-EOT
+
+END_TEXT
 
 BEGIN_HINT
 In this problem, we're given the acceleration function \(a(t)\), and we want the position function \(s(t)\).  As a first step, recognize that:$BR

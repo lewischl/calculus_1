@@ -76,9 +76,6 @@ Find the linearization \(L(x)\) of the function \(f(x) = e^{$a x} \) at \(x=0.\)
 $PAR
 Answer: \( L(x) = \) \{ans_rule(40)\}
 
-$BR$BR
-
-\{ theresahint \}
 END_TEXT
 
 BEGIN_HINT

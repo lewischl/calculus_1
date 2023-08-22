@@ -51,8 +51,8 @@ Compute the indefinite integral.
 \[ \int \frac{1-\sin^2x}{\cos x} dx  \]
 Answer: \{ans_rule(15)\} \( + \ C \)
 
-$PAR
-\{theresahint \}
+
+
 END_TEXT
 
 $answer="sin(x)";

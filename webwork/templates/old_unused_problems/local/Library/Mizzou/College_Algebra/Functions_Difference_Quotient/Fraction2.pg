@@ -110,8 +110,7 @@ BEGIN_TEXT
 Find the difference quotient for the function \(\displaystyle f(x) = $f\).  Simplify your answer as much as possible.
 $BR$BR$BR
 $displayfrac
-$BR$BR
-\{ theresahint \}
+
 END_TEXT
 
 BEGIN_HINT

@@ -83,9 +83,6 @@ that is most economical to construct.
 $PAR
 Dimensions: \{$ma->ans_rule(10)\} x \{$ma->ans_rule(10)\}
 
-$PAR
-
-\{ theresahint \}
 END_TEXT
 
 BEGIN_HINT

@@ -46,8 +46,7 @@ Let \(s\) be the side length of a recantangle with area given by \( A(s) = $b1 s
 $PAR
 \{ans_rule(20) \} units area per unit length
 $BR
-$BR
-\{ theresahint \}
+
 END_TEXT
 
 BEGIN_HINT

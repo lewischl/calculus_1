@@ -425,7 +425,6 @@ Section::Begin('...or down?');
 BEGIN_PGML
 
 Let's see what happens when [`x`] keeps going down.
-
 END_PGML
 
 $table4=DataTable(

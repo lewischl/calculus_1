@@ -123,9 +123,8 @@ $PAR
 $BBOLD 5. $EBOLD  \(\displaystyle \lim_{x \to -\infty}f(x) = \) \{ans_rule(20)\}
 $HR
 $BBOLD Note: $EBOLD $BITALIC You can click on the graph to enlarge the image.$EITALIC
-$HR
 
-\{theresahint\}
+
 END_TEXT
 
 Context()->normalStrings;

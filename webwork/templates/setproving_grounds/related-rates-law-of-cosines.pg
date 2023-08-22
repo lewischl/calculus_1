@@ -55,7 +55,8 @@ The following questions are about the situation after [$delay] minutes.
 
     3. At what rate is the air distance from the plane to the radar station increasing? [__________]{$ans} km/min
     
-\{theresahint\}
+
+
 END_PGML
 
 $showHint = 0;

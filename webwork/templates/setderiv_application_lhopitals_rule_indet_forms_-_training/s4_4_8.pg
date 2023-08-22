@@ -63,9 +63,8 @@ $BR
 Evaluate the limit, using L'Hospital's rule if necessary
 \[ \lim_{ x \rightarrow 0 } \frac{x^{$a}-1}{x^{$b}-1} \]
 $BR Answer: \{ans_rule(25) \}
-$BR
-$BR
-\{ theresahint \}
+
+
 END_TEXT
 
 BEGIN_HINT

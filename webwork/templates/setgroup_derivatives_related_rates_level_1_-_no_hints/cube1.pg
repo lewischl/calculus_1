@@ -90,8 +90,8 @@ $BR$BR
 At what rate is the volume of the cube growing, if the sides are growing at a rate of \($dx_dt\) centimeters per minute, and the sides are of length \($x\) centimeters?
 $BR$BR
 \(\displaystyle \frac{dV}{dt} = \) \{ans_rule(50) \} cubic centimeters per minute.
-$BR$BR
-\{ theresahint \}
+
+
 END_TEXT
 
 $showHint=-1;

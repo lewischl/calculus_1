@@ -186,9 +186,8 @@ $BCENTER
 \{ endtable() \}
 $ECENTER
 
-$PAR
 
-\{ theresahint \}
+
 END_TEXT
 
 

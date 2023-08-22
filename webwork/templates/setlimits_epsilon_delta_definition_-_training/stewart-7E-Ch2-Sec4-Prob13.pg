@@ -80,8 +80,8 @@ Find \( \delta \) again, but with \(\varepsilon = $epsilon2 \). $BR
 $BR$BR
 
 This problem may require lots of decimal places.
-$BR
-\{ theresahint \}
+
+
 END_TEXT
 Context()->normalStrings;
 

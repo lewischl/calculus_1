@@ -113,10 +113,8 @@ $PAR
 
 \( \displaystyle \int $f \, dx = \)
 \{ ans_rule() \} \(+ C\)
-$PAR
 
 
-\{ theresahint \}
 END_TEXT
 
 BEGIN_HINT

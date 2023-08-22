@@ -80,8 +80,6 @@ $PAR
 $PAR
 Enter your result for the dimensions as a comma separated list of two numbers.  Do not include the units.
 
-$BR$BR
-\{ theresahint \}
 END_TEXT
 
 BEGIN_HINT

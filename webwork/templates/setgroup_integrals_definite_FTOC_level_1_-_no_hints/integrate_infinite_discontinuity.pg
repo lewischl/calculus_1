@@ -58,8 +58,8 @@ If the integral does not exist, type "DNE" as your answer.
 $PAR
 \{ans_rule(30)\}
 
-$PAR
-\{ theresahint \}
+
+
 END_TEXT
 
 BEGIN_HINT

@@ -93,8 +93,8 @@ Calculate the rate at which the bottom of the ladder is sliding away from the wa
 $BR$BR
 The bottom of the ladder is sliding away at \{ans_rule(40) \} meters per second.
 
-$BR$BR
-\{ theresahint \}
+
+
 END_TEXT
 ###################################
 # Answers

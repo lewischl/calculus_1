@@ -52,9 +52,8 @@ BEGIN_TEXT
 Evaluate the limit, if it exists. If not, enter DNE. $PAR
 \(\displaystyle \lim_{x \to 1} \frac{\sqrt{x}-x^2}{1-\sqrt{x}} = \) \{ans_rule(10)\}
 
-$BR$BR
 
-\{ theresahint \}
+
 
 END_TEXT
 

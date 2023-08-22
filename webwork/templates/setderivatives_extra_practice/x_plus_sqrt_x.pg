@@ -53,8 +53,8 @@ Let \(f(x) = x + \sqrt{x}\) . The equation for the tangent line at the point \( 
 Find the value of \(m\).
 $BR$BR
 \(m = \)  \{ ans_rule(5) \}
-$BR$BR
-\{theresahint\}
+
+
 END_TEXT
 ANS(num_cmp("1 + 0.5/$c", relTol=>.1));
 

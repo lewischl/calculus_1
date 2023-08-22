@@ -73,8 +73,7 @@ $BR$BR
 Is the function \( f \) continuous at \( 3 \)? 
 \{pop_up_list(['?', 'Yes', 'No']) \} 
 
-$BR$BR
-\{ theresahint \}
+
 
 END_TEXT
 

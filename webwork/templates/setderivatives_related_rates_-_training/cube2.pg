@@ -94,8 +94,8 @@ $BR$BR
 At what rate is the side length changing?
 $BR$BR
 \(\displaystyle \frac{dx}{dt} = \) \{ans_rule(50) \}  centimeters per minute.
-$BR$BR
-\{ theresahint \}
+
+
 END_TEXT
 
 $showHint=-1;

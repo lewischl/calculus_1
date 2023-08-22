@@ -83,8 +83,8 @@ How fast is the water level rising if the water is filling the tank at a rate of
 $BR$BR
 The water level is increasing at \{ans_rule(20) \} ft/min.
 
-$BR$BR
-\{ theresahint \}
+
+
 END_TEXT
 ###################################
 # Answers

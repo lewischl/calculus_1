@@ -187,9 +187,8 @@ $BCENTER
 \{ row("Right endpoint Riemann sum for \( y = $ftex \) on \( \lbrack $a, $b \rbrack \)") \}
 \{ endtable() \}
 $ECENTER
-$PAR
 
-\{ theresahint \}
+
 END_TEXT
 
 

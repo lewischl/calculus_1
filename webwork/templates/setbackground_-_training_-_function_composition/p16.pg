@@ -107,10 +107,6 @@ $BR
 EOT
 ANS(fun_cmp("x^2+2", limits=>[[1,3]], vars=>["x"]));
 
-BEGIN_TEXT
-$PAR
-\{theresahint\}
-END_TEXT
 
 BEGIN_PGML
 

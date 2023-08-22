@@ -97,7 +97,6 @@ $PAR
 Dimensions of the bottom of the box: \{$ma->ans_rule(10)\} x \{$ma->ans_rule(10)\}$BR
 Height of the box: \{ans_rule(10)\}
 
-$BR$BR \{ theresahint \}
 END_TEXT
 
 BEGIN_HINT

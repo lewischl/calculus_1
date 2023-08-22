@@ -65,7 +65,7 @@ $a7 = random(2,15,1);$b7 = random(2,15,1);
 $a8 = random(2,15,1);$b8 = random(2,15,1);
 $a9 = random(2,15,1);$b9 = random(2,15,1);
 
-TEXT(EV2(<<EOT));
+BEGIN_TEXT
 Show that each of the following functions has a horizontal asymptote by calculating the given limit.
 
 $PAR
@@ -83,8 +83,8 @@ $BR
 \(\displaystyle{
         \lim_{x\to-\infty}\frac{\sqrt{x^2+$b1 x}}{$b2-$b3 x}= }\) \{ans_rule(10)\}$BR$BR
         
-        \{ theresahint \}
-EOT
+
+END_TEXT
 
 BEGIN_HINT
 You may be wondering about the sign on the answer.  Good question!

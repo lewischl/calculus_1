@@ -96,10 +96,8 @@ Determine \( m \) and \(b\). $BR$BR
 \(m=\)\{ans_rule(20)  \}
 $BR$BR
 \(b=\)\{ans_rule(20)  \}
-$BR
-$BR
 
-\{ theresahint \}
+
 END_TEXT
 
 BEGIN_HINT

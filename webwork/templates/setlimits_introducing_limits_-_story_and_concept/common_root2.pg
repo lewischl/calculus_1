@@ -62,8 +62,8 @@ Evaluate the limit using either graphical or numerical techniques.
 \[ \lim_{ x \rightarrow $a1 } \frac { x - $a1 } {x^2 + $t1 x - $n1 } \]
 Answer: \{ans_rule(25) \}
 
-$PAR
-\{ theresahint \}
+
+
 END_TEXT
 
 

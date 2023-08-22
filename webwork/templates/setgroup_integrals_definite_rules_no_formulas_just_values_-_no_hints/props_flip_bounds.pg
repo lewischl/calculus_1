@@ -59,9 +59,8 @@ BEGIN_TEXT
 If \( \displaystyle \int_{$a}^{$b} f(x) dx = $c \), then 
 \(\displaystyle \int_{$b}^{$a} f(t) dt = \) \{ans_rule(10)\}
 
-$PAR
 
-\{theresahint\}
+
 END_TEXT
 
 BEGIN_HINT

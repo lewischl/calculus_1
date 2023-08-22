@@ -60,9 +60,7 @@ Assume \(\displaystyle \int_1^{$a}\! f(x) \, dx = $b\) and \(\displaystyle \int_
 $PAR
 \(\displaystyle \int_1^{$d}\! f(x) \, dx=\) \{ans_rule(20) \}
 
-$PAR
 
-\{theresahint \}
 END_TEXT
 
 BEGIN_HINT

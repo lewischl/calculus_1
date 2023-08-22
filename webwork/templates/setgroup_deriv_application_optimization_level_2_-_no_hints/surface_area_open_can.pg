@@ -110,8 +110,8 @@ Tips: $BR
 $PAR
 \{ $Qlist->print_q \}
 
-$BR$BR
-\{ theresahint \}
+
+
 END_TEXT
 
 BEGIN_HINT

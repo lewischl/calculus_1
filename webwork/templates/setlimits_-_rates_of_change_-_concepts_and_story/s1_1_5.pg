@@ -225,9 +225,8 @@ The instantaneous rate of change is [____]{$iroc} feet per second.
 (Hint: we've constructed this problem so that the answer is an integer.  Try using [`\Delta t = [$delta_t_4]`] and then [`[$delta_t_5]`], and then even smaller!!!) 
 [@ closeDiv() @]*
 
----
 
-[@ theresahint @]*
+
 
 END_PGML
 

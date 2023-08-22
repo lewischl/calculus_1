@@ -104,8 +104,8 @@ $PAR
 \{ image( "plot_PQ_n_over_x.jpg", width=>800,  
 tex_size=>700, extra_html_tags=>'alt="A graph of the function 6/x, with two marked points P and Q.  The points are separated by distance ∆x = 0.1.  There is a secant line through P and Q, and the image computes the slope of the secant line through the two points."' ) \}
 
-$PAR
-\{ theresahint \}
+
+
 END_TEXT
 
 $ans1 ="-$a1/($x0*$x1)";

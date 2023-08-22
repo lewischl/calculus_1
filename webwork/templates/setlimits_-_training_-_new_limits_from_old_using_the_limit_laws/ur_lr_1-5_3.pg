@@ -325,12 +325,8 @@ Write $BITALIC DNE$EITALIC if the limit or value does not exist (or if it's infi
 $BR
 \{ match_questions_list(@questions[@slice]  ) \}
 
-$PAR
 
-$HR
-$PAR
 
-\{ theresahint \}
 END_TEXT
 
 

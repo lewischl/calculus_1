@@ -54,9 +54,6 @@ In this case, \(a\) is a placeholder or generic number.  Your answer should be a
 $BR$BR
 Answer: \{ans_rule(48) \}
 
-$BR$BR
-
-\{ theresahint \}
 END_TEXT
 
 ANS($deriv1->cmp);

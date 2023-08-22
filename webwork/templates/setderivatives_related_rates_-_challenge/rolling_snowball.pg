@@ -92,8 +92,7 @@ At what rate is the volume
 of the snowball increasing when the diameter is $d cm? $BR
 $BR
 \(\displaystyle \frac{dV}{dt} = \) \{ans_rule(50) \} cm\(^3\)/min
-$BR$BR
-\{ theresahint \}
+
 END_TEXT
 
 $showHint=-1;

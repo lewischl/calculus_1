@@ -55,16 +55,15 @@ $showPartialCorrectAnswers = 1;
 $a1 = random(2,10,1);
 $b1 = random(2,10,1);
 
-TEXT(EV2(<<EOT));
+BEGIN_TEXT
 Suppose \( f'''(x) = e^x  \) with \( f''(0)=$a1, f'(0)=$b1 \).  $BR Find a function \(f\) that satisfies these conditions.  
 $BR$BR
 \( f(x) =\) \{ans_rule(15) \} + \( C \).
 $BR$BR
 Note: your answer should not contain a general constant.
 
-$PAR
-\{ theresahint \}
-EOT
+
+END_TEXT
 
 
 $antideriv="exp(x)+($a1-1)*x**2/2+($b1-1)*x";

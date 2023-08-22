@@ -96,8 +96,8 @@ $b x - $d, &x > c\\
 \]
 \(c = \) \{ans_rule(20)\}
 
-$PAR
-\{ theresahint \}
+
+
 END_TEXT
 
 Context()->normalStrings;

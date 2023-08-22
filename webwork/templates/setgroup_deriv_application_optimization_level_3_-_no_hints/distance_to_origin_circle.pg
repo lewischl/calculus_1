@@ -70,9 +70,8 @@ BEGIN_TEXT
 $BR
 \( y = \) \{ans_rule(30) \} $BR
 
-$PAR
 
-\{ theresahint \}
+
 
 END_TEXT
 

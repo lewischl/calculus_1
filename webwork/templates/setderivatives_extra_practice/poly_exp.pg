@@ -62,8 +62,8 @@ BEGIN_TEXT
 Let \[ f(x) = $a x^ {$n} e^x \]
 $BR $BR
 \( f'( x ) = \) \{ans_rule(40) \}
-$BR$BR
-\{ theresahint \}
+
+
 END_TEXT
 
 ANS($funct1->cmp);

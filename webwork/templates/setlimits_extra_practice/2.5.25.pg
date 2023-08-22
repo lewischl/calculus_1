@@ -44,9 +44,8 @@ $PAR
 Limit =  \{ans_rule(25) \}$BR
 ${BITALIC}(Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE${EBOLD}.)${EITALIC}
 
-$BR$BR
 
-\{ theresahint \}
+
 
 END_TEXT
 

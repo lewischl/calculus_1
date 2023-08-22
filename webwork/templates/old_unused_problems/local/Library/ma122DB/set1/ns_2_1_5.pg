@@ -64,8 +64,6 @@ Answer: \{ans_rule(10)\}
 $BR$BR
 $BBOLD NOTE: $EBOLD For the above answers, you may have to enter 6 or 7 significant digits if you are using a calculator. $BR
 
-$BR
-\{ theresahint \}
 END_TEXT
 
 ANS(num_cmp($ans_velocity1,tol => 0.01));

@@ -51,7 +51,7 @@ title and useername, and minimal problem numbering.
 </problemheader>
 
 <problemfooter>
-{ \color{red} \starletdot end of problem \webworkProblemNumber }
+{\starletdot end of problem \webworkProblemNumber }
     </problemfooter>
 
 <problemdivider>

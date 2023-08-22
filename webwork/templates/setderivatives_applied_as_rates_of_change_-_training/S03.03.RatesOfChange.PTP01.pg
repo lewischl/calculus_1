@@ -75,16 +75,16 @@ $c1 = 2*($a1+$b1);
 $d1 = 3*($a1+$b1);
 $e1 = 6*$a1*$b1;
 
-TEXT(EV2(<<EOT));
+BEGIN_TEXT
 A particle moves along a straight line and its position at time \(t\)
 is given by \[ s(t)= 2t^3 - $d1 t^2 + $e1 t, \quad t \geq 0 \] where \( s \) is measured in feet and
 \( t \) in seconds.  
 $BR
 $BR 
-EOT
+END_TEXT
 
 
-TEXT(EV2(<<EOT));
+BEGIN_TEXT
 A. Use \{ helpLink('interval notation')\} to indicate the time interval or union of time intervals when the particle is moving forward and backward.
 $BR
 Forward: \{ans_rule(35)\}
@@ -92,13 +92,13 @@ $BR
 Backward: \{ans_rule(35)\}
 $BR
 $BR
-EOT
+END_TEXT
 
 $forward="[0,$a1)U($b1,inf)";
 $backward="($a1,$b1)";
 ANS(interval_cmp($forward, strings=>["none"]),interval_cmp($backward, strings=>["none"] ));
 
-TEXT(EV2(<<EOT));
+BEGIN_TEXT
 B. Use \{ helpLink('interval notation')\} to indicate the time interval(s) when the particle is speeding up and slowing down.
 $PAR
 Speeding up: \{ans_rule(35)\}
@@ -107,9 +107,8 @@ Slowing down: \{ans_rule(35)\}
 $PAR
 $BITALIC Instructor's note: Should t=0 be included or excluded? $EITALIC
 
-$PAR
-\{ theresahint \}
-EOT
+
+END_TEXT
 
 BEGIN_HINT
 In the Rogawski 4th edition textbook, see Section 3.4, Example 5, page 156.
