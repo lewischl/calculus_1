@@ -1,0 +1,121 @@
+##DESCRIPTION
+##  Limit Question
+##ENDDESCRIPTION
+
+##KEYWORDS('limit','infinity')
+
+## DBsubject('Calculus')
+## DBchapter('Limits')
+## DBsection('Continuity')
+## Date('')
+## Author('Erich Jauch')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from setExam_1-Team/LimitGraphicalSolve.pg 
+#	to problems/limits_review_quiz/LimitGraphicalSolve.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "parserPopUp.pl",
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+SRAND($team_exam1_seed);
+$setseed = "set.seed($team_exam1_seed); $team_exam1_seed";
+
+
+@xlim = ();
+@ylim = ();
+@ypoint =();
+@f = ();
+
+$xlim[0] = random(-4,-2,2);
+$xlim[1] = -1*$xlim[0];
+$xlim[2] = $xlim[1]+2;
+
+$ylim[0] = random(2,6,2);
+
+$ypoint[0] = $ylim[0] - 4;
+
+
+$f[0] = Formula("(1/(-1*$xlim[0]*2))*(x-$xlim[0])^2 + $ylim[0]");
+$f[1] = Formula("-1/(-1*$xlim[0]*2)*(x-$xlim[0])^2 + $ylim[0]");
+
+$ypoint[1] = $f[1]->eval(x=>$xlim[1]);
+
+$ypoint[2] = $ypoint[1] - 2;
+
+if ($ypoint[2]==0) {
+$ypoint[2] = -2;
+}
+
+$f[2] = Formula("$ypoint[2]*($xlim[1]-$xlim[2])^2/(x-$xlim[2])^2");
+
+$dim = abs($xlim[0]) + 10;
+$ymax = $dim;
+$tick = 2;
+
+@ans = ();
+
+$ans[0] = $ylim[0];
+$ans[1] = "DNE";
+$ans[2] = "-inf";
+
+$graph1 = GraphWithTikZ(function => [[$f[0],dmin => -$dim,dmax => $xlim[0],rightEnd => 'open'],[$f[1],dmin => $xlim[0],dmax => $xlim[1],leftEnd => 'open',rightEnd => 'open'],[$f[2],dmin => $xlim[1], dmax=> $dim, leftEnd =>'open']],
+points => [[Point(($xlim[0],$ylim[0])),color=>"white",label=>" "],
+           [Point(($xlim[0],$ypoint[0])),label=>" "],
+           [Point(($xlim[1],$ypoint[1])),color=>"white",label=>" "],
+           [Point(($xlim[1],$ypoint[2])),color=>"white",label=>" "]],
+    xmin => -$dim,xmax => $dim,ymin =>-$ymax,ymax =>$ymax,smooth=>'smooth',ytick => $tick,xtick => $tick);
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+We have a function [`f(x)`] graphed below:
+
+>>[@ image(insertGraph($graph1), width => 400, height => 400) @]*<<
+
+Find the following limits (Enter DNE if the limit does not exist):
+
+(a) [`\displaystyle \lim_{x\rightarrow[$xlim[0]]}f(x)=`] [_____]{$ans[0]}
+
+(b) [`\displaystyle \lim_{x\rightarrow[$xlim[1]]}f(x)=`] [_____]{$ans[1]}
+
+(c) [`\displaystyle \lim_{x\rightarrow[$xlim[2]]}f(x)=`] [_____]{$ans[2]}
+END_PGML
+
+ENDDOCUMENT();

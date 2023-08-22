@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setproving_grounds/youtube_in_page.pg
+source_file = problems/proving_grounds/youtube_in_page.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = Library/ma122DB/set3/s3_1_5.pg
+source_file = problems/proving_grounds/s3_1_5.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = local/riemann-sum1.pg
+source_file = problems/proving_grounds/riemann-sum1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = local/related-rates-law-of-cosines.pg
+source_file = problems/proving_grounds/related-rates-law-of-cosines.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setproving_grounds/matching_tutorial.pg
+source_file = problems/proving_grounds/matching_tutorial.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setproving_grounds/playing_with_arrays.pg
+source_file = problems/proving_grounds/playing_with_arrays.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setproving_grounds/desmos_playground.pg
+source_file = problems/proving_grounds/desmos_playground.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = setproving_grounds/desmos_in_hint.pg
+source_file = problems/proving_grounds/desmos_in_hint.pg
 value = 1
 max_attempts = -1
 showMeAnother = -2

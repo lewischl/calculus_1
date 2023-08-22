@@ -1,0 +1,46 @@
+
+
+########################################
+# this file automatically moved
+#	from local/chapter3/product-rule-v3.pg 
+#	to problems/derivatives_product_and_quotient_rule/product-rule-v3.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();  
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+$showPartialCorrectAnswers = 1;
+
+$a=random(2,9,1)*random(-1,1,2);
+$f = Compute("(x^{-2}+x^{-3})(x^5+$a x^2)")->reduce;
+$twoa = 2*$a;
+
+$ans = Compute("(-2x^{-3}-3x^{-4})(x^5+$a x^2)+(x^(-2)+x^(-3))(5x^4+$twoa*x)")->reduce;
+
+Context()->texStrings;
+BEGIN_TEXT
+Find the derivative of the function \( \displaystyle f(x)=  $f\).
+
+$BR$BR
+
+\( f'(x)= \) \{ ans_rule() \} $BR
+$BITALIC (Give an exact answer.)$EITALIC
+END_TEXT
+Context()->normalStrings;
+
+ANS($ans->cmp);
+
+ENDDOCUMENT();

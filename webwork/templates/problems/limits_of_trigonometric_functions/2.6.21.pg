@@ -1,0 +1,54 @@
+#Problem 2.6.21
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.21.pg 
+#	to problems/limits_of_trigonometric_functions/2.6.21.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+# Load whatever macros you need for the problem
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGgraphmacros.pl",
+  "PGcourse.pl", 
+);
+
+$showPartialCorrectAnswers = 0;
+
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$a = random(2,7,1);
+
+BEGIN_TEXT
+Evaluate the limit, if it exists:
+$PAR
+\(\displaystyle\lim_{x \to 0}\dfrac{x^2}{\sin^2($a x)}=\) \{ans_rule(25) \}
+$PAR
+$BITALIC(Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE$EBOLD.)$EITALIC
+
+END_TEXT
+$b=$a*$a;
+#SOLUTION(EV3(<<'END_SOLUTION'));
+#$BR$BBOLD Solution:$EBOLD 
+#$BR
+#\(\displaystyle \lim\limits_{x \to 0} \frac {x^2} {\sin^2($a x)} = \lim\limits_{x \to 0} \frac {1}{\frac {\sin ($a x)}{x} \cdot \frac {\sin ($a x)}{x}} = \lim\limits_{x \to 0} \frac {1}{\frac {$a \sin ($a x)}{$a x}} \cdot \lim\limits_{x \to 0} \frac {1}{\frac {$a \sin ($a x)}{$a x}} = \frac {1}{$a} \cdot \frac {1}{$a} = \frac {1}{$b}\).
+#END_SOLUTION
+
+ANS( Compute("1/$b")->cmp());
+
+ENDDOCUMENT();
+
+#JustAsk

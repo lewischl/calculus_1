@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = set3.7_chain_rule1/trig_to_the_notation_matching.pg
+source_file = problems/derivatives_chain_rule/trig_to_the_notation_matching.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = set3.7_chain_rule1/trig_to_the_derivatives_matching.pg
+source_file = problems/derivatives_chain_rule/trig_to_the_derivatives_matching.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = local/Library/ma122DB/set5/s3_5_16_mine.pg
+source_file = problems/derivatives_chain_rule/s3_5_16_mine.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = Library/Rochester/setDerivatives5ChainRule/s2_5_8_mo.pg
+source_file = problems/derivatives_chain_rule/s2_5_8_mo.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = Library/ma122DB/set5/s3_5_7.pg
+source_file = problems/derivatives_chain_rule/s3_5_7.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = myproblems/set3.7_chain_rule/der_unknown_func_at_point.pg
+source_file = problems/derivatives_chain_rule/der_unknown_func_at_point.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = local/chapter3/chain-rule-v2.pg
+source_file = problems/derivatives_chain_rule/chain-rule-v2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = local/chapter3/chain-rule-v3.pg
+source_file = problems/derivatives_chain_rule/chain-rule-v3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -93,7 +93,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 9
-source_file = local/Library/Rochester/setDerivatives5ChainRule/s2_5_8_mo.pg
+source_file = local/problems/derivatives_chain_rule/s2_5_8_mo.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -103,7 +103,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 10
-source_file = Library/ma122DB/set5/s3_5_53.pg
+source_file = problems/derivatives_chain_rule/s3_5_53.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -113,7 +113,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 11
-source_file = local/Library/ma122DB/set5/s3_5_16.pg
+source_file = problems/derivatives_chain_rule/s3_5_16.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -123,7 +123,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 12
-source_file = local/Library/ma122DB/set5/s3_5_7.pg
+source_file = local/problems/derivatives_chain_rule/s3_5_7.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -133,7 +133,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 13
-source_file = Library/ma122DB/set5/s3_5_38b.pg
+source_file = problems/derivatives_chain_rule/s3_5_38b.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -143,7 +143,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 14
-source_file = Library/ma122DB/set3/s2_8_15.pg
+source_file = problems/derivatives_chain_rule/s2_8_15.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

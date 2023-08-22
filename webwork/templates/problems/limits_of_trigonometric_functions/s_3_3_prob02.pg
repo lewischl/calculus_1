@@ -1,0 +1,56 @@
+#####################################################################
+
+
+########################################
+# this file automatically moved
+#	from local/Library/UMN/calculusStewartCCC/s_3_3_prob02.pg 
+#	to problems/limits_of_trigonometric_functions/s_3_3_prob02.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGgraphmacros.pl",
+  "PGcourse.pl", 
+);
+#####################################################################
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+
+#####################################################################
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$a = random(2,4,1);
+$b = random(5,9,1);
+
+$ab = $a*$b;
+
+$ans = Compute("$ab");
+
+#####################################################################
+Context()->texStrings;
+BEGIN_TEXT
+Evaluate the limit, if it exists:
+$PAR
+\(\displaystyle \lim_{\theta \to 0} \frac{\sin($a \theta)\sin($b \theta)}{\theta^2} =\) \{ans_rule(25) \}
+$PAR
+$BITALIC(Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE$EBOLD.)$EITALIC
+
+END_TEXT
+Context()->normalStrings;
+
+#####################################################################
+
+ANS($ans->cmp());
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

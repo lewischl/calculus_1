@@ -1,0 +1,125 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Integrals)
+## DBsection(Fundamental theorem of calculus)
+## Institution(John Wiley & Sons)
+## Author(Brian Burns)
+## Level(3)
+## MO(1)
+## TitleText1('Calculus')
+## AuthorText1('Anton')
+## EditionText1('9')
+## Section1('5.6')
+## Problem1('60')
+## KEYWORDS('derivative')
+
+
+
+
+########################################
+# this file automatically moved
+#	from set5.5_ftoc_2/which_is_an_antiderivative_checkbox.pg 
+#	to problems/integrals_FTOC_2_for_derivatives_of_integral_functions/which_is_an_antiderivative_checkbox.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "littleneck.pl",
+  "contextFraction.pl",
+  "PGcourse.pl",
+  "PGchoicemacros.pl",
+);
+# allow the student to change the seed for this problem.
+
+
+rand_button();
+
+
+TEXT(beginproblem());
+
+###################################
+# Setup
+Context()->variables->add(t=>'Real',dt=>'Real');
+$a=random(1,9,1);
+
+if($a==4 ){$a=10}
+$A=$a+1;
+$b=$A**2-$a**2;
+$f=Formula("sqrt(t**2+$b)");
+$F=$f->substitute(t=>'x');
+$G=Formula("x/$F");
+$fa=Compute("0");
+$Fa=Compute("$A");
+Context("Fraction");
+$Ga=Compute("$a/$A");
+Context("Numeric");
+
+
+
+
+
+
+
+$mc = new_checkbox_multiple_choice();
+$mc -> qa (
+" Which of the following are an antiderivative \(F\) of \(f(x) = x^2\) satisfying \(F(2) = 0\)? $BR Select correct options.", 
+"\( \displaystyle \int_2^x t^2 \, dt \)$PAR"
+);
+$mc -> extra(
+"\( \displaystyle \int_0^2 t^2 \, dt \)$PAR",
+"\( \displaystyle \int_2^x 2t \, dt \)$PAR",
+"\( \displaystyle \int_2^x \frac{t^3}{3} \, dt \)$PAR",
+);
+
+    
+    
+    
+    
+###################################
+# Main text
+Context()->texStrings;
+
+
+
+
+
+BEGIN_TEXT
+
+\{ $mc -> print_q() \}
+$BR
+\{ $mc -> print_a() \}
+
+
+
+END_TEXT
+
+###################################
+# Answers
+
+#$showPartialCorrectAnswers = 0;
+
+
+
+install_problem_grader(~~&std_problem_grader);
+
+$showPartialCorrectAnswers = 0;
+
+ANS( checkbox_cmp( $mc->correct_ans() ) );
+
+
+###################################
+
+Context()->normalStrings;
+
+###################################
+ENDDOCUMENT();

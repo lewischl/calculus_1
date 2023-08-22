@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = local/Library/UMN/calculusStewartCCC/s_2_4_prob04.pg
+source_file = problems/limits_intermediate_value_theorem/s_2_4_prob04.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = Library/Rochester/setLimitsRates5Continuity/S02.05.IntermediateValueThm.PTP02.pg
+source_file = problems/limits_intermediate_value_theorem/S02.05.IntermediateValueThm.PTP02.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = local/Library/Valdosta/APEX_Calculus/1.5/APEX_1.5_35.pg
+source_file = problems/limits_intermediate_value_theorem/APEX_1.5_35.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = local/chapter2/2-8-ivthrm.pg
+source_file = problems/limits_intermediate_value_theorem/2-8-ivthrm.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = Library/Rochester/setLimitsRates5Continuity/S02.05.IntermediateValueThm.PTP02.pg
+source_file = problems/limits_intermediate_value_theorem/S02.05.IntermediateValueThm.PTP02.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = local/IVT_table.pg
+source_file = problems/limits_intermediate_value_theorem/IVT_table.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = set2.8_IVT/does_interval_contain_with_reason.pg
+source_file = problems/limits_intermediate_value_theorem/does_interval_contain_with_reason.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

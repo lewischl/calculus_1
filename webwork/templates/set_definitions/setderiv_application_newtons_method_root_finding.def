@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = set4.8_newtons_method/multipleApproxNewtonMethod.pg
+source_file = problems/deriv_application_newtons_method_root_finding/multipleApproxNewtonMethod.pg
 value = 1
 max_attempts = -1
 showMeAnother = -2
@@ -23,7 +23,7 @@ att_to_open_children = 1
 problem_end
 problem_start
 problem_id = 2
-source_file = set4.8_newtons_method/NewtonMethodCertainError.pg
+source_file = problems/deriv_application_newtons_method_root_finding/NewtonMethodCertainError.pg
 value = 1
 max_attempts = -1
 showMeAnother = -2
@@ -33,7 +33,7 @@ att_to_open_children = 1
 problem_end
 problem_start
 problem_id = 3
-source_file = set4.8_newtons_method/NewtonMethodWhichRoot.pg
+source_file = problems/deriv_application_newtons_method_root_finding/NewtonMethodWhichRoot.pg
 value = 1
 max_attempts = -1
 showMeAnother = -2
@@ -43,7 +43,7 @@ att_to_open_children = 1
 problem_end
 problem_start
 problem_id = 4
-source_file = set4.8_newtons_method/NewtonMethodApproxSquareRoot.pg
+source_file = problems/deriv_application_newtons_method_root_finding/NewtonMethodApproxSquareRoot.pg
 value = 1
 max_attempts = -1
 showMeAnother = -2

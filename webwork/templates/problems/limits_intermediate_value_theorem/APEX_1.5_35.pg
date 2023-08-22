@@ -1,0 +1,70 @@
+#Problem APEX 1.5.35
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Valdosta/APEX_Calculus/1.5/APEX_1.5_35.pg 
+#	to problems/limits_intermediate_value_theorem/APEX_1.5_35.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+# Load whatever macros you need for the problem
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "parserPopUp.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+$showPartialCorrectAnswers = 1;
+
+$a = random(1,10,1)*random(-1,1,2);
+$b = $a + random(1,10,1);
+$ya = random(5,20,1);
+$yb = $ya - random(1,10,1);
+$L = $yb - random(1,10,1);
+
+$ans1 = PopUp(["?", 
+      "No, there is not enough info to use the Intermediate Value Theorem",
+      "Yes, because of the Intermediate Value Theorem"], 
+"No, there is not enough info to use the Intermediate Value Theorem");
+
+TEXT(beginproblem());
+
+BEGIN_TEXT
+Let \(f\) be continuous on \( [$a, $b] \), where 
+\( f($a) = $ya \) and \( f($b) = $yb \).  Can we conclude that a value
+\( $a < c < $b \) exists such that \( f(c) = $L \) ?
+$PAR \{ $ans1->menu() \}
+$BR$BR
+
+\{ theresahint \}
+END_TEXT
+
+BEGIN_HINT
+The IVT says that a continuous function on an interval must take on all function values between those at the endpoints of the interval.  Is the function value in question between the values at the endpoints?
+END_HINT
+
+#SOLUTION(EV3(<<'END_SOLUTION'));
+#$BR$BBOLD Solution:$EBOLD 
+#$PAR
+#There is not enough information.  The
+#$BBOLD intermediate value theorem $EBOLD cannot
+#be used because \($L\) is not between the values
+#\($ya\) and \($yb\).
+#$PAR
+#END_SOLUTION
+
+
+ANS($ans1->cmp());
+
+ENDDOCUMENT();    
+
+

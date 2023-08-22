@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = set2.3_limit-laws1/limit_laws_matching.pg
+source_file = problems/limits_the_limit_laws/limit_laws_matching.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = set2.3_limit-laws1/limit_laws_matching_formulas.pg
+source_file = problems/limits_the_limit_laws/limit_laws_matching_formulas.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = local/Library/UMN/calculusStewartCCC/s_2_3_2.pg
+source_file = problems/limits_the_limit_laws/s_2_3_2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = local/Library/UMN/calculusStewartCCC/s_2_3_1.pg
+source_file = local/problems/limits_the_limit_laws/s_2_3_1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = local/Library/ASU-topics/setLimitConcepts/ns_2_3_1.pg
+source_file = local/problems/limits_the_limit_laws/ns_2_3_1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = local/Library/UMN/calculusStewartCCC/s_2_3_2_copy.pg
+source_file = problems/limits_the_limit_laws/s_2_3_2_copy.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = local/Library/ASU-topics/setLimitConcepts/3-2-30a.pg
+source_file = problems/limits_the_limit_laws/3-2-30a.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = local/Library/ASU-topics/setLimitConcepts/s1_3_6.pg
+source_file = problems/limits_the_limit_laws/s1_3_6.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -93,7 +93,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 9
-source_file = local/Library/ASU-topics/setLimitConcepts/3-2-51.pg
+source_file = problems/limits_the_limit_laws/3-2-51.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -103,7 +103,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 10
-source_file = local/Library/Rochester/setLimitsRates1_5Graphs/ur_lr_1-5_3.pg
+source_file = problems/limits_the_limit_laws/ur_lr_1-5_3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -113,7 +113,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 11
-source_file = Library/UMN/calculusStewartCCC/s_2_3_1.pg
+source_file = problems/limits_the_limit_laws/s_2_3_1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -123,7 +123,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 12
-source_file = Library/ma122DB/set1/s1_3_4.pg
+source_file = problems/limits_the_limit_laws/s1_3_4.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -133,7 +133,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 13
-source_file = Library/Union/setLimitConcepts/3-2-26.pg
+source_file = problems/limits_the_limit_laws/3-2-26.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -143,7 +143,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 14
-source_file = Library/ASU-topics/setLimitConcepts/ns_2_3_1.pg
+source_file = problems/limits_the_limit_laws/ns_2_3_1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -153,7 +153,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 15
-source_file = local/Library/ASU-topics/setLimitConcepts/3-2-25.pg
+source_file = problems/limits_the_limit_laws/3-2-25.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -163,7 +163,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 16
-source_file = local/Library/ASU-topics/setLimitConcepts/3-2-30.pg
+source_file = problems/limits_the_limit_laws/3-2-30.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -173,7 +173,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 17
-source_file = Library/ma122DB/set1/s1_3_4.pg
+source_file = problems/limits_the_limit_laws/s1_3_4.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -183,7 +183,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 18
-source_file = Library/Rochester/setLimitsRates2Limits/s1_3_3_mo.pg
+source_file = problems/limits_the_limit_laws/s1_3_3_mo.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -193,7 +193,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 19
-source_file = Library/Union/setLimitConcepts/3-2-26.pg
+source_file = problems/limits_the_limit_laws/3-2-26.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -203,7 +203,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 20
-source_file = local/Library/ASU-topics/setLimitConcepts/s1_3_12.pg
+source_file = problems/limits_the_limit_laws/s1_3_12.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

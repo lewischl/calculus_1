@@ -1,0 +1,94 @@
+## DBsubject(Algebra)
+## DBchapter(Rational equations and functions)
+## DBsection(Graphs of rational functions)
+## Institution(Univeristy of Utah)
+## Author(Utah ww group)
+## Level(2)
+## Static(1)
+## TitleText1('Precalculus')
+## AuthorText1('Ron Larson and Robert  Hostetler')
+## EditionText1('7')
+## Section1('.')
+## Problem1('')
+## KEYWORDS('algebra')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Utah/College_Algebra/set7_Polynomial_and_Rational_Functions/1050s7p28/1050s7p28.pg 
+#	to problems/review_graphs_of_functions/1050s7p28.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl"
+);
+
+install_problem_grader(~~&std_problem_grader);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showPartialCredit = 0;
+
+
+
+
+TEXT(EV2(<<EOT));
+This problem is intended to get you to recall that vertical asymptotes correspond to zeros of the denominator of a rational function.  Here are the graphs of three rational functions:
+
+\{image("1050s7p28.gif", height => 512, width => 512);\} 
+$BR
+Match the graphs shown above with the functions listed below. 
+Enter "r"  for red, "g" for green, and "y" for yellow.
+
+
+$BR
+
+
+$BR \{ ans_rule(5) \}: \(f(x) = \frac{x}{x-1}.\)
+EOT
+ANS(str_cmp("r"));
+
+TEXT(EV2(<<EOT));
+$BR \{ ans_rule(5) \}: \(f(x) = \frac{x^2}{5(x+1)}. \)
+EOT
+ANS(str_cmp("g"));
+
+TEXT(EV2(<<EOT));
+$BR \{ ans_rule(5) \}: \(f(x) = \frac{x}{x^2+1}. \)
+$BR
+EOT
+ANS(str_cmp("y"));
+
+TEXT(EV3(<<'EOT'));
+$BR $BBOLD Hint:$EBOLD Look for vertical, horizontal, and slanted asymptotes.
+
+$BR $BR 
+I do apologize about the yellow-on-white, and about the red/green graphs (both of these are vision accessibility problems).  This problem is on my list of problems to improve.
+
+EOT
+
+SOLUTION(EV3(<<'EOT')); 
+$BR $BBOLD Solution:$EBOLD
+The following Maple Statement will create the graphs shown:
+
+$BR
+\(
+plot([x/(x-1),x^2/(5*x+5),x/(x^2+1)],x=-4..4,y=-4..4, thickness=2, discont = true);
+\)
+
+$BR$BR
+
+
+EOT
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = local/Library/Mizzou/College_Algebra/Equations_Linear/Var4.pg
+source_file = problems/review_solving_equations/Var4.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = local/Library/Utah/Intermediate_Algebra/set14_Review/s14p21.pg
+source_file = problems/review_solving_equations/s14p21.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = local/Library/UMN/algebraKaufmannSchwitters/ks_4_6_6.pg
+source_file = problems/review_solving_equations/ks_4_6_6.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = local/myproblems/set_0.2_solving/solve_fractional_eqns.pg
+source_file = problems/review_solving_equations/solve_fractional_eqns.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = local/Library/PCC/BasicAlgebra/FunctionBasics/FunctionEquation20.pg
+source_file = problems/review_solving_equations/FunctionEquation20.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

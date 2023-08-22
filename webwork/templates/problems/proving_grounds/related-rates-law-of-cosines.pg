@@ -1,0 +1,107 @@
+## this file copied from Chris Hlas's Math114 content, Summer 2022, by permission of Chris Hlas
+## this automatic process executed by silviana amethyst
+## original filename local/related-rates-law-of-cosines.pg
+
+
+
+########################################
+# this file automatically moved
+#	from local/related-rates-law-of-cosines.pg 
+#	to problems/proving_grounds/related-rates-law-of-cosines.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+);
+
+# TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+# Setup
+$speed= random(4,30,5);
+$height= random(4,16,1);
+$angle= random(20,50,5);
+$delay= random(2,5,1);
+$radianAngle=(($angle+90)/180)*pi;
+
+$travelDistance = $speed*$delay;
+$csquared = $height**2 + $travelDistance**2 - 2*$height*$travelDistance*cos($radianAngle);
+
+$ans = ( $travelDistance - $height*cos($radianAngle)  )*$speed/$csquared**0.5;
+
+# Problem text
+BEGIN_PGML
+A plane flying with a constant *ground speed* of [$speed] km/min passes over a ground radar station at an altitude of [$height] km and climbs through the air at an angle of [$angle] degrees (or [`\frac{[$angle]}{180}\pi`] radians). The plane travels for [$delay] minutes.
+
+
+[@ image( "airplane_abstract_situation.png", tex_size=>250, height=>400, width=>550, extra_html_tags=>'alt="text describing image"' ) @]*
+
+
+
+---
+
+The following questions are about the situation after [$delay] minutes.
+
+    1. How far has the plane traveled, in ground distance? [__________]{$travelDistance} km
+
+    2. How far away is the plane from the radar station, in air distance? [__________]{sqrt($csquared)} km
+
+    3. At what rate is the air distance from the plane to the radar station increasing? [__________]{$ans} km/min
+    
+\{theresahint\}
+END_PGML
+
+$showHint = 0;
+BEGIN_PGML_HINT
+
+[@ image( "airplane_notation_and_tactics.png", tex_size=>250, height=>400, width=>550, extra_html_tags=>'alt="text describing image"' ) @]*
+
+
+The law of cosines for a triangle is 
+
+[``c^2=a^2+b^2-2ab \cos(C)``] 
+
+where [`C`] is the angle between the sides of length [`a`] and [`b`].
+
+Be sure to work in radians.  The conversion formula is [`\textnormal{radians} = \frac{\textnormal{degrees}}{180}\pi`].
+
+[@ "<a href='https://www.desmos.com/calculator/dacgzlwpsk' target='_blank'>Desmos visuals</a>" @]*
+END_PGML_HINT
+
+ENDDOCUMENT();
+
+
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Related rates)
+## MLT(RelatedRate-FlyingAirplane)
+## MLTleader(1)
+## Level(5)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('1')
+## Section1('3.11')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('3.9')
+## Problem2('')
+## TitleText3('Calculus: Early Transcendentals')
+## AuthorText3('Stewart')
+## EditionText3('5')
+## Section3('3.10')
+## Problem3('')
+## KEYWORDS('derivative' 'related rates','Derivatives', 'related rates','Calculus','Differentiation','Product','Quotient','related rates')

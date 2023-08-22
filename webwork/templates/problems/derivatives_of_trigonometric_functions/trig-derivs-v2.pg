@@ -1,0 +1,42 @@
+
+
+########################################
+# this file automatically moved
+#	from local/chapter3/trig-derivs-v2.pg 
+#	to problems/derivatives_of_trigonometric_functions/trig-derivs-v2.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();  
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+$showPartialCorrectAnswers = 1;
+
+$a = random(2,11,1);
+$ans = Formula("csc(x)*($a-csc(x)^2)-csc(x)*cot(x)*($a*x+cot(x))");
+
+Context()->texStrings;
+BEGIN_TEXT
+Find the derivative of the function \( \displaystyle f(x)= \csc(x)\big($a x+\cot(x)\big)\).
+
+$PAR
+\( f'(x)= \) \{ ans_rule() \} $BR
+$BITALIC(Give an exact answer.)$EITALIC
+END_TEXT
+Context()->normalStrings;
+
+ANS($ans->cmp);
+
+ENDDOCUMENT();

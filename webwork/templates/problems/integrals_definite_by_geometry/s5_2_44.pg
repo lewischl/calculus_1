@@ -1,0 +1,59 @@
+##DESCRIPTION
+##  Write a difference of two integrals as a single integral
+##ENDDESCRIPTION
+
+## Shotwell cleaned
+## lcao , PAID on 11-24-2003
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Integrals)
+## DBsection(Conceptual understanding of integration)
+## Date(6/3/2002)
+## MLT(integral_concept_partition_ab)
+## Level(3)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('5.2')
+## Problem1('44')
+## KEYWORDS('integrals', 'theory')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/ma122DB/set11/s5_2_44.pg 
+#	to problems/integrals_definite_by_geometry/s5_2_44.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a= random(1, 10, 1);
+$add1= random(1, 10, 1);
+$add2= random(1, 10, 1);
+$b=$a+$add1;
+$c=$b+$add2;
+
+BEGIN_TEXT
+\[ \int_{$a}^{$c} f(x)\, dx - \int_{$a}^{$b} f(x)\, dx = \int_{a}^{b} f(x)\, dx\]
+$BR where \( a= \)
+\{ans_rule( 10)\}
+and  \( b= \) \{ans_rule( 10)\}
+END_TEXT
+
+ANS(num_cmp($b), num_cmp($c));
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.
+

@@ -1,0 +1,132 @@
+##DESCRIPTION
+##  identify whether the power rule applies
+##ENDDESCRIPTION
+
+##KEYWORDS('limit','infinity')
+
+## DBsubject('Calculus')
+## DBchapter('Limits')
+## DBsection('Continuity')
+## Date('')
+## Author('silviana amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set3.2_deriv_rules1/does_power_apply_TF.pg 
+#	to problems/derivatives_derivative_basics/does_power_apply_TF.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "parserPopUp.pl",
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   "PGcourse.pl",      # Customization file for the course
+   "PGbasicmacros.pl",
+    "PGchoicemacros.pl"
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 0;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+
+
+
+
+
+
+
+
+
+# Create and use pop up lists
+$tf = new_select_list();
+$tf->rf_print_q(~~&pop_up_list_print_q);
+
+# Choices presented to students
+$tf->ra_pop_up_list( [
+"No answer" => "?",
+"Yes" => "Yes",
+"No" => "No",
+]);
+
+
+Context()->texStrings;
+$tf -> qa (
+"\( x^2 \)",
+"Yes",
+"\( \sqrt{x} \)",
+"Yes",
+"\( \sqrt[4]{x^5} \)",
+"Yes",
+"\( e^x \)",
+"No",
+"\( x^x \)",
+"No",
+"\( x^{-1/3} \)",
+"Yes",
+"\( x^{e} \)",
+"Yes",
+"\( x^{\pi+1} \)",
+"Yes",
+);
+
+Context()->normalStrings;
+
+# How many questions to use
+$tf->choose(8);
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+# 
+
+
+
+
+BEGIN_TEXT
+Does the power rule apply?
+
+
+\{ $tf -> print_q() \}
+
+
+$PAR
+
+This problem does not show partially correct answer, so that you have to think critically and be confident about each answer.
+END_TEXT
+
+
+Context()->normalStrings;
+
+
+
+ANS( str_cmp( $tf->ra_correct_ans() ) );
+
+ENDDOCUMENT();

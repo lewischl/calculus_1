@@ -1,0 +1,94 @@
+## DESCRIPTION
+
+##   Practice dragging a block on the left and moving it to the right (one at the time) to create a tower of letters with A at the top and E at the bottom.
+
+## ENDDESCRIPTION
+
+
+
+## Author('aBa Mbirika' and 'Shanise Walker, later modified by silviana amethyst')
+## Institution('University of Wisconsin-Eau Claire')
+
+
+
+
+
+
+
+########################################
+# this file automatically moved
+#	from set0.0_webwork_intro/drag_n_drop_tutorial.pg 
+#	to problems/webwork_introduction/drag_n_drop_tutorial.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"PGcourse.pl",
+"draggableProof.pl",
+);
+
+
+
+TEXT(beginproblem());
+
+$CorrectProof = DraggableProof([
+
+   "A",
+   "B",
+   "C",
+   "D",
+   "E"],
+
+#  The lines below are extras and will be listed as options but not
+#  needed for the correct answer in $Proof.
+
+[    "Extra Answer 1",
+     "Extra Answer 2",
+     "Extra Answer 3",
+     "Extra Answer 4" ],
+     
+SourceLabel => "Your given blocks",
+TargetLabel =>  "Create ABCDE in descending order."
+);
+
+#########################################
+
+###
+###  The proposition to prove is posted here
+###
+
+
+
+BEGIN_TEXT
+
+This problem gives you training on drag-and-drop style problems.  You're given blocks in a column on the left, and you move some or all of the blocks to the right column, and put them in the correct order.  
+
+Put \{ $CorrectProof->numNeeded \} of the following so that they look like: 
+
+$PAR  $BCENTER $BITALIC
+
+A, B, C, D, E
+
+$EITALIC $ECENTER
+
+with A at the top and E at the bottom.
+
+$PAR
+
+
+
+\{ $CorrectProof->Print \}
+
+END_TEXT
+
+ANS($CorrectProof->cmp);
+
+
+
+ENDDOCUMENT();

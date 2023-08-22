@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = myproblems/set3.2_deriv_rules2/x_plus_sqrt_x.pg
+source_file = problems/derivatives_power_rule_and_basic_rules/x_plus_sqrt_x.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = myproblems/set3.2_deriv_rules2/slopes_equations_parabola.pg
+source_file = problems/derivatives_power_rule_and_basic_rules/slopes_equations_parabola.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = Library/Union/setDervBasic/3-4-11.pg
+source_file = problems/derivatives_power_rule_and_basic_rules/3-4-11.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = Library/ma122DB/set3/s3_1_5.pg
+source_file = problems/derivatives_power_rule_and_basic_rules/s3_1_5.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = Library/ma122DB/set3/s3_1_15.pg
+source_file = problems/derivatives_power_rule_and_basic_rules/s3_1_15.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = Library/ma122DB/set3/s3_1_14.pg
+source_file = problems/derivatives_power_rule_and_basic_rules/s3_1_14.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = Library/ma122DB/set3/s3_1_19.pg
+source_file = problems/derivatives_power_rule_and_basic_rules/s3_1_19.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = Library/ma122DB/set3/s3_1_17.pg
+source_file = problems/derivatives_power_rule_and_basic_rules/s3_1_17.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -93,7 +93,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 10
-source_file = local/Library/ASU-topics/setDerivativeBasicFunctions/3-4-49.pg
+source_file = problems/derivatives_power_rule_and_basic_rules/3-4-49.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -103,7 +103,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 11
-source_file = local/Library/Union/setDervBasic/3-4-11.pg
+source_file = local/problems/derivatives_power_rule_and_basic_rules/3-4-11.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -113,7 +113,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 12
-source_file = myproblems/set3.2_deriv_rules2/rules_w_unknown_functions.pg
+source_file = problems/derivatives_power_rule_and_basic_rules/rules_w_unknown_functions.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -123,7 +123,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 13
-source_file = local/derive-rules1.pg
+source_file = problems/derivatives_power_rule_and_basic_rules/derive-rules1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

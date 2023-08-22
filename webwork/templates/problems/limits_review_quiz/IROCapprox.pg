@@ -1,0 +1,100 @@
+##DESCRIPTION
+##  Instantaneous ROC Question: Find several AROCs to approximate IROC at point
+##ENDDESCRIPTION
+
+##KEYWORDS('instantaneous rate of change', 'average rate of change', 'limit')
+
+## DBsubject('Calculus')
+## DBchapter('Limits')
+## DBsection('Rates of Change')
+## Date('')
+## Author('Silviana Amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from setExam_1-Team/IROCapprox.pg 
+#	to problems/limits_review_quiz/IROCapprox.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "parserPopUp.pl",
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+
+SRAND($team_exam1_seed);
+$setseed = "set.seed($team_exam1_seed); $team_exam1_seed";
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$parameter = random(5.5, 9.5, 1); 
+$t = $parameter; # the time
+$building_height = 16*$t**2;
+$delta_t = 0.1;
+
+
+@ans = ();
+$ans[0] = $t;
+$ans[1] = (-16*($t-$delta_t)**2 - -16*($t)**2) / (-1*$delta_t);
+$ans[2] = -32*$t;
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+# 
+BEGIN_PGML
+A penny is dropped from a hot air balloon, in a blantant disregard of safety and common sense.  The penny falls with height function 
+
+[``h(t) = [$building_height] - 16t^2``]
+
+where the height is in feet, and the time is in seconds.  Note that we're completely disregarding wind resistance.
+
+---
+
+I have several questions for you:
+
+1. At what (positive) time [``t_{\textnormal{hit}}``] does the penny hit the ground?  
+  [``t_{\textnormal{hit}} = ``][____]{$ans[0]}
+2. Over the time interval of duration [``[$delta_t]``] seconds just *before* it hits the ground (ie, over the time interval [``[t_{\textnormal{hit}}-[$delta_t], t_{\textnormal{hit}}]``], so that [``\Delta t = -[$delta_t]``]), what is the average velocity of the penny in feet per second?  
+  AROC = [____]{$ans[1]}
+3. By taking smaller and smaller time durations for the average rate of change, ie by taking [``\Delta t \rightarrow 0``], estimate the instantaneous velocity of the penny at the time it hits the ground.  
+  IROC = [____]{$ans[2]}
+
+---
+
+Hint: since the penny is falling when it hits, both the average and instantaneous rates of change should be negative.
+
+END_PGML
+
+ENDDOCUMENT();

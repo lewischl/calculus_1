@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = Library/ma122DB/set0/prob2.pg
+source_file = problems/webwork_introduction/prob2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = local/Library/ASU-topics/setIntroduction_to_WeBWorK/mat106prob1a.pg
+source_file = problems/webwork_introduction/mat106prob1a.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = local/myproblems/set_0.0_webwork_intro/entering_answers.pg
+source_file = problems/webwork_introduction/entering_answers.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = set0.0_webwork_intro/drag_n_drop_tutorial.pg
+source_file = problems/webwork_introduction/drag_n_drop_tutorial.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = set0.0_webwork_intro/better_matching_tutorial.pg
+source_file = problems/webwork_introduction/better_matching_tutorial.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

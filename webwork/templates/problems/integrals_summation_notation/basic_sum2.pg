@@ -1,0 +1,133 @@
+##DESCRIPTION
+##  basic summation notation problems
+##ENDDESCRIPTION
+
+##KEYWORDS('summation notation','summation')
+
+## DBsubject('Calculus')
+## Date('6/3/2002')
+## Author('silviana amethyst')
+## Institution('UWEC')
+
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/5.1_summation/basic_sum2.pg 
+#	to problems/integrals_summation_notation/basic_sum2.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();      
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+
+
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+Context()->texStrings;
+BEGIN_TEXT
+Given the data:$BR
+
+\(
+\displaystyle
+\begin{array}{c|c}
+j & a_j \\ \hline
+0 & 12 \\
+1 & 9 \\
+2 & 7 \\
+3 & 3 \\
+4 & -1 \\
+5 & -8 \\
+6 & -10
+\end{array}
+\)
+
+$PAR
+compute the following sums, please:
+
+$PAR
+
+\( \displaystyle
+\sum_{j=0}^3 a_j
+\) = \{ans_rule(40) \} $PAR
+
+\( \displaystyle
+\sum_{j=0}^4 a_j
+\) = \{ans_rule(40) \} $PAR
+
+\( \displaystyle
+\sum_{j=2}^4 a_j
+\) = \{ans_rule(40) \} $PAR
+
+\( \displaystyle
+\sum_{j=2}^4 3a_j
+\) = \{ans_rule(40) \} $PAR
+
+\( \displaystyle
+\sum_{j=2}^4 (3a_j+1)
+\) = \{ans_rule(40) \} $PAR
+
+\( \displaystyle
+\sum_{j=0}^6 a_j - \sum_{j=2}^6 a_j
+\) = \{ans_rule(40) \} $PAR
+END_TEXT
+
+
+$S1 = 12+9+7+3;
+$S2 = 12+9+7+3+-1;
+
+$S3 = 7+3+-1;
+$S4 = 3*$S3;
+$S5 = 3*$S3+3;
+$S6 = 12+9;
+Context()->normalStrings;
+
+##############################################################
+#
+#  Answers
+#
+#
+
+ANS(num_cmp($S1));
+
+ANS(num_cmp($S2));
+
+ANS(num_cmp($S3));
+ANS(num_cmp($S4));
+ANS(num_cmp($S5));
+ANS(num_cmp($S6));
+
+
+ENDDOCUMENT();        

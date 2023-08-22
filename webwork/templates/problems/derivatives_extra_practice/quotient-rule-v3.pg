@@ -1,0 +1,44 @@
+
+
+########################################
+# this file automatically moved
+#	from myproblems/chap_3_review/quotient-rule-v3.pg 
+#	to problems/derivatives_extra_practice/quotient-rule-v3.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();  
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+$showPartialCorrectAnswers = 1;
+
+$a1 = random(2,7,1);
+
+$ans = Compute("($a1/sqrt(x))/((sqrt(x) +$a1)**2)");
+
+Context()->texStrings;
+BEGIN_TEXT
+Find the derivative of the function \( \displaystyle f(x)= \frac {\sqrt { x } - $a1 }{\sqrt { x } + $a1 }\).
+
+$BR$BR
+
+\( f'(x)= \) \{ ans_rule() \}$BR
+$BITALIC (Give an exact answer.)$EITALIC 
+END_TEXT
+Context()->normalStrings;
+
+ANS($ans->cmp);
+
+ENDDOCUMENT();

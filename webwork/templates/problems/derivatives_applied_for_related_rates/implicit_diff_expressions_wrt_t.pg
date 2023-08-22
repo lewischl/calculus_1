@@ -1,0 +1,108 @@
+##DESCRIPTION
+##  Differentiate expressions using implicit differentation with respect to time
+##ENDDESCRIPTION
+
+##KEYWORDS('implicit differentiation', 'related rates')
+
+## DBsubject('Calculus')
+## DBchapter('Derivatives')
+## DBsection('Related rates')
+## Date('')
+## Author('silviana amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set3.10_related_rates/implicit_diff_expressions_wrt_t.pg 
+#	to problems/derivatives_applied_for_related_rates/implicit_diff_expressions_wrt_t.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+
+
+Context()->variables->add(
+dx=>"Real", dy=>"Real", y=>"Real", 
+dt=>"Real", t=>"Real", 
+V=>"Real", 
+r=>"Real", dr=>"Real"
+);
+
+$ans1 = Compute("2 pi r dr/dt");
+$ans2 = Compute("4 pi r^2 dr/dt");
+$ans3 = Compute("2x dx/dt + 2y dy/dt");
+
+$ans4 = Compute("3x^2 dx/dt");
+$ans5 = Compute("y dx/dt + x dy/dt");
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+
+Implicit differentiation works for any independent variable:
+* if the variable of differentation is the variable being differentiated, we get [`1`].
+* If there's a variable mismatch, we have to "chain out" a derivative
+
+For example
+
+[`` \begin{aligned} \frac{d}{dx} x^2 &= 2x \end{aligned} ``]
+
+because the variables match, but
+
+
+[``\begin{aligned}  \frac{d}{dt} x^2 &= 2x  \frac{dx}{dt}   \\  \frac{d}{dt} V &= \frac{dV}{dt} \end{aligned} ``]
+
+because the variable of differentiation, [`t`], mismatches with the variables being differentiated, so we "chain out" derivatives.
+
+---
+
+Use implicit differentiation to compute the derivatives.  Use differential notation (like [`dx/dt`]) to express derivatives.
+
+The area of a circle:
+[`` \frac{d}{dt} \left( \pi r^2  \right) = ``] [_____]{$ans1}
+
+The volume of a sphere:
+[`` \frac{d}{dt} \left( \frac{4}{3} \pi r^3  \right) = ``] [_____]{$ans2}
+
+The square of the length of the hypotenuse of a right triangle: [`` \frac{d}{dt} \left( x^2 + y^2  \right) = ``] [_____]{$ans3}
+
+The volume of a cube:
+[`` \frac{d}{dt} \left( x^3  \right) = ``] [_____]{$ans4}
+
+The area of a rectangle where both side lengths are changing:
+[`` \frac{d}{dt} \left( xy  \right) = ``] [_____]{$ans5}
+END_PGML
+
+ENDDOCUMENT();

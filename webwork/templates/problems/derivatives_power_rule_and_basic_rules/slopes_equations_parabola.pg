@@ -1,0 +1,102 @@
+## DESCRIPTION
+## Finding Tangent Lines
+## ENDDESCRIPTION
+
+## Tagged by YL
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Derivatives of polynomials and power functions)
+## Institution(ASU)
+## MLT(slope_tangent_horizontal)
+## Level(3)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('3.1')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('3.1')
+## Problem2('')
+## KEYWORDS('derivative', 'polynomial', 'tangent', 'slope', 'horizontal')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/set3.2_deriv_rules2/slopes_equations_parabola.pg 
+#	to problems/derivatives_power_rule_and_basic_rules/slopes_equations_parabola.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showpartialcorrectanswers = 1;
+
+$a = random(2, 13, 1);
+$b = random(2,7,1);
+
+$showHint=-1;
+
+TEXT(EV3(<<'EOT'));
+Suppose that \( f(x) = $a x^2 - $b x\).  Find:
+$BR
+$BR
+(A) \( f'(x) \) = \{ans_rule(30) \}
+$BR
+$BR
+(B) The slope of the graph of \(f(x)\) at \(x = 2\) and \(x = 3\).
+$BR
+Slope at \(x = 2\): \{ans_rule(20) \}
+$BR
+Slope at \(x = 3\): \{ans_rule(20) \}
+$BR
+$BR
+(C) Find equations for two tangent lines.
+$BR
+Equation for the tangent line at \(x = 2\): $BR\(y(x) =\)\{ans_rule(30) \}
+$PAR
+Equation for the tangent line at \(x = 3\): $BR\(y(x) =\)\{ans_rule(30) \}
+$BR
+$BR
+(D) List all values of \(x\) where the tangent line is
+horizontal.
+$BR
+Value(s) of such \(x\): \{ans_rule(20) \}
+
+$BR$BR
+\{ theresahint \}
+EOT
+
+
+BEGIN_HINT
+(A) -- Differentiate
+$BR$BR
+(B) -- Evaluate (A)
+$BR$BR
+(C) -- Don't forget to remember point-slope form.
+$BR$BR
+(D) -- A horizontal line has a very special slope.
+END_HINT
+
+@ans = (fun_cmp("2*$a*x - $b"), num_cmp(2*$a*2 - $b),
+        num_cmp(2*$a*3 - $b),
+        fun_cmp("(2*$a*2 - $b)*(x-2) + ($a*2**2 - $b*2)"),
+        fun_cmp("(2*$a*3 - $b)*(x-3) + ($a*3**2 - $b*3)"),
+        num_cmp($b/(2*$a)));
+ANS(@ans);
+
+ENDDOCUMENT();

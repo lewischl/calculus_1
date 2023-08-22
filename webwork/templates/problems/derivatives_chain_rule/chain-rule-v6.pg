@@ -1,0 +1,54 @@
+
+
+########################################
+# this file automatically moved
+#	from local/chapter3/chain-rule-v6.pg 
+#	to problems/derivatives_chain_rule/chain-rule-v6.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();  
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+$showPartialCorrectAnswers = 1;
+
+$a_gen  = random(2,9,1);
+$a_sign = random(-1,1,2);
+$a      = $a_gen * $a_sign;
+
+$gen = random(0,1,1);
+
+if ($gen == 0) {
+  $trig1 = "\sin";
+  $ans  =  Compute("$a*e^(x*sin(x))*(sin(x) + x*cos(x))");
+  }
+if ($gen == 1) {
+  $trig1 = "\cos";
+  $ans  =  Compute("$a*e^(x*cos(x))*(cos(x) - x*sin(x))");
+}
+
+Context()->texStrings;
+BEGIN_TEXT
+Find the derivative of the function \( \displaystyle f(x)=  $a e^{x $trig1(x)}\).
+
+$PAR
+\( f'(x)= \) \{ ans_rule(50) \}$BR
+$BITALIC(Give an exact answer.)$EITALIC
+END_TEXT
+Context()->normalStrings;
+
+ANS($ans->cmp);
+
+ENDDOCUMENT();

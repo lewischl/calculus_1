@@ -23,7 +23,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setExam_2-Team/rates_of_change.pg
+source_file = problems/derivatives_and_applications_review_quiz/rates_of_change.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setExam_2-Team/chain_rule_square_root.pg
+source_file = problems/derivatives_and_applications_review_quiz/chain_rule_square_root.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setExam_2-Team/productAndQuotientRule1.pg
+source_file = problems/derivatives_and_applications_review_quiz/productAndQuotientRule1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setExam_2-Team/chain_rule_double.pg
+source_file = problems/derivatives_and_applications_review_quiz/chain_rule_double.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setExam_2-Team/derivative_as_fn-basic_derivatives.pg
+source_file = problems/derivatives_and_applications_review_quiz/derivative_as_fn-basic_derivatives.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setExam_2-Team/productAndQuotientRule2.pg
+source_file = problems/derivatives_and_applications_review_quiz/productAndQuotientRule2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setExam_2-Team/logDerivative.pg
+source_file = problems/derivatives_and_applications_review_quiz/logDerivative.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -93,7 +93,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = setExam_2-Team/higherOrderDerivatives.pg
+source_file = problems/derivatives_and_applications_review_quiz/higherOrderDerivatives.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -103,7 +103,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 9
-source_file = setExam_2-Team/trigTangentLine.pg
+source_file = problems/derivatives_and_applications_review_quiz/trigTangentLine.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -113,7 +113,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 10
-source_file = setExam_2-Team/lhopital.pg
+source_file = problems/derivatives_and_applications_review_quiz/lhopital.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -123,7 +123,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 11
-source_file = setExam_2-Team/implicitCurveDerivative.pg
+source_file = problems/derivatives_and_applications_review_quiz/implicitCurveDerivative.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -133,7 +133,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 12
-source_file = setExam_2-Team/relatedRateGravel.pg
+source_file = problems/derivatives_and_applications_review_quiz/relatedRateGravel.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -143,7 +143,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 13
-source_file = setExam_2-Team/criticalPointsClosedInterval.pg
+source_file = problems/derivatives_and_applications_review_quiz/criticalPointsClosedInterval.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -153,7 +153,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 14
-source_file = setExam_2-Team/first_derivative_test_graphical.pg
+source_file = problems/derivatives_and_applications_review_quiz/first_derivative_test_graphical.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -163,7 +163,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 15
-source_file = setExam_2-Team/second_derivative_test_graphical.pg
+source_file = problems/derivatives_and_applications_review_quiz/second_derivative_test_graphical.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -173,7 +173,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 16
-source_file = setExam_2-Team/concavity.pg
+source_file = problems/derivatives_and_applications_review_quiz/concavity.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -183,7 +183,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 17
-source_file = setExam_2-Team/matching_graphs_sketching.pg
+source_file = problems/derivatives_and_applications_review_quiz/matching_graphs_sketching.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -193,7 +193,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 18
-source_file = setExam_2-Team/mvt_find_point.pg
+source_file = problems/derivatives_and_applications_review_quiz/mvt_find_point.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -203,7 +203,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 19
-source_file = setExam_2-Team/NewtonsMethodMultipleApproximations.pg
+source_file = problems/derivatives_and_applications_review_quiz/NewtonsMethodMultipleApproximations.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -213,7 +213,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 20
-source_file = setExam_2-Team/applied_optimization_abstract.pg
+source_file = problems/derivatives_and_applications_review_quiz/applied_optimization_abstract.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -223,7 +223,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 21
-source_file = setExam_2-Team/applied_optimization_maximize_semicircle.pg
+source_file = problems/derivatives_and_applications_review_quiz/applied_optimization_maximize_semicircle.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

@@ -1,0 +1,100 @@
+## DESCRIPTION
+## Linear equations
+## ENDDESCRIPTION
+
+
+## BookTitle('Algebra: Form and Function')
+## BookChapter('Linear functions, expressions, and equations')
+## DBsubject(Algebra)
+## DBchapter(Functions)
+## DBsection(Function notation)
+## Date(01/01/10)
+## Institution(Fort Lewis College)
+## Author(Paul Pearson)
+## MLT(solveFc)
+## MLTleader(1)
+## Level(2)
+## MO(1)
+## TitleText1('Algebra: Form and Function')
+## AuthorText1('McCallum, Connally, and Hughes-Hallett')
+## EditionText1('1')
+## Section1('5.3')
+## Problem1('3')
+## KEYWORDS('linear equations')
+
+##############################################
+#  Initialization
+
+
+
+########################################
+# this file automatically moved
+#	from local/myproblems/set_0.2_solving/solve_fractional_eqns.pg 
+#	to problems/review_solving_equations/solve_fractional_eqns.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT(); 
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "AnswerFormatHelp.pl",
+  "contextFraction.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+
+##############################################
+#  Setup
+
+Context("Fraction-NoDecimals");
+Context()->variables->are(t=>"Real",y=>"Real");
+
+$a = list_random(2,3,5,7,8);
+$b = random(3,9,2);
+$c = random(3,9,2);
+
+$t = random(5,12,1);
+$num1 = $a * $t + $b;
+$den1 = $c;
+$answer1 = Compute("$num1 / $den1");
+
+$y = random(2,5,1);
+$num2 = $c * $y - $b;
+$den2 = $a;
+$answer2 = Compute("$num2 / $den2");
+
+
+##############################################
+#  Main text
+
+Context()->texStrings;
+BEGIN_TEXT
+Suppose \( \displaystyle f(t) = \frac{$a t + $b}{$c} \).
+$PAR
+(a) Evaluate \( f($t) \).
+$BR
+\( f($t) \) = \{ ans_rule(20) \}
+$PAR
+(b) Solve \( f(t) = $y \). 
+$BR
+\( t \) = \{ ans_rule(20) \}
+
+$PAR
+(Need help entering your answer?  See \{ AnswerFormatHelp("fractions") \}.)
+END_TEXT
+Context()->normalStrings;
+
+ANS($answer1->cmp() );
+ANS($answer2->cmp() );
+
+
+;
+ENDDOCUMENT();

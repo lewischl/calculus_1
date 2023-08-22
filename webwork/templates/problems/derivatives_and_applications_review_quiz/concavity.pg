@@ -1,0 +1,92 @@
+##DESCRIPTION
+##  Determine concavity and inflection points given a function
+##ENDDESCRIPTION
+
+##KEYWORDS('applications of derivatives', 'second derivative test', 'graphical')
+
+## DBsubject('Calculus')
+## DBchapter('Applications of Derivatives')
+## DBsection('Concavity')
+## Date('')
+## Author('silviana amethyst')
+## Institution('uwec')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from setExam_2-Team/concavity.pg 
+#	to problems/derivatives_and_applications_review_quiz/concavity.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   "PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGauxiliaryFunctions.pl",
+"extraAnswerEvaluators.pl"
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+SRAND($team_exam2_seed);
+$setseed = "set.seed($team_exam2_seed); $team_exam2_seed";
+
+$r1 = random(2,4,1);
+
+
+$scale = random(3,6,1);
+
+$f2 = Formula("$scale*x/(x^2+$r1^3)")->reduce; 
+
+$concave_down = "(-inf,0)";
+$concave_up = "(0,inf)";
+$inflection1 = 0;
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+
+Determine concavity and inflection points of a function [`f`], if we know
+
+[`` f''(x) = [$f2] ``]
+
+---
+
+[`f`] is concave up on the intervals [____________]{interval_cmp($concave_up, strings=>["none"])}   (Use interval notation.  If there is no such interval, enter _none_.)
+
+[`f`] is concave down on the intervals [____________]{interval_cmp($concave_down, strings=>["none"])}  (Use interval notation.  If there is no such interval, enter _none_.)
+
+[`f`] has inflection points at [`x=`] [____________]{Compute("$inflection1")->cmp}  (Enter a comma separated list of x-values, in increasing order.  If there are no inflection points, enter _none_.)
+
+END_PGML
+
+ENDDOCUMENT();

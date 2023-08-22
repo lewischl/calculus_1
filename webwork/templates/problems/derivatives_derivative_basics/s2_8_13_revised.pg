@@ -1,0 +1,70 @@
+##DESCRIPTION
+##  Find a derivative of a polynomial, evaluate it at a point
+##ENDDESCRIPTION
+
+## Shotwell cleaned
+## tcao , PAID on 11-24-2003
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Derivatives of polynomials and power functions)
+## Date(6/3/2002)
+## MLT(problems_with_x_equal_a)
+## Level(2)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('2.7')
+## Problem1('13')
+## KEYWORDS('derivatives')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/ma122DB/set3/s2_8_13_revised.pg 
+#	to problems/derivatives_derivative_basics/s2_8_13_revised.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "AnswerFormatHelp.pl",
+  "PGcourse.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a1 = random(2,7,1);
+$b1 = random(2,12,1);
+$c1 = random(1,40,1);
+$x1 = random(1,5,1);
+
+Context("Numeric");
+
+
+$funct1 = Compute("$a1*x^2-$b1 * x - $c1");
+$deriv1 = ($funct1->D);
+
+Context()->texStrings;
+
+BEGIN_TEXT
+If \( f(x) =  $funct1\), find \( f'( x ) \).
+$BR$BR
+Answer: \(f'(x) = \) \{ans_rule(48) \}
+END_TEXT
+
+ANS($deriv1->cmp);
+
+$a12=2*$a1;
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

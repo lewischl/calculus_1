@@ -1,0 +1,93 @@
+##DESCRIPTION
+##  Product and Quotient rule: Product divided by another function
+##ENDDESCRIPTION
+
+##KEYWORDS('derivatives', 'product rule', 'quotient rule')
+
+## DBsubject('Calculus')
+## DBchapter('Derivatives')
+## DBsection('Product and Quotient Rule')
+## Date('10/24/22')
+## Author('Erich Jauch')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from setExam_2-Team/productAndQuotientRule1.pg 
+#	to problems/derivatives_and_applications_review_quiz/productAndQuotientRule1.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+SRAND($team_exam2_seed);
+$setseed = "set.seed($team_exam2_seed); $team_exam2_seed";
+
+@a = ();
+@b = ();
+
+$a[0] = non_zero_random(-7,7,1);
+$a[1] = non_zero_random(-4,4,1);
+$a[2] = random(1,3,1);
+
+$b[0] = non_zero_random(-7,7,1);
+$b[1] = random(1,4,1);
+
+@f = ();
+
+$f[0] = Formula("$a[2]*x^2 + $a[1]*x + $a[0]")->reduce();
+$f[1] = Formula("e^x");
+$f[2] = Formula("$b[1]*x + $b[0]")->reduce();
+
+@df = ();
+
+$df[0] = $f[0]->D('x');
+$df[1] = $f[1]->D('x');
+$df[2] = $f[2]->D('x');
+
+$ans = Formula("(($df[0]*$f[1]+$f[0]*$df[1])*$f[2] - $f[0]*$f[1]*$df[2])/($f[2])^2");
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+Differentiate the following function:
+
+>>[``f(x) = \frac{([$f[0]])[$f[1]]}{[$f[2]]}``]<<
+
+[`f^\prime(x)=`] [_____]{$ans}
+END_PGML
+
+ENDDOCUMENT();

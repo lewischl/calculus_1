@@ -1,0 +1,99 @@
+## DBsubject(Algebra)
+## DBchapter(Functions)
+## DBsection(Compositions and combinations of functions)
+## Institution(Univeristy of Utah)
+## Author(Utah ww group)
+## MLT(ccf-subs-comp-lin-frac)
+## MLTleader(1)
+## Level(2)
+## Static(1)
+## TitleText1('Precalculus')
+## AuthorText1('Ron Larson and Robert  Hostetler')
+## EditionText1('7')
+## Section1('.')
+## Problem1('')
+## TitleText2('Mathematical Applications')
+## AuthorText2('Ronald J. Harshbarger and James J. Reynolds')
+## EditionText2('8')
+## Section2('.')
+## Problem2('')
+## KEYWORDS('algebra')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Utah/College_Algebra/set5_Functions_and_Their_Graphs/1050s5p17.pg 
+#	to problems/review_simplifying/1050s5p17.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl"
+);
+
+#install_problem_grader(~~&std_problem_grader);
+TEXT(beginproblem());
+#$showPartialCorrectAnswers = 0;
+#$showPartialCredit = 0;
+
+TEXT(EV2(<<EOT));
+
+This problem asks you to remember about function evaluation and function composition.
+
+$PAR$HR$PAR
+
+Suppose  \[f(x) = \frac{x}{x+1}.\]
+Then
+
+$BR
+
+
+
+A. \(f(1)\) =  \{ ans_rule(18) \}, (a number) $BR
+
+EOT
+ANS(num_cmp(1/2));
+
+TEXT(EV2(<<EOT));
+
+B. \(f(t)\) =  \{ ans_rule(18) \}, (an expression in \(t\)) $BR
+
+EOT
+ANS(fun_cmp("t/(t+1)", limits=>[[2,3]], vars=>["t"]));
+
+TEXT(EV2(<<EOT));
+
+C. \(f(x^2)\) =  \{ ans_rule(18) \}, (an expression in \(x\)) $BR
+
+EOT
+ANS(fun_cmp("x^2/(x^2 +1)", vars=>["x"]));
+
+TEXT(EV2(<<EOT));
+
+D. \(f(f(x))\) =  \{ ans_rule(18) \} (an expression in \(x\)).
+$BR
+
+$PAR $HR $PAR
+
+Need a reminder of how to work with function composition?  Check out
+\{ htmlLink( "https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:composite/x9e81a4f98389efdf:composing/v/function-composition", "this Khan Academy page about composition." ) \}
+
+EOT
+ANS(fun_cmp("x/(2*x+1)", limits=>[[1,3]], vars=>["x"]));
+
+
+
+
+
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

@@ -1,0 +1,105 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by tda2d
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Related rates)
+## Date(6/3/2002)
+## Institution(UCSB)
+## MLT(RelatedRate-ConePile)
+## MLTleader(1)
+## Level(5)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('3.9')
+## Problem1('25')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Rogawski')
+## EditionText2('1')
+## Section2('3.11')
+## Problem2('25')
+## TitleText3('Calculus: Early Transcendentals')
+## AuthorText3('Stewart')
+## EditionText3('5')
+## Section3('3.10')
+## Problem3('23')
+## KEYWORDS('derivative' 'related rates','derivatives', 'related rates','Differentiation','Product','Quotient')
+
+
+
+########################################
+# this file automatically moved
+#	from set3.10_related_rates1/ladder2.pg 
+#	to problems/derivatives_applied_for_related_rates/ladder2.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGunion.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+###################################
+# Setup
+
+$ladder = random(3,7,0.1);
+$dh_dt = random(0.8, 1.5, 0.1);
+$h = random(2.5, $ladder, 0.1);
+$t = random(0.5,1.1, 0.1);
+
+###################################
+# Main text
+
+BEGIN_TEXT
+To our dismay, someone has again leaned a ladder precariously against a wall, and it's sliding away, as in Figures 5 and 6 on page 200 of your book.
+$BR$BR
+
+The length of the ladder is $ladder meters.  The top of the ladder is dropping as a constant rate of \($dh_dt\) meters per second.  At time \(t=0\), the top of the ladder was at \($h\) meters from the floor.  You've stood there watching, dumbfounded at how this could happen yet again, and it's now \(t = $t\) seconds.
+
+$BR$BR
+
+Calculate how fast the bottom of the ladder is sliding away from the wall, at \(t = $t\) seconds.
+
+
+$BR$BR
+The bottom of the ladder is sliding away at \{ans_rule(40) \} meters per second.
+
+$BR$BR
+\{ theresahint \}
+END_TEXT
+###################################
+# Answers
+
+$showPartialCorrectAnswers = 1;
+
+$h_now = $h - $t*$dh_dt;
+$ans= $h_now*$dh_dt / sqrt($ladder**2 - $h_now**2);
+
+ANS(Real($ans)->cmp);
+
+
+BEGIN_HINT
+The ladder is sliding down *at a constant rate*, so we can use that to find the height of the ladder at \(t = $t\).  (Distance = velocity * time).  
+
+$BR$BR
+
+After that, this is just like the other ladder problem.
+END_HINT
+###################################
+
+
+ENDDOCUMENT();

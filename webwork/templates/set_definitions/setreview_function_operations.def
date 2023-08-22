@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = local/Library/Utah/Business_Algebra/set4_Quadratic_and_Other_Special_Functions/p16.pg
+source_file = problems/review_function_operations/p16.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = Library/UMass-Amherst/Abstract-Algebra/PS-Functions/Functions7.pg
+source_file = problems/review_function_operations/Functions7.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = local/Library/LoyolaChicago/Precalc/Chap8Sec1/Q52.pg
+source_file = problems/review_function_operations/Q52.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = Library/LoyolaChicago/Precalc/Chap2Sec1/Q15.pg
+source_file = problems/review_function_operations/Q15.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = local/myproblems/set_0.5_working_with_functions/describe_composition.pg
+source_file = problems/review_function_operations/describe_composition.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

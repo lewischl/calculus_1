@@ -1,0 +1,112 @@
+##DESCRIPTION
+##  Area approximation using rectangles
+##ENDDESCRIPTION
+
+##KEYWORDS('integral', 'approximation')
+
+## DBsubject('Calculus')
+## DBchapter('Integral')
+## DBsection('Definite Integral')
+## Date('11/28/22')
+## Author('Erich Jauch')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from setFinal_Exam-Team/ApproxArea.pg 
+#	to problems/comprehensive_review_quiz/ApproxArea.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
+
+Context("Numeric");
+
+$root = random(1,4,1);
+
+$f = Formula("x^2-$root^2")->reduce;
+
+$lower = $root-1;
+$upper = $root+3;
+
+$xmax = $upper+1;
+
+$f0 = $f -> eval(x=>0);
+$fmax = $f -> eval(x=>$xmax);
+
+$ymin = $f0-2;
+$ymax = $fmax +2;
+
+$ytick = 4;
+
+$graph1 = GraphWithTikZ(function => $f,
+xmin => -1,xmax => $xmax,
+ymin => $ymin,ymax => $ymax,
+smooth=>'smooth',
+ytick => $ytick,xtick => 1);
+
+@x = ();
+@y = ();
+
+$x[0]=$lower;
+$y[0] = $f ->eval(x=>$x[0]);
+
+foreach my $i (0...3) {
+$j = $i+1;
+$x[$j]=$x[$i]+1;
+$y[$j] = $f -> eval(x=>$x[$j]);
+}
+
+$area = $y[0]+$y[1]+$y[2]+$y[3];
+
+
+$ans = $area;
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+
+
+>>[@ image(insertGraph($graph1), width => 400, height => 400, tex_size=>400) @]*<<
+
+Approximate the following definite integral using left endpoints and 4 rectangles. 
+
+[``\int_[$lower]^[$upper]([$f])~dx``]
+
+Approximation is [`L_4  = `] [_____]{$ans}
+END_PGML
+
+ENDDOCUMENT();

@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = myproblems/5.3/antideriv_polynomial.pg
+source_file = problems/integrals_antiderivatives_power_rule_and_basic_rules/antideriv_polynomial.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = my_problems/5.3_antiderivatives/antidifferentiation_polynomial_coeffs_powers.pg
+source_file = problems/integrals_antiderivatives_power_rule_and_basic_rules/antidifferentiation_polynomial_coeffs_powers.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = local/Library/UCSB/Stewart5_4_10/Stewart5_4_10_13.pg
+source_file = problems/integrals_antiderivatives_power_rule_and_basic_rules/Stewart5_4_10_13.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = local/Library/Indiana/Indiana_setDerivatives20Antideriv/s3_10_3.pg
+source_file = problems/integrals_antiderivatives_power_rule_and_basic_rules/s3_10_3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = Library/ma122DB/set12/s5_4_7.pg
+source_file = problems/integrals_antiderivatives_power_rule_and_basic_rules/s5_4_7.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = myproblems/5.3_indefinite_integrals/integrate_polynomial.pg
+source_file = problems/integrals_antiderivatives_power_rule_and_basic_rules/integrate_polynomial.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = local/Library/Union/setIntBasic/antiderv-matching.pg
+source_file = problems/integrals_antiderivatives_power_rule_and_basic_rules/antiderv-matching.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = myproblems/5.3_indefinite_integrals/trig_sub_sin.pg
+source_file = problems/integrals_antiderivatives_power_rule_and_basic_rules/trig_sub_sin.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -93,7 +93,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 9
-source_file = local/Library/Rochester/setIntegrals4FTC/S05.03.FundThmCalc.PTP15.pg
+source_file = problems/integrals_antiderivatives_power_rule_and_basic_rules/S05.03.FundThmCalc.PTP15.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -103,7 +103,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 10
-source_file = myproblems/5.3_indefinite_integrals/integrate_variable_m_power_rule.pg
+source_file = problems/integrals_antiderivatives_power_rule_and_basic_rules/integrate_variable_m_power_rule.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -113,7 +113,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 11
-source_file = local/Library/Indiana/Indiana_setDerivatives20Antideriv/s3_10_3func.pg
+source_file = problems/integrals_antiderivatives_power_rule_and_basic_rules/s3_10_3func.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -123,7 +123,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 12
-source_file = local/Library/ASU-topics/setAntiderivatives/6-1-46.pg
+source_file = problems/integrals_antiderivatives_power_rule_and_basic_rules/6-1-46.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -133,7 +133,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 13
-source_file = Library/ma122DB/set12/s5_4_7.pg
+source_file = problems/integrals_antiderivatives_power_rule_and_basic_rules/s5_4_7.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -143,7 +143,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 14
-source_file = local/Library/ASU-topics/setAntiderivatives/6-1-09.pg
+source_file = problems/integrals_antiderivatives_power_rule_and_basic_rules/6-1-09.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -153,7 +153,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 15
-source_file = set5.3_antiderivatives/fractionIndefininteIntegral.pg
+source_file = problems/integrals_antiderivatives_power_rule_and_basic_rules/fractionIndefininteIntegral.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

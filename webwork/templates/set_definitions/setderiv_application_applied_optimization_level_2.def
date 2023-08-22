@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = local/Library/Wiley/setAnton_Section_4.5/Question31.pg
+source_file = problems/deriv_application_applied_optimization/Question31.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = local/Library/Union/setDervOptimization/4-5-45.pg
+source_file = problems/deriv_application_applied_optimization/4-5-45.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = local/Library/Rochester/setDerivatives10_5Optim/S04.07.Optimization.PTP06.pg
+source_file = problems/deriv_application_applied_optimization/S04.07.Optimization.PTP06.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = local/Library/Rochester/setDerivatives10_5Optim/S04.07.Optimization.PTP04.pg
+source_file = problems/deriv_application_applied_optimization/S04.07.Optimization.PTP04.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = myproblems/set4.7_appl_opt/distance_to_origin.pg
+source_file = problems/deriv_application_applied_optimization/distance_to_origin.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/4_Applications_of_the_Derivative/4.7_Applied_Optimization/4.7.12.pg
+source_file = problems/deriv_application_applied_optimization/4.7.12.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

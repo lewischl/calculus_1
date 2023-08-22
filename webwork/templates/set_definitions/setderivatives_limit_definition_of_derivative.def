@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = set3.1_definition_of_derivative/identify_quantites_matching.pg
+source_file = problems/derivatives_limit_definition_of_derivative/identify_quantites_matching.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = set3.1_definition_of_derivative/vert_horiz_fill_in_blanks_dropdown.pg
+source_file = problems/derivatives_limit_definition_of_derivative/vert_horiz_fill_in_blanks_dropdown.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = set3.1_definition_of_derivative/find_h_graphically.pg
+source_file = problems/derivatives_limit_definition_of_derivative/find_h_graphically.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = local/Library/UVA-Stew5e/setUVA-Stew5e-C02S09-DerivAsFunct/2-9-20a.pg
+source_file = problems/derivatives_limit_definition_of_derivative/2-9-20a.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = local/Library/ASU-topics/setDerivativeFunction/s2_1_19.pg
+source_file = local/problems/derivatives_limit_definition_of_derivative/s2_1_19.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = local/Library/ASU-topics/setDerivativeFunction/3-3-05.pg
+source_file = problems/derivatives_limit_definition_of_derivative/3-3-05.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/3_Differentiation/3.1_Definition_of_the_Derivative/3.1.51.pg
+source_file = problems/derivatives_limit_definition_of_derivative/3.1.51.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 9
-source_file = Library/ASU-topics/setDerivativeFunction/s2_1_19.pg
+source_file = problems/derivatives_limit_definition_of_derivative/s2_1_19.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -93,7 +93,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 10
-source_file = Library/ma122DB/set3/s2_9_19.pg
+source_file = problems/derivatives_limit_definition_of_derivative/s2_9_19.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -103,7 +103,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 12
-source_file = Library/ma122DB/set3/s2_9_21.pg
+source_file = problems/derivatives_limit_definition_of_derivative/s2_9_21.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -113,7 +113,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 13
-source_file = local/Library/ma122DB/set3/s2_8_7.pg
+source_file = problems/derivatives_limit_definition_of_derivative/s2_8_7.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -123,7 +123,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 14
-source_file = local/Library/ma122DB/set2/s2_7_7.pg
+source_file = problems/derivatives_limit_definition_of_derivative/s2_7_7.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -133,7 +133,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 15
-source_file = Library/ma122DB/set3/s2_8_9.pg
+source_file = problems/derivatives_limit_definition_of_derivative/s2_8_9.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

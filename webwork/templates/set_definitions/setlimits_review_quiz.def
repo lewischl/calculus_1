@@ -23,7 +23,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setExam_1-Team/LimitGraphicalSolve.pg
+source_file = problems/limits_review_quiz/LimitGraphicalSolve.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setExam_1-Team/ContinuityPieceWiseFunction.pg
+source_file = problems/limits_review_quiz/ContinuityPieceWiseFunction.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setExam_1-Team/FixContinuityPieceWiseFunction.pg
+source_file = problems/limits_review_quiz/FixContinuityPieceWiseFunction.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setExam_1-Team/DefinitionDerivative.pg
+source_file = problems/limits_review_quiz/DefinitionDerivative.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setExam_1-Team/AlgebraicLimit.pg
+source_file = problems/limits_review_quiz/AlgebraicLimit.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setExam_1-Team/ConjugateLimit.pg
+source_file = problems/limits_review_quiz/ConjugateLimit.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setExam_1-Team/AverageRateOfChange.pg
+source_file = problems/limits_review_quiz/AverageRateOfChange.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -93,7 +93,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = setExam_1-Team/triglimitpg.pg
+source_file = problems/limits_review_quiz/triglimitpg.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -103,7 +103,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 9
-source_file = setExam_1-Team/infinitetriglimitpg.pg
+source_file = problems/limits_review_quiz/infinitetriglimitpg.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -113,7 +113,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 10
-source_file = setExam_1-Team/IROCapprox.pg
+source_file = problems/limits_review_quiz/IROCapprox.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -123,7 +123,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 11
-source_file = setExam_1-Team/LimitLawGivenFunctions.pg
+source_file = problems/limits_review_quiz/LimitLawGivenFunctions.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -133,7 +133,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 12
-source_file = setExam_1-Team/InfiniteLimitRationalFunctionExists.pg
+source_file = problems/limits_review_quiz/InfiniteLimitRationalFunctionExists.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -143,7 +143,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 13
-source_file = setExam_1-Team/InfiniteLimitRationalFunctionInfinite.pg
+source_file = problems/limits_review_quiz/InfiniteLimitRationalFunctionInfinite.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -153,7 +153,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 14
-source_file = setExam_1-Team/OneSidedInfiniteLimit.pg
+source_file = problems/limits_review_quiz/OneSidedInfiniteLimit.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -163,7 +163,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 15
-source_file = setExam_1-Team/GraphicalLimitLaw.pg
+source_file = problems/limits_review_quiz/GraphicalLimitLaw.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -173,7 +173,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 16
-source_file = setExam_1-Team/NotIndeterminateLimit.pg
+source_file = problems/limits_review_quiz/NotIndeterminateLimit.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -183,7 +183,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 17
-source_file = setExam_1-Team/IVTMinimalRoots.pg
+source_file = problems/limits_review_quiz/IVTMinimalRoots.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -193,7 +193,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 18
-source_file = setExam_1-Team/SecantLine.pg
+source_file = problems/limits_review_quiz/SecantLine.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -203,7 +203,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 19
-source_file = setExam_1-Team/ContinuousFunctionLimit.pg
+source_file = problems/limits_review_quiz/ContinuousFunctionLimit.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -213,7 +213,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 20
-source_file = setExam_1-Team/SqueezeTheoremBounds.pg
+source_file = problems/limits_review_quiz/SqueezeTheoremBounds.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

@@ -1,0 +1,118 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Integrals)
+
+
+
+
+
+########################################
+# this file automatically moved
+#	from set5.5_ftoc_2/ftoc2_select_true_statements.pg 
+#	to problems/integrals_FTOC_2_for_derivatives_of_integral_functions/ftoc2_select_true_statements.pg 
+#	on 2023-05-25 12:20:10.923275 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "littleneck.pl",
+  "contextFraction.pl",
+  "PGcourse.pl",
+  "PGchoicemacros.pl",
+);
+# allow the student to change the seed for this problem.
+
+
+rand_button();
+
+
+TEXT(beginproblem());
+
+###################################
+# Setup
+Context()->variables->add(t=>'Real',dt=>'Real');
+$a=random(1,9,1);
+
+if($a==4 ){$a=10}
+$A=$a+1;
+$b=$A**2-$a**2;
+$f=Formula("sqrt(t**2+$b)");
+$F=$f->substitute(t=>'x');
+$G=Formula("x/$F");
+$fa=Compute("0");
+$Fa=Compute("$A");
+Context("Fraction");
+$Ga=Compute("$a/$A");
+Context("Numeric");
+
+
+
+
+
+
+
+$mc = new_checkbox_multiple_choice();
+$mc -> qa (
+" Let \( \displaystyle G(x) = \int_4^{x^3} \sin t \, dt \).  $PAR Which of the following statements are correct?  Select correct options. $HR ", 
+"\(G\) is the composite function \(A(x^3) \), where \( \displaystyle A(x) = \int_4^x \sin t \, dt \) $PAR",
+"\(G'(x) = 3x^2 \sin(x^3) \) $PAR ",
+"The Chain Rule is used to differentiate \(G\) $PAR",
+"The Fundamental Theorem of Calculus Part 2 is used to differentiate \(G\) $PAR",
+);
+$mc -> extra(
+"\(G\) is too complicated to differentiate $PAR",
+"The product rule is used to differentiate \(G\) $PAR",
+"\(G\) is the composite function \(\sin(x^3)\)$PAR",
+);
+
+    
+    
+    
+    
+###################################
+# Main text
+Context()->texStrings;
+
+
+
+
+
+BEGIN_TEXT
+
+\{ $mc -> print_q() \}
+$BR
+\{ $mc -> print_a() \}
+
+
+
+END_TEXT
+
+###################################
+# Answers
+
+#$showPartialCorrectAnswers = 0;
+
+
+
+install_problem_grader(~~&std_problem_grader);
+
+$showPartialCorrectAnswers = 0;
+
+ANS( checkbox_cmp( $mc->correct_ans() ) );
+
+
+###################################
+
+Context()->normalStrings;
+
+###################################
+ENDDOCUMENT();
