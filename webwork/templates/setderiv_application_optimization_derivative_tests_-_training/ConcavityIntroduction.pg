@@ -166,7 +166,10 @@ $passcode1 = random(1000,9999);
 #
 #
 
-Scaffold::Begin();
+Scaffold::Begin(
+    can_open => "when_previous_correct",
+    is_open => "first_incorrect"
+);
 
 BEGIN_PGML
 
@@ -180,17 +183,6 @@ This problem examines the four basic shapes a curve can have, connecting them to
 [@ closeDiv() @]*
 
 END_PGML
-
-
-
-
-
-
-
-
-
-
-
 
 Section::Begin("Curve 1");
 

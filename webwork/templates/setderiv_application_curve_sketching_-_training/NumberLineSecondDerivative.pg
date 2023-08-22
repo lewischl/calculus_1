@@ -25,9 +25,9 @@ loadMacros(
    "unionTables.pl",
    "parserPopUp.pl",   # <--------------------------------------NEEDED FOR DROPDOWN MENUS
    "PGtikz.pl",
+   "desmos.pl",
 );
 
-COMMENT("uses CSS in `customCSS.pl` for styling");
 loadMacros("customCSS.pl");
 
 # Print problem number and point value (weight) for the problem
@@ -163,10 +163,7 @@ if ($g4_max<$g4_min){ #swap if they're in the wrong order
     $g4_min=$g4_temp;
 }
 
-HEADER_TEXT(MODES(
-    HTML=>'<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
-    TeX=>''
-));
+desmos_enable_construct_new();
 
 $unique_div_id = "increasing_concave_up";
 $desmos_div = MODES(
@@ -226,9 +223,9 @@ $y5max=$f->eval(x=>$c1left);
 $y5inf=$f->eval(x=>$i1);
 
 $t2x1=$i1-1;
-$t2d1=$fp->eval(x=>$t2x1);
+$t2d1=$fpp->eval(x=>$t2x1);
 $t2x2=$i1+1;
-$t2d2=$fp->eval(x=>$t2x1);
+$t2d2=$fpp->eval(x=>$t2x2);
 
 $second_line1->BEGIN_TIKZ
 \tikzset{>={Stealth[scale=2]}}
@@ -304,8 +301,10 @@ END_TIKZ
 #
 #
 
-Scaffold::Begin(can_open => "always",
-      is_open  => "always");
+Scaffold::Begin(
+    can_open => "when_previous_correct",
+    is_open  => "first_incorrect"
+);
 
 BEGIN_PGML
 

@@ -58,9 +58,6 @@ loadMacros(
 );
 
 
-COMMENT("uses CSS in `customCSS.pl` for styling");
-COMMENT("delta t is hardcoded, but the time and velocity are randomized");
-
 TEXT(beginproblem());
 
 loadMacros("customCSS.pl");
@@ -100,8 +97,8 @@ $aroc3 = $dy3/$delta_t_3;
 
 $iroc = $y->D->eval(t=>$t0);
 
-Scaffold::Begin(can_open => "always",
-      is_open  => "always");
+Scaffold::Begin(can_open => "when_previous_correct",
+      is_open  => "never");
 
 
 BEGIN_PGML

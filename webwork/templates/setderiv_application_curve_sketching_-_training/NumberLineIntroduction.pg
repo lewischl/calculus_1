@@ -24,9 +24,9 @@ loadMacros(
    "scaffold.pl",
    "parserPopUp.pl",   # <--------------------------------------NEEDED FOR DROPDOWN MENUS
    "PGtikz.pl",
+   "desmos.pl",
 );
 
-COMMENT("uses CSS in `customCSS.pl` for styling");
 loadMacros("customCSS.pl");
 
 # Print problem number and point value (weight) for the problem
@@ -89,10 +89,7 @@ $unique_div_id = "increasing_concave_up";
 $width = 700;
 $height = 400;
 
-HEADER_TEXT(MODES(
-    HTML=>'<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
-    TeX=>''
-));
+desmos_enable_construct_new();
 
 $desmos_div = MODES(
     HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
@@ -193,8 +190,10 @@ END_TIKZ
 #
 #
 
-Scaffold::Begin(can_open => "always",
-      is_open  => "never");
+Scaffold::Begin(
+    can_open => "when_previous_correct",
+    is_open  => "first_incorrect"
+);
 
 BEGIN_PGML
 

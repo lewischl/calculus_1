@@ -1,19 +1,19 @@
 assignmentType      = default
-openDate          = 09/02/2023 at 04:07am CDT
-reducedScoringDate = 09/02/2023 at 04:07am CDT
+openDate          = 09/01/2023 at 01:01am CDT
+reducedScoringDate = 09/01/2023 at 01:01am CDT
 dueDate           = 12/17/2023 at 09:59pm CST
 answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
 screenHeaderFile  = headers/Header_training.pg
-description       = four guided problems focused on area
+description       = 
 restrictProbProgression = 0
 emailInstructor   = 0
 
 problemListV2
 problem_start
 problem_id = 1
-source_file = setderiv_application_applied_optimization_-_training/s4_7_3.pg
+source_file = setwebwork_introduction/prob2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -24,7 +24,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setderiv_application_applied_optimization_-_training/fenced_area.pg
+source_file = setwebwork_introduction/mat106prob1a.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -35,7 +35,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setderiv_application_applied_optimization_-_training/min_perimeter_rectangle.pg
+source_file = setwebwork_introduction/entering_answers.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -46,7 +46,18 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setderiv_application_applied_optimization_-_training/4-5-47.pg
+source_file = setwebwork_introduction/drag_n_drop_tutorial.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 5
+source_file = setwebwork_introduction/better_matching_tutorial.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

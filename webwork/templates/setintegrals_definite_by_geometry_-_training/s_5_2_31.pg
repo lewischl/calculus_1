@@ -33,7 +33,8 @@ loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
   "PGgraphmacros.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+    "desmos.pl",
 );
 
 COMMENT("todo: rewrite image using tikz");

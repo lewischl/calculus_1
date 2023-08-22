@@ -99,7 +99,10 @@ $power3=FormulaUpToConstant("(x^4)/4");
 # Main text
 ###########################################
 #  The scaffold
-Scaffold::Begin();
+Scaffold::Begin(
+    can_open => "when_previous_correct",
+    is_open => "first_incorrect"
+);
 ###########################################
 Section::Begin("Derivatives");
 

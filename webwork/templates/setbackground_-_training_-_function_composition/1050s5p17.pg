@@ -58,6 +58,9 @@ TEXT(beginproblem());
 #$showPartialCorrectAnswers = 0;
 #$showPartialCredit = 0;
 
+$khan_academy_link = '<a href="https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:composite/x9e81a4f98389efdf:composing/v/function-composition" target="_blank" rel="noopener noreferrer">this Khan Academy page about composition</a>';
+
+
 BEGIN_PGML
 
 [@ openDiv({ "class" => "problemPurpose" }) @]*
@@ -104,7 +107,8 @@ kalturaShull("1_3fssli1q")
 ---
 
 Prefer a webpage reminder of how to work with function composition?  Check out
-[@ htmlLink( "https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:composite/x9e81a4f98389efdf:composing/v/function-composition", "this Khan Academy page about composition." ) @]*
+[@ 
+$khan_academy_link @]*
 
 
 ---

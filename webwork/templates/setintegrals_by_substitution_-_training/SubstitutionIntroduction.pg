@@ -16,18 +16,6 @@
 ## Section1('')
 ## Problem1('')
 
-
-
-########################################
-# this file automatically moved
-#	from setproving_grounds/SubstitutionIntroduction.pg 
-#	to setintegrals_by_substitution_-_training/SubstitutionIntroduction.pg 
-#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
-# if this problem uses static images, they should also have been moved from that location to here.
-# if not, look in the source directory for images that didn't make it.
-########################################
-
-
 DOCUMENT();        # This should be the first executable line in the problem.
 
 
@@ -127,7 +115,10 @@ This problem teaches a technique for "undoing the chain rule" -- integration of 
 
 END_PGML
 
-Scaffold::Begin();
+Scaffold::Begin(
+    can_open => "when_previous_correct",
+    is_open => "first_incorrect"
+);
 ###########################################
 Section::Begin("Part 1: Recall the chain rule for derivatives");
 

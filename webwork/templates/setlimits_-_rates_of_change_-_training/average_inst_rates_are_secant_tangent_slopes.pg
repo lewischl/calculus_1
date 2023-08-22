@@ -22,6 +22,7 @@ loadMacros(
    #"source.pl",        # allows code to be displayed on certain sites.
    "PGcourse.pl",      # Customization file for the course
    "scaffold.pl",
+   "desmos.pl",
 );
 
 COMMENT("uses CSS in `customCSS.pl` for styling");
@@ -46,10 +47,7 @@ $unique_div_id = "secant_line_graph";
 $width = 700;
 $height = 400;
 
-HEADER_TEXT(MODES(
-    HTML=>'<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
-    TeX=>''
-));
+desmos_enable_construct_new();
 
 $desmos_div = MODES(
     HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 

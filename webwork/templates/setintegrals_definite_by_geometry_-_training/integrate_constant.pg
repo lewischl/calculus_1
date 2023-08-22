@@ -46,7 +46,8 @@ DOCUMENT();        # This should be the first executable line in the problem.
 
 loadMacros(
   "PGstandard.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "desmos.pl",
 );
 
 COMMENT("this problem modifies an existing desmos graph via URL");
@@ -69,14 +70,7 @@ $area = $width*$height;
 $integral = $F->eval(x=>$b) - $F->eval(x=>$a);
 
 $unique_div_id = "desmos_graph";
-HEADER_TEXT(MODES(
-    HTML=>'<script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3plus/1.7.3/d3plus.js"></script>
-    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>',
-    
-    TeX=>''
-));
+desmos_enable_modify_existing();
 $desmos_width= 300;
 $desmos_height=200;
 $desmos_div = MODES(

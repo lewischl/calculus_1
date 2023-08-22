@@ -192,8 +192,10 @@ END_TIKZ
 #
 #
 
-Scaffold::Begin(can_open => "always",
-      is_open  => "never");
+Scaffold::Begin(
+    can_open => "when_previous_correct",
+    is_open  => "first_incorrect"
+);
 
 BEGIN_PGML
 

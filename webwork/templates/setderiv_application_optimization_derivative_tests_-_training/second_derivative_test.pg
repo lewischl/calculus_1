@@ -32,6 +32,9 @@ loadMacros("customCSS.pl");
 # Print problem number and point value (weight) for the problem
 TEXT(beginproblem());
 
+Context("Numeric");
+Context()->variables->add(t=>'Real');
+
 $second_line1 = createTikZImage();
 $second_line1->tikzLibraries("arrows.meta");
 
@@ -203,8 +206,7 @@ $desmos_div5 = MODES(
 #
 #
 
-Context("Numeric");
-Context()->variables->add(t=>'Real');
+
 
 SRAND($psvn);
 $passcode1 = random(1000,9999);
@@ -303,7 +305,10 @@ END_TIKZ
 #
 #
 
-Scaffold::Begin(can_open => "when_previous_correct");
+Scaffold::Begin(
+    can_open => "when_previous_correct",
+    is_open => "first_incorrect"
+);
 
 BEGIN_PGML
 
@@ -450,13 +455,23 @@ Here are the number lines for both the first and second derivative:
 
 >> [@ image($both_lines, width => 400, tex_size => 600) @]* <<
 
-We can combine them into one! On the combined number line, we need a tick mark wherever _either_ of the two lines had a tick mark. 🎯 List the numbers where either of the two lines (or both) have a tick mark, in increasing order:
-
-[_]{List("$c1left,$i1,$c1right")}
-
-Now let's combine them...
+We can combine them into one! On the combined number line, we need a tick mark wherever _either_ of the two lines had a tick mark. 🎯 List the numbers where either of the two lines (or both) have a tick mark, *in increasing order*:
 
 END_PGML
+
+BEGIN_PGML
+
+[@ ans_rule(10) @]*
+
+Now let's combine the two number lines...
+END_PGML
+
+Context()->normalStrings;
+COMMENT("TODO: this flag of ordered=>0 isn't working, and it's only accepting them in this order.  ");
+$combined_points = List( "$c1left,$i1,$c1right" );
+ANS($combined_points->cmp(ordered=>0,showLengthHints => 1));
+
+Context()->texStrings;
 
 Section::End();
 

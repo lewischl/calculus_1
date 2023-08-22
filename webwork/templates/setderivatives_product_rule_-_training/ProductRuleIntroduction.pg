@@ -95,7 +95,10 @@ Context()->variables->add(u=>"Real");
 # Main text
 ###########################################
 #  The scaffold
-Scaffold::Begin();
+Scaffold::Begin(
+    can_open => "when_previous_correct",
+    is_open => "first_incorrect"
+);
 ###########################################
 Section::Begin("Sum and Difference review");
 

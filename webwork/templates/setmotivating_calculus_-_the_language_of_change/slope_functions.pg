@@ -24,7 +24,7 @@ loadMacros(
    "customCSS.pl",
   "PGuwecTikZutils.pl", #Custom TikZ code
   "parserPopUp.pl",   # <--------------------------------------NEEDED FOR DROPDOWN MENUS
-  'PGchoicemacros.pl',
+  'PGchoicemacros.pl', "desmos.pl",,
 );
 
 loadMacros("niceTables.pl");
@@ -37,10 +37,7 @@ $unique_div_id = "programmatically_constructed_desmos";
 $width = 400;
 $height = 300;
 
-HEADER_TEXT(MODES(
-    HTML=>'<script src="https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
-    TeX=>''
-));
+desmos_enable_construct_new();
 
 $desmos_graph = MODES(
     HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 

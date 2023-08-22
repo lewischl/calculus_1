@@ -5,3 +5,4 @@ tmp.html
 *.tmp
 *.pg.bak*
 *.xml.bak*
+*.bak/

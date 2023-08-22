@@ -24,7 +24,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setderivatives_applied_as_rates_of_change_-_training/S03.03.RatesOfChange.PTP01.pg
+source_file = setderivatives_applied_as_rates_of_change_-_training/moving_fowards_backwards.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -35,7 +35,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setderivatives_applied_as_rates_of_change_-_training/s3_3_3_mo.pg
+source_file = setderivatives_applied_as_rates_of_change_-_training/speeding_up_slowing_down.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -46,7 +46,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setderivatives_applied_as_rates_of_change_-_training/3-2-66.pg
+source_file = setderivatives_applied_as_rates_of_change_-_training/s3_3_3_mo.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -57,30 +57,8 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setderivatives_applied_as_rates_of_change_-_training/s3_3_11.pg
+source_file = setderivatives_applied_as_rates_of_change_-_training/circle_wrt_radius.pg
 value = 1
-max_attempts = -1
-showMeAnother = -1
-showHintsAfter = -2
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 6
-source_file = setderivatives_applied_as_rates_of_change_-_training/s3_3_13.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-showHintsAfter = -2
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 7
-source_file = setderivatives_applied_as_rates_of_change_-_training/rates-of-change1.pg
-value = 2
 max_attempts = -1
 showMeAnother = -1
 showHintsAfter = -2

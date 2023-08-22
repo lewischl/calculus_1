@@ -52,8 +52,6 @@ loadMacros(
   "scaffold.pl"
 );
 
-COMMENT('It is best to give no more than two scored attempts for this problem.');
-
 #####################################################################
 
 TEXT(beginproblem());
@@ -123,7 +121,7 @@ Here is a video introducing continuity, defining it in terms of limits:
 
 END_PGML
 
-Scaffold::Begin();
+Scaffold::Begin(can_open => "always", is_open => "never");
 Section::Begin("Continuity introduction/example 2 (13:01)");
 
 BEGIN_PGML

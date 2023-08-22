@@ -102,7 +102,10 @@ $g5d=Formula("-4*x^(-5)")->reduce;
 # Main text
 ###########################################
 #  The scaffold
-Scaffold::Begin();
+Scaffold::Begin(
+    can_open => "when_previous_correct",
+    is_open => "first_incorrect"
+);
 ###########################################
 Section::Begin("Definition review & constant");
 

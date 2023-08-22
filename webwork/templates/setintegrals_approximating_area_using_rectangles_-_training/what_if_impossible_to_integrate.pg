@@ -9,6 +9,7 @@ loadMacros(
    #"source.pl",        # allows code to be displayed on certain sites.
    "PGcourse.pl",      # Customization file for the course
    "contextFraction.pl",
+   "desmos.pl",
 );
 
 COMMENT("uses a modified desmos graph via external URL");
@@ -31,14 +32,7 @@ Context("Numeric");
 
 
 $unique_div_id = "desmos_graph";
-HEADER_TEXT(MODES(
-    HTML=>'<script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3plus/1.7.3/d3plus.js"></script>
-    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>',
-    
-    TeX=>''
-));
+desmos_enable_modify_existing();
 $desmos_width= 800;
 $desmos_height=400;
 $desmos_graph = MODES(

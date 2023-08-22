@@ -23,6 +23,7 @@ loadMacros(
    "PGcourse.pl",      # Customization file for the course
    "scaffold.pl",
    "parserPopUp.pl",   # <--------------------------------------NEEDED FOR DROPDOWN MENUS
+   "desmos.pl",
 );
 
 loadMacros("customCSS.pl");
@@ -49,10 +50,7 @@ $unique_div_id6 = "tangent_line_with_dragable_point";
 $width = 400;
 $height = 400;
 
-HEADER_TEXT(MODES(
-    HTML=>'<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
-    TeX=>''
-));
+desmos_enable_construct_new();
 
 $desmos_div = MODES(
     HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 

@@ -20,7 +20,7 @@ loadMacros("PG.pl",
            "PGgraphmacros.pl",
 		   "freemanMacros.pl",
   	       "AnswerFormatHelp.pl",
-           "Parser.pl");
+           "Parser.pl", "desmos.pl",);
 
 loadMacros("niceTables.pl");
 
@@ -74,10 +74,7 @@ $dne = String("DNE");
 $width = 200;
 $height = 200;
 
-HEADER_TEXT(MODES(
-    HTML=>'<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
-    TeX=>''
-));
+desmos_enable_construct_new();
 
 $unique_div_id = "evaluating_h_5_left";
 $desmos_div = MODES(
@@ -342,7 +339,7 @@ Section::Begin("Infinite Limits!");
 
 BEGIN_PGML
 
-When [`h(x)`] goes up or down forever, we often refer to that limit as "equaling" either [`\infty`] or [`-\infty`]. In this case:
+When [`h(x)`] goes up or down forever, we often refer to that limit as "equaling" either [`\infty`] or [`-\infty`] (you can type [`\infty`] with "inf"). In this case:
 
 [``\lim_{x\rightarrow[$j]^-}h(x)=``] [_]{$NInf}
 

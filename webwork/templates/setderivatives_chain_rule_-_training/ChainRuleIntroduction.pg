@@ -72,6 +72,8 @@ Context("Numeric");
 
 Context()->variables->add(u=>"Real");
 
+Context()->noreduce('(-x)-y');
+
 $ans3 = Formula("$a1*x+$a3")->reduce;
 $ans4 = Formula("$a1*x+$a2")->reduce;
 $ans5 = Formula("sqrt(x^2+$b7)")->reduce;
@@ -96,7 +98,10 @@ $g3d=Formula("($b11*$b8)*x^($b8-1)+($b10*$b9)*x^($b9-1)")->reduce;
 # Main text
 ###########################################
 #  The scaffold
-Scaffold::Begin();
+Scaffold::Begin(
+    can_open => "when_previous_correct",
+    is_open => "first_incorrect"
+);
 ###########################################
 Section::Begin("Passcode");
 
@@ -196,11 +201,22 @@ Then find both their derivatives:
 
 Multiply [`f(u)`] by [`g(x)`] (leaving [`u`] in your answer):
 
-[`f'(u)g'(x)=`][_]{Formula("cos(u)*[$g3d]")}
+END_PGML
+Context()->normalStrings;
+
+# were generating warnings, so factored out.
+$arst = Formula("cos(u)*[$g3d]");
+$qwfp = Formula("cos([$g3])*[$g3d]");
+
+Context()->texStrings;
+BEGIN_PGML
+
+[`f'(u)g'(x)=`][_]{$arst} ## HERE
+
 
 Now replace [`u`] with [`g(x)`]:
 
-[`f'(g(x))*g'(x)=`][_]{Formula("cos([$g3])*[$g3d]")}
+[`f'(g(x))*g'(x)=`][_]{$qwfp}  ##HERE
 
 We are finished! This is the derivative of [`\sin([$g3])`].
 
@@ -270,7 +286,7 @@ END_PGML
 
 Section::End();
 
-Section::Begin("Does the Chain Rule agree with other methods?");
+Section::Begin("The Chain Rule agrees with other methods");
 
 BEGIN_PGML
 

@@ -127,7 +127,10 @@ In this problem, we will practice finding compositions. In the next one, we will
 END_PGML
 
 #  The scaffold
-Scaffold::Begin();
+Scaffold::Begin(
+    can_open => "when_previous_correct",
+    is_open => "first_incorrect"
+);
 ###########################################
 Section::Begin("Basic compositions");
 
