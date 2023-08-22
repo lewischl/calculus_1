@@ -10,9 +10,9 @@ description       =
 restrictProbProgression = 0
 emailInstructor   = 0
 
-problemListV2 
+problemListV2
 problem_start
-problem_id = 1
+problem_id =  1
 source_file = local/Library/ma122DB/set3/s2_8_7.pg
 value = 1
 max_attempts = -1
@@ -22,7 +22,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 2
+problem_id =  2
 source_file = Library/ma122DB/set3/s2_8_9.pg
 value = 1
 max_attempts = -1
@@ -32,7 +32,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 3
+problem_id =  3
 source_file = local/Library/ma122DB/set2/s2_7_7.pg
 value = 1
 max_attempts = -1
@@ -42,7 +42,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 4
+problem_id =  4
 source_file = Library/ASU-topics/setDerivativeFunction/s2_1_19.pg
 value = 1
 max_attempts = -1
@@ -51,4 +51,3 @@ prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
-

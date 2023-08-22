@@ -10,9 +10,9 @@ description       =
 restrictProbProgression = 0
 emailInstructor   = 0
 
-problemListV2 
+problemListV2
 problem_start
-problem_id = 1
+problem_id =  1
 source_file = myproblems/5.7/indefinite_neg_power1.pg
 value = 1
 max_attempts = -1
@@ -22,7 +22,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 2
+problem_id =  2
 source_file = myproblems/5.7_substitution/usub_exp_of_polynomial.pg
 value = 1
 max_attempts = -1
@@ -32,7 +32,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 3
+problem_id =  3
 source_file = myproblems/5.7/indefinite_trig_1.pg
 value = 1
 max_attempts = -1
@@ -42,7 +42,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 4
+problem_id =  4
 source_file = local/Library/Utah/Calculus_II/set15_Practice/sc5_5_8.pg
 value = 1
 max_attempts = -1
@@ -52,7 +52,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 5
+problem_id =  5
 source_file = local/Library/UMN/calculusStewartCCC/s_5_5_24.pg
 value = 1
 max_attempts = -1
@@ -62,7 +62,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 6
+problem_id =  6
 source_file = myproblems/5.7_substitution/explicit_u_sub.pg
 value = 1
 max_attempts = -1
@@ -72,7 +72,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 7
+problem_id =  7
 source_file = local/Library/UCSB/Stewart5_5_5/Stewart5_5_5_59.pg
 value = 1
 max_attempts = -1
@@ -82,7 +82,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 8
+problem_id =  8
 source_file = myproblems/5.7/definite1.pg
 value = 1
 max_attempts = -1
@@ -92,7 +92,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 9
+problem_id =  9
 source_file = myproblems/5.7/definite2.pg
 value = 1
 max_attempts = -1
@@ -102,7 +102,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 10
+problem_id =  10
 source_file = myproblems/5.7/definite3.pg
 value = 1
 max_attempts = -1
@@ -112,7 +112,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 11
+problem_id =  11
 source_file = myproblems/5.7/definite4.pg
 value = 1
 max_attempts = -1
@@ -122,7 +122,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 12
+problem_id =  12
 source_file = myproblems/5.7/definite5.pg
 value = 1
 max_attempts = -1
@@ -131,4 +131,43 @@ prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 1 
 problem_end
-
+problem_start
+problem_id =  13
+source_file = Library/Rochester/setIntegrals14Substitution/sc5_5_8.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id =  14
+source_file = Library/Rochester/setIntegrals14Substitution/sc5_5_20.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id =  15
+source_file = Library/Rochester/setIntegrals14Substitution/sc5_5_4.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id =  16
+source_file = local/setIntegrals14Substitution/S05.05.Substitution.PTP02a.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end

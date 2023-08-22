@@ -10,9 +10,9 @@ description       =
 restrictProbProgression = 0
 emailInstructor   = 0
 
-problemListV2 
+problemListV2
 problem_start
-problem_id = 1
+problem_id =  1
 source_file = myproblems/set3.8_implicit_diff/implicit_ellipse.pg
 value = 1
 max_attempts = -1
@@ -22,7 +22,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 2
+problem_id =  2
 source_file = Library/Rochester/setDerivatives2_5Implicit/s2_6_1_mo.pg
 value = 1
 max_attempts = -1
@@ -32,7 +32,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 3
+problem_id =  3
 source_file = Library/Rochester/setDerivatives2_5Implicit/s2_6_4_mo.pg
 value = 1
 max_attempts = -1
@@ -42,7 +42,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 4
+problem_id =  4
 source_file = local/Library/Rochester/setDerivatives2_5Implicit/c2s6p1.pg
 value = 1
 max_attempts = -1
@@ -51,4 +51,43 @@ prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
-
+problem_start
+problem_id =  5
+source_file = Library/Rochester/setDerivatives2_5Implicit/s2_6_2_mo.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id =  6
+source_file = Library/Rochester/setDerivatives2_5Implicit/s2_6_1_mo.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id =  7
+source_file = Library/Rochester/setDerivatives2_5Implicit/s2_6_4_mo.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id =  8
+source_file = Library/ma122DB/set5/s3_7_29.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end

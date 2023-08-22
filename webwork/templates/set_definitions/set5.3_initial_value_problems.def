@@ -10,9 +10,9 @@ description       =
 restrictProbProgression = 0
 emailInstructor   = 0
 
-problemListV2 
+problemListV2
 problem_start
-problem_id = 1
+problem_id =  1
 source_file = Library/ASU-topics/setAntiderivatives/6-1-25.pg
 value = 1
 max_attempts = -1
@@ -22,7 +22,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 2
+problem_id =  2
 source_file = local/Library/ma122DB/set10/s4_10_12.pg
 value = 1
 max_attempts = -1
@@ -32,7 +32,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 3
+problem_id =  3
 source_file = myproblems/5.3_initial_value_problems/accelerating_particle.pg
 value = 1
 max_attempts = -1
@@ -42,7 +42,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 4
+problem_id =  4
 source_file = myproblems/5.3_initial_value_problems/thrice_antidiff_exponential.pg
 value = 1
 max_attempts = -1
@@ -52,7 +52,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 5
+problem_id =  5
 source_file = myproblems/5.3_initial_value_problems/double_antidifferentiation.pg
 value = 1
 max_attempts = -1
@@ -62,7 +62,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 6
+problem_id =  6
 source_file = local/Library/UMN/calculusStewartCCC/s_4_8_31.pg
 value = 1
 max_attempts = -1
@@ -71,4 +71,33 @@ prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
-
+problem_start
+problem_id =  7
+source_file = local/Library/ma122DB/set10/s4_10_33.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id =  8
+source_file = Library/ma122DB/set10/s4_10_23.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id =  9
+source_file = local/Library/Indiana/Indiana_setDerivatives20Antideriv/s3_10_51.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end

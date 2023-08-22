@@ -10,9 +10,9 @@ description       = tons of practice problems for limits.  though the system wil
 restrictProbProgression = 0
 emailInstructor   = 0
 
-problemListV2 
+problemListV2
 problem_start
-problem_id = 1
+problem_id =  1
 source_file = Library/UCSB/Stewart5_2_1/Stewart5_2_1_6.pg
 value = 1
 max_attempts = -1
@@ -22,7 +22,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 2
+problem_id =  2
 source_file = Library/UCSB/Stewart5_2_1/Stewart5_2_1_7.pg
 value = 1
 max_attempts = -1
@@ -32,7 +32,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 3
+problem_id =  3
 source_file = Library/UMN/calculusStewartCCC/s_2_2_5.pg
 value = 1
 max_attempts = -1
@@ -42,7 +42,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 4
+problem_id =  4
 source_file = Library/UBC/setContinuity/graphs.pg
 value = 1
 max_attempts = -1
@@ -52,7 +52,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 5
+problem_id =  5
 source_file = Library/Valdosta/APEX_Calculus/1.6/APEX_1.6_12.pg
 value = 1
 max_attempts = -1
@@ -62,7 +62,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 6
+problem_id =  6
 source_file = Library/UCSB/Stewart5_2_6/Stewart5_2_6_9.pg
 value = 1
 max_attempts = -1
@@ -72,7 +72,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 7
+problem_id =  7
 source_file = Library/Westmont/ActiveCalculus/Preview_1_2/preview_1_2_b/preview_1_2_b.pg
 value = 1
 max_attempts = -1
@@ -82,7 +82,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 8
+problem_id =  8
 source_file = Library/Westmont/ActiveCalculus/Preview_1_2/preview_1_2_c/preview_1_2_c.pg
 value = 1
 max_attempts = -1
@@ -92,7 +92,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 9
+problem_id =  9
 source_file = Library/UMN/calculusStewartCCC/s_2_3_12.pg
 value = 1
 max_attempts = -1
@@ -102,7 +102,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 10
+problem_id =  10
 source_file = Library/Union/setLimitConcepts/3-2-26.pg
 value = 1
 max_attempts = -1
@@ -112,7 +112,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 11
+problem_id =  11
 source_file = Library/Union/setLimitConcepts/3-2-21.pg
 value = 1
 max_attempts = -1
@@ -122,7 +122,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 12
+problem_id =  12
 source_file = Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.4_Limits_and_Continuity/2.4.77.pg
 value = 1
 max_attempts = -1
@@ -132,7 +132,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 13
+problem_id =  13
 source_file = Library/UVA-Stew5e/setUVA-Stew5e-C02S03-CalcLimits/2-3-37.pg
 value = 1
 max_attempts = -1
@@ -142,7 +142,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 14
+problem_id =  14
 source_file = Library/Union/setLimitConcepts/s1_3_19.pg
 value = 1
 max_attempts = -1
@@ -152,7 +152,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 15
+problem_id =  15
 source_file = Library/Union/setLimitConcepts/3-2-55.pg
 value = 1
 max_attempts = -1
@@ -162,7 +162,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 16
+problem_id =  16
 source_file = Library/ASU-topics/setLimitConcepts/3-2-53.pg
 value = 1
 max_attempts = -1
@@ -172,7 +172,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 17
+problem_id =  17
 source_file = Library/UCSB/Stewart5_2_3/Stewart5_2_3_15.pg
 value = 1
 max_attempts = -1
@@ -182,7 +182,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 18
+problem_id =  18
 source_file = Library/UMN/calculusStewartCCC/s_2_3_18.pg
 value = 1
 max_attempts = -1
@@ -192,7 +192,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 19
+problem_id =  19
 source_file = local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_30.pg
 value = 1
 max_attempts = -1
@@ -202,7 +202,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 20
+problem_id =  20
 source_file = Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.5_Evaluating_Limits_Algebraically/2.5.25.pg
 value = 1
 max_attempts = -1
@@ -212,7 +212,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 21
+problem_id =  21
 source_file = Library/Union/setLimitConcepts/s1_3_36.pg
 value = 1
 max_attempts = -1
@@ -222,7 +222,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 22
+problem_id =  22
 source_file = Library/UMN/calculusStewartCCC/s_3_3_prob01.pg
 value = 1
 max_attempts = -1
@@ -232,7 +232,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 23
+problem_id =  23
 source_file = local/Library/Wiley/setAnton_Section_1.6/Anton1_6_Q32.pg
 value = 1
 max_attempts = -1
@@ -242,7 +242,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 24
+problem_id =  24
 source_file = Library/maCalcDB/setDerivatives4Trig/s2_4_8a.pg
 value = 1
 max_attempts = -1
@@ -252,7 +252,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 25
+problem_id =  25
 source_file = Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.2.pg
 value = 1
 max_attempts = -1
@@ -262,7 +262,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 26
+problem_id =  26
 source_file = Library/ASU-topics/setRateChange/3-2-72.pg
 value = 1
 max_attempts = -1
@@ -272,7 +272,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 27
+problem_id =  27
 source_file = Library/Valdosta/APEX_Calculus/1.4/APEX_1.4_13.pg
 value = 1
 max_attempts = -1
@@ -282,7 +282,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 28
+problem_id =  28
 source_file = Library/Valdosta/APEX_Calculus/1.4/APEX_1.4_18.pg
 value = 1
 max_attempts = -1
@@ -292,7 +292,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 29
+problem_id =  29
 source_file = Library/UMN/calculusStewartCCC/s_2_4_prob03.pg
 value = 1
 max_attempts = -1
@@ -302,7 +302,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 30
+problem_id =  30
 source_file = Library/UMN/calculusStewartCCC/s_2_4_3.pg
 value = 1
 max_attempts = -1
@@ -312,7 +312,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 31
+problem_id =  31
 source_file = Library/ASU-topics/setCalculus/stef/stef2_5p4.pg
 value = 1
 max_attempts = -1
@@ -322,7 +322,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 32
+problem_id =  32
 source_file = Library/UMN/calculusStewartCCC/s_2_4_prob01.pg
 value = 1
 max_attempts = -1
@@ -332,7 +332,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 33
+problem_id =  33
 source_file = Library/UCSB/Stewart5_2_5/Stewart5_2_5_53.pg
 value = 1
 max_attempts = -1
@@ -342,7 +342,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 34
+problem_id =  34
 source_file = Library/UMN/calculusStewartCCC/s_2_5_16.pg
 value = 1
 max_attempts = -1
@@ -352,7 +352,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 35
+problem_id =  35
 source_file = Library/Union/setLimitInfinity/ur_lr_3_5.pg
 value = 1
 max_attempts = -1
@@ -362,7 +362,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 36
+problem_id =  36
 source_file = Library/AlfredUniv/anton8e/chapter2/2.6/prob4.pg
 value = 1
 max_attempts = -1
@@ -372,7 +372,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 37
+problem_id =  37
 source_file = Library/AlfredUniv/anton8e/chapter2/2.2/prob7.pg
 value = 1
 max_attempts = -1
@@ -382,7 +382,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 38
+problem_id =  38
 source_file = Library/Valdosta/APEX_Calculus/1.6/APEX_1.6_9.pg
 value = 1
 max_attempts = -1
@@ -392,7 +392,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 39
+problem_id =  39
 source_file = Library/Rochester/setLimitsRates3Infinite/ur_lr_3_6_mo.pg
 value = 1
 max_attempts = -1
@@ -402,7 +402,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 40
+problem_id =  40
 source_file = Library/Wiley/setAnton_Section_1.3/Anton1_3_Q36.pg
 value = 1
 max_attempts = -1
@@ -412,7 +412,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 41
+problem_id =  41
 source_file = Library/270/setLimitsRates3Infinite/ur_lr_3_18.pg
 value = 1
 max_attempts = -1
@@ -422,7 +422,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 42
+problem_id =  42
 source_file = Library/ma122DB/set2/s2_6_15.pg
 value = 1
 max_attempts = -1
@@ -432,7 +432,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 43
+problem_id =  43
 source_file = Library/AlfredUniv/anton8e/chapter2/2.2/prob12.pg
 value = 1
 max_attempts = -1
@@ -442,7 +442,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 44
+problem_id =  44
 source_file = Library/AlfredUniv/anton8e/chapter2/2.3/prob12.pg
 value = 1
 max_attempts = -1
@@ -452,7 +452,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 45
+problem_id =  45
 source_file = Library/Valdosta/APEX_Calculus/1.6/APEX_1.6_14.pg
 value = 1
 max_attempts = -1
@@ -462,7 +462,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 46
+problem_id =  46
 source_file = Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.2_Limits-_A_Numerical_and_Graphical_Approach/2.2.1.pg
 value = 1
 max_attempts = -1
@@ -472,7 +472,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 47
+problem_id =  47
 source_file = Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.1_Limits_Rates_of_Change_and_Tangent_Lines/2.1.7.pg
 value = 1
 max_attempts = -1
@@ -482,7 +482,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 48
+problem_id =  48
 source_file = Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.1_Limits_Rates_of_Change_and_Tangent_Lines/2.1.30.pg
 value = 1
 max_attempts = -1
@@ -492,7 +492,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 49
+problem_id =  49
 source_file = Library/ASU-topics/setRateChange/rich2.pg
 value = 1
 max_attempts = -1
@@ -502,7 +502,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 50
+problem_id =  50
 source_file = Library/maCalcDB/setLimitsRates1TangentVelocity/ns2_1_5a.pg
 value = 1
 max_attempts = -1
@@ -512,7 +512,7 @@ counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
-problem_id = 51
+problem_id =  51
 source_file = Library/Berkeley/StewCalcET7e/2.4/2-4-03.pg
 value = 1
 max_attempts = -1
@@ -521,4 +521,3 @@ prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
-
