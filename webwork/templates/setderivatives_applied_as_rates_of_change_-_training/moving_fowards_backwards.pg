@@ -84,13 +84,12 @@ BEGIN_PGML
 [@ openDiv({ "class" => "problemPurpose" }) @]*
 Training on modeling motion along a line:
 * moving forward / backward
-* speeding up / slowing down
 [@ closeDiv() @]*
 
 
-The first derivative answers the super-important question "how fast?".  From this arise two more questions:
-1. Is the object moving forward or backward?
-2. Is it speeding up or slowing down?
+The first derivative answers the super-important question "how fast?".  From this arises a question:
+* Is the object moving forward or backward?
+
 
 ---
 
@@ -138,6 +137,11 @@ Forward: \{ans_rule(35)\}
 $BR
 Backward: \{ans_rule(35)\}
 $PAR
+
+\{ openDiv({ "class" => "inProblemHint" }) \}
+Remember, time starts at \(t = 0\) in this problem.  Should t=0 be included or excluded? Is the object moving at time \(t = 0\)? Is the velocity zero at time \(t = 0\)?
+\{ closeDiv() \}
+
 END_TEXT
 
 $forward="[0,$a1)U($b1,inf)";
@@ -145,85 +149,7 @@ $backward="($a1,$b1)";
 ANS(interval_cmp($forward, strings=>["none"]),interval_cmp($backward, strings=>["none"] ));
 
 
-BEGIN_PGML
 
----
-
-
-##### Speeding up and slowing down
-
-Speeding up, two scenarios:
-
-1. Think about being in a car, starting moving from a red light.  You're speeding up!  Your speed is increasing.  And, your velocity is positive, too.
-
-2. Now, think about being in a car, backing out of a driveway.  The driver puts the car in reverse, and then they take their foot off the brake.  The car start moving backward.  As it does so, the car's speed is increasing!  But, your velocity is negative!!!
-
-[@ openDiv({ "class" => "importantFormula" }) @]*
-*Speeding up* is characterized by *increasing speed*
-[@ closeDiv() @]*
-
-Slowing down, two scenarios:
-
-1. The car is moving, and a light turns red in front of you.  You need to come to a stop -- to slow down.  Your speed decreases, and your velocity is positive.
-
-2. At the end of the driveway, when you're done backing out, the driver needs to come to a stop -- to slow down.  Your speed decreases, but your velocity is negative.
-
-[@ openDiv({ "class" => "importantFormula" }) @]*
-*Slowing down* is characterized by *decreasing speed*
-[@ closeDiv() @]*
-
----
-
-The situation for determining whether an object is speeding up or slowing down is complicated: 
-* speeding up can happen for velocities of either sign, positive or negative.
-* slowing down can happen for either sign of velocity, too.
-
-It's not the sign of the velocity that determines speeding up or slowing down.  It's whether the speed is increasing or decreasing.
-
-[@ openDiv({ "class" => "importantFormula" }) @]*
-Speed is absolute value of velocity
-
-* Speeding up:
-    * [`\textnormal{speed}`] is increasing
-    * [`\frac{d}{dt} (\textnormal{speed})`] is positive
-* Slowing down:
-    * [`\textnormal{speed}`] is decreasing
-    * [`\frac{d}{dt} (\textnormal{speed})`] is negative
-    
-    
-[@ closeDiv() @]*
-
-
-END_PGML
-
-
-BEGIN_TEXT
-🎯 Use interval notation to indicate the time interval(s) when the particle is speeding up and slowing down.
-$PAR
-Speeding up: \{ans_rule(35)\}
-$BR
-Slowing down: \{ans_rule(35)\}
-$PAR
-$BITALIC Instructor's note: Remember, time start at \(t = 0\) in this problem.  Should t=0 be included or excluded? Is the object moving at time \(t = 0\)? Is the velocity zero at time \(t = 0\)?$EITALIC
-
-END_TEXT
-
-
-$AverageOfa1b1=($a1+$b1)/2;
-$speedup="($a1,$AverageOfa1b1)U($b1,inf)";
-$slowdown="[0,$a1)U($AverageOfa1b1,$b1)";
-ANS(interval_cmp($speedup, strings=>["none"] ),interval_cmp($slowdown, strings=>["none"]));
-
-
-
-
-
-BEGIN_HINT
-In the Rogawski 4th edition textbook, see Section 3.4, Example 5, page 156.
-
-\{amethystHint("$PAR$HR$PAR See this 24-minute video for a thorough explanation of 'speeding up' and 'slowing down', from Prof. Amethyst: $PAR")\}
-\{ youtubeAmethyst("ZuoCGPMQFyU") \}
-END_HINT
 
 
 

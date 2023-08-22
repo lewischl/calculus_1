@@ -16,15 +16,6 @@
 ## Section1('')
 ## Problem1('')
 
-########################################
-# this file automatically moved
-#	from setproving_grounds/ProductRuleIntroduction.pg 
-#	to setderivatives_product_rule_-_training/ProductRuleIntroduction.pg 
-#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
-# if this problem uses static images, they should also have been moved from that location to here.
-# if not, look in the source directory for images that didn't make it.
-########################################
-
 
 DOCUMENT();        # This should be the first executable line in the problem.
 
@@ -39,6 +30,8 @@ loadMacros(
   "PGcourse.pl",           # Customization file for the course
    "customCSS.pl",
    "parserPopUp.pl",   # <--------------------------------------NEEDED FOR DROPDOWN MENUS
+   "parserFunction.pl",
+   "parserFunctionPrime.pl"
 );
 
 loadMacros("niceTables.pl");
@@ -51,9 +44,16 @@ $same_derivative = PopUp(
   "yes");
 
 Context("Numeric");
+parser::FunctionPrime->Enable();
+parserFunction("f(x)" => "x^3"); # dummy function
+parserFunction("g(x)" => "x^4"); # dummy function
 Context()->noreduce('(-x)-y');
 Context()->noreduce('(-x)+y');
-Context()->variables->add(u=>"Real", h=>"Real", n=>"Real", k=>"Real", f=>"Real", g=>"Real");
+Context()->variables->add(u=>"Real", h=>"Real", n=>"Real", k=>"Real");
+
+$sum=Compute("f'(x)+g'(x)");
+$difference=Compute("f'(x)-g'(x)");
+$constant_multiple=Compute("k*f'(x)");
 
 $y1=non_zero_random(-10,10);
 $m1=non_zero_random(-10,10);
@@ -69,7 +69,8 @@ $c5=random(2,10);
 
 $f1_nearby=Formula("$m1(x+h)+$b1")->reduce;
 
-$power_rule=Formula("nx^{n-1}");
+$power_rule=Formula("nx^(n-1)");
+$negative_exponent_derivative=Formula("-x^(-2)")->reduce;
 $square_root_derivative=Formula("(1/2)x^(-1/2)");
 
 $g1=Formula("x^(1/2)")->reduce;
@@ -103,7 +104,7 @@ $g5d=Formula("-4*x^(-5)")->reduce;
 #  The scaffold
 Scaffold::Begin();
 ###########################################
-Section::Begin("Part 1a: Definition review & constant");
+Section::Begin("Definition review & constant");
 
 Context()->texStrings;
 BEGIN_PGML
@@ -121,7 +122,7 @@ Retype that here: [`f(x)=`] [_]{$y1}
 END_PGML
 Section::End();
 
-Section::Begin("Part 1b");
+Section::Begin("Slope");
 
 BEGIN_PGML
 
@@ -132,7 +133,7 @@ Based on what you know from algebra, what is the slope of [`y=[$y1]`]? [_]{0}
 END_PGML
 Section::End();
 
-Section::Begin("Part 2: Constants");
+Section::Begin("Does the definition agree?");
 
 BEGIN_PGML
 
@@ -155,7 +156,7 @@ Is this the same answer as before? [_]{$same_derivative}
 END_PGML
 Section::End();
 
-Section::Begin("Part 3a: Other straight lines");
+Section::Begin("Other straight lines");
 
 BEGIN_PGML
 
@@ -166,7 +167,7 @@ Meanwhile, [`f(x+h)=`] [_]{$f1_nearby}
 END_PGML
 Section::End();
 
-Section::Begin("Part 3b");
+Section::Begin("Does the definition agree?");
 
 BEGIN_PGML
 
@@ -185,7 +186,7 @@ Is this the same answer as before? [_]{$same_derivative}
 END_PGML
 Section::End();
 
-Section::Begin("Part 4: Higher exponents");
+Section::Begin("Higher exponents");
 
 BEGIN_PGML
 
@@ -265,7 +266,7 @@ So for any exponent [`n`], no matter how large:
 END_PGML
 Section::End();
 
-Section::Begin("Part 5a: Negative exponents");
+Section::Begin("Negative exponents");
 
 BEGIN_PGML
 
@@ -273,14 +274,14 @@ Let's see if [`f(x)=\frac1x=x^{-1}`] also fits this pattern.
 
 In this case, [`n=-1`], so we should expect
 
-[`f'(x)=nx^{n-1}=`] [_]{Formula("-x^{-2}")}
+[`f'(x)=nx^{n-1}=`] [_]{$negative_exponent_derivative}
 
 Let's see if this matches what we get from the definition:
 
 END_PGML
 Section::End();
 
-Section::Begin("Part 5b");
+Section::Begin("Does the definition agree?");
 
 BEGIN_PGML
 
@@ -306,7 +307,7 @@ Is this the same answer as before? [_]{$same_derivative}
 END_PGML
 Section::End();
 
-Section::Begin("Part 6a: Fractional exponents");
+Section::Begin("Fractional exponents");
 
 BEGIN_PGML
 
@@ -321,7 +322,7 @@ Let's see if this matches what we get from the definition:
 END_PGML
 Section::End();
 
-Section::Begin("Part 6b");
+Section::Begin("Does the definition agree?");
 
 BEGIN_PGML
 
@@ -349,7 +350,7 @@ Is this the same answer as before? [_]{$same_derivative}
 END_PGML
 Section::End();
 
-Section::Begin("Part 7: Power Rule");
+Section::Begin("Power Rule");
 
 BEGIN_PGML
 
@@ -369,7 +370,7 @@ Retype it here:
 END_PGML
 Section::End();
 
-Section::Begin("Part 8: Sums and differences");
+Section::Begin("Sums and differences");
 
 BEGIN_PGML
 
@@ -404,15 +405,15 @@ Similarly,
 
 Fill in the missing pieces of both answers below:
 
-[`\frac d{dx}[f(x)+g(x)]=`] [_]{Formula("f")}[`'\big(`][_]{Formula("x")}[`\big)+`] [_]{Formula("g")}[`'\big(`][_]{Formula("x")}[`\big)`]
+[`\frac d{dx}[f(x)+g(x)]=`] [_]{$sum}
 
-[`\frac d{dx}[f(x)-g(x)]=`] [_]{Formula("f")}[`'\big(`][_]{Formula("x")}[`\big)-`] [_]{Formula("g")}[`'\big(`][_]{Formula("x")}[`\big)`]
+[`\frac d{dx}[f(x)-g(x)]=`] [_]{$difference}
 
 END_PGML
 
 Section::End();
 
-Section::Begin("Part 9: Constant multiples");
+Section::Begin("Constant multiples");
 
 BEGIN_PGML
 
@@ -434,13 +435,13 @@ Suppose [`f`] is any function and [`k`] is any real number. Using the definition
 
 Retype the answer here:
 
-[`\frac d{dx}[k\cdot f(x)]=`] [_]{Formula("k")}[`\cdot`][_]{Formula("f")}[`'\big(`][_]{Formula("x")}[`\big)`]
+[`\frac d{dx}[k\cdot f(x)]=`] [_]{$constant_multiple}
 
 END_PGML
 
 Section::End();
 
-Section::Begin("Part 10: e");
+Section::Begin("e");
 
 BEGIN_PGML
 
@@ -503,7 +504,7 @@ END_PGML
 
 Section::End();
 
-Section::Begin("...");
+Section::Begin("=...");
 
 BEGIN_PGML
 

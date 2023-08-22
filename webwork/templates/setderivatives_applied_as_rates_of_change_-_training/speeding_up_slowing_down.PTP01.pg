@@ -67,6 +67,9 @@ loadMacros(
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
+Context('Numeric');
+Context()->variables->add(t=>"Real");
+
 $a1 = random(1,3,1);
 $b1 = random(4,7,1);
 ##velocity is v(t) = 6(t-a)(t-b)
@@ -76,8 +79,22 @@ $d1 = 3*($a1+$b1);
 $e1 = 6*$a1*$b1;
 
 
-Context()->texStrings;
+$position = Formula("2t^3 - $d1 t^2 + $e1 t");
+$velocity = $position->D;
 
+$v_positive = Interval("[0,$a1)U($b1,infinity)");
+$v_negative = Interval("($a1,$b1)");
+$v_zero = List(($a1, $b1));
+
+$v_pos_decreasing = Interval("[0,$a1)");
+$v_pos_increasing = Interval("($b1,infinity)");
+
+$v_crit_pt = ($a1+$b1)/2;# parabola, so crit point halfway between
+
+$v_neg_decreasing = Interval("($a1,$v_crit_pt)"); 
+$v_neg_increasing = Interval("($v_crit_pt,$b1)");
+
+Context()->texStrings;
 
 BEGIN_PGML
 
@@ -88,66 +105,18 @@ Training on modeling motion along a line:
 [@ closeDiv() @]*
 
 
-The first derivative answers the super-important question "how fast?".  From this arise two more questions:
-1. Is the object moving forward or backward?
-2. Is it speeding up or slowing down?
+The first derivative answers the super-important question "how fast?".  From this arises a question a related to our human ways of talking about change:
+
+* Is it speeding up or slowing down?
 
 ---
-
-Here's a scenario to consider:
-END_PGML
-
-BEGIN_TEXT
-\{ openDiv({ "class" => "promptOrInstruction" }) \}
-A particle moves along a straight line and its position at time \(t\)
-is given by \[ s(t)= 2t^3 - $d1 t^2 + $e1 t, \quad t \geq 0 \] where \( s \) is measured in feet and
-\( t \) in seconds.  
-\{ closeDiv() \}
-
-$PAR
-END_TEXT
-
-
-BEGIN_PGML
-
-##### Forward and backward
-
-The velocity (first derivative) includes sign information -- it can be positive or negative.  Remember:
-* "increasing [`f`]" is the same is "positive [`f'`]"
-* "decreasing [`f`]" is the same is "negative [`f'`]"
-
-What does increasing mean when [`f`] is a position function?  It means that the object is moving forward along the linear path, with respect to a reference position.   Similarly, decreasing position function means that the object is moving backwards along the path.  And if the velocity is zero, the object is, at least momentarily, not moving.
-
-Summarized:
-
-[@ openDiv({ "class" => "importantFormula" }) @]*
-With [`s(t)`] as position and [`v(t)`] as velocity,
-* [`v(t) > 0`], moving forward
-* [`v(t) < 0`], moving backward
-* [`v(t) = 0`], stationary
-[@ closeDiv() @]*
-
 
 END_PGML
 
 
-BEGIN_TEXT
-🎯 Use interval notation to indicate the time interval or union of time intervals when the particle is moving forward and backward.
-$PAR
-Forward: \{ans_rule(35)\}
-$BR
-Backward: \{ans_rule(35)\}
-$PAR
-END_TEXT
-
-$forward="[0,$a1)U($b1,inf)";
-$backward="($a1,$b1)";
-ANS(interval_cmp($forward, strings=>["none"]),interval_cmp($backward, strings=>["none"] ));
-
 
 BEGIN_PGML
 
----
 
 
 ##### Speeding up and slowing down
@@ -174,6 +143,8 @@ Slowing down, two scenarios:
 
 ---
 
+ℹ️ Speed is not velocity!
+
 The situation for determining whether an object is speeding up or slowing down is complicated: 
 * speeding up can happen for velocities of either sign, positive or negative.
 * slowing down can happen for either sign of velocity, too.
@@ -189,12 +160,82 @@ Speed is absolute value of velocity
 * Slowing down:
     * [`\textnormal{speed}`] is decreasing
     * [`\frac{d}{dt} (\textnormal{speed})`] is negative
-    
-    
 [@ closeDiv() @]*
 
+We need to figure out how to deal with the derivative of the absolute value of a velocity.  That's what this problem is aimed at training.
+
+---
+
+Problem scenario:
 
 END_PGML
+
+
+BEGIN_TEXT
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
+A particle moves along a straight line and its position at time \(t\)
+is given by \[ s(t)= $position, \quad t \geq 0 \] where \( s \) is measured in feet and
+\( t \) in seconds.  
+\{ closeDiv() \}
+
+$PAR
+END_TEXT
+
+BEGIN_PGML
+
+We'll start by finding where velocity is positive and negative, to help us deal with the absolute value part of speed.
+
+🎯 What is the formula for the *velocity*?
+
+[`v(t) = `] [_]{$velocity}
+
+🎯 For [`t\geq 0`]...  
+* [`v(t)`] is positive on [_]{$v_positive}  (Use interval notation)
+* [`v(t)`] is negative on [_]{$v_negative}  (Use interval notation)
+* [`v(t)`] is zero at [`t =`] [_]{$v_zero}  (Use a comma-separated list)
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Speed is absolute value of velocity
+[@ closeDiv() @]*
+
+🧠 Think about the way absolute value works:
+* [`|f| = f`] if [`f`] is positive
+* [`|f| = -f`] if [`f`] is negative
+
+We're trying to ask: *when is speed increasing*, to answer *when is speeding up?*  We have to think about the derivative of the absolute value of velocity, and it's complicated because of the piecewise nature of the absolute value function.  
+
+Here's a summary of the classification for speeding up and slowing down:
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Speeding up is same as:
+* speed increasing, which can occur one of two ways:
+    * [`v(t)`] positive and [`v'(t)`] positive
+    * [`v(t)`] negative and [`v'(t)`] negative
+
+Slowing down is same as:
+* speed decreasing, which can occur one of two ways:
+    * [`v(t)`] positive and [`v'(t)`] negative
+    * [`v(t)`] negative and [`v'(t)`] positive
+[@ closeDiv() @]*
+
+Speeding up is velocity moving away from 0.  Slowing down is velocity moving towards 0.  
+
+🎯 Determine the intervals, and use interval notation.  I suggest you use a plot of [`v(t)`] to help you.
+* Of the intervals on which [`v(t)`] is positive, [`v'(t)`] is __positive__ (and [`v`] is increasing) on [_]{$v_pos_increasing}
+* Of the intervals on which [`v(t)`] is positive, [`v'(t)`] is __negative__ (and [`v`] is decreasing) on [_]{$v_pos_decreasing}
+
+* Of the intervals on which [`v(t)`] is negative, [`v'(t)`] is positive (and [`v`] is increasing) on [_]{$v_neg_increasing}
+* Of the intervals on which [`v(t)`] is negative, [`v'(t)`] is negative (and [`v`] is decreasing) on [_]{$v_neg_decreasing}
+
+ℹ️ Speeding up, [`v`] and [`v'`] have same sign.  Slowing down, [`v`] and [`v'`] have opposive sign.
+
+---
+
+END_PGML
+
+##velocity is v(t) = 6(t-a)(t-b)
+##position is s(t) = 2t^3-3(a+b)t^2+6abt
+
 
 
 BEGIN_TEXT
@@ -204,7 +245,9 @@ Speeding up: \{ans_rule(35)\}
 $BR
 Slowing down: \{ans_rule(35)\}
 $PAR
-$BITALIC Instructor's note: Remember, time start at \(t = 0\) in this problem.  Should t=0 be included or excluded? Is the object moving at time \(t = 0\)? Is the velocity zero at time \(t = 0\)?$EITALIC
+\{ openDiv({ "class" => "inProblemHint" }) \}
+Instructor's note: Remember, time start at \(t = 0\) in this problem.  Should \(t=0\) be included or excluded? Is the object moving at time \(t = 0\)? Is the velocity zero at time \(t = 0\)?
+\{ closeDiv() \}
 
 END_TEXT
 

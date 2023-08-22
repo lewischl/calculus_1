@@ -69,9 +69,9 @@ Section::Begin("Part a");
 BEGIN_TEXT
 $PAR
 In terms of \(a\), \(f\), and \(h\), give the coordinates of points \(P\) and \(R\). $PAR
-\(P\) has coordinates \((\) \{ ans_rule(10) \} \(,\) \{ ans_rule(10) \}\()\).
+\(P\) has coordinates \(\Big(\) \{ ans_rule(10) \} \(,\) \{ ans_rule(10) \}\(\Big)\).
 $PAR
-\(R\) has coordinates \((\) \{ ans_rule(10) \} \(,\) \{ ans_rule(10) \}\()\).
+\(R\) has coordinates \(\Big(\) \{ ans_rule(10) \} \(,\) \{ ans_rule(10) \}\(\Big)\).
 
 END_TEXT
 Context()->normalStrings;

@@ -16,18 +16,6 @@
 ## Section1('')
 ## Problem1('')
 
-
-
-########################################
-# this file automatically moved
-#	from setproving_grounds/ChainRuleIntroduction.pg 
-#	to setderivatives_chain_rule_-_training/ChainRuleIntroduction.pg 
-#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
-# if this problem uses static images, they should also have been moved from that location to here.
-# if not, look in the source directory for images that didn't make it.
-########################################
-
-
 DOCUMENT();        # This should be the first executable line in the problem.
 
 
@@ -110,7 +98,7 @@ $g3d=Formula("($b11*$b8)*x^($b8-1)+($b10*$b9)*x^($b9-1)")->reduce;
 #  The scaffold
 Scaffold::Begin();
 ###########################################
-Section::Begin("Part 1: Passcode");
+Section::Begin("Passcode");
 
 Context()->texStrings;
 BEGIN_PGML
@@ -122,7 +110,7 @@ Enter the passcode from the previous question: [_]{$passcode1}
 END_PGML
 Section::End();
 
-Section::Begin("Part 2: Chain Rule");
+Section::Begin("Introducing the Chain Rule!");
 
 BEGIN_PGML
 
@@ -190,7 +178,7 @@ Retype that final answer here:
 END_PGML
 Section::End();
 
-Section::Begin("Part 3: Chain Rule practice");
+Section::Begin("Chain Rule practice");
 
 BEGIN_PGML
 
@@ -282,7 +270,7 @@ END_PGML
 
 Section::End();
 
-Section::Begin("Part 4a: Does the Chain Rule agree with other methods?");
+Section::Begin("Does the Chain Rule agree with other methods?");
 
 BEGIN_PGML
 
@@ -322,12 +310,12 @@ BEGIN_PGML
 END_PGML
 Section::End();
 
-Section::Begin("Part 4b");
+Section::Begin("...");
 
 BEGIN_PGML
 
 
-[`f'(g(x))\cdot g'(x)=[$ans15](`][_]{Formula("[$b0]x+[$b1]")->reduce}[`)`]
+[`f'(g(x))\cdot g'(x)=[$ans15]\Big(`][_]{Formula("[$b0]x+[$b1]")->reduce}[`\Big)`]
 
 Now simplify this!
 
@@ -343,7 +331,4 @@ $showPartialCorrectAnswers = 1;
 Section::End();
 
   Scaffold::End();
-
-COMMENT('MathObject version');
-COMMENT('Complicated chain rule problem in the code');
 ENDDOCUMENT();

@@ -16,17 +16,7 @@
 ## Section1('')
 ## Problem1('')
 
-
-
-########################################
-# this file automatically moved
-#	from setproving_grounds/ProductRuleIntroduction.pg 
-#	to setderivatives_product_rule_-_training/ProductRuleIntroduction.pg 
-#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
-# if this problem uses static images, they should also have been moved from that location to here.
-# if not, look in the source directory for images that didn't make it.
-########################################
-
+# THERE ARE DERIVATIVES OF SIN AND COS IN THIS PROBLEM, BUT NOT OTHER TRIG FUNCTIONS. I (WARREN SHULL) PLAN ON TEACHING DERIVATIVES OF SINE AND COSINE BEFORE TEACHING THE PRODUCT RULE.
 
 DOCUMENT();        # This should be the first executable line in the problem.
 
@@ -107,7 +97,7 @@ Context()->variables->add(u=>"Real");
 #  The scaffold
 Scaffold::Begin();
 ###########################################
-Section::Begin("Part 1: Sum and Difference review");
+Section::Begin("Sum and Difference review");
 
 Context()->texStrings;
 BEGIN_PGML
@@ -121,7 +111,7 @@ Let [`f(x)=[$b1]*x^[$b2]-[$b3]\sin x+[$b4]e^x`]. Then
 END_PGML
 Section::End();
 
-Section::Begin("Part 2: Example of a product");
+Section::Begin("Example of a product");
 
 BEGIN_PGML
 
@@ -150,7 +140,7 @@ Let [`f(x)=[$f]`] and [`g(x)=[$g]`]. Let's try multiplying their derivatives:
 
 Retype these two answers in the parentheses (in order), and then FOIL them out (in order).
 
->>[``f'(x)*g'(x)=\big(``][_]{Formula("[$b5]*[$b6]*x^([$b6]-1)+[$b7]*[$b8]*x^([$b8]-1)")->reduce} [``\big)\big(``][_]{Formula("[$b9]*[$b10]*x^([$b10]-1)+[$b11]*[$b12]*x^([$b12]-1)")->reduce} [``\big)
+>>[``f'(x)*g'(x)=\Big(``][_]{Formula("[$b5]*[$b6]*x^([$b6]-1)+[$b7]*[$b8]*x^([$b8]-1)")->reduce}[``\Big)\Big(``][_]{Formula("[$b9]*[$b10]*x^([$b10]-1)+[$b11]*[$b12]*x^([$b12]-1)")->reduce}[``\Big)
 =``] [_]{Formula("[$b5]*[$b6]*x^([$b6]-1)*[$b9]*[$b10]*x^([$b10]-1)")->reduce} [``
 +``] [_]{Formula("[$b5]*[$b6]*x^([$b6]-1)*[$b11]*[$b12]*x^([$b12]-1)")->reduce} [``
 +``] [_]{Formula("[$b7]*[$b8]*x^([$b8]-1)*[$b9]*[$b10]*x^([$b10]-1)")->reduce} [``
@@ -161,13 +151,13 @@ Is that the derivative of [`f(x)*g(x)`]? Let's find out!
 END_PGML
 Section::End();
 
-Section::Begin("Part 3: Multiplying out the product");
+Section::Begin("Multiplying out the product");
 
 BEGIN_PGML
 
 As before, [`f(x)=[$f]`] and [`g(x)=[$g]`]. Let's multiply them and FOIL them out! Make sure to keep everything in order as before.
 
->>[``f(x)*g(x)=\big(``][_]{Formula("[$b5]*x^[$b6]+[$b7]*x^[$b8]")->reduce} [``\big)\big(``][_]{Formula("[$b9]*x^[$b10]+[$b11]*x^[$b12]")->reduce}[``\big)
+>>[``f(x)*g(x)=\Big(``][_]{Formula("[$b5]*x^[$b6]+[$b7]*x^[$b8]")->reduce} [``\Big)\Big(``][_]{Formula("[$b9]*x^[$b10]+[$b11]*x^[$b12]")->reduce}[``\Big)
 =``] [_]{Formula("[$b5]*x^[$b6]*[$b9]*x^[$b10]")->reduce} [``
 +``] [_]{Formula("[$b5]*x^[$b6]*[$b11]*x^[$b12]")->reduce} [``
 +``] [_]{Formula("[$b7]*x^[$b8]*[$b9]*x^[$b10]")->reduce} [``
@@ -182,12 +172,12 @@ As before, [`f(x)=[$f]`] and [`g(x)=[$g]`]. Let's multiply them and FOIL them ou
 [$b7]*[$b11]*([$b8]+[$b12])*x^([$b8]+[$b12]-1)
 ")->reduce}<<
 
-Does this match your answer in the previous part? [_]{$productmatches}
+Is this the same answer as [`f'(x)*g'(x)`]? [_]{$productmatches}
 
 END_PGML
 Section::End();
 
-Section::Begin("Part 4a: Product Rule");
+Section::Begin("Product Rule");
 
 BEGIN_PGML
 
@@ -231,7 +221,7 @@ BEGIN_PGML
 
 Put it all together (in order):
 
->>[``(fg)'(x)=\frac d{dx}[f(x)g(x)]=f'(x)\cdot g(x)+g'(x)\cdot f(x)=\big(``][_]{$fp}[`\big)\cdot\big(`][_]{$g}[`\big)+\big(`][_]{$gp}[`\big)\cdot\big(`][_]{$f}[`\big)`]<<
+>>[``(fg)'(x)=\frac d{dx}[f(x)g(x)]=f'(x)\cdot g(x)+g'(x)\cdot f(x)=\Big(``][_]{$fp}[`\Big)\cdot\Big(`][_]{$g}[`\Big)+\Big(`][_]{$gp}[`\Big)\cdot\Big(`][_]{$f}[`\Big)`]<<
 
 END_PGML
 
@@ -276,7 +266,7 @@ Now FOIL out both pairs of factors (in order)
 END_PGML
 Section::End();
 
-Section::Begin("Part 4b: Product Rule");
+Section::Begin("Simplify");
 
 BEGIN_PGML
 
@@ -284,12 +274,12 @@ Simplify your previous answer.
 
 >>[``(fg)'(x)=``][_]{$fp*$g+$gp*$f}<<
 
-Does this match your answer from Part 3? [_]{$productrulematches}
+Does this match your answer from the "Multiplying out the product" part? [_]{$productrulematches}
 
 END_PGML
 Section::End();
 
-Section::Begin("Part 6: More practice");
+Section::Begin("More practice");
 
 BEGIN_PGML
 
@@ -310,8 +300,8 @@ END_PGML
 
 ANS(Formula("e^x")->cmp());
 ANS(Formula("e^x")->cmp());
-ANS(Formula("sin x")->cmp());
-ANS(Formula("cos x")->cmp());
+ANS(Formula("sin(x)")->cmp());
+ANS(Formula("cos(x)")->cmp());
 
 #$fgp=Formula("e^x*(sin(x)+cos(x))")->reduce
 
@@ -339,8 +329,8 @@ END_PGML
 #$new_f=Formula("x^3+$b13")->cmp();
 ANS($new_f);
 ANS(Formula("3x^2")->cmp());
-ANS(Formula("cos x")->cmp());
-ANS(Formula("-sin x")->cmp());
+ANS(Formula("cos(x)")->cmp());
+ANS(Formula("-sin(x)")->cmp());
 
 #$newfgp=Formula("3x^2*cos(x)-(x^3+$b13)*sin(x)")->reduce;
 
@@ -386,6 +376,4 @@ Section::End();
 
   Scaffold::End();
 
-COMMENT('MathObject version');
-COMMENT('Complicated chain rule problem in the code');
 ENDDOCUMENT();

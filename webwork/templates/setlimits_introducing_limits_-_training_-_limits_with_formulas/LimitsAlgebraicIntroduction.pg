@@ -1,34 +1,14 @@
 # DESCRIPTION
 ## DBsubject('Calculus')
-## DBchapter('Limits and Derivatives')
-## DBsection('Tangents, Velocities, and Other Rates of Change')
-## KEYWORDS('calculus', 'velocity', 'rates of change')
+## DBchapter('Limits')
+## DBsection('Investigating Limits')
+## KEYWORDS('Limits')
 ## TitleText1('Calculus: Early Transcendentals')
-## EditionText1('2')
+## EditionText1('4')
 ## AuthorText1('Rogawski')
-## Section1('2.1')
-## Problem1('6')
-## Institution('W.H.Freeman')
-
-########################################
-# this file automatically moved
-#	from local/Library-Rogawski/2_Limits/2.1_Limits_Rates_of_Change_and_Tangent_Lines/2.1.6.pg 
-#	to setlimits_average_rates_of_change/2.1.6.pg 
-#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
-# if this problem uses static images, they should also have been moved from that location to here.
-# if not, look in the source directory for images that didn't make it.
-########################################
-
-########################################
-# this file automatically moved
-#	from setlimits_average_rates_of_change/2.1.6.pg 
-#	to setlimits_-_rates_of_change_-_training/2.1.6.pg 
-#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
-# if this problem uses static images, they should also have been moved from that location to here.
-# if not, look in the source directory for images that didn't make it.
-########################################
-
-# Copied and modified by Warren Shull (UWEC) July 29, 2023
+## Section1('2.2')
+## Institution('UW Eau Claire')
+## Copied and modified by Warren Shull (UWEC) July 29, 2023
 
 DOCUMENT();
 loadMacros("PG.pl",
@@ -320,12 +300,12 @@ END_PGML
 $table=DataTable(
 [
     ['\(x\)',"rounding",'\(g(x)\)'],
-    ['\('.$d1.'\)',2,ans_rule(10)],
-    ['\('.$d2.'\)',3,ans_rule(10)],
-    ['\('.$d3.'\)',4,ans_rule(10)],
-    ['\('.$d4.'\)',2,ans_rule(10)],
-    ['\('.$d5.'\)',3,ans_rule(10)],
-    ['\('.$d6.'\)',4,ans_rule(10)],
+    ['\('.$d1.'\)',3,ans_rule(10)],
+    ['\('.$d2.'\)',4,ans_rule(10)],
+    ['\('.$d3.'\)',5,ans_rule(10)],
+    ['\('.$d4.'\)',3,ans_rule(10)],
+    ['\('.$d5.'\)',4,ans_rule(10)],
+    ['\('.$d6.'\)',5,ans_rule(10)],
 ],
 align => '|l | c|l|',
 midrules => 1,
@@ -335,28 +315,28 @@ tablecss => " border-spacing:0px 0px; border-radius: 5px; border-collapse:separa
 TEXT(ColumnTable($table,$desmos_div2));
 
 #Context()->{format}{number} = "%18.15f";
-Context()->{format}{number} = "%.2f";
-
-ANS(Real(sprintf("%.2f",$gd1))->cmp());
-
 Context()->{format}{number} = "%.3f";
 
-ANS(Real(sprintf("%.3f",$gd2))->cmp());
+ANS(Real(sprintf("%.3f",$gd1))->cmp());
+
+Context()->{format}{number} = "%.4f";
+
+ANS(Real(sprintf("%.4f",$gd2))->cmp());
 
 #ANS(Real(sprintf("%.3f",$gd2->value))->cmp(tolType   => 'absolute',tolerance => .01));
-Context()->{format}{number} = "%.4f";
+Context()->{format}{number} = "%.5f";
 
-ANS(Real(sprintf("%.4f",$gd3))->cmp());
-
-Context()->{format}{number} = "%.2f";
-
-ANS(Real(sprintf("%.2f",$gd4))->cmp());
+ANS(Real(sprintf("%.5f",$gd3))->cmp());
 
 Context()->{format}{number} = "%.3f";
-ANS(Real(sprintf("%.3f",$gd5))->cmp());
-Context()->{format}{number} = "%.4f";
 
-ANS(Real(sprintf("%.4f",$gd6))->cmp());
+ANS(Real(sprintf("%.3f",$gd4))->cmp());
+
+Context()->{format}{number} = "%.4f";
+ANS(Real(sprintf("%.4f",$gd5))->cmp());
+Context()->{format}{number} = "%.5f";
+
+ANS(Real(sprintf("%.5f",$gd6))->cmp());
 
 #ANS(Real(sprintf("%.8f",$gd6))->cmp(tolType   => 'absolute',tolerance => 1e-7));
 Context()->{format}{number} = "%g";

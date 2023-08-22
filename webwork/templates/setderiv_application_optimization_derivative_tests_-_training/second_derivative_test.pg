@@ -27,7 +27,6 @@ loadMacros(
    "PGtikz.pl",
 );
 
-COMMENT("uses CSS in `customCSS.pl` for styling");
 loadMacros("customCSS.pl");
 
 # Print problem number and point value (weight) for the problem
@@ -226,9 +225,9 @@ $y5max=$f->eval(x=>$c1left);
 $y5inf=$f->eval(x=>$i1);
 
 $t2x1=$i1-1;
-$t2d1=$fp->eval(x=>$t2x1);
+$t2d1=$fpp->eval(x=>$t2x1);
 $t2x2=$i1+1;
-$t2d2=$fp->eval(x=>$t2x1);
+$t2d2=$fpp->eval(x=>$t2x2);
 
 $second_line1->BEGIN_TIKZ
 \tikzset{>={Stealth[scale=2]}}
@@ -304,8 +303,7 @@ END_TIKZ
 #
 #
 
-Scaffold::Begin(can_open => "always",
-      is_open  => "always");
+Scaffold::Begin(can_open => "when_previous_correct");
 
 BEGIN_PGML
 
@@ -395,7 +393,7 @@ BEGIN_PGML
 END_PGML
 
 Section::End();
-Section::Begin("Problem 1 pictures");
+Section::Begin("Problem 5 pictures");
 
 $column1 = $desmos_div ."$PAR $PAR $PAR $PAR ". $desmos_div2;
 
@@ -403,7 +401,7 @@ $column2 = $desmos_div3 ."$PAR $PAR $PAR $PAR ". $desmos_div4;
 
 BEGIN_PGML
 
-Recall these pictures from Problem 1:
+Recall these pictures from Problem 5:
 
 END_PGML
 
@@ -452,7 +450,7 @@ Here are the number lines for both the first and second derivative:
 
 >> [@ image($both_lines, width => 400, tex_size => 600) @]* <<
 
-We can combine them into one! On the combined number line, we need a tick mark wherever _either_ of the two lines had a tick mark. 🎯 List the numbers where either of the two lines (or both) have a tick mark:
+We can combine them into one! On the combined number line, we need a tick mark wherever _either_ of the two lines had a tick mark. 🎯 List the numbers where either of the two lines (or both) have a tick mark, in increasing order:
 
 [_]{List("$c1left,$i1,$c1right")}
 
@@ -554,10 +552,10 @@ $top4 = $g4_max + 2;
 $left4 = $x4_min - 2;
 $bottom4 = $g4_min - 2;
 
-$right5 = $c1right + 2;
-$top5 = $y5max + 2;
-$left5 = $c1left - 2;
-$bottom5 = $y5min - 2;
+$right5 = $c1right + 4;
+$top5 = $y5max + (($y5max-$y5min)/10);
+$left5 = $c1left - 4;
+$bottom5 = $y5min - (($y5max-$y5min)/10);
 
 TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 <script>

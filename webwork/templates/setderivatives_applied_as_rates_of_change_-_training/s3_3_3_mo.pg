@@ -10,8 +10,8 @@
 ## DBsubject('Calculus')
 ## DBchapter('Differentiation')
 ## DBsection('Rates of Change in the Natural and Social Sciences')
-## Date('6/3/2002')
-## Author('')
+## Date('6/3/2002, 2023')
+## Author('unknown, then silviana amethyst')
 ## Institution('')
 ## TitleText1('Calculus: Early Transcendentals')
 ## EditionText1('6')
@@ -47,7 +47,8 @@ DOCUMENT();        # This should be the first executable line in the problem.
 loadMacros(
 "PGbasicmacros.pl",
 "PGanswermacros.pl",
-"Parser.pl"
+"Parser.pl",
+"PGcourse.pl",
 );
 
 TEXT(beginproblem());
@@ -56,25 +57,64 @@ $showPartialCorrectAnswers = 1;
 $a1 = random(6,8,1);
 $b1 = random(2,5,1);
 
+Context()->texStrings;
+
+
+$table = DataTable([
+[["math",headerrow=>1],"","facing with object","horizontal path","vertical path", "abstractly"],
+["\( v(t)> 0 \)","same as moving...","forward", "right", "up", "positive direction"],
+["\( v(t)< 0 \)","same as moving...","backward", "left", "down", "negative direction"],
+],
+tablecss=>$standardtablecss);
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on modeling motion along a line:
+* evaluating velocity at a time, versus finding the time at which a velocity is attained
+* stationary / at rest is velocity 0
+* more ways to talk about moving forward backward
+[@ closeDiv() @]*
+
+There's a big difference between asking these two questions:
+1. What's the velocity at time [`t`]?
+2. At what time is velocity [`v`] attained?
+
+The first is evaluation, the second is solving an equation.
+
+---
+
+On the topic of language about forward / backward... We use different phrasing depending on the "orientation" of the path.  Sometimes up and down, sometimes left and right.  Here's a table summarizing common language conventions:
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+[@ $table @]*
+[@ closeDiv() @]*
+---
+
+END_PGML
 BEGIN_TEXT
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
 A particle moves according to the law of motion
 \[ s=t^3-$a1 t^2 + $b1 t, \quad t\ge 0, \]
 \(t\ge 0\), where \(t\) is measured in seconds and \(s\) in feet. $BR$BR
+\{ closeDiv() \}
+$PAR
 
-$BBOLD a.) $EBOLD Find the velocity at time \(t\). $BR
-Answer: \{ans_rule(30) \} $BR$BR
+Find the velocity at any time \(t\). $BR
+The velocity is \{ans_rule(30) \} fps$BR$BR
 
-$BBOLD b.) $EBOLD What is the velocity after \(3\) seconds? $BR
-Answer: \{ans_rule(30) \} $BR$BR
+What is the velocity after \(3\) seconds? $BR
+The velocity at this specific time is \{ans_rule(30) \} fps$BR$BR
 
-$BBOLD c.) $EBOLD When is the particle at rest?  Enter your answer
+When is the particle at rest?  $BR $SPACE (Enter your answer
 as a comma separated list.  Enter $BITALIC None$EITALIC if the particle
-is never at rest.
+is never at rest.)
 $BR
-Answer: \{ans_rule(30) \}
+Particle is at rest at times \{ans_rule(30) \} seconds
 $BR$BR
-$BBOLD d.) $EBOLD When is the particle moving in the positive direction? $BR
-When \(0\leq t<\) \{ans_rule(20) \} and \(t>\) \{ans_rule(20) \}
+When is the particle moving in the positive direction? $BR
+When \(0\leq t<\) \{ans_rule(20) \} and \(t>\) \{ans_rule(20) \} seconds
 
 $BR$BR
 (Use exact values or lots of decimal places!)
@@ -89,5 +129,4 @@ ANS(num_cmp("($a1-sqrt($a1^2-3*$b1))/3"));
 ANS(num_cmp("($a1+sqrt($a1^2-3*$b1))/3"));
 
 
-COMMENT('MathObject version');
 ENDDOCUMENT();

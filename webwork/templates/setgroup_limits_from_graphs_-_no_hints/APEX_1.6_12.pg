@@ -95,11 +95,11 @@ If you are having a hard time seeing the picture clearly, click
 on the picture.  It will expand to a larger picture on its own page so
 that you can inspect it more clearly.
 $PAR
-a) \(\displaystyle \lim_{x \to -\infty} f(x)\) = \{ ans_rule{8} \}
+a) \(\displaystyle \lim_{x \to -\infty} f(x)\) = \{ ans_rule(8) \}
 $BR
-b) \(\displaystyle \lim_{x \to \infty} f(x)\) = \{ ans_rule{8} \}
+b) \(\displaystyle \lim_{x \to \infty} f(x)\) = \{ ans_rule(8) \}
 $BR
-c) \(\displaystyle \lim_{x \to 0} f(x)\) = \{ ans_rule{8} \}
+c) \(\displaystyle \lim_{x \to 0} f(x)\) = \{ ans_rule(8) \}
 END_TEXT
 
 Context()->normalStrings;

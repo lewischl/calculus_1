@@ -16,20 +16,7 @@
 ## Section1('')
 ## Problem1('')
 
-
-
-########################################
-# this file automatically moved
-#	from setproving_grounds/CompositionReview.pg 
-#	to setderivatives_chain_rule_-_training/CompositionReview.pg 
-#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
-# if this problem uses static images, they should also have been moved from that location to here.
-# if not, look in the source directory for images that didn't make it.
-########################################
-
-
 DOCUMENT();        # This should be the first executable line in the problem.
-
 
 loadMacros(
   "PGstandard.pl",
@@ -45,8 +32,6 @@ loadMacros(
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
-
-
 $b2=non_zero_random(-10,10);
 $b3=non_zero_random(-10,10);
 $b4=non_zero_random(-10,10);
@@ -60,6 +45,11 @@ $b9=random(2,10);
 while ($b9==$b8){
     $b9=random(-10,10);
 }
+
+Context()->noreduce('(-x)-y');
+
+$f=Formula("$b2*x+$b3")->reduce;
+$g=Formula("$b4*x+$b5")->reduce;
 
 $b1=non_zero_random(-10,10);
 $b10=non_zero_random(-10,10);
@@ -104,11 +94,42 @@ $ans7 = Formula("$b14/([$b17]*x+[$b13])")->reduce;
 
 ###################################
 # Main text
-###########################################
+
+BEGIN_PGML
+
+In this section, we will find the derivatives of compositions of functions, such as [`f(g(x))`]. Here is a quick refresher on what compositions are (this video also appeared in the composition review homework set):
+
+END_PGML
+
+Scaffold::Begin(can_open => "always", is_open => "never");
+Section::Begin("Function composition (7:41)");
+
+BEGIN_PGML
+
+[@
+kalturaShull("1_3fssli1q")
+@]*
+
+END_PGML
+
+Section::End();
+
+Scaffold::End();
+
+BEGIN_TEXT
+$PAR
+END_TEXT
+
+BEGIN_PGML
+
+In this problem, we will practice finding compositions. In the next one, we will see how to take their derivatives.
+
+END_PGML
+
 #  The scaffold
 Scaffold::Begin();
 ###########################################
-Section::Begin("Part 1: Basic compositions");
+Section::Begin("Basic compositions");
 
 Context()->texStrings;
 BEGIN_PGML
@@ -120,9 +141,12 @@ while
 
 [``` g(f(x))=g\left(x^2\right)=x^2+[$b1] ```]
 
+END_PGML
+Context()->noreduce('(-x)-y');
+BEGIN_PGML
 -----
 
-Let [` f(x)=[$b2]x+[$b3] `] and [` g(x)=[$b4]x+[$b5] `].
+Let [` f(x)=[$f]`] and [` g(x)=[$g]`].
 
 What is [` f(g(x)) `] ? [____]{$ans3}
 
@@ -263,5 +287,4 @@ Section::End();
 
   Scaffold::End();
 
-COMMENT('MathObject version');
 ENDDOCUMENT();

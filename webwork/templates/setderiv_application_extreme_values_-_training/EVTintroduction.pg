@@ -25,7 +25,6 @@ loadMacros(
    "parserPopUp.pl",   # <--------------------------------------NEEDED FOR DROPDOWN MENUS
 );
 
-COMMENT("uses CSS in `customCSS.pl` for styling");
 loadMacros("customCSS.pl");
 
 # Print problem number and point value (weight) for the problem
@@ -46,7 +45,8 @@ $unique_div_id2 = "parabola_restricted";
 $unique_div_id3 = "fifth_restricted";
 $unique_div_id4 = "fifth_unrestricted";
 $unique_div_id5 = "fifth_unrestricted_tangent_line";
-$width = 700;
+$unique_div_id6 = "tangent_line_with_dragable_point";
+$width = 400;
 $height = 400;
 
 HEADER_TEXT(MODES(
@@ -79,6 +79,12 @@ $desmos_div5 = MODES(
     TeX=>'Interactive graph best viewed online'
 );
 
+$desmos_div6 = MODES(
+    HTML=>qq(<div id="$unique_div_id6" style="width: ${width}px; height: ${height}px;"></div>), 
+    TeX=>'Interactive graph best viewed online'
+);
+
+
 ##############################################################
 #
 #  Setup
@@ -105,7 +111,8 @@ $x2_right = $x2+2.5;
 $x2_start = $x2-1;
 $x2_fake = $x2+1;
 
-$f2 = Formula("3*(x-$x2)^5-20*(x-$x2)^3+$y2");
+$f2_str = "3*(x-$x2)^5-20*(x-$x2)^3+$y2";
+$f2 = Formula($f2_str);
 $y2_left = $f2->eval(x=>$x2_left);
 $y2_right = $f2->eval(x=>$x2_right);
 $y2_bottom = $f2->eval(x=>$x2_bottom);
@@ -120,8 +127,10 @@ $passcode1 = random(1000,9999);
 #
 #  Text
 
-Scaffold::Begin(can_open => "always",
-      is_open  => "never");
+Scaffold::Begin(
+      can_open => "when_previous_correct",
+      is_open  => "first_incorrect"
+);
 
 BEGIN_PGML
 
@@ -211,7 +220,7 @@ Here we see the same function as before, without any restriction.
 
 [@ $desmos_div4 @]*
 
-This has _no absolute maximum or minimum_. Any point you choose on the graph, I can find other points both higher and lower (scrolling or zooming if necessary).
+This has _no absolute maximum or minimum_. Any point you choose on the graph, I can find other points both higher and lower (scrolling or zooming out if necessary).
 
 Look at the point [`([$x2_top],[$y2_top])`] (shown in red). Even though it is not an absolute maximum, in some ways it "looks" like a maximum compared to the other points near it.
 
@@ -289,8 +298,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 
     var my_calculator = Desmos.Calculator(arstarst, {
         keypad: false, 
-        //expressions: false, 
-        expressions: true,
+        expressions: false, 
         settingsMenu: true, 
         expressionsTopbar: true
     });
@@ -320,8 +328,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 
     var my_calculator = Desmos.Calculator(arstarst, {
         keypad: false, 
-        //expressions: false, 
-        expressions: true,
+        expressions: false,
         settingsMenu: true, 
         expressionsTopbar: true
     });
@@ -352,8 +359,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 
     var my_calculator = Desmos.Calculator(arstarst, {
         keypad: false, 
-        //expressions: false, 
-        expressions: true,
+        expressions: false,
         settingsMenu: true, 
         expressionsTopbar: true
     });
@@ -384,8 +390,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 
     var my_calculator = Desmos.Calculator(arstarst, {
         keypad: false, 
-        //expressions: false, 
-        expressions: true,
+        expressions: false,
         settingsMenu: true, 
         expressionsTopbar: true
     });
@@ -419,20 +424,18 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 
     var my_calculator = Desmos.Calculator(arstarst, {
         keypad: false, 
-        //expressions: false, 
-        expressions: true,
+        expressions: false,
         settingsMenu: true, 
         expressionsTopbar: true
     });
     
     my_calculator.setExpressions([
-        { id: 'slider', latex: 'a=$x2_start', sliderBounds: {min: $x2_left-2, max: $x2_right+2, step: 0.1}},
-        { id: 'base_point', latex: '(a, f(a))', color: Desmos.Colors.BLACK},
-        { id: 'tangent_line', latex: 'y = f\'(a)*(x-a) + f(a)', label: 'tangent line', color: Desmos.Colors.BLACK},
-        { latex: ' '},{ latex: ' '},{ latex: ' '},{ latex: ' '},{ latex: ' '},{ latex: ' '},{ latex: ' '},
-        { id: 'function', latex: 'f(x) = $f2', color: Desmos.Colors.GREEN},
+        { id: 'slider', latex: 'a=$x2_start', sliderBounds: {min: $x2_left-2, max: $x2_right+2, secret:'true', step: 0.1}},
+        { id: 'function', latex: 'f(x) = $f2_str', color: Desmos.Colors.GREEN},
         { id: 'local_max', latex: '($x2_top,$y2_top)', color: Desmos.Colors.RED},
         { id: 'local_min', latex: '($x2_bottom,$y2_bottom)', color: Desmos.Colors.BLUE},
+        { id: 'base_point', latex: '(a, f(a))', color: Desmos.Colors.BLACK},
+        { id: 'tangent_line', latex: 'y = f\'(a)*(x-a) + f(a)', label: 'tangent line', color: Desmos.Colors.BLACK},
     ]);
     
     my_calculator.setMathBounds({

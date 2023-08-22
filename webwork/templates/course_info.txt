@@ -16,9 +16,6 @@ A Webwork course based on multiple types of purpose-driven content:
 <p>
 If you find a bug, something that doesn't look right, or other incorrect behaviour, please report it via email to your instructor, including the name of the homework set and the problem number. Screenshots of issues are very helpful, a  picture is worth a thousand words!
 </p>
-<p>
-If you find a bug, something that doesn't look right, or other incorrect behaviour, please report it via email to your instructor, including the name of the homework set and the problem number. Screenshots of issues are very helpful, a  picture is worth a thousand words!
-</p>
 <h2>Credits</h2>
 <p>
 Content created by: 

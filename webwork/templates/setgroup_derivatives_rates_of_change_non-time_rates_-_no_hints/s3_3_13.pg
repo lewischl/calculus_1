@@ -57,8 +57,6 @@ $BR
 when \(r=$a1\): \{ans_rule(20) \}
 $BR
 when \(r=$b1\): \{ans_rule(20) \}
-$BR
-$BBOLD Note: $EBOLD You may input $BITALIC pi $EITALIC for \(\pi\).
 
 END_TEXT
 

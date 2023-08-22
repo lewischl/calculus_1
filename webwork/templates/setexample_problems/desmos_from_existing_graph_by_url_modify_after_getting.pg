@@ -11,6 +11,7 @@ loadMacros(
 "contextInequalities.pl",
 "PGcourse.pl",
 "customCSS.pl",
+"desmos.pl",
 );
 
 TEXT(beginproblem());
@@ -28,14 +29,15 @@ $unique_div_id = "desmos_calculator";
 $width = 800;
 $height = 400;
 
-HEADER_TEXT(MODES(
-    HTML=>'<script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3plus/1.7.3/d3plus.js"></script>
-    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>',
+desmos_enable_modify_existing(); # this call replaces the below lines.  the call is into "desmos.pl", use `loadMacros()` with it.
+## HEADER_TEXT(MODES(
+##     HTML=>'<script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+##     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.js"></script>
+##     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3plus/1.7.3/d3plus.js"></script>
+##     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>',
     
-    TeX=>''
-));
+##     TeX=>''
+## ));
 
 $desmos_div = MODES(
     HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
@@ -119,8 +121,7 @@ Context()->normalStrings;
 # derived heavily from https://groups.google.com/g/desmos-api-discuss/c/kkQDgkeucVo
 
 
-$DOLLAR = '$'; # this is so stupid.  i needed dollar sign in the script below for jquery.  
-$d = "$DOLLAR"; # make a single dollar sign.  yes, this is stupid, but necessary cuz i couldn't figure out how to just put a dollar sign in the script code below.
+$d = '$'; # make a single dollar sign.  yes, this is stupid, but necessary cuz i couldn't figure out how to just put a dollar sign in the script code below.
 
 $graphUrl = "https://www.desmos.com/calculator/qy245qav8c"; # the URL of the graph to embed.
 

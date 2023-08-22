@@ -48,6 +48,8 @@ Context("Numeric");
 
 Context()->variables->add(u=>"Real", dx=>"Real", du=>"Real");
 
+Context()->noreduce('(-x)-y');
+
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
@@ -169,7 +171,7 @@ Section::End();
 
 
 
-Section::Begin("Part 2: Complete example of 'undoing the Chain Rule': \(\exp(\textnormal{polynomial})\)");
+Section::Begin("Part 2: Complete example of 'undoing the Chain Rule'");
 
 BEGIN_PGML
 
@@ -321,7 +323,7 @@ We are finished! Notice that the derivative of your answer is the integrand we s
 END_PGML
 Section::End();
 
-Section::Begin("Part 4a: Practice problem: \( \sin(\textnormal{polynomial})\)");
+Section::Begin("Part 4a: Another practice problem");
 
 #$g3=Formula("$b11*x^$b8+$b10*x^$b9")->reduce;
 #$g3d=Formula("($b11*$b8)*x^($b8-1)+($b10*$b9)*x^($b9-1)")->reduce;

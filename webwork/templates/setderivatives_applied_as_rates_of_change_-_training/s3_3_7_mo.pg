@@ -59,6 +59,7 @@ loadMacros(
   "PGcourse.pl"
 );
 
+COMMENT("todo: add interactive graph to visualize finding when velocity is equal, both via slopes of s, and height of v");
 TEXT(beginproblem());
 ########################################
 # Setup
@@ -82,13 +83,57 @@ $zero = Compute("(2*$a + sqrt((2*$a)^2 - 4*3*(-$b - $x)))/(2*3)");
 # Main Text
 
 Context()->texStrings;
-BEGIN_TEXT
+
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Derivatives are the tool we use to answer the question "how fast".  This problem offers training on interpretation of the first derivative of position as velocity.
+[@ closeDiv() @]*
+
+Motion of particles, celestial bodies, object moving on lines, are a common subject of study in Calculus 1.  
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The standard name for a *position function* is [`s(t)`], or simply [`s`].
+[@ closeDiv() @]*
+
+When we differentiate and produce a __slope function__, __first derivative__, or __instantaneous rate of change__, it means something concrete to the original function.  In the context of modeling of motion, the first derivative is the *velocity*.
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The first derivative of position is velocity.
+
+[```
+s'(t) = \frac{ds}{dt} = v(t) = \textnormal{velocity}
+```]
+[@ closeDiv() @]*
+
+We often, though not always, start our equation of motion at time [`t = 0`], and restrict our domain to [`t\geq 0`].   
+
+---
+
+In this problem, we have the position function, and we want to find the time at which a certain velocity is attained.  So we're not going to evaluate the velocity function, but instead solve an equation using the velocity.
+
+Here's the problem statement:
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
 The position function of a particle is given by
-\( s(t) = $f \), \(t\ge 0\) where \(s\) is measured in meters and \(t\) in seconds. 
+[` s(t) = [$f] `], [`t\ge 0`] where [`s`] is measured in meters and [`t`] in seconds. 
+
+When does the particle reach a velocity of [`[$x]`] [`\text{m}/\text{s}`]?
+[@ closeDiv() @]*
+
+To start, it would be nice to have a name for this time.  It's a special time, so let's call it [`t^\ast`].
+We're asking you to solve an equation, [`v(t^\ast) = [$x]`].  
+
+🎯 Determine [`v(t)`] by differentiating, and solve for [`t^\ast`].  If you find a negative time, disregard it due to the domain restriction.
+END_PGML
+
+BEGIN_TEXT
+
 $PAR
-When does the particle reach a velocity of \($x\) m/s?
-$BR$BR
-Answer: \{ans_rule(40) \}
+\( t^\ast = \) \{ans_rule(40) \}
 END_TEXT
 Context()->normalStrings;
 

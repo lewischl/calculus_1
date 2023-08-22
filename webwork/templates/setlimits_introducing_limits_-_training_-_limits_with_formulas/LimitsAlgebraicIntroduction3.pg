@@ -1,34 +1,14 @@
 # DESCRIPTION
 ## DBsubject('Calculus')
-## DBchapter('Limits and Derivatives')
-## DBsection('Tangents, Velocities, and Other Rates of Change')
-## KEYWORDS('calculus', 'velocity', 'rates of change')
+## DBchapter('Limits')
+## DBsection('Investigating Limits')
+## KEYWORDS('Limits', 'one-sided', 'infinity')
 ## TitleText1('Calculus: Early Transcendentals')
-## EditionText1('2')
+## EditionText1('4')
 ## AuthorText1('Rogawski')
-## Section1('2.1')
-## Problem1('6')
-## Institution('W.H.Freeman')
-
-########################################
-# this file automatically moved
-#	from local/Library-Rogawski/2_Limits/2.1_Limits_Rates_of_Change_and_Tangent_Lines/2.1.6.pg 
-#	to setlimits_average_rates_of_change/2.1.6.pg 
-#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
-# if this problem uses static images, they should also have been moved from that location to here.
-# if not, look in the source directory for images that didn't make it.
-########################################
-
-########################################
-# this file automatically moved
-#	from setlimits_average_rates_of_change/2.1.6.pg 
-#	to setlimits_-_rates_of_change_-_training/2.1.6.pg 
-#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
-# if this problem uses static images, they should also have been moved from that location to here.
-# if not, look in the source directory for images that didn't make it.
-########################################
-
-# Copied and modified by Warren Shull (UWEC) August 8, 2023
+## Section1('2.2')
+## Institution('UW Eau Claire')
+## Copied and modified by Warren Shull (UWEC) August 8, 2023
 
 DOCUMENT();
 loadMacros("PG.pl",
@@ -237,7 +217,7 @@ $cts_neither = PopUp(
 TEXT(beginproblem());
 Context()->texStrings;
 
-Scaffold::Begin();
+Scaffold::Begin(can_open => "when_previous_correct", is_open  => "first_incorrect");
 ###########################################
 Section::Begin("Passcode");
 

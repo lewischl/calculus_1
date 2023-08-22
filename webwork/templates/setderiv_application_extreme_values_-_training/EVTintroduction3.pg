@@ -74,6 +74,7 @@ $f = Formula("2*x^3-$a*x^2+$b*x+$y1")->reduce;
 $fp = Formula("6*x^2-2*$a*x+$b")->reduce;
 $fpc = Formula("6*c^2-2*$a*c+$b")->reduce;
 $g_partial = Formula("x-$c")->reduce;
+$g_partial_c = Formula("c-$c")->reduce;
 $g = Formula("x-3*((x-$c)^2)^(1/3)+$d"); #displays badly; only using to evaluate
 $gp = Formula("1-2*(x-$c)^(-1/3)");
 $gpc = Formula("1-2*(c-$c)^(-1/3)");
@@ -122,8 +123,10 @@ $passcode2 = random(1000,9999);
 #
 #  Text
 
-Scaffold::Begin(can_open => "always",
-      is_open  => "always");
+Scaffold::Begin(
+      can_open => "when_previous_correct",
+      is_open  => "first_incorrect"
+);
 
 Section::Begin("Passcode");
 
@@ -171,7 +174,7 @@ Let [`f(x)=[$f]`]. Let's find the absolute maximum and minimum of [`f`] on [`[[$
 
 [`f'(x)=`] [_]{$fp}
 
-We need all values of [`c`] such that [`f'(c)=0`] or [`f'(c)`] does not exist. In this case, [`f'(c)`] will always exist, but we can set [`f'(c)=0`]. Type [`f'(c)`] in the box below:
+We need all values of [`c`] such that [`f'(c)=0`] or [`f'(c)`] does not exist. In this case, [`f'(c)`] will always exist, but we can set [`f'(c)=0`]. Type [`f'(c)`] in the box below (same as your previous answer, but replace each [`x`] with [`c`]):
 
 [_]{$fpc} [` =0`]
 
@@ -194,7 +197,7 @@ Recall that the interval is [`[[$left],[$right]]`].
 
 To find the maximum and minimum, we test the critical numbers and the endpoints of the interval. List those four [`x`] values, separated by commas: [_]{List("$left,$x1,$x2,$right")};
 
-Now we evaluate [`f`] at each of these [`x`]-values. Enter the [`x`]-values in increasing order, then plug 
+Now we evaluate [`f`] at each of these [`x`]-values. Enter the [`x`]-values in increasing order on the left, then enter the correct [`y`]-value in each box on the right.
 
 Enter the [`x`]-value at the left endpoint (the first number in the interval). Then find the [`y`]-value. of the interval:
 
@@ -244,7 +247,7 @@ Section::Begin("Nonexistent derivative");
 
 BEGIN_PGML
 
-But we also need the values where [`g'(c)`] does not exist. In this case, that will happen when [`\sqrt[3]{[$g_partial]}=0`]. Solve this for [`c`].
+But we also need the values where [`g'(c)`] does not exist. In this case, that will happen when [`\sqrt[3]{[$g_partial_c]}=0`]. Solve this for [`c`].
 
 [`c=`] [_]{$c}
 
