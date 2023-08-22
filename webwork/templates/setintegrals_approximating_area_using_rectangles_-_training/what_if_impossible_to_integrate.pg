@@ -1,0 +1,194 @@
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   "contextFraction.pl",
+   "desmos.pl",
+);
+
+COMMENT("uses a modified desmos graph via external URL");
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+
+
+
+
+$unique_div_id = "desmos_graph";
+desmos_enable_modify_existing();
+$desmos_width= 800;
+$desmos_height=400;
+$desmos_graph = MODES(
+    HTML=>qq(<div id="$unique_div_id" style="width: ${desmos_width}px; height: ${desmos_height}px;"></div>), 
+    TeX=>'Interactive graph best viewed online'
+);
+
+
+Context("Fraction");
+
+$f = Formula("1/(sqrt(2 pi)) e^(-1/2 * x^2)");
+##############################################################
+#
+#  Text
+#
+#
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Motivation and training on why approximating areas with rectangles is necessary.  
+
+In particular, if the integrand is impossible to symbolically integrate we cannot use FTOC1.
+[@ closeDiv() @]*
+
+
+The definite integral is the signed area between [`f`] and the [`x`]-axis.  It's important because
+* the signed area represents net change, where [`f`] is the rate of change.
+
+We can compute exact signed area using the incredible Fundamental Theorem of Calculus 1:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*FTOC1*
+
+[```
+\int_a^b f(x)\, dx = F(b)-F(a)
+```]
+
+1. Indefinitely integrate to find [`F`].
+2. Evaluate [`F`]
+3. Subtract
+[@ closeDiv() @]*
+
+🧠 But what if step 1 is impossible!?!?  What if we don't know the antiderivative????
+
+---
+
+Consider the integrand corresponding to the probablity density function normal distribution:  (it's ok if this is your first time seeing it)
+
+[```f(x) = [$f]```]
+
+This function has no symbolic antiderivative --- it's a proven mathematical fact.  No alien or human will ever find the formula [`F`] such that [`\frac{dF}{dx} = f`].
+
+But the area under [`f`] is really important.  The area under [`f`] represents the probability of observing outcomes of a normally-distributed process.  And the normal distribution is __everywhere__.  
+
+🧠 How to compute areas under the normal distribution, if no symbolic antiderivative will ever be found??!
+
+---
+
+The answer to the conundrum is approximation.  We satisfy ourselves with a number really close to [`\int_a^b f(x) \, dx`].  Since this is Calculus 1, we'll train you on a relatively simple method: *approximation using rectangles*.  The methods implemented on computers are much more sophisticated.
+
+This is an interactive graph showing approximation of [`` \int_{-2}^2 [$f] \, dx ``], using a variable number of rectangles [`n`], where the heights of the rectangles are determined by their left endpoints.  
+
+[@ $desmos_graph @]*
+
+🎯 Use the Desmos graph to answer the questions.
+
+* What is the approximate value of [`` \int_{-2}^2 [$f] \, dx ``] using [`n=1`] rectangle? [_]{Real(0.21596387)}
+* What is the approximate value using [`n=5`] rectangles? [_]{Real(0.94312269)}
+* Using [`n=20`] rectangles? [_]{Real(0.95378034)}
+* Using [`n=50`] rectangles? [_]{Real(0.95438457)}
+
+In principle, how many rectangles must we use to get the value exactly?  [_]{Infinity}
+
+---
+
+The process of breaking a region into smaller approximate areas and adding them up is called "numerical integration".  
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem demonstrates the need to approximate signed areas for definite integration.  Some integrands cannot be symbolically integrated, and numerical integration is the only technique that works.
+[@ closeDiv() @]*
+END_PGML
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#################
+#
+# DESMOS
+#
+
+
+$d = '$'; # make a single dollar sign.  yes, this is stupid, but necessary cuz i couldn't figure out how to just put a dollar sign in the script code below.
+
+$graphUrl = "https://www.desmos.com/calculator/2bbgikmpwx"; # the URL of the graph to embed.
+
+# for an explantion of what << does, see https://stackoverflow.com/questions/11948338/what-is-print-eof-and-how-is-it-working
+TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );  
+<script>
+<!-- //
+    
+    var elt = document.getElementById("$unique_div_id");
+
+    var calc = Desmos.Calculator(elt, {
+        keypad: false, 
+        expressions: true,
+        settingsMenu: false, 
+        expressionsTopbar: false,
+        zoomButtons: false,
+    });
+    
+    
+    function modifyExistingState(json)
+    {
+    var state = json.state;
+        var exprlist = state.expressions.list;
+        
+        for (let ii = 1; ii < exprlist.length; ii++) {
+          state.expressions.list[ii].secret = true;
+        } 
+
+     calc.setState(state);
+    
+    
+    }
+
+    $d.getJSON("$graphUrl", modifyExistingState);
+
+
+// -->
+</script>
+END_SCRIPT
+
+#     calc.setMathBounds({
+#       left: $left,
+#       right: $right,
+#       bottom: $bottom,
+#       top: $top
+#     });
+
+
+
+ENDDOCUMENT();

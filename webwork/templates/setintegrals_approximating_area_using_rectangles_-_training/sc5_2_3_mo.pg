@@ -1,0 +1,472 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by tda2d
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Integrals)
+## DBsection(Riemann sums)
+## Institution(Rochester, UWEC 2023)
+## Author(Unknown, then silviana amethyst)
+## MLT(small)
+## MLTleader(1)
+## Level(2)
+## MO(1)
+## KEYWORDS('integral' 'summation' 'area' 'riemann')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Rochester/setIntegrals0Theory/sc5_2_3_mo.pg 
+#	to setintegrals_approximating_area_using_rectangles/sc5_2_3_mo.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_approximating_area_using_rectangles/sc5_2_3_mo.pg 
+#	to setintegrals_approximating_area_using_rectangles_-_training/sc5_2_3_mo.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",   					
+  "PGgraphmacros.pl",
+"PGcourse.pl"         # Customization file for the course
+);
+
+TEXT(beginproblem());
+########################################
+# Setup
+
+Context("Numeric");
+$showPartialCorrectAnswers = 1;
+
+Context()->flags->set(reduceConstants=>0);
+Context()->flags->set(reduceConstantFunctions=>0);
+Context()->normalStrings;
+
+
+
+
+HEADER_TEXT(MODES(
+    HTML=>'<script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3plus/1.7.3/d3plus.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>',
+    
+    TeX=>''
+));
+
+
+
+$desmos_width= 400;
+$desmos_height=300;
+    
+sub make_desmos_graph{
+
+    my $div_id = shift(@_);
+    my $desmos_graph = MODES(
+        HTML=>qq(<div id="$div_id" style="width: ${desmos_width}px; height: ${desmos_height}px;"></div>), 
+        TeX=>'Interactive graph best viewed online'
+    );
+
+    return $desmos_graph;
+}
+
+
+$unique_div_id_left = "desmos_graph_left";
+$unique_div_id_right = "desmos_graph_right";
+
+$desmos_graph_left = make_desmos_graph($unique_div_id_left);
+$desmos_graph_right = make_desmos_graph($unique_div_id_right);
+
+
+
+
+$a = -2;      ## left endpoint
+$b = 2;
+$n = 4;
+
+$deltax = ($b-$a)/$n;        ## delta x
+$dx = $deltax;
+
+$f = Formula("-x^2 + 3");
+
+
+$fmin = $f->eval(x=>$a) -0.5;
+$fmax = $f->eval(x=>0) + 0.5;
+
+
+
+
+
+
+
+
+
+
+
+# The following function receives a value and returns the value of the function $f at the value of the input
+sub myfunc {
+    $x = shift @_;
+    return $f->eval(x=>"$x");
+}
+
+# This foreach loop populates an array of value of the function $f  at 0,1,...,n-1
+@f_vals = ();
+foreach $i (0 .. $n - 1) {
+push (@f_vals, myfunc($a + $dx*$i));
+}
+
+$str = join("+" , @f_vals);     # Create a string out of the arrays values
+$left = Compute("$dx*($str)");  # Riemann approx with left endpoints 
+
+
+########################################
+# Main Text
+
+Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on technique for approximation of definite integrals using a sum of rectangles --- "numerical integration".
+[@ closeDiv() @]*
+
+Some definite integrals cannot be computed exactly; it's a mathematical fact we have to work around.  We satisfy ourselves with approximation of areas defined by definite integrals.
+
+This problem teaches the table method, where we develop a table of values to facilitate computation.
+
+---
+
+As part of the process of approximation, we have to *choose* where to evaluate [`f`] to determine the heights of the rectangles. Common choices
+1. Left endpoints
+2. Right endpoints
+3. Midpoints
+
+This problem will cover left- and then right-endpoints
+
+---
+
+#### Left endpoint method
+
+Problem statement:
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Approximate [``\int_{[$a]}^{[$b]} ([$f]) \, dx``] using [`[$n]`] rectangles and left endpoints.
+[@ closeDiv() @]*
+
+Here's a Desmos picture showing rectangles we'll be computing:
+
+[@ $desmos_graph_left @]*
+
+We need some ingredients:
+* The widths of the rectangles, which we call [`\Delta x`]
+* The heights of the rectangles
+* The areas
+
+The rectangles will all be of the same width.  The interval of integration is [`[[$a],[$b]]`].  
+
+🎯 If we break it into [`[$n]`] equal sub-intervals, what is the width of each sub-interval?
+
+* Widths of rectangles = [`\Delta x = `] [_]{Real(($b-$a)/$n)}
+
+Breaking into [`[$n]`] rectangles, there are [`[$n+1]`] endpoints.  🎯 From left to right, they are:
+
+* [`x_0 = `] [_]{$a+0*$deltax}
+* [`x_1 = `] [_]{$a+1*$deltax}
+* [`x_2 = `] [_]{$a+2*$deltax}
+* [`x_3 = `] [_]{$a+3*$deltax}
+* [`x_4 = `] [_]{$a+4*$deltax}
+
+---
+
+We need the heights of the rectangles, and we need somewhere to put them.  
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+I like to use a table to organize my data for approximation problems using the following columns:
+
+[`` \begin{array}{c|c|c | c}
+\textnormal{Index} & \textnormal{x-value} & \textnormal{Height} & \textnormal{Area} \\
+j & x_j & f(x_j) & f(x_j) \Delta x \\ \hline 
+0 & x_0 = [$a] & f([$a]) & f([$a]) \cdot \Delta x \\
+1 & x_1 = [$a]+\Delta x & f(x_1) & f(x_1) \cdot \Delta x\\
+\vdots &&& \\
+[$n] & x_[$n] = [$b] & f([$b]) & f([$b])\cdot \Delta x
+\end{array}
+``]
+[@ closeDiv() @]*
+
+Some notes:
+* The leftmost endpoint of the sub-intervals is always called [`x_0`], and the rightmost one is called [`x_n`].
+* The benefit of the table is that now I can add up values from the last column, which represents the areas of individual rectangles. 
+
+🎯 Complete the table, entering 
+* [`x_j`]: coordinate of left-endpoints of sub-intervals.
+* [`f(x_j)`]: height of rectangle.  ℹ️ Can be negative!
+* [`f(x_j) \cdot \Delta x`]: area of rectangle
+
+END_PGML
+
+BEGIN_TEXT
+\{
+DataTable([
+[["index", headerrow => 1], "left endpoint", "height", "area"],
+[["\(j\)", headerrow => 1], "\(x_j\)", "\(f(x_j)\)", "\(f(x_j) \cdot \Delta x\)"],
+["\(0\)", "\($a\)", "\(" . $f->eval(x=>$a) . "\)", "\(" . $f->eval(x=>$a) . "\cdot" . $deltax . "\)"],
+["\(1\)", ans_rule(10), ans_rule(10), ans_rule(10)],
+["\(2\)", ans_rule(10), ans_rule(10), ans_rule(10)],
+["\(3\)", ans_rule(10), ans_rule(10), ans_rule(10)],
+],
+tablecss=>$standardtablecss);
+\}
+
+$PAR
+
+ℹ️ Note that we only go to \(j = 3\), because there are only four rectangles and we started from the left.
+
+END_TEXT
+#caption=>"Data for approximation of integral using left endpoints"
+
+Context()->normalStrings;
+
+ANS(num_cmp($a+1*$deltax));
+ANS(num_cmp($f->eval(x=>$a+1*$deltax)));
+ANS(num_cmp( $f->eval(x=>$a+1*$deltax) * $deltax   ));
+
+ANS(num_cmp($a+2*$deltax));
+ANS(num_cmp($f->eval(x=>$a+2*$deltax)));
+ANS(num_cmp( $f->eval(x=>$a+2*$deltax) * $deltax   ));
+
+ANS(num_cmp($a+3*$deltax));
+ANS(num_cmp($f->eval(x=>$a+3*$deltax)));
+ANS(num_cmp( $f->eval(x=>$a+3*$deltax) * $deltax   ));
+
+
+
+Context()->texStrings;
+BEGIN_PGML
+
+---
+
+Now that we have our table of data, we can "add 'em up" --- take the sum of the areas of the individual rectangles.
+
+🎯 Compute the sum of the "area" column of the table of data.
+
+[`f(x_0)\Delta x + f(x_1)\Delta x + f(x_2)\Delta x + f(x_3)\Delta x = `] [_]{$left}
+
+Thus, we have approximated the area of the integral.  🎯 Complete the mathematical sentence.
+
+Using [`[$n]`] rectangles and left-endpoints, [``\int_{[$a]}^{[$b]} ([$f]) \, dx \approx``] [_]{$left}.
+
+END_PGML
+
+
+
+
+
+
+
+BEGIN_PGML
+
+---
+
+#### Right endpoint method
+
+The right-endpoint method is just like the left-.  We compute areas of rectangles, and add them up.  The heights come from the function we're integrating, and the points for evaluation are [`x`]-values from cutting up [`[a,b]`] into [`n`] equal pieces.
+
+Here's a Desmos graph for approximation of the same area, [``\int_{[$a]}^{[$b]} ([$f])\, dx``], using [`[$n]`] rectangles using __right__ endpoints:
+
+[@ $desmos_graph_right @]*
+
+
+---
+
+Complete the table of [`x`]-values, function values, and areas of rectangles.  ℹ️ The indexes start at 1 and go through 4 for the right endpoint method.  Heights can be negative.
+END_PGML
+
+
+BEGIN_TEXT
+\{
+DataTable([
+[["index", headerrow => 1], "left endpoint", "height", "area"],
+[["\(j\)", headerrow => 1], "\(x_j\)", "\(f(x_j)\)", "\(f(x_j) \cdot \Delta x\)"],
+["\(1\)", "\(" . ($a+$deltax) . "\)", "\(" . $f->eval(x=>$a+$deltax) . "\)", "\(" . $f->eval(x=>$a+$deltax) . "\cdot" . $deltax . "\)"],
+["\(2\)", ans_rule(10), ans_rule(10), ans_rule(10)],
+["\(3\)", ans_rule(10), ans_rule(10), ans_rule(10)],
+["\(4\)", ans_rule(10), ans_rule(10), ans_rule(10)],
+],
+tablecss=>$standardtablecss);
+\}
+
+$PAR
+
+END_TEXT
+#caption=>"Data for approximation of integral using right endpoints"
+
+Context()->normalStrings;
+
+ANS(num_cmp($a+2*$deltax));
+ANS(num_cmp($f->eval(x=>$a+2*$deltax)));
+ANS(num_cmp( $f->eval(x=>$a+2*$deltax) * $deltax   ));
+
+ANS(num_cmp($a+3*$deltax));
+ANS(num_cmp($f->eval(x=>$a+3*$deltax)));
+ANS(num_cmp( $f->eval(x=>$a+3*$deltax) * $deltax   ));
+
+ANS(num_cmp($a+4*$deltax));
+ANS(num_cmp($f->eval(x=>$a+4*$deltax)));
+ANS(num_cmp( $f->eval(x=>$a+4*$deltax) * $deltax   ));
+
+
+
+
+Context()->normalStrings;
+
+# This foreach loop populates an array of value of the function $f  at 1,...,n
+@f_vals = ();
+foreach $i (1 .. $n) {
+push (@f_vals, myfunc($a + $dx*$i));
+}
+
+$str = join("+" , @f_vals);         # Create a string out of the arrays values
+$right = Compute("$dx*($str)");     # Riemann approx with right endpoints
+
+Context()->texStrings;
+
+BEGIN_TEXT
+
+🎯 Add up the four areas of rectangles.  This is the approximation of the signed area.  
+$PAR
+Using \($n\) rectangles and right endpoints, \(\displaystyle \int_{$a}^{$b} ($f)\, dx \approx\) \{ans_rule(50)\} 
+
+END_TEXT
+ANS($right->cmp);
+
+
+
+
+
+
+
+
+
+BEGIN_HINT
+
+If you're looking for a conceptual explanation of what we're doing in this problem, check out this 5-minute video by Prof. Amethyst:$PAR
+
+\{ youtube("BAMQr94In0E") \}
+
+
+
+$PAR$HR$PAR If you're looking for a model of how to compute, check out this full-length lecture video, particularly starting at 55 minutes:
+
+
+\{ youtube("R7uWUvIkwI0") \}
+
+END_HINT
+Context()->normalStrings;
+
+########################################
+# Answers
+
+
+
+########################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#################
+#
+# DESMOS
+#
+
+
+$d = '$'; # make a single dollar sign.  yes, this is stupid, but necessary cuz i couldn't figure out how to just put a dollar sign in the script code below.
+
+$graphUrl_left = "https://www.desmos.com/calculator/tbnhdnnbre"; # the URL of the graph to embed.
+$graphUrl_right = "https://www.desmos.com/calculator/yp7vgzytir"; # the URL of the graph to embed.
+
+
+Context()->normalStrings;
+# for an explantion of what << does, see https://stackoverflow.com/questions/11948338/what-is-print-eof-and-how-is-it-working
+TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );  
+<script>
+<!-- //
+    
+    function make_graph(url,divname){
+        var elt = document.getElementById(divname);
+
+        var calc = Desmos.Calculator(elt, {
+            keypad: false, 
+            expressions: false,
+            settingsMenu: false, 
+            expressionsTopbar: false,
+            zoomButtons: false,
+        });
+
+
+        function modifyExistingState(json)
+        {
+        var state = json.state;
+            var exprlist = state.expressions.list;
+
+            state.expressions.list[3].latex = 'f(x) = $f';
+            // for (let ii = 1; ii < exprlist.length; ii++) {
+            //   state.expressions.list[ii].secret = true;
+            // } 
+
+         calc.setState(state);
+
+
+        }
+
+        $d.getJSON(url, modifyExistingState);
+    
+    }
+    
+    make_graph("$graphUrl_left", "$unique_div_id_left");
+    
+    make_graph("$graphUrl_right", "$unique_div_id_right");
+
+    
+    
+// -->
+</script>
+END_SCRIPT
+
+
+
+;
+ENDDOCUMENT();

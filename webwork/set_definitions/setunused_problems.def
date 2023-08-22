@@ -1,0 +1,25 @@
+assignmentType      = default
+openDate          = 02/14/2005 at 11:59pm CST
+reducedScoringDate = 02/21/2005 at 11:59pm CST
+dueDate           = 02/21/2005 at 11:59pm CST
+answerDate        = 02/23/2005 at 11:59pm CST
+enableReducedScoring = N
+paperHeaderFile   = defaultHeader
+screenHeaderFile  = defaultHeader
+description       = problems not used, but i'm a hoarder
+restrictProbProgression = 0
+emailInstructor   = 0
+
+problemListV2
+problem_start
+problem_id = 1
+source_file = setintegrals_FTOC_2_for_derivatives_of_integral_functions_-_training/which_is_an_antiderivative_checkbox.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+

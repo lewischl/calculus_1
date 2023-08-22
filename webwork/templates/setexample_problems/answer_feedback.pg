@@ -1,0 +1,151 @@
+## DBsubject(Algebra)
+## DBchapter(Functions)
+## DBsection(Definition, concept)
+## Institution(UWEC)
+## Author(Andrew Swanson)
+## Level(2)
+## MO(1)
+## KEYWORDS('function','definition','domain','range')
+ 
+##############################################
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "niceTables.pl",
+  "PGML.pl",
+  "answerHints.pl",
+  "PGcourse.pl",
+);
+
+COMMENT("example of: gives feedback for specific incorrect answers");
+
+# to show hints at all, this must be set
+$showPartialCorrectAnswers = 1;
+
+
+##############################################
+# make a relation of five non-identical points
+for my $i (0..4) {
+	do {
+		$x1[$i]=($i==3) ? $x1[1]:random(-10,10,1); # we force the x values of two points to be the same so it is not a function
+		$y1[$i]=random(-10,10,1);
+		$test = 0;
+        # check the current point against all previous points to make sure they are not identical
+		for my $j (0..$i-1) {$test += ($x1[$j]==$x1[$i] && $y1[$j]==$y1[$i])? 1:0}
+	} until ($test ==0); #Guarantee that the points are not identical
+	$point1[$i]=Point($x1[$i],$y1[$i]);
+}
+##########################################
+# Make a one-to-one function of three points
+for my $i (0..2) {
+	do {
+		$x2[$i]=random(-10,10,1); 
+		$y2[$i]=random(-10,10,1);
+		$test = 0;
+		for my $j (0..$i-1) {$test += ($x2[$j]==$x2[$i] || $y2[$j]==$y2[$i])? 1:0} # make it a one-to-one function
+	} until ($test ==0);
+	$point2[$i]=Point($x2[$i],$y2[$i]);
+}
+##################################
+# Make the error message for listing points without commas in between more meaningful
+
+Context("Point");
+Context()->{error}{msg}{"Operands of '*' are not of compatible types"} =
+         "Make sure all of your points are separated by commas";
+         
+###################################
+# Make point lists for each relation  (correct answers)
+$relation1 =List($point1[0],$point1[1],$point1[2],$point1[3],$point1[4]);
+$relation2 =List($point2[0],$point2[1],$point2[2]);
+
+################
+# we do the domain and range in Interval context so we can create relevant error messages for not treating the points as discrete
+
+Context("Interval");
+$domain1 = Set($x1[0],$x1[1],$x1[2],$x1[3],$x1[4]);   #correct
+$range1 = Set($y1[0],$y1[1],$y1[2],$y1[3],$y1[4]);    #correct
+
+# find the lowest and highest value in domain and range of first relation
+$minx = 10;$maxx = -10;$miny=10;$maxy=-10;     
+foreach my $x (@x1){$minx = $x<$minx?$x:$minx;$maxx=$x>$maxx?$x:$maxx;}
+foreach my $y (@y1){$miny = $y<$miny?$y:$miny;$maxy=$y>$maxy?$y:$maxy;}
+$wd1a = Set($minx,$maxx);  # student lists only lowest and highest value in range
+$msgda = "While those are the smallest and largest values in the domain, you should list all values in the domain.";
+$wd1b = Interval("[$minx,$maxx]");  # student thinks a domain must be an interval
+$msgdb = "While all values in the domain are in that interval, your set should include ONLY the x values represented in the table.";
+$wr1a = Set($miny,$maxy);  # student lists only lowest and highest value in range
+$msgra = "While those are the smallest and largest values in the range, you should list all values in the range.";
+$wr1b = Interval("[$miny,$maxy]"); # student thinks range must be an interval
+$msgrb = "While all values in the range are in that interval, your set should include ONLY the y values represented in the table.";
+$domain2 = Set($x2[0],$x2[1],$x2[2]);
+$range2 = Set($y2[0],$y2[1],$y2[2]);
+$minx = 10;$maxx = -10;$miny=10;$maxy=-10;
+foreach my $x (@x2){$minx = $x<$minx?$x:$minx;$maxx=$x>$maxx?$x:$maxx;}
+foreach my $y (@y2){$miny = $y<$miny?$y:$miny;$maxy=$y>$maxy?$y:$maxy;}
+$wd2a = Set($minx,$maxx);
+$wd2b = Interval("[$minx,$maxx]");
+$wr2a = Set($miny,$maxy);
+$wr2b = Interval("[$miny,$maxy]");
+
+
+TEXT(beginproblem());
+
+BEGIN_PGML
+
+a.  Consider the relation [:r:] defined by:
+
+ [:r =:]   [@
+DataTable(
+[
+["x", $x1[0], $x1[1], $x1[2], $x1[3], $x1[4]],
+["y", $y1[0], $y1[1], $y1[2], $y1[3], $y1[4]]
+],midrules => 1, rowheaders =>1,columnscss => [' ','border-left:solid 1px;','border-left:solid 1px;','border-left:solid 1px;','border-left:solid 1px;','border-left:solid 1px;']); @]***
+ 
+	Write the set of ordered pairs (separated by commas) that defines the relation. 
+
+ [:r = :] { [________________________________________________]{$relation1} }  
+           Notice you are already given the braces, write your points separated by commas.  
+   
+    What is the domain of the relation?    (Since a range is a _set_ of numbers, you should be using [`[$LBRACE]`] and [`[$RBRACE]`] in your answer.)  
+    [______________]{$domain1->cmp()->withPostFilter(AnswerHints(
+    $wd1a=>[$msgda,checkTypes=>0,replaceMessage=>1],
+    $wd1b=>[$msgdb,checkTypes=>0,replaceMessage=>1]))}  
+ 
+    What is the range of the relation?  (Since a range is a _set_ of numbers, you should be using [`[$LBRACE]`] and [`[$RBRACE]`] in your answer.)  
+    [______________]{$range1->cmp()->withPostFilter(AnswerHints(
+    $wr1a=>[$msgra,checkTypes=>0,replaceMessage=>1],
+    $wr1b=>[$msgrb,checkTypes=>0,replaceMessage=>1]))}
+
+
+b.  Consider the relation [:t:] defined by:
+
+ [:t =:]   [@
+DataTable(
+[
+["x", $x2[0], $x2[1], $x2[2]],
+["y", $y2[0], $y2[1], $y2[2]]
+],midrules => 1,rowheaders =>1,columnscss => [' ','border-left:solid 1px;','border-left:solid 1px;','border-left:solid 1px;']); @]***
+ 
+	Write the set of ordered pairs that defines the relation. 
+
+ [:t = :] { [________________________________________________]{$relation2} }
+
+    What is the domain of the relation?    (Since a range is a _set_ of numbers, you should be using [`[$LBRACE]`] and [`[$RBRACE]`] in your answer.)  
+    [______________]{$domain2->cmp()->withPostFilter(AnswerHints(
+    $wd2a=>[$msgda,checkTypes=>0,replaceMessage=>1],
+    $wd2b=>[$msgdb,checkTypes=>0,replaceMessage=>1]))}
+
+    What is the range of the relation?  (Since a range is a _set_ of numbers, you should be using [`[$LBRACE]`] and [`[$RBRACE]`] in your answer.)  
+    [______________]{$range2->cmp()->withPostFilter(AnswerHints(
+    $wr2a=>[$msgra,checkTypes=>0,replaceMessage=>1],
+    $wr2b=>[$msgrb,checkTypes=>0,replaceMessage=>1]))}
+
+
+
+END_PGML
+
+
+ENDDOCUMENT();

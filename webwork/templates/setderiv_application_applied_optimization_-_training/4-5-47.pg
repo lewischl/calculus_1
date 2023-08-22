@@ -1,0 +1,172 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by tda2d
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Optimization - general)
+## Date(8/23/07)
+## Institution(ASU)
+## MLT(Optimization_FenceCost)
+## MLTleader(1)
+## Level(5)
+## MO(1)
+## KEYWORDS('derivative' 'extrema' 'optimization','Optimization' 'Maximum' 'Minimum')
+
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Union/setDervOptimization/4-5-47.pg 
+#	to setderiv_application_applied_optimization_level_1/4-5-47.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderiv_application_applied_optimization_level_1/4-5-47.pg 
+#	to setderiv_application_applied_optimization_-_training/4-5-47.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "Parser.pl",
+  "parserMultiAnswer.pl",
+  "PGunion.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+###################################
+# Setup
+
+$a = random(200,320,10);
+$b = random(3,6,1);
+$c = random(12,16,1);
+
+$length = sqrt($a*($b+$c)/(2*$b));
+$width = sqrt(2*$b*$a/($b+$c));
+
+$ma = MultiAnswer(Real($length),Real($width))->with(
+  singleResult => 1, separator => " x ", tex_separator => '\times',
+  checker => sub {
+    my $correct = shift; my $student = shift;
+    my ($a,$b) = @{$correct}; my ($A,$B) = @{$student};
+    return ($a == $A && $b == $B) || ($a == $B && $b == $A);
+  }
+);
+
+###################################
+# Main text
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem shows that there's always another type of problem, another layer challenge we can add to the problems we're solving.  Applied optimization is one of the most real of applications of Calculus 1: find optimal values, for fun and profit.
+
+⚠️ I'll continue to provide guidance, but I again caution: there is *not* a training problem for every type of problem.  The point of these trainings is *NOT* to provide steps for you to emulate.    
+
+🧠 Instead I'm training you on a pattern of problem solving incorporating drawing, labeling, algebra, and calculus. 
+[@ closeDiv() @]*
+
+
+
+ℹ️ Use a full sheet of paper for each of these problems.  Stop trying to cram it into a small space.  Let the math breathe like good wine.
+
+
+To summarize what we've covered so far in this training set:
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A very terse set of steps for applied optimization:
+
+1. Draw and label
+2. Single variable objective function
+3. Optimize
+[@ closeDiv() @]*
+
+These steps skip a lot of detail, and omit the process of trial and error that's inevitably part of this.  Don't miss the forest for the trees by using thinking that there's a simple set of steps you can follow for every problem.  
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Steps for this specific problem.  
+1. Draw rectangle.
+2. Label the sides [`x`] and [`y`].  Label each side with it's dollars-per-foot cost rate.
+3. Write a formula for [`\Omega(x,y)`] modeling the cost of all four sides.  This is linear function.
+4. Eliminate [`y`] using the area constraint to obtain [`\Omega(x)`].  Solve [`A`] for [`y`] and substitute into [`\Omega`].
+5. Note that [`x`] is a length of fence and cannot be negative.
+6. Optimize the objective function over the interval to find [`x_\textnormal{min}`]
+7. Conclude by finding the value of [`y`] using the area constraint
+
+[@ closeDiv() @]*
+
+---
+
+A fence is to be built to enclose a rectangular area of [`[$a]`] square feet, and we're trying to keep costs down:
+
+* The material for three of the sides costs [`[$b]`] dollars per foot
+* The material for one of the sides costs [`[$c]`] dollars per foot 
+
+🎯 Find the dimensions of the enclosure that is most economical to construct.
+
+END_PGML
+
+# the answers use multianswer checkers so they can be in any order.  it was simpler to leave using old syntax than convert to pgml at this time.
+BEGIN_TEXT
+
+Dimensions: \{$ma->ans_rule(10)\} x \{$ma->ans_rule(10)\}
+
+END_TEXT
+
+
+
+
+
+BEGIN_HINT
+This problem is different from the other area-of-a-rectangle problems in that we're weighting the sides by a cost-per-foot.  
+
+$PAR
+
+The objective function \(\Omega\) is the cost of the fence.  Our first order of business must be to find this function.  Draw a rectangle, label the four sides \(x\) and \(y\).  Now, add the cost-per-foot to each side.  Three cost \($b\) per foot, and one costs \($c\) per foot.  (Note that it doesn't matter which side gets the $c cost -- it's just a re-labeling of the diagram, and the answer to the problem remains unchanged).
+
+$PAR
+
+It's time to incorporate cost.  Think about the cost of each side of the fence.  I'll do one of them.  There's a side with length \(x\) feet and cost $b per foot.  The cost of this side is \($b \times x \) dollars.  Do this for all four sides.
+
+$PAR
+
+Now, add up the cost of all four sides.  Our objective is to minimize this (presumably we don't want to waste money, eh?).  Label this function \(\Omega(x,y)\).
+
+$PAR
+
+Next, note that we have too many variables!  We have both \(x\) and \(y\).  Use the area constraint to substitute away a variable (I'd eliminate \(y\), if I were choosing).  You'll be left with a single-variable objective function \(\Omega(x)\).
+
+$PAR
+
+Finish the problem by finding the critical side length \(x\), and substitute into the objective function to find the minimal cost to complete the project.  Then grab some gloves and a shovel, cuz it's time to build!
+
+END_HINT
+
+###################################
+# Answers
+
+$showPartialCorrectAnswers = 1;
+ANS($ma->cmp);
+
+###################################
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

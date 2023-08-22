@@ -1,0 +1,14 @@
+assignmentType      = default
+openDate          = 09/02/2023 at 04:16am CDT
+reducedScoringDate = 09/02/2023 at 04:16am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
+enableReducedScoring = Y
+paperHeaderFile   = defaultHeader
+screenHeaderFile  = defaultHeader
+description       = needs development.  connections to computer science
+restrictProbProgression = 0
+emailInstructor   = 0
+
+problemListV2
+

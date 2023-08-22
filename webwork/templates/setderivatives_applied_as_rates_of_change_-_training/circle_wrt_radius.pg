@@ -1,0 +1,217 @@
+#based on Library/ma122DB/set4/s3_3_11.pg
+
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/ma122DB/set4/s3_3_11.pg 
+#	to setderivatives_applied_as_rates_of_change/s3_3_11.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_applied_as_rates_of_change/s3_3_11.pg 
+#	to setderivatives_applied_as_rates_of_change_-_training/s3_3_11.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "uwecAhrendt.pl",
+  "PGcourse.pl",
+  
+"parserPopUp.pl",
+"desmos.pl",
+);
+
+
+desmos_enable_modify_existing();
+
+
+
+$desmos_width= 800;
+$desmos_height=400;
+    
+sub make_desmos_graph{
+
+    my $div_id = shift(@_);
+    my $desmos_graph = MODES(
+        HTML=>qq(<div id="$div_id" style="width: ${desmos_width}px; height: ${desmos_height}px;"></div>), 
+        TeX=>'Interactive graph best viewed online'
+    );
+
+    return $desmos_graph;
+}
+$unique_div_id = "ftoc2graph";
+$desmos_graph = make_desmos_graph($unique_div_id);
+
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Context()->variables->add(r=>"Real");
+
+$showPartialCorrectAnswers = 1;
+
+$a1 = random(3,17,1);
+$b1 = random(3,17,1);
+
+
+Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on thinking about rates of change, where the independent variable is NOT time, but instead a property of a geometric object.
+[@ closeDiv() @]*
+
+Geometric objects are determined or constituted by their properties:
+* area of a square, by side length
+* area of a circle, by radius
+* area of a triangle, by base and height
+
+If area changes, the other properties have to change, and vice versa.  In this content, we're thinking about how things like area change, as a function of the other properties.
+
+The fundamental principle we're using:
+[@ openDiv({ "class" => "importantFormula" }) @]*
+If two things are always equal, then their derivatives must also be equal
+[@ closeDiv() @]*
+
+---
+
+Check out this interactive Desmos graph of a circle together with a graph of area as a function of radius:
+
+[@ $desmos_graph @]*
+
+Use the slider for the radius [`r`] to change the radius (Calculus is all about change!), and observe how the area [`A`] responds. 
+
+The equation for a circle:  [`A = \pi r^2`].  Differentiate with respect to radius, and find that 
+
+[`\frac{dA}{dr} = `] [_]{Formula("2 pi r")}
+
+
+Compute the rate of area increase with respect to radius, at various radii:
+* When [`r = 0.1`] the area changes as [`\frac{dA}{dr}\big|_{r =0.1} = `] [_]{Real(2*pi*0.1)}
+* When [`r = 0.5`] the area changes as [`\frac{dA}{dr}\big|_{r=.5} = `] [_]{Real(2*pi*0.5)} 
+* When [`r = 1`] the area changes as [`\frac{dA}{dr}\big|_{r=.1} = `] [_]{Real(2*pi*1)} 
+* When [`r = 1.5`] the area changes as [`\frac{dA}{dr}\big|_{r=1.5} = `] [_]{Real(2*pi*1.5)} 
+END_PGML
+
+$ans = "the bigger the circle, the faster the area changes";
+$pops = PopUp(
+              ["?","the bigger the circle, the slower the area changes", 
+               $ans, 
+               "the area changes at a constant rate", 
+               "the area never changes"
+              ]
+              ,$ans);
+
+BEGIN_PGML
+We can conclude that [_]{$pops} as a function of radius.
+END_PGML
+
+BEGIN_PGML
+
+---
+
+*Coda*
+
+In the section called "Related rates", we'll think about letting the radius change __as a function of time__, and see how area responds.  
+
+🧠 If two things are equal, their rates of change must also be equal.
+
+END_PGML
+
+
+
+
+
+
+
+
+
+
+
+
+
+###############
+#
+# DESMOS CODE
+#
+
+
+
+$d = '$'; # make a single dollar sign.  yes, this is stupid, but necessary cuz i couldn't figure out how to just put a dollar sign in the script code below.
+
+$desmos_graph_code = "olykvoiyvq";
+$graphUrl = "https://www.desmos.com/calculator/$desmos_graph_code"; # the URL of the graph to embed.
+
+
+$a = 1;
+Context()->normalStrings;
+# for an explantion of what << does, see https://stackoverflow.com/questions/11948338/what-is-print-eof-and-how-is-it-working
+TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );  
+<script>
+<!-- //
+    
+    function make_graph(url,divname){
+        var elt = document.getElementById(divname);
+
+        var calc = Desmos.Calculator(elt, {
+            keypad: false, 
+            expressions: true,
+            settingsMenu: false, 
+            expressionsTopbar: false,
+            zoomButtons: false,
+        });
+
+
+        function modifyExistingState(json)
+        {
+        var state = json.state;
+            var exprlist = state.expressions.list;
+
+           // state.expressions.list[1].latex = 'f(t) = $ftstr ';
+            //state.expressions.list[0].latex = 'X = $x_init ';
+            //state.expressions.list[3].latex = 'a = $a_graph ';
+            for (let ii = 1; ii < exprlist.length; ii++) {
+            state.expressions.list[ii].secret = true;
+            } 
+
+         calc.setState(state);
+
+
+        }
+
+        $d.getJSON(url, modifyExistingState);
+        
+
+    }
+    make_graph("$graphUrl", "$unique_div_id");
+    
+// -->
+</script>
+END_SCRIPT
+
+
+#             calc.setMathBounds({
+#               left: $left,
+#               right: $right,
+#               bottom: $bottom,
+#               top: $top
+#             });
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

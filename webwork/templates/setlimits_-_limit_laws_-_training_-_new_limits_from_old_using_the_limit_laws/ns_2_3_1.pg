@@ -1,0 +1,171 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by LD
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Rules of limits - basic)
+## Date(6/3/2002)
+## Institution(ASU)
+## Author(Utah ww group)
+## MLT(lotsalimrules)
+## MLTleader(1)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5e')
+## Section1('2.3')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('2.3')
+## Problem2('')
+## TitleText3('Mathematical Applications')
+## AuthorText3('Ronal J. Harshbarger and James J. Reynolds')
+## EditionText3('8')
+## Section3('.')
+## Problem3('')
+## KEYWORDS('calculus','limits', 'rules')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/ASU-topics/setLimitConcepts/ns_2_3_1.pg 
+#	to setlimits_the_limit_laws/ns_2_3_1.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_the_limit_laws/ns_2_3_1.pg 
+#	to setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/ns_2_3_1.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros("PG.pl", "PGbasicmacros.pl", "PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGauxiliaryFunctions.pl",
+"PGcourse.pl", "customCSS.pl");
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers=1;
+
+$a=non_zero_random(-10, 10);
+while($a==6 or $a==1){
+$a=non_zero_random(-10, 10);
+}
+$b=non_zero_random(-10, 10);
+while($b==6 or $b==1){
+$b=non_zero_random(-10, 10);
+}
+
+@f=("f(x)", "g(x)", "h(x)");
+@slice1=shuffle(3);
+@f=@f[@slice1];
+
+#TEXT("The function order is ", @f);
+
+@values=($a, $b, 0);
+
+@slice2=shuffle(3);
+@values=@values[@slice2];
+
+#TEXT("The values are ", @values);
+
+if ($values[1]==0) {
+    ($fraction01)=num_cmp('DNE', strings=>['DNE']);
+    ($fraction1)=num_cmp('DNE', strings=>['DNE']);
+} else {
+    ($fraction01)= num_cmp($values[0]/$values[1], strings=>['DNE']);
+    ($fraction1)= num_cmp(1/$values[1], strings=>['DNE']);
+}
+
+if ($values[2]==0) {
+    ($fraction02)=num_cmp('DNE', strings=>['DNE']);
+} else {
+    ($fraction02)= num_cmp($values[0]/$values[2], strings=>['DNE']);
+}
+if ($values[0]==0) {
+    ($fraction20)=num_cmp('DNE', strings=>['DNE']);
+} else {
+    ($fraction20)= num_cmp($values[2]/$values[0], strings=>['DNE']);
+}
+
+if ($values[1]>=0) {
+    ($square1)=num_cmp(sqrt($values[1]), strings=>['DNE']);
+} else {
+    ($square1)=num_cmp('DNE', strings=>['DNE']);
+}
+
+if (($values[1]-$values[2])==0) {
+    ($fraction1_2)=num_cmp('DNE', strings=>['DNE']);
+} else {
+    ($fraction1_2)= num_cmp(1/($values[1]-$values[2]), strings=>['DNE']);
+}
+
+my @expressions =(); ##MAKE SURE WE START WITH AN EMPTY ARRAY
+my @answers =();     ##MAKE SURE WE START WITH AN EMPTY ARRAY
+
+qa(~~@expressions, ~~@answers,
+"\( \displaystyle \lim_{ x \rightarrow a}\ ($f[0]+$f[1])\)", num_cmp($values[0]+$values[1], strings=>['DNE']),
+"\( \displaystyle \lim_{ x \rightarrow a}\ ($f[0]-$f[1]) \)", num_cmp($values[0]-$values[1], strings=>['DNE']),
+"\( \displaystyle \lim_{ x \rightarrow a}\ ($f[0] \cdot $f[2]) \)", num_cmp($values[0]*$values[2], strings=>['DNE']),
+"\( \displaystyle \lim_{ x \rightarrow a}\ \frac{$f[0]}{$f[1]} \)", $fraction01,
+"\( \displaystyle \lim_{ x \rightarrow a}\ \frac{$f[0]}{$f[2]} \)", $fraction02,
+"\( \displaystyle \lim_{ x \rightarrow a}\ \frac{$f[2]}{$f[0]} \)", $fraction20,
+"\( \displaystyle \lim_{ x \rightarrow a}\ \sqrt{$f[1]} \)", $square1,
+"\( \displaystyle \lim_{ x \rightarrow a}\ \frac{1}{$f[1]} \)", $fraction1,
+"\( \displaystyle \lim_{ x \rightarrow a}\ \frac{1}{$f[1]-$f[2]} \)", $fraction1_2
+);
+
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem has you work on using the limit laws when all we have are the values of limits.  No graph, no formula, just values of limits.  
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+* The limit of the sum/difference is the sum/difference of the limits
+* The limit of the product is the product of the limits
+* The limit of the quotient is the quotient of the limits, unless the denominator goes to [`0`] (in which case the answer could be anything, we require more information)
+* The limit of the power is the power of the limit
+* Constants factor out of limits
+[@ closeDiv() @]*
+
+END_PGML
+
+
+
+
+BEGIN_TEXT
+Let \( \displaystyle \lim_{x\rightarrow a} $f[0] = $values[0]\) ,
+    \( \displaystyle  \lim_{x\rightarrow a}$f[1]= $values[1]\),
+    \( \displaystyle  \lim_{x\rightarrow a}$f[2] = $values[2]\). 
+$BR
+$BR
+Find following limits if they exist.  If not, enter
+${BBOLD}DNE$EBOLD.
+$BR
+END_TEXT
+
+
+TEXT(EV2(match_questions_list(@expressions)));
+
+ANS(@answers);
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.
+

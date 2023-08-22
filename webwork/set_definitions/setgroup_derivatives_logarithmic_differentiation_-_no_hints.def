@@ -1,0 +1,47 @@
+assignmentType      = default
+openDate          = 03/09/2030 at 11:59pm CST
+reducedScoringDate = 03/09/2030 at 11:59pm CST
+dueDate           = 03/09/2030 at 11:59pm CST
+answerDate        = 03/09/2030 at 11:59pm CST
+enableReducedScoring = N
+paperHeaderFile   = defaultHeader
+screenHeaderFile  = defaultHeader
+description       = 
+restrictProbProgression = 0
+emailInstructor   = 0
+
+problemListV2
+problem_start
+problem_id = 1
+source_file = setgroup_derivatives_logarithmic_differentiation_-_no_hints/s_3_7_34.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 2
+source_file = setderivatives_logarithmic_differentiation_for_products_and_quotients_-_challenge/S03.07.LogarithmicDifferentiation.PTP01.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 3
+source_file = setderivatives_logarithmic_differentiation_for_products_and_quotients_-_challenge/prob11.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+

@@ -1,0 +1,205 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by cmd6a 4/27/06
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Integrals)
+## DBsection(Fundamental theorem of calculus)
+## Date(6/3/2002)
+## Institution(Indiana)
+## Author(Utah ww group)
+## MLT(FTC_03)
+## MLTleader(1)
+## Level(3)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('5.3')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('5.3')
+## Problem2('')
+## TitleText3('Calculus: Early Transcendentals')
+## AuthorText3('Rogawski')
+## EditionText3('1')
+## Section3('5.4')
+## Problem3('31')
+## TitleText4('Calculus I')
+## AuthorText4('Jerrold Marsden and Alan Weinstein')
+## EditionText4('2')
+## Section4('.')
+## Problem4('')
+## TitleText5('Calculus')
+## AuthorText5('Dale Varberg, Edwin J. Purcell, and Steven E. Rigdon')
+## EditionText5('9')
+## Section5('.')
+## Problem5('')
+## KEYWORDS('Calculus', 'Riemann Integral','integration','fundamental theorem of calculus', 'integrals', 'fundamental theorem of calculus','integrals','fundamental theorem of calculus' 'integral')
+
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/5.4_5.5_FTC/ftoc_part_2_complicated_upper_bound.pg 
+#	to setintegrals_FTOC_2_for_derivatives_of_integral_functions/ftoc_part_2_complicated_upper_bound.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_FTOC_2_for_derivatives_of_integral_functions/ftoc_part_2_complicated_upper_bound.pg 
+#	to setintegrals_FTOC_2_for_derivatives_of_integral_functions_-_training/ftoc_part_2_complicated_upper_bound.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+
+
+
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on 
+* Integral functions with arbitrary functions in the bounds
+[@ closeDiv() @]*
+
+A general integral function looks like:
+
+[```
+F(x) = \int_{a(x)}^{b(x)} f(t)\, dt
+```]
+
+We want to take the derivative of [`F`], no matter how complicated the bound functions [`a`] and [`b`].  (I'm just sure you do, you're an unstoppable derivative-taking machine ⚙️)  The ⛓️ chain rule is the main tool we use to get there.  
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*The formula for the derivative of a general integral function*
+
+The general integral function
+[```
+F(x) = \int_{a(x)}^{b(x)} f(t)\, dt
+```]
+
+has derivative
+
+[```
+\frac{d}{dx}F(x) = b'(x) f(b) - a'(x) f(a)
+```]
+[@ closeDiv() @]*
+
+For example,
+
+[```
+\frac{d}{dx} \int_{3}^{x^2+1} (\sin(2t+5))\, dt
+```]
+
+has bound functions:
+* [`b(x) = x^2+1`]
+* [`a(x) = 3`]
+
+
+so we find the derivative via this chain of computation:
+[```
+\begin{aligned}
+\frac{d}{dx} \int_{3}^{x^2+1} (\sin(2t+5))\, dt &= (x^2+1)' \sin(2(x^2+1)+5) - (3)' \sin(2\cdot 3 + 5) \\
+&= (2x) \sin(2(x^2+1)+5) - 0 \sin(2\cdot 3 + 5) \\
+&= 2x \sin(2x^2+7)
+\end{aligned}
+```]
+
+
+
+---
+
+END_PGML
+
+
+
+BEGIN_TEXT
+Use Part II of the Fundamental Theorem of Calculus to
+find the derivatives.
+END_TEXT
+
+
+
+$a= random(1, 5, 1);
+$b= random(2, 5, 1);
+Context()->texStrings;
+BEGIN_TEXT
+$BR$PAR
+\( \displaystyle F(x) = \int_{$a}^{x^2+1} (\sqrt{t}) \, dt \) $PAR
+\(F'(x) = \)\{ans_rule(30)\} 
+END_TEXT
+Context()->normalStrings;
+ANS(Formula("2x sqrt(x^2+1)")->cmp);
+
+
+$a= random(-5, 5, 1);
+$b= random(2, 5, 1);
+Context()->texStrings;
+BEGIN_TEXT
+$BR$PAR
+\( \displaystyle G(x) = \int_{$a}^{\tan(x)} (t^2) \, dt \) $PAR
+\(G'(x) = \)\{ans_rule(30)\} 
+END_TEXT
+Context()->normalStrings;
+
+ANS(Formula("sec^2(x)*(tan^2(x))")->cmp);
+
+
+
+
+
+$a= random(1, 5, 1);
+$b= random(2, 5, 1);
+Context()->texStrings;
+BEGIN_TEXT
+$BR$PAR
+Be sure to compose the bounds into both summands, and subtract the part for the lower bound
+$PAR
+\( \displaystyle F(x) = \int_{\sin(x)}^{x^2} (t^2+t) \, dt \) $PAR
+\(F'(x) = \)\{ans_rule(30)\} 
+END_TEXT
+Context()->normalStrings;
+ANS(Formula("2x (x^4+x^2) - cos(x) (sin^2(x) + sin(x))")->cmp);
+
+
+
+
+BEGIN_HINT
+This problem has you take the derivative of a function defined by an integral, but the function in the bound of integration isn't just \(x\), it's \(\sin(x)\).  See Example 5, page 329 in your book for the solution to a similar problem.
+
+\{amethystHint("$PAR$HR$PAR Check out this Lightboard video by Prof. Amethyst:$PAR")\}
+\{ youtubeAmethyst("Bej-78QbUs8") \}
+
+END_HINT
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.
+

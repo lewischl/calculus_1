@@ -1,0 +1,156 @@
+## DESCRIPTION
+##   Higher Derivatives
+## ENDDESCRIPTION
+
+## Tagged by nhamblet
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Higher-order derivatives)
+## Institution(ASU)
+## MLT(hod_big_poly)
+## MLTleader(1)
+## Level(2)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('1')
+## Section1('3.5')
+## Problem1('15')
+## KEYWORDS('Higher Derivative','derivatives')
+
+
+
+########################################
+# this file automatically moved
+#	from Library/Rochester/setDerivatives13Higher/ur_dr_13_6_mo.pg 
+#	to setderivatives_higher_order_derivatives/ur_dr_13_6_mo.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_higher_order_derivatives/ur_dr_13_6_mo.pg 
+#	to setderivatives_higher_order_derivatives_-_training/ur_dr_13_6_mo.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+########################################
+# Setup
+
+Context("Numeric");
+$showPartialCorrectAnswers = 1;
+
+$an = random(1,3,1);
+$as = random(-1,1,2);
+$a  = $an * $as;
+$bn = random(2,9,1);
+$bs = random(-1,1,2);
+$b  = $bn * $bs;
+$cn = random(2,9,1);
+$cs = random(-1,1,2);
+$c  = $cn * $cs;
+
+$g = Formula("$a x^4 + $b x^2 + $c");
+$g0 = $g->eval(x=>0);
+
+$dg = $g->D;
+$dg0 = $dg->eval(x=>0);
+
+$d2g = $g->D(2);
+$d2g0 = $d2g->eval(x=>0);
+
+$d3g = $g->D(3);
+$d3g0 = $d3g->eval(x=>0);
+
+$d4g = $g->D(4);
+$d4g0 = $d4g->eval(x=>0);
+
+$d5g = $g->D(5);
+$d5g0 = $d5g->eval(x=>0);
+
+########################################
+# Main Text
+
+Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem offers training on prime notation for higher-order derivatives -- derivatives beyond the first.
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A "higher order derivative" is any derivative beyond the first.  We can use primes to indicate taking derivatives.  We use prime to denote differentiation only when the independent variable is clear.  If a function has more than one variable, we should use differential notation to explicitly name the variable of differentiation
+
+* The number of primes is the number of derivatives.  For example, [`f''`] is the second derivative of [`f`].
+* Beyond three primes they become unwieldly, so we use a parenthentical integer in the space for the exponent.  For example, [`f^{(4)}`] is the fourth derivative of [`f`].
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+
+$table = DataTable([
+
+[ "\(g(x) =\)" . ans_rule(30)   , "\(g(0) =\)" . ans_rule(30)  ],
+[ "\(g'(x) =\)" . ans_rule(30)   , "\(g'(0) =\)" . ans_rule(30)  ],
+[ "\(g''(x) =\)" . ans_rule(30)   , "\(g''(0) =\)" . ans_rule(30)  ],
+[ "\(g'''(x) =\)" . ans_rule(30)   , "\(g'''(0) =\)" . ans_rule(30)  ],
+[ "\(g^{(4)}(x) =\)" . ans_rule(30)   , "\(g^{(4)}(0) =\)" . ans_rule(30)  ],
+[ "\(g^{(5)}(x) =\)" . ans_rule(30)   , "\(g^{(5)}(0) =\)" . ans_rule(30)  ],
+
+]);
+
+BEGIN_TEXT
+If \( g(x) = $g \) find the following:
+
+\{ $table \}
+
+END_TEXT
+Context()->normalStrings;
+
+########################################
+# Answers
+
+
+ANS($g->cmp);
+ANS($dg->cmp);
+ANS($d2g->cmp);
+ANS($d3g->cmp);
+ANS($d4g->cmp);
+ANS($d5g->cmp);
+
+
+ANS($g0->cmp);
+ANS($dg0->cmp);
+ANS($d2g0->cmp);
+ANS($d3g0->cmp);
+ANS($d4g0->cmp);
+ANS($d5g0->cmp);
+
+########################################
+
+;
+ENDDOCUMENT();

@@ -1,0 +1,159 @@
+#DESCRIPTION
+##  Calculus: Derivatives
+##ENDDESCRIPTION
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Evaluating limits - trigonometric)
+## Date(6/3/2002)
+## Institution(UCSB)
+## Author(Justin Sukiennik)
+## MLT(limits_trig_sine_over_sine)
+## MLTleader(1)
+## Level(2)
+## MO(1)
+## TitleText1('Calculus: Concepts and Contexts')
+## AuthorText1('Stewart')
+## EditionText1('4 Custom UMTYMP Ed.')
+## Section1('3.3')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('3.3')
+## Problem2('36')
+## TitleText3('Calculus: Early Transcendentals')
+## AuthorText3('Stewart')
+## EditionText3('5')
+## Section3('3.4')
+## Problem3('36')
+## KEYWORDS('calculus', 'limit', 'trigonometric functions','trigonometry', 'limits','Differentiation','Trigonometric','Transcendental','Derivative')
+
+#####################################################################
+
+
+########################################
+# this file automatically moved
+#	from myproblems/2.6/sin_over_sin.pg 
+#	to setlimits_of_trigonometric_functions/sin_over_sin.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_of_trigonometric_functions/sin_over_sin.pg 
+#	to setlimits_of_trigonometric_functions_-_training/sin_over_sin.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGgraphmacros.pl",
+  "PGcourse.pl",
+  "customCSS.pl",
+);
+#####################################################################
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+
+#####################################################################
+
+Context("Numeric");
+Context()->variables->are(t=>'Real');
+
+$a = random(2,4,1);
+$b = random(5,9,1);
+
+$ans = Compute("$a/$b");
+
+#####################################################################
+Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on limits of trig functions where an identity is useful.
+[@ closeDiv() @]*
+
+---
+
+This video from Prof. Amethyst describes these kinds of limits and how to use the identities.
+
+[@ youtubeAmethyst("gqXDEZiuNJU") @]*
+
+---
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A useful limit identity for indeterminate form trig limits:
+
+* [`` 
+\lim_{x \to 0} \frac{\sin x}{x} = 1
+``]
+
+Since "the limit of the recipocal is the reciprocal of the limit", it's also true that 
+
+* [`` 
+\lim_{x \to 0} \frac{x}{\sin x} = 1
+``]
+
+And it works for any expression that's going to [`0`]:
+
+* [`` 
+\lim_{\Box \to 0} \frac{\Box}{\sin \Box}  = \lim_{\Box \to 0} \frac{\sin \Box}{\Box}= 1
+``]
+
+[@ closeDiv() @]*
+
+
+
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+For the following problem, use the steps to algebraically find the value of the limit:
+
+1. Split the numerator and denominator into separate fractions.  [``\frac{a}{a} = \frac{a}{1} \frac{1}{a} ``].
+2. Multiply by [`t/t`]
+3. Multiply by [`[$a]/[$a]`], and [`[$b]/[$b]`].  
+4. Massage so that you can use the special limit identities
+5. Take the limit
+
+End by checking your work.
+
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+
+
+BEGIN_TEXT
+Evaluate the limit.
+
+$PAR
+
+\(\displaystyle \lim_{t \to 0} \frac{\sin $a t}{\sin $b t} = \) \{ans_rule(20)\}
+END_TEXT
+Context()->normalStrings;
+
+#####################################################################
+
+ANS($ans->cmp());
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

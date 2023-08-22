@@ -1,0 +1,160 @@
+#DESCRIPTION
+## tsuda tagged and PAID on 2-20-2004
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Mean value theorem)
+## Date(6/3/2002)
+## MLT(MVT_Multi)
+## Level(3)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('4.2')
+## Problem1('10 12')
+## KEYWORDS('derivatives','mean value theorem')
+
+# Validate mean value theorem in special cases
+#ENDDESCRIPTION
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/maCalcDB/setDerivatives12MVT/s3_2_1_mo.pg 
+#	to setderiv_application_MVT_rolles_theorem/s3_2_1_mo.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderiv_application_MVT_rolles_theorem/s3_2_1_mo.pg 
+#	to setderiv_application_MVT_rolles_theorem_-_training/s3_2_1_mo.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$a1 = Real( random(2,5,1) );
+$b1 = Real( random(2,6,1) );
+$c1 = Real( random(2,5,1) );
+
+$fun = Compute("$a1  x^3 - $b1 x");
+$ans1 = Compute("$a1*$c1^2-$b1");
+$ans2 = Compute("-$c1/sqrt(3)");
+$ans3 = Compute("$c1/sqrt(3)");
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+Context()->texStrings;
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+The mean value theorem guarantees the average rate of change is attained, for differential phenomena -- at least once.  Sometimes the rate is attained more than once.  This problem offers guidance.
+
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The Mean Value Theorem (MVT)
+
+If a function [`f`] is both:
+
+1. differentable inside an interval [`(a,b)`]
+2. continuous on all of [`[a,b]`],
+
+then there *must* exist a point [`x = c`] inside [`(a,b)`] such that:
+
+[``` \frac{f(b) - f(a)}{b-a} = f'(c) ```]
+
+---
+
+
+
+
+[@ closeDiv() @]*
+
+
+END_PGML
+
+BEGIN_TEXT
+
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
+We want to find the point(s) at which the instantaneous rate of change is equal to the average rate of change.  $PAR
+1. Find the derivative (instantanous rate of change) and set it equal to the average rate you computed above.  $BR
+2. Solve.
+
+We only 100% *know* this will succeed because of the MVT.
+\{ closeDiv() \} 
+
+$PAR
+
+Consider the function \( f(x) = $fun\) on the interval \( [ -$c1 , $c1 ] \). $PAR
+🎯 Find the average or mean slope of the function on this interval. $BR
+\(\textnormal{average slope} = \) \{ans_rule(20) \}
+$PAR$BR
+
+Note that \(f\) is differentiable and continuous on \( [ -$c1 , $c1 ] \).  Thus, by the Mean Value Theorem, we know there must exist at least one \( c \) in the open interval
+\( ( -$c1 , $c1 ) \) such that \( f'( c) \) is equal to this mean slope.  
+
+$PAR
+🎯 Find such values \(c\), and use a comma-separated list. 
+
+
+$PAR
+
+The AROC is attained at \(c = \) \{ans_rule(40)\}  $SPACE
+
+
+END_TEXT
+
+
+Context()->normalStrings;
+
+
+##############################################################
+#
+#  Answers
+#
+#
+ANS(
+	$ans1->cmp,
+	List($ans2,$ans3)->cmp
+);
+
+;
+
+;
+ENDDOCUMENT();

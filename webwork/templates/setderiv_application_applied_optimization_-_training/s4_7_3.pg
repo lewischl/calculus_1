@@ -1,0 +1,135 @@
+##DESCRIPTION
+## Max/min -- minimize sum of two positive numbers with fixed product.
+##ENDDESCRIPTION
+##KEYWORDS('maximization,minimization', 'derivatives', 'maximum,minimum',
+##  'optimization')
+
+## Shotwell cleaned
+## lcao , PAID on 11-24-2003
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Optimization - general)
+## Date(6/3/2002)
+## MLT(Optimization_NumberProperties)
+## Level(4)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('4.7')
+## Problem1('3')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/ma122DB/set9/s4_7_3.pg 
+#	to setderiv_application_applied_optimization_level_1/s4_7_3.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderiv_application_applied_optimization_level_1/s4_7_3.pg 
+#	to setderiv_application_applied_optimization_-_training/s4_7_3.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers=0;
+
+$a = random(8,15,1);
+$b = $a**2;
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+In the realm of "applied optimization", this is a simple problem.  I'm using it early in this training set deliberately because it's simple, to help see *some* of the pattern before we see the bigger picture.
+[@ closeDiv() @]*
+
+One of the things that makes these problems difficult is that you're not told the variable names, the function names, etc.  You have to make up the notation!  I have advice:
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+When choosing names for optimization problems:
+* always name the objective function (the quantity you're optimizing) [`\Omega`].  It helps see the pattern, and when you see [`\Omega`] you'll think "I should optimize that...".
+* Choose "obvious" variable names if possible.  
+    * Oldies but goodies like [`x`], [`y`], [`z`] are my favorite
+    * Volume should be [`V`], area should be [`A`], distance should be [`D`]...
+    * [`a`] and [`b`] are pretty ok.  
+* Avoid choices that lead to mistakes:
+    * [`l`] (a lowercase L) is *terrible*.  It looks like a one.  Use [`\ell`] instead.  [@ htmlLink("https://www.youtube.com/watch?v=GNpIOlDhigw", "Put a loop on it")@]*.
+    * [`o`] and [`O`] are utter 🗑️ for variable names.  They look too much like [`0`].  Don't do it.  
+[@ closeDiv() @]*
+
+
+Ok, so here's what you're gonna do on this problem:
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Steps for *this* problem
+
+1. Decide on variable names.  Choose [`x`] and [`y`] please.
+2. Write a formula for [`\Omega(x,y)`], the quantity to optimize.  In this case, it's the sum we're minimizing.
+3. Eliminate [`y`] using the given constraint to obtain [`\Omega(x)`].  Solve "the product is [`[$b]`] for [`y`] and substitute into [`\Omega`].
+5. Note that [`x`] must be positive, and so must [`y`].
+6. Optimize the objective function.  
+7. Conclude.  In this case, we want the numbers that minimize the sum, *not* the actual sum of the numbers.
+
+[@ closeDiv() @]*
+
+END_PGML
+
+BEGIN_TEXT
+
+Find two positive numbers whose product is \($b\) and whose sum is a
+minimum.
+$BR$BR
+The two positive numbers are:  \{ans_rule(10)\} and \{ans_rule(10)\}  (in either order)
+
+END_TEXT
+
+
+
+BEGIN_HINT
+This is an abstract applied optimization problem, like problems 5 and 6 in the Rogaski 4th edition textbook, page 269.  The objective function is the sum, and the constraint is the product.
+
+\{amethystHint("$PAR$HR$PAR Prof. Amethyst has a video on a similar problem:$BR$BR")\}
+\{youtubeAmethyst("OypbCwDkG-U") \}
+END_HINT
+$ans1 = $a;
+$ans2 = $a;
+
+ANS(num_cmp($ans1));
+ANS(num_cmp($ans2));
+
+BEGIN_SOLUTION
+$PAR SOLUTION $PAR 
+Let \(x\) and \(y\) be the two numbers. Since \(x y= $b \), we have 
+\( y = \frac{$b}{x} \) and we want to minimize
+\[ f(x) = x +  \frac{$b}{x} \quad \text{where} \; x >0 \]
+\[ f'(x) = 1- \frac{$b}{x^2} = \frac{x^2 - $b}{x^2} \]
+The positive critical number is \( x = \sqrt{$b} = $a \).
+$BR
+Since \(f'(x) <0\) for \( 0 < x < $a \) and \( f'(x) >0 \) for \( x > $a \), there
+is an absolute minimum at \(x = $a\).
+$BR
+Thus the numbers are   \($a\) and \($a\).
+END_SOLUTION
+ENDDOCUMENT();        # This should be the last executable line in the problem.

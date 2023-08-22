@@ -1,0 +1,146 @@
+assignmentType      = default
+openDate          = 09/02/2023 at 02:08am CDT
+reducedScoringDate = 09/02/2023 at 02:08am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
+enableReducedScoring = Y
+paperHeaderFile   = defaultHeader
+screenHeaderFile  = headers/Header_training.pg
+description       = 
+restrictProbProgression = 0
+emailInstructor   = 0
+
+problemListV2
+problem_start
+problem_id = 1
+source_file = setlimits_continuity_-_training_-_identifying_discontinuities/s_2_4_prob01.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 2
+source_file = setlimits_continuity_-_training_-_identifying_discontinuities/identify_features_1.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 3
+source_file = setlimits_continuity_-_training_-_identifying_discontinuities/graph_find_limits_1.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 4
+source_file = setlimits_continuity_-_training_-_identifying_discontinuities/matching_kinds_of_discontinuities.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 5
+source_file = setlimits_continuity_-_training_-_identifying_discontinuities/s2_5_15.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 6
+source_file = setlimits_continuity_-_training_-_right-_and_left-continuous/stef2_5p4.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 7
+source_file = setlimits_continuity_-_training_-_identifying_discontinuities/continuity_implies_limit_exists.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 8
+source_file = setlimits_continuity_-_training_-_identifying_discontinuities/when_get_to_plug_in.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 9
+source_file = setlimits_continuity_-_training_-_identifying_discontinuities/stef2_5p2.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 10
+source_file = setlimits_continuity_-_training_-_identifying_discontinuities/s_2_4_prob02.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 11
+source_file = setlimits_continuity_-_training_-_identifying_discontinuities/prob5.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 12
+source_file = setlimits_introducing_limits_-_training_-_graphical_limits/graphs.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+

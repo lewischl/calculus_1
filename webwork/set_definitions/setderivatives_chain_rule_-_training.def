@@ -1,0 +1,146 @@
+assignmentType      = default
+openDate          = 09/02/2023 at 03:11am CDT
+reducedScoringDate = 09/02/2023 at 03:11am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
+enableReducedScoring = Y
+paperHeaderFile   = defaultHeader
+screenHeaderFile  = headers/Header_training.pg
+description       = 
+restrictProbProgression = 0
+emailInstructor   = 0
+
+problemListV2
+problem_start
+problem_id = 1
+source_file = setderivatives_chain_rule_-_training/CompositionReview.pg
+value = 3
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 2
+source_file = setderivatives_chain_rule_-_training/ChainRuleIntroduction.pg
+value = 3
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 3
+source_file = setderivatives_chain_rule_-_training/s3_5_16_mine.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 4
+source_file = setderivatives_chain_rule_-_training/power_rule.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 5
+source_file = setderivatives_chain_rule_-_training/trig_to_the_notation_matching.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 6
+source_file = setderivatives_chain_rule_-_training/chain-rule-v2.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 7
+source_file = setderivatives_chain_rule_-_training/trig_to_the_derivatives_matching.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 8
+source_file = setderivatives_chain_rule_-_training/s3_5_16.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 9
+source_file = setderivatives_chain_rule_-_training/s2_5_8_mo.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 10
+source_file = setderivatives_chain_rule_-_training/trig_w_product.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 11
+source_file = setderivatives_chain_rule_-_training/triple_chain.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 12
+source_file = setderivatives_chain_rule_-_training/der_unknown_func_at_point.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+

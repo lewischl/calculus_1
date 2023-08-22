@@ -1,0 +1,87 @@
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Rochester/setDerivatives21LHospital/osu_dr_21_2_mo.pg 
+#	to setderiv_application_lhopitals_rule_indet_forms/osu_dr_21_2_mo.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderiv_application_lhopitals_rule_indet_forms/osu_dr_21_2_mo.pg 
+#	to setgroup_deriv_application_lhopital_level_2_-_no_hints/osu_dr_21_2_mo.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$aa = Real( random(2,8,1) );
+$bb = Real( random(3,9,1) );
+$b1 = $bb +1;
+if ($aa==$bb){$aa++;}
+
+
+$fun1 = Compute("(1-cos($aa x))/(1-cos($bb x))");
+$fun2 = Compute("($b1^x-$bb^x -1)/(x^2-1)");
+
+$limit1 = Compute("($aa/$bb)^2");
+$limit2 = Compute("($b1*log($b1)-$bb*log($bb))/2");
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+Context()->texStrings;
+BEGIN_TEXT
+Compute the following limits, using l'Hopital's rule if appropriate.
+$BR
+\( \displaystyle \lim_{x\to 0} $fun1 =\)  \{ ans_rule()\}
+
+$PAR
+\( \displaystyle \lim_{x\to 1} $fun2 =\)  \{ ans_rule()\}$BR
+${BITALIC}(Give exact answers.)$EITALIC
+END_TEXT
+
+Context()->normalStrings;
+
+##############################################################
+#
+#  Answers
+#
+#
+
+ANS($limit1->cmp, 
+    $limit2->cmp
+);
+
+
+ENDDOCUMENT();

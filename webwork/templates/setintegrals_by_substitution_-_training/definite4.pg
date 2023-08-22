@@ -1,0 +1,88 @@
+## DBsubject(Calculus - single variable)
+## DBchapter(Techniques of integration)
+## DBsection(Substitution (with trigonometric functions))
+## Institution(UCSB)
+## MLT(trigpower)
+## MLTleader(1)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('5.5')
+## Problem1('59')
+## KEYWORDS('integration', 'substitution')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/5.7/definite4.pg 
+#	to setintegrals_by_substitution/definite4.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_by_substitution/definite4.pg 
+#	to setintegrals_by_substitution_-_training/definite4.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+"PGcourse.pl",
+);
+
+Context("Numeric");
+
+TEXT(&beginproblem);
+$showPartialCorrectAnswers = 1;
+$a=-(2*log(2))/3;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on 
+* definite integration by substitution
+* Integrands that look like [`1 / \textnormal{linear}`]
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Using the method of integration by substitution,
+
+[`` \int_{x=a}^{x=b} u'(x) \cdot f(u(x)) \, dx = \int_{u=u(a)}^{u=u(b)} f(u) \, du  ``]
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "inProblemHint" }) @]*
+Recall differentiation formulas for logarithms:
+
+* [`` (\ln x)' = \frac{1}{x}``]
+* [`` (\ln \Box)' = \frac{\Box'}{\Box}``]
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+BEGIN_TEXT
+
+$PAR
+Evaluate the integral:
+
+$PAR
+\(\displaystyle \int_{12}^{2} \frac{dx}{3x+4} =\) \{ ans_rule(10) \}
+
+END_TEXT
+
+ANS(Compute("$a")->cmp);
+
+ENDDOCUMENT();

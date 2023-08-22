@@ -1,0 +1,187 @@
+##DESCRIPTION
+## Calculus problem: Newton's Method problem determining which root is approximated
+##ENDDESCRIPTION
+
+##KEYWORDS('calculus', 'approximation', 'derivative')
+
+## DBsubject('Calculus')
+## DBchapter('Applications of the Derivative')
+## DBsection('Newtons's Method')
+## Date('8/2/2022, summer 2023')
+## Author('Erich Jauch, silviana amethyst')
+## Institution('')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('3')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set4.8_newtons_method/NewtonMethodWhichRoot.pg 
+#	to setderiv_application_newtons_method_root_finding/NewtonMethodWhichRoot.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderiv_application_newtons_method_root_finding/NewtonMethodWhichRoot.pg 
+#	to setderiv_application_newtons_method_root_finding_-_training/NewtonMethodWhichRoot.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();      
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   "parserPopUp.pl",
+);
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$source = random(1,4,1);
+
+
+
+$a = 1;
+$b = Compute("-1*(2+$source)");
+$c = Compute("-1*$source^2");
+$d = Compute("($source^3 + 2*$source^2+1)");
+
+
+$f = Formula("$a*x^3 + $b*x^2 + $c*x + $d")->reduce;
+$fprime = $f->D('x');
+
+@f_vals = ();
+@fprime = ();
+@x_vals = ();
+
+
+# do newton's method starting at x=0
+$x_vals[0]=0;
+foreach my $i (0..3) {
+$j = $i+1;
+$f_vals[$i] = $f->eval(x=>$x_vals[$i]);
+$fprime[$i] = $fprime->eval(x=>$x_vals[$i]);
+$x_vals[$j] = $x_vals[$i] - $f_vals[$i]/$fprime[$i];
+}
+
+
+@ints_near_roots = (-1*$source, $source, $source + 2);
+
+
+@choices = ();
+$choices[0] = "?";
+$choices[1] = "x = " . Real($ints_near_roots[0]);
+$choices[2] = "x = " . Real($ints_near_roots[1]);
+$choices[3] = "x = " . Real($ints_near_roots[2]); 
+
+$pop = PopUp( [@choices], $choices[3] );
+
+
+$dim = $ints_near_roots[2]+2;
+$f_vals[0] = $f->eval(x=>0);
+$ymax = $f_vals[0]+10;
+
+if ($ymax<20) { $tick = 2; }
+elsif ($ymax<30) { $tick = 3; }
+elsif ($ymax<60) { $tick = 6; }
+else { $tick = 10; }
+
+
+
+
+
+$graph1 = GraphWithTikZ(function => [[$f,dmin => -$dim,dmax => $dim]],
+  xmin => -$dim,xmax => $dim,
+  ymax =>$ymax, smooth=>'smooth',ytick => $tick
+  );
+##############################################################
+#
+#  Text
+#
+#
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem trains you that the choice of [`x_0`] matters in Newton's Method.
+[@ closeDiv() @]*
+
+Newton's method generates fractals if we do it over the complex numbers.  We won't do that in this class because we're doing Calculus over the real numbers, not the complex numbers.  But I still want to share this video with you!
+
+[@ youtube("-RdOwhmqP5s") @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Newton's method is sensitive to the start point [`x_0`].  Different start points lead to different roots.  
+[@ closeDiv() @]*
+---
+
+We have a function [`[$f]`] graphed below:
+>>[@ image(insertGraph($graph1), width => 300, height => 300) @]*<<
+
+If we apply Newton's Method using [`x_0=0`], it approximates the root closest to 
+ [____]{$pop}
+
+The value of the first Newton iteration is [`x_1`] = [_]{Compute($x_vals[1])}
+
+END_PGML
+
+##############################################################
+#
+#  Solutions
+#
+#
+Context()->variables->add(xn => ['Real',TeX=>"x_n"]);
+$fn = $f->substitute(x => "xn");
+$fprimen = $fprime->substitute(x => "xn");
+
+
+
+
+BEGIN_PGML_SOLUTION
+We begin that recalling that the Newton's Method says that
+
+[`\displaystyle x_{n+1}=x_n-\frac{f(x_n)}{f^\prime(x_n)}=x_n - \frac{[$fn]}{[$fprimen]}`]
+
+So if we input [`x_0=0`], we get
+
+[`\displaystyle x_1=0 - \frac{[$f[0]]}{[$fprime[0]]}=[$x[1]]`]
+
+[`\displaystyle x_2=[$x[1]] - \frac{[$f[1]]}{[$fprime[1]]}=[$x[2]]`]
+
+[`\displaystyle x_3=[$x[2]] - \frac{[$f[2]]}{[$fprime[2]]}=[$x[3]]`]
+
+[`\displaystyle x_4=[$x[3]] - \frac{[$f[3]]}{[$fprime[3]]}=[$x[4]]`]
+
+We can see that our [`x_n`] are approaching the root near [`x=[$choices[3]]`].
+END_PGML_SOLUTION
+
+ENDDOCUMENT();        

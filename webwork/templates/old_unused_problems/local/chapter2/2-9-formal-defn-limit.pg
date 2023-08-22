@@ -1,0 +1,62 @@
+#based on: Library/AlfredUniv/anton8e/chapter2/2.4/prob5.pg
+
+########################################################################
+
+DOCUMENT();      
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+Context()->variables->add(epsilon=>'Real', a=>'Real');
+Context()->variables->set(epsilon => {TeX => '\epsilon'});
+
+##############################################################
+#
+#  Setup
+#
+#
+
+
+$m = Real(non_zero_random(-5,5));
+$b = Real(non_zero_random(-5,5));
+$a = non_zero_random(-3,3);
+$f = Formula("$m*x+$b")->reduce;
+$f2 = Real("$m*$a+$b");
+$delta = Formula("epsilon/abs($m)")->reduce;
+##############################################################
+#
+#  Text
+#
+#
+
+Context()->texStrings;
+BEGIN_TEXT
+Consider \(\displaystyle\lim_{x\to $a}($f)=$f2\).
+$BR
+Find the largest \(\delta\) so that \(\vert f(x)-L\vert <\epsilon\) when \(\vert x-a\vert < \delta\).
+$BR
+\(L=\) \{ans_rule(15)\}$BR
+\(a=\) \{ans_rule(15)\}$BR
+\(\delta = \) \{ans_rule(15)\}
+$BR
+(Type ${BBOLD}epsilon$EBOLD for \(\epsilon\).)
+END_TEXT
+Context()->normalStrings;
+
+##############################################################
+#
+#  Answers
+#
+#
+ANS($f2->cmp());
+ANS(Compute("$a")->cmp());
+ANS($delta->cmp());
+ENDDOCUMENT();        

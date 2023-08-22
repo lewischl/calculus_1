@@ -1,0 +1,148 @@
+#DESCRIPTION
+##  Algebra problem: function definition
+##ENDDESCRIPTION
+
+## tcao tagged and PAID on 2-20-2004
+
+## DBsubject(Algebra)
+## DBchapter(Functions)
+## DBsection(Function notation)
+## Date(6/3/2002)
+## Institution(Rochester)
+## MLT(ruleFc)
+## MLTleader(1)
+## Level(2)
+## TitleText1('College Algebra')
+## AuthorText1('Stewart, Redlin, Watson')
+## EditionText1('3')
+## Section1('4.1')
+## Problem1('1')
+## TitleText2('Precalculus')
+## AuthorText2('Stewart, Redlin, Watson')
+## EditionText2('3')
+## Section2('2.1')
+## Problem2('1')
+## KEYWORDS('algebra', 'function', 'definition','Functions','Evaluation')
+
+
+########################################
+# this file automatically moved
+#	from Library/maCalcDB/setAlgebra15Functions/srw2_1_1.pg 
+#	to setreview_simplifying/srw2_1_1.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setreview_simplifying/srw2_1_1.pg 
+#	to setbackground_-_training_-_simplifying/srw2_1_1.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGgraphmacros.pl",
+  "PGcourse.pl"
+);
+loadMacros("customCSS.pl");
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+
+$a = random(2,25,1);
+$b = random(2,25,1);
+
+
+$ans1 = "$a*x+$b";
+$ans2 = "(x+$b)/$a";
+$ans3 = "(x^2+$b)^(1/2) - $a";
+
+
+BEGIN_TEXT
+
+\{ openDiv({ "class" => "problemPurpose" }) \}
+Moving between the symbols of formulas and common language is an important skill.
+\{ closeDiv() \}
+
+$PAR
+
+
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
+Express the rules as functions.  
+\{ closeDiv() \}
+
+
+$PAR
+
+
+"Multiply the input by $a, then add $b" is the same as the function
+
+\(f(x)=\) \{ans_rule(15)\}.
+
+$PAR
+
+"Add $b to the input, then divide by $a" is equivalent to
+
+\(g(x)=\) \{ans_rule(15)\}.
+
+
+$PAR
+
+"Square the input, then add $b, then take the square root, then subtract $a" is equivalent to
+
+\(h(x)=\) \{ans_rule(15)\}.
+
+$PAR
+
+
+
+
+
+ 
+\{ openDiv({ "class" => "inProblemHint" }) \}
+Actions before the word "then" are completed before taking the action after "then", so group them using parenthesis.
+\{ closeDiv() \}
+
+$PAR
+$HR
+$PAR
+
+
+
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
+Solve the word problem.  
+\{ closeDiv() \}
+
+$PAR
+
+You buy a used car listed as $DOLLAR 10,000 at a discount of 10 percent.
+However, you also pay 10 percent sales tax.  Thus you end up writing a
+check for $DOLLAR
+\{ ans_rule(6) \}.
+
+
+
+END_TEXT
+
+
+
+ANS(fun_cmp($ans1));
+ANS(fun_cmp($ans2));
+ANS(fun_cmp($ans3));
+
+ANS(num_cmp(9900));
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.
+

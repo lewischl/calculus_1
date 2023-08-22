@@ -1,0 +1,263 @@
+##DESCRIPTION
+##  Evaluate an integral by interpreting it in terms of areas
+##ENDDESCRIPTION
+
+## Shotwell cleaned
+## lcao , PAID on 11-24-2003
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Integrals)
+## DBsection(Conceptual understanding of integration)
+## Date(6/3/2002)
+## MLT(integral_concept_areainterp)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('5.2')
+## Problem1('31')
+## KEYWORDS('integrals', 'theory')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/ma122DB/set11/s5_2_31.pg 
+#	to setintegrals_definite_by_geometry/s5_2_31.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_definite_by_geometry/s5_2_31.pg 
+#	to setintegrals_definite_by_geometry_-_training/s5_2_31.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGcourse.pl"
+);
+
+COMMENT("this problem modifies an existing desmos graph via URL");
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a= random(1, 3, 1); # left bound
+$b= random(5, 7, 1);# right bound
+
+# generate a random linear function with slope 2, with root between a and b
+do{
+$slope = 2;
+$intercept= non_zero_random(-9, 9, 1);
+$root_of_f = -$intercept/$slope; $r = $root_of_f;
+$f = Formula("$slope x + $intercept")->reduce;
+$F = Formula("$slope/2 x^2 + $intercept x");
+}
+while ($root_of_f <= $a or  $b <= $root_of_f);
+
+$width_left = $r - $a;
+$height_left = $f->eval(x=>$a);
+$area_left = 1/2*$width_left*$height_left;
+
+
+
+$width_right = $b - $r;
+$height_right = $f->eval(x=>$b);
+$area_right = 1/2*$width_right*$height_right;
+
+$net_area = $area_left + $area_right;
+$area = $F->eval(x=>$b) - $F->eval(x=>$a);
+
+$unique_div_id = "desmos_graph";
+HEADER_TEXT(MODES(
+    HTML=>'<script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3plus/1.7.3/d3plus.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>',
+    
+    TeX=>''
+));
+$width= 500;
+$height=300;
+$desmos_div = MODES(
+    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
+    TeX=>'Interactive graph best viewed online'
+);
+
+
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem offers training on finding definite integrals (signed areas) for linear functions using geometry.
+[@ closeDiv() @]*
+
+The "definite integral" is the formal name we give to the "area" between
+* a curve
+* the [`x`]-axis
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+To find the value of a definite integral using geometry
+
+1. Draw a picture, 
+    * horizontal bounds are the numbers with the [`\int`] sign, left on bottom, right on top
+    * vertical bounds is the function.  
+2. Shade the area *between* the function and the [`x`]-axis
+3. Identify geometric shapes useful to compute the area
+4. Compute the area
+
+[@ closeDiv() @]*
+
+---
+
+The problem prompt:
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Evaluate the integral by interpreting it in terms of areas.
+
+[``` \int_{[$a]}^{[$b]} ([$f]) \, dx ```]
+[@ closeDiv() @]*
+
+Definite integrals from linear functions correspond to triangles and trapezoids.  I'd like to use triangles for this.
+
+Check out the Desmos graph below, and see the shaded area.  That's the definite integral we'd like to compute:
+
+[@ $desmos_div @]*
+
+There are two triangles I'd like you to picture:
+1. one left of the root, below the [`x`]-axis.  counts as negative
+2. one right of the root, above.  counts as positive.
+
+🎯 Compute the [`x`]-coordinate of the root:
+
+[`x_\textnormal{root} = `] [_]{$root_of_f}
+
+🎯 Compute the dimensions and __signed__ area of the left triangle:
+
+* [`\textnormal{width} = `] [_]{$width_left} <--- positive
+* [`\textnormal{height} = `] [_]{$height_left}  <--- this is negative!!! evaluate [`f`] and get a negative number!
+* [`\textnormal{area} = `] [_]{$area_left}  <--- negative
+
+🎯 Compute the dimensions and __signed__ area of the right triangle:
+
+* [`\textnormal{width} = `] [_]{$width_right}
+* [`\textnormal{height} = `] [_]{$height_right}
+* [`\textnormal{area} = `] [_]{$area_right}
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Definite integrals are *net* area.  
+* Area below the horizontal axis counts as negative
+* Area above counts as positive
+[@ closeDiv() @]*
+
+🎯 Compute net area / signed area for this shaded region by adding together the two signed areas:
+
+* [`\textnormal{net area} = `] [_]{$net_area}
+
+
+Finally, we're ready to 🎯 answer the question: 
+
+[`` \int_{[$a]}^{[$b]} ([$f]) \, dx = ``] [_]{$area}
+
+END_PGML
+
+BEGIN_TEXT
+
+
+
+
+
+
+
+END_TEXT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Context()->normalStrings;
+
+
+$left = min($root_of_f  - 2, -2);
+$right = max($b + 2, 4);
+$bottom = min($f->eval(x=>$left) - 1, -4);
+$top = max($f->eval(x=>$right) + 1, 4);
+
+
+$d = '$'; # make a single dollar sign.  yes, this is stupid, but necessary cuz i couldn't figure out how to just put a dollar sign in the script code below.
+
+$graphUrl = "https://www.desmos.com/calculator/dd1hybgewx"; # the URL of the graph to embed.
+
+# for an explantion of what << does, see https://stackoverflow.com/questions/11948338/what-is-print-eof-and-how-is-it-working
+TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );  
+<script>
+<!-- //
+    
+    var elt = document.getElementById("$unique_div_id");
+
+    var calc = Desmos.Calculator(elt, {
+        keypad: false, 
+        expressions: false,
+        settingsMenu: false, 
+        expressionsTopbar: false
+    });
+    
+    
+    function modifyExistingState(json)
+    {
+    var state = json.state;
+     state.expressions.list[1].latex = "f(x) = $f";
+     state.expressions.list[2].latex = "a = $a";
+     state.expressions.list[3].latex = "b = $b";
+     calc.setState(state);
+     
+    calc.setMathBounds({
+      left: $left,
+      right: $right,
+      bottom: $bottom,
+      top: $top
+    });
+    
+    }
+
+    $d.getJSON("$graphUrl", modifyExistingState);
+
+
+// -->
+</script>
+END_SCRIPT
+
+
+
+
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.
+

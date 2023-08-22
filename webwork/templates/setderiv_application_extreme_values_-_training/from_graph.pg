@@ -1,0 +1,120 @@
+##DESCRIPTION
+## Determine max/min graph
+##ENDDESCRIPTION
+##keywords('derivative', 'local minimum, maximum', 'absolute minimum, ##maximum') 
+
+## Shotwell cleaned
+## lcao , PAID on 11-24-2003
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Summary of curve sketching)
+## Date(6/3/2002)
+## Level(2)
+## Static(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('4.1')
+## Problem1('61')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Rogawski')
+## EditionText2('1')
+## Section2('4.2')
+## Problem2('61')
+## KEYWORDS('derivative', 'local minimum, maximum', 'absolute minimum, ##maximum')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/set4.2_extreme_values/from_graph.pg 
+#	to setderiv_application_extreme_values/from_graph.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderiv_application_extreme_values/from_graph.pg 
+#	to setderiv_application_extreme_values_-_training/from_graph.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+A graphical absolute optimization problem, teaching the difference between absolute and local optima.
+
+
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+* An "absolute" minimum or maximum value is the min or max on the entire domain or interval-of-interest.
+
+* A "local" min or max is an absolute, just for a small interval containing the point.
+
+ℹ️ Every absolute optimum is a local optimum, but not vice versa.
+[@ closeDiv() @]*
+
+
+The values [`x_{\textnormal{min}}`] and [`x_{\textnormal{max}}`] are the locations of the absolute optima.  In contrast, [`f(x_{\textnormal{min}})`] and [`f(x_{\textnormal{max}})`] are the function values.  
+
+So, we can ask you about either the [`x`]-coordinates or the [`y`]-coordinates of the locations of optima!  This problem does both.
+
+---
+
+END_PGML
+BEGIN_TEXT
+Let \(f(x)\) be the function shown in the graph below. $BR
+\{ image("s4_1_5.gif", width=>250) \}  
+$BR$BR
+
+Determine the absolute minimum of the function shown in the graph. $BR
+\(x_{\textnormal{min}}=\) \{ans_rule(4)\} , \(\ \ f(x_{\textnormal{min}})=\)\{ans_rule(4)\}. $BR$BR
+
+Determine the absolute maximum of the function shown in the graph. $BR
+\(x_{\textnormal{max}}=\) \{ans_rule(4)\} , \( \ f(x_{\textnormal{max}})=\) \{ans_rule(4)\}. $BR$BR
+
+Select maximum or minimum for the following:
+$BR
+The function attains a local \{pop_up_list(['?', 'minimum','maximum'])\} at \(x=2\). $BR
+The function attains a local \{pop_up_list(['?', 'minimum','maximum'])\} at \(x=4\). $BR
+The function attains a local \{pop_up_list(['?', 'minimum','maximum'])\} at \(x=5\). 
+
+
+
+END_TEXT
+             
+
+             
+ANS(num_cmp(6));
+ANS(num_cmp(0));
+ANS(num_cmp(3));
+ANS(num_cmp(4));
+
+ANS(str_cmp("minimum", filters=>["trim_whitespace","compress_whitespace"]));
+ANS(str_cmp("minimum", filters=>["trim_whitespace","compress_whitespace"]));
+ANS(str_cmp("maximum", filters=>["trim_whitespace","compress_whitespace"]));
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.
+

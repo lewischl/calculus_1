@@ -1,0 +1,77 @@
+##DESCRIPTION
+##Calculus: Limits and Derivatives
+##ENDDESCRIPTION
+
+##Tagged by YJ
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Definition of the derivative)
+## Date(5/26/2005)
+## Institution(UVA)
+## Author(Jeff Holt)
+## MLT(defDerDomain)
+## Level(3)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('2.9')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('2.8')
+## Problem2('')
+## KEYWORDS('calculus', 'limits', 'derivatives')
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "extraAnswerEvaluators.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a = non_zero_random(2,9,1);
+$b = non_zero_random(2,9,1);
+
+TEXT(EV2(<<EOT));
+Use the $BBOLD definition of the derivative $EBOLD (don't be tempted to take
+shortcuts!) to find the derivative of the function
+
+$PAR
+
+\( \displaystyle 
+    f(x) = \frac{$a}{$b x^{2}}.
+\)
+
+$PAR
+\(f'(x)\) = \{ans_rule(25) \}
+
+
+
+$PAR
+$HR
+$PAR
+
+What are the domain of the function and the domain of the derivative?  (The union symbol is a capital "U")
+
+$PAR
+
+Domain of \(f(x)\) = \{ans_rule(25) \}
+$BR
+$BR
+Domain of \(f'(x)\) = \{ans_rule(25) \}
+$BR
+EOT
+
+@ans = (fun_cmp("-2*($a/$b)*x**(-3)", vars=>"x"),interval_cmp("(-inf,0)U(0,inf)"),interval_cmp("(-inf,0)U(0,inf)"));
+ANS(@ans);
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

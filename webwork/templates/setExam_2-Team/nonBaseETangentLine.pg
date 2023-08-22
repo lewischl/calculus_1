@@ -1,0 +1,76 @@
+##DESCRIPTION
+##  exponential different from base e
+##ENDDESCRIPTION
+
+##KEYWORDS('arithmetic', 'pi')
+
+## DBsubject('Algebra')
+## DBchapter('Fundamentals')
+## DBsection('Real Numbers')
+## Date('')
+## Author('')
+## Institution('')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+SRAND($team_exam2_seed);
+$setseed = "set.seed($team_exam2_seed); $team_exam2_seed";
+
+$b = random(2,6,1);
+
+$c = non_zero_random(-6,6,2);
+
+$x = $c/2;
+
+$f = Formula("$b^(x^2-$c*x)")->reduce;
+
+$df = Formula("(2*x-$c)*ln($b)*$b^(x^2-$c*x)")->reduce;
+
+$y = $f -> eval(x=>$x);
+
+$m = $df -> eval(x=>$x);
+
+$b = Compute("-$m*$x+$y");
+
+$line = Formula("$m*x+$b")->reduce;
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+Consider the following function [``g(x)=[$f]``].
+
+1) Find [`g^\prime(x)=`] [_____]{$df}
+
+2) Find the equation for the line tangent to [`g(x)`] at [`x=[$x]`] in slope intercept form
+
+Tangent line: [`y=`] [____]{$line}
+END_PGML
+
+ENDDOCUMENT();

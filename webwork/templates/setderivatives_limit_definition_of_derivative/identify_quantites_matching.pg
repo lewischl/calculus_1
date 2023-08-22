@@ -1,0 +1,150 @@
+##DESCRIPTION
+##  match quantities to meanings, related to derivatives
+##ENDDESCRIPTION
+
+##KEYWORDS('matching','tutorial')
+
+## DBsubject('Calculus')
+## DBchapter('Derivatives and Limits')
+## DBsection('Definition of Derivative')
+## Date('spring 202w3')
+## Author('silviana amethest')
+## Institution('uwec')
+
+# this derived from https://webwork.maa.org/pod/pg/lib/Match.html
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set3.1_definition_of_derivative/identify_quantites_matching.pg 
+#	to setderivatives_limit_definition_of_derivative/identify_quantites_matching.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   # added for matching
+   "PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"unionTables.pl",
+"customCSS.pl",
+"PGtikz.pl",
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+
+
+$ml = new_match_list();
+
+
+
+	$ml->qa(
+		'\( \sin 1.3 - \sin 0.9 \) ',
+		'difference of function values, \(\Delta f\)',
+		'\( \frac{\sin 1.3 - \sin 0.9}{0.4}\) ',
+		'slope of a secant line',
+		"\( f'(0.9) \) ",
+		'slope of tangent line to \(\sin x\) at \(x=0.9\)',
+	);
+    
+    
+    	$ml->extra(
+		'slope of tangent line to \(\sin x\) at \(x=1.3\)',
+		'difference of input values, \(\Delta x\) or \(h\)',
+	);
+    
+    $ml->choose(3); # would show the first question and a random question while
+    
+    # After calling choose, use choose_extra to select which of the extra 'answers' will be given to each student. 
+    #Note that unused answers are dumped into the list of extra 'answers' so the indexing may be difficult to grasp at first. 
+    #(This can be stopped by doing the following: $ml->dumpExtra = "";)
+    $ml->choose_extra(2);
+    
+    #$ml->makeLast(
+	#	'All of the above',
+	#	'None of the above'
+	#);
+    
+    $ml->ans_rule_len(10);
+
+$f = Formula("sin(x)");
+@xlim = (0.7, 1.5);
+@ylim = ($f->eval(x=>$xlim[0])-0.1, $f->eval(x=>$xlim[1])+0.1);
+
+
+sub deg_to_rad{
+my $d;
+$d = shift;
+return pi/180*$d;
+};
+
+
+sub rad_to_deg{
+my $d;
+$d = shift;
+return 180/pi*$d;
+};
+
+$tick = 0.1;
+
+$graph1 = GraphWithTikZ(function => [  
+                                     [Formula("sin(180/pi*x)"),xmin=>rad_to_deg($xlim[0]),xmax=>rad_to_deg($xlim[1]),label=>'\sin(x)',color=>"blue",samples=>500],
+                                    ],
+points => [[Point((0.9,$f->eval(x=>0.9))),color=>"blue",label=>"(0.9, \sin(0.9))"],
+           [Point((1.3,$f->eval(x=>1.3))),color=>"blue",label=>"(1.3, \sin(1.3))"],
+          ],
+    xmin => $xlim[0],xmax => $xlim[1],ymin =>$ylim[0],ymax =>$ylim[1], # axis limits.  these should be computed, as in this example
+    smooth=>'smooth', #smooth, not cornery
+    ytick => $tick,xtick => $tick, useLegend=>1); # where to mark the axis.  xtick, ytick is the distance between marks.  they do not have to be the same.
+
+BEGIN_PGML
+
+>>[@ image(insertGraph($graph1), width => 400, height => 400) @]*<<
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+This problem connects algebraic quantities to geometric quantities related to the definition of the derivative and the slope of the tangent line.
+
+[@ closeDiv() @]*
+
+END_PGML
+
+
+BEGIN_TEXT
+
+
+
+Match the quantities to the meanings, in relation to the graph of \(f(x) = \sin x\).  You will not use all the letters.
+
+$PAR $HR $PAR
+
+
+END_TEXT
+
+TEXT(ColumnTable($ml->print_q(),$ml->print_a()));
+
+
+
+
+
+ANS(str_cmp($ml->ra_correct_ans));
+
+
+ENDDOCUMENT();
+

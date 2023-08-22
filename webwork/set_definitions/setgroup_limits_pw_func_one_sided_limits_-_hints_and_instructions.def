@@ -1,0 +1,58 @@
+assignmentType      = default
+openDate          = 02/02/2031 at 11:59pm CST
+reducedScoringDate = 02/02/2031 at 11:59pm CST
+dueDate           = 02/02/2031 at 11:59pm CST
+answerDate        = 02/02/2031 at 11:59pm CST
+enableReducedScoring = N
+paperHeaderFile   = defaultHeader
+screenHeaderFile  = defaultHeader
+description       = 
+restrictProbProgression = 0
+emailInstructor   = 0
+
+problemListV2
+problem_start
+problem_id = 1
+source_file = setgroup_limits_pw_func_one_sided_limits_-_hints_and_instructions/ur_lr_1-5_1_mo.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 2
+source_file = setgroup_limits_pw_func_one_sided_limits_-_hints_and_instructions/ur_lr_3_16_mo.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 3
+source_file = setgroup_limits_pw_func_one_sided_limits_-_hints_and_instructions/s_2_2_7.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 4
+source_file = setgroup_limits_pw_func_one_sided_limits_-_hints_and_instructions/ns2_2_xx.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+

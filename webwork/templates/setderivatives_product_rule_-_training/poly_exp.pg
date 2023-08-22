@@ -1,0 +1,228 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by cmd6a 5/29/06
+## Updated December 2014 at OPL Workshop by JDA
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Product rule (without trigonometric functions))
+## Date(6/3/2002)
+## Institution(UCSB)
+## MLT(prodruleNoTrigexpoPoly)
+## Level(2)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('3.2')
+## Problem1('3')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('5')
+## Section2('3.2')
+## Problem2('3')
+## KEYWORDS('calculus','derivative','exponential','product rule','derivatives', 'product rule','Product','Quotient','Differentiation')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/set3.3_product_rule/poly_exp.pg 
+#	to setderivatives_product_rule/poly_exp.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_product_rule/poly_exp.pg 
+#	to setderivatives_product_rule_-_training/poly_exp.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",        # the new parser
+  "contextFraction.pl",
+  "parserMultiAnswer.pl",
+"answerHints.pl",
+"PGML.pl",
+   "scaffold.pl",
+  "PGcourse.pl",           # Customization file for the course
+   "customCSS.pl",
+   "parserPopUp.pl",   # <--------------------------------------NEEDED FOR DROPDOWN MENUS
+);
+
+loadMacros("niceTables.pl");
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context('Numeric');
+
+$an = random(2,5,1);
+$as = random(-1,1,2);
+$a  = $an * $as;
+$n  = random(2,8,1);
+
+$funct1 =  Compute("$a*x^($n-1)*($n+x)*e**x");
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem offers instruction on using the product rule when a function is already named [`f`].
+[@ closeDiv() @]*
+
+>>[@ youtubeAmethyst("HORaX2UFVUo") @]*<<
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The Product Rule for Derivatives:
+
+If [`f`] and [`g`] are differentiable functions, then
+
+>>[``\frac d{dx}[f(x)g(x)]=f'(x)g(x)+g'(x)f(x)``]<<
+[@ closeDiv() @]*
+
+
+---
+
+
+Let [```f(x)=[$a]x^[$n]e^x```]
+
+Since the original function is named [`f`], also calling one of the factors [`f`] for the Product Rule may be confusing.
+
+To get around this, we can name the two factors [`f_1`] and [`g_1`]:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Product Rule (with different names):
+
+If [`f_1`] and [`g_1`] are differentiable functions, then
+
+>>[``\frac d{dx} f(x) = \frac d{dx}[f_1 g_1 ]=f_1'  \cdot g_1 +g_1' \cdot  f_1 ``]<<
+[@ closeDiv() @]*
+
+One of the critical parts of using the differentiation rules is to recognize the components, and sometimes giv them names.  Our original function can be factored as [``` \begin{aligned} f(x) &= [$a]x^[$n]e^x  \\ &= f_1 \cdot g_1 \end{aligned} ```] 
+
+Identify the ingredients for the product rule by filling in each box below:
+
+[@
+DataTable(
+[
+    ['\( f_1  =\)' . ans_rule(10),'\(f_1\' =\)' . ans_rule(10)],
+    ['\( g_1  =\)' . ans_rule(10),'\(g_1\' =\)' . ans_rule(100)]
+],
+align => 'l l',
+tablecss => "border:solid 1px; border-spacing:50px 5px; border-radius: 5px; border-collapse:separate;"
+);
+@]*
+
+END_PGML
+
+ANS(Formula("$a*x^$n")->reduce->cmp());
+ANS(Formula("$a*$n*x^($n-1)")->reduce->cmp());
+ANS(Formula("e^x")->reduce->cmp());
+ANS(Formula("e^x")->reduce->cmp());
+
+#Let \[ f(x) = $a x^ {$n} e^x \]
+#$BR $BR
+
+BEGIN_TEXT
+
+Now use those answers to find \( f'(x) \)
+
+$PAR
+
+$BCENTER
+\( f'( x) = \) \{ans_rule(40) \}
+$ECENTER
+
+END_TEXT
+
+ANS($funct1->cmp);
+
+
+
+$a1 = random(3,10,1);
+$b1 = non_zero_random(-10,10,1);
+$c1 = non_zero_random(-10,10,1);
+
+$a2 = random(3,10,1);
+$b2 = random(-10,10,1);
+$c2 = non_zero_random(-10,10,1);
+$d2 = non_zero_random(-10,10,1);
+
+$box = Formula("$a1 x^2 + $b1 x + $c1")->reduce;
+$delta = Formula("$a2 x^2 + $b2 x^2 + $c2 x + $d2")->reduce;
+
+$g = ($box * $delta)->reduce;
+BEGIN_PGML
+
+---
+
+Ok, another!  But I want teach you a bit of "square box notation".  I like using the symbols [`\Box`] and [`\Delta`] for pieces of functions where I may not even want to make them.  
+* They have open space in the middle, so whatever goes "in" [`\Box`] goes in *all* instances of that symbol.
+* The pop on the page.  It's visually nice for some people.  
+
+Rephrasing the product rule in "square box notation", it looks like this:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+[```( \Box\Delta)' = \Box' \Delta + \Box \, \Delta' ```]
+[@ closeDiv() @]*
+
+---
+
+This time, let [```g(x) = ([$box]) \cdot ([$delta]) ```]
+
+Write the ingredients for the product rule:
+[@
+DataTable(
+[
+    ['\( \Box  =\)' . ans_rule(10),'\(\Box\' =\)' . ans_rule(10)],
+    ['\( \Delta  =\)' . ans_rule(10),'\(\Delta\' =\)' . ans_rule(100)]
+],
+align => 'l l',
+tablecss => "border:solid 1px; border-spacing:50px 5px; border-radius: 5px; border-collapse:separate;"
+);
+@]*
+
+END_PGML
+
+ANS($box->cmp);
+ANS($box->D->cmp);
+ANS($delta->cmp);
+ANS($delta->D->cmp);
+BEGIN_PGML
+
+
+Now use the product rule to compute the derivative of [`g`].
+
+>>[`g'(x) = `] [___]{ $g->D}<<
+
+END_PGML
+
+
+$showHint=1;
+BEGIN_HINT
+Three things to remember: $PAR
+
+• Multiplicative constants, like \($a\), factor out of derivatives.  \( (c \cdot f(x))' = c f'(x) \). $BR
+• The function \(e^x\) is, aside from the zero function, the only function that's its own derivative. That is, \( (e^x)' = e^x\).$BR  
+• The product rule: \( (fg)' = f'g + fg' \).  Each gets a turn with the prime.
+
+END_HINT
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

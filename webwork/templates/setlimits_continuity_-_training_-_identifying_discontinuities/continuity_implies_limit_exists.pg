@@ -1,0 +1,129 @@
+##DESCRIPTION
+##  Continuity implies limits exist
+##ENDDESCRIPTION
+
+##KEYWORDS('limit','infinity')
+
+## DBsubject('Calculus')
+## DBchapter('Limits')
+## DBsection('Continuity')
+## Date('')
+## Author('silviana amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set2.4_continuity2/continuity_implies_limit_exists.pg 
+#	to setlimits_continuity/continuity_implies_limit_exists.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_continuity/continuity_implies_limit_exists.pg 
+#	to setlimits_continuity_-_training_-_identifying_discontinuities/continuity_implies_limit_exists.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "parserPopUp.pl",
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   "PGcourse.pl",      # Customization file for the course
+   "PGbasicmacros.pl",
+    "PGchoicemacros.pl",
+    "customCSS.pl",
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 0;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+
+
+
+$mc = new_checkbox_multiple_choice();
+$mc -> qa (
+"Select the requirements that a function \(f\) be continuous at a point \(c\)", 
+
+"\(f\) must be defined at \(x=c\) $BR",
+"Both one-sided limits must exist and be equal $BR",                
+"The one-sided limits must match the function value at \(x=c \)$BR",
+);
+$mc -> extra(
+"The function \(f\) must have a vertical asymptote at \( x=c \)$BR",
+"\( f \) must have a removable discontinuity at \(x=c\) $BR",
+"The two-sided limit of \(f\) at \(x=c\) must equal \(0\) $BR",
+"The function must have a horizontal asymptote$BR",
+);
+#$mc -> makeLast("None of the above");
+
+
+
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+# 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem aims to help you internalize the definition of continuity.
+[@ closeDiv() @]*
+
+END_PGML
+
+BEGIN_TEXT
+
+\{ $mc -> print_q() \}
+$BR
+\{ $mc -> print_a() \}
+
+$PAR
+
+\{ openDiv({ "class" => "inProblemHint" }) \}
+This problem does not show you which parts you have incorrect, to force you to think about the selections
+\{ closeDiv() \}
+END_TEXT
+
+
+
+
+install_problem_grader(~~&std_problem_grader);
+
+$showPartialCorrectAnswers = 0;
+
+ANS( checkbox_cmp( $mc->correct_ans() ) );
+
+ENDDOCUMENT();

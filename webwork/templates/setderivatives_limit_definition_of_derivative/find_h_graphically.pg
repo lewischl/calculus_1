@@ -1,0 +1,196 @@
+##DESCRIPTION
+##  Given a graph of a function, find a value of h that makes slope of secant line 0
+##ENDDESCRIPTION
+
+##KEYWORDS('applications of derivatives', 'first derivative test', 'graphical')
+
+## DBsubject('Calculus')
+## DBchapter('Limits / Derivatives')
+## DBsection('Definition of derivative')
+## Date('2023')
+## Author('silviana amethyst')
+## Institution('uwec')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set3.1_definition_of_derivative/find_h_graphically.pg 
+#	to setderivatives_limit_definition_of_derivative/find_h_graphically.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   "parserPopUp.pl",
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   "PGanswermacros.pl",
+   "PGauxiliaryFunctions.pl",
+   "extraAnswerEvaluators.pl", # needed for the set comparisons
+   "customCSS.pl",
+);
+
+
+
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+
+
+# this what they're given
+$x_vertex = random(1,4,1);
+$x_scale = random(1,3,1);
+
+$y_scale = random(1,3,0.1);
+
+$f = Formula("$y_scale*((x-$x_vertex)/$x_scale)^2")->reduce;
+
+$pt_of_interest = $x_vertex + $x_scale;
+
+$val = $f->eval(x=>$pt_of_interest);
+
+$target_height = random(2,5,1);
+
+$f = Formula("$f + ($target_height-$val)");
+
+# set the x limits for plotting
+@xlim = ();
+$xlim[0] = $x_vertex-($x_scale+2.); #assymetric to hide things a bit
+$xlim[1] = $x_vertex+ $x_scale+1.5;
+
+
+
+@ylim = ();
+$ylim[0] = min(-0.1, $f->eval(x=>$x_vertex)-1);
+$ylim[1] = max($f->eval(x=>$xlim[0]),$f->eval(x=>$xlim[1]));
+
+$xtick = 1;
+$ytick = 1;
+
+$graph1 = GraphWithTikZ(function => [[$f,dmin => $xlim[0],dmax => $xlim[1],label=>"f(x)"]],
+                        xmin => $xlim[0],xmax => $xlim[1],ymin => $ylim[0],ymax =>$ylim[1],smooth=>'smooth',ytick => $ytick,xtick => $xtick,useLegend=>1);
+                        
+$h_makes_zero = -2*$x_scale;
+
+$interval_decreasing = "(-inf, $x_vertex)";
+$interval_increasing = "($x_vertex, inf)";
+
+$x_der_zero = $x_vertex;
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+This problem is about the connection between instantaneous rates of change and slopes of tangent lines
+
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+* a horizontal line has slope 0, and lines with slope 0 are horizontal
+* [`f'`] is positive where the graph is increasing
+* [`f'`] is negative where the graph is decreasing
+
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+The quantity
+
+[``\frac{\Delta f}{\Delta x} = \frac{f(a+h) - f(a)}{h}``]
+
+represents both
+* the average rate of change of [`f`] over an interval of duration [`h`]
+* the slope of the secant line passing through two points separated by distance [`h`] with one of them rooted with [`x`]-coordinate equal to [`x=a`].
+
+[@ closeDiv() @]*
+
+---
+
+
+Here's a graph of a function [`f`].  Assume all the interesting behaviour is depicted.
+
+>>[@ image(insertGraph($graph1), width => 400, height => 400) @]*<<
+
+
+---
+
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+
+For this part, take note of these two facts, using [`x=[$x_vertex]`] as the base point:
+* The slope of the secant line passing through points with [`x`]-coordinates [`x = [$x_vertex]`] and [`x = [$x_vertex+1]`], with separation distance [`h = 1`], is positive, because [`\frac{f([$x_vertex+1])-f([$x_vertex])}{[$x_vertex+1] - [$x_vertex]}`] is positive.
+* The slope of the secant line passing through points with [`x`]-coordinates [`x = [$x_vertex]`] and [`x = [$x_vertex-1]`], with separation distance [`h = -1`], is negative, because [`\frac{f([$x_vertex-1])-f([$x_vertex])}{[$x_vertex-1] - [$x_vertex]}`] is negative.
+
+Remember there's an *exact* correspondence between slope [`0`] and horizontal lines.
+[@ closeDiv() @]*
+
+* Find a value for [`h`] for which [` \displaystyle \frac{f([$x_vertex-1] + h) - f([$x_vertex-1])}{h} = 0 `]    
+    When [`h = `][_]{2}, [` \displaystyle \frac{f([$x_vertex-1] + h) - f([$x_vertex-1])}{h} = 0 `]
+
+
+
+* Find a value for [`h`] for which [` \displaystyle \frac{f([$pt_of_interest] + h) - f([$pt_of_interest])}{h} = 0 `]    
+    When [`h = `][_]{$h_makes_zero}, [` \displaystyle \frac{f([$pt_of_interest] + h) - f([$pt_of_interest])}{h} = 0 `]
+
+--
+
+
+At what [`x`]-coordinate is [`f'(x) = 0`]?  
+
+At [`x = `] [_____]{$x_der_zero}.
+
+
+
+---
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+
+Use interval notation to answer these two questions about the slope of a graph.
+
+[@ closeDiv() @]*
+
+* For what interval(s) is [`f'(x)`] positive?    
+    On the interval(s) [_____]{interval_cmp($interval_increasing, strings=>["none"])}
+
+
+
+
+* For what interval(s) is [`f'(x)`] negative?    
+    On the interval(s) [_____]{interval_cmp($interval_decreasing, strings=>["none"])}
+
+
+
+
+END_PGML
+
+ENDDOCUMENT();

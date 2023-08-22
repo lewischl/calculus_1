@@ -1,0 +1,135 @@
+##DESCRIPTION
+## Calculus problem: Newton's Method problem requesting an approximation within a certain error
+##ENDDESCRIPTION
+
+##KEYWORDS('calculus', 'approximation', 'derivative')
+
+## DBsubject('Calculus')
+## DBchapter('Applications of the Derivative')
+## DBsection('Newtons's Method')
+## Date('8/1/2022, summer 2023')
+## Author('Erich Jauch, silviana amethyst')
+## Institution('')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('2')
+
+########################################################################
+
+
+
+
+DOCUMENT();      
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   "PGuwecTikZutils.pl", #Custom TikZ code
+);
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+    
+    # helps keep polynomials ordered 
+   Context()->noreduce('(-x)-y');
+   Context()->noreduce('(-x)-y','(-x)+y');
+# construct a random quintic with integer coefficients
+
+$x0 = random(1,5,0.5);
+
+do{
+    $c = (non_zero_random(-6,6,1));
+    $f = Formula("$c x^5");
+    for my $ii (1..5){
+        $c[$ii] = random(1,5,1);
+        $f = $f + Formula("$c[$ii]*x^(5-$ii)");
+    }
+} while (abs($f->D->eval(x=>$x0)) < 1); # this is very unlikely, just being safe
+
+$f = $f->reduce;
+$fprime = $f->D->reduce;
+
+
+
+
+# the computed sequence using newton's method
+@x_vals = ($x0);
+@f_vals = ();
+@fprime_vals = ();
+
+
+# Constructs 4 approximations
+$i = 0;
+
+do{
+    $f_vals[$i] = $f->eval(x=>$x_vals[$i]);
+    $fprime_vals[$i] = $fprime->eval(x=>$x_vals[$i]);
+    
+    $x_vals[$i+1] = $x_vals[$i] - $f_vals[$i]/$fprime_vals[$i];
+    
+    $i = $i+1;
+} while (abs($x_vals[$i-1] - $x_vals[$i])>1e-7);
+
+$x_ast = $x_vals[$i];
+
+
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+Context('Numeric')->flags->set(
+    tolerance => 1e-5,
+    tolType   => 'absolute',
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+
+BEGIN_PGML
+
+
+Use Newton's Method to approximate a real root [`x_*`] of 
+
+[``f(x)=[$f]``] 
+
+with an initial guess of [`x_0 =[$x0]`]. 
+
+🎯 Find the value of the first three newton iterations.  Your answers should be correct to at least 5 decimal places.
+
+* [`x_1 = `] [___]{Real($x_vals[1])}
+* [`x_2 = `] [___]{Real($x_vals[2])}
+* [`x_3 = `] [___]{Real($x_vals[3])}
+
+
+🎯 Find an approximation accurate to at least 5 decimal places by iterating until two consecutive iterations match to 5 decimal places.
+
+[`x_*\approx`] [____]{Real($x_ast)}
+
+
+
+END_PGML
+
+##############################################################
+#
+#  Solutions
+#
+#
+
+
+ENDDOCUMENT();        

@@ -1,0 +1,81 @@
+##DESCRIPTION
+##  Evalute a limit of a fraction of two polynomials,
+##  involves factoring a quadratic polynomial
+##ENDDESCRIPTION
+
+## Shotwell cleaned
+## tcao , PAID on 11-24-2003
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Evaluating limits - factoring)
+## Date(6/3/2002)
+## MLT(elf-e)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('2.3')
+## Problem1('13')
+
+
+
+########################################
+# this file automatically moved
+#	from my_problems/2.2_limits/common_root2.pg 
+#	to setlimits_introducing_limits/common_root2.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_introducing_limits/common_root2.pg 
+#	to setlimits_introducing_limits_-_training_-_limits_with_formulas/common_root2.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGcourse.pl",
+  "customCSS.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a1 = random(1,4,1);
+$b1 = random(6,10,1);
+$t1 = -$a1+$b1;
+$n1 = $a1*$b1;
+
+BEGIN_TEXT
+Evaluate the limit using either graphical or numerical techniques. $PAR
+
+\( \displaystyle \lim_{ x \rightarrow $a1 } \frac { x - $a1 } {x^2 + $t1 x - $n1 } =  \)\{ans_rule(25) \}
+
+
+$PAR
+
+
+\{ openDiv({ "class" => "inProblemHint" })  \}
+Try evaluating the function really near to the point of interest.  Use many decimal places.
+\{ closeDiv() \}
+END_TEXT
+
+
+
+$ans = "1/($a1 + $b1)";
+ANS(num_cmp($ans));
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.
+

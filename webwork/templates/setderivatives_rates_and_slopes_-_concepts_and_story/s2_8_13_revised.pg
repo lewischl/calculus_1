@@ -1,0 +1,170 @@
+##DESCRIPTION
+##  Find a derivative of a polynomial, evaluate it at a point
+##ENDDESCRIPTION
+
+## Shotwell cleaned
+## tcao , PAID on 11-24-2003
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Derivatives of polynomials and power functions)
+## Date(6/3/2002)
+## MLT(problems_with_x_equal_a)
+## Level(2)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('2.7')
+## Problem1('13')
+## KEYWORDS('derivatives')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/ma122DB/set3/s2_8_13_revised.pg 
+#	to setderivatives_derivative_basics/s2_8_13_revised.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_derivative_basics/s2_8_13_revised.pg 
+#	to setderivatives_rates_and_slopes_-_concepts_and_story/s2_8_13_revised.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "AnswerFormatHelp.pl",
+  "PGcourse.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Numeric");
+
+$n = 12;
+
+
+@funcs = ();
+
+Context()->noreduce('(-x)-y','(-x)+y'); # keep the x^2 in front.
+
+for my $ii (0..($n-1)){
+
+    $form = random(0,1,1);
+    
+    
+    $a1 = non_zero_random(-15,15,1);
+    $b1 = non_zero_random(-30,30,1);
+    $c1 = non_zero_random(-40,40,1);
+    $x1 = non_zero_random(-30,30,1);
+    
+    if ($form == 0){
+    $funcs[$ii] = Formula("$a1*x^2-$b1 * x - $c1");}
+    elsif ($form == 1){
+    $funcs[$ii] = Formula("$a1*x^2-$b1 * x - $c1");}
+    elsif ($form == 2){
+    $funcs[$ii] = Formula("$a1*x^2-$b1 * x - $c1");}
+    elsif ($form == 3){
+    $funcs[$ii] = Formula("$a1*x^2-$b1 * x - $c1");}
+    
+    $funcs[$ii] = $funcs[$ii]->reduce;
+}
+
+
+
+Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+Quadratics are the simplest functions with non-constant derivatives.  This problem offers training on using the sum and product rules with quadratic functions.
+
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The power rule:
+* [` (x^n)' = n x^{n-1} `]
+
+The sum rule:
+* [` (f+g)' = f' + g' `]
+
+The constant rule for any constant [`c`]:
+* [` (c)' = 0 `]
+
+Together they make degree-two polynomials a snap!  
+[@ closeDiv() @]*
+
+
+---
+
+END_PGML
+
+
+sub presentation{
+
+    my $f = shift(@_);
+    return 
+    "
+    \( f(x) =  $f\)
+    $BR
+    \(f'(x) = \) 
+    " . ans_rule(48);
+}
+
+$spacing = "$BR$PAR$BR";
+
+$col1 = "";
+for $ii (0..(int($n/2)-1)){
+    $col1 = $col1 . presentation($funcs[$ii]) . $spacing;
+}
+
+
+$col2 = "";
+for $ii (int($n/2)..($n-1)){
+    $col2 = $col2 . presentation($funcs[$ii]) . $spacing;
+}
+
+TEXT("$BCENTER");
+TEXT(ColumnTable($col1,$col2));
+
+TEXT("$ECENTER");
+
+for $ii (0..($n-1)){
+    ANS($funcs[$ii]->D->cmp);
+}
+
+BEGIN_PGML
+
+---
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+⚠️ Resist the temptation to use an online calculator for this.  Differentation of polynomial functions is a fundamental skill, and using a computer to do these will not only hurt you in the long term, but it will endenture you to the computer.  
+
+With a bit of practice, I promise it will be faster to just do the derivatives than to copy-paste formulas back and forth between here and some other place.  
+[@ closeDiv() @]*
+
+END_PGML
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

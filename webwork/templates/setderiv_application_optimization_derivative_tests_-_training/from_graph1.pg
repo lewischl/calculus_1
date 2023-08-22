@@ -1,0 +1,111 @@
+##DESCRIPTION
+## Determine concavity from a graph
+##ENDDESCRIPTION
+
+## Shotwell cleaned
+## lcao , PAID on 11-24-2003
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Summary of curve sketching)
+## Date(6/3/2002)
+## MLT(SCS_True_False)
+## Level(3)
+## Static(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('4.3')
+## Problem1('21')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Rogawski')
+## EditionText2('1')
+## Section2('4.4')
+## Problem2('21')
+## KEYWORDS('derivatives', 'shape of a graph')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/4.4_deriv_tests/from_graph1.pg 
+#	to setderiv_application_optimization_derivative_tests/from_graph1.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderiv_application_optimization_derivative_tests/from_graph1.pg 
+#	to setderiv_application_optimization_derivative_tests_-_training/from_graph1.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGcourse.pl",
+  'parserPopUp.pl'
+);
+
+COMMENT("todo: replace hardcoded image with dynamically generated one");
+COMMENT("this problem is NOT randomized");
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem reminds you of the connection between the sign of the first derivative and the graph of the function.
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+* [`f`] is increasing exactly where [`f'`] is positive
+* [`f`] is decreasing exactly where [`f'`] is negative
+[@ closeDiv() @]*
+
+END_PGML
+
+
+$true = "true";
+$false = "false";
+sub make_popup{
+my $val = shift(@_);
+return PopUp([ "?", $true, $false ], $val);
+}
+
+
+BEGIN_PGML
+
+[@ image("s4_3_26.gif",width=>300) @]* 
+
+
+For the function [`f`] in the graph, determine the truth of the statements. 
+
+---
+
+[` f'(-1)=0 `]  [_]{make_popup($true)}
+
+[` f'(1) `] does not exist   [_]{make_popup($true)}
+
+[` f'(x)<0 `] where [`|x|<1`]  [_]{make_popup($true)}
+
+[` f'(x)>0 `] where [`|x|>1`]   [_]{make_popup($true)}
+
+
+
+
+END_PGML
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

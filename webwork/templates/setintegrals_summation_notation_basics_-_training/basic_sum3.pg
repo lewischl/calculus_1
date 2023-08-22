@@ -1,0 +1,216 @@
+##DESCRIPTION
+##  basic summation notation problems
+##ENDDESCRIPTION
+
+##KEYWORDS('summation notation','summation')
+
+## DBsubject('Calculus')
+## Date('6/3/2002')
+## Author('silviana amethyst')
+## Institution('UWEC')
+
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/5.1_summation/basic_sum3.pg 
+#	to setintegrals_summation_notation/basic_sum3.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_summation_notation/basic_sum3.pg 
+#	to setintegrals_summation_notation_basics_-_training/basic_sum3.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();      
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+
+
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+$N = 6;
+$N1 = $N+1;
+$Nm1 = $N-1;
+
+$deltax = 0.5;
+
+$a = -2;
+$b = $a+$N*$deltax;
+
+@x = ();
+for my $ii(0..$N){
+$x[$ii] = $a + $ii*$deltax;
+}
+
+
+$x0 = $a;
+$x1 = $a+$deltax;
+
+# this is hard-coded, and needs a list/loop
+$s1 = ($a)**2+($a+$deltax)**2+($a+2*$deltax)**2+
+     ($a+3*$deltax)**2+($a+4*$deltax)**2+($a+5*$deltax)**2;
+
+$s2 = ($a+  $deltax)**2+($a+2*$deltax)**2+($a+3*$deltax)**2
+     +($a+4*$deltax)**2+($a+5*$deltax)**2+($a+6*$deltax)**2;
+
+$f = Formula("x^2")->reduce;
+
+Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on summation notation with both [`x`] values and a function
+[@ closeDiv() @]*
+
+Riemann Sums let us approximate a definite integral by a sum of rectangles, and they're useful when we cannot symbolically integrate the integrand.  
+* [`L_n`] is the left-sum with [`n`] rectangles
+* [`R_n`] is the right-sum with [`n`] rectangles
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*Summation notation, with both [`x`] and [`f`]*
+
+[```
+\sum_{i=m}^n f(x_i)
+```]
+
+* [`i`] is the "index".  
+* [`m`] is the "lower bound".  The lowest value of [`i`]
+* [`n`] is the "upper bound".  The heighest value of [`i`].
+* [`x_i`] is the [`i`]th value of [`x`], from cutting up [`[a,b]`] into [`n`] equal pieces.
+* [`f`] the integrand.
+[@ closeDiv() @]*
+
+END_PGML
+
+
+BEGIN_TEXT
+In this problem, we'll work on summation notation for a formula \(f\) applied to some \(x\)-values.  $PAR
+$HR
+$PAR
+
+
+END_TEXT
+Context()->normalStrings;
+
+
+
+
+
+Context()->texStrings;
+
+BEGIN_TEXT
+
+
+$PAR
+
+0. On a piece of paper, sketch the interval \([$a,$b]\), and the \($N\) sub-intervals.  Label the points for the intervals, with the left-most point being \(x_0\), and the right-most point being \(x_{n}\).
+
+$PAR$HR$PAR
+
+1.  Compute some properties of this "discretization" of the interval \([$a,$b]\).  $PAR
+
+How many total points define the \($N\) intervals, including both left and right boundaries? $BR 
+There are \{ans_rule(40) \} total points.  
+$PAR
+What are the values of the points?  Use a comma separated list.$BR
+\(x = \) \{ ans_rule\}
+$PAR
+What's the width of one sub-interval?  Call it \(\Delta x\). $BR
+\(\Delta x\) = \{ans_rule(40) \} $PAR
+
+What's the value of \(x_1\), the first point from the left? $BR
+\(x_1\) = \{ans_rule(40) \} $PAR
+
+$PAR$HR$PAR
+
+2. Let \(f(x) = x^2\) $PAR
+Compute the following sums, please:  $PAR
+
+\(\displaystyle \sum_{j=0}^{$Nm1} f(x_j) \) = \{ans_rule(40) \}
+
+$PAR
+
+\(\displaystyle \sum_{j=1}^{$N} f(x_j) \) = \{ans_rule(40) \}
+
+
+END_TEXT
+
+BEGIN_PGML
+
+---
+
+Coda
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Summation notation lets us compactly represent a sum with
+*  [`x_i`] coming from discretizing an interval
+* [`f`] a function use to evaluate
+[@ closeDiv() @]*
+The main connection right now is Riemann Sums used to approximate definite integrals.
+
+
+END_PGML
+
+
+Context()->normalStrings;
+
+##############################################################
+#
+#  Answers
+#
+#
+
+ANS(num_cmp($N1));
+ANS(List(@x)->cmp);
+
+ANS(num_cmp($deltax));
+ANS(num_cmp($x1));
+
+ANS(num_cmp($s1));
+ANS(num_cmp($s2));
+
+
+ENDDOCUMENT();        

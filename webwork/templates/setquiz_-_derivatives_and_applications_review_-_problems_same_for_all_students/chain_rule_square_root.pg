@@ -1,0 +1,86 @@
+##DESCRIPTION
+##  Take the derivative of a square root function
+##ENDDESCRIPTION
+
+##KEYWORDS('derivatives', 'square root', 'chain rule')
+
+## DBsubject('Calculus')
+## DBchapter('Derivatives')
+## DBsection('Chain rule')
+## Date('')
+## Author('silviana amethyst')
+## Institution('uwec')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from setExam_2-Team/chain_rule_square_root.pg 
+#	to setderivatives_and_applications_review_quiz/chain_rule_square_root.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_and_applications_review_quiz/chain_rule_square_root.pg 
+#	to setquiz_-_derivatives_and_applications_review_-_problems_same_for_all_students/chain_rule_square_root.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+SRAND($team_exam2_seed);
+$setseed = "set.seed($team_exam2_seed); $team_exam2_seed";
+
+$a = random(2,5,1); 
+$b = random(2,5,1); 
+
+$f = Formula("sqrt($a x^2-$b)")->reduce;
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+Determine a formula for the first derivative of [``[$f]``].
+
+[`f'(x) = `] [_____]{fun_cmp("($a*2*x)/(2*sqrt($a x^2-$b))",vars=>['x'],limits=>[2,5])} 
+END_PGML
+# had to adjust the limits because square root of negative.
+
+
+ENDDOCUMENT();

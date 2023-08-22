@@ -1,0 +1,234 @@
+assignmentType      = default
+openDate          = 09/02/2023 at 02:06am CDT
+reducedScoringDate = 09/02/2023 at 02:06am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
+enableReducedScoring = Y
+paperHeaderFile   = defaultHeader
+screenHeaderFile  = headers/Header_training.pg
+description       = 
+restrictProbProgression = 0
+emailInstructor   = 0
+
+problemListV2
+problem_start
+problem_id = 1
+source_file = setlimits_introducing_limits_-_training_-_limits_with_formulas/LimitsAlgebraicIntroduction.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 2
+source_file = setlimits_introducing_limits_-_training_-_limits_with_formulas/LimitsAlgebraicIntroduction2.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 3
+source_file = setlimits_introducing_limits_-_training_-_limits_with_formulas/LimitsAlgebraicIntroduction3.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 4
+source_file = setlimits_introducing_limits_-_training_-_limits_with_formulas/LimitsAlgebraicIntroduction4.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 5
+source_file = setlimits_introducing_limits_-_training_-_limits_with_formulas/translate_to_english.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 6
+source_file = setlimits_introducing_limits_-_training_-_limits_with_formulas/translate_to_english_one_sided_below.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 7
+source_file = setlimits_introducing_limits_-_training_-_limits_with_formulas/translate_to_english_one_sided_above.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 8
+source_file = setlimits_introducing_limits_-_training_-_limits_with_formulas/ns2_2_xx.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 9
+source_file = setlimits_introducing_limits_-_training_-_limits_with_formulas/ur_lr_3_16_mo.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 10
+source_file = setlimits_introducing_limits_-_training_-_limits_with_formulas/stef2_3p3.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 11
+source_file = setlimits_introducing_limits_-_training_-_limits_with_formulas/2.2.1.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 12
+source_file = setlimits_introducing_limits_-_training_-_limits_with_formulas/Stewart5_2_3_45.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 13
+source_file = setlimits_introducing_limits_-_training_-_limits_with_formulas/common_root5.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 14
+source_file = setlimits_introducing_limits_-_training_-_limits_with_formulas/common_root1.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 15
+source_file = setlimits_introducing_limits_-_training_-_limits_with_formulas/common_root2.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 16
+source_file = setlimits_introducing_limits_-_training_-_limits_with_formulas/2-3-37.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 17
+source_file = setlimits_introducing_limits_-_training_-_limits_with_formulas/s_2_5_16.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 18
+source_file = setlimits_introducing_limits_-_training_-_limits_with_formulas/ur_lr_3_5.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 19
+source_file = setlimits_introducing_limits_-_training_-_limits_with_formulas/prob7.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 20
+source_file = setlimits_introducing_limits_-_training_-_limits_with_formulas/APEX_1.6_9.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+

@@ -1,0 +1,137 @@
+##DESCRIPTION
+##  Differentiate expressions using implicit differentation with respect to time
+##ENDDESCRIPTION
+
+##KEYWORDS('implicit differentiation', 'related rates')
+
+## DBsubject('Calculus')
+## DBchapter('Derivatives')
+## DBsection('Related rates')
+## Date('')
+## Author('silviana amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set3.10_related_rates/implicit_diff_expressions_wrt_t.pg 
+#	to setderivatives_applied_for_related_rates/implicit_diff_expressions_wrt_t.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_applied_for_related_rates/implicit_diff_expressions_wrt_t.pg 
+#	to setderivatives_related_rates_-_training/implicit_diff_expressions_wrt_t.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+COMMENT("todo: reformat to use a LayoutTable");
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+
+
+Context()->variables->add(
+dx=>"Real", dy=>"Real", y=>"Real", 
+dt=>"Real", t=>"Real", 
+V=>"Real", 
+r=>"Real", dr=>"Real"
+);
+
+$ans1 = Compute("2 pi r dr/dt");
+$ans2 = Compute("4 pi r^2 dr/dt");
+$ans3 = Compute("2x dx/dt + 2y dy/dt");
+
+$ans4 = Compute("3x^2 dx/dt");
+$ans5 = Compute("y dx/dt + x dy/dt");
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem offers a connection between implicit differentation for slopes on implicit curves, and the broader world of changing quantities.
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Implicit differentiation works for any independent variable:
+* If the variable of differentation is the variable being differentiated, we get [`1`].
+* If there's a variable mismatch, we have to "chain out" a derivative
+[@ closeDiv() @]*
+
+For example, because the variable of the function [`x^2`] and the variable of differentiation [`x`] match:
+
+[`` \begin{aligned} \frac{d}{dx} x^2 = 2x \end{aligned} ``].
+
+BUT!  When we differentiate with another variable, we have to use implicit differentiation.  In these two examples, the variable of differentiation [`t`] mismatches with the variables being differentiated, so we must ⛓️ "chain out" derivatives.
+
+* [`` \frac{d}{dt} x^2 = 2x  \frac{dx}{dt} ``]  This describes the time-rate-of-change of the area of a square 🔲.
+
+* [`` \frac{d}{dt} 4x = 4 \frac{dx}{dt} ``]  This describes the time-rate-of-change of the perimeter of a square  🔲.
+
+Here's a video from Professor Shull explaining this with an example (this same video was at the top of the previous "problem"):
+
+[@
+kalturaShull("1_aewjtaot")
+@]*
+
+
+---
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Use implicit differentiation to compute the derivatives.  Use differential notation (like [`dx/dt`]) to express derivatives.
+[@ closeDiv() @]*
+
+The area of a circle:
+[`` \frac{d}{dt} \left( \pi r^2  \right) = ``] [_____]{$ans1}
+
+The volume of a sphere:
+[`` \frac{d}{dt} \left( \frac{4}{3} \pi r^3  \right) = ``] [_____]{$ans2}
+
+The square of the length of the hypotenuse of a right triangle: [`` \frac{d}{dt} \left( x^2 + y^2  \right) = ``] [_____]{$ans3}
+
+The volume of a cube:
+[`` \frac{d}{dt} \left( x^3  \right) = ``] [_____]{$ans4}
+
+The area of a rectangle where both side lengths are changing:
+[`` \frac{d}{dt} \left( xy  \right) = ``] [_____]{$ans5}
+END_PGML
+
+ENDDOCUMENT();

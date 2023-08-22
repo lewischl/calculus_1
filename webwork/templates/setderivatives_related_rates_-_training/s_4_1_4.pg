@@ -1,0 +1,120 @@
+#DESCRIPTION
+##  Calculus: Related rates
+##ENDDESCRIPTION
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Related rates)
+## Date(11/29/2010)
+## Institution(University of Minnesota)
+## Author(Justin Sukiennik)
+## Level(4)
+## MO(1)
+## TitleText1('Calculus: Concepts and Contexts')
+## AuthorText1('Stewart')
+## EditionText1('4 Custom UMTYMP Ed.')
+## Section1('4.1')
+## Problem1('4')
+## KEYWORDS('calculus', 'derivative', 'related rates')
+
+#####################################################################
+
+
+########################################
+# this file automatically moved
+#	from local/Library/UMN/calculusStewartCCC/s_4_1_4.pg 
+#	to setderivatives_applied_for_related_rates/s_4_1_4.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_applied_for_related_rates/s_4_1_4.pg 
+#	to setderivatives_related_rates_-_training/s_4_1_4.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl", 
+);
+#####################################################################
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+
+#####################################################################
+
+Context("Numeric");
+
+$a = random(6,8,1);
+$b = random(2,5,1);
+$c = random(20,40,10);
+$d = random(10,25,5);
+
+$ans = $a*$d+$b*$c;
+
+$ans = Compute("$ans");
+
+#####################################################################
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Our first full related rates problem.  I'll give some guidance along the way.
+[@ closeDiv() @]*
+
+END_PGML
+
+BEGIN_TEXT
+
+I'll start with a pose of the problem:
+$PAR
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
+The length of a rectangle is increasing at a rate of \($a \text{ cm/s}\) and its width is increasing at a rate of \($b \text{ cm/s}\).  $PAR
+
+When the length is \($c \text{ cm}\) and the width is \($d\text{ cm},\) how fast is the area of the rectangle increasing?
+\{ closeDiv() \}
+
+$PAR
+
+END_TEXT
+
+BEGIN_PGML
+
+Follow these steps:
+
+1. Draw a rectangle.  Label the horizontal legs [`x`] and vertical [`y`].  Both of the sides are changing, so draw action arrows to indicate change.  
+2. Write the equation for the area of a rectangle using variable names [`x`] and [`y`], and [`A`] for the area.
+3. Differentiate the equation with respect to time.
+4. Substitute in known quantities.
+5. Solve for [`\frac{dA}{dt}`], since we want the rate of change of the area [`A`].
+
+---
+
+END_PGML
+
+BEGIN_TEXT
+The area is increasing at \{ans_rule(30)\} \(\text{cm}^2/\text{s}\).
+END_TEXT
+Context()->normalStrings;
+
+#####################################################################
+
+ANS($ans->cmp());
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

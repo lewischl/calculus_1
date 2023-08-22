@@ -1,0 +1,131 @@
+#based on: Library/UMN/calculusStewartCCC/s_5_2_31.pg
+
+# modified by silviana amethyst 2023
+
+#####################################################################
+
+
+########################################
+# this file automatically moved
+#	from local/Library/UMN/calculusStewartCCC/s_5_2_31.pg 
+#	to setintegrals_definite_by_geometry/s_5_2_31.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_definite_by_geometry/s_5_2_31.pg 
+#	to setintegrals_definite_by_geometry_-_training/s_5_2_31.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGgraphmacros.pl",
+  "PGcourse.pl",
+    "desmos.pl",
+);
+
+COMMENT("todo: rewrite image using tikz");
+
+#####################################################################
+
+$showPartialCorrectAnswers = 1;
+
+TEXT(beginproblem());
+
+#####################################################################
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+
+$w = 300;  # graph size
+$tw = 500; # graph size in TeX
+
+$a = random(2,3,1);
+$b = random(-1,1,1);
+
+$an1 = Compute("2+($a+$b-2)*2");
+$an2 = Compute("2+($a+$b-2)*2+$a+$b+$a+2*$b");
+$an3 = Compute("2*$b-$a");
+$an4 = Compute("2+($a+$b-2)*2+$a+$b+$a+2*$b+2*$b-$a+2*$b-2*$a+1");
+
+$ans1 = Compute("$an1");
+$ans2 = Compute("$an2");
+$ans3 = Compute("$an3");
+$ans4 = Compute("$an4");
+
+#####################################################################
+
+$graph1 = init_graph(-1,-5,10,5,'axes'=>[0,0],'ticks'=>[11,10],'grid'=>[11,10],'size'=>[550,500]);
+
+$p1 = FEQ("x-2+$a+$b for x in [0,2> using color:blue weight:2");
+$p2 = FEQ("$a+$b for x in <2,3> using color:blue weight:2");
+$p3 = FEQ("(5/2)*$a-($a/2)*x+$b for x in <3,7> using color:blue weight:2");
+$p4 = FEQ("(1/2)*(x-7)-$a+$b for x in <7,9] using color:blue weight:2");
+
+plot_functions($graph1,$p1,$p2,$p3,$p4);
+
+#####################################################################
+
+Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem offers an infinite-attempts opportunity to use triangles and rectangles to compute a definite integrals defined by linear and constant functions in a graph, without formulas
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "inProblemHint" }) @]*
+Use these tips:
+* [`A_\textnormal{triangle} = \frac{1}{2} bh `]
+* [`A_\textnormal{rect} = bh `]
+* You'll need the [`x`]-axis crossing to find the bases for two triangles.
+* The [`x`]-axis crossing can be found by writing an equation for that line, setting [`= 0`], and solving
+* Area below the [`x`]-axis counts as negative
+* Use a whole sheet of paper.
+
+As a general tactic, sketch the area based on the bounds of integration, and try to re-use pieces you've previously computed. 
+[@ closeDiv() @]*
+
+
+---
+
+END_PGML
+
+
+
+BEGIN_TEXT
+
+\{image(insertGraph($graph1),width=>$w,tex_size=>$tw)\}
+$PAR
+🎯 Use the graph of \(f(x)\) to evaluate each definite integral using geometry.  Give exact answers.
+
+$PAR
+
+\(\displaystyle \int_0^2 \! f(x) \, dx = \) \{ans_rule(30)\} $PAR
+\(\displaystyle \int_0^5 \! f(x) \, dx = \) \{ans_rule(30)\} $PAR
+\(\displaystyle \int_5^7 \! f(x) \, dx = \) \{ans_rule(30)\} $PAR
+\(\displaystyle \int_0^9 \! f(x) \, dx = \) \{ans_rule(30)\}
+END_TEXT
+
+#####################################################################
+
+ANS(($ans1)->cmp(tolType=>'absolute', tolerance=>0.1));
+ANS(($ans2)->cmp(tolType=>'absolute', tolerance=>0.1));
+ANS(($ans3)->cmp(tolType=>'absolute', tolerance=>0.1));
+ANS(($ans4)->cmp(tolType=>'absolute', tolerance=>0.1));
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

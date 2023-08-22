@@ -1,0 +1,75 @@
+#DESCRIPTION
+# Calculate points where a cubic polynomial has a horizontal tangent line.
+# Roots are integers.
+#ENDDESCRIPTION
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Derivatives of polynomials and power functions)
+## Institution(OSU)
+## Author(Utah ww group)
+## Level(2)
+## TitleText1('Calculus')
+## AuthorText1('Dale Varberg, Edwin J. Purcell, and Steven E. Rigdon')
+## EditionText1('9')
+## Section1('Applications of the Derivative')
+## Problem1('')
+## KEYWORDS('calculus','Limit', 'Asymptote', 'Horizontal')
+## MO(1)
+
+
+
+########################################
+# this file automatically moved
+#	from Library/Utah/Calculus_I/set6_Applications_of_the_Derivative/1210s6p7.pg 
+#	to setgroup_derivatives_slope0_is_horizontal_-_no_hints/1210s6p7.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "AnswerFormatHelp.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+Context("Numeric");
+
+Context()->noreduce('(-x)-y', '(-x)+y'); # don't factor out negative signs or reorder to put positive first.
+$showPartialCorrectAnswers=1;
+
+$r= non_zero_random(-8,8,1); # the root
+
+$m = non_zero_random(-18,18,2); # the slope
+$C = non_zero_random(-10,10,1); # a constant of integration
+
+
+$a = $m/2;
+$b = $m*$r;
+$c = $C;
+
+
+$f = Formula( "$a x^2 +  $b x + $c" ) -> reduce ;
+$ans = List( "$r" );
+
+Context() -> texStrings ;
+BEGIN_TEXT
+For what value(s) of \(x\) does the graph of
+\[ f(x)=$f \]
+have a horizontal tangent?  Use a comma-separated list of numbers.
+$PAR
+\( x = \)  \{  &ans_rule() \}    
+END_TEXT
+Context() -> normalStrings;
+
+##  ($r1,$r2) = num_sort($r1, $r2);
+##  ANS(num_cmp([$r1,$r2], relTol=>.1));
+
+ANS( $ans -> cmp() );
+
+ENDDOCUMENT();

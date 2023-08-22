@@ -1,0 +1,222 @@
+##DESCRIPTION
+## Calculus problem: Newton's Method problem to approximate a square root
+##ENDDESCRIPTION
+
+##KEYWORDS('calculus', 'approximation', 'derivative')
+
+## DBsubject('Calculus')
+## DBchapter('Applications of the Derivative')
+## DBsection('Newtons's Method')
+## Date('8/2/2022, summer 2023')
+## Author('Erich Jauch, silviana amethyst')
+## Institution('')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('4')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set4.8_newtons_method/NewtonMethodApproxSquareRoot.pg 
+#	to setderiv_application_newtons_method_root_finding/NewtonMethodApproxSquareRoot.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderiv_application_newtons_method_root_finding/NewtonMethodApproxSquareRoot.pg 
+#	to setderiv_application_newtons_method_root_finding_-_training/NewtonMethodApproxSquareRoot.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();      
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   "PGauxiliaryFunctions.pl", #Extra functions
+);
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$a = random(2,5,1);
+
+# Defines polynomial for finding square root
+$f = Formula("x^2 - $a")->reduce;
+$fprime = $f->D('x');
+
+# Defines answer as postive square root
+$ans = Real(sqrt($a));
+
+$x0 = int($ans)+1;
+
+$x[0] = $x0;
+
+@f = ();
+@fprime = ();
+
+foreach my $i (0..3) {
+$j = $i+1;
+$f[$i] = $f->eval(x=>$x[$i]);
+$fprime[$i] = $fprime->eval(x=>$x[$i]);
+$x[$j] = $x[$i] - $f[$i]/$fprime[$i];
+}
+
+
+
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Newton's method can be used to compute square roots, using only linear functions!!!  Amazing!!!!!
+
+This problem trains you to set up the function for which Newton's method iterates to the desired square root.
+[@ closeDiv() @]*
+
+---
+
+The problem we'll consider:
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Use Newton's Method to approximate [`\sqrt{[$a]}`].
+[@ closeDiv() @]*
+
+To use Newton's method, we need a function that has [`\sqrt{[$a]}`] as its root.  I remember that [`x^2 = a`] has two roots: [`\pm \sqrt{a}`].  But Newton's method finds *roots*, so we need a right hand side of [`0`].  Subtract [`a`] to the other side and we'll have our function.
+
+🎯 The function we'll use is [__]{$f}.
+
+We need a starting point for Newton's method.  Choose the next integer larger than [`\sqrt{a}`] for [`x_0`].
+
+[`x_0 = `] [_]{Real($x[0])}
+
+🎯 Do a few iterations of Newton's method:
+
+* [`x_1 = `] [_]{$x[1]}
+* [`x_2 = `] [_]{$x[2]}
+* [`x_3 = `] [_]{$x[3]}
+
+Thus, we know, without ever actually taking a square root but only using linear functions, 
+
+[`\sqrt{[$a]}\approx`] [____]{$ans}
+
+
+END_PGML
+
+
+
+##############################################################
+#
+#  Solutions
+#
+#
+
+@x = ();
+@f = ();
+@fprime = ();
+
+$x[0] = int(sqrt($a))+1;
+
+# Constructs 4 approximations
+foreach my $i (0..3) {
+$j = $i+1;
+$f[$i] = $f->eval(x=>$x[$i]);
+$fprime[$i] = $fprime->eval(x=>$x[$i]);
+$x[$j] = $x[$i] - $f[$i]/$fprime[$i];
+}
+
+Context()->variables->add(xn => ['Real',TeX=>"x_n"]);
+$fn = $f->substitute(x => "xn");
+$fprimen = $fprime->substitute(x => "xn");
+
+
+#Deterime how many approximations where needed and display the correct number in solution
+@test = ();
+
+foreach my $i (0..3) {
+$j = $i + 1;
+$test[$i] = Compute("abs($x[$j] - $x[$i])");
+}
+
+if ($test[1]<0.0001) {
+$solution_text =<<EOS
+So if we input [`x_0=$x[0]`], we get
+
+[`\displaystyle x_1=$x[0] - \frac{$f[0]}{$fprime[0]}=$x[1]`]
+
+[`\displaystyle x_2=$x[1] - \frac{$f[1]}{$fprime[1]}=$x[2]`]
+
+Notice that [`x_1=x_2`], so we say that [`x_*\approx=$x[2]`] up to 5 decimal places.
+EOS
+}
+elsif ($test[2]<0.0001) {
+$solution_text =<<EOS
+So if we input [`x_0=$x[0]`], we get
+
+[`\displaystyle x_1=$x[0] - \frac{$f[0]}{$fprime[0]}=$x[1]`]
+
+[`\displaystyle x_2=$x[1] - \frac{$f[1]}{$fprime[1]}=$x[2]`]
+
+[`\displaystyle x_3=$x[2] - \frac{$f[2]}{$fprime[2]}=$x[3]`]
+
+Notice that [`x_2=x_3`], so we say that [`x_*\approx=$x[3]`] up to 5 decimal places.
+EOS
+}
+else {
+$solution_text =<<EOS
+So if we input [`x_0=$x[0]`], we get
+
+[`\displaystyle x_1=$x[0] - \frac{$f[0]}{$fprime[0]}=$x[1]`]
+
+[`\displaystyle x_2=$x[1] - \frac{$f[1]}{$fprime[1]}=$x[2]`]
+
+[`\displaystyle x_3=$x[2] - \frac{$f[2]}{$fprime[2]}=$x[3]`]
+
+[`\displaystyle x_4=$x[3] - \frac{$f[3]}{$fprime[3]}=$x[4]`]
+
+Notice that [`x_3=x_4`], so we say that [`x_*\approx=$x[4]`] up to 5 decimal places.
+EOS
+}
+
+BEGIN_PGML_SOLUTION
+We begin that recalling that the Newton's Method says that
+
+[`\displaystyle x_{n+1}=x_n-\frac{f(x_n)}{f^\prime(x_n)}=x_n - \frac{[$fn]}{[$fprimen]}`]
+
+We need to choose a [`x_0`], and typical choice for these problems is the nearest integer below [`\sqrt{[$a]}`]. Which is [`[$x[0]]`] in this case.
+
+[$solution_text]**
+END_PGML_SOLUTION
+
+ENDDOCUMENT();        

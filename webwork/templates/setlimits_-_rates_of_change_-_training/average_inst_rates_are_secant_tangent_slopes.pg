@@ -1,0 +1,344 @@
+##DESCRIPTION
+##  Training problem on the relationship between rates of change and slopes of lines
+##ENDDESCRIPTION
+
+##KEYWORDS('secant line', 'tangent line', 'slope', 'average rate of change', 'instantaneous rate of change')
+
+## DBsubject('Calculus')
+## DBchapter('Limits, Derivatives')
+## DBsection('Rates of change')
+## Date('Summer 2023')
+## Author('silviana amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   "scaffold.pl",
+   "desmos.pl",
+);
+
+COMMENT("uses CSS in `customCSS.pl` for styling");
+loadMacros("customCSS.pl");
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+
+
+################################
+#  Desmos setup
+#
+#  In html mode, load the Desmos api script and create the <div> to attach the Desmos graph to.
+#  In tex mode, print a message to direct the student to the html version.
+#  Desmos API reference: https://www.desmos.com/api/v1.7/docs/index.html
+
+$unique_div_id = "secant_line_graph";
+$width = 700;
+$height = 400;
+
+desmos_enable_construct_new();
+
+$desmos_div = MODES(
+    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
+    TeX=>'Interactive graph best viewed online'
+);
+
+
+
+$unique_div_id2 = "tangent_line_graph";
+$desmos_div2 = MODES(
+    HTML=>qq(<div id="$unique_div_id2" style="width: ${width}px; height: ${height}px;"></div>), 
+    TeX=>'Interactive graph best viewed online'
+);
+
+
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+Context()->variables->add(t=>'Real');
+
+$v0 = random(50,100, 5);
+$f0 = random(1.5, 3.0, 0.1);
+$f = Formula("-4.9t^2 + $v0*t + $f0");
+
+$t_max = $v0 / 9.8;
+$f_max = $f->eval(t=>$t_max);
+
+
+$t_hit = (-$v0 - sqrt($v0**2 - 4*(-4.9)*$f0)) / (2*-4.9);
+
+$t0 = non_zero_random(0.2, $t_max, 0.1);
+
+
+
+
+
+
+$f0 = $f->eval(t=>$t0);
+
+$dt1 = random(0.1, 0.5, 0.1);
+$t1 = $t0 + $dt1;
+$f1 = $f->eval(t=>$t1);
+$a1 = ($f1-$f0) / $dt1;
+$aroc1 = $a1;
+
+
+$dt2 = non_zero_random(0, 0.1, 0.01);
+$t2 = $t0 + $dt2;
+$f2 = $f->eval(t=>$t2);
+$a2 = ($f2-$f0) / $dt2;
+$aroc2 = $a2;
+
+$dt3 = non_zero_random(0, 0.001, 0.0001);
+$t3 = $t0 + $dt3;
+$f3 = $f->eval(t=>$t3);
+$a3 = ($f3-$f0) / $dt3;
+$aroc3 = $a3;
+
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+Scaffold::Begin(can_open => "always",
+      is_open  => "always");
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Purpose: 
+
+One of the primary connections to make in Calculus 1, as we learn how to talk about and model change using mathematics, is that when something is changing the question "how fast?" is answered by the slope of a line.  
+
+* Average rates of change are slopes of secant lines.  
+* Instantaneous rates of change are slopes of tangent lines.
+
+This problem also offers training on using Desmos as a graphing calculator, a valuable tool when exploring functions and Calculus.
+[@ closeDiv() @]*
+END_PGML
+
+Section::Begin("Scenario");
+
+BEGIN_PGML
+
+Consider the following problem setup.  We use an object falling under gravity on earth because it's familiar and the functions are simple.
+
+[@ openDiv({ "class" => "trainingProblemStatement" }) @]*
+A cannon ball is launched with great initial velocity [`[$v0]`] meters per second, from a height of [`[$f0]`] meters off the ground (the cannon is on a platform).  Thus, the cannon ball's height can be modeled with the function [`f(t)`]:
+
+[```
+f(t) = [$f]
+```]
+[@ closeDiv() @]*
+
+A few notes:
+* We want to model the ball's height as it flies through the air -- one of the major drivers in the development of calculus was projectile warfare!
+* When we write [`f(t)`], it's pronounced "[`f`] of [`t`]".  The parentheses denote the *evaluation* operation, not multiplication.
+
+I want you to investigate the average and instantaneous velocities around time [`t = [$t0]`] using this graph, making the connections that the rates of change are slopes of lines.
+
+END_PGML
+
+Section::End();
+
+
+Section::Begin("Average rate of change is slope of secant line");
+
+BEGIN_PGML
+
+The cannon ball approximately follows a parabolic arc (if we neglect wind speed -- take Differential Equations to learn how to model including wind speed!).  The below graph shows the height as a function of time.  Note the following items:
+* a slider for the duration of time between two observations of the ball's height.  We call this small duration of time [`h`].  
+* a computed quantity [`m`], the slope of the secant line going through the two points.
+
+[@ $desmos_div @]*
+
+[@ openDiv({ "class" => "inProblemHint" }) @]*
+💡 Tip: If you click on [`h`] in Desmos, you can set its value by typing.
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Use the above Desmos graph to answer the following questions:
+[@ closeDiv() @]*
+
+* What is the average velocity of the cannon ball over the interval [` t \in [ [$t0], [$t0+$dt1] ]`]?   
+    The AROC is [_____]{$aroc1} meters per second
+    
+* What is the average velocity of the cannon ball over the interval [` t \in [ [$t0], [$t0+$dt2] ]`]?   
+    The AROC is [_____]{$aroc2} meters per second 
+    
+* What is the average velocity of the cannon ball over the interval [` t \in [ [$t0], [$t0+$dt3] ]`]?   
+    The AROC is [_____]{$aroc3} meters per second 
+    
+[%* [`aroc3=[$aroc3]`], [`a3=[$a3]`], [`dt3=[$dt3]`], [`t3=[$t3]`], [`f3=[$f3]`], [`f0=[$f0]`]%]
+
+---
+
+The important takeaway:
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The average rate of change is the slope of a secant line.  The slope of a secant line is an average rate of change.
+[@ closeDiv() @]*
+
+END_PGML
+Section::End();
+
+Section::Begin("Instantaneous rate of change is slope of tangent line");
+
+BEGIN_PGML
+
+In this next graph, I want you to think about __instantaneous rates of change__.  How fast is the cannon ball moving __right now__?  Not over a macroscopic interval of time but an __infinitesimal__ duration of time.  An instant.  
+
+This graph displays:
+* The height function [`f(t)`]
+* A slider for the value of the time-of-interest.  It's initialized with value [`t = [$t0]`], but you can move the slider.
+* The tangent line to [`f(t)`] at [`t = [$t0]`].
+* The variable [`m`] is the slope of the tangent line -- Desmos is computing it for us using the "prime" operator, which computes slopes of tangent lines.  The symbol [`f'`] is the name for the slope of [`f`].  (We learn how to compute slopes of tangent lines elsewhere in the course -- this problem is more of a conceptual training.)
+
+[@ $desmos_div2 @]*
+
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Use the above Desmos graph to answer the following questions.
+[@ closeDiv() @]*
+
+* A horizontal line has slope [`0`].  Using the slider for [`t_0`], what is the time at which the slope of the tangent line is [`0`]?
+    The tangent line has slope zero at about [`t \approx `] [____]{Compute($t_max)->cmp(tolType   => 'absolute',tolerance => .1,)} seconds
+* At about what time does the cannon ball hit the ground?  That is, for what positive [`t`] is [`f(t) = 0`]?
+    The ball hits the ground at [`t \approx `] [____]{Compute($t_hit)->cmp(tolType   => 'absolute',tolerance => .1,)} seconds.
+* Again using the slider on the graph, what is the velocity of the cannon ball when it hits the ground?
+    The cannon ball hits at a velocity of [____]{$f->D->eval(t=>$t_hit)->cmp(tolType   => 'absolute',tolerance => 2)} meters per second.
+
+Estimated time values must be within [`0.1`] second of the correct answers.  The estimated velocity when the ball hits must be within [`2`] meters per second.
+
+---
+
+The important takeaway:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The instantaneous rate of change is the slope of the tangent line.  The slope of the tangent line is the instantaneous rate of change (velocity).
+[@ closeDiv() @]*
+
+
+END_PGML
+Section::End();
+
+
+
+Scaffold::End();
+
+
+
+Context()->normalStrings;
+
+
+##################################
+#  Desmos graph (via the API)
+#  Execute this only after the $desmos_div object has been put on the html page.
+
+
+$right = $t_hit + 2;
+$top = $f_max + 2;
+
+TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
+<script>
+
+    var arstarst = document.getElementById("$unique_div_id");
+
+    var my_calculator = Desmos.Calculator(arstarst, {
+        keypad: false, 
+        //expressions: false, 
+        expressions: true,
+        settingsMenu: true, 
+        expressionsTopbar: true
+    });
+
+    my_calculator.setExpressions([
+        { id: 'f_curve', latex: 'f(t)=$f', sliderBounds: {min: -10, max: 10, step: 0.1}},
+        { id: 'base_point', latex: '($t0, f($t0))', label: 'point of interest'},
+        { id: 'delta_t_slider', latex: 'h=1', sliderBounds: {min: -10, max: 10, step: 0.1}},
+        { id: 'moving_point', latex: '($t0+h, f($t0+h))', label: 'moving point'},
+        { id: 'aroc', latex: 'm = (f($t0+h) - f($t0)) / (h)', label: 'slope of secant line'},
+        { id: 'secant_line', latex: 'y = m*(t-$t0) + f($t0)', label: 'secant line, slope is AROC'},
+    ]);
+    
+    my_calculator.setMathBounds({
+      left: -2,
+      right: $right,
+      bottom: -4,
+      top: $top
+    });
+    
+    my_calculator.updateSettings({ fontSize: Desmos.FontSizes.SMALL });
+    
+    var state = my_calculator.getState();
+</script>
+END_SCRIPT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
+<script>
+
+    var arstarst2 = document.getElementById("$unique_div_id2");
+
+    var my_calculator2 = Desmos.Calculator(arstarst2, {
+        keypad: false, 
+        //expressions: false, 
+        expressions: true,
+        settingsMenu: true, 
+        expressionsTopbar: true
+    });
+
+    my_calculator2.setExpressions([
+        { id: 'f_curve', latex: 'f(t)=$f', sliderBounds: {min: -10, max: 10, step: 0.1}},
+        { id: 'base_time', latex: 't_0=$t0', sliderBounds: {min: 0, max: $t_hit+2, step: 0.1}},
+        { id: 'base_point', latex: '(t_0, f(t_0))', label: 'point of interest'},
+        { id: 'iroc', latex: 'm = f\'(t_0)', label: 'slope of tangent line'},
+        { id: 'tangent_line', latex: 'y = m*(t-t_0) + f(t_0)', label: 'tangent line, slope is IROC'},
+    ]);
+    
+    my_calculator2.setMathBounds({
+      left: -2,
+      right: $right,
+      bottom: -4,
+      top: $top
+    });
+    
+    my_calculator2.updateSettings({ fontSize: Desmos.FontSizes.SMALL });
+    
+    var state = my_calculator2.getState();
+</script>
+END_SCRIPT
+
+
+
+ENDDOCUMENT();

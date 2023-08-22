@@ -1,0 +1,81 @@
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Definition of the derivative)
+## Institution(UCSB)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('2.9')
+## Problem1('24')
+## KEYWORDS('Product','Quotient','Differentiation')
+
+
+DOCUMENT();        # This should be the first executable line in the
+#problem.
+loadMacros("PGbasicmacros.pl",
+        "PGchoicemacros.pl",
+        "PGanswermacros.pl",
+        
+);
+
+
+TEXT(beginproblem());
+  
+# adjusts space between answers.  was hard to tell apart.
+# see https://webwork.maa.org/moodle/mod/forum/discuss.php?d=6594&parent=17679
+TEXT(MODES(TeX => '', HTML => '<style>.problem-content input[type=radio]{margin-bottom: 2rem;}</style>'));
+
+
+$showPartialCorrectAnswers = 0;
+# Make a new multiple choice object.
+$mc = new_multiple_choice();
+# $mc now "contains" the multiple choice object.
+
+# Insert some  questions and matching answers in the q/a list
+$mc -> qa (# Notice that the first string is the question
+         "Apply the definition of the derivative for \(f(x) = 5x^2+3x-2\) and determine which of the following is the correct form.",
+         # The second string is the  correct answer
+        "\(\displaystyle \lim_{h\rightarrow 0}\frac{5x^2+10xh+5h^2+3x+3h-2-5x^2-3x+2}{h} \)",
+);
+$mc ->extra(
+#        "\(\displaystyle\lim_{h\rightarrow 0}\frac{-5x^2+10xh+5h^2+3x+3h-2-5x^2-3x+2}{h}\)",
+ "\(\displaystyle\lim_{h\rightarrow 0}\frac{5x^2+10xh+5h^2+3x+3h-2-5x^2-3x-2}{h}\)",
+ "\(\displaystyle\lim_{h\rightarrow 0}\frac{5x^2+10xh+5h^2+3x+3h-2-5x^2-3x+2}{-h}\)",
+ "\(\displaystyle\lim_{h\rightarrow 0}\frac{5x^2-10xh+5h^2+3x+3h-2-5x^2-3x+2}{h}\)",
+# "\(\displaystyle\lim_{h\rightarrow 0}\frac{5x^2+10xh-5h^2+3x+3h-2-5x^2-3x+2}{h}\)",
+ "\(\displaystyle\lim_{h\rightarrow 0}\frac{5x^2+10xh+5h^2+3x+3h-2+5x^2-3x+2}{h}\)",
+# "\(\displaystyle\lim_{h\rightarrow 0}\frac{5x^2+10xh+5h^2+3x+3h-2-5x^2-3x+2}{5h}\)",
+#"\(\displaystyle\lim_{h\rightarrow 0}\frac{5x^2+10h+5h^2+3x+3h-2-5x^2-3x+2}{h}\)",
+# "\(\displaystyle\lim_{h\rightarrow 0}\frac{5x^2+10xh+5h^2+3x+3h-2-5h^2-3x+2}{h}\)",
+#"\(\displaystyle\lim_{h\rightarrow 0}\frac{5x^2+10xh+5h^2+3x+3h-2-5x^2-3x+2}{2h}\)",
+
+        # Remember that in these strings we are only specifying
+#typography,
+        # via TeX, not any calculational rules.
+);
+# Print the question using $mc->print_q
+# Use $mc->print_a to print the list of possible answers.
+# These need to be done inside BEGIN_TEXT/END_TEXT to make sure that the
+# equations inside the questions and answers are processed properly.
+
+BEGIN_TEXT
+The definition of the derivative, the limit of the difference quotient, takes some practice to write correctly.  This problem has you instantiate the limit of the difference quotient, \( \displaystyle \lim_{h \to 0}\frac{f(x+h) - f(x)}{h} \), and find the small details that set the correct answer apart from mistaken ones.
+
+$PAR
+$HR
+$PAR
+
+\{$mc -> print_q \}
+$PAR
+\{$mc -> print_a\}
+END_TEXT
+# Enter the correct answers to be checked against the answers to the
+#students.
+ANS( str_cmp($mc->correct_ans));
+
+ 
+
+ENDDOCUMENT();
+                
+ 

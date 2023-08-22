@@ -1,0 +1,84 @@
+########################################
+# this file automatically moved
+#	from local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/3_Differentiation/3.5_Higher_Derivatives/3.5.9.pg 
+#	to setderivatives_higher_order_derivatives/3.5.9.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_higher_order_derivatives/3.5.9.pg 
+#	to setderivatives_higher_order_derivatives_-_training/3.5.9.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGgraphmacros.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+
+## Show partial correct answers
+$showPartialCorrectAnswers = 1;
+
+TEXT(beginproblem());
+
+Context("Numeric");
+
+$a=random(3,9,1);
+$b=random(1,9,1);
+
+$b2 = -2*$b;
+$b6 = 6 *$b;
+
+
+$f = Formula("$a x^3 - $b*1/x");
+
+$fd1 = $f->D;
+$fd2 = $fd1->D;
+$fd3 = $fd2->D;
+$fd4 = $fd3->D;
+$fd5 = $fd3->D;
+
+Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+There's a nice pattern that emerges when multiply differentating functions like [``\frac{1}{x^n}``].  This problem will help you see it.
+
+Also, if you differentate a polynomial enough times, the derivative will be [`0`].
+[@ closeDiv() @]*
+
+END_PGML
+BEGIN_TEXT
+
+Calculate the derivatives of \(y= $f\)
+$PAR
+\(y'=\) \{ ans_rule() \} $BR
+\(y''=\) \{ ans_rule() \}  $BR
+\(y'''=\) \{ ans_rule() \} $BR
+\(y^{(4)}=\) \{ ans_rule() \} $BR
+\(y^{(5)}=\) \{ ans_rule() \}
+END_TEXT
+
+
+ANS($fd1->cmp());
+ANS($fd2->cmp());
+ANS($fd3->cmp());
+ANS($fd4->cmp());
+ANS($fd5->cmp());
+ENDDOCUMENT();

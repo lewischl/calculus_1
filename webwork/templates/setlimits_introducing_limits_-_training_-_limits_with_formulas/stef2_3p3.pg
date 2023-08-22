@@ -1,0 +1,120 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by YL
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(One-sided limits - concept of)
+## Institution(ASU)
+## MLT(limits_one_sided_two_line_and_point_spline)
+## MLTleader(1)
+## Level(2)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('2.2')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('2.2')
+## Problem2('')
+## KEYWORDS('calculus', 'limits', 'piecewise function','limits','piecewise function','Limit', 'Piecewise')
+
+
+
+########################################
+# this file automatically moved
+#	from Library/ASU-topics/setCalculus/stef/stef2_3p3.pg 
+#	to setlimits_introducing_limits/stef2_3p3.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_introducing_limits/stef2_3p3.pg 
+#	to setlimits_introducing_limits_-_training_-_limits_with_formulas/stef2_3p3.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "PGcourse.pl",
+  "customCSS.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$m = random(2,4,1);
+$a = random(2,6,1);
+$b = random(1,5,1);
+
+$c1 = $m*$a + $b +1;
+$c2 = $a-1;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A two-sided limit exists only if 
+* both one-sided limits exist, and 
+* they're both equal
+[@ closeDiv() @]*
+
+Use what you've learned about one- and two-sided limits of piecewise functions to solve the problem.  Numerical and graphical techniques are both great choices.
+
+END_PGML
+BEGIN_TEXT
+$BR
+\(f(x) =
+            \begin{cases}
+              \sqrt{-$c2-x}+$b, &\text{if}\ x< -$a\\
+               $b,         &\text{if}\ x=-$a\\
+              $m x+$c1, &\text{if}\ x> -$a
+              \end{cases}
+\)
+$PAR $HR $PAR
+Calculate the following limits. Enter ${BBOLD}DNE${EBOLD} if the limit does not exist.
+$BR
+$BR
+\( \displaystyle{\lim_{x\to -$a^-}f(x)=} \) \{ans_rule(15)\}
+$BR
+$BR
+END_TEXT
+
+$ans = 1+$b;
+ANS(num_cmp($ans, strings=>["DNE"]));
+
+BEGIN_TEXT
+\( \displaystyle{\lim_{x\to -$a^+}f(x)=} \) \{ans_rule(15)\}
+$BR
+$BR
+END_TEXT
+
+$ans = 1+$b;
+ANS(num_cmp($ans, strings=>["DNE"]));
+
+BEGIN_TEXT
+\( \displaystyle{\lim_{x\to -$a}f(x)=} \) \{ans_rule(15)\}
+END_TEXT
+
+$ans = 1+$b;
+ANS(num_cmp($ans, strings=>["DNE"]));
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

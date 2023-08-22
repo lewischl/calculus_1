@@ -1,0 +1,178 @@
+# DESCRIPTION
+# Solve a linear equation of the form a x = b yz + c yz^2 or a x - c yz^2 = b yz for y.
+# ENDDESCRIPTION
+
+## DBchapter('Equations and Inequalities');
+## Author1('David Covert')
+## Author2('Teri Christiansen')
+## Author3('Rick Lynch')
+## DBsubject(Algebra)
+## DBchapter(Algebra of real numbers and simplifying expressions)
+## DBsection(Isolating variables)
+## Institution(University of Missouri-Columbia)
+## Level(2)
+## KEYWORDS('linear', 'equations')
+
+
+###########################################################################
+# initialization 
+###########################################################################
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Mizzou/College_Algebra/Equations_Linear/Var4.pg 
+#	to setreview_solving_equations/Var4.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setreview_solving_equations/Var4.pg 
+#	to setbackground_-_training_-_solving_equations/Var4.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "parserMultiAnswer.pl",
+  "unionTables.pl",
+  "PGcourse.pl"
+);
+
+loadMacros("customCSS.pl");
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+
+
+###########################################################################
+# setup contexts and variables 
+###########################################################################
+Context("Numeric");
+Context()->strings->add("no solutions"=>{}, "infinitely many"=>{}, "no solution"=>{alias=>"no solutions"}, "none"=>{alias=>"no solutions"}, "all reals"=>{alias=>"infinitely many"});
+@vars = ("x","y","z","p","q","m","n","k","u","v","c","h","r","s");
+$c1 = random(0,scalar(@vars)-1,1);
+do {$c2 = random(0,scalar(@vars)-1,1)} until ($c2 != $c1);
+do {$c3 = random(0,scalar(@vars)-1,1)} until ($c3 != $c1 && $c3 != $c2);
+$var1 = $vars[$c1]; $var2 = $vars[$c2]; $var3 = $vars[$c3];
+Context()->variables->are(lc($var1)=>"Real", lc($var2)=>"Real", lc($var3)=>"Real", uc($var1)=>"Real", uc($var2)=>"Real", uc($var3)=>"Real");
+
+Context()->{error}{msg}{"Operands of '*' can't be words"} = " ";
+
+$a = random(2,20,1);
+do {$b = random(2,20,1)} until (gcd($b,$a) == 1);
+do {$c = random(-1,1,2)*random(2,20,1)} until (gcd($c,$a) == 1 && gcd($c,$b) == 1);
+
+$num = Formula("$a $var1")->reduce;
+$den = Formula("$b $var3 + $c $var3^2")->reduce;
+$answer = MultiAnswer($num, $den)->with(
+  singleResult => 0,
+  allowBlankAnswers => 1,
+  checker => sub {
+    my ( $correct, $student, $self ) = @_;
+    my ( $c1, $c2 ) = @{$correct};
+    my ( $s1, $s2 ) = @{$student};
+    my ( $r1, $r2 ) = (0,0);
+    $s1 = Formula($s1) unless ($s1->type eq 'Formula' || $s1->type eq 'String');
+    $s2 = Formula($s2) unless ($s2->type eq 'Formula' || $s2->type eq 'String');
+    $s1 = Formula("0.1 $var1^{1000}") if ($s1->type eq 'String'); #bogus answer
+    $s2 = Formula("0.01 $var1^{500}") if ($s2->type eq 'String'); #bogus answer
+    $r1 = 1 if ($c1 == $s1);
+    $r2 = 1 if ($c2 == $s2);
+    ($r1,$r2) = (1,1) if ($c1 == -$s1 && $c2 == -$s2);
+    if ($c1*$s2 == $c2*$s1 && $c1 != $s1 && $c1 != -$s1) {
+      $self->setMessage(1,"Your answer can be simplified further");
+      $self->setMessage(2,"Your answer can be simplified further");
+    }
+    return [$r1,$r2];
+  }
+);
+$texanswer = "$var2 = \frac{$a $var1}{$b $var3 + $c $var3^2}";
+
+$case = random(0,1,1);
+if ($case == 0) {
+  $eqn = "$a $var1 = $b $var2 \, $var3 + $c $var2 \, $var3^2";
+} else {
+  $eqn = "$a $var1 - $c $var2 \, $var3^2 = $b $var2 \, $var3";
+}
+if ($displayMode eq 'TeX') {
+  $displayfrac =
+  "\[ $var2 = ".$answer->ans_rule(10).$answer->ans_rule(10)." \]";
+} else {
+  $displayfrac = 
+openDiv({ "class" => "gridForFrac" }). closeDiv() .
+"\(h = \, \)".
+    openDiv( { "class" => "gridForFrac" } ) .
+    
+          openDiv( { "class" => "ansInNumer" }) .
+              $answer->ans_rule(10) .
+          closeDiv() .
+          openDiv( { "class" => "line" }) .closeDiv() . # the horizontal line for division is CSS-generated so it resizes!
+          openDiv( { "class" => "ansInDenom" }) .
+              $answer->ans_rule(10) .
+          closeDiv() .
+        closeDiv()
+
+        ;
+}
+
+
+
+
+###########################################################################
+# state the problem 
+###########################################################################
+Context()->texStrings;
+BEGIN_TEXT
+
+
+
+
+The following equation is "linear" in \($var2\) (all the powers of \($var2\) are \(1\)).  All of the symbols \($var1\), \($var2\), \($var3\) are distinct variables.
+
+$PAR
+
+\{ openDiv({"class"=>"promptOrInstruction"}) \}
+Use algebra to isolate \($var2\), and thus "solve" the equation for \($var2\).
+\{ closeDiv() \}
+
+\[ $eqn \] 
+
+$BR
+
+\{
+$displayfrac
+\}
+
+$BR
+
+\{ openDiv({"class"=>"inProblemHint"}) \}
+$PAR
+Your answer should be a pair of expressions, one each for the numerator and denominator, in \($var1\) and \($var3\).
+\{ closeDiv() \}
+
+
+END_TEXT
+Context()->normalStrings;
+
+BEGIN_HINT
+Move all the terms without \($var2\) to one side, and the terms that have \($var2\) to the other.  Factor out \($var2\).  Divide.
+END_HINT
+###########################################################################
+# check the answer  
+###########################################################################
+ANS($answer->cmp());
+
+
+COMMENT('Desc: Solve a linear equation of the form a x = b yz + c yz^2 or a x - c yz^2 = b yz for y.');
+ENDDOCUMENT();

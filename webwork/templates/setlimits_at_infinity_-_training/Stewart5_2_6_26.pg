@@ -1,0 +1,111 @@
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Limits at infinity, horizontal and oblique asymptotes)
+## Institution(UCSB)
+## Level(2)
+## Static(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('2.6')
+## Problem1('26')
+## KEYWORDS('Product','Quotient','Differentiation')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/UCSB/Stewart5_2_6/Stewart5_2_6_26.pg 
+#	to setlimits_at_infinity/Stewart5_2_6_26.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_at_infinity/Stewart5_2_6_26.pg 
+#	to setlimits_at_infinity_-_training/Stewart5_2_6_26.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGauxiliaryFunctions.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+"customCSS.pl",
+);
+
+Context("Numeric");
+
+TEXT(&beginproblem);
+$showPartialCorrectAnswers = 1;
+
+
+
+$a = non_zero_random(-9,9,1);
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+We can think about limits at infinity for any function.  The trigonometric functions offer different types of behaviour that rational functions of polynomials and exponentials can't, such as periodic and oscillatory behaviour.
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A limit only exists if the function tends toward exactly one value.  It can go above and below, but it must be going toward *exactly one* value.  
+
+Oscillating functions can have any limit.  Pay attention to the amplitude of the function as you analyze its behaviour at infinity.
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+BEGIN_TEXT
+
+
+Evaluate the limits.  if it does not exist, enter ${BBOLD}DNE${EBOLD}.
+
+$PAR
+\( \displaystyle\lim_{x \to \infty} \cos(x) = \) \{ ans_rule(20) \}
+
+
+$PAR
+\( \displaystyle\lim_{x \to \infty} $a \cos(x) = \) \{ ans_rule(20) \}
+
+$PAR
+\( \displaystyle\lim_{x \to \infty} ( $a \cos(x) + 1) = \) \{ ans_rule(20) \}
+
+
+$PAR
+\( \displaystyle\lim_{x \to \infty} \frac{1}{x} \cos(x) = \) \{ ans_rule(20) \}
+
+$PAR
+\( \displaystyle\lim_{x \to \infty} x^2 \cos(x) = \) \{ ans_rule(20) \}
+
+$PAR
+\( \displaystyle\lim_{x \to \infty} \frac{1}{e^x + 5} \cos(x) = \) \{ ans_rule(20) \}
+
+END_TEXT
+
+ANS(Compute("dne")->cmp);
+ANS(Compute("dne")->cmp);
+ANS(Compute("dne")->cmp);
+ANS(Compute(0)->cmp);
+ANS(Compute("dne")->cmp);
+ANS(Compute(0)->cmp);
+
+
+ENDDOCUMENT();

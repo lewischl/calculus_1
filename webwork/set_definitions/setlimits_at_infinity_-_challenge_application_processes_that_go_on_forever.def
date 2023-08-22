@@ -1,0 +1,14 @@
+assignmentType      = default
+openDate          = 09/02/2023 at 02:17am CDT
+reducedScoringDate = 09/02/2023 at 02:17am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
+enableReducedScoring = Y
+paperHeaderFile   = defaultHeader
+screenHeaderFile  = headers/Header_challenge_untimed.pg
+description       = not developed.  should be bio applications.
+restrictProbProgression = 0
+emailInstructor   = 0
+
+problemListV2
+

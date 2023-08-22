@@ -1,0 +1,151 @@
+##DESCRIPTION
+##  Given a graph of a function, where is the derivative positive / negative?
+##ENDDESCRIPTION
+
+##KEYWORDS('derivative', 'increasing / decreasing', 'graphical')
+
+## DBsubject('Calculus')
+## DBchapter('Derivatives')
+## DBsection('Derivative basics')
+## Date('2023')
+## Author('silviana amethyst')
+## Institution('uwec')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set3.2_deriv_rules1/deriv_pos_neg.pg 
+#	to setderivatives_derivative_basics/deriv_pos_neg.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_derivative_basics/deriv_pos_neg.pg 
+#	to setderivatives_rates_and_slopes_-_concepts_and_story/deriv_pos_neg.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   "parserPopUp.pl",
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   "PGanswermacros.pl",
+   "PGauxiliaryFunctions.pl",
+   "extraAnswerEvaluators.pl", # needed for the set comparisons
+   "customCSS.pl",
+);
+
+COMMENT("this problem is hardcoded, needs randomization");
+
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+
+
+$f = Formula("x^3 - 12*x^2 + 36*x - 16");
+
+# set the x limits for plotting
+@xlim = ();
+$xlim[0] = 0; #assymetric to hide things a bit
+$xlim[1] = 8;
+
+
+$padding = 2;
+@ylim = ();
+$ylim[0] = -16-$padding;
+$ylim[1] = 16+$padding;
+
+$xtick = 1;
+$ytick = 4;
+
+$graph1 = GraphWithTikZ(function => [[$f,dmin => $xlim[0],dmax => $xlim[1],label=>"f(x)"]],
+                        xmin => $xlim[0],xmax => $xlim[1],ymin => $ylim[0],ymax =>$ylim[1],smooth=>'smooth',ytick => $ytick,xtick => $xtick,useLegend=>1);
+                        
+$h_makes_zero = -2*$x_scale;
+
+$interval_increasing = "(-inf, 2) U (6,inf)";
+$interval_decreasing = "(2,6)";
+
+$x_der_zero = 2;
+
+##############################################################
+#
+#  Text
+#
+#
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+This problem teaches the profound association between the sign of the derivative, and whether a function is increasing or decreasing.
+
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+* a horizontal line has slope 0, and lines with slope 0 are horizontal
+* [`f'`] is positive where the graph is increasing
+* [`f'`] is negative where the graph is decreasing
+
+[@ closeDiv() @]*
+
+END_PGML
+BEGIN_PGML
+Here's a graph of a function [`f`].  Assume all the interesting behaviour is depicted.
+>>[@ image(insertGraph($graph1), width => 500, height => 300) @]*<<
+---
+
+For what interval(s) is [`f'(x)`] positive?  If there are no such intervals, use "none". 
+
+On the interval(s) [_____]{interval_cmp($interval_increasing, strings=>["none"])}, [`f'`] is positive. 
+
+
+---
+
+For what interval(s) is [`f'(x)`] negative?  
+
+On the interval(s) [_____]{interval_cmp($interval_decreasing, strings=>["none"])}, [`f'`] is negative.
+
+
+---
+
+What is the leftmost [`x`]-coordinate at which [`f'(x) = 0`]?  
+
+At [`x = `] [_____]{$x_der_zero}.
+
+
+END_PGML
+
+ENDDOCUMENT();

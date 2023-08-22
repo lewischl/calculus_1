@@ -1,0 +1,101 @@
+
+########################################
+# this file automatically moved
+#	from local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_31.pg 
+#	to setlimits_indeterminate_forms/Stewart5_2_3_31.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_indeterminate_forms/Stewart5_2_3_31.pg 
+#	to setlimits_indeterminate_forms_-_training/Stewart5_2_3_31.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGanswermacros.pl",
+"PGauxiliaryFunctions.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+"customCSS.pl",
+);
+
+TEXT(beginproblem());
+
+###################################
+# Setup
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$a = random(1,8,1);
+$b = random(2,9,1);
+$a2 = $a**2;
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+An opportunity to practice multiply by the conjugate.  
+
+I find that some students get a bit confused when the point of interest is [`x = 0`], since the function doesn't have the familiar form with a [`+`] or [`-`] where expected.  Rest assured, it's there.  We're just adding [`0`], so we hid it!
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+Follow the steps:
+
+1. Try plugging in.  Get indeterminate form.
+2. Multiply by conjugate.
+3. Distribute, but only the top/bottom with [`\sqrt{}`].
+4. Cancel
+5. Try to plug in again.
+
+[@ closeDiv() @]*
+
+END_PGML
+
+
+
+BEGIN_TEXT
+Evaluate the limit.  Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE${EBOLD}.
+
+$PAR 
+\( \displaystyle \lim_{x \to 0} \frac{x}{\sqrt{$a2+$b x}-$a} = \)  \{ans_rule(25) \}
+
+
+END_TEXT
+
+
+
+$twoa = 2*$a;
+$g = gcd($twoa,$b);
+$num = $twoa/$g;
+$denom = $b/$g;
+if($denom==1)
+{
+$ans = Compute($num);
+}
+else
+{
+$ans = Compute("$num/$denom");
+}
+
+ANS($ans->cmp());
+
+ENDDOCUMENT();

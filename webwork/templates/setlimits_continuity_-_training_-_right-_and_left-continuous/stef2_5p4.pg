@@ -1,0 +1,140 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by YL
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Continuity - concept of)
+## Institution(ASU)
+## MLT(cc-f)
+## MLTleader(1)
+## Level(3)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('2.5')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('2.5')
+## Problem2('')
+## KEYWORDS('calculus', 'continuity')
+
+
+
+########################################
+# this file automatically moved
+#	from Library/ASU-topics/setCalculus/stef/stef2_5p4.pg 
+#	to setlimits_extra_practice/stef2_5p4.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_extra_practice/stef2_5p4.pg 
+#	to setlimits_continuity_-_training_-_right-_and_left-continuous/stef2_5p4.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "extraAnswerEvaluators.pl",
+  "MathObjects.pl",
+  "PGcourse.pl",
+  "customCSS.pl",
+);
+
+$b = random(1,8,1);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Some functions have domain restrictions, and describing their continuity is interesting.  
+[@ closeDiv() @]*
+
+
+When we discuss the continuity of a function, we can only talk about continuity at points in its domain.  So, talking about the continuity of [`\sqrt{x}`] at [`x = -1`] makes no sense.  
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+At a boundary point [`x=b`] of a domain-restricted function [`f`], we can say [`f`] is continuous at [`b`] if 
+
+* the appropriate one-sided limit exists
+* the function is defined at [`x=b`]
+* the limit and the function value are equal.
+[@ closeDiv() @]*
+
+
+---
+
+END_PGML
+
+
+BEGIN_TEXT
+
+Use \{helpLink("interval notation")\} to indicate the domains / intervals.
+
+
+$PAR$PAR
+
+What is the domain of continuity for \( \sqrt{x - $b} \)?   $BR\(x \in \)
+\{ans_rule(35)\}
+
+$PAR
+
+What is the domain of continuity for \( \ln(x - $b) \)? $BR \(x \in \)
+\{ans_rule(35)\}
+
+$PAR
+
+What is the domain of continuity for \(  \exp(x - $b) \)? $BR \(x \in \)
+\{ans_rule(35)\}
+
+$PAR
+
+What is the domain of continuity for \( \displaystyle \frac{x^2-$b}{\sqrt{x-$b}} \)? $BR \(x \in \)
+\{ans_rule(35)\}
+
+$BR
+
+
+END_TEXT
+
+
+Context("Interval");
+
+ANS(Compute("[$b,Inf)")->cmp);
+ANS(Compute("($b,Inf)")->cmp);
+ANS(Compute("(-Inf,Inf)")->cmp);
+ANS(Compute("($b,Inf)")->cmp);
+
+BEGIN_PGML
+
+---
+
+For more discussion, see
+[@ htmlLink("https://math.stackexchange.com/questions/1914931/is-sqrt-x-continuous-at-0-because-it-is-not-defined-to-the-left-of-0", "this MathExchange post discussing the continuity of \\(\\sqrt{x}\\) at \\(0\\)") @]*
+
+END_PGML
+
+
+
+
+
+ENDDOCUMENT();

@@ -1,0 +1,193 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by tda2d
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of integration)
+## DBsection(Distance, velocity, acceleration)
+## Date(6/3/2002)
+## Institution(Univeristy of Utah)
+## Author(Utah ww group.  Heavily modified by silviana amethyst 2023)
+## Level(5)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('1')
+## Section1('4.9')
+## Problem1('61 64 60 66')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('4.9')
+## Problem2('61 64 60 66')
+## TitleText3('Mathematical Applications')
+## AuthorText3('Ronal J. Harshbarger and James J. Reynolds')
+## EditionText3('8')
+## Section3('.')
+## Problem3('')
+## KEYWORDS('derivatives' 'antiderivatives' 'acceleration' 'velocity','derivatives', 'antiderivatives', 'distance,velocity,acceleration')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/5.3_initial_value_problems/accelerating_particle.pg 
+#	to setintegrals_initial_value_problems/accelerating_particle.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_initial_value_problems/accelerating_particle.pg 
+#	to setintegrals_initial_value_problems_-_training/accelerating_particle.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl",
+  "contextFraction.pl",
+  "parserFormulaUpToConstant.pl",
+);
+
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$showHint=-1;
+
+Context("Fraction-NoDecimals");
+   Context()->noreduce('(-x)-y');
+   Context()->noreduce('(-x)-y','(-x)+y');
+Context()->variables->add(t => "Real");
+
+#params for accel function
+$a1 = random(6,36,6);
+$b1 = random(2,18,2);
+
+# intial velocity and position
+$v0 = random(1,17,1);
+$s0 = random(1,17,1);
+
+$t0 = 0; # initial time.  this problem was coded against this, and will break if this is changed.
+
+$t_later = $t0 + random(3,10,1);
+
+$accel = Fraction("$a1 t + $b1")->reduce;
+
+$vel_gen = FormulaUpToConstant("$a1/2 * t^2 + $b1 t");
+$vel = Formula("$a1/2 * t^2 + $b1 t + $v0");
+
+
+$pos_gen = FormulaUpToConstant("$a1/6 * t^3 + $b1/2*t^2 + $v0*t");
+$pos= Formula("$a1/6 * t^3 + $b1/2*t^2 + $v0*t + $s0");
+
+
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem makes IVP's really mean something.  Initial value problems are a way to tell the future, using the laws of motion:
+* The first derivative is velocity
+* The second derivative is acceleration
+
+If we integrate acceleration twice, we should be able to predict position!
+
+This problem also trains that the constants of integration for acceleration and velocity when using polynomials have a very special meaning.
+[@ closeDiv() @]*
+
+
+END_PGML
+
+
+BEGIN_TEXT
+
+
+In this problem, we're given the acceleration function \(a(t)\), and we want the position function \(s(t)\).  As a first step, recognize that:$BR
+• \(v(t) = \frac{ds}{dt}\)$BR
+• \(a(t) = \frac{dv}{dt}\)$PAR
+
+That is, to find position function \(s(t)\), we need to integrate twice, and at each step find the value of the constant of integration.
+
+$PAR
+
+To find \(s(t)\), I suggest a two-step process:$BR
+1. Symbolically integrate \(a(t)\) once and find the constant of integration for \(v(t)\) using the initial condition for velocity.  $BR
+2. Then, integrate \(v(t)\) and find the constant of integration for \(s(t)\) using initial condition for position.  
+
+
+
+$PAR $HR $PAR
+
+END_TEXT
+
+
+
+BEGIN_TEXT
+
+
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
+A particle is moving with acceleration \( a(t) = $accel \) \({\rm m} / {\rm s}^2\)
+$PAR
+velocity at time \( t =$t0 \) is \( v($t0) = $v0 \) \({\rm m}/ {\rm s}\) $BR
+position at time \( t =$t0 \) is \( s($t0) = $s0 \) \({\rm m} \) $BR
+\{ closeDiv() \}
+$PAR
+
+First, 🎯 find the general solution for the velocity function, with unknown constant of integration:
+$BR
+\( v_\textnormal{gen} = \) \{ans_rule(30) \}
+$PAR
+Next, 🎯 use the given known-velocity at a known-time to find the particular velocity function. $BR
+\( v(t) = \) \{ans_rule(30) \} \({\rm m}/ {\rm s}\)
+
+
+$BR$PAR
+
+Now do the same steps, integrating and finding the constant of integration, to 🎯 find the general and particular position functions. $BR
+\( s_\textnormal{gen}(t) = \) \{ans_rule(30) \} $BR
+\( s(t) = \) \{ans_rule(30) \} \({\rm m} \)
+$PAR
+
+🔮 We can predict the future now!  What will be the particle's position when \( t = $t_later\)? $BR
+\(s($t_later) = \) \{ans_rule(30) \} \({\rm m} \)
+
+
+END_TEXT
+
+
+BEGIN_PGML
+
+---
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+This problem shows that if 
+* we know position and velocity at time [`t = 0`], and 
+* the acceleration function is a polynomial, 
+
+then the values of the constants of integration are simply the initial velocity and position.
+[@ closeDiv() @]*
+
+END_PGML
+
+ANS($vel_gen->cmp);
+ANS($vel->cmp);
+ANS($pos_gen->cmp);
+ANS($pos->cmp);
+ANS(num_cmp($pos->eval(t=>$t_later)));
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

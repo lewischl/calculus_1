@@ -1,0 +1,162 @@
+## DESCRIPTION
+##   ****
+## ENDDESCRIPTION
+
+## KEYWORDS('Power Rule')
+
+## DBsubject('Calculus')
+## DBchapter('Derivatives')
+## DBsection('Power Rule')
+## Date('07/20/2024')
+## Author('W. Shull')
+## Institution('UWEC')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+########################################
+# this file automatically moved
+#	from setproving_grounds/ProductRuleIntroduction.pg 
+#	to setderivatives_product_rule_-_training/ProductRuleIntroduction.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",        # the new parser
+  "contextFraction.pl",
+  "parserMultiAnswer.pl",
+"answerHints.pl",
+"PGML.pl",
+   "scaffold.pl",
+  "PGcourse.pl",           # Customization file for the course
+   "customCSS.pl",
+   "parserPopUp.pl",   # <--------------------------------------NEEDED FOR DROPDOWN MENUS
+);
+
+loadMacros("niceTables.pl");
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$same_derivative = PopUp(
+  ["Choose one", "yes","no"],
+  "yes");
+
+Context("Numeric");
+Context()->noreduce('(-x)-y');
+Context()->noreduce('(-x)+y');
+
+$y1=non_zero_random(-10,10);
+$m1=non_zero_random(-10,10);
+while($m1==1){
+    $m1=non_zero_random(-10,10);
+}
+$b1=non_zero_random(-10,10);
+
+#SRAND($psvn); #FIX RANDOM VARIABLES ACROSS MULTIPLE PROBLEMS
+
+Context()->variables->add(u=>"Real", h=>"Real");
+
+###################################
+# Main text
+###########################################
+#  The scaffold
+Scaffold::Begin();
+###########################################
+Section::Begin("Part 1: Definition review");
+
+Context()->texStrings;
+BEGIN_PGML
+
+Let's review the definition of the derivative:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+[```f'(x)=\lim_{h\rightarrow0}\frac{f(x+h)-f(x)}h```]
+[@ closeDiv() @]*
+
+Let's try applying this to some functions we know. We will start with the constant function [`f(x)=[$y1]`].
+
+Retype that here: [`f(x)=`] [_]{Formula($y1)}
+
+END_PGML
+Section::End();
+
+Section::Begin("Part 1: Definition review & constant");
+
+BEGIN_PGML
+
+Based on what you know from algebra, what is the slope of [`y=[$y1]`]? [_]{0}
+
+(If you're not sure, go to Desmos.com, type the equation, and find [`\frac{\mbox{rise}}{\mbox{run}}`] between any two points.)
+
+END_PGML
+Section::End();
+
+Section::Begin("Part 2: Constant from the definition");
+
+BEGIN_PGML
+
+Let's see if the definition of the derivative gives us the same answer!
+
+If [`f(x)=[$y1]`], then [`f(x+h)=[$y1]`], so:
+
+[```
+\begin{eqnarray*}
+f'(x)
+&=&\lim_{h\rightarrow0}\frac{f(x+h)-f(x)}h\\
+&=&\lim_{h\rightarrow0}\frac{[$y1]-[$y1]}h\\
+&=&\lim_{h\rightarrow0}\frac{0}h\\
+&=&\lim_{h\rightarrow0}(0)=0\\
+\end{eqnarray*}
+```]
+
+Is this the same answer as before? [_]{$same_derivative}
+
+END_PGML
+Section::End();
+
+Section::Begin("Part 3a: Other straight lines");
+
+BEGIN_PGML
+
+If [`f(x)=[$m1]x+[$b1]`], then based on what you know from algebra, the slope of the line is [`f'(x)=`] [_]{$m1}.
+
+Meanwhile, [`f(x+h)=`] [_]{Formula("$m1(x+h)+$b1")->reduce}
+
+END_PGML
+Section::End();
+
+Section::Begin("Part 3b");
+
+BEGIN_PGML
+
+[```
+\begin{eqnarray*}
+f'(x)
+&=&\lim_{h\rightarrow0}\frac{[$m1](x+h)-[$m1]x}h\\
+&=&\lim_{h\rightarrow0}\frac{([$m1]x+[$m1]h)-[$m1]x}h\\
+&=&\lim_{h\rightarrow0}\frac{[$m1]h}h=[$m1]\\
+\end{eqnarray*}
+```]
+
+Is this the same answer as before? [_]{$same_derivative}
+
+END_PGML
+Section::End();
+
+  Scaffold::End();
+Context()->normalStrings;
+
+$showPartialCorrectAnswers = 1;
+
+COMMENT('MathObject version');
+COMMENT('Complicated chain rule problem in the code');
+ENDDOCUMENT();

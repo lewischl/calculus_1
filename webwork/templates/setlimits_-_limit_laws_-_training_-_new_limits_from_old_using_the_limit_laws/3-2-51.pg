@@ -1,0 +1,92 @@
+
+########################################
+# this file automatically moved
+#	from local/Library/ASU-topics/setLimitConcepts/3-2-51.pg 
+#	to setlimits_the_limit_laws/3-2-51.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_the_limit_laws/3-2-51.pg 
+#	to setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/3-2-51.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl",
+    "uwecAhrendt.pl",
+    "customCSS.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$a = random(2,8,1);
+$b = random(1,8,1);
+
+
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This sequence of problems teaches methods for finding limits when we're given a formula
+[@ closeDiv() @]*
+
+
+
+The limit laws say:
+
+* The limit of the sum/difference is the sum/difference of the limits
+* The limit of the product is the product of the limits
+* The limit of the quotient is the quotient of the limits, unless the denominator goes to [`0`] (in which case the answer could be anything, we require more information)
+* The limit of the power is the power of the limit
+* Constants factor out of limits
+* The foundation for limits of polynomials: [`` \lim_{x \to a} x = a``] 
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+So if we want to know a limit of a function, we should 
+1. find out the limits of its pieces
+2. combine using the limit laws, if possible
+
+Importantly, the limit of a polynomial is the value of the polynomial at the point of interest!
+[``` \lim_{x \to a} \textrm{polynomial} (x) = \textrm{polynomial}(a)```]
+[@ closeDiv() @]*
+
+
+---
+
+END_PGML
+
+BEGIN_TEXT
+Evaluate the limit; If the limit does not exist enter DNE.
+$PAR
+
+
+\(\displaystyle\lim_{ x \rightarrow $a }
+\left(\sqrt{x^2 + $b} - \frac{x^2 + $a x}{x}\right) = \) \{ans_rule(25) \}
+
+END_TEXT
+
+
+$r = $a**2 +$b;
+$a2 = $a+$a;
+
+$ans = Compute("sqrt($r) - $a2");
+ANS($ans->cmp);
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

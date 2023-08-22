@@ -1,0 +1,14 @@
+assignmentType      = default
+openDate          = 09/02/2023 at 05:24am CDT
+reducedScoringDate = 09/02/2023 at 05:24am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
+enableReducedScoring = Y
+paperHeaderFile   = defaultHeader
+screenHeaderFile  = headers/Header_challenge_untimed.pg
+description       = not developed, don't use.  just do in-class activities or written homeworks.
+restrictProbProgression = 0
+emailInstructor   = 0
+
+problemListV2
+

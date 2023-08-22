@@ -1,0 +1,169 @@
+##DESCRIPTION
+##  Algebra problem: true or false for inequality 
+##ENDDESCRIPTION
+
+##KEYWORDS('algebra', 'inequality', 'fraction')
+
+## DBsubject('Algebra')
+## DBchapter('Fundamentals')
+## DBsection('Real Numbers')
+## Date('6/3/2002')
+## Author('')
+## Institution('')
+## TitleText1('Precalculus')
+## EditionText1('3')
+## AuthorText1('Stewart, Redlin, Watson')
+## Section1('1.1')
+## Problem1('22')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set3.9_exp_derivatives/simple_exp2.pg 
+#	to setderivatives_of_exponential_functions/simple_exp2.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_of_exponential_functions/simple_exp2.pg 
+#	to setderivatives_of_exponential_functions_-_training/simple_exp2.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();      
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "PGcourse.pl",
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+
+
+
+
+##############################################################
+#
+#  Text
+#
+#
+Context("Numeric");
+Context()->texStrings;
+
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on derivatives of [`b^{f(x)}`].
+[@ closeDiv() @]*
+
+
+We know the following two rules for derivatives:
+
+* [`` \left(e^{\Box}\right)' = e^{\Box} \cdot \Box' ``]
+* [`` \left(b^x \right)' = \ln(b) \cdot b^x ``]
+
+Now we combine them!
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The general exponential derivative formula for any (positive) constant base
+
+[``` \left(b^{\Box}\right)' = \ln(b) \cdot b^{\Box} \cdot \Box' ```]
+
+[@ closeDiv() @]*
+
+⚠️ This only works if the base is constant!!!  With non-constant base, we need another technique not taught in this set.
+
+---
+
+Find the derivatives using the general base-[`b`] exponential rule.
+END_PGML
+
+
+
+
+
+
+
+
+
+
+
+
+$a = random(2,4,1);
+$b = random(3,7,1);
+
+$f = Compute("$a**(x**$b)")->reduce;
+BEGIN_TEXT
+$PAR$BR
+\(f(x) = $f\) $BR
+\( f'(x) = \) \{ ans_rule(50) \}
+END_TEXT
+ANS($f->D->cmp);
+
+
+
+$a = random(5,7,1);
+$b = random(3,7,1);
+
+$f = Compute("$a**($b sin(x))")->reduce;
+BEGIN_TEXT
+$PAR$BR
+\(f(x) = $f\) $BR
+\( f'(x) = \) \{ ans_rule(50) \}
+END_TEXT
+ANS($f->D->cmp);
+
+
+
+$a = 10;
+$b = random(3,7,1);
+$c = random(10,99,1);
+$f = Compute("$a**(x^$b + 7x + 1) + $c")->reduce;
+BEGIN_TEXT
+$PAR$BR
+\(f(x) = $f\) $BR
+\( f'(x) = \) \{ ans_rule(50) \}
+END_TEXT
+ANS($f->D->cmp);
+
+
+
+
+##############################################################
+#
+#  Answers
+#
+#
+
+
+#Context()->normalStrings;
+
+ENDDOCUMENT();        

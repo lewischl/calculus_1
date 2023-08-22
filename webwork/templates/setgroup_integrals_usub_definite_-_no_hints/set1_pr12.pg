@@ -1,0 +1,55 @@
+##DESCRIPTION
+##DIFFICULTY('easy')
+##  Evaluate simple expressions involving logs
+##ENDDESCRIPTION
+## DBsubject(Calculus - single variable)
+## DBchapter(Techniques of integration)
+## DBsection(Substitution (with trigonometric functions))
+## Institution(Univeristy of Utah)
+## Author(Utah ww group)
+## MLT(tan)
+## MLTleader(1)
+## Level(2)
+## Static(1)
+## TitleText1('Calculus')
+## AuthorText1('Dale Varberg, Edwin J. Purcell, and Steve E. Rigdon')
+## EditionText1('9')
+## Section1('.')
+## Problem1('')
+## KEYWORDS('calculus')
+
+
+
+########################################
+# this file automatically moved
+#	from Library/Utah/Calculus_II/set1_Transcendental_Functions/set1_pr12.pg 
+#	to setgroup_integrals_usub_definite_-_no_hints/set1_pr12.pg 
+#	on 2023-06-08 15:17:56.142406 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+TEXT(EV2(<<EOT));
+
+Evaluate \[ \int_{0}^{\pi/3} \tan x \;dx. \]
+
+Answer:  \{ans_rule(20)\}
+
+EOT
+
+$ans = ln(2);
+ANS(num_cmp($ans));
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.;

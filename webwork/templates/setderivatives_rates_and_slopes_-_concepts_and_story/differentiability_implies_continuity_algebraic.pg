@@ -1,0 +1,147 @@
+##DESCRIPTION
+##  given a graph of a derivative, state points and intervals of continuity
+##ENDDESCRIPTION
+
+##KEYWORDS('derivative','differentiability','continuity')
+
+## DBsubject('Calculus')
+## DBchapter('Derivatives')
+## DBsection('Derivative basics')
+## Date('')
+## Author('silviana amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set3.2_deriv_rules1/differentiability_implies_continuity_algebraic.pg 
+#	to setderivatives_derivative_basics/differentiability_implies_continuity_algebraic.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_derivative_basics/differentiability_implies_continuity_algebraic.pg 
+#	to setderivatives_rates_and_slopes_-_concepts_and_story/differentiability_implies_continuity_algebraic.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "parserPopUp.pl",
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   "PGcourse.pl",      # Customization file for the course
+   "PGbasicmacros.pl",
+    "PGchoicemacros.pl",
+    "extraAnswerEvaluators.pl", # needed for the set comparisons
+    "contextLimitedPolynomial.pl",
+"contextPolynomialFactors.pl",
+"contextLimitedPowers.pl",
+"customCSS.pl",
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+
+$sidetrack = 1;
+
+$a = 2;
+$b = 3;
+
+$scale = 3;
+
+# used on both sides of infinite limit
+
+$n = Formula("$scale*x^2-$scale*($a + $sidetrack)x + $scale*$a*$sidetrack")->reduce; 
+$d = Formula("x^2-($a + $b)x + $a*$b")->reduce; 
+
+Context("Numeric");
+
+$f = Formula("$n/$d"); 
+
+
+
+Context()->normalStrings;
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+# 
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+This problem explores the connection between continuity and differentiability.  Namely, 
+* differentiability implies continuity
+
+and conversely, 
+
+* discontinuity implies non-differentiability.
+
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+Not every function is differentiable everywhere. Jumps, holes, and vertical asymptotes all make a function not-differentiable at those points.  So, continuity is required for differentiability.
+
+Relatedly, a differentiable function must be continuous.  Otherwise the tangent line wouldn't be defined!
+
+[@ closeDiv() @]*
+
+
+In this problem, I'm giving you [`f'`], and we're answering questions about the unknown function [`f`].
+---
+
+Suppose [`\displaystyle f'(x) = [$f] `].
+
+
+* Where must [`f`] be discontinuous?   Use list notation.    
+    [`f`] is discontinous at [___]{List($a, $b)}
+
+
+* On what intervals must [`f`] be continuous?   Use interval notation.  If there are none, enter "none".    
+    On the intervals [_____]{interval_cmp("(-inf,$a)U($a,$b)U($b,inf)", strings=>["none"])}.
+
+
+
+
+
+END_PGML
+
+
+Context()->normalStrings;
+
+
+ENDDOCUMENT();

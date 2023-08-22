@@ -1,0 +1,126 @@
+##DESCRIPTION
+##  derivatives of general functions
+##  at a given point
+##ENDDESCRIPTION
+
+## Shotwell cleaned
+## tcao , PAID on 11-24-2003
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Derivatives involving multiple rules (no chain rule))
+## Date(6/3/2002)
+## MLT(derMultRulesConceptual)
+## Level(3)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('3.2')
+## Problem1('32')
+## KEYWORDS('derivatives','product rule','quotient rule')
+## MO(1)
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/set3.3_quotient_rule/derivs_with_unknown_f_g.pg 
+#	to setderivatives_quotient_rule/derivs_with_unknown_f_g.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_quotient_rule/derivs_with_unknown_f_g.pg 
+#	to setderivatives_quotient_rule_-_training/derivs_with_unknown_f_g.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$f = random(1,5,1);
+$df = -random(1,5,1);
+$g = -random(1,9,1);
+$dg = random(1,9,1);
+#$gabs = abs($g);
+
+$fpg = Compute($df+$dg);
+$fmg = Compute($df-($dg));
+$fg = Compute($df*$g+$f*$dg);
+$fognum = $df*$g-($f*$dg);
+$fogdenom = ($g)**2;
+$fog = Compute("$fognum/$fogdenom");
+#$fog = "($df*$g-($f*$dg))/$gabs^2";
+
+$a = non_zero_random(-5,5,1);
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+The quotient rule works even when we don't have formulas for the functions. 
+[@ closeDiv() @]*
+
+
+END_PGML
+
+BEGIN_TEXT
+
+
+The rules work when you have formulas for \(f\) and \(g\).  They also work when you don't, but you only have the values for \(f\), \(g\), \(f^\prime\), and \(g^\prime\) at a point of interest.  This problem has you evaluate derivatives in this case.
+
+
+END_TEXT
+
+BEGIN_PGML
+
+---
+
+Use the various diffentiation rules to diffentiate the various combinations of [`f`] and [`g`] below.  Then evaluate those expressions at the point [`x = [$a]`] using the given function and derivative values.
+
+END_PGML
+
+BEGIN_TEXT
+
+Given that
+$BR$BR
+\(f($a) =  $f\)$BR
+\(f'($a)=$df \)$BR
+\(g($a) =  $g\)$BR
+\(g'($a)=$dg \),
+$BR$BR
+calculate the following:
+$BR$BR
+\((f+g)'($a) = \) \{ans_rule(10) \}
+$BR
+\((f-g)'($a) = \) \{ans_rule(10) \}
+$BR
+\((f\cdot g)'($a) = \) \{ans_rule(10) \}
+$BR
+\((f/g)'($a) = \) \{ans_rule(10) \}
+END_TEXT
+
+ANS($fpg->cmp());
+ANS($fmg->cmp());
+ANS($fg->cmp());
+ANS($fog->cmp());
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

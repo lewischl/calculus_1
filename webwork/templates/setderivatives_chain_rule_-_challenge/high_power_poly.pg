@@ -1,0 +1,79 @@
+## updated tbf - Dec 2014
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Higher-order derivatives)
+## Institution(Univeristy of Utah)
+## Author(Utah ww group)
+## MLT(hod_1st_2nd_poly)
+## MLTleader(1)
+## Level(3)
+## MO(1)
+## TitleText1('Calculus I')
+## AuthorText1('Jerrold Marsden and Alan Weinstein')
+## EditionText1('2')
+## Section1('.')
+## Problem1('')
+## TitleText2('Calculus')
+## AuthorText2('Dale Varberg, Edwin J. Purcell, and Steven E. Rigdon')
+## EditionText2('9')
+## Section2('.')
+## Problem2('')
+## KEYWORDS('calculus')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/set3.7_chain_rule/high_power_poly.pg 
+#	to setderivatives_chain_rule_level_2/high_power_poly.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_chain_rule_level_2/high_power_poly.pg 
+#	to setderivatives_chain_rule_-_challenge/high_power_poly.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+Context("Numeric");
+
+$a = random(1,5)*random(-1,1,2);
+$c = random(11,17);
+
+$f1 = Formula(" ( {2*$c + 1} x^2 + $a ) (x^2 + $a)^{$c - 1} ")->reduce;
+$f2 = Formula(" {4*$c + 2} x (x^2 + $a)^{$c - 1} + ( 2*{2*$c + 1}*{$c - 1} x^3 + $a*2*{$c-1} x) (x^2 + $a)^{$c - 2} ")->reduce;
+
+BEGIN_TEXT
+
+Let \( \displaystyle f(x) = x(x^2+$a)^{$c}\). $BR$BR
+\(f'(x) = \) \{&ans_rule(45)\} $BR$BR
+\(f''(x) = \) \{&ans_rule(45)\}
+
+END_TEXT
+
+ANS($f1->cmp(limits=>[0.1,1]));
+ANS($f2->cmp(limits=>[0.1,1]));
+
+;
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

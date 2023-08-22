@@ -1,0 +1,170 @@
+##DESCRIPTION
+##  Find the equation of a tangent line at a point by finding its derivative
+##  at that point
+##ENDDESCRIPTION
+
+## tcao , PAID on 11-24-2003
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Derivatives of polynomials and power functions)
+## Date(6/3/2002)
+## Institution(Indiana)
+## MLT(Poly_positive_exponent_tangent)
+## Level(2)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('2.7')
+## Problem1('7 8 9')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Rogawski')
+## EditionText2('1')
+## Section2('3.1')
+## Problem2('7 8 9')
+## KEYWORDS('tangent line', 'derivatives','Calculus','Tangent','Derivatives','slope' 'tangent line' 'tangent')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/ma122DB/set3/s2_8_7.pg 
+#	to setderivatives_limit_definition_of_derivative/s2_8_7.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "AnswerFormatHelp.pl",
+  "PGcourse.pl",
+  "customCSS.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Numeric");
+Context()->noreduce('(-x)-y');
+
+do{
+$a1 = random(2,4,1);
+$b1 = random(2,7,1);
+$c1 = random(2,7,1);
+$x1 = non_zero_random(-5,5,1);
+
+$f = Compute("$a1 x^2 - $b1 x + $c1")->reduce;
+$df = $f->D;
+$y1 = $f->eval(x=>$x1);
+$m1 = $df->eval(x=>$x1);
+$b1 = $y1 - $m1 * $x1;
+}
+while ($m1==0);
+
+
+Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+This problem trains you on going from function to tangent line via the defintion of the derivative.   
+
+The tangent line is the best possible linear approximation of a curvy function, so being able to write tangent lines is a central conceptual skill in Calculus.
+
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The definition of the derivative, which tells us the slope of the tangent line and the instantaneous rate of change at point or time [`x=a`]:
+
+[```
+f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}
+```]
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A tangent line requires a few ingredients:
+1. The slope of the tangent line -- the derivative at the point of tangency.
+2. The coordinates for the point of tangency.
+[@ closeDiv() @]*
+
+---
+
+
+END_PGML
+
+BEGIN_TEXT
+Let \( f(x) = $f \).  Compute the slope of the line tangent to \(f\) at \(x = $x1\).
+$PAR
+\( f'( $x1 ) = \) \{ans_rule(20) \}
+
+
+$PAR
+$HR
+$PAR
+
+END_TEXT
+
+BEGIN_PGML
+
+---
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Point-slope form is a great way to write equations for lines.   The line with
+* slope [`m`]
+* going through point [`(x_0, y_0)`]
+
+has formula 
+
+[```
+y-y_0 = m(x-x_0)
+```]
+[@ closeDiv() @]*
+
+By doing algebra, we can massage from point-slope form into the familiar slope-intercept form [`y = mx+b`].
+
+END_PGML
+
+BEGIN_TEXT
+
+Use the value of \(f'($x1)\) you computed above to find the equation of the tangent line to the parabola
+ \( y = $f \)
+at the point \( ($x1, f($x1)) = ( $x1 , $y1 ) \).
+
+$BR$BR
+
+The equation of this tangent line can be written in the form \( y = mx+b \).
+Determine \( m \) and \(b\). $BR$BR
+
+\(m=\)\{ans_rule(20)  \}
+$BR$BR
+\(b=\)\{ans_rule(20)  \}
+
+$PAR
+$HR
+$PAR
+
+It's possible to check your work, too.  In your calculator, plot the curve and what you have for the tangent line.  Is the line actually tangent at \(($x1,$y1)\)?  It sure better go through the point!  
+
+END_TEXT
+
+
+
+
+
+ANS($m1->cmp);
+ANS($m1->cmp);
+ANS($b1->cmp);
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

@@ -1,0 +1,94 @@
+########################################
+# this file automatically moved
+#	from local/Library/UVA-Stew5e/setUVA-Stew5e-C03S07-HigherDerivs/3-7-16.pg 
+#	to setderivatives_higher_order_derivatives/3-7-16.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_higher_order_derivatives/3-7-16.pg 
+#	to setderivatives_higher_order_derivatives_-_training/3-7-16.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+Context("Numeric");
+
+$showPartialCorrectAnswers = 1;
+
+$a = random(7,9,2);
+$b = random(2,6,2);
+$c = random(3,5,2);
+
+$ab2 = 2*$a*$b;
+$ac = $a*$c;
+
+$deriv1f="(($ab2)* x -$ac*x^2)/(($b-$c*x)^2)";
+
+$num2 = 2*$a*$b**2;
+$deriv2f="($num2)/($b-$c x)^3";
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Using the quotient rule with multiple derivatives can be tricky.  This problem offers advice and training.
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Differentiate like normal for the first derivative, there's nothing to do but the quotient rule.
+
+For the second derivative, simplify both the numerator and denominator fully by expanding and collecting before differentating.
+[@ closeDiv() @]*
+
+Side note: We often stay away from third derivatives of quotients because they get more and more complicated.
+
+---
+
+END_PGML
+BEGIN_TEXT
+Let \( f(x) = \dfrac{$a x^2}{$b-$c x}\), and compute the following derivatives:
+$PAR
+\( f'(x) \) = \{ans_rule(50) \}$BR
+\( f''( x ) \) = \{ans_rule(50) \}
+
+
+
+
+END_TEXT
+
+BEGIN_PGML
+
+---
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+⚠️ Resist the temptation to use an online calculator for this.  Differentation of rational functions of polynomials is a fundamental skill, and using a computer to do these will not only hurt you in the long term, but it will endenture you to the computer.  
+
+With a bit of practice, I promise it will be faster to just do the derivatives than to copy-paste formulas back and forth between here and some other place.  
+[@ closeDiv() @]*
+
+END_PGML
+
+ANS(Compute($deriv1f)->cmp);
+ANS(Compute($deriv2f)->cmp);
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

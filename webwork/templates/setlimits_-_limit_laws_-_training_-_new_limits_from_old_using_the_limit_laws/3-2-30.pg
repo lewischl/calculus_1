@@ -1,0 +1,81 @@
+
+########################################
+# this file automatically moved
+#	from local/Library/ASU-topics/setLimitConcepts/3-2-30.pg 
+#	to setlimits_the_limit_laws/3-2-30.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_the_limit_laws/3-2-30.pg 
+#	to setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/3-2-30.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl",
+  "uwecAhrendt.pl",
+  "customCSS.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$a = random(3,9,1);
+$b = random(3,8,1);
+$c = random(3,8,1);
+$d = random(3,8,1);
+$f = random(2,3,1);
+$g = random(3,8,1);
+
+
+
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This sequence of problems teaches methods for finding limits when we're given a formula.
+
+
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+If we want to know a limit of a function, we should 
+1. find out the limits of its pieces
+2. combine using the limit laws, if possible
+
+👀 Watch out for domain problems!!!
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+BEGIN_TEXT
+
+Evaluate the limit.  If the limit does not exist, enter "DNE". $PAR
+
+\(\displaystyle\lim_{ x \rightarrow $a } \sqrt{$b - $c x} = \) \{ans_rule(25) \}
+
+END_TEXT
+
+ANS(Compute("DNE")->cmp);
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

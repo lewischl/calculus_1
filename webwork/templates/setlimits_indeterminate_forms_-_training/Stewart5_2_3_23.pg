@@ -1,0 +1,81 @@
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Evaluating limits - rationalizing)
+## Institution(University of Calgary)
+## Author(Danny Glin)
+## Level(3)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('2.3')
+## Problem1('23')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_23.pg 
+#	to setlimits_indeterminate_forms/Stewart5_2_3_23.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_indeterminate_forms/Stewart5_2_3_23.pg 
+#	to setlimits_indeterminate_forms_-_training/Stewart5_2_3_23.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGauxiliaryFunctions.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+"PGcourse.pl",
+"customCSS.pl",
+);
+
+TEXT(&beginproblem);
+$showPartialCorrectAnswers = 1;
+$a = random(2,7,1);
+$a2 = $a**2;
+$b = random(2,$a2-1,1);
+$m = $a**2-$b;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+An opportunity to practice multiply by the conjugate.
+[@ closeDiv() @]*
+
+END_PGML
+
+BEGIN_TEXT
+Evaluate the limit.  If the limit does not exist, enter ${BBOLD}DNE${EBOLD}.
+
+$PAR
+
+\( \displaystyle \lim_{x \to $b} \frac{\sqrt{x+$m}-$a}{x-$b} = \) \{ans_rule(25) \}
+
+END_TEXT
+
+
+
+Context("Numeric");
+$twoa = 2*$a;
+
+ANS(Compute("1/$twoa")->cmp());
+
+ENDDOCUMENT();

@@ -1,0 +1,116 @@
+## DBsubject(Calculus - single variable)
+## DBchapter(Integrals)
+## DBsection(Fundamental theorem of calculus)
+## Institution(UCSB)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('5.3')
+## Problem1('26')
+## KEYWORDS('antiderivatives')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/5.4_5.5_FTC/integrate_infinite_discontinuity.pg 
+#	to setintegrals_FTOC_1_for_definite_integrals/integrate_infinite_discontinuity.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_FTOC_1_for_definite_integrals/integrate_infinite_discontinuity.pg 
+#	to setintegrals_FTOC_1_for_definite_integrals_-_training/integrate_infinite_discontinuity.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl"
+);
+
+COMMENT("todo: add graphs to help explain");
+
+TEXT(&beginproblem);
+$showPartialCorrectAnswers = 1;
+$a=random(1,10,1)*random(-1,1,2);
+$b=random(1,10,1)*random(-1,1,2);
+$c=random(1,10,1)*random(-1,1,2);
+
+Context("Numeric");
+Context()->variables->add(t=>"Real");
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on being careful with the FTOC around infinite discontinuities.
+[@ closeDiv() @]*
+
+The fundamental theorem of Calculus part 1 says:
+
+[```
+\int_a^b f(x) \, dx = F(x) \Big|_{x=a}^{x=b}
+```]
+
+⚠️ But we need to be careful:
+* What if the area is potentiall infinite??? 
+* What if the function isn't even defined at a value in [`[a,b]`]?
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+To know without doubt that FTOC1 holds for a definite integral, the integrand must be continuous or have a finite number of jump discontinuities in the domain of integration.  
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Before applying the FTOC, be sure the function is continuous or just has jumps, on the domain of integration
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+
+BEGIN_TEXT
+
+$PAR
+Use the Fundamental Theorem of Calculus to evaluate the integrals.  If the integral is problematic due to an infinite discontinuity, enter "DNE".
+
+$PAR $BR
+\(\displaystyle \int_{-2}^{3}{$a t^{-5}}\,dt = \) \{ans_rule(30)\}
+
+$PAR
+\(\displaystyle \int_{-2}^{-1}{$a t^{-5}}\,dt = \) \{ans_rule(30)\}
+
+$PAR
+\(\displaystyle \int_{4}^{2}{$a t^{-5}}\,dt = \) \{ans_rule(30)\}
+
+$PAR$HR$PAR
+
+ℹ️ These two training problems have an easy-to-spot infinite discontinuity.  I want to do more difficult integrands, but they require "integration by substitution", which I'm assuming comes after this.
+
+END_TEXT
+
+
+
+Context()->normalStrings;
+ANS(std_num_str_cmp("DNE", ["DNE"]));
+
+$F = Formula("$a/(-4) * t^(-4)");
+$ans = $F->eval(t=>-1) - $F->eval(t=>-2);
+ANS(std_num_str_cmp($ans, ["DNE"]));
+
+$ans = $F->eval(t=>2) - $F->eval(t=>4);
+ANS(std_num_str_cmp($ans, ["DNE"]));
+ENDDOCUMENT();

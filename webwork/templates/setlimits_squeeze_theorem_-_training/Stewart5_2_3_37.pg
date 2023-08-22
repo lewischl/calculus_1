@@ -1,0 +1,72 @@
+
+########################################
+# this file automatically moved
+#	from local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_37.pg 
+#	to setlimits_squeeze_theorem/Stewart5_2_3_37.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_squeeze_theorem/Stewart5_2_3_37.pg 
+#	to setlimits_squeeze_theorem_-_training/Stewart5_2_3_37.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",           # Math Object Macro
+"PGcourse.pl",
+"customCSS.pl",
+);
+
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+$a=random(1,10,1)*random(-1,1,2);
+$b=random(1,10,1)*random(-1,1,2);
+$c=random(1,10,1)*random(-1,1,2);
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+A squeeze theorem problem where we don't give you the bounding functions.  Find your own bounding functions to use with the squeeze theorem!
+[@ closeDiv() @]*
+
+Keep in mind that we need to be able to give complete justification for our answers.
+
+---
+
+END_PGML
+
+BEGIN_TEXT
+Use the Squeeze Theorem to evaluate the limit, if it exists.
+
+
+
+$PAR
+\(\displaystyle \lim_{x \to 0} x^4 \cos\left(\frac{2}{x}\right) =\) \{ans_rule(25)\}
+
+
+
+END_TEXT
+
+ANS(Compute(0)->cmp());
+
+ENDDOCUMENT();

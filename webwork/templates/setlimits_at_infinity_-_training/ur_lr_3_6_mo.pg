@@ -1,0 +1,209 @@
+##DESCRIPTION
+##  Determine one-sided infinite limits around a point where
+##  the function is undefined
+##ENDDESCRIPTION
+
+## tsuda tagged and PAID on 2-20-2004
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Limits at infinity, horizontal and oblique asymptotes)
+## Date(6/3/2002)
+## Institution(ASU)
+## MLT(liminfexpo)
+## MLTleader(1)
+## Level(2)
+## MO(1)
+## TitleText1('Calculus Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('4')
+## Section1('2.6')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('5e')
+## Section2('2.6')
+## Problem2('')
+## TitleText3('Calculus: Early Transcendentals')
+## AuthorText3('Stewart')
+## EditionText3('6')
+## Section3('2.6')
+## Problem3('')
+## TitleText4('Calculus: Early Transcendentals')
+## AuthorText4('Stewart')
+## EditionText4('5')
+## Section4('2.6')
+## Problem4('')
+## KEYWORDS('limits', 'infinite', 'one-sided','Calculus','Limit', 'Infinity','asymptote')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Rochester/setLimitsRates3Infinite/ur_lr_3_6_mo.pg 
+#	to setlimits_at_infinity/ur_lr_3_6_mo.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_at_infinity/ur_lr_3_6_mo.pg 
+#	to setlimits_at_infinity_-_training/ur_lr_3_6_mo.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "PGcourse.pl",
+  "customCSS.pl",
+  "niceTables.pl",
+);
+
+
+TEXT(beginproblem());
+install_problem_grader(~~&std_problem_grader);
+$showPartialCorrectAnswers = 1;
+# don't allow guessing
+
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$dne = String("DNE");
+
+
+
+
+$a = Real( random(2,9,1) );
+$b = Real( non_zero_random(-9,9,1) );
+
+$funcA = Compute("$a/(e^x+$b)")->reduce;
+
+$c = Real( non_zero_random(2,9,1) );
+
+$funcB = Compute("($c e^x + $a)/(e^x+$b)")->reduce;
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+Context()->texStrings;
+
+
+
+
+$tableofinfinity = 
+LayoutTable(
+    [
+        ["\(\displaystyle 0 \pm k =\pm k \)", "\(\displaystyle 0 + 0 = 0 \) $BR but signs can get difficult, as well as how small the zero is"]  ,
+        
+        ["\(\displaystyle \frac{k}{\infty} = \textnormal{sign}(k)\cdot  0 \)", "\(\displaystyle \infty \pm k = \infty \)"]  ,
+        ["\(\displaystyle \infty - \infty = ? \)", "\(\displaystyle -\infty \pm k = -\infty \)"]  ,
+        
+        ["\(\displaystyle \frac{\infty}{k} =  \textnormal{sign}(k)\cdot \infty \)", "\(\displaystyle \frac{\infty}{\infty} = ? \)"]  ,
+        
+        ["\(\displaystyle \frac{0}{k} = \textnormal{sign}(k)\cdot  0 \)", "\(\displaystyle \frac{k}{0} = \textnormal{sign}(k)\cdot \infty  \) $BR but only if the 0 is the same sign on both sides, otherwise DNE"]  ,
+        
+        ["\(\displaystyle \frac{0}{0} = ? \)", "\(\displaystyle k \cdot \infty = \textnormal{sign}(k)\cdot \infty  \)"]  ,
+    ],
+        tablecss => "border:solid 1px; border-spacing:10px 5px; border-radius: 5px; border-collapse:separate;",
+        align => "p{2in}p{2in}");
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem touches on limits at infinity of rationals of exponentials.
+* [``\exp(x)``] 
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+Limits at infinity with the exponential function provide contrast to polynomials:
+* [``\lim_{x \to -\infty} \exp(x) = 0``]   -- no polynomial does this (except constant functions)
+* [``\lim_{x \to \infty} \exp(x) = \infty``] 
+
+[@ closeDiv() @]*
+
+
+I also have some advice on reasoning with infinity and zero:
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Let [`k`] be a finite non-zero number.  
+
+[@ $tableofinfinity @]*
+
+These only make sense in the context of limits!  
+
+* We aren't really multiplying / dividing by [`0`], we're multiplying / dividing by numbers *going to zero*.  Same for infinity.
+* Yes, negative zero is a thing.  Like [`0^-`] when we write [``\lim_{x \to 0^-} f``] to talk about the limit at [`0`] from the left.  It's an infinitesimal number just below 0.  [@ htmlLink("https://en.wikipedia.org/wiki/Signed_zero?useskin=vector", "It's even a standard part of numbers in computers")  @]*
+
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+BEGIN_TEXT
+
+$PAR
+Evaluate the following limits.
+
+$PAR
+\(\displaystyle \lim_{ x \to \infty } $funcA= \)
+\{ans_rule(10) \}
+
+$PAR
+\( \displaystyle \lim_{ x \to -\infty } $funcA = \)
+\{ans_rule(10) \}
+
+$PAR
+$BR
+$PAR
+\(\displaystyle \lim_{ x \to \infty } $funcB= \)
+\{ans_rule(10) \}
+
+$PAR
+\( \displaystyle \lim_{ x \to -\infty } $funcB = \)
+\{ans_rule(10) \}
+
+
+END_TEXT
+Context()->normalStrings;
+##############################################################
+#
+#  Answers
+#
+#
+$ans1 = Real(0);
+$ans2 = $a / $b;
+ANS($ans1->cmp);
+ANS($ans2->cmp);
+
+# funcB
+
+ANS(Real($c)->cmp);
+ANS(Real($a / $b)->cmp);
+
+;
+ENDDOCUMENT();

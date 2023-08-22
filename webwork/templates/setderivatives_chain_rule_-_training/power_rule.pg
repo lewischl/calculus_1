@@ -1,0 +1,160 @@
+## this file copied from Chris Hlas's Math114 content, Summer 2022, by permission of Chris Hlas
+## this automatic process executed by silviana amethyst
+## original filename local/Library/ma122DB/set5/s3_5_7.pg
+
+##DESCRIPTION
+##  Find a derivative of a polynomial; requires use of chain rule
+##ENDDESCRIPTION
+
+## Shotwell cleaned
+## tcao , PAID on 11-24-2003
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Chain rule (without trigonometric functions))
+## Date(6/3/2002)
+## Institution(ASU)
+## Author(Utah ww group)
+## MLT(Chain-PolyToPower)
+## MLTleader(1)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('3.4')
+## Problem1('')
+## TitleText2('Mathematical Applications')
+## AuthorText2('Ronal J. Harshbarger and James J. Reynolds')
+## EditionText2('8')
+## Section2('.')
+## Problem2('')
+## MO(1)
+## KEYWORDS('derivatives', 'chain rule','Derivative','Chain Rule', 'Derivative')
+
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/ma122DB/set5/s3_5_7.pg 
+#	to setderivatives_chain_rule_level_1/s3_5_7.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_chain_rule_level_1/s3_5_7.pg 
+#	to setderivatives_chain_rule_-_training/s3_5_7.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Numeric");
+
+$a1 = random(2,5,1);
+$b1 = random(2,8,1);
+$c1 = random(2,4,1);
+$x1 = random(1,5,1);
+$deriv1 =Compute("($c1*($x1^3+$a1*$x1+$b1)^($c1-1))*(3*$x1*$x1+$a1)");
+$funct1 =Compute("($c1*(x^3+$a1*x+$b1)^($c1-1))*(3*x*x+$a1)");
+
+
+Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+The power rule is in many ways the most basic rule.  And it still works when there's a function in the power.  This problem provides training.
+[@ closeDiv() @]*
+
+
+The chain rule tells us that when we take a derivative of one function inside the other, we must "chain out" the derivative of the inside function as a multiplicative factor.
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Applying the chain rule to the power rule,
+
+* [`` ( (f(x))^n )' = n \cdot (f(x))^{n-1} \cdot f'(x) ``]
+
+Using box notation, this becomes
+* [`` (\Box^n )' = n \, \Box^{n-1} \cdot \Box' ``]
+
+[@ closeDiv() @]*
+
+---
+
+Compute the derivatives using the general power rule.
+
+
+END_PGML
+
+
+
+$a1 = random(2,5,1);
+$b1 = random(2,8,1);
+$c1 = random(2,4,1);
+
+$f = Formula("(x^3+ $a1 x + $b1) ^ { $c1 }");
+
+BEGIN_TEXT
+\( f(x) = $f \)
+$BR
+\( f'( x ) = \) \{ans_rule(40) \}
+END_TEXT
+ANS($f->D->cmp);
+
+
+$a1 = random(2,5,1);
+$b1 = non_zero_random(-10,10,1);
+$c1 = random(2,8,1);
+
+$f = Formula("(x^4+ $a1 2) ^ { $c1 } + $b1")->reduce;
+
+BEGIN_TEXT
+
+$PAR $BR
+
+\( f(x) = $f \)
+$BR
+\( f'( x ) = \) \{ans_rule(40) \}
+END_TEXT
+ANS($f->D->cmp);
+
+
+
+
+$a1 = random(2,5,1);
+$b1 = non_zero_random(-10,10,1);
+$c1 = random(2,8,1);
+
+$f = Formula("(e^x + $a1 x) ^ { $c1 } + $b1")->reduce;
+
+BEGIN_TEXT
+
+$PAR $BR
+
+\( f(x) = $f \)
+$BR
+\( f'( x ) = \) \{ans_rule(40) \}
+END_TEXT
+ANS($f->D->cmp);
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

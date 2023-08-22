@@ -1,0 +1,177 @@
+##DESCRIPTION
+##  using chain rule 
+##ENDDESCRIPTION
+
+## Shotwell cleaned
+## tcao , PAID on 11-24-2003
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Chain rule (without trigonometric functions))
+## Date(6/3/2002)
+## MLT(Chain-GivenSelectedValues)
+## Level(4)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('3.4')
+## Problem1('53')
+## KEYWORDS('derivatives', 'chain rule')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/set3.7_chain_rule/der_unknown_func_at_point.pg 
+#	to setderivatives_chain_rule_level_1/der_unknown_func_at_point.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_chain_rule_level_1/der_unknown_func_at_point.pg 
+#	to setderivatives_chain_rule_-_training/der_unknown_func_at_point.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        
+# This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGcourse.pl",
+  "customCSS.pl"
+);
+
+loadMacros("niceTables.pl");
+
+Context("Numeric");
+
+Context()->variables->add(u=>"Real");
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a = random(3,9,1);
+$b1 = random(2,15,1);
+$b2 = random(2,3,1);
+$b4 = random(2,15,1);
+$b3 = random(2,15,1);
+$a1 = $a-1;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem is one of a family of functions in which we explore and train on what we can know about derivatives, if we don't know the formulas of the functions.
+
+The point is that, even without function definition, the derivative rules hold true.
+[@ closeDiv() @]*
+
+
+In this problem, you use the chain rule to calculate the value of the derivative at a point of a composite function, even though we're missing the definition of [`f`] and the particular value of [`a`].
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+To find the value of a combination of functions, follow these general steps:
+
+1. Write down the formula
+2. Differentiate.    
+    * If you have to differentiate a function but don't have its formula, just put a prime on it.
+    * If you know the formula, actually differentiate
+3. Look up values from given information.  You may also have to evaluate an actual formula.
+4. Do arithmetic and simplify.
+
+[@ closeDiv() @]*
+
+---
+
+We're going to build a new function [`F`] from an old one [`f`] using function compostition.   Specifically, we're going to composose [`x^[$a]`] into [`f`].
+
+END_PGML
+
+
+
+BEGIN_TEXT
+
+So our function is  
+$BR
+
+\( F(x)= f(x^{$a}) \)  
+
+$PAR
+and we're evaluating at \(x = a\).
+
+$BR
+We're going to find the value of \( F'(a) \). 
+
+Suppose we know the information about function values:$BR
+\[ \begin{aligned} 
+a^{$a1} & = $b1 \\
+f(a) & = $b2
+\end{aligned}
+\]
+
+$PAR
+and about derivative values: $BR
+
+\[ \begin{aligned} 
+f'(a) & = $b3 \\
+f'(a^{$a}) & = $b4 
+\end{aligned}
+\]
+
+END_TEXT
+
+BEGIN_PGML
+We start by formally differentiating [`F = f(x^[$a])`] using the chain rule:
+
+[`F'(x)=f'\big(`] [_]{Formula("x^$a")}[`\big)`] [_]{Formula("$a*x^($a-1)")->reduce}
+
+and then by evaluating at [`x = a`], using the known values, and doing arithmetic we have 
+
+[`F'(a)=`] [_]{Formula("$a*$b1*$b4")->reduce}
+
+END_PGML
+
+BEGIN_TEXT
+
+$PAR $HR $PAR
+
+
+
+I'll restate our values:
+\[ \begin{aligned} 
+a^{$a1} & = $b1 \\
+f(a) & = $b2 \\
+f'(a) & = $b3 \\
+f'(a^{$a}) & = $b4 
+\end{aligned}
+\] 
+
+Now take \( G(x)=(f(x))^{$a} \), so by formally differentiating we have 
+
+END_TEXT
+
+BEGIN_PGML
+
+[`G'(x)=[$a](f(x))^[$a-1]f'(x)`]
+
+and by using values from the table and doing arithmetic, 
+
+[`G'(a)=`] [_]{Formula("$a*($b2^$a1)*$b3")->reduce}
+
+END_PGML
+
+
+ENDDOCUMENT();        
+# This should be the last executable line in the problem.
+

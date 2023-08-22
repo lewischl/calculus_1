@@ -1,0 +1,152 @@
+##DESCRIPTION
+##  Graphical application of the second derivative test
+##ENDDESCRIPTION
+
+##KEYWORDS('applications of derivatives', 'second derivative test', 'graphical')
+
+## DBsubject('Calculus')
+## DBchapter('Applications of Derivatives')
+## DBsection('Second derivative test')
+## Date('')
+## Author('silviana amethyst')
+## Institution('uwec')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set4.4_deriv_tests1/second_der_test_1.pg 
+#	to setderiv_application_optimization_derivative_tests/second_der_test_1.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderiv_application_optimization_derivative_tests/second_der_test_1.pg 
+#	to setderiv_application_optimization_derivative_tests_-_training/second_der_test_1.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   "parserPopUp.pl",
+   "PGuwecTikZutils.pl", #Custom TikZ code
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+SRAND(100);
+$setseed = "set.seed(100); 100";
+
+# set up the roots of the second derivative
+$r1 = random(-2,2,1);
+$sep = random(1,3,1);
+$r2 = $r1 + $sep;
+
+
+# now the critical points.  i can make these up.
+@c = ();
+# first crit point is where the double root is, so that the 2nd der test fails.
+$c[0] = $r1;
+$c[1] = ($r1+$r2)/2;
+$c[2] = $r2;
+$c[3] = $r2+1;
+
+$classification0 = PopUp(
+  ["Choose one","local minimum","local maximum","fail to classify"],
+  "fail to classify");
+  
+$classification1 = PopUp(
+  ["Choose one","local minimum","local maximum","fail to classify"],
+  "local minimum");
+
+$classification2 = PopUp(
+  ["Choose one","local minimum","local maximum","fail to classify"],
+  "fail to classify");
+  
+$classification3 = PopUp(
+  ["Choose one","local minimum","local maximum","fail to classify"],
+  "local maximum");
+
+# set the x limits for plotting
+@xlim = ();
+$xlim[0] = $r1-1;
+$xlim[1] = $r2+2;
+
+# this what they're given
+$f_doubleprime = Formula("-(x-$r1) * (x-$r2)")->reduce;
+
+
+# critical points of f', found via matlab
+@crit_of_f_doubleprime = ();
+$crit_of_f_doubleprime[0] = $r1; # was a double root, so yes.
+$crit_of_f_doubleprime[1] = $r1/3 + (2*$r2)/3;
+
+$xtick = 1;
+$ytick = 2;
+
+
+
+@ylim = ();
+$ylim[0] = min($f_doubleprime->eval(x=>$xlim[0] ),$f_doubleprime->eval(x=>$xlim[1] ));
+$ylim[1] = $f_doubleprime->eval(x=>$crit_of_f_doubleprime[1] )+3;
+
+$graph1 = GraphWithTikZ(function => [[$f_doubleprime,dmin => $xlim[0],dmax => $xlim[1],label=>"f''(x)"]],
+                        xmin => $xlim[0],xmax => $xlim[1],ymin => $ylim[0],ymax =>$ylim[1],smooth=>'smooth',ytick => $ytick,xtick => $xtick,useLegend=>1);
+                        
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+The second derivative test is a way to classify critical points of a function.  The below graph depicts [`f''(x)`], the *second* derivative of a function [`f`].
+
+>>[@ image(insertGraph($graph1), width => 500, height => 500) @]*<<
+
+
+
+---
+
+For each given critical point of [`f`] (that is, I've computed the roots of [`f'`] for you -- we have neither [`f`] nor [`f'`] at-hand in this problem), use the second derivative test to determine whether [`f`] has a local min, a local max, or indicate if the classification test fails.
+
+* If [`x = [$c[0]]`] were a critical point, then [`f`] would have a [_]{$classification0} there.
+
+* If [`x = [$c[1]]`] were a critical point, then [`f`] would have a [_]{$classification1} there.
+
+* If [`x = [$c[2]]`] were a critical point, then [`f`] would have a [_]{$classification2} there.
+
+* If [`x = [$c[3]]`] were a critical point, then [`f`] would have a [_]{$classification3} there.
+
+END_PGML
+
+ENDDOCUMENT();

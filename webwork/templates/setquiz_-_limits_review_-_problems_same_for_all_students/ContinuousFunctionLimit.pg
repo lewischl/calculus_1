@@ -1,0 +1,98 @@
+##DESCRIPTION
+##  Continuous Function Limit: plug in to solve
+##ENDDESCRIPTION
+
+##KEYWORDS('continuous functions', 'limit')
+
+## DBsubject('Calculus')
+## DBchapter('Limits')
+## DBsection('Continuity')
+## Date('')
+## Author('Erich Jauch')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from setExam_1-Team/ContinuousFunctionLimit.pg 
+#	to setlimits_review_quiz/ContinuousFunctionLimit.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_review_quiz/ContinuousFunctionLimit.pg 
+#	to setquiz_-_limits_review_-_problems_same_for_all_students/ContinuousFunctionLimit.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "parserPopUp.pl",
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+
+SRAND($team_exam1_seed);
+$setseed = "set.seed($team_exam1_seed); $team_exam1_seed";
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$parameter = random(1,3,1);
+$a = $parameter*3;
+$b = $parameter+random(4,8,1);
+$c = $a-$b;
+
+$point = $parameter**2;
+
+Context()->variables->add(z=>'Real');
+$f = Formula("($a*sqrt(z) + $b)(z^2 + $c)")->reduce;
+
+@ans = ();
+$ans[0] = $f->eval(z=>$point);
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+Find the following limit:
+
+[``\lim_{z\rightarrow[$point]}[$f]=``] [____]{$ans[0]}
+
+(Enter DNE if the limit does not exist)
+
+END_PGML
+
+ENDDOCUMENT();

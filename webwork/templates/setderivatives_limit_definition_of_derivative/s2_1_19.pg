@@ -1,0 +1,97 @@
+## DESCRIPTION
+## Find Instantaneous Rate of Change
+## ENDDESCRIPTION
+
+## Tagged by YL
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Rates of change - general)
+## Institution(ASU)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('2.7')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('2.7')
+## Problem2('')
+## KEYWORDS('derivative', 'rate of change', 'instantaneous')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/ASU-topics/setDerivativeFunction/s2_1_19.pg 
+#	to setderivatives_limit_definition_of_derivative/s2_1_19.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl",
+  "customCSS.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a1 = random(3,25,1);
+$b1 = random(2,27,1);
+$x1 = random(-11,11,1);
+$m1 = $a1;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+This problem asks you to compute a derivative (slope) by definition.  It's a line, so the arithmetic and algebra are pretty simple compared to more complicated functions, so this is a good early training problem. 
+
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The definition of the derivative, which tells us the slope of the tangent line and the instantaneous rate of change at point or time [`x=a`]:
+
+[```
+f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}
+```]
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+
+BEGIN_TEXT
+
+Let \( f(x) = $a1 x + $b1  \).  
+
+$PAR
+
+Using the definition of the derivative, find the instantaneous rate of change of \( f( x ) \) at 
+\( x=$x1 \).
+$BR $BR
+\(f'($x1) = \) \{ans_rule(20) \}
+$PAR
+
+END_TEXT
+
+$ans = $m1;
+ANS(num_cmp($ans));
+
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

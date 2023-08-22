@@ -1,0 +1,108 @@
+########################################
+# this file automatically moved
+#	from local/Library/Utah/AP_Calculus_I/set6_The_Integral/z3.pg 
+#	to setintegrals_applied_as_net_change/z3.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_applied_as_net_change/z3.pg 
+#	to setintegrals_applied_as_net_change_-_training/z3.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGcourse.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGauxiliaryFunctions.pl"
+);
+
+TEXT(beginproblem());
+
+$v = random(60,85,5);
+$g = random(8,20);
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on an application of integration: computing the time and distance it will take to stop, from integrating a constant acceleration/deceleration.
+[@  closeDiv() @]*
+
+Recall these super-important lessons from differentation:
+
+* Velocity is derivative of position
+* Acceleration is derivative of velocity
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Integration undoes differentiation (up to an additive constant):
+
+* Position is integral of velocity
+* Velocity is integral of acceleration
+[@  closeDiv() @]*
+---
+
+END_PGML
+
+BEGIN_TEXT
+
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
+You're in a car traveling at \($v\) miles per hour, and the vehicle needs to come to a stop.  The fastest it can decelerate is \($g\) feet per second squared.
+\{ closeDiv() \}
+
+$PAR$HR$PAR 
+
+How many seconds will it take for the car to stop?  That is, how soon can the velocity become \(0\) given the max deceleration? $BR  
+It will take at least \{ans_rule( 25)\} seconds to stop.$BR
+
+
+$PAR$HR$PAR 
+
+
+
+In that time, how many total feet will the car travel?  Write the velocity function and integrate.$BR
+The car will travel \{ans_rule( 25) \} feet.
+
+$PAR$HR$PAR
+
+
+
+Assuming that it takes you \(1\) second to react to an emergency
+before you start braking, at the same initial speed, and the same
+maximum deceleration, what is the minimum total distance the car will travel before coming to a stop?$BR
+Including travel during the reaction time, the car will travel at least \{ans_rule( 25) \} feet before stopping.
+
+$PAR$HR$PAR
+
+\{ openDiv({ "class" => "inProblemHint" }) \}
+Note the units in this problem.  Recall that there are 5280 feet in a mile, and 3600 seconds in an hour.
+\{ closeDiv() \}
+
+END_TEXT
+
+
+
+
+$vfs = $v*5280/3600;
+$tstop = $vfs/$g;
+ANS(num_cmp($tstop));
+ANS(num_cmp($vfs/2*$tstop));
+ANS(num_cmp($vfs/2*$tstop+$vfs));
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

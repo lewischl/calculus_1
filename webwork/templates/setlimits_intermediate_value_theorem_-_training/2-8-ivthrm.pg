@@ -1,0 +1,135 @@
+#Problem APEX 1.5.35
+
+
+
+########################################
+# this file automatically moved
+#	from local/chapter2/2-8-ivthrm.pg 
+#	to setlimits_intermediate_value_theorem/2-8-ivthrm.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_intermediate_value_theorem/2-8-ivthrm.pg 
+#	to setlimits_intermediate_value_theorem_-_training/2-8-ivthrm.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+# Load whatever macros you need for the problem
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "parserPopUp.pl",
+  "MathObjects.pl",
+  "PGcourse.pl",
+  "customCSS.pl",
+);
+
+$showPartialCorrectAnswers = 1;
+
+$a = random(1,10,1)*random(-1,1,2);
+$b = $a + random(1,10,1);
+$ya = random(5,20,1);
+$yb = $ya - random(2,15,1);
+$L = random($yb+1,$ya-1,1);
+
+$no = "No, the function value is outside the range f($a) to f($b)";
+$yes = "Yes, function continuous and $L is inside range f($a) to f($b)";
+
+$ans1 = PopUp(["?", 
+      $no,
+      $yes], 
+$yes);
+
+$ans1 = PopUp(["?", 
+      $no,
+      $yes], 
+$no);
+
+TEXT(beginproblem());
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem is about whether the IVT gives us any useful information if a candidate output value is outside the range of the function on the interval of interest.
+[@ closeDiv() @]*
+
+END_PGML
+
+
+BEGIN_TEXT
+Let \(f\) be continuous on \( [$a, $b] \), where 
+\( f($a) = $ya \) and \( f($b) = $yb \).  
+
+$PAR 
+
+Can we infer the existence of a value
+\( $a < c < $b \) such that \( f(c) = $L \) ?
+$PAR \{ $ans1->menu() \}
+
+
+END_TEXT
+
+
+
+$a = random(1,10,1)*random(-1,1,2);
+$b = $a + random(1,10,1);
+$ya = random(5,20,1);
+$yb = $ya - random(2,15,1);
+$L = $ya + random(2,4,1);
+
+$no = "No, the function value is outside the range g($a) to g($b)";
+$yes = "Yes, function continuous and $L is inside range g($a) to g($b)";
+
+$ans2 = PopUp(["?", 
+      $no,
+      $yes], 
+$no);
+
+
+BEGIN_TEXT
+
+$PAR $HR $PAR
+
+Let's try another one. $PAR
+
+Let \(g\) be continuous on \( [$a, $b] \), where 
+\( g($a) = $ya \) and \( g($b) = $yb \).  
+
+$PAR 
+
+Can we infer the existence of a value
+\( $a < c < $b \) such that \( g(c) = $L \) ?
+$PAR \{ $ans2->menu() \}
+
+
+END_TEXT
+
+
+#SOLUTION(EV3(<<'END_SOLUTION'));
+#$BR$BBOLD Solution:$EBOLD 
+#$PAR
+#There is not enough information.  The
+#$BBOLD intermediate value theorem $EBOLD cannot
+#be used because \($L\) is not between the values
+#\($ya\) and \($yb\).
+#$PAR
+#END_SOLUTION
+
+
+ANS($ans1->cmp());
+ANS($ans2->cmp());
+
+ENDDOCUMENT();    

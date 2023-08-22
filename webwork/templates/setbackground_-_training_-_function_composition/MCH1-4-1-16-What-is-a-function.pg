@@ -1,0 +1,127 @@
+## DESCRIPTION
+## What is a function?
+## ENDDESCRIPTION
+
+
+## BookTitle('Algebra: Form and Function')
+## BookChapter('Functions, Expressions, and Equations')
+## DBsubject(Algebra)
+## DBchapter(Functions)
+## DBsection(Function notation)
+## Date(01/01/10)
+## Institution(Fort Lewis College)
+## Author(Paul Pearson)
+## MLT(ChangeOfVariable)
+## MLTleader(1)
+## Level(3)
+## MO(1)
+## TitleText1('Algebra: Form and Function')
+## AuthorText1('McCallum, Connally, and Hughes-Hallett')
+## EditionText1('1')
+## Section1('4.1')
+## Problem1('16')
+## KEYWORDS('functions')
+
+
+##############################################
+#  Initialization
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/FortLewis/Algebra/4-1-What-is-a-function/MCH1-4-1-16-What-is-a-function.pg 
+#	to setreview_simplifying/MCH1-4-1-16-What-is-a-function.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setreview_simplifying/MCH1-4-1-16-What-is-a-function.pg 
+#	to setbackground_-_training_-_function_composition/MCH1-4-1-16-What-is-a-function.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT(); 
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "AnswerFormatHelp.pl",
+  "contextLimitedPolynomial.pl",
+  "answerHints.pl",
+  "PGcourse.pl",
+  "customCSS.pl",
+);
+
+TEXT(beginproblem());
+
+##############################################
+#  Setup
+
+Context("LimitedPolynomial-Strict");
+Context()->variables->are(t=>"Real",u=>"Real");
+
+$a = random(10,20,1);
+$b = random(2,5,1);
+$c = random(2,5,1);
+while ($b == $c) { $c = random(2,5,1); }
+
+$d = $b * $c;
+
+$h = Formula("$a - $b t");
+
+$answer = Compute("$a - $d u");
+
+Context()->functions->disable("All");
+
+
+##############################################
+#  Main text
+
+Context()->texStrings;
+BEGIN_TEXT
+Let \( \displaystyle h(t) = $h \). $BR
+Evaluate the function \(h\) at \( t = $c u \).   Simplify your answer as much as possible.
+$PAR
+\( h($c u) = \) \{ans_rule(20)\} 
+$PAR
+\{ openDiv({ "class" => "inProblemHint" }) \}
+Your answer should be a function of \(u\).  
+
+$PAR
+
+Another way of thinking of this is to let
+$PAR
+• \( h(t) = $h \) $BR
+• \( k(u) = $c u\)
+$PAR
+and compose \( h(t=k(u)) \).  Replace \(t\) by \(k(u)\).
+\{ closeDiv() \}
+END_TEXT
+Context()->normalStrings;
+
+
+##################################################
+#  Answer evaluation
+
+$showPartialCorrectAnswers = 1;
+
+ANS($answer->cmp()
+->withPostFilter(AnswerHints( 
+  Compute("$a - $d t") => "Are you using the correct variable?",
+#  Compute("$a - $d u") => "Good work!", 
+))
+);
+
+
+
+ENDDOCUMENT();

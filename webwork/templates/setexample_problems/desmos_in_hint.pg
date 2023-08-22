@@ -1,0 +1,141 @@
+##DESCRIPTION
+##  Arithemetic problem: give the value of pi
+##ENDDESCRIPTION
+
+##KEYWORDS('arithmetic', 'pi')
+
+## DBsubject('Algebra')
+## DBchapter('Fundamentals')
+## DBsection('Real Numbers')
+## Date('')
+## Author('')
+## Institution('')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+
+
+
+
+
+
+################################
+#  Desmos setup
+#
+#  In html mode, load the Desmos api script and create the <div> to attach the Desmos graph to.
+#  In tex mode, print a message to direct the student to the html version.
+#  Desmos API reference: https://www.desmos.com/api/v1.7/docs/index.html
+
+
+$unique_div_id = "silviana_messing_around";
+$width = 800;
+$height = 600;
+
+HEADER_TEXT(MODES(
+    HTML=>'<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
+    TeX=>''
+));
+
+$desmos_div = MODES(
+    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
+    TeX=>'Interactive graph best viewed online'
+);
+
+
+
+Context("Numeric");
+
+$pi = Real("pi");
+
+##############################################################
+#
+#  Text
+#
+#
+
+
+BEGIN_PGML
+Enter a value for [`\pi`].
+
+[_____]{$pi}
+END_PGML
+
+
+#Context()->texStrings;
+
+BEGIN_TEXT
+
+\{ $desmos_div \}
+
+END_TEXT
+
+
+
+
+
+Context()->normalStrings;
+
+
+
+##################################
+#  Desmos graph (via the API)
+#  Execute this only after the $desmos_div object has been put on the html page.
+
+
+TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
+<script>
+
+    var arstarst = document.getElementById("$unique_div_id");
+
+    var my_calculator = Desmos.Calculator(arstarst, {
+        keypad: false, 
+        //expressions: false, 
+        expressions: true,
+        settingsMenu: true, 
+        expressionsTopbar: true
+    });
+
+    my_calculator.setExpressions([
+        { id: 'implicitcurve', latex: 'x^{1/2} + y^{1/2} = 9', color: Desmos.Colors.BLUE },
+        { id: 'slopeslider', latex: 'm=1', sliderBounds: {min: -10, max: 10, step: 0.1}},
+        { id: 'pointoftangency', latex: '(16,25)', color: Desmos.Colors.RED },
+        { id: 'tangentline', latex: 'y-25=m(x-16)', color: Desmos.Colors.MAGENTA }
+    ]);
+    
+    my_calculator.setMathBounds({
+      left: 0,
+      right: 50,
+      bottom: 0,
+      top: 50
+    });
+    
+    
+    var state = my_calculator.getState();
+
+</script>
+END_SCRIPT
+
+
+
+ENDDOCUMENT();

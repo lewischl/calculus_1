@@ -1,0 +1,128 @@
+# DESCRIPTION
+# Preview Activity from _Active Calculus_ by Matthew Boelkins
+# ENDDESCRIPTION
+
+## DBsubject('Calculus - single variable')
+## DBchapter('Differentiation')
+## DBsection('Definition of the derivative')
+## KEYWORDS('definition of the derivative', 'average rate of change', 'slope')
+## TitleText1('Active Calculus')
+## EditionText1('2015')
+## AuthorText1('Matthew Boelkins')
+## Section1('1.3')
+## Problem1('Preview Activity 1.3')
+## Author('David Hunter')
+## Institution('Westmont College')
+## RESOURCES('preview1_3image.png')
+
+DOCUMENT();
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"PGgraphmacros.pl",
+"parserRadioButtons.pl",
+"parserPopUp.pl",
+"parserFunction.pl",
+"scaffold.pl",
+);
+
+Context("Numeric");
+parserFunction("f(x)" => "x^3"); # dummy function
+Context()->variables->add(a => "Real");
+Context()->variables->add(h => "Real");
+
+$pX = Compute("a+h");
+$pY = Compute("f(a+h)");
+$rX = Compute("a");
+$rY = Compute("f(a)");
+
+$lenPQ = Compute("h");
+$lenQR = Compute("f(a+h)-f(a)");
+
+$slopePR = Compute("(f(a+h)-f(a))/h");
+
+
+
+
+$refreshCachedImages=1;
+
+Scaffold::Begin(
+      can_open => "when_previous_correct",
+      is_open  => "first_incorrect"
+    );
+
+TEXT(beginproblem());
+Context()->texStrings;
+
+BEGIN_TEXT
+The diagram below shows the graph of a function \(f\) along with points \(P\) and \(R\),
+which lie on the graph. Point \(Q\) is chosen so that \(\triangle PQR\) is a right 
+triangle. (Click on the graph to display a larger version.)
+$PAR
+$BCENTER
+\{ image( "preview1_3image.png", width=>316, height=>321,  
+tex_size=>700, extra_html_tags=>'alt="Graph of a function."' ) \}
+$ECENTER
+END_TEXT
+
+Section::Begin("Part a");
+BEGIN_TEXT
+$PAR
+In terms of \(a\), \(f\), and \(h\), give the coordinates of points \(P\) and \(R\). $PAR
+\(P\) has coordinates \(\Big(\) \{ ans_rule(10) \} \(,\) \{ ans_rule(10) \}\(\Big)\).
+$PAR
+\(R\) has coordinates \(\Big(\) \{ ans_rule(10) \} \(,\) \{ ans_rule(10) \}\(\Big)\).
+
+END_TEXT
+Context()->normalStrings;
+
+ANS( $pX->cmp() );
+ANS( $pY->cmp() );
+ANS( $rX->cmp() );
+ANS( $rY->cmp() );
+
+Section::End();
+
+Section::Begin("Part b");
+BEGIN_TEXT
+$PAR
+In terms of \(a\), \(f\), and \(h\), give the lengths of the legs of this right triangle.
+$PAR
+\(PQ\) has length \{ ans_rule(15) \}.
+$PAR
+\(QR\) has length \{ ans_rule(15) \}.
+$PAR
+END_TEXT
+Context()->normalStrings;
+
+ANS( $lenPQ->cmp() );
+ANS( $lenQR->cmp() );
+
+Section::End();
+
+Section::Begin("Parts c and d");
+BEGIN_TEXT
+$PAR
+Give a formula, in terms of \(a\), \(f\), and \(h\), for the slope of the line through points \(P\)
+and \(R\). $BR
+Slope =
+\{ ans_rule(25) \}.
+$PAR
+
+Recall that the average rate of change of a function \(f\) on the interval \([a,a+h] \) is defined by the formula \[
+AV_{[a,a+h]} = \frac{f(a+h)-f(a)}{h}.\]
+How is the slope of the line through the points \(P\) and \(R\) related to this average rate of change of \(f\)?
+
+END_TEXT
+Context()->normalStrings;
+ANS( $slopePR->cmp() );
+
+Context()->texStrings;
+
+Section::End();
+Scaffold::End();
+
+
+
+ENDDOCUMENT();
+

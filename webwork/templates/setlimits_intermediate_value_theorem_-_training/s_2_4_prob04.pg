@@ -1,0 +1,252 @@
+#####################################################################
+
+
+########################################
+# this file automatically moved
+#	from local/Library/UMN/calculusStewartCCC/s_2_4_prob04.pg 
+#	to setlimits_intermediate_value_theorem/s_2_4_prob04.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_intermediate_value_theorem/s_2_4_prob04.pg 
+#	to setlimits_intermediate_value_theorem_-_training/s_2_4_prob04.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "answerHints.pl",
+  "MathObjects.pl",
+  "PGgraphmacros.pl",
+  "PGcourse.pl",
+  "customCSS.pl",
+);
+#####################################################################
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 0;
+
+#####################################################################
+
+$a1 = random(1,4,1);
+
+if ($a1==1){
+$a = Compute("1.25");
+$b = Compute("2.03");
+$c = Compute("3.05");
+$d = Compute("3.01");
+$e = Compute("1.02");
+$f = Compute("-0.69");
+$g = Compute("-2.43");
+$h = Compute("-3.45");
+$i = Compute("-6.76");
+$j = Compute("-7.93");
+$k = Compute("-7.93");
+
+$an1 = Compute("-1");
+$an2 = Compute("0");
+
+$num_roots = 1;
+}
+
+if ($a1==2){
+$a = Compute("-1.25");
+$b = Compute("-2.03");
+$c = Compute("-3.05");
+$d = Compute("3.01");
+$e = Compute("1.02");
+$f = Compute("0.69");
+$g = Compute("4.43");
+$h = Compute("9.45");
+$i = Compute("2.76");
+$j = Compute("0.93");
+$k = Compute("0.13");
+
+$an1 = Compute("-3");
+$an2 = Compute("-2");
+
+$num_roots = 1;
+}
+
+if ($a1==3){
+$a = Compute("9.25");
+$b = Compute("8.03");
+$c = Compute("7.05");
+$d = Compute("7.01");
+$e = Compute("1.02");
+$f = Compute("0.69");
+$g = Compute("2.43");
+$h = Compute("5.45");
+$i = Compute("-0.76");
+$j = Compute("-4.93");
+$k = Compute("-2.93");
+
+$an1 = Compute("2");
+$an2 = Compute("3");
+
+$num_roots = 1;
+}
+
+if ($a1==4){
+$a = Compute("1.25");
+$b = Compute("-1.03");
+$c = Compute("-3.05");
+$d = Compute("-4.01");
+$e = Compute("-4.02");
+$f = Compute("-4.69");
+$g = Compute("-4.43");
+$h = Compute("-5.45");
+$i = Compute("-0.76");
+$j = Compute("-4.93");
+$k = Compute("-9.93");
+
+$an1 = Compute("-5");
+$an2 = Compute("-4");
+
+$num_roots = 1;
+}
+
+###############################################################
+
+Context("Interval");
+# Let students type "EmptySet" instead of "NONE"
+Context()->constants->add(EmptySet => Set());
+Context()->flags->set(noneWord=>"EmptySet");
+
+$smallest_interval = Interval("($an1,$an2)");
+
+###############################################################
+Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+A training problem on how the intermediate value theorem guarantees roots in certain intervals.
+[@ closeDiv() @]*
+
+
+Here's a video from Prof. Amethyst on the IVT.
+
+[@ youtubeAmethyst(os1OxE2IQmQ) @]*
+
+
+
+The intermediate value theorem is a simple result of the notion of continuity: 
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Continuous functions cannot skip values.
+[@ closeDiv() @]*
+
+A more formal or mathematical statement of the theorem is:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The Intermediate Value Theorem (IVT)
+
+---
+
+If 
+1. [`f`] is a continuous function on [`[a,b]`], and 
+2. [`M`] is an output value anywhere inside [`(f(a), f(b))`], 
+
+then...
+
+There MUST exist an input value [`c`] somewhere inside [`(a,b)`] such that 
+* [`f(c) = M`].
+[@ closeDiv() @]*
+
+The IVT doesn't tell us *how* to find [`c`], it just guarantees that it exists.
+
+---
+
+This problem explores existence of roots.  Here's a way of phrasing the IVT so that we can see the connection more clearly:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The Intermediate Value Theorem (IVT) for roots
+
+---
+
+If 
+1. [`f`] is a continuous function on [`[a,b]`], and 
+2. [`f`] changes sign on [`[a,b]`], 
+
+then...
+
+There MUST exist a root somewhere inside [`(a,b)`].
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+BEGIN_TEXT
+The table below gives the value of a continuous function \(f\) at each \(x\)-value.  
+$BCENTER
+\{ begintable(12) \}
+\{ row( "  \(x\)  ", " \(f(x)\) ")\}
+\{ row( "\(-5\)", "\($a\)" )\}
+\{ row( "\(-4\)", "\($b\)" )\}
+\{ row( "\(-3\)", "\($c\)" )\}
+\{ row( "\(-2\)", "\($d\)" )\}
+\{ row( "\(-1\)", "\($e\)" )\}
+\{ row( "\(0\)", "\($f\)" )\}
+\{ row( "\(1\)", "\($g\)" )\}
+\{ row( "\(2\)", "\($h\)" )\}
+\{ row( "\(3\)", "\($i\)" )\}
+\{ row( "\(4\)", "\($j\)" )\}
+\{ row( "\(5\)", "\($k\)" )\}
+\{ endtable() \}
+$ECENTER
+
+$PAR
+
+$PAR
+
+At least how many roots must \(f\) have?  \{ans_rule(20)\}
+
+$PAR
+The Intermediate Value Theorem guarantees that \(f\) will have a root over any interval over which it changes sign, and there are many options from the table above --- for example, \(f\) changes sign over \(x \in [-5, 5]\), so we know for a fact that \(f\) has a root in \( (-5,5) \). But only one interval of \(x\)-values is the narrowest among them.  $BR
+Determine the smallest \(x\)-interval in which the function $BITALIC must $EITALIC have a root.
+
+
+$PAR
+
+Smallest / narrowest interval: \{ans_rule(20)\}
+
+\{ openDiv({ "class" => "inProblemHint" }) \}
+Hint: an open interval is smaller than a closed interval!
+\{ closeDiv() \}
+END_TEXT
+
+ANS(Compute($num_roots)->cmp);
+Context()->flags->set(ignoreEndpointTypes => 0);
+ANS($smallest_interval->cmp(showTypeWarnings=>0));
+
+
+
+
+
+
+
+
+
+Context()->normalStrings;
+
+#####################################################################
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

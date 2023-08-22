@@ -1,0 +1,107 @@
+#DESCRIPTION
+##  Calculus: Limits involving infinity
+##ENDDESCRIPTION
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Infinite limits and vertical asymptotes)
+## Date(09/16/2010)
+## Institution(University of Minnesota)
+## Author(Justin Sukiennik)
+## Level(2)
+## MO(1)
+## TitleText1('Calculus: Concepts and Contexts')
+## AuthorText1('Stewart')
+## EditionText1('4 Custom UMTYMP Ed.')
+## Section1('2.5')
+## Problem1('16')
+## KEYWORDS('calculus', 'function', 'limit', 'limit involving infinity')
+
+
+#####################################################################
+
+
+########################################
+# this file automatically moved
+#	from Library/UMN/calculusStewartCCC/s_2_5_16.pg 
+#	to setlimits_extra_practice/s_2_5_16.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_extra_practice/s_2_5_16.pg 
+#	to setlimits_introducing_limits_-_training_-_limits_with_formulas/s_2_5_16.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "AnswerFormatHelp.pl",
+  "PGcourse.pl",
+  "customCSS.pl"
+);
+#####################################################################
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+
+#####################################################################
+
+$a = random(4,8,1);
+$b = random(2,3,1); # notably, these random ranges do not overlap!
+
+$ans_left = Compute("Infinity");
+$ans_right = Compute("Infinity");
+$ans_both = Compute("DNE");
+###############################################################
+Context()->texStrings;
+
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Many of the limits we're interested in are where the function is not defined at the point of interest.  Sometimes you get a real number, and sometimes you get a flavor of infinity.
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+For a rational function that's not defined at a point, a one-sided limit at that point is an infinity if the numerator has a root at that point less times than the denominator.
+
+This function's numerator does not have a root at [`x = [$a]`], but the denominator does.  So, we get one of [`\pm \infty`].  The sign is determined by the combination of signs of the numerator and denominator.
+
+As usual, a two-sided limit exists only if both one-sided limits exist and match.
+[@ closeDiv() @]*
+
+END_PGML
+BEGIN_TEXT
+
+
+Find the following limits.    
+$PAR
+\( \displaystyle \lim_{x \to -$a^{-}} \frac{x+$b}{x+$a}  = \) \{ans_rule(20)\} 
+$PAR
+\( \displaystyle \lim_{x \to -$a^{+}} \frac{x+$b}{x+$a}  = \) \{ans_rule(20)\} 
+$PAR
+\( \displaystyle \lim_{x \to -$a} \frac{x+$b}{x+$a}  = \) \{ans_rule(20)\} 
+
+END_TEXT
+
+Context()->normalStrings;
+
+#####################################################################
+
+ANS( $ans_left->cmp );
+ANS( $ans_right->cmp );
+ANS( $ans_both->cmp );
+ENDDOCUMENT();        # This should be the last executable line in the problem.

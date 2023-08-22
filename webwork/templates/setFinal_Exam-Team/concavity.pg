@@ -1,0 +1,84 @@
+##DESCRIPTION
+##  Determine concavity and inflection points given a function
+##ENDDESCRIPTION
+
+##KEYWORDS('applications of derivatives', 'second derivative test', 'graphical')
+
+## DBsubject('Calculus')
+## DBchapter('Applications of Derivatives')
+## DBsection('Concavity')
+## Date('')
+## Author('silviana amethyst')
+## Institution('uwec')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   "PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGauxiliaryFunctions.pl",
+"extraAnswerEvaluators.pl"
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
+
+$r1 = random(2,4,1);
+
+
+$scale = random(3,6,1);
+
+$f = Formula("$scale*x/(x^2+$r1^3)")->reduce; # the double integral of f'', with some constants of integration
+
+$l_inflect = Compute("-$r1*sqrt($r1*3)");
+$r_inflect = -1*$l_inflect;
+
+Context("Interval");
+
+$concave_up = Interval("(0,inf)");
+$concave_down = Interval("(-inf,0)");
+$inflection1 = List("0");
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+Determine concavity and inflection points of the function [`f(x)`] if 
+
+[`` f^{\prime\prime}(x) = [$f] ``]
+
+---
+
+[`f`] is concave up on the intervals [____________]{interval_cmp($concave_up, strings=>["none"])}   (Use interval notation.  If there is no such interval, enter _none_.)
+
+[`f`] is concave down on the intervals [____________]{interval_cmp($concave_down, strings=>["none"])}  (Use interval notation.  If there is no such interval, enter _none_.)
+
+[`f`] has inflection points at [____________]{Compute("$inflection1")->cmp}  (Enter a comma separated list, in increasing order.  If there are no inflection points, enter _none_.)
+
+END_PGML
+
+ENDDOCUMENT();

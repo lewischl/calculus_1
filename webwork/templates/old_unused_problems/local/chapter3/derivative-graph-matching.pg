@@ -1,0 +1,85 @@
+DOCUMENT();       
+
+loadMacros(
+"PGstandard.pl",
+"PGchoicemacros.pl",
+"PGgraphmacros.pl",
+"unionTables.pl",
+"parserPopUp.pl",
+);
+       
+TEXT(beginproblem());
+$refreshCachedImages=1;
+
+# order is important here
+$f[0] = image("func3.png", width=>200, height=>200);
+$a[0] = image("deriv1.png", width=>150, height=>150);
+$f[1] = image("func1.png", width=>200, height=>200);
+$a[1] = image("deriv2.png", width=>150, height=>150);
+$f[2] = image("func4.png", width=>200, height=>200);
+$a[2] = image("deriv3.png", width=>150, height=>150);
+$f[3] = image("func2.png", width=>200, height=>200);
+$a[3] = image("deriv4.png", width=>150, height=>150);
+
+$k = random(0,3);
+do { $k2 = random(0, 3); } until ($k2 != $k);
+do { $k3 = random(0, 3); } until (($k3 != $k2) and ($k3 != $k));
+
+#@perm = shuffle(4);
+#@f = @f[@perm];
+#@a = @a[@perm];
+#@inv = invert(@perm);
+
+@letter = ("A", "B", "C", "D");
+
+$popup = PopUp(["?", "A", "B", "C", "D"], $letter[$k]);
+$popup2 = PopUp(["?", "A", "B", "C", "D"], $letter[$k2]);
+$popup3 = PopUp(["?", "A", "B", "C", "D"], $letter[$k3]);
+
+BEGIN_TEXT
+Match each function with the graph of its derivative. ${BITALIC}(You may need to scroll down to see the graphs of the derivatives.)${EITALIC}$BR
+$BR
+
+i) Graph of \(f(x)\): $f[$k]
+$BR
+Graph of derivative \(f'(x)\): \{ $popup->menu() \}
+$BR
+$BR
+ii) Graph of \(f(x)\): $f[$k2]
+$BR
+Graph of derivative \(f'(x)\): \{ $popup2->menu() \}
+$BR
+$BR
+iii) Graph of \(f(x)\):  $f[$k3]
+$BR
+Graph of derivative \(f'(x)\): \{ $popup3->menu() \}
+$BR
+$BR
+
+
+$BCENTER
+\{
+BeginTable().
+  AlignedRow([$a[0],$a[1]]).
+  TableSpace(5,0).
+  AlignedRow(["A","B"]).
+  TableSpace(25,6).
+  AlignedRow([$a[2],$a[3]]).
+  TableSpace(5,0).
+  AlignedRow(["C","D"]).
+EndTable();
+\}
+$BR
+(Click on a graph to enlarge it.)
+$ECENTER
+END_TEXT
+
+install_problem_grader(~~&std_problem_grader);
+$showPartialCorrectAnswers = 0;
+
+ANS($popup->cmp);
+ANS($popup2->cmp);
+ANS($popup3->cmp);
+
+
+ENDDOCUMENT();

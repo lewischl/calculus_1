@@ -1,0 +1,140 @@
+########################################
+# this file automatically moved
+#	from set5.6_net-change/quadraticVelocity.pg 
+#	to setintegrals_applied_as_net_change/quadraticVelocity.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_applied_as_net_change/quadraticVelocity.pg 
+#	to setintegrals_applied_as_net_change_-_training/quadraticVelocity.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGauxiliaryFunctions.pl",
+"PGML.pl",
+"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a = random(1,2,1);
+$b = random($a+1,4,1);
+
+$s = random(-1,1,2);
+$s = -1;
+$ss= "";
+if ($s == -1) {$ss = "-"}
+
+$f1 = $s*($a + $b);
+$f2 = $s*$a*$b;
+
+$t1 = random(-3,0,1);
+$t2 = random(5,6,1);
+
+$Et1 = $t1**3/3 - ($a+$b)*$t1**2/2 + $a*$b*$t1;
+$Ea  = $a**3/3 - ($a+$b)*$a**2/2 + $a*$b*$a;
+$Eb  = $b**3/3 - ($a+$b)*$b**2/2 + $a*$b*$b;
+$Et2 = $t2**3/3 - ($a+$b)*$t2**2/2 + $a*$b*$t2;
+
+$ans1 = $s * ($Et2 - $Et1);
+$ans2 = $Et2 - $Et1 + 2 * ($Ea - $Eb);
+
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on an application of integration: measuring displacement and distance traveled by integrating velocity or speed.
+[@  closeDiv() @]*
+
+The definite integral has several interpretations:
+* the signed area under a curve
+* the accumulation of change, due to a rate of change
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A definite integral
+[```
+\int_a^b f(t) \, dt
+```]
+measures accumulated change, where [`f(t)`] is the rate of change.
+[@  closeDiv() @]*
+
+That is, the integrand [`f`] is a rate.  We integrate rates.
+
+---
+
+##### Integrating velocity gives net displacement
+
+When the rate of change [`f`] is a *velocity*, it makes sense to instead use the name [`v(t)`] for the integrand.  Note:
+* [`v(t)`] may be positive, which means "moving forward"
+* [`v(t)`] may be negative, meaning "moving backward"
+
+[``\int_a^b v(t) \, dt``] measures the "net displacement".  A particle may move for a while, and return to where it started, just like I do over the course of a day of work.  
+
+##### Integrating speed gives distance traveled
+
+When the rate [`f`] is a *speed*, the definite integral is guaranteed to be non-negative. 🧠 Think about it.  The speed is never negative!  
+
+[```\text{speed} = \text{abs}(\text{velocity})```]
+
+Since the definite integral measures net area, and a speed is never negative, the integral of speed can't be negative!!!
+
+The integral [`\int_a^b \text{speed}(t) \, dt`] measures the "distance traveled".  This is like the speedometer and odometer in a car 🚗.  A speedometer is never negative; even if you're in reverse, it always reads positive.  And the odometer -- which measures the distance the car has been driven -- is the integral of the speedometer.
+
+[@ openDiv({ "class" => "inProblemHint" }) @]*
+ℹ️ One of the things that makes computing distance traveled tricky is that speed is the absolute value of velocity.  
+* Absolute values are piecewise functions
+
+To integrate speed:
+1. Split the domain of integration where [`v`] changes sign
+2. Integrate the regions where [`v > 0`] like normal
+3. Integrate the regions where [`v<0`] __with a minus sign__ to make negative velocity into positive speed
+4. Add up the regions.  Each region should be positive.
+[@  closeDiv() @]*
+
+##### Summarizing
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+To measure *net displacement*, integrate velocity
+
+To measure *distance traveled*, integrate speed
+[@  closeDiv() @]*
+
+---
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+The velocity function for a particle moving along a line is given by [` v(t) = [$ss] t^2 - [$f1] t + [$f2]`], in units   [`\text{ m/s}`]. 
+
+Find the displacement and the total distance traveled by the particle 
+during the time interval [`[[$t1],[$t2]]`].
+[@  closeDiv() @]*
+
+Net displacement [`=`] [_______]{[$ans1]} [`\text{m}`]
+
+Total distance traveled [`=`] [_______]{[$ans2]} [`\text{m}`]
+
+END_PGML
+
+
+
+ENDDOCUMENT();

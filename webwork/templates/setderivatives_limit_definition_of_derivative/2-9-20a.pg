@@ -1,0 +1,136 @@
+##DESCRIPTION
+##Calculus: Limits and Derivatives
+##ENDDESCRIPTION
+
+##Tagged by YJ
+
+
+## DBsubject(Algebra)
+## DBchapter(Functions)
+## DBsection(Difference quotient)
+## Date(5/26/2005)
+## Institution(UVA)
+## Author(Jeff Holt)
+## Level(3)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('2.9')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('2.8')
+## Problem2('')
+## KEYWORDS('calculus', 'limits', 'derivatives')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/UVA-Stew5e/setUVA-Stew5e-C02S09-DerivAsFunct/2-9-20a.pg 
+#	to setderivatives_limit_definition_of_derivative/2-9-20a.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl",
+  "customCSS.pl",
+);
+
+
+$c = non_zero_random(-8,8,1);
+$b = non_zero_random(-8,8,1);
+$d = non_zero_random(-8,8,1);
+
+while ($c**2 == 1)
+{
+    $c = non_zero_random(-8,8,1);
+}
+
+while ($b**2 == 1)
+{
+    $b = non_zero_random(-8,8,1);
+}
+
+TEXT(beginproblem());
+
+$showpartialcorrectanswers = 1;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+This problem continues to coach you on implementing the difference quotient correctly, in the definition of the derivative.  In particular, distribution problems, when squaring quantities, when distributing constants over sums, and with minus signs, are common.  
+
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The definition of the derivative, which tells us the slope of the tangent line and the instantaneous rate of change at point or time [`x`]:
+
+[```
+f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
+```]
+
+The part inside the limit is called the "difference quotient":
+
+[```
+\textnormal{the difference quotient} = \frac{f(a+h) - f(a)}{h}
+```]
+
+[@ closeDiv() @]*
+END_PGML
+
+ 
+BEGIN_TEXT
+$PAR
+$HR
+$PAR
+
+Let \( g(x) = $d ? {$b} x ? {$c} x^2\).  Then the expression
+\[
+    \frac{g(x + h) - g(x)}{h}
+\]
+can be written in the form \(Ah + Bx + C\), where \(A\), \(B\), and \(C\) are
+constants.  (Note: It's possible for one or more of these
+constants to be 0.)
+
+$PAR $HR$PAR
+
+Write down the difference quotient, and be careful when simplifying, all the way through subtractively canceling in the numerator, and multiplicatively canceling the denominator.  $PAR
+• \(A\) is the coefficient of \(h\), $BR
+• \(B\) is the coefficient of \(x\), and  $BR
+• \(C\) is the constant term. 
+$BR
+after you've done the algebra and cancellation.
+
+
+$BR
+Find the constants.
+$PAR
+\(A = \) \{ans_rule(5)\}
+$PAR
+\(B = \) \{ans_rule(5)\}
+$PAR
+\(C = \) \{ans_rule(5)\}
+
+
+END_TEXT
+
+
+
+@answers = (num_cmp($c), num_cmp(2*$c), num_cmp($b));
+
+ANS(@answers );
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

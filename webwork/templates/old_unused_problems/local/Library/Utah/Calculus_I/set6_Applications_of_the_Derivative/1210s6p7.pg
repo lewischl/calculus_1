@@ -1,0 +1,46 @@
+#based on Library/Utah/Calculus_I/set6_Applications_of_the_Derivative/1210s6p7.pg
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "AnswerFormatHelp.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+Context("Numeric");
+$showPartialCorrectAnswers=1;
+
+$r1= random(-4,4,1);
+do  {$r2= random(-4,4,1)}  until  ($r2 != $r1) ;
+$d = random(1,5,1);
+$c = random(-4,4,1);
+@a=();
+$a[3] = 2*$d;
+$a[2] = -3*($r1+$r2)*$d;
+$a[1] = 6*$r1*$r2*$d;
+$a[0] = 6*$c*$d;
+
+$cubic = Compute( "$a[3] x^3 + $a[2] x^2 + $a[1] x + $a[0]" ) -> reduce ;
+$ans = List( "$r1 , $r2" );
+
+Context() -> texStrings ;
+BEGIN_TEXT
+Determine all values of \(x\) for which the graph of$BR
+\( f(x)=$cubic \)$BR
+has a horizontal tangent.
+$PAR
+\( x = \)  \{  &ans_rule() \}$BR
+${BITALIC}(If there are multiple values, enter them as a comma separated list.  If there are none, type ${BBOLD}none$EBOLD.)$EITALIC
+END_TEXT
+Context() -> normalStrings;
+
+##  ($r1,$r2) = num_sort($r1, $r2);
+##  ANS(num_cmp([$r1,$r2], relTol=>.1));
+$showPartialCorrectAnswers = 1;
+ANS( $ans -> cmp() );
+
+ENDDOCUMENT();

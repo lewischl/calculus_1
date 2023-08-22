@@ -1,0 +1,85 @@
+
+
+########################################
+# this file automatically moved
+#	from local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/4_Applications_of_the_Derivative/4.7_Applied_Optimization/4.7.12.pg 
+#	to setderiv_application_applied_optimization_level_2/4.7.12.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderiv_application_applied_optimization_level_2/4.7.12.pg 
+#	to setderiv_application_applied_optimization_-_challenge_level_2/4.7.12.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros("uwecAhrendt.pl", "PGcourse.pl"
+          );
+
+## Show partial correct answers
+$showPartialCorrectAnswers = 1;
+
+TEXT(beginproblem());
+
+Context("Point");
+
+$a=random(3,13,2);
+$num = (2*$a-1);
+$ans = Compute("($num/2, sqrt($num/2))");
+
+
+BEGIN_TEXT
+Find the point \(P\) on the graph of the function \(y=\sqrt{x}\) closest to the point \( ($a,0) \).
+
+$PAR
+\(P=\) \{ ans_rule() \}$BR
+${BITALIC}(Enter the point using ordered pair notation.)$EITALIC
+
+END_TEXT
+
+
+BEGIN_HINT
+In this problem we're trying to minimize the distance again.  
+$PAR
+The distance function in general is \(d = \sqrt{(x-x_0)^2 + (y-y_0)^2} \).  The minimum of that square root occurs where the thing under the square root is a minumum.  So, our objective function will be:$BR
+
+\(\Omega = (x-x_0)^2 + (y-y_0)^2 \).$PAR
+
+To find the final objective function, use the information from the problem: $BR
+• The point \((x,y)\) lives on the curve, so the \(y\)-coordinate comes from the function. $BR
+• The fixed point \((x_0, y_0)\) is given in the statement of the problem.
+
+$PAR 
+Put that into \(\Omega\), and then use techniques for absolute optimization to find the minimum value.
+END_HINT
+ANS($ans->cmp);
+
+###################################################################
+
+#$t_calc=2*($a) - 1;
+
+#SOLUTION(EV3(<<'END_SOLUTION'));
+#$PAR$BBOLD Solution:$EBOLD 
+#$PAR
+
+#With \(y=\sqrt{x}\), let's equivalently minimize the square of the distance, $BR
+#\(f(x) = (x - $a)^2 + y^2 = x^2 - {$t_calc}x + $a^2\). $BR
+#Solve \(f'(x)= 2x - $t_calc = 0\)  to obtain \(x= $b\). $PAR
+#Since \(f(x)\to\infty\) as \(x\to\pm\infty\), \(x= $b\) is the \(x\) coordinate of the point closest to \( ($a,0) \).
+
+#END_SOLUTION
+
+###################################################################
+
+ENDDOCUMENT();

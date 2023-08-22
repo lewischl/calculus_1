@@ -1,0 +1,25 @@
+assignmentType      = default
+openDate          = 09/02/2023 at 04:11am CDT
+reducedScoringDate = 09/02/2023 at 04:11am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
+enableReducedScoring = Y
+paperHeaderFile   = defaultHeader
+screenHeaderFile  = headers/Header_challenge_untimed.pg
+description       = undeveloped and not important
+restrictProbProgression = 0
+emailInstructor   = 0
+
+problemListV2
+problem_start
+problem_id = 1
+source_file = setderiv_application_linear_approximation_-_challenge/c2s9p7_mo.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+

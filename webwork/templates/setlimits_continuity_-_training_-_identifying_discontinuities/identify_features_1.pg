@@ -1,0 +1,271 @@
+##DESCRIPTION
+##  identify the features from a graph of a function
+##ENDDESCRIPTION
+
+##KEYWORDS('limit','infinity')
+
+## DBsubject('Calculus')
+## DBchapter('Limits')
+## DBsection('Continuity')
+## Date('')
+## Author('silviana amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set2.4_continuity1/identify_features_1.pg 
+#	to setlimits_continuity/identify_features_1.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_continuity/identify_features_1.pg 
+#	to setlimits_continuity_-_training_-_identifying_discontinuities/identify_features_1.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "parserPopUp.pl",
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   "PGcourse.pl",      # Customization file for the course
+   "PGbasicmacros.pl",
+    "PGchoicemacros.pl",
+    "customCSS.pl",
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+
+# make some arrays to hold things
+
+
+# set up x values of note
+$x_infinite = random(-4,-2,2); # guaranteed negative
+$x_jump = -1*$x_infinite;   # guaranteed positive
+$x_removable = $x_jump+3;  # shift to the right.  guarantees xlim is sorted increasing.
+
+
+@discontinuities = ();
+$discontinuities[0] = $x_infinite;
+$discontinuities[1] = $x_jump;
+$discontinuities[2] = $x_removable;
+
+
+
+# used on both sides of infinite limit
+$f_infinite = Formula("-(($x_infinite+1)-$x_infinite)^2/(x-$x_infinite)^2"); # gives infinite limit at x_infinite
+
+# a removable discontinuity
+$y_removable_limit = random(2,6,2); # value of limit at removable discty
+$f_removable = Formula("$y_removable_limit + 2*(x-$x_removable)+1*(x-$x_removable)^2"); # a quadratic function with a double root at the removable, but shifted up
+
+
+
+
+
+# there will be a jump between the infinite and removable branches
+
+
+$jump_height = 2;
+
+# ensure a jump happens at x_jump
+$y_jump_left = $f_infinite->eval(x=>$x_jump);
+$y_jump_right = $f_removable->eval(x=>$x_jump);
+
+if ( ($y_jump_right - $y_jump_left) == 0){
+    $y_removable_limit = $y_removable_limit+$jump_height;
+    $f_removable = Formula("$f_removable + 2");
+}
+else{
+    $jump_height = ($y_jump_right - $y_jump_left);
+}
+
+$y_jump_left = $f_infinite->eval(x=>$x_jump);
+$y_jump_right = $f_removable->eval(x=>$x_jump);
+
+
+
+# shift for point of removable discty
+$y_removable_point = $f_removable->eval(x=>$x_removable) - random(2,6,0.25);
+
+
+
+
+@f = ();
+$f[0] = $f_infinite;
+$f[1] = $f_infinite;
+$f[2] = $f_removable;
+$f[3] = $f_removable;
+
+
+# bounds for axes in plot
+
+$xmin = array_min(@discontinuities)-2;
+$xmax = array_max(@discontinuities)+2;
+
+
+$ymin = -10;
+$ymax = 10;
+$tick = 2;
+
+
+$eps = 0.1;
+
+
+@domain_x = ();
+$domain_x[0] = $xmin;
+$domain_x[1] = $x_infinite-$eps;
+
+$domain_x[2] = $x_infinite+$eps;
+$domain_x[3] = $discontinuities[1];
+
+$domain_x[4] = $discontinuities[1];
+$domain_x[5] = $discontinuities[2];
+
+$domain_x[6] = $discontinuities[2];
+$domain_x[7] = $xmax;
+
+
+$graph1 = GraphWithTikZ(
+    function => [
+        [$f[0],dmin => $domain_x[0],dmax => $domain_x[1],rightEnd => 'open',label=>" "], 
+        [$f[1],dmin => $domain_x[2],dmax => $domain_x[3],rightEnd => 'open',leftEnd => 'open',label=>" "],
+        [$f[2],dmin => $domain_x[4],dmax => $domain_x[5],leftEnd => 'open',rightEnd => 'open',label=>" "],
+        [$f[3],dmin => $domain_x[6], dmax=> $domain_x[7], leftEnd =>'open',label=>" "],
+    ],
+        
+    points => [
+        [Point(($x_removable,$y_removable_limit)),color=>"white",label=>" "], # white, for removable on curve
+        [Point(($x_jump,$y_jump_left)),color=>"white",label=>" "],
+        [Point(($x_jump,$y_jump_right)),color=>"white",label=>" "],
+        [Point(($x_removable,$y_removable_point)),label=>" "],
+        #[Point(($xlim[2],$ypoint[0])),label=>" "], # solid point for removable discty
+        #[Point(($xlim[1],$ypoint[1])),color=>"white",label=>" "],
+        #[Point(($xlim[2],$ypoint[1])),color=>"red",label=>" "],
+        ],
+    xmin => $xmin,xmax => $xmax,ymin =>$ymin,ymax =>$ymax,smooth=>'smooth',ytick => $tick,xtick => $tick);
+
+
+
+
+
+
+
+
+
+
+
+
+# Create and use pop up lists
+$tf = new_select_list();
+$tf->rf_print_q(~~&pop_up_list_print_q);
+
+# Choices presented to students
+$tf->ra_pop_up_list( [
+"No answer" => "?",
+"Yes" => "True",
+"No" => "False",
+]);
+
+
+Context()->texStrings;
+$tf -> qa (
+"\(f\) has a removable discontinuity",
+"Yes",
+"\(f\) has an essential discontinuity",
+"No",
+"\(f\) is continuous at \(x=0\)",
+"Yes",
+"The limit of \(f\) as \(x\) approaches \($x_jump\) is \($y_jump_right\)",
+"No",
+"The limit of \(f\) as \(x\) approaches \($x_jump\) from below is \($y_jump_right\)",
+"No",
+"The limit of \(f\) as \(x\) approaches \($x_jump\) from above is \($y_jump_right\)",
+"Yes",
+"The limit of \(f\) as \(x\) approaches \($x_removable\) is \($y_removable_limit\)",
+"Yes",
+"The limit of \(f\) as \(x\) approaches \($x_removable\) is \($y_removable_point\)",
+"No",
+);
+
+Context()->normalStrings;
+
+# How many questions to use
+$tf->choose(8);
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+# 
+
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+It's so easy to mistakenly believe that math is only about computing things.  
+
+This problem aims to connect between the graph of a function, *describing* it limits and continuity using words.
+[@ closeDiv() @]*
+
+END_PGML
+
+
+BEGIN_PGML
+We have a function [`f(x)`] graphed below:
+
+>>[@ image(insertGraph($graph1), width => 400, height => 400) @]*<<
+
+---
+
+
+END_PGML
+
+
+BEGIN_TEXT
+Identify the truth of the statements using the dropdowns.
+
+
+\{ $tf -> print_q() \}
+
+END_TEXT
+
+
+Context()->normalStrings;
+
+
+
+ANS( str_cmp( $tf->ra_correct_ans() ) );
+
+ENDDOCUMENT();

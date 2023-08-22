@@ -1,0 +1,60 @@
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Rates of change - engineering and physics)
+## Institution(Univeristy of Utah)
+## Author(Utah ww group)
+## MLT(Utah_Arrows)
+## MLTleader(1)
+## Level(4)
+## TitleText1('Calculus I')
+## AuthorText1('Jerrold Marsden and Alan Weinstein')
+## EditionText1('2')
+## Section1('Derivatives and Limits')
+## Problem1('')
+## TitleText2('Calculus')
+## AuthorText2('Dale Varberg, Edwin J. Purcell, and Steven E. Rigdon')
+## EditionText2('9')
+## Section2('Limits')
+## Problem2('')
+## KEYWORDS('calculus')
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+$v = random(20,60,1);
+$tmax = $v/32;
+$hmax = -16*$tmax**2+6+$v*$tmax;
+$impact = $v/32+sqrt($v*$v+384)/32;
+
+
+TEXT(EV2(<<EOT)); 
+You toss a rock up vertically at an initial speed of $v feet per
+second and release it at an initial height of 6 feet.
+
+$PAR
+How long will the rock remain in the air?$BR
+\{ ans_rule(5) \} seconds$BR
+(Use \(g=32\text{ ft/s}^2\) as the gravitational constant.)
+EOT
+ANS(num_cmp($impact));
+
+TEXT(EV2(<<EOT)); 
+$PAR
+What is the maximum height the rock achieves, and at what time does it reach its max height?$BR
+maximum height \(=\) \{ ans_rule(5) \} feet$BR
+EOT
+ANS(num_cmp($hmax));
+
+TEXT(EV2(<<EOT)); 
+time of max height \(=\) \{ ans_rule(5) \} seconds
+EOT
+ANS(num_cmp($tmax));
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

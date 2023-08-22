@@ -1,0 +1,135 @@
+## DESCRIPTION
+##   The Product Rule
+## ENDDESCRIPTION
+
+## Tagged by nhamblet
+## Updated December 2014 at OPL Workshop by JDA
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Product rule (without trigonometric functions))
+## Institution(ASU)
+## MLT(prodruleNoTrigFuncConceptual)
+## Level(4)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('1')
+## Section1('3.3')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('5')
+## Section2('3.2')
+## Problem2('')
+## TitleText3('Calculus: Early Transcendentals')
+## AuthorText3('Stewart')
+## EditionText3('6')
+## Section3('3.2')
+## Problem3('')
+## KEYWORDS('Derivative', 'Product','derivatives','product rule','derivative' 'product' 'quotient')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Rochester/setDerivatives2Formulas/d3.pg 
+#	to setderivatives_product_rule/d3.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_product_rule/d3.pg 
+#	to setderivatives_product_rule_-_training/d3.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context('Numeric');
+
+$h = non_zero_random(2,5,1);
+$hp = non_zero_random(-5,5,1);
+
+$g = non_zero_random(-10,5,1);
+$gp = non_zero_random(-5,30,1);
+
+$x = random(-4,4,1);
+
+$c = non_zero_random(-12,12,1);
+$d = non_zero_random(-12,12,1);
+
+$p = random(2,5,1);
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Even though we don't have a formula for the function [`g`], if we have its value at a point of interest, as well as the value of [`g^\prime`] there, too, we can still compute derivatives of functions involving [`g`].  
+
+The product rule holds even if we only know the names of the functions.
+[@ closeDiv() @]*
+
+END_PGML
+
+
+BEGIN_TEXT
+
+Given that
+
+\[
+\begin{aligned}
+g($x)&= $g \\
+g'($x)&= $gp \\
+h($x)&= $h \\
+h'($x)&= $hp 
+\end{aligned} 
+\]
+
+We can use the product rule to formally differentate a bunch of combinations of \(g\) and \(h\) and find their derivatives at \(x = $x\). 
+$PAR$BR
+\(f(x) = g(x) \cdot h(x) \) $PAR
+\( f'( $x ) =  \) \{ans_rule(30) \}
+
+$PAR$BR
+\(f(x) = $c g(x)  h(x) \) $PAR
+\( f'( $x ) =  \) \{ans_rule(30) \}
+
+$PAR$BR
+\(f(x) = $c g(x) h(x) + $d \) $PAR
+\( f'( $x ) =  \) \{ans_rule(30) \}
+
+$PAR$BR
+\(f(x) = $c g(x) h(x) + x^{$p} + $d \) $PAR
+\( f'( $x ) =  \) \{ans_rule(30) \}
+
+
+
+END_TEXT
+
+
+ANS(Compute($g * $hp + $gp * $h)->cmp);
+ANS(Compute($c*($g * $hp + $gp * $h))->cmp);
+ANS(Compute($c*($g * $hp + $gp * $h))->cmp);
+ANS(Compute($c*($g * $hp + $gp * $h + $p*$x**($p-1)))->cmp);
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

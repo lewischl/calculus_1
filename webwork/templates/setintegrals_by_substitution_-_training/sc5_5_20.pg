@@ -1,0 +1,143 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by tda2d
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Techniques of integration)
+## DBsection(Substitution (with trigonometric functions))
+## Date(6/3/2002)
+## Institution(OSU)
+## MLT(lnasinb)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('1')
+## Section1('5.6')
+## Problem1('57')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('5.5')
+## Problem2('')
+## KEYWORDS('integral' 'substitution','integrals', 'substitution', 'substitution rule','Calculus', 'Riemann Integral','Integral', 'Indefinite', 'Trigonometry')
+
+
+
+########################################
+# this file automatically moved
+#	from Library/Rochester/setIntegrals14Substitution/sc5_5_20.pg 
+#	to setintegrals_by_substitution/sc5_5_20.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_by_substitution/sc5_5_20.pg 
+#	to setintegrals_by_substitution_-_training/sc5_5_20.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl"
+);
+loadMacros("parserFormulaUpToConstant.pl");
+
+$showPartialCorrectAnswers = 1;
+
+
+
+TEXT(beginproblem());
+
+Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Functions of the form in this problem often give students trouble, so training on this specific form.
+[@ closeDiv() @]*
+
+Recall the "natural log rule", in box notation:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+[```
+(\ln \Box)' = \frac{\Box'}{\Box}
+```]
+[@ closeDiv() @]*
+
+ℹ️ If you spy a rational function where the numerator is close to the derivative of the denominator, it may be the result of differentiating a natural log.
+
+
+---
+
+Evaluate the indefinite integrals.  To reinforce the importance of the constant of integration, I continue to ask you to write it in answers.
+
+END_PGML
+
+
+$b = random(2,6,1);
+$c = random(2,8,1);
+
+$u = Formula("x^3 + $b x + $c");
+$u_prime = $u->D->reduce;
+
+$ans = "ln(abs($u))";
+
+Context()->texStrings;
+BEGIN_TEXT
+This first one is polynomials to help you see the pattern: $PAR
+\( \displaystyle \int \frac{$u_prime}{$u} \, dx  = \)
+\{ans_rule( 30) \} 
+$PAR $BR
+END_TEXT
+
+Context()->normalStrings;
+
+ANS(FormulaUpToConstant($ans)->cmp);
+
+
+
+
+$a = random(2,6,1);
+$b = random(2,8,1);
+$c = $a * $b;
+$coeff = 1 / $b;
+$ans = "$coeff * ln(abs(sin(x) + $a))";
+Context()->texStrings;
+BEGIN_TEXT
+This second one I offer because it's potentially confusing.  The derivative of \(\sin\) is \(\cos\), and derivative of \(\cos\) is \(-\sin\).  Which to choose for \(u\)?  $BR🧠 Choose \(u\) as the denominator, because we won't get a constant in a derivative, without a linear to start. $PAR
+\( \displaystyle \int \frac{\cos x}{$b \sin x + $c} \, dx  = \)
+\{ans_rule( 30) \} 
+$PAR $BR
+END_TEXT
+
+Context()->normalStrings;
+
+ANS(FormulaUpToConstant($ans)->cmp);
+
+
+
+
+
+##set $PG_environment{'textbook'} in webworkCourse.ph
+if (defined($textbook)) {
+   if ($textbook eq "EllisGulick5") {
+BEGIN_TEXT
+END_TEXT
+}
+}
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

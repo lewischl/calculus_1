@@ -1,0 +1,46 @@
+
+
+########################################
+# this file automatically moved
+#	from local/Library/UCSB/Stewart5_3_1/Stewart5_3_1_21.pg 
+#	to setgroup_derivatives_power_rule_-_no_hints/Stewart5_3_1_21.pg 
+#	on 2023-06-08 15:17:56.142406 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();  
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$showPartialCorrectAnswers = 1;
+$a=random(2,6,1);
+
+$f=Compute("x^{$a}+1/(x^($a))");
+$aminus1 = $a-1;
+$aplus1 = $a+1;
+$ans = Compute("$a x^($aminus1)-$a/(x^($aplus1))")->reduce;
+
+Context()->texStrings;
+BEGIN_TEXT
+Find the derivative of the function \( \displaystyle f(x)= $f\).
+
+$PAR
+\( f'(x)= \) \{ ans_rule() \} $BR
+$BITALIC (Give an exact answer.)$EITALIC
+END_TEXT
+Context()->normalStrings;
+
+ANS($ans->cmp);
+
+ENDDOCUMENT();

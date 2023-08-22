@@ -1,0 +1,62 @@
+##DESCRIPTION
+##  Take the derivative of a square root function
+##ENDDESCRIPTION
+
+##KEYWORDS('derivatives', 'square root', 'chain rule')
+
+## DBsubject('Calculus')
+## DBchapter('Derivatives')
+## DBsection('Chain rule')
+## Date('')
+## Author('silviana amethyst')
+## Institution('uwec')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+SRAND(100);
+$setseed = "set.seed(100); 100";
+
+$a = random(2,5,1); 
+$b = random(2,5,1); 
+
+$f = Formula("sqrt($a x^2-$b)")->reduce;
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+Determine a formula for the first derivative of [``[$f]``].
+
+[`f'(x) = `] [_____]{fun_cmp("($a*2*x)/(2*sqrt($a x^2-$b))",vars=>['x'],limits=>[2,5])} 
+END_PGML
+# had to adjust the limits because square root of negative.
+
+
+ENDDOCUMENT();

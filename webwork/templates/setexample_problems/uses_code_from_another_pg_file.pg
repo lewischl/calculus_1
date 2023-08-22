@@ -1,0 +1,68 @@
+##DESCRIPTION
+##  This example problem shows how to "factor out" code from a problem and put it in another .pg file in the same folder as this problem.  Maybe it will work?!?!
+##ENDDESCRIPTION
+
+##KEYWORDS('experiment')
+
+## DBsubject('Webwork')
+## DBchapter('Experiments')
+## DBsection('Real Numbers')
+## Date('Summer 2023')
+## Author('silviana amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+COMMENT("example of: using code from another .pl file, thus 'factoring out' some code.  this should enable common state between a set of problems, without code duplication");
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+# load code from another .pl file.  
+# this lets us factor out common state which would be used in multiple problems
+loadMacros("code_for_several_problems.pl");
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+This code demonstrates setting values of variables in another file.  These variables have values set in another file called [|code_for_several_problems.pl|]*, located in the same folder as the problem source code. (IDK if this will break using problems in multiple sets!)
+
+See [@ htmlLink("https://webwork.maa.org/wiki/Pre-formatted_and_verbatim_text_-_PGML","this link") @]* for more information about code-formatted text, and especially see the code for this problem.
+
+
+* [`a = [$a]`]
+* [`b = [$b]`]
+* [`c = [$c]`]
+
+---
+
+Compute [`d = a+bc`]:
+
+[`d = `] [_____]{$a+$b*$c}
+END_PGML
+
+ENDDOCUMENT();

@@ -1,0 +1,249 @@
+##KEYWORDS('secant lines', 'tangent line')
+##DESCRIPTION
+##  Find the velocity of a ball thrown straight up during periods of time
+##  approaching a value, then guess the instantaneous velocity at that point
+##ENDDESCRIPTION
+
+## Shotwell cleaned
+## tcao , PAID on 11-24-2003
+
+## DBsubject('Calculus')
+## DBchapter('Limits and Derivatives')
+## DBsection('Tangents, Velocities, and Other Rates of Change')
+## Date('6/3/2002')
+## Author('silviana amethyst') # this was previously blank
+## Institution('')
+## TitleText1('Calculus: Early Transcendentals')
+## EditionText1('6')
+## AuthorText1('Stewart')
+## Section1('2.1')
+## Problem1('5')
+## TitleText2('Calculus: Early Transcendentals')
+## EditionText2('1')
+## AuthorText2('Rogawski')
+## Section2('2.1')
+## Problem2('7')
+
+
+########################################
+# this file automatically moved
+#	from local/Library/ma122DB/set1/s1_1_5.pg 
+#	to setlimits_average_rates_of_change/s1_1_5.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_average_rates_of_change/s1_1_5.pg 
+#	to setlimits_-_rates_of_change_-_challenge/s1_1_5.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PGcourse.pl",
+"PGbasicmacros.pl",
+"PGanswermacros.pl",
+"PGauxiliaryFunctions.pl"
+);
+
+
+COMMENT("uses CSS in `customCSS.pl` for styling");
+COMMENT("delta t is hardcoded, but the time and velocity are randomized");
+
+TEXT(beginproblem());
+
+loadMacros("customCSS.pl");
+
+
+$showPartialCorrectAnswers = 1;
+
+$v0 = random(40,100,5);
+$t0 = random(2,4,1);
+
+$delta_t_1 = 0.5;
+$delta_t_2 = 0.1;
+$delta_t_3 = 0.01;
+$delta_t_4 = 0.001;
+$delta_t_5 = 0.0001;
+$t1 = $t0+$delta_t_1;
+$t2 = $t0+$delta_t_2;
+$t3 = $t0+$delta_t_3;
+
+Context("Numeric");
+Context()->variables->add(t=>'Real');
+$y = Formula("- 16*t^2 + $v0*t ");
+
+$y0 = $y->eval(t=>$t0);
+
+$y1 = $y->eval(t=>$t1);
+$y2 = $y->eval(t=>$t2);
+$y3 = $y->eval(t=>$t3);
+
+$dy1 = $y1-$y0;
+$dy2 = $y2-$y0;
+$dy3 = $y3-$y0;
+
+$aroc1 = $dy1/$delta_t_1;
+$aroc2 = $dy2/$delta_t_2;
+$aroc3 = $dy3/$delta_t_3;
+
+$iroc = $y->D->eval(t=>$t0);
+
+
+BEGIN_PGML
+Purpose: This problem trains you to compute average rates of change over shorter and shorter periods of time, connecting average rates of change to the instantatneous rate of change by a decreasing duration over which to observe change in a phenomenon.  Generally speaking, the shorter the duration of time that's allowed to elapse, the better our average rate of change acts as an estimate of the instantaneous rate of change.  
+
+---
+
+### Real-life scenario
+
+We start with a description of the scenario:
+
+>>
+[@ openDiv({ "class" => "trainingProblemStatement" }) @]*
+A ball is thrown straight up into the air with an initial velocity of 
+[` [$v0] `] ft/s, its height in feet after [` t `] seconds is given by the function
+[``` y(t) = [$y] ```]
+[@ closeDiv() @]*
+<<
+
+We want to know something about the ball's movement: how fast it's moving.  That means velocity, and we're exploring average velocity versus instantaneous velocity.
+
+---
+
+### Average rate of change
+
+#### Instruction
+
+First, we'll compute a sequence of average velocities.  
+
+Average velocity is computed using the formula
+
+[```
+\textnormal{AROC} = \frac{\Delta y}{\Delta t}
+```]
+
+Each of [`\Delta y`] and  [`\Delta t`] are differences in their respective quantities.
+
+[`\Delta y = y_1 - y_0`], but the values of [`y`] are determined by the indepentent variable [`t`], so we really have
+
+    [`\Delta y = y(t_1) - y(t_0)`]
+    
+[`\Delta t = t_1 - t_0`], a measure of how much time has elapsed.  In this problem we give you the value of [`\Delta t`], and we have to infer the value of the second time point.  We can re-write the expression to obtain
+
+    [`t_1 = t_0 + \Delta t`]
+
+We can modify the formula for average rate of change to:
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+[```
+\textnormal{AROC} = \frac{y(t_0 + \Delta t) - y(t_0)}{\Delta t}
+```]
+[@ closeDiv() @]*
+
+---
+
+We can follow these approximate steps to compute an average rate of change.  (Your process will evolve as you learn new techniques -- this is training!)
+
+1. Compute the two timepoints we need, [`t_0`] (which is given) and [`t_1 = t_0 + \Delta t`] (which we compute).
+2. Evaluate the function [`y(t)`] at the two timepoints.
+3. Compute the difference to obtain [`\Delta y = y(t_1) - y(t_0)`]
+4. Divide by the time duration [`\Delta t`] to obtain the average rate of change using the formula [`\textnormal{AROC} = \frac{\Delta y}{\Delta t}`]
+
+---
+
+#### A guided example of average rate of change
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Find the average velocity for the time period beginning at [` t_0 = [$t0] `] and lasting for a duration of [`0.5`] seconds.
+[@ closeDiv() @]*
+
+We follow the above steps:
+
+1. We're given the starting point [`t_0`] of the time interval over which to observe change, and the length of the interval [`\Delta t`].  So we have the two timepoints: 
+    * [`t_0 = `] [___]{$t0} 
+    * [`t_1 = 2 + \Delta t = `] [___]{$t1}
+2. We evaluate the height function to find 
+    * [`y_0 = y(t_0) = y([$t0]) = `] [___]{$y0}
+    * [`y_1 = y(t_1) = y([$t1]) = `] [___]{$y1}
+3. Find the change in the ball's height.  
+    * [`\Delta y = y_1 - y_0 = `] [____]{$dy1}
+4. Compute the ball's average velocity.  
+    * [`AROC = \frac{\Delta y}{\Delta t} = `] [____]{$aroc1}
+
+Thus we have our answer for the average rate of change for the ball's height for the time period starting at time [`[$t0]`] of duration [`0.5`] seconds: 
+
+The average rate of change over the time period from [`[$t0]`] to [`[$t1]`] is [____]{$aroc1}
+
+
+
+---
+
+#### Your turn
+
+Now you compute the next two average rates of change.  The duration is getting smaller!
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Compute the average rate of change over a duration of length [`\Delta t = [$delta_t_2]`] seconds, still starting at [`t_0 = [$t0]`] seconds. 
+[@ closeDiv() @]*
+The average rate of change is [_______]{$aroc2} feet per second.
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Now for a duration of length [`\Delta t =  [$delta_t_3]`] seconds. 
+[@ closeDiv() @]*
+The average rate of change is [_______]{$aroc3} feet per second. 
+
+
+---
+
+
+### Estimating the instantaneous rate of change: the ball's velocity
+
+As the length of the duration gets smaller and smaller, the average rate of change becomes a better and better estimate of the instantaneous rate of change.  In this case, the average velocity over a very small period of time [`t \in [ [$t0], [$t1] ]`] helps us estimate the ball's velocity at time [`t = [$t0]`].
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Based on the above results, along with using even smaller values of [`\Delta t`], make an educated guess what the instantaneous
+velocity of the ball is when [`t_0 =[$t0]`] seconds.  
+[@ closeDiv() @]*
+
+  
+
+The instantaneous rate of change is [____]{$iroc} feet per second.  
+
+[@ openDiv({ "class" => "inProblemHint" }) @]*
+(Hint: we've constructed this problem so that the answer is an integer.  Try using [`\Delta t = [$delta_t_4]`] and then [`[$delta_t_5]`], and then even smaller!!!) 
+[@ closeDiv() @]*
+
+
+
+
+END_PGML
+
+
+
+BEGIN_HINT
+There are some nice calculator tricks to make this more efficient.  On a TI-84, Try using the Ans button to recall the previously computed value.  Or, use the Entry button to recall a previously entered formula.
+
+\{ amethystHint("$PAR$HR$PAR This video on Prof. Amethyst's channel describes how to use 'The Ans trick' on a TI-84 calculator to compute average rates of change quickly:$PAR") \}
+\{youtubeAmethyst("VHv-8yg58UI")\}
+END_HINT
+
+
+
+
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.
+

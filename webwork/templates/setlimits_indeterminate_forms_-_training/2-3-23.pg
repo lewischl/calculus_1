@@ -1,0 +1,145 @@
+## DESCRIPTION
+## Calculus: Limits and Derivatives
+## ENDDESCRIPTION
+
+## Tagged by LD
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Evaluating limits - rationalizing)
+## Date(5/26/2005)
+## Institution(UCSB)
+## Author(Jeff Holt)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('2.3')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('2.3')
+## Problem2('')
+## KEYWORDS('limits', 'derivatives','Product','Quotient','Differentiation')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/UVA-Stew5e/setUVA-Stew5e-C02S03-CalcLimits/2-3-23.pg 
+#	to setlimits_indeterminate_forms/2-3-23.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_indeterminate_forms/2-3-23.pg 
+#	to setlimits_indeterminate_forms_-_training/2-3-23.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGauxiliaryFunctions.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+"PGcourse.pl",
+"customCSS.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a = random(1,7,1);
+$c=$a**2;
+$d=$a**2;
+
+$ans = Compute(2*$a);
+
+
+BEGIN_TEXT
+\{ openDiv({ "class" => "problemPurpose" }) \}
+Training on the technique of "multiply by the conjugate". 
+\{ closeDiv() \}
+
+$PAR$HR$PAR 
+
+Here are two videos on the topic of 'multiply by the conjugate' $PAR
+\{ youtube("FLN8c8X6i7Y") \}
+
+\{ kalturaShull("1_a6pcdr3x") \}
+
+$PAR$HR$PAR 
+
+END_TEXT
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Multiply by the conjugate to find a limit:
+
+1. First, verify the method is a good candidate:    
+    * Try to plug in point of interest.  Get an indeterminate form
+    * Function is a rational function with square roots in it
+2. Multiply by a special version of [`1`] -- the conjugate.
+3. Distribute the part (top/bottom) with the [`\sqrt{}`], but don't distribute the part without.
+4. Cancel common factor.  
+5. Try to plug in point of interest again.
+[@ closeDiv() @]*
+
+---
+
+In this problem, the denominator has the [`\sqrt{}`], so the form of the conjugate is determined by the denominator.  
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Advice for forming the conjugate: 
+
+* If a function looks like [`` \frac{f}{\sqrt{a} + b}``], then the conjugate is [`` \frac{\sqrt{a} - b}{\sqrt{a} - b} = 1 ``].  
+* If a function looks like [`` \frac{f}{\sqrt{a} - b}``], then the conjugate is [`` \frac{\sqrt{a} + b}{\sqrt{a} + b} = 1 ``].  
+
+Always flip the sign, and always multiply the function by [`1`].
+[@ closeDiv() @]*
+
+One more piece of advice: [`\sqrt{a} \cdot \sqrt{a} = a`].  Use this when distributing.  (In this problem don't distribute the numerator, the [`\sqrt{}`] is in the denominator.)
+
+---
+
+END_PGML
+
+
+BEGIN_TEXT
+Evaluate the limit.  If the limit does not exist, enter ${BBOLD}DNE${EBOLD}.
+
+$PAR
+
+\( \displaystyle \lim_{ x \rightarrow $d } \frac{x - $c}{\sqrt{x} - $a} = \) \{ans_rule(25) \}
+
+
+$PAR
+$HR
+$PAR
+
+(actually, it's \( \sqrt{a} \cdot \sqrt{a} = |a| \), but let's not focus on that right now)
+END_TEXT
+
+Context("Numeric");
+
+ANS($ans->cmp());
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

@@ -1,0 +1,200 @@
+## DESCRIPTION
+##   Implicit Differentiation
+## ENDDESCRIPTION
+
+## Tagged by nhamblet
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Implicit differentiation)
+## Date(6/3/2002)
+## Institution(Rochester)
+## Author(Utah ww group)
+## MLT(xy_powers_eval)
+## MLTleader(1)
+## Level(2)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('1')
+## Section1('3.8')
+## Problem1('')
+## TitleText2('Calculus')
+## AuthorText2('Dale Varberg, Edwin J. Purcell, and Steven E. Rigdon')
+## EditionText2('9')
+## Section2('.')
+## Problem2('')
+## TitleText3('Calculus I')
+## AuthorText3('Jerrold Marsden and Alan Weinstein')
+## EditionText3('2')
+## Section3('.')
+## Problem3('')
+## TitleText4('Calculus: Early Transcendentals')
+## AuthorText4('Stewart')
+## EditionText4('6')
+## Section4('3.5')
+## Problem4('1')
+## KEYWORDS('Implicit', 'Derivative','calculus','derivatives', 'implicit','Implicit Derivative')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Rochester/setDerivatives2_5Implicit/s2_6_1_mo.pg 
+#	to setderivatives_differentation_on_implicit_curves/s2_6_1_mo.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_differentation_on_implicit_curves/s2_6_1_mo.pg 
+#	to setderivatives_differentation_on_implicit_curves_-_training/s2_6_1_mo.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "contextFraction.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+
+$a1 = random(2,5,1);
+$b1 = random(2,5,1);
+$c1 = random(1,4,5);
+$x1 = Real(random(1,5,1));
+$c2 = $c1*$x1;
+$y1 = $c1 - $a1*$x1 - $b1;
+
+Context('Fraction');
+
+Context()->variables->add(y=>"Real");
+
+$dydx = Fraction("-(2*$a1*x + $b1 + y) / x")->reduce;
+
+$TTT = $dydx->eval(x=>$x1, y=>$y1);
+
+$deriv = Fraction(
+	-(2*$a1*$x1 + $b1 + $y1),
+	$x1
+);
+
+##############################################################
+#
+#  Text
+#
+#
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+A training implicit differentation problem with an equation involving the basic product [`xy`].  Some guidance on method.
+[@ closeDiv() @]*
+
+
+Here's an example of implicit differentiation involving the product rule:
+[@ youtubeAmethyst("HZJ4ziSYfxk") @]*
+
+---
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+To find a formula for the slope of an implicit function:
+
+1. Write down the equality relationship between [`x`] and [`y`]
+2. Differentiate both sides *with respect to x* using implicit differentiation.
+3. Solve for [`\frac{dy}{dx} = y'`].
+
+To find the value of the derivative at a specific point, evaluate [`y'`] at that point.
+
+[@ closeDiv() @]*
+
+
+---
+
+END_PGML
+
+
+
+BEGIN_TEXT
+
+
+If $PAR
+\( $a1 x^2 + $b1 x + xy = $c2  \) and $BR
+\( y($x1) = $y1 \),$PAR
+find \( y'($x1) \) by implicit differentiation. $PAR
+
+END_TEXT
+
+BEGIN_PGML
+
+
+
+
+First, find the formula for the slope at *any* point on the curve.
+
+[`\frac{dy}{dx} = y'`] = [__]{$dydx}.
+
+Now find the slope at the specific point we're interested in.
+
+[` y'([$x1]) = `] [__]{$deriv}
+
+
+
+---
+
+Hints:
+
+[@ openDiv({ "class" => "inProblemHint" }) @]*
+This problem gives you the coordinates encoded.  We wrote "[`y([$x1]) = [$y1]`]".  That means that at [`x = [$x1]`], the [`y`]-coordinate is [`[$y1]`].
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "inProblemHint" }) @]*
+There's a product in there!  Use the product rule on the [`xy`] term.
+[@ closeDiv() @]*
+
+END_PGML
+
+
+##############################################################
+#
+#  Answers
+#
+#
+
+
+$a12 = 2*$a1;
+Context()->texStrings;
+BEGIN_SOLUTION
+$PAR SOLUTION $PAR 
+We differentiate both sides of the equation with respect to \(x\):
+ \[ \frac{d}{dx} ($a1 x^2 + $b1 x + xy)=\frac{d}{dx}( $c2) \]
+ \[ $a12 x + $b1 + x \frac{dy}{dx} + y = 0 \]
+Solving for \( \frac{dy}{dx} \) gives
+\[ \frac{dy}{dx} = -$a12 - \frac{$b1}{x} - \frac{y}{x} \]
+Substituting  \( x = $x1 \) and \(y = $y1 \), we get
+\[ \frac{dy}{dx} = $deriv \]
+
+END_SOLUTION
+;
+
+ENDDOCUMENT();

@@ -1,0 +1,137 @@
+###############################
+#  Initialization
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+"unionTables.pl",
+"contextInequalities.pl",
+#"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+
+################################
+#  Desmos setup
+#
+#  In html mode, load the Desmos api script and create the <div> to attach the Desmos graph to.
+#  In tex mode, print a message to direct the student to the html version.
+#  Desmos API reference: https://www.desmos.com/api/v1.8/docs/index.html
+
+$unique_div_id = "desmos_calculator";
+$width = 600;
+$height = 400;
+
+HEADER_TEXT(MODES(
+    HTML=>'<script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3plus/1.7.3/d3plus.js"></script>',
+    
+    TeX=>''
+));
+
+$desmos_div = MODES(
+    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
+    TeX=>'Interactive graph best viewed online'
+);
+
+
+################################
+#  Setup
+
+Context("Inequalities")->variables->are(h=>'Real', x=>'Real');
+
+$ans1 = Compute("h < 1");
+$ans2 = Compute("ln(x)");
+
+
+################################
+#  Main text
+
+Context()->texStrings;
+BEGIN_TEXT
+\{
+ColumnTable(
+"The figure has an interactive graph for y=xh−1h
+.  
+Using the slider for h
+in the interactive graph, answer the following questions.".
+$PAR.
+"a. For what values of h
+is the graph of y=xh−1h
+concave down?".
+ans_rule(10).$SPACE.AnswerFormatHelp("inequalities").
+$PAR.
+"b. limh→0xh−1h=
+".
+ans_rule(10).$SPACE.AnswerFormatHelp("formulas").
+$BR.
+"Hint: the answer is a familiar function."
+,
+$desmos_div.
+$BR.
+$BCENTER.
+"An interactive graph of y=xh−1h
+.".
+$ECENTER
+,
+indent => 0, separation => 30, valign => "TOP"
+)
+\}
+END_TEXT
+Context()->normalStrings;
+
+ANS($ans1->cmp);
+ANS($ans2->cmp);
+
+$graphUrl = "https://www.desmos.com/calculator/0ovfwwmfrb";
+
+##################################
+#  Desmos graph (via the API)
+#  Execute this only after the $desmos_div object has been put on the html page.
+    
+TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
+<script>
+<!-- //
+    var elt = document.getElementById("$unique_div_id");
+
+    var calculator = Desmos.Calculator(elt);
+    
+       
+    var request = new XMLHttpRequest();
+    request.open("GET", "$graphUrl", true);
+
+    request.onload = function() {
+      if (request.status >= 200 && request.status < 400) {
+        // Success!
+        var data = JSON.parse(request.responseText);
+      } else {
+        // We reached our target server, but it returned an error
+
+      }
+    };
+
+    request.onerror = function() {
+      // There was a connection error of some sort
+    };
+
+    var data = request.send();
+    
+    calculator.setState(data.state);
+    
+    document.write(b);
+
+// -->
+</script>
+END_SCRIPT
+
+
+      
+COMMENT('MathObject version.  Uses Desmos interactive JavaScript graphing which should work on all devices in html mode.');
+
+ENDDOCUMENT();

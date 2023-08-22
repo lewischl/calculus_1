@@ -1,0 +1,116 @@
+##DESCRIPTION
+##  Differentiate expressions using implicit differentation
+##ENDDESCRIPTION
+
+##KEYWORDS('implicit differentiation')
+
+## DBsubject('Calculus')
+## DBchapter('Derivatives')
+## DBsection('Implicit differentiation')
+## Date('')
+## Author('silviana amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set3.8_implicit_diff/differentiating_expressions.pg 
+#	to setderivatives_differentation_on_implicit_curves/differentiating_expressions.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_differentation_on_implicit_curves/differentiating_expressions.pg 
+#	to setderivatives_differentation_on_implicit_curves_-_training/differentiating_expressions.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+
+
+Context()->variables->add(
+dx=>"Real", dy=>"Real", y=>"Real"
+);
+
+$ans1 = Compute("6x + 15 y^2 dy/dx");
+$ans2 = Compute("y + x dy/dx");
+$ans3 = Compute("28x^3 + 2(2x y^2 + 2 x^2 y dy/dx)");
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem gives training on differentating expressions where:
+* two variables are present
+* one of the variables is an "implicit function" of the other.
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+General advice for implicit differentiation is to "chain out" the derivative of a variable, if the variable of differentiation is different from the variable being differentiated.  
+[@ closeDiv() @]*
+
+Assume that [`y`] is an implicit function of [`x`].  That is, we're taking [`y = y(x)`].  So when we differentiate [`y`], we have to use the chain rule.  
+
+Observe how we differentiate [`y^2`] with respect to [`x`]:
+
+[`` \begin{aligned} \frac{d}{dx} y^2 &= \frac{d}{dx}(y(x))^2 \\ &= 2y  \frac{dy}{dx} \end{aligned} ``]
+
+
+We can similarly differentiate [`\sqrt{y}`] *with respect to x*:
+
+[`` \begin{aligned} \frac{d}{dx} \sqrt{y} &= \frac{d}{dx}\sqrt{y(x)} \\ &= \frac{1}{2 \sqrt{y(x)}} \frac{dy}{dx}  \\ &= \frac{1}{2 \sqrt y} \frac{dy}{dx} \end{aligned} ``]
+
+The trailing [`\frac{dy}{dx}`] *has to be there*.  We don't have a formula for it, but the chain rule demands it be there.
+---
+
+Use implicit differentiation to compute the derivatives.  When you enter your answers, use the symbols [`dy/dx`] to express the derivative of [`y`] with respect to [`x`].  (Webwork cannot accept prime notation)
+
+[`` \frac{d}{dx} \left( 3x^2 + 5y^3  \right) = ``] [_____]{$ans1}
+
+
+[`` \frac{d}{dx} \left( xy  \right) = ``] [_____]{$ans2}   (use the product rule)
+
+[`` \frac{d}{dx} \left( 7x^4 + 2 x^2 y^2  \right) = ``] [_____]{$ans3}
+
+END_PGML
+
+ENDDOCUMENT();

@@ -1,0 +1,142 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by tda2d
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Integrals)
+## DBsection(Antiderivatives (without trigonometric functions))
+## Date(6/3/2002)
+## Institution(Indiana)
+## MLT(antideriv_poly_find_coeff_and_powers)
+## MLTleader(1)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('4.9')
+## Problem1('4')
+## KEYWORDS('derivatives' 'antiderivatives','derivatives', 'antiderivatives')
+
+
+
+########################################
+# this file automatically moved
+#	from my_problems/5.3_antiderivatives/antidifferentiation_polynomial_coeffs_powers.pg 
+#	to setintegrals_antiderivatives_power_rule_and_basic_rules/antidifferentiation_polynomial_coeffs_powers.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_antiderivatives_power_rule_and_basic_rules/antidifferentiation_polynomial_coeffs_powers.pg 
+#	to setintegrals_antiderivatives_power_rule_and_basic_rules_-_training/antidifferentiation_polynomial_coeffs_powers.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Numeric");
+
+# coefficients
+$a1 = non_zero_random(-10,10,1);
+$b1 = non_zero_random(-10,10,1);
+$c1 = non_zero_random(-10,10,1);
+$d1 = non_zero_random(-10,10,1);
+
+# powers
+$n1 = random(8,10,1);
+$m1 = random(5,7,1);
+$p1 = random(2,4,1);
+$q1 = 0;
+
+   Context()->noreduce('(-x)-y');
+   Context()->noreduce('(-x)-y','(-x)+y');
+
+$f = Formula("$a1 x^ {$m1} + $b1 x^{$n1} - $c1 x^{$p1} + $d1 x^{$q1}")->reduce;
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem is about using the power rule on a polynomial -- a function with integer powers of [`x`].
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*The power rule for integration*
+
+[```
+\int x^n \, dx =  \frac{1}{n+1} x^{n+1}
+```]
+
+⚠️ This is not true if [`n=-1`], because then we’d have to divide by [`0`]. 
+[@ closeDiv() @]*
+
+Combined with the sum/difference rule, we can integrate each term in a polynomial separately.
+
+---
+
+END_PGML
+
+BEGIN_TEXT
+Consider the function \( f(x) =  $f\). 
+$PAR
+An antiderivative is \( F(x) = A x ^m +B x^n +C x^p +D x^q + \textnormal{constant of integration}\). $PAR
+
+🎯 Use the power rule and constant-multiple rules to find the coefficients and powers of \(F\) after integrating \(f\).
+$PAR
+
+\( A = \) \{ans_rule(10) \} $SPACE
+\( m = \) \{ans_rule(10) \} $BR
+END_TEXT
+ANS(num_cmp($a1/($m1+1)));
+ANS(num_cmp($m1+1));
+
+
+
+BEGIN_TEXT
+\( B = \) \{ans_rule(10) \} $SPACE
+\( n = \)  \{ans_rule(10) \} $BR
+END_TEXT
+ANS(num_cmp($b1/($n1+1)));
+ANS(num_cmp($n1+1));
+
+
+BEGIN_TEXT
+\( C = \) \{ans_rule(10) \} $SPACE
+\( p = \)  \{ans_rule(10) \} $BR
+END_TEXT
+ANS(num_cmp($c1/($p1+1)));
+ANS(num_cmp($p1+1));
+
+
+BEGIN_TEXT
+\( D = \) \{ans_rule(10) \} $SPACE
+\( q = \)  \{ans_rule(10) \} $BR
+END_TEXT
+ANS(num_cmp($d1/($q1+1)));
+ANS(num_cmp($q1+1));
+
+
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

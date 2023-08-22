@@ -1,0 +1,182 @@
+########################################
+# this file automatically moved
+#	from local/Library/Rochester/setDerivatives2_5Implicit/c2s6p1.pg 
+#	to setderivatives_differentation_on_implicit_curves/c2s6p1.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_differentation_on_implicit_curves/c2s6p1.pg 
+#	to setderivatives_differentation_on_implicit_curves_-_training/c2s6p1.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "contextFraction.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+do {
+	$a = random(1, 9);
+	$b = random(1, 9);
+	$c = random(1, 9);
+	$x0 = random(1, 9);
+	$y0 = random(1, 9);
+	$l = $a*$x0 + $b*$y0;
+	$q = $c*$x0*$y0;
+} until (
+	gcd($a, $b) == 1
+	and sqrt($c) - int(sqrt($c))
+	and sqrt($l) == int(sqrt($l))
+	and sqrt($q) == int(sqrt($q))
+);
+
+Context()->flags->set(
+	reduceConstants => 0,
+	reduceConstantFunctions => 0,
+	formatStudentAnswer => parsed
+);
+
+Context()->variables->add(
+dx=>"Real", dy=>"Real", y=>"Real"
+);
+
+$sl = Formula("sqrt($a*x + $b*y)")->reduce;
+$sl0 = $sl->eval(x => $x0, y => $y0);
+$sq = Formula("sqrt($c*x*y)")->reduce;
+$sq0 = $sq->eval(x => $x0, y => $y0);
+$k = $sl0 + $sq0;
+$F = Formula("sqrt($a*x + $b*y) + sqrt($c*x*y)")->reduce;
+
+$lhs = Formula("1/(2*sqrt($a*x + $b*y))*($a+$b dy/dx) + 1/(2*sqrt($c*x*y))*($c*(y + x dy/dx))");
+$rhs = Formula(0);
+
+
+
+Context('Fraction');
+$dydx0 = Fraction(
+	-($a * $sq0 + $c * $y0 * $sl0),
+	$b * $sq0 + $c * $x0 * $sl0
+)->reduce;
+
+$m0 = Real($dydx0);
+
+
+Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem offers a complicated defining equation for the implicit curve, featuring a product under a square root.  It starts with an opportunity to check your differentation of the equation before you find the slope at the point.  We also point out an opportunity to make work easier if you only need the slope at one point, but not a general formula for all points.
+[@ closeDiv() @]*
+
+
+---
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+
+Find the slope of the tangent line to the curve
+[` [$F] = [$k] `] at the point [` ([$x0], [$y0]) `].
+
+[@ closeDiv() @]*
+
+
+
+The starting point with slopes of implicit curves is correct differentation of both sides of the equation.  After differentiating, we get (keep left on left, right on right):
+
+>>[_____]{$lhs} [`  = `] [_____]{$rhs}<<
+
+---
+
+Now, the steps to do the algebra to find the formula for [`\frac{dy}{dx}`] are kinda complicated.  It would be something like: move one term to the other side; clear denominators; etc.  
+
+But this problem doesn't ask use to find the formula for [`\frac{dy}{dx}`]; we just need [`\frac{dy}{dx}|_{([$x0],[$y0])}`].
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A process with speedup if you only need the slope at one point:
+
+1. Differentiate both sides of the equality
+2. Immediately plug in [`(x,y) = (x_0, y_0)`]. 
+     The only remaining symbols should be numbers and [`\frac{dy}{dx}`]
+3. Simplify, reduce, and solve for [`\frac{dy}{dx} = y'`].
+
+[@ closeDiv() @]*
+
+Practice these steps now to save a ton of algebra.
+
+END_PGML
+
+BEGIN_TEXT
+
+$PAR$BR
+
+The slope of the tangent line to the curve at
+\( (x,y) = ($x0, $y0) \) is \{ ans_rule(15) \}.
+END_TEXT
+
+ANS($m0->cmp);
+
+
+
+
+
+Context()->normalStrings;
+
+
+
+#Context()->texStrings;
+#BEGIN_SOLUTION
+#Differentiating implicitly with respect
+#to \( x \) gives
+#\[
+#\frac{$a}{2 $sl} + \frac{$b}{2 $sl} \, \frac{dy}{dx}
+#+ \frac{$c}{2 $sq} \left(
+#y + x \, \frac{dy}{dx} \right) = 0,
+#\]
+#or (multiplying by \( 2 $sq $sl \))
+#\[
+#$a $sq + $b $sq \; \frac{dy}{dx} +
+#$c y $sl + $c x $sl \; \frac{dy}{dx} = 0,
+#\]
+#so
+#\[
+#\left( $b $sq + $c x $sl \right) \, \frac{dy}{dx}
+#= - \left( $a $sq + $c y $sl \right),
+#\]
+#and therefore
+#\[
+#\frac{dy}{dx} = - \frac
+#{$a $sq + $c y $sl}{$b $sq + $c x $sl}.
+#\]
+#If \( x = $x0 \) and \( y = $y0 \), then
+#\( $sl = $sl0 \), \( $sq = $sq0 \), and
+#hence the slope of the tangent line to
+#the curve at the point \( ($x0, $y0) \)
+#is
+#\[
+#\frac{dy}{dx} \Bigg|_{(x, y) = ($x0, $y0)}
+#= - \frac {$a \left( $sq0 \right) +
+#$c \left( $y0 \right) \left( $sl0 \right)}
+#{$b \left( $sq0 \right) +
+#$c \left( $x0 \right) \left( $sl0 \right)}
+#= $dydx0.
+#\]
+#END_SOLUTION
+
+ENDDOCUMENT();

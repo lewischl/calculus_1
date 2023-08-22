@@ -1,0 +1,138 @@
+##DESCRIPTION
+##  Indefinite integral fraction that simplifies
+##ENDDESCRIPTION
+
+##KEYWORDS('indefinite integral', 'polynomial')
+
+## DBsubject('Calculus')
+## DBchapter('Integrals')
+## DBsection('Indefininte Integral')
+## Date('11/22/22')
+## Author('Erich Jauch, silviana amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set5.3_antiderivatives/fractionIndefininteIntegral.pg 
+#	to setintegrals_antiderivatives_power_rule_and_basic_rules/fractionIndefininteIntegral.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_antiderivatives_power_rule_and_basic_rules/fractionIndefininteIntegral.pg 
+#	to setintegrals_antiderivatives_power_rule_and_basic_rules_-_training/fractionIndefininteIntegral.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   "contextFraction.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   
+);
+loadMacros("parserFormulaUpToConstant.pl");
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+
+
+### Exponents
+
+Context("Fraction-NoDecimals");
+
+@p = ();
+$p[0] = random(5,9,1);
+$p[1] = non_zero_random(-3,3,1);
+$p[2] = random(3,7,2);
+$p[3] = random(1,3,1);
+
+### Initial Coefficents
+@a = ();
+$a[0] = non_zero_random(-5,7,1);
+$a[1] = non_zero_random(-5,7,1);
+$a[2] = non_zero_random(-5,7,1);
+
+### antiderivative coefficients
+@b = ();
+$b[0] = Compute("$a[0]/($p[0]-$p[3]+1)");
+$b[2] = Compute("2*$a[2]/($p[2]-2*$p[3]+2)");
+
+### Check if you have a natural log for one term
+if ($p[1]==$p[3]-1) {
+$b[1] = $a[1];
+$ans = FormulaUpToConstant("$b[0]*x^($p[0]-$p[3]+1)+$b[1]*ln(|x|)+$b[2]*x^(($p[2]/2-$p[3]+1) )")->reduce;
+}
+else {
+$b[1] = Compute("$a[1]/($p[1]-$p[3]+1)");;
+$ans = FormulaUpToConstant("$b[0]*x^($p[0]-$p[3]+1)+$b[1]*x^($p[1]-$p[3]+1)+$b[2]*x^(($p[2]/2-$p[3]+1) )")->reduce;
+}
+
+$num = Formula("$a[0]*x^$p[0]+$a[1]*x^($p[1])+$a[2]*sqrt(x^$p[2])")->reduce;
+$den = Formula("x^$p[3]")->reduce;
+
+##############################################################
+#
+#  Text
+#
+#
+
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem offers tactics for when a function looks complicated and we're trying to integrate.
+[@ closeDiv() @]*
+
+Some functions don't look like power functions, but they totally are.  
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*Tactics*
+
+* Rewrite powers from denominators using negative powers in the numerator
+* Rewrite roots to use explicit fractional powers
+* Distribute terms across quantities
+[@ closeDiv() @]*
+
+---
+
+
+END_PGML
+
+
+BEGIN_PGML
+
+Evaluate the following indefinite integral:
+
+[``\int\frac{[$num]}{[$den]}~dx=``] [_____]{$ans} 
+END_PGML
+
+
+
+ENDDOCUMENT();

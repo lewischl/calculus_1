@@ -1,0 +1,336 @@
+##DESCRIPTION
+##  Review of what it means to solve a problem
+##ENDDESCRIPTION
+
+##KEYWORDS('arithmetic', 'pi')
+
+## DBsubject('calculus')
+## DBchapter('review')
+## DBsection('solving equations')
+## Date('summer 2023')
+## Author('silviana amethyst')
+## Institution('')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+      "parserPopUp.pl",   # <--------------------------------------NEEDED FOR DROPDOWN MENUS
+   "PGcourse.pl",      # Customization file for the course
+   
+);
+loadMacros("PGchoicemacros.pl");
+loadMacros("customCSS.pl","niceTables.pl");
+
+COMMENT("uses CSS for styling");
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+We'll often solve quadratic equations in this class.  Here's a reminder.
+[@ closeDiv() @]*
+
+
+### The quadratic equation for solving quadratics
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The quadratic formula tells you the [`x`]-coordinates of the roots of a quadratic function of the form
+
+[```
+f(x) = ax^2 + bx + c
+```]
+
+The roots are 
+
+[```
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+```]
+
+[@ closeDiv() @]*
+
+
+---
+
+
+There's a quantity there under that square root.  It's called the "discriminant":
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+[```
+\textnormal{discriminant} = D = b^2-4ac
+```]
+[@ closeDiv() @]*
+
+
+
+
+END_PGML
+
+
+sub classification{
+
+my $det = shift(@_);
+
+my $ans = "";
+if ($det == 0){
+$ans = "one real with multiplicity two";
+}
+elsif ($det > 0){
+$ans = "two distinct real roots";
+}
+else {
+$ans = "two complex roots";
+}
+
+return PopUp(["?", "two distinct real roots", "one real with multiplicity two", "two complex roots"], $ans);
+
+}
+
+
+
+
+
+
+
+
+
+sub make_quadratic {
+
+my $mode = shift(@_);
+
+my $a, $b, $c, $roots;
+if ($mode eq "real distinct"){
+    my $r1 = non_zero_random(-20,20,1);
+    my $r2 = $r1 + non_zero_random(1,20,1);
+
+    $a = non_zero_random(-5,5,2);
+    $b = $a*($r1 + $r2);
+    $c = $a*$r1*$r2;
+
+    $roots = List($r1, $r2);
+}
+elsif ($mode eq "real double"){
+    my $r1 = non_zero_random(-20,20,1);
+    my $r2 = $r1;
+
+    $a = non_zero_random(-5,5,2);
+    $b = $a*($r1 + $r2);
+    $c = $a*$r1*$r2;
+    
+    $roots = List($r1);
+}
+elsif ($mode eq "imag"){
+    $b = random(3,20,1);
+    $a = random(3,20,1);
+    $c = random(1,20,1);
+    while ($b**2 - 4*$a*$c >= 0){
+     $c = $c + 1;
+    }
+    $roots = "no real roots";
+}
+
+my $f_str = "$a x^2 + $b x + $c"; # this is used in the data tables
+
+my $f = Formula($f_str); 
+
+my $det = Compute($b**2 - 4*$a*$c);
+
+my $is_real = $det >=0;
+
+
+return [$f_str, $f, $det, $is_real, classification($det), $roots, $mode];
+
+}
+
+
+
+
+
+@q = ();
+
+@types = ("real double", "real double", "real distinct", "real distinct", "imag");
+
+$num_types = @types; # https://alvinalexander.com/blog/post/perl/how-determine-size-length-perl-array-list/
+
+@order = shuffle($num_types);
+
+$count = 0;
+for my $i (@order){
+    $q[$count] = make_quadratic($types[$i]);
+    $count += 1;
+}
+
+
+
+
+BEGIN_PGML
+
+Compute the determinants:
+
+[@
+DataTable(
+[
+    ['\(' . $q[0][0] . '\)','Determinant \(=\)' . ans_rule(10)],
+    ['\(' . $q[1][0] . '\)','Determinant \(=\)' . ans_rule(10)],
+    ['\(' . $q[2][0] . '\)','Determinant \(=\)' . ans_rule(10)],
+    ['\(' . $q[3][0] . '\)','Determinant \(=\)' . ans_rule(10)],
+    ['\(' . $q[4][0] . '\)','Determinant \(=\)' . ans_rule(10)]
+],
+align => 'l l',
+tablecss => "border:solid 1px; border-spacing:50px 5px; border-radius: 5px; border-collapse:separate;"
+);
+@]***
+
+---
+
+END_PGML
+
+ANS($q[0][2]->cmp());
+ANS($q[1][2]->cmp());
+ANS($q[2][2]->cmp());
+ANS($q[3][2]->cmp());
+ANS($q[4][2]->cmp());
+
+
+
+
+
+
+
+
+
+
+
+
+
+BEGIN_PGML
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+The discriminant determines the structure of the roots:
+
+[```
+D = b^2-4ac
+```]
+
+* Both roots are distinct and real when the discriminant [`D`] is positive.
+* The roots are equal when the discriminant is 0.  We call this "multiplicity 2".
+* Neither root is real when the the discriminant is negative.
+[@ closeDiv() @]*
+
+Classify the following quadratics as having two real roots, one root of multiplicity two, or complex non-real roots:
+
+
+
+[@
+DataTable(
+[
+    ['\(' . $q[0][0] . '\)', $q[0][4]->menu() ],
+    ['\(' . $q[1][0] . '\)', $q[1][4]->menu() ],
+    ['\(' . $q[2][0] . '\)', $q[2][4]->menu() ],
+    ['\(' . $q[3][0] . '\)', $q[3][4]->menu() ],
+    ['\(' . $q[4][0] . '\)', $q[4][4]->menu() ]
+],
+align => 'l l',
+tablecss => "border:solid 1px; border-spacing:50px 5px; border-radius: 5px; border-collapse:separate;"
+);
+@]***
+
+---
+
+END_PGML
+
+
+ANS( $q[0][4]->cmp() );
+ANS( $q[1][4]->cmp() );
+ANS( $q[2][4]->cmp() );
+ANS( $q[3][4]->cmp() );
+ANS( $q[4][4]->cmp() );
+
+
+
+
+
+@Q = ();
+
+@types2 = ("real double", "real distinct", "real distinct");
+
+$num_types2 = @types2; # https://alvinalexander.com/blog/post/perl/how-determine-size-length-perl-array-list/
+
+@order2 = shuffle($num_types2);
+
+$count2 = 0;
+for my $i2 (@order2){
+$Q[$count2] = make_quadratic($types2[$i2]);
+$count2 += 1;
+}
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The quadratic formula:
+
+[```
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+```]
+
+[@ closeDiv() @]*
+
+Compute the roots using the quadratic formula. (these are not the same functions as above, sorry).  All roots are real integers cuz we won't deal with imaginary numbers in this class (though you *can* do Calculus with complex numbers!).
+
+* if there are two distinct roots, you may enter them in any order
+* if the roots are the same (i.e. they're of multiplicity two), list the root only once.  
+
+[@
+DataTable(
+[
+    ['\(' . $Q[0][0] . '\)','roots: ' . ans_rule(10)],
+    ['\(' . $Q[1][0] . '\)','roots: ' . ans_rule(10)],
+    ['\(' . $Q[2][0] . '\)','roots: ' . ans_rule(10)]
+],
+align => 'l l',
+tablecss => "border:solid 1px; border-spacing:50px 5px; border-radius: 5px; border-collapse:separate;"
+);
+@]***
+
+END_PGML
+
+
+ANS($Q[0][5]->cmp());
+ANS($Q[1][5]->cmp());
+ANS($Q[2][5]->cmp());
+
+
+
+
+ENDDOCUMENT();

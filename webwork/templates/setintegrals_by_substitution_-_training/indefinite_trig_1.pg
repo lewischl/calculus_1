@@ -1,0 +1,159 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by tda2d
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Techniques of integration)
+## DBsection(Substitution (with trigonometric functions))
+## Date(6/3/2002, Summer 2023)
+## Author(Unknown, then silviana amethyst)
+## Institution(OSU, UWEC 2023)
+## MLT(lnasinb)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('1')
+## Section1('5.6')
+## Problem1('57')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('5.5')
+## Problem2('')
+## KEYWORDS('integral' 'substitution','integrals', 'substitution', 'substitution rule','Calculus', 'Riemann Integral','Integral', 'Indefinite', 'Trigonometry')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/5.7/indefinite_trig_1.pg 
+#	to setintegrals_by_substitution/indefinite_trig_1.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_by_substitution/indefinite_trig_1.pg 
+#	to setintegrals_by_substitution_-_training/indefinite_trig_1.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl",
+  "contextFraction.pl",
+);
+loadMacros("parserFormulaUpToConstant.pl");
+
+Context("Fraction-NoDecimals");
+Context()->variables->add(u=>"Real");
+Context()->variables->add(du=>"Real");
+
+$showPartialCorrectAnswers = 1;
+
+$a = random(2,6,1);
+$b = random(2,8,1);
+$c = $a * $b;
+
+$power = 3; # actually, -3
+$u = Formula("$b sin x + $c");
+$u_prime = $u->D;
+$dx = Formula($u_prime * "du");
+$integral_after_subbing = Formula("1/$b * (u)^(-$power) * du");
+$ans = FormulaUpToConstant("1/($b*(-($power-1)) )*($u)^(-($power-1)) ");
+
+TEXT(beginproblem());
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on 
+* choosing [`u`] for integration by substitution
+* an alternative method for dealing with differentials
+[@ closeDiv() @]*
+
+This video from Prof. Amethyst discusses how to choose [`u`]
+
+[@ youtube("8olYBx2E17E") @]*
+
+---
+
+I also want to talk in this problem about a way to deal with differentials in substitution.
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*A process for integration by substitution*
+
+1. Choose or try a [`u`].  Substitute.
+2. Compute [`dx = \frac{du}{u'(x)}`].  (This is just [`\frac{du}{dx} = u'`] re-written.)
+3. Substitute the differential [`dx = \frac{du}{u'}`] into the integral for [`dx`]
+4. Cancel and simplify.
+5. Integrate.
+
+[@ closeDiv() @]*
+
+For example, let's solve [`\int x e^{x^2} dx`] using this technique.
+
+1. [`u(x)`] = [`x^2`] (the inside thing!)
+2. [``dx = \frac{du}{u'} = \frac{du}{2x}``]
+3. [``\int x e^{x^2} dx = \int x e^u \, \frac{du}{2x}``], after substituting [`u`] and [`dx`] away
+4. [``\int x e^u \, \frac{du}{2x} = \int \frac{1}{2} e^u \, du``] after simplifying.  ℹ️ All the [`x`]'s *will* cancel
+5. [``\int \frac{1}{2} e^u \, du = \frac{e^{u}}{2}  + C = \frac{e^{x^2}}{2}  + C``] after integrating.
+
+---
+
+END_PGML
+
+
+BEGIN_TEXT
+Evaluate the indefinite integral using the above technique.  
+\[ \int \frac{\cos x}{($u)^3} \, dx \]
+
+$PAR
+\( u(x) = \) \{ ans_rule \}
+
+$PAR
+
+\( u'(x) = \) \{ ans_rule \}  $SPACE (take the derivative) $PAR
+
+\( dx = \) \{ ans_rule \}  $SPACE (a fraction involving \(du\) and \(u'\)) $PAR
+
+After substituting \(u\) and \(dx\) into the integral, the integral is just in terms of \(u\) and \(du\): $BR
+\(\displaystyle \int \) \{ans_rule( 30) \} 
+$PAR
+Concluding, $BR
+\(\displaystyle \int \frac{\cos x}{($u)^3} \, dx = \) \{ans_rule( 30) \}
+
+
+END_TEXT
+
+Context()->normalStrings;
+
+ANS($u->cmp);
+ANS($u->D->cmp);
+ANS($dx->cmp);
+ANS($integral_after_subbing->cmp);
+ANS($ans->cmp);
+
+##set $PG_environment{'textbook'} in webworkCourse.ph
+if (defined($textbook)) {
+   if ($textbook eq "EllisGulick5") {
+BEGIN_TEXT
+END_TEXT
+}
+}
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

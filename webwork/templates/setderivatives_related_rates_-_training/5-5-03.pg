@@ -1,0 +1,111 @@
+## DESCRIPTION
+## Early Related Rates
+## ENDDESCRIPTION
+
+## Tagged by XW
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Related rates)
+## Institution(ASU)
+## MLT(RelatedRate-FunctionGiven)
+## Level(3)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('3.10')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('3.9')
+## Problem2('')
+## KEYWORDS('calculus', 'derivative', 'implicit', 'related rates')
+
+
+
+########################################
+# this file automatically moved
+#	from Library/ASU-topics/setImplicitDerivatives/5-5-03.pg 
+#	to setderivatives_applied_for_related_rates/5-5-03.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_applied_for_related_rates/5-5-03.pg 
+#	to setderivatives_related_rates_-_training/5-5-03.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem continues training you on methods for solving problems where we don't have explicit functions, but we still want to know information about values of derivatives.
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A general practice for finding a value of a derivative when we have implicit functions and an equality relationship:
+
+1. Differentiate the equality with respect to time.  Be sure to chain out time derivatives!
+2. Substitute in known information
+3. Solve for the desired quantity using algebra.
+
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+$a = random(1,5,1);
+$b = random(1,5,1);
+$c = non_zero_random(-5,5,1);
+$d = $a**2 + $b**2;
+BEGIN_TEXT
+
+
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
+
+Suppose that \(x = x(t)\) and \(y=y(t)\) are both functions of
+\(t\), and that they are related via the equation
+\[
+    x^2 + y^2 = $d,
+\]
+Also, when \(x = $a\) and \(y = $b\) we know that \(x\) is changing as \(dx/dt = $c\).
+
+\{ closeDiv() \} 
+$PAR
+
+How fast is \(y\) changing?  That is, what's the value of \(dy/dt\)?
+$BR
+$BR
+\(dy/dt\) = \{ans_rule(20) \}
+$BR
+
+END_TEXT
+
+$ans = -$a*$c/($b);
+ANS(num_cmp($ans));
+
+ENDDOCUMENT();

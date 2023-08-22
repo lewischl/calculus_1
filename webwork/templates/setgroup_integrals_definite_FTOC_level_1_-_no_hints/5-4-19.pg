@@ -1,0 +1,96 @@
+## DESCRIPTION
+## Calculus: Indefinite Integrals and the Net Change Theorem
+## ENDDESCRIPTION
+
+## Tagged by XW
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Integrals)
+## DBsection(Definite integrals (without trigonometric functions))
+## Date(6/3/2005)
+## Institution(UVA)
+## Author(Jeff Holt)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('5.4')
+## Problem1('19')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('5.4')
+## Problem2('')
+## KEYWORDS('calculus', 'indefinite integrals', 'net change theorem')
+
+
+
+########################################
+# this file automatically moved
+#	from Library/UVA-Stew5e/setUVA-Stew5e-C05S04-IndefInts/5-4-19.pg 
+#	to setgroup_integrals_eval_integral_-_no_hints/5-4-19.pg 
+#	on 2023-06-08 15:17:56.142406 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setgroup_integrals_eval_integral_-_no_hints/5-4-19.pg 
+#	to setgroup_integrals_definite_FTOC_level_1_-_no_hints/5-4-19.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "contextFraction.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a = random(2,6,1);
+$b = random(2,6,1);
+$c = random(2,6,1);
+
+TEXT(EV2(<<EOT));
+
+Evaluate the definite integral:
+$BR
+$PAR
+   \( \displaystyle{ \int_{-$a}^{$b} \left($c x - e^x\right) \,dx} = \)
+   \{ans_rule(35) \}
+EOT
+
+$ans = $c*($b**2-$a**2)/2-(exp($b)-exp(-$a));
+ANS(num_cmp($ans));
+
+Context("Fraction");
+$c2=Compute("$c/2");
+$A=Compute("$c2*( $b)*($b)-$c2*$a*$a");
+if ($c2==1) {$c2 =''};
+if ($A==0) {$A =''};
+Context()->texStrings;
+BEGIN_SOLUTION
+$PAR SOLUTION $PAR
+\[ \begin{array}{rcl} \displaystyle \int_{-$a}^{$b} \left($c x - e^x\right) \,dx
+& =& \displaystyle    $c2 x^2 - e^x\Big]_{-$a}^{$b} 
+\\ & =&  \left( $c2  ($b)^2 - e^{$b}\right) - \left( $c2 (-$a)^2 - e^{-$a}\right) 
+\\ &=& $A-e^{$b}+e^{-$a}
+\end{array}
+\]
+END_SOLUTION
+
+ENDDOCUMENT();

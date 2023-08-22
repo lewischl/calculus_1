@@ -1,0 +1,156 @@
+########################################
+# this file automatically moved
+#	from local/Library/ma122DB/set10/s4_10_12.pg 
+#	to setintegrals_initial_value_problems/s4_10_12.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_initial_value_problems/s4_10_12.pg 
+#	to setintegrals_initial_value_problems_-_training/s4_10_12.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl",
+  "contextFraction.pl",
+  "parserFormulaUpToConstant.pl",
+);
+
+Context("Fraction-NoDecimals");
+   Context()->noreduce('(-x)-y');
+   Context()->noreduce('(-x)-y','(-x)+y');
+   
+Context()->variables->add(t => "Real");
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a1 = random(2,10,1);
+$b1 = random(2,10,1);
+$n1 = random(2,3,1);
+$p1 = random(2,5,1);
+
+$f = Fraction("$a1 sec ^2(t) - $b1 t^ { $n1 }")->reduce;
+
+$a = 0;# x-coord
+$Fofa = non_zero_random(-5,5,1); # y-coord of given point
+
+
+$n2=$n1+1;
+$b2=$b1/$n2;
+$F_str = "$a1 * tan(t) - ($b1*t^$n2)/$n2";
+$F_for_eval = Formula($F_str); # no constant added
+
+$C = $Fofa - $F_for_eval->eval(t=>$a); 
+
+$F_general = FormulaUpToConstant($F_str)->reduce;
+$F_particular = Formula($F_str)+$C;
+
+if ($F_particular->eval(t=>$a) != $Fofa){
+TEXT("❌❌❌❌❌❌ BAD CONSTANT OF INTEGRATION" . $BR);
+TEXT($F_particular->eval(t=>$a) . " should equal " . $Fofa . $BR);
+}
+
+Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Differential equations and initial value problems feel a bit more natural if they use [`t`] as the variable,  since as humans we often experience change over time.  
+
+This problem offers training on an IVP with a slightly unfamiliar function
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*Steps to solve an initial value problem*
+
+1. Write down the differential equation, [`\frac{dF}{dt} = f(t)`]
+2. Integrate.
+    1. Move the [`dt`] to the other side to get [`dF = f(t) \, dt`]
+    2. Integrate both sides.  You'll have [`F = \int f(t) \, dt`]
+    3. Integrate [`f(t)`], and include the constant of integration [`C`].  Now you have [`F_\textnormal{general}`].
+3. Use the given point on the curve [`F`] to find the value of [`C`]
+    1. Substitute [`x=a`] into [`F_\textnormal{general}`], and set equal to [`F(a)`].
+    2. Solve
+4. Replace [`C`] with its now-known value to obtain [`F`]
+[@ closeDiv() @]*
+
+---
+
+
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Let [` f(t) =  [$f]  `].
+Find an antiderivative, [`F(t)`], of [`f(t)`] such that [` F([$a]) = [$Fofa] `].  
+[@ closeDiv() @]*
+
+🎯 First, find the general solution, with yet-unknown constant of integration, by integrating the given [`f(t)`].
+
+[`F_\textnormal{general} = `] [_]{$F_general}
+
+🎯 Plug in to [`F_\textnormal{general}`] to find the value of [`C`]
+
+[`C = `] [_]{$C}
+
+🎯 Put together.  The particular function [`F`] that satisfies this IVP is 
+
+[`F(t)=`] [_]{$F_particular}
+
+END_PGML
+
+
+
+BEGIN_HINT
+What trig function has derivative \(\sec^2\) ?
+END_HINT
+
+
+
+#SOLUTION(EV3(<<'EOF'));
+#$SOL $BR
+#
+#Recall that for a term of the form \( Ax^n \) the antiderivative is
+#just the term whose derivative is \( Ax^n \).  That is, 
+#\(\frac{A}{n+1}x^{n+1} + C \) where \( C \) is an unknown constant.  Also,
+#recall that the antiderivative of the \( \sec^2 \) function is the \( \tan \)
+# function.  Applying these rules term-by-term to our function, we get:
+#$BR$BR
+#
+#\[F(t) = $a1\tan{t} - \frac{$b1}{\{$n1+1\}}t^{\{$n1+1\}} + C\]
+#\[\quad = $a1\tan{t} - \{$b1/($n1+1)\}t^{\{$n1+1\}} + C \]
+#
+#$BR$BR
+#
+#Where \( C \) is an artibrary constant.  We are further told that \( F(0) =
+#0 \) so plugging this into the above general antiderivative, we get:
+#$BR$BR
+#
+#\[ F(0) = $a1\tan{0} - \{$b1/($n1+1)\}(0)^{\{$n1+1\}} + C = 0 \]
+# 
+#$BR$BR
+#
+#So that the specific antiderivative is:
+#\[
+#  F(t) = $a1\tan{t} - \{$b1/($n1+1)\}t^{\{$n1+1\}}
+#\]
+#
+#EOF
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

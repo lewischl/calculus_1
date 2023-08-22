@@ -1,0 +1,151 @@
+#Problem APEX 1.6.14
+
+
+
+########################################
+# this file automatically moved
+#	from Library/Valdosta/APEX_Calculus/1.6/APEX_1.6_14.pg 
+#	to setlimits_extra_practice/APEX_1.6_14.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_extra_practice/APEX_1.6_14.pg 
+#	to setlimits_at_infinity_-_training/APEX_1.6_14.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+# Load whatever macros you need for the problem
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGgraphmacros.pl",
+  "parserPopUp.pl",
+  "PGcourse.pl",
+  "customCSS.pl",
+);
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Limits at infinity, horizontal and oblique asymptotes)
+## Institution(Valdosta State University)
+## Author(S. V. Ault)
+## Level(2)
+## TitleText1('APEX Calculus')
+## AuthorText1('Hartman')
+## EditionText1('3.0')
+## Section1('1.6')
+## Problem1('14')
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+
+#####################################################################
+
+$a = random(2,5,1);
+$b = random(1,9,1);
+$b1 = $b + 1;
+$xmin = -5;
+$ymin = -10;
+$xmax = 5;
+$ymax = 50;
+
+$w = 400;  # graph size
+$tw = 500; # graph size in TeX
+
+$graph1 = init_graph($xmin,$ymin,$xmax,$ymax,'axes'=>[0,0],
+  'ticks'=>[10,6],'grid'=>[10,6],'size'=>[500,500]);
+
+$p1 = FEQ("$a^x + $b for x in [$xmin,$xmax] 
+  using color:blue weight:2");
+
+plot_functions($graph1,$p1);
+
+Context("Numeric");
+
+$ans_a = Real($b);
+$ans_b = Infinity;
+$ans_c = Real($b1);
+
+###############################################################
+Context()->texStrings;
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This graphical problem gets us thinking about growth as a process evolves.  
+
+This is an exponential function, modeling growth where the rate of growth is propotional to how much there is.  
+* Bacteria in an unconstrained environment do this
+* Covid-19 did this at the beginning of the pandemic in 2020, until we stopped it by staying home.
+
+[@ closeDiv() @]*
+
+END_PGML
+BEGIN_TEXT
+$BCENTER
+\{image(insertGraph($graph1),width=>$w,height=>$w,tex_size=>$tw)\}
+$ECENTER $PAR
+$HR
+END_TEXT
+BEGIN_PGML
+Back in 2.2, we briefly touched on *limits at infinity*. Here is an introduction to what those are with a couple examples:
+
+[@ kalturaShull("1_gavhsox7") @]*
+
+END_PGML
+BEGIN_TEXT
+Evaluate the given limits using the graph of the function \( f(x) = \displaystyle $a^x + $b \) shown above.
+$BR
+Enter $BBOLD DNE $EBOLD if the limit does not exist.
+
+$PAR 
+Click on the picture to expand to a larger picture.
+
+$PAR
+\(\displaystyle \lim_{x \to -\infty} f(x)\) = \{ ans_rule(8) \}
+
+$PAR
+ \(\displaystyle \lim_{x \to \infty} f(x)\) = \{ ans_rule(8) \}
+ 
+$PAR
+\(\displaystyle \lim_{x \to 0} f(x)\) = \{ ans_rule(8) \}
+END_TEXT
+
+Context()->normalStrings;
+
+#####################################################################
+
+BEGIN_SOLUTION
+
+\[
+  \lim_{x \to -\infty} ($a^x + $b) = 0 + $b = $b.
+\]
+\[
+  \lim_{x \to \infty} ($a^x + $b) = \infty.
+\]
+\[
+  \lim_{x \to 0} ($a^x + $b) = $a^0 + $b = 1 + $b = $b1.
+\]
+END_SOLUTION
+
+
+ANS( $ans_a->cmp );
+ANS( $ans_b->cmp );
+ANS( $ans_c->cmp );
+
+ENDDOCUMENT();    

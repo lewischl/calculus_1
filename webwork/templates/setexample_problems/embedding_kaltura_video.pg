@@ -1,0 +1,64 @@
+DOCUMENT();
+
+
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+
+COMMENT("example of: embedding Kaltura videos.  The macros used are defined *outside* this problem file :)");
+
+BEGIN_PGML
+
+there should be a video below which starts at time 0 (the default start time):
+
+[@
+kalturaShull("1_ro5sw2il");
+@]*
+
+
+---
+
+
+there should be a video below which, when played, start at 75 seconds (the displayed image is NOT the image at the start time -- this is Kaltura's fault):
+
+[@
+kalturaShull("1_ro5sw2il", 75);
+@]*
+
+[@ 
+textShull("some text that will be filtered away if $instructor_shull not in the array of shown videos");
+@]*
+
+---
+
+
+there should be a video below which, when played, start at 75 seconds (the displayed image is NOT the image at the start time -- this is Kaltura's fault):
+
+[@
+kalturaAmethyst("0_lx8gheh6",75);
+@]*
+
+[@ 
+textAmethyst("some text that will be filtered away if $instructor_amethyst not in the array of shown videos");
+@]*
+
+
+
+---
+
+A Kaltura video should be below, regardless of who's in the [|wantVideosFrom|]* global configuration array variable, starting from 75 seconds
+
+[@
+kaltura("0_lx8gheh6",75);
+@]*
+
+END_PGML
+
+ENDDOCUMENT();
+

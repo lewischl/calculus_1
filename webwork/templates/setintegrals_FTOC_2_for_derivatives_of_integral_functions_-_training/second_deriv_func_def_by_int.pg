@@ -1,0 +1,158 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by cmd6a 4/26/06
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Integrals)
+## DBsection(Fundamental theorem of calculus)
+## Date(6/3/2002)
+## Level(3)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('1')
+## Section1('5.4')
+## Problem1('19')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('5.3')
+## Problem2('5 6 7 8 9 10 11 12 13 14 15 16 51')
+## KEYWORDS('Calculus', 'Riemann Integral','integrals', 'fundamental theorem of calculus')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/5.4_5.5_FTC/second_deriv_func_def_by_int.pg 
+#	to setintegrals_FTOC_2_for_derivatives_of_integral_functions/second_deriv_func_def_by_int.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_FTOC_2_for_derivatives_of_integral_functions/second_deriv_func_def_by_int.pg 
+#	to setintegrals_FTOC_2_for_derivatives_of_integral_functions_-_training/second_deriv_func_def_by_int.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Numeric");
+Context()->variables->add(t=>"Real");
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on 
+* Second derivatives of integral functions
+[@ closeDiv() @]*
+
+An integral function is a function defined by an integral, with variables in the bounds of integration:
+
+[```
+F(x) = \int_{a(x)}^{b(x)} f(t)\, dt
+```]
+
+We're studing area functions at the moment: simple version with one bound constant and the other just equal to [`x`] to keep it simple.
+
+The FTOC2 tells us how to take derivatives of area functions:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*Fundamental Theorem of Calculus, Part 2* (FTOC2)
+
+[``` \begin{aligned}
+\frac{d}{dx} A(x) &= \frac{d}{dx} \left( \int_a^x f(t) \, dt \right) \\ &= f(x)
+\end{aligned}
+```]
+
+
+ℹ️ The derivative of the integral, is the integrand.
+[@ closeDiv() @]*
+
+After the first derivative, we're back to just a regular function, so a second derivative is plain old differentiation.
+
+
+---
+
+Use the FTOC2 and differentiation to compute the first and second derivatives:
+
+END_PGML
+
+
+$b = random(2,7,1);
+$c = random(1,7,1);
+$ft = Formula("t^3 +$b t^2 + $c");
+$fx = Formula("x^3 +$b x^2 + $c");
+$fxp = $fx->D;
+Context()->texStrings;
+BEGIN_TEXT
+\( \displaystyle F(x) =  \int_0^x ($ft)\, dt \) $PAR
+\( F'(x) = \) \{ans_rule(20)\} $PAR
+\( F''(x) = \) \{ans_rule(20)\} $BR$PAR
+
+END_TEXT
+
+Context()->normalStrings;
+
+ANS($fx->cmp);
+ANS($fxp->cmp);
+
+
+
+
+$b = random(2,7,1);
+$c = random(1,7,1);
+$ft = Formula("5*t*sin(t)");
+$fx = Formula("5sin(x)*x");
+$fxp = $fx->D;
+Context()->texStrings;
+BEGIN_TEXT
+$PAR$BR
+\( \displaystyle F(x) =  \int_3^x ($ft)\, dt \) $PAR
+\( F'(x) = \) \{ans_rule(20)\} $PAR
+\( F''(x) = \) \{ans_rule(20)\} $BR$PAR
+
+END_TEXT
+
+Context()->normalStrings;
+
+ANS($fx->cmp);
+ANS($fxp->cmp);
+
+
+
+
+BEGIN_HINT
+
+
+\{amethystHint("See these two videos from Prof. Amethyst:$PAR")\}
+
+\{ youtubeAmethyst("1darfMH79B8") \}
+
+
+\{amethystHint("$PAR$HR$PAR")\}
+
+\{ youtubeAmethyst("Bej-78QbUs8") \}
+
+END_HINT
+ENDDOCUMENT();        # This should be the last executable line in the problem.

@@ -1,0 +1,47 @@
+assignmentType      = default
+openDate          = 09/02/2023 at 03:21am CDT
+reducedScoringDate = 09/02/2023 at 03:21am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
+enableReducedScoring = Y
+paperHeaderFile   = defaultHeader
+screenHeaderFile  = headers/Header_training.pg
+description       = undeveloped.  skip.  not that important.
+restrictProbProgression = 0
+emailInstructor   = 0
+
+problemListV2
+problem_start
+problem_id = 1
+source_file = setderivatives_of_inverse_and_hyperbolic_trig_functions_-_training/inverse-trig-v1.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 2
+source_file = setderivatives_of_inverse_and_hyperbolic_trig_functions_-_training/inverse-trig-v2.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 3
+source_file = setderivatives_of_inverse_and_hyperbolic_trig_functions_-_training/inverse-trig-v3.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+

@@ -1,0 +1,150 @@
+# DESCRIPTION
+# Preview Activity from _Active Calculus_ by Matthew Boelkins
+# ENDDESCRIPTION
+
+## DBsubject('Calculus - single variable')
+## DBchapter('Limits and continuity')
+## DBsection('Finding limits using graphs')
+## KEYWORDS('limit', 'continuity')
+## TitleText1('Active Calculus')
+## EditionText1('2015')
+## AuthorText1('Matthew Boelkins')
+## Section1('1.2')
+## Problem1('Preview Activity 1.2a')
+## Author('David Hunter')
+## Institution('Westmont College')
+## RESOURCES('preview_1_2.png')
+
+DOCUMENT();
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"PGgraphmacros.pl",
+"parserRadioButtons.pl",
+"parserPopUp.pl",
+"scaffold.pl",
+);
+
+Context("Numeric");
+Context()->strings->add(A => {}, B => {}, C => {}, D => {}, E => {}, F => {}, G => {});
+
+$ansGn2 = Compute("0");
+$ansGn1 = Compute("3");
+$ansG0 = Compute("1");
+$ansG1 = Compute("3");
+$ansG2 = Compute("DNE");
+
+$ansLimn1 = Compute("3");
+$ansLim0 = Compute("4");
+$ansLim2 = Compute("1");
+
+$ansLimleft = Compute("3");
+$ansLimright = Compute("2");
+$ansLim = Compute("DNE");
+
+
+$refreshCachedImages=1;
+
+Scaffold::Begin(
+      can_open => "when_previous_correct",
+      is_open  => "first_incorrect"
+    );
+
+TEXT(beginproblem());
+Context()->texStrings;
+
+BEGIN_TEXT
+Suppose that \(g\) is the function given by the graph below. 
+$PAR
+$BCENTER
+\{ image( "preview1_2image.png", width=>369, height=>337,  
+tex_size=>700, extra_html_tags=>'alt="Graph of a function."' ) \}
+$ECENTER
+END_TEXT
+
+Section::Begin("Part a");
+BEGIN_TEXT
+Use the graph to
+determine the values \(g(-2)\), \(g(-1)\), \(g(0)\), \(g(1)\), and \(g(2)\), if defined. If the function
+value is not defined, enter DNE (for "does not exist").
+$PAR
+\( g(-2) = \)
+\{ ans_rule(10) \}
+$PAR
+\( g(-1) = \)
+\{ ans_rule(10) \}
+$PAR
+\( g(0) = \)
+\{ ans_rule(10) \}
+$PAR
+\( g(1) = \)
+\{ ans_rule(10) \}
+$PAR
+\( g(2) = \)
+\{ ans_rule(10) \}
+$PAR
+
+END_TEXT
+Context()->normalStrings;
+
+ANS( $ansGn2->cmp() );
+ANS( $ansGn1->cmp() );
+ANS( $ansG0->cmp() );
+ANS( $ansG1->cmp() );
+ANS( $ansG2->cmp() );
+Context()->texStrings;
+
+Section::End();
+
+Section::Begin("Part b");
+BEGIN_TEXT
+$PAR
+As \(x\) gets closer and closer (but not equal) to \(-1\), \(g(x)\) gets as close
+as we want to \{ ans_rule(5) \}.
+$PAR
+As \(x\) gets closer and closer (but not equal) to \(0\), \(g(x)\) gets as close
+as we want to \{ ans_rule(5) \}.
+$PAR
+As \(x\) gets closer and closer (but not equal) to \(2\), \(g(x)\) gets as close
+as we want to \{ ans_rule(5) \}.
+$PAR
+END_TEXT
+Context()->normalStrings;
+
+ANS( $ansLimn1->cmp() );
+ANS( $ansLim0->cmp() );
+ANS( $ansLim2->cmp() );
+Context()->texStrings;
+
+Section::End();
+
+Section::Begin("Part c");
+BEGIN_TEXT
+$PAR
+As \(x\) gets closer and closer to (but stays less than)  \(1\), \(g(x)\) gets as close
+as we want to \{ ans_rule(5) \}.
+$PAR
+As \(x\) gets closer and closer to (but stays greater than)  \(1\), \(g(x)\) gets as close
+as we want to \{ ans_rule(5) \}.
+$PAR
+As \(x\) gets closer and closer (but not equal) to \(1\), does \(g(x)\) get as close
+as we want to a single value? If such a value exists, enter it. If no such value exists,
+enter DNE.  $BR
+\(g(x)\) gets close to \{ ans_rule(5) \}
+$PAR
+
+END_TEXT
+Context()->normalStrings;
+ANS( $ansLimleft->cmp() );
+ANS( $ansLimright->cmp() );
+ANS( $ansLim->cmp() );
+
+Context()->texStrings;
+
+Section::End();
+Scaffold::End();
+
+
+
+ENDDOCUMENT();
+

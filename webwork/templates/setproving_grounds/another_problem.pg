@@ -1,0 +1,84 @@
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",        # the new parser
+"parserPopUp.pl",
+   "scaffold.pl",
+  "PGcourse.pl",           # Customization file for the course
+);
+
+TEXT(beginproblem());
+
+###################################
+#
+#  The formulas to use (allow trig functions here)
+#
+
+Context("Numeric");
+
+Context()->strings->add( sine=>{}, cosine=>{}, tangent=>{}, secant=>{}, cosecant=>{}, cotangent=>{} );
+Context()->strings->add( sin=>{alias=>"sine"}, cos=>{alias=>"cosine"}, tan=>{alias=>"tangent"}, sec=>{alias=>"secant"}, csc=>{alias=>"cosecant"}, cot=>{alias=>"cotangent"} );
+$ans2 = List("sine","cosine");
+$popup = PopUp(["?", "continuous", "bounded", "periodic"], "bounded");
+
+
+
+###################################
+# Main text
+###########################################
+#  The scaffold
+Scaffold::Begin();
+###########################################
+Section::Begin("Part 1: amplitude");
+Context()->texStrings;
+BEGIN_TEXT
+
+By definition of ${BITALIC}amplitude${EITALIC}, in order for a function to have an amplitude the function must be \{ $popup->menu() \}.  
+$BR$BR
+NOTE: You must answer this part correctly before part 2 will be displayed.
+END_TEXT
+BEGIN_HINT
+The definition of amplitude is the maximum distance between a peak or valley and the mean value of a function.
+END_HINT
+Context()->normalStrings;
+
+###################################
+# Answer checking
+
+$showPartialCorrectAnswers = 0;
+ANS( $popup->cmp() );
+Section::End();
+
+Section::Begin("Part 2: Which ones?");
+
+Context()->texStrings;
+BEGIN_TEXT
+
+List all of the trig functions that are bounded. $BR
+$BR
+
+\{ ans_rule(40) \}$BR
+$BR
+(Valid responses are: ${BBOLD}sine${EBOLD}, ${BBOLD}cosine${EBOLD}, ${BBOLD}tangent${EBOLD}, ${BBOLD}secant${EBOLD}, ${BBOLD}cosecant${EBOLD}, and ${BBOLD}cotangent${EBOLD}. Enter each of your answers separated by commas. Make sure you watch your spelling!)
+
+END_TEXT
+
+BEGIN_HINT
+Bounded means that the range has both an absolute maximum and an absolute minimum.
+END_HINT
+Context()->normalStrings;
+
+###################################
+# Answer checking
+
+ANS( $ans2->cmp() );
+Section::End();
+
+  Scaffold::End();
+
+
+###################################
+
+COMMENT('MathObject version');
+ENDDOCUMENT();

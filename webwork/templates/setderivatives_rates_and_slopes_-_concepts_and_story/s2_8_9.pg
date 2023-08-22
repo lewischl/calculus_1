@@ -1,0 +1,127 @@
+##DESCRIPTION
+##  Find the equation of a tangent line at a point by finding its derivative
+##  at that point
+##ENDDESCRIPTION
+
+## Shotwell cleaned
+## tcao , PAID on 11-24-2003
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Derivatives of polynomials and power functions)
+## Date(6/3/2002)
+## MLT(Poly_invert_tangent)
+## MLTleader(1)
+## Level(2)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('2.7')
+## Problem1('10')
+## KEYWORDS('tangent line', 'derivatives')
+## MO(1)
+
+
+
+########################################
+# this file automatically moved
+#	from Library/ma122DB/set3/s2_8_9.pg 
+#	to setderivatives_derivative_basics/s2_8_9.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_derivative_basics/s2_8_9.pg 
+#	to setderivatives_rates_and_slopes_-_concepts_and_story/s2_8_9.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+Context("Numeric");
+$showPartialCorrectAnswers = 1;
+
+$a1 = random(1,8,1);
+
+
+$x1=0;
+while ($x1==0) {
+  	$x1 = random(-5,5,1);
+}
+$y1 = $a1/$x1;
+$m1 = -$a1/($x1)**2;
+$ans2 = Compute("$y1 -($m1*$x1)");
+$ans1 = Compute("-($a1)/($x1)^2");
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+Derivatives of fractions with [`x`] in the bottom often give trouble.  This problem teaches a technique to deal with it.
+
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+[` \frac{d}{dx} x^n = n x^{n-1}`]
+
+[` \frac{1}{x} = x^{-1} `]
+[@ closeDiv() @]*
+
+
+Rewrite the fraction using a negative power, then use the power rule.
+
+---
+
+END_PGML
+
+BEGIN_TEXT
+Let \( \displaystyle f(x) = \frac{$a1}{x} \). 
+
+$PAR
+
+Compute \( f'( $x1 ) \).
+$BR
+\( f'( $x1 )  = \) \{ ans_rule(20) \}
+
+$PAR
+
+What is the slope of the line tangent to \(f\) at \(x = $x1\)?  
+$BR
+The slope is \{ ans_rule(20) \}
+
+
+$PAR
+
+If \(f\) models the amount of a toxin in grams at position \(x\), and the unit of \(x\) is meters, what's the rate of toxin per meter when \(x = $x1\)?  
+$BR
+The rate is \{ ans_rule(20) \} grams per meter.
+
+END_TEXT
+
+ANS($ans1->cmp);
+ANS($ans1->cmp);
+ANS($ans1->cmp);
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

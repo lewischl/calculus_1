@@ -1,0 +1,162 @@
+## this file copied from Chris Hlas's Math114 content, Summer 2022, by permission of Chris Hlas
+## this automatic process executed by silviana amethyst
+## original filename local/Library/UMN/calculusStewartCCC/s_2_4_prob03.pg
+
+#DESCRIPTION
+##  Calculus: Continuity
+##ENDDESCRIPTION
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Continuity - concept of)
+## Date(6/3/2002)
+## Institution(University of Minnesota)
+## Author(Justin Sukiennik)
+## Level(4)
+## MO(1)
+## TitleText1('Calculus: Concepts and Contexts')
+## AuthorText1('Stewart')
+## EditionText1('4 Custom UMTYMP Ed.')
+## Section1('2.4')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('2.5')
+## Problem2('40')
+## KEYWORDS('calculus', 'function', 'continuous','continuity')
+
+#####################################################################
+
+
+########################################
+# this file automatically moved
+#	from local/Library/UMN/calculusStewartCCC/s_2_4_prob03.pg 
+#	to setlimits_continuity/s_2_4_prob03.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_continuity/s_2_4_prob03.pg 
+#	to setlimits_continuity_-_training_-_making_piecewise_functions_continuous/s_2_4_prob03.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+#one video added by Warren Shull 2023-08-14
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "parserPopUp.pl",
+  "MathObjects.pl",
+  "PGgraphmacros.pl",
+  "PGcourse.pl",
+  "PGML.pl",
+  "customCSS.pl",
+);
+#####################################################################
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 0;
+
+#####################################################################
+
+$a = random(1,10,1);
+$c = random(1,5,1);
+
+$b = 2* $c;
+$d = ($c)**2 + $a;
+
+$ans = Compute("$c");
+
+###############################################################
+Context()->texStrings;
+
+$showHint=-1;
+
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+In this problem, we're given a piecewise function, and the transition point [`c`] is as-of-yet undetermined.  
+
+The function will be continuous if the two pieces meet at the transition point with no jump.  We want to find this special transition point.
+[@  closeDiv() @]*
+END_PGML
+
+BEGIN_TEXT
+$PAR
+
+Here are two videos. The first, from Prof. Amethyst, is a conceptual video illustrating how "making a piecewise function continuous" might look on a graph. The second, from Prof. Shull, contains a couple examples of algebraically finding the unknown constant that makes the function continuous.
+
+$PAR
+
+\{ youtube("DdKDfIuSN30")\}
+
+$PAR
+
+END_TEXT
+
+BEGIN_PGML
+
+[@
+kalturaShull("1_bs5h774b")
+@]*
+
+END_PGML
+
+BEGIN_TEXT
+
+$HR
+$PAR
+
+Like Desmos?  So do I!  Check out \{htmlLink( "https://www.desmos.com/calculator/5ipcr9hiec", "this Desmos graph" )\}, where you can change the left and right functions, and the transition point, and play with the graph.
+
+
+$PAR
+$HR
+$PAR
+
+\{ openDiv({ "class" => "importantFormula" })  \}
+To find a transition point that would make a piecewise function continuous, 
+$PAR
+1. plug in the name for the transition point to both pieces $BR
+2. set them equal to each other $BR
+3. solve $PAR
+
+and conclude by checking your work.
+\{ closeDiv() \}
+
+$PAR
+
+For what value of the constant \(c\) is the function \(f\) continuous?
+\[
+f(x) = \begin{cases}
+x^2-$a, &x \le c\\
+$b x - $d, &x > c\\
+\end{cases}
+\]
+\(c = \) \{ans_rule(20)\}
+
+
+END_TEXT
+
+Context()->normalStrings;
+
+#####################################################################
+
+ANS($ans->cmp());
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

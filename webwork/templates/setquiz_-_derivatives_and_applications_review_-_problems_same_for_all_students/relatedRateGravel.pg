@@ -1,0 +1,116 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by tda2d
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Related rates)
+## Date(6/3/2002)
+## Institution(UCSB)
+## MLT(RelatedRate-ConePile)
+## MLTleader(1)
+## Level(5)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('3.9')
+## Problem1('25')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Rogawski')
+## EditionText2('1')
+## Section2('3.11')
+## Problem2('25')
+## TitleText3('Calculus: Early Transcendentals')
+## AuthorText3('Stewart')
+## EditionText3('5')
+## Section3('3.10')
+## Problem3('23')
+## KEYWORDS('derivative' 'related rates','derivatives', 'related rates','Differentiation','Product','Quotient')
+
+
+
+########################################
+# this file automatically moved
+#	from setExam_2-Team/relatedRateGravel.pg 
+#	to setderivatives_and_applications_review_quiz/relatedRateGravel.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_and_applications_review_quiz/relatedRateGravel.pg 
+#	to setquiz_-_derivatives_and_applications_review_-_problems_same_for_all_students/relatedRateGravel.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGunion.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+SRAND($team_exam2_seed);
+$setseed = "set.seed($team_exam2_seed); $team_exam2_seed";
+
+###################################
+# Setup
+
+$a = random(10,50,10);
+$h = random(10,25,1);
+
+###################################
+# Main text
+
+
+
+
+BEGIN_TEXT
+
+\{ image("2021 Milo Pile 4.jpg", width=>300, tex_size=>300, extra_html_tags=>'alt="Image of pile of granular material with a tractor, taken from https://seibertequity.com/happenings"' ); \} $BR
+
+$PAR
+
+
+Grain is being dumped from a conveyor belt at a rate of
+\($a\) ft\(^3\)/min. It forms a pile in the shape of a right circular
+cone whose base diameter is always twice the height of the cone.
+$PAR
+
+
+How fast is the height of the pile increasing when the pile is \($h\) feet high?
+$PAR
+The height is increasing at \{ans_rule(20) \} ft/min.
+$BR$BR
+
+Hint: $BR
+Use similar triangles to reduce the volume of a general cone to the volume of a cone with this shape, as a function of height, before differentiating with respect to time.
+END_TEXT
+###################################
+# Answers
+
+$showPartialCorrectAnswers = 1;
+
+$ans= $a/($h*$h*pi);
+
+ANS(Real($ans)->cmp);
+###################################
+
+
+
+ENDDOCUMENT();

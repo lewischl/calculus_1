@@ -1,0 +1,32 @@
+<!-- [coursesDirectory]/courseName/templates/course_info.txt -->
+
+<p>
+<h1>Calculus: The Language of Change</h1>
+</p>
+<hr>
+<p>
+A Webwork course based on multiple types of purpose-driven content:
+<ul>
+<li>🏋️ Training sets, offering direct instruction on skills</li>
+<li>🏔️ Challenge sets,  offering untimed experiences to facilitate deep thought on problems and questions requiring the skills taught in the training sets</li>
+<li>⏩ Speedrun sets, providing short-duration timed experiences.  These "skillchecks" appear for fundamental computational skills that will be used in later coursework.
+</ul>
+</p>
+<hr>
+<p>
+If you find a bug, something that doesn't look right, or other incorrect behaviour, please report it via email to your instructor, including the name of the homework set and the problem number. Screenshots of issues are very helpful, a  picture is worth a thousand words!
+</p>
+<h2>Credits</h2>
+<p>
+Content created by: 
+<ul>
+<li>Many mathematicians and teachers who have contributed to the Open Problem Library for Webwork, from whom others heavily derived</li>
+<li>Many other instructors at UWEC, including but not limited to silviana amethyst, Warren Shull, Chris Hlas, Carolyn Otto, Chris Ahrendt, Erich Jauch, and Andy Swanson</li>
+</ul>
+
+<p>
+University of Wisconsin - Eau Claire
+</p>
+
+
+

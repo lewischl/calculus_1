@@ -1,0 +1,76 @@
+#Problem 2.6.36
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.36.pg 
+#	to setlimits_of_trigonometric_functions/2.6.36.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_of_trigonometric_functions/2.6.36.pg 
+#	to setlimits_of_trigonometric_functions_-_training/2.6.36.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGgraphmacros.pl",
+  "PGcourse.pl", 
+  "customCSS.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$n=random(2,9,1);
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+A problem where it's useful to re-write from more complicated trig functions back to the basics: sine and cosine.
+
+[@ closeDiv() @]*
+
+Continue to use the identity  [`` \lim_{x \to \Box} \frac{\sin \Box}{\Box} = 1 ``], as well as skill in manipulating the pieces of fractions to put useful things together --- pulling things out, multiplying by [`1`], turning one fraction into two fractions, ... .
+
+---
+
+END_PGML
+BEGIN_TEXT
+Evaluate the limit, if it exists.  Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE$EBOLD.
+$PAR
+\(\displaystyle\lim_{t \to 0} \frac {\tan($n t)}{t \sec(t)}=\) \{ans_rule(25) \}
+
+
+END_TEXT
+
+#SOLUTION(EV3(<<'END_SOLUTION'));
+#$BR$BBOLD Solution:$EBOLD 
+#$BR
+#\( \lim\limits_{t \to 0} \frac {\tan $n t} {t \sec t} = \lim\limits_{t \to 0} \frac {$n \sin ($n t)}{$n t \cos ($n t) \sec (t)} = \lim\limits_{t \to 0} \frac {$n \cos(t)}{\cos ($n t)} \cdot  \frac {\sin($n t)}{$n t} = $n \). 
+#END_SOLUTION
+
+ANS( Compute($n)->cmp() );
+
+ENDDOCUMENT();
+
+#JustAsk

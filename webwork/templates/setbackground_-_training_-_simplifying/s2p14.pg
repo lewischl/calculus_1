@@ -1,0 +1,89 @@
+##DESCRIPTION
+##Arithmetic
+##ENDDESCRIPTION
+
+## DBsubject(Arithmetic)
+## DBchapter(Fractions/rational numbers)
+## DBsection(Addition/subtraction)
+## Institution(Univeristy of Utah)
+## Author(Utah ww group)
+## Level(3)
+## Static(1)
+## TitleText1('Intermediate Algebra')
+## AuthorText1('Ron Larson and Robert P. Hostetler')
+## EditionText1('4')
+## Section1('.')
+## Problem1('')
+## KEYWORDS('algebra')
+
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Utah/Intermediate_Algebra/set2_Fundamentals_of_Algebra/s2p14.pg 
+#	to setreview_simplifying/s2p14.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setreview_simplifying/s2p14.pg 
+#	to setbackground_-_training_-_simplifying/s2p14.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl"
+);
+
+COMMENT("todo: this problem uses hardcoded numbers.");
+TEXT(beginproblem());
+
+
+
+BEGIN_TEXT
+
+Find the fraction \(\frac{x}{y}\) (reduced to lowest terms)
+that satisfies this equation:
+
+\[\frac{1}{2} + \frac{x}{y} = \frac{5}{6}.\]
+
+\(x = \)\{ ans_rule(5) \} and $BR
+\(y= \)\{ ans_rule(5) \}
+
+
+
+END_TEXT
+
+ANS(num_cmp(1, mode=>"strict"));
+ANS(num_cmp(3, mode=>"strict"));
+
+
+
+SOLUTION(EV3(<<'EOT'));
+$BR
+$BBOLD Solution:$EBOLD
+\[\frac{x}{y} = \frac{5}{6}-\frac{1}{2} = \frac{5-3}{6} = \frac{2}{6} = \frac{1}{3}.\]
+EOT
+
+
+
+
+
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

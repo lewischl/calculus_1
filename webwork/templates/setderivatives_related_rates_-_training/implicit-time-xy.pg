@@ -1,0 +1,198 @@
+## DESCRIPTION
+##  Calculus: Related Rates
+## ENDDESCRIPTION
+
+## Tagged by YL
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Related rates)
+## Date(6/3/2002)
+## Institution(Univeristy of Utah)
+## Author(Utah ww group)
+## MLT(RelatedRate-FunctionGiven)
+## MLTleader(1)
+## Level(4)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('3.10')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('3.9')
+## Problem2('')
+## TitleText3('Calculus I')
+## AuthorText3('Jerrold Marsden and Alan Weinstein')
+## EditionText3('2')
+## Section3('Rates of Change and the Chain Rule')
+## Problem3('')
+## TitleText4('Calculus')
+## AuthorText4('Dale Varberg, Edwin J. Purcell, and Steven E. Rigdon')
+## EditionText4('9')
+## Section4('The Derivative')
+## Problem4('')
+## TitleText5('Calculus: Early Transcendentals')
+## AuthorText5('Rogawski')
+## EditionText5('1')
+## Section5('3.11')
+## Problem5('1')
+## KEYWORDS('derivatives', 'related rates','calculus')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/set3.10_related_rates/implicit-time-xy.pg 
+#	to setderivatives_applied_for_related_rates/implicit-time-xy.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_applied_for_related_rates/implicit-time-xy.pg 
+#	to setderivatives_related_rates_-_training/implicit-time-xy.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "contextFraction.pl",
+  "PGcourse.pl"
+);
+
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+
+Context()->variables->add(
+dx=>"Real", dy=>"Real", y=>"Real", 
+dt=>"Real", t=>"Real", 
+);
+
+
+$a1 = non_zero_random(-4,4,1);
+$b1 = non_zero_random(-4,4,1);
+$c1 = non_zero_random(-4,4,1);
+
+$deriv1 = -$c1*$c1*$b1/$a1;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Implicit differentiation can be used to help evaluate derivatives, when *several* variables are implicitly dependent on another.
+
+[@ closeDiv() @]*
+
+END_PGML
+
+
+BEGIN_TEXT
+
+$PAR$HR$PAR
+
+Let \(x = x(t)\) and \(y = y(t)\) both be implicit functions of time.  That means that they are functions, we just don't know their formulas.  This is pretty common.  I often cook in my oven 🍰, and it heats over time.  The temperature of the oven \(T\) is a function of time, so \(T = T(t)\). I just don't know its formula.  
+
+$PAR 
+
+Suppose \(x\) and \(y\) are related via an equation that says their product is always \($a1\):
+$BR \( xy = $a1 \) $PAR
+
+Finally, assume that we know the time-rate-of-change of \(y\): $BR 
+\(\displaystyle{ \frac { dy }{ dt } = $b1} \).
+
+$PAR
+
+Recall the basic principal of implicit differentiation
+
+\{ openDiv({ "class" => "importantFormula" }) \}
+If two things are equal, then their derivatives must always be equal
+\{ closeDiv() \}
+
+$PAR $HR $PAR
+
+Use implicit differentiation with respect to time \(t\) to differentiate the equation \(xy=$a1\) with respect to \(t\). Use the product rule.  $PAR
+
+$BCENTER
+
+\( xy = $a1 \) $BR
+\{ ans_rule(20) \} \( = \) \{ ans_rule(20) \}
+
+$ECENTER
+
+END_TEXT
+
+ANS(Formula("dx/dt*y + x*dy/dt")->cmp);
+ANS(Compute(0)->cmp);
+
+
+
+
+
+
+BEGIN_TEXT
+$PAR $HR $PAR
+
+To find \( \frac { dx }{ dt }  \) when  \( x = $c1 \):$BR
+• Substitute known quantities$BR
+• Use algebra to solve for \( \frac { dx }{ dt }\).
+
+$PAR
+\( \displaystyle{\frac { dx }{ dt } } \) = \{ans_rule(20) \}
+
+END_TEXT
+
+ANS(num_cmp($deriv1));
+
+
+
+
+
+
+
+BEGIN_HINT
+This problem is very similar to those from Section 3.8, Implicit Differentiation.
+$BR$BR
+Use the product rule to compute the derivative of both sides of the equation relating \(x\) and \(y\), with respect to time.  This leads to an equation relating \(x\) and \(y\) and their time-derivatives.   
+$BR$BR 
+Realize that if you know \(x\), then you know \(y\), since \(xy=$a1\).  
+$BR$BR
+Plug in the values for \(x\), and \(\frac { dy }{ dt }\) that you were given. Finally, solve for \(\frac{dx}{dt}\).
+END_HINT
+
+
+
+Context("Fraction");
+$y=Compute("$a1/$c1");
+$y1=Compute("-$c1/$y*$b1 ");
+Context()->texStrings;
+
+
+BEGIN_SOLUTION
+$PAR SOLUTION $PAR 
+Differentiating both sides of the equation \(x y = $a1 \) with respect to \(t\) gives
+\[  \frac{dx}{dt}y + x \frac{dy}{dt} = 0 \] 
+or \[  \frac{dx}{dt} = - \frac{x}{y} \frac{dy}{dt}  \]
+We  have \( y = \displaystyle \frac{$a1 }{x}\), so \(y = $y\)  when \(x = $c1\) .
+Substituting  \(y = $y, \; x= $c1\) and \( \displaystyle \frac{dy}{dt} = $b1\) in the expression for 
+\( \displaystyle \frac{dx}{dt} \), we get
+\[ \frac{dx}{dt} = - \frac{$c1}{$y} \cdot ($b1)  = $y1 \]
+END_SOLUTION
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

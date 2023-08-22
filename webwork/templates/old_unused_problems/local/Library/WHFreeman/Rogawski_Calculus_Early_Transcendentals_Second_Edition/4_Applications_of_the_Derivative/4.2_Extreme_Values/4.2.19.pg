@@ -1,0 +1,56 @@
+#Problem 4.2.19
+DOCUMENT();
+
+# Load whatever macros you need for the problem
+loadMacros("PG.pl",
+           "PGbasicmacros.pl",
+           "PGchoicemacros.pl",
+           "PGanswermacros.pl",
+           "PGauxiliaryFunctions.pl",
+           "PGgraphmacros.pl",
+"MathObjects.pl",
+          );
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Increasing/decreasing functions and local extrema)
+## Institution(W.H.Freeman)
+## Author(JustAsk!)
+## Level(4)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('2')
+## Section1('4.2')
+## Problem1('19')
+## KEYWORDS('calculus', 'derivatives', 'critical points')
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+Context()->strings->add(none=>{});
+
+## Do NOT show partial correct answers
+$showPartialCorrectAnswers =1;
+
+TEXT(beginproblem());
+$a=random(2,9,1);
+
+$a2 = $a**2;
+$a2m1 = $a2-1;
+
+$cpt =Compute("-sqrt(($a2m1)/($a2)), sqrt(($a2m1)/($a2))");
+
+
+BEGIN_TEXT
+Find all critical points of the function \(f(x)=\arcsin(x) - $a x \) on the interval \((-1,1)\).
+
+$PAR
+Critical points: \{ans_rule(36) \}$BR
+$BITALIC(Give an exact answer. If there are multiple, enter them as a comma separated list. If there are no critical points, enter ${BBOLD}None${EBOLD}.)$EITALIC
+END_TEXT
+
+ANS($cpt->cmp);
+
+
+ENDDOCUMENT();
+#Just Ask 2007

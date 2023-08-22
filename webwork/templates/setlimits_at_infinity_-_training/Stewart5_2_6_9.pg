@@ -1,0 +1,90 @@
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Finding limits using graphs)
+## Institution(UCSB)
+## Level(2)
+## Static(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('2.6')
+## Problem1('9')
+## KEYWORDS('Product','Quotient','Differentiation')
+
+
+
+########################################
+# this file automatically moved
+#	from Library/UCSB/Stewart5_2_6/Stewart5_2_6_9.pg 
+#	to setlimits_extra_practice/Stewart5_2_6_9.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_extra_practice/Stewart5_2_6_9.pg 
+#	to setlimits_at_infinity_-_training/Stewart5_2_6_9.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl",
+  "customCSS.pl",
+);
+
+TEXT(&beginproblem);
+$showPartialCorrectAnswers = 1;
+$a=random(1,10,1)*random(-1,1,2);
+$b=random(1,10,1)*random(-1,1,2);
+$c=random(1,10,1)*random(-1,1,2);
+
+$x_vals = " x \in \{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 50, 100 \} ";
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Seeing growth in numbers is a powerful way to find patterns.  
+[@ closeDiv() @]*
+
+There are lots of good ways to compute function values quickly.  
+* The "ans trick" in a TI is pretty hot 🔥
+* The "trace trick" is good because it comes with a picture, but you have to have the x-value in the window for it to work
+* You can also use the "y-vars trick".
+
+---
+
+END_PGML
+
+BEGIN_TEXT
+
+$PAR
+
+Guess the value of the limit by evaluating the function in the limit expression for 
+\(  $x_vals \). 
+
+$PAR 
+
+Sketch a graph to support your conclusion.
+
+$PAR
+
+\( \displaystyle \lim_{x \to \infty} \frac{x^2}{2^x} = \) \{ans_rule(10)\}
+
+END_TEXT
+
+ANS(num_cmp(0));
+
+ENDDOCUMENT();

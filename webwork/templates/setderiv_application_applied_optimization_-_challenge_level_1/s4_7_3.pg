@@ -1,0 +1,94 @@
+##DESCRIPTION
+## Max/min -- minimize sum of two positive numbers with fixed product.
+##ENDDESCRIPTION
+##KEYWORDS('maximization,minimization', 'derivatives', 'maximum,minimum',
+##  'optimization')
+
+## Shotwell cleaned
+## lcao , PAID on 11-24-2003
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Optimization - general)
+## Date(6/3/2002)
+## MLT(Optimization_NumberProperties)
+## Level(4)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('4.7')
+## Problem1('3')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/ma122DB/set9/s4_7_3.pg 
+#	to setderiv_application_applied_optimization_level_1/s4_7_3.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderiv_application_applied_optimization_level_1/s4_7_3.pg 
+#	to setderiv_application_applied_optimization_-_challenge_level_1/s4_7_3.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers=0;
+
+$a = random(8,15,1);
+$b = $a**2;
+
+BEGIN_TEXT
+
+Find two positive numbers whose product is \($b\) and whose sum is a
+minimum.
+$BR$BR
+Answer:  \{ans_rule(10)\}, \{ans_rule(10)\} 
+
+END_TEXT
+
+
+BEGIN_HINT
+This is an abstract applied optimization problem, like problems 5 and 6 in the Rogaski 4th edition textbook, page 269.  The objective function is the sum, and the constraint is the product.
+
+\{amethystHint("$PAR$HR$PAR Prof. Amethyst has a video on a similar problem:$BR$BR")\}
+\{youtubeAmethyst("OypbCwDkG-U") \}
+END_HINT
+$ans1 = $a;
+$ans2 = $a;
+
+ANS(num_cmp($ans1));
+ANS(num_cmp($ans2));
+
+BEGIN_SOLUTION
+$PAR SOLUTION $PAR 
+Let \(x\) and \(y\) be the two numbers. Since \(x y= $b \), we have 
+\( y = \frac{$b}{x} \) and we want to minimize
+\[ f(x) = x +  \frac{$b}{x} \quad \text{where} \; x >0 \]
+\[ f'(x) = 1- \frac{$b}{x^2} = \frac{x^2 - $b}{x^2} \]
+The positive critical number is \( x = \sqrt{$b} = $a \).
+$BR
+Since \(f'(x) <0\) for \( 0 < x < $a \) and \( f'(x) >0 \) for \( x > $a \), there
+is an absolute minimum at \(x = $a\).
+$BR
+Thus the numbers are   \($a\) and \($a\).
+END_SOLUTION
+ENDDOCUMENT();        # This should be the last executable line in the problem.

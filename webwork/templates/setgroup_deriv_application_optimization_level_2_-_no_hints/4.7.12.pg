@@ -1,0 +1,84 @@
+
+
+########################################
+# this file automatically moved
+#	from Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/4_Applications_of_the_Derivative/4.7_Applied_Optimization/4.7.12.pg 
+#	to setgroup_deriv_application_optimization_-_no_hints/4.7.12.pg 
+#	on 2023-06-08 15:17:56.142406 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setgroup_deriv_application_optimization_-_no_hints/4.7.12.pg 
+#	to setgroup_deriv_application_optimization_level_2_-_no_hints/4.7.12.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGgraphmacros.pl",
+  "freemanMacros.pl",
+  "PGcourse.pl"
+);
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Optimization - general)
+## Institution(W.H.Freeman)
+## Author(JustAsk!)
+## MLT(Optimization_ClosestPoint_Nonlinear)
+## MLTleader(1)
+## Level(4)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('2')
+## Section1('4.7')
+## Problem1('12')
+## KEYWORDS('calculus', 'derivatives', 'optimization')
+
+## Show partial correct answers
+$showPartialCorrectAnswers = 0;
+
+TEXT(beginproblem());
+
+$a=random(2,12,1);
+$b=$a-1/2;
+
+BEGIN_TEXT
+\{ textbook_ref_exact("Rogawski ET 2e", "4.7","12") \}$BR
+Find the point P on the graph of the function \(y=\sqrt{x}\) closest to the point \( ($a,0) \) $BR
+
+The \( x \) coordinate of P is: \{ ans_rule() \}. $BR
+END_TEXT
+
+ANS(num_cmp($b));
+
+###################################################################
+
+$t_calc=2*($a) - 1;
+
+SOLUTION(EV3(<<'END_SOLUTION'));
+$PAR$BBOLD Solution:$EBOLD 
+$PAR
+
+With \(y=\sqrt{x}\), let's equivalently minimize the square of the distance, $BR
+\(f(x) = (x - $a)^2 + y^2 = x^2 - {$t_calc}x + $a^2\). $BR
+Solve \(f'(x)= 2x - $t_calc = 0\)  to obtain \(x= $b\). $PAR
+Since \(f(x)\to\infty\) as \(x\to\pm\infty\), \(x= $b\) is the \(x\) coordinate of the point closest to \( ($a,0) \).
+
+END_SOLUTION
+
+###################################################################
+
+ENDDOCUMENT();

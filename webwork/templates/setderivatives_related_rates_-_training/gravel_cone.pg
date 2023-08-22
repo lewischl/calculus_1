@@ -1,0 +1,162 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by tda2d
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Related rates)
+## Date(6/3/2002)
+## Institution(UCSB)
+## MLT(RelatedRate-ConePile)
+## MLTleader(1)
+## Level(5)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('3.9')
+## Problem1('25')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Rogawski')
+## EditionText2('1')
+## Section2('3.11')
+## Problem2('25')
+## TitleText3('Calculus: Early Transcendentals')
+## AuthorText3('Stewart')
+## EditionText3('5')
+## Section3('3.10')
+## Problem3('23')
+## KEYWORDS('derivative' 'related rates','derivatives', 'related rates','Differentiation','Product','Quotient')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/set3.10_related_rates/gravel_cone.pg 
+#	to setderivatives_applied_for_related_rates/gravel_cone.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_applied_for_related_rates/gravel_cone.pg 
+#	to setderivatives_related_rates_-_training/gravel_cone.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGunion.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+###################################
+# Setup
+
+
+
+###################################
+# Main text
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This is an example of a problem that has "too many variables" to start.  It teaches the skill of using a constraint or geometric property as a tool to reduce the number of variables in a problem.
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The volume of a cone is [``V_{\rm cone} = \frac{4}{3}\pi r^2 h ``]
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+$a = random(10,50,10);
+$h = random(10,25,1);
+
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Follow these steps, and try to see the pattern of using a constraint to eliminate a variable:
+
+1. Draw a picture of a growing cone.  Label the radius, height, and volume.  Draw arrows to denote change.
+2. Relate the variables for volume, radius, and height.
+3. Don't differentiate yet.
+4. Draw a picture of a cross-section of the cone, and then a larger one that shares the tip.   👀 See the [@ htmlLink("https://www.mathsisfun.com/geometry/triangles-similar.html","similar triangles") @]*.
+5. Use the similar triangle relationship to eliminate the radius from the equation for volume.
+6. Now differentiate
+7. Substitute in known quantities.
+8. Solve for the desired quantity, the rate at which height increases.
+
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+
+BEGIN_TEXT
+
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
+
+Gravel is being dumped from a conveyor belt at a rate of
+$a \( {\rm ft}^3{\rm /min}\). It forms a pile in the shape of a right circular
+cone whose height is always three times the radius.
+
+\{ closeDiv() \}
+
+$PAR
+How fast is the height of the pile increasing when the pile is $h \( {\rm ft}\) high?
+$PAR
+
+END_TEXT
+
+
+
+BEGIN_TEXT
+
+$PAR
+The height is increasing at \{ans_rule(20) \} \( {\rm ft}\)/\( {\rm min}\).
+
+END_TEXT
+###################################
+# Answers
+
+$showPartialCorrectAnswers = 1;
+
+$ans= 4*$a/($h*$h*pi);
+
+ANS(Real($ans)->cmp);
+
+
+BEGIN_HINT
+
+Prof. Amethyst does also have a video on the subject of a related rates problem involving a cone.  The problem isn't exactly the same, but perhaps you'd find it useful?
+
+$BR$BR
+
+\{ youtubeAmethyst("DmtHKq5_s7c") \}
+END_HINT
+###################################
+
+
+
+ENDDOCUMENT();

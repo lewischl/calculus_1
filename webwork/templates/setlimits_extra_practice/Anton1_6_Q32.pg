@@ -1,0 +1,110 @@
+# ************************************
+#   Comments + Keyword Clarification
+#
+#      Anton, Calculus, 1.6.32
+# ************************************
+# DESCRIPTION
+# 
+## ENDDESCRIPTION
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Evaluating limits - trigonometric)
+## Institution(John Wiley & Sons)
+## Author(Brian Burns)
+## Level(3)
+## MO(1)
+## TitleText1('Calculus')
+## AuthorText1('Anton')
+## EditionText1('9')
+## Section1('1.6')
+## Problem1('32')
+## KEYWORDS('limit','limits','continuity')
+#***************************************************************
+
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Wiley/setAnton_Section_1.6/Anton1_6_Q32.pg 
+#	to setlimits_extra_practice/Anton1_6_Q32.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "littleneck.pl",
+  "MathObjects.pl",
+  "contextFraction.pl",
+  "PGcourse.pl"
+);
+# allow the student to change the seed for this problem.
+
+rand_button();
+TEXT(beginproblem());
+
+###################################
+# Setup
+$a=random(2,12,1);
+$b=random(2,5,1);
+
+
+
+$f1=Formula("sin(x*$b)")->reduce;
+
+$f2=Formula("1-cos(x*$b)")->reduce;
+$f=($a*$f1)/$f2;
+$F=Formula("($f1/($b*x))/(($f2)/($b*x))")->reduce;
+$G=Formula("1/(($f2)/($b*x))")->reduce;
+$G1=Formula("($f2)/($b*x)")->reduce;
+Context("Fraction");
+$ansd=Compute("$a")->reduce;
+Context("Numeric");
+$ans=Compute("DNE");
+
+Context()->texStrings;
+$extra="Since \(\displaystyle\lim_{x\to  0}$G1=0\); and the sign from the left and right is different (meaning the limit from the left and right of limits are different (\(\pm\infty)\)).";
+
+###################################
+# Main text
+BEGIN_TEXT
+Find the limit.
+\(\displaystyle \lim_{x\to 0} $f\)
+ = \{ans_rule(20) \} 
+
+
+END_TEXT
+
+
+BEGIN_HINT
+Stuck?  Check out this video.  It's not an exact parallel of this problem, but that's kind of the point.  We can't make videos for every kind of problem.  One of our goals is to train you on pattern, not just instance.
+
+$BR$BR
+
+\{ youtube(rYNsIeox7Ik) \}
+END_HINT
+###################################
+# Answers
+
+#$showPartialCorrectAnswers = 0;
+
+ANS($ans->cmp);
+
+
+###################################
+Context()->texStrings;
+SOLUTION(EV3(<<'END_SOLUTION'));
+$PAR SOLUTION $PAR
+\(\displaystyle \lim_{x\to 0}  $f=$ansd\lim_{x\to  0}  $F=$ansd\lim_{x\to  0}  $G=$ans\)
+$PAR
+$extra
+END_SOLUTION
+Context()->normalStrings;
+
+###################################
+ENDDOCUMENT();

@@ -1,0 +1,93 @@
+##DESCRIPTION
+##  Arithemetic problem: give the value of pi
+##ENDDESCRIPTION
+
+##KEYWORDS('arithmetic', 'pi')
+
+## DBsubject('Algebra')
+## DBchapter('Fundamentals')
+## DBsection('Real Numbers')
+## Date('')
+## Author('')
+## Institution('')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from setproving_grounds/ArrayOfAnswers.pg 
+#	to setexample_problems/ArrayOfAnswers.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   "unionTables.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+
+COMMENT("example of: putting a table of strings and answer blanks in a problem using the older BeginTable syntax.  This problem does NOT use PGML.");
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$pi = Real("pi");
+
+##############################################################
+#
+#  Text
+#
+#
+
+@fig = ();
+$fig[0] = "Figure 0 goes here";
+$fig[1] = "Figure 1 goes here";
+$fig[2] = "Figure 2 goes here";
+$fig[3] = "Figure 3 goes here";
+
+
+BEGIN_TEXT
+
+Let's find the derivative of \(e^x\sin x\).
+
+\{
+BeginTable() .
+AlignedRow([$fig[0],$fig[1]]) .
+TableSpace(5,0) .
+AlignedRow(["\(f = \) ".ans_rule(10),"\(f' = \) ".ans_rule(10)]) .
+TableSpace(26,5) .
+AlignedRow([$fig[2],$fig[3]]) .
+TableSpace(5,0) .
+AlignedRow(["C = ".ans_rule(10),"D = ".ans_rule(10)]) .
+EndTable();
+\}
+
+END_TEXT
+
+ANS(Formula("e^x")->reduce->cmp());
+ANS( Compute("1")->cmp() );
+ANS( Compute("2")->cmp() );
+ANS( Compute("3")->cmp() );
+
+ENDDOCUMENT();

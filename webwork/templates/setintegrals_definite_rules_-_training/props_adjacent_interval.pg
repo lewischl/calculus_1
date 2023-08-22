@@ -1,0 +1,239 @@
+##DESCRIPTION
+##  Write a difference of two integrals as a single integral
+##ENDDESCRIPTION
+
+## Shotwell cleaned
+## lcao , PAID on 11-24-2003
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Integrals)
+## DBsection(Conceptual understanding of integration)
+## Date(6/3/2002)
+## MLT(integral_concept_partition_ab)
+## Level(3)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('5.2')
+## Problem1('44')
+## KEYWORDS('integrals', 'theory')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/5.2/props_adjacent_interval.pg 
+#	to setintegrals_definite_by_geometry/props_adjacent_interval.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_definite_by_geometry/props_adjacent_interval.pg 
+#	to setintegrals_definite_rules_-_training/props_adjacent_interval.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+
+
+
+sub integral_ans_both_bounds{
+
+Context()->texStrings;
+if ($displayMode eq 'TeX') {
+   return join("", (
+      '\( \displaystyle \int_{ ',
+      ans_rule(5),
+      ' }^{ ',
+      ans_rule(5),
+      '}'));
+  } else {
+   return join("", (
+        openDiv( { "class" => "divOnLineWithIntegrationLimits" } ),
+          '\( \displaystyle \int \)',
+        closeDiv(),
+
+        openDiv( {  "class" => "gridForPairOfIntegrationBounds" } ),
+          openDiv( {  "class" => "lowerIntegrationBoundOfPair" } ),
+            ans_rule(5),
+          closeDiv(),
+          openDiv( {  "class" => "upperIntegrationBoundOfPair" } ),
+            ans_rule(5),
+          closeDiv(),
+        closeDiv(),
+   ) );
+}
+Context()->normalStrings;
+
+} # subroutine
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem is about the properties of the definite integral:
+
+* Adjacent areas can be merged by addition
+* Sub-regions can be removed by subtraction
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*The adjacent-interval property of definite integrals*
+
+* Adjacent areas can be merged by addition
+[```
+\int_a^b f(x) \, dx + \int_b^c f(x) \, dx = \int_a^c f(x) \, dx
+```]
+
+* Sub-regions can be removed by subtraction
+    * Removing from the left side:
+
+[```
+\int_a^b f(x) \, dx - \int_a^c f(x) \, dx = \int_c^b f(x) \, dx
+```]
+
+    * Removing from the right side:
+
+[```
+\int_a^b f(x) \, dx - \int_c^b f(x) \, dx = \int_a^c f(x) \, dx
+```]
+[@ closeDiv() @]*
+
+This property is really reasoning about intervals on the [`x`]-axis.  Here are the corresponding properties on closed intervals, where I'm using generalized notions of [`+`] and [`-`]:
+
+[@  
+LayoutTable([
+[ "Merge adjacent", "`[a,b] + [b,c] = [a,b]`"],
+[ "Remove from left", "`[a,b] - [a,c] = [c,b]`" ],
+[ "Remove from right", "`[a,b] - [c,b] = [a,c]`" ],
+])
+@]*
+
+---
+
+END_PGML
+
+BEGIN_TEXT
+
+🎯 Use the merging / removing property to solve these problems:
+$PAR 
+
+END_TEXT
+
+
+# subtract from right
+$a= random(-7, 10, 1);
+$b = $a + random(6,10,1);
+$c = random($a+1, $b-1,1);
+Context()->texStrings();
+BEGIN_TEXT
+
+\{ openDiv({"class" => "nothing"}) \}
+\( \displaystyle \int_{$a}^{$b} f(x) \, dx - \int_{$c}^{$b} f(x)\, dx = \)  \{integral_ans_both_bounds\} \(  \hspace{-4mm} f(x) \, dx\)
+\{ closeDiv() \}
+
+$PAR
+END_TEXT
+Context()->normalStrings;
+ANS(num_cmp($a), num_cmp($c));
+
+
+# merge adjacent 
+$a= random(-7, 10, 1);
+$b = $a + random(6,10,1);
+$c = $b + random(6,10,1);
+
+Context()->texStrings();
+BEGIN_TEXT
+
+\{ openDiv({"class" => "nothing"}) \}
+\( \displaystyle \int_{$a}^{$b} f(x) \, dx + \int_{$b}^{$c} f(x)\, dx = \)  \{integral_ans_both_bounds\} \( \hspace{-4mm} f(x) \, dx\)
+\{ closeDiv() \}
+
+$PAR
+END_TEXT
+Context()->normalStrings;
+ANS(num_cmp($a), num_cmp($c));
+
+
+
+# subtract from middle
+$a= random(-7, 10, 1);
+$d = $a + random(3,5,1);
+
+$b = random($a+1, $d-1, 0.5);
+$c = random($b+1, $d-0.5, 0.5);
+
+
+Context()->texStrings();
+BEGIN_TEXT
+Subtract from the center
+\{ openDiv({"class" => "nothing"}) \}
+\( \displaystyle \int_{$a}^{$d} f(x) \, dx - \int_{$b}^{$c} f(x)\, dx = \)  \{integral_ans_both_bounds\} \( \hspace{-4mm} f(x) \, dx + \)  \{integral_ans_both_bounds\} \( \hspace{-4mm} f(x) \, dx\)
+\{ closeDiv() \}
+
+$PAR
+END_TEXT
+Context()->normalStrings;
+ANS(num_cmp($a), num_cmp($b));
+ANS(num_cmp($c), num_cmp($d));
+
+
+
+# subtract from right, further than right endpoint of original interval
+$a= random(-7, 10, 1);
+$b = $a + random(3,5,1);
+
+$c = random($a+1, $b-1, 0.5); # between a and b
+$d = $b + random(2,4, 0.5); # to the right of b
+
+
+Context()->texStrings();
+BEGIN_TEXT
+Now we'll subtract from outside the original interval at the right end
+\{ openDiv({"class" => "nothing"}) \}
+\( \displaystyle \int_{$a}^{$b} f(x) \, dx - \int_{$c}^{$d} f(x)\, dx = \)  \{integral_ans_both_bounds\} \(\hspace{-4mm} f(x) \, dx - \) \{integral_ans_both_bounds\} \(\hspace{-4mm} f(x) \, dx\)
+\{ closeDiv() \}
+
+$PAR
+END_TEXT
+Context()->normalStrings;
+ANS(num_cmp($a), num_cmp($c));
+ANS(num_cmp($b), num_cmp($d));
+
+
+BEGIN_HINT
+In the Rogawski 4th edition text, check out Theorem 4, page 304 (Additivity for Adjacent Intervals), and Example 7.
+
+
+\{amethystHint("$PAR$HR$PAR Check out this video from Prof. Amethyst explaining the rules for definite interals: $PAR")\}
+\{youtubeAmethyst("G4nuNhOhSdg")\}
+
+\{amethystHint("$PAR$HR$PAR If you're looking for examples that relate to this problem, check out this video, and jump to time 1:01. $PAR")\}
+\{youtubeAmethyst("Is4LNOlGfq8")\}
+
+END_HINT
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.
+

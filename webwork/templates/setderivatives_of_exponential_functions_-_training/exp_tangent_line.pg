@@ -1,0 +1,166 @@
+##DESCRIPTION
+##  Algebra problem: true or false for inequality 
+##ENDDESCRIPTION
+
+##KEYWORDS('algebra', 'inequality', 'fraction')
+
+## DBsubject('Algebra')
+## DBchapter('Fundamentals')
+## DBsection('Real Numbers')
+## Date('6/3/2002')
+## Author('')
+## Institution('')
+## TitleText1('Precalculus')
+## EditionText1('3')
+## AuthorText1('Stewart, Redlin, Watson')
+## Section1('1.1')
+## Problem1('22')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set3.9_exp_derivatives/exp_tangent_line.pg 
+#	to setderivatives_of_exponential_functions/exp_tangent_line.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_of_exponential_functions/exp_tangent_line.pg 
+#	to setderivatives_of_exponential_functions_-_training/exp_tangent_line.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();      
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "PGcourse.pl",
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+
+
+
+
+##############################################################
+#
+#  Text
+#
+#
+Context("Numeric");
+
+
+# relax tolerances a bit
+Context('Numeric')->flags->set(
+    tolerance => 0.0001,
+    tolType   => 'absolute',
+);
+
+Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+We're still learning about tangent lines.  The derivative is the slope of the tangent line, and the tangent line is the best possible linear approximation to the function.
+[@ closeDiv() @]*
+
+END_PGML
+
+# problem 9, page 196 rogawski, randomized
+
+
+
+$a = random(2,5,1);
+$f = Compute("$a**(x**2 - 2*x)")->reduce;
+
+
+
+BEGIN_TEXT
+Find the equations of the tangent lines to the function at the given points.$BR
+Use exact coefficients, don't use floating point numbers.  Enter it in slope-intercept form.
+$BR$BR
+\(f(x) = $f\)
+$BR$BR
+
+END_TEXT
+
+
+
+# first, at a point where the slope is NOT 0.
+
+$x = 2; # at x=1, the tangent line is horizontal.
+
+$y = $f->eval(x=>2);
+$m = $f->D->eval(x=>2);
+$tangent_line = Formula("$m (x-$x) + $y");
+
+BEGIN_TEXT
+
+At the point \( ($x,f($x)) \), the tangent line is  
+
+$BR$BR
+
+\( y = \) \{ ans_rule(50) \}
+
+
+$PAR $BR
+
+END_TEXT
+ANS($tangent_line->cmp);
+
+
+
+
+$x = 1; # at x=1, the tangent line is horizontal.
+$tangent_line = Formula("1/$a");
+
+BEGIN_TEXT
+
+At the point \( ($x,f($x)) \), the tangent line is  
+
+$BR$BR
+
+\( y = \) \{ ans_rule(50) \}
+
+\{ openDiv({ "class" => "inProblemHint" }) \}
+Consider using a graph to help you identify what the slope should be, if you're doubting yourself.
+\{ closeDiv() \}
+
+END_TEXT
+ANS($tangent_line->cmp);
+
+
+##############################################################
+#
+#  Answers
+#
+#
+
+
+#Context()->normalStrings;
+
+ENDDOCUMENT();        

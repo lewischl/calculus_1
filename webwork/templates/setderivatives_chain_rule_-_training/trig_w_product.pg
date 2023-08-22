@@ -1,0 +1,124 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by cmd6a 5/29/06
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Derivatives involving multiple rules (all rules))
+## Date()
+## Institution(UWEC)
+
+## KEYWORDS('calculus','derivative','chain rule')
+
+
+
+########################################
+# this file automatically moved
+#	from set3.7_chain_rule2/trig_w_product.pg 
+#	to setderivatives_chain_rule_level_2/trig_w_product.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_chain_rule_level_2/trig_w_product.pg 
+#	to setderivatives_chain_rule_-_training/trig_w_product.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+Context('Numeric');
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Sometimes we put products and quotients *inside* another function.  This problem offers training.
+[@ closeDiv() @]*
+
+END_PGML
+
+Context()->texStrings;
+
+BEGIN_TEXT
+
+\{ openDiv({ "class" => "importantFormula" }) \}
+
+Here's a version of a chain rule for sine, with a product inside:
+
+\[ \begin{aligned}
+ \frac{d}{dx} \sin (\Box \Delta) &= \cos(\Box \Delta) ( \Box \Delta)'  \\
+  &= \cos(\Box \Delta) (\Box' \Delta + \Box \Delta')
+\end{aligned} \]
+\{ closeDiv() \}
+
+$PAR
+I don't think this is worth memorizing because it's impossible to memorize a formula for every combination of the rules --- there are infinitely many combinations!  
+
+$PAR
+Instead, focus on approach. Deal with one layer at a time.  Outside-in.
+END_TEXT
+
+
+$a = random(3,7,1);
+$b = random(3,9,1);
+
+$f = Formula(" sin( $a x   e^x)");
+
+BEGIN_TEXT
+$PAR $HR $PAR
+
+\( f(x) = $f \)$PAR
+The  inside is \( $a x  \cdot e^x \), so let \( \Box = $a x\) and \(\Delta = e^x \).
+$PAR
+\( f'( x ) = \) \{ans_rule(45) \}
+END_TEXT
+ANS($f->D->cmp);
+
+
+$a = random(3,7,1);
+$b = random(3,9,1);
+
+$ans1  =  Compute("cos ($a*x e^x) * ($a*e^x +$a* x e^x)");
+$ans2  =  Compute("-sin ( (x^2+$b x-1) e^x) * ((2x + $b) e^x + (x^2+$b x-1)e^x)");
+
+$f = Formula("cos ( (x^2+$b x-1) e^x )");
+
+BEGIN_TEXT
+$PAR $HR $PAR
+
+On this one, the outside function is \(\cos(\cdot)\).  Its derivative is \(-\sin(\cdot)\).  The argument stays the same as we differentiate using the chain rule, and the derivative of the inside "chains out".   We have to use the product rule for the chaining, but it's just the product rule applied to  \((x^2+$b x-1) e^x\).
+$PAR
+
+\( g(x) = $f \) $BR
+\( g'( x ) = \) \{ans_rule(45) \}
+
+END_TEXT
+ANS($f->D->cmp);
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

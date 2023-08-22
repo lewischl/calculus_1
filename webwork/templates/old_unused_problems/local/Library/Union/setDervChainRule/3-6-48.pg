@@ -1,0 +1,61 @@
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGunion.pl",            # Union College utilities
+  "MathObjects.pl",
+  "PGcourse.pl",           # Customization file for the course
+);
+
+TEXT(beginproblem());
+
+###################################
+# Setup
+
+Context("Numeric");
+#Parser::Number::NoDecimals();
+$showPartialCorrectAnswers = 1;
+
+$a = random(2,5,1);
+$b = random(1,5,1);
+$c = random(-5,-2,1);
+$dm = random(3,5,1);
+$d = -$dm;
+$e = random(2,3,1);
+
+$x0 = random(1,2,1);
+while ($b + $c*$x0 == 0)
+{
+$c = random(-5,-2,1);
+}
+
+$f   =Formula("($a x^$e) / (($b+$c *x)^$dm)")->reduce;
+
+###################################
+# Main text
+
+Context()->texStrings;
+BEGIN_TEXT
+Find the equation of line tangent to the graph of \(\displaystyle f(x) = $f\) at \(x = $x0\).
+
+$PAR
+\(y = \) \{ans_rule(50)\}
+END_TEXT
+Context()->normalStrings;
+
+###################################
+# Answers
+
+$ycoord=Real($f->eval(x=>$x0));
+$fprime=$f->D('x');
+$slope=Real($fprime->eval(x=>$x0));
+
+$tanline=Formula("$slope*(x-$x0)+$ycoord")->reduce;
+
+ANS($tanline->with(limits => [0,1], tolerance => .001)->cmp);
+
+###################################
+
+
+;
+ENDDOCUMENT();

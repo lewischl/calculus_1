@@ -1,0 +1,185 @@
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Increasing/decreasing functions and local extrema)
+## Institution(W.H.Freeman)
+## Author(Ned W. Hummel)
+## MLT(graph_of_fprime)
+## MLTleader(1)
+## Level(3)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('2')
+## Section1('4.3')
+## Problem1('12')
+## KEYWORDS('calculus','derivatives','first derivative test','critical points', 'local maximum/minimum')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/4_Applications_of_the_Derivative/4.3_The_Mean_Value_Theorem_and_Monotonicity/4.3.12.pg 
+#	to setderiv_application_optimization_derivative_tests/4.3.12.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderiv_application_optimization_derivative_tests/4.3.12.pg 
+#	to setderiv_application_optimization_derivative_tests_-_training/4.3.12.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros("PG.pl","PGbasicmacros.pl","PGanswermacros.pl", "PGcourse.pl");
+
+loadMacros("Parser.pl");
+
+# This is our macro file that provides the textbook_ref_exact() and
+loadMacros("freemanMacros.pl");
+
+loadMacros("PGauxiliaryFunctions.pl");
+loadMacros("PGgraphmacros.pl");
+loadMacros("PGchoicemacros.pl");
+
+
+@label_increase_decrease = qw(? Increasing Decreasing);
+################# Setting up the problem goes here.
+### Book
+# $a = random(-1,-1,1);
+# $b = random(2,2,1);
+# $c = random(4,4,1);
+# $d = random(6,6,1);
+
+$a = non_zero_random(-1,1,1);
+$b = random(1,3,1);
+$c = random($b+1,6,1);
+$d = random($c+1,8,1);
+
+
+$f = Formula("$a*x(x-$b)(x-$c)(x-$d)");
+
+$int1 = Interval('(',0,$b,')');
+$int2 = Interval('(',$b,$c,')');
+$int3 = Interval('(',$c,$d,')');
+
+$realsmall = Real(0.1);
+
+$int1_sign = Real(sgn($f->eval(x=>random($realsmall,$b-$realsmall))));
+$int2_sign = Real(sgn($f->eval(x=>random($b+$realsmall,$c-$realsmall))));
+$int3_sign = Real(sgn($f->eval(x=>random($c+$realsmall,$d-$realsmall))));
+
+if($int1_sign > 0){
+$int1_increase = "Increasing";
+$s="\gt";
+}
+else{
+$int1_increase = "Decreasing";
+$s="\lt";
+}
+
+if($int2_sign > 0){
+$int2_increase = "Increasing";
+$s1="\gt";
+}
+else{
+$int2_increase = "Decreasing";
+$s1="\lt";
+}
+
+if($int3_sign > 0){
+$int3_increase = "Increasing";
+$s2="\gt";
+}
+else{
+$int3_increase = "Decreasing";
+$s2="\lt";
+}
+
+
+@vals_f = map {$f-> substitute(x=>$_)->eval()} (0..$d);
+
+# Minimum and maximum x and y values to graph.
+$xmin = -1;
+$ymin = -max(abs(max(@vals_f)),abs(min(@vals_f)))-1;
+$xmax = $d;
+$ymax = max(abs(max(@vals_f)),abs(min(@vals_f)))+1;
+
+$xrange = $xmax-$xmin;
+$yrange = $ymax-$ymin;
+
+$xsize = $xrange*25;
+$ysize = $yrange*25;
+
+$graph = init_graph(
+    $xmin, $ymin,
+    $xmax, $ymax,
+    grid => [$xrange,20], # was [$xrange,$yrange]
+    axes => [0,0],
+);
+
+$f_graph = "$f for x in [0,$d] using color:red and weight:2";
+plot_functions($graph,$f_graph);
+
+
+Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+We're building towards reasoning about a function just from the intervals on which it's increasing and decreasing, so that we can classify points as local optima without even seeing a graph of the actual function, and without an explicit formula for it.  Just us and derivatives, trying to tell the future.
+ [@ closeDiv() @]*
+
+END_PGML
+
+BEGIN_TEXT
+\{ beginproblem() \}
+
+$PAR
+\{ image(insertGraph($graph), width=>300,tex_size=>800 ) \}
+
+$PAR
+Here is a graph of \(\frac{df}{dx}\) for a function \(f\) we know not.  Based just on this, determine the intervals on which \(f\) is increasing or decreasing.  
+
+
+
+$PAR
+On the leftmost interval \{ans_rule()\}, \(f\) is \{pop_up_list([@label_increase_decrease]) \}.
+$PAR
+On the middle interval \{ans_rule()\}, \(f\) is \{pop_up_list([@label_increase_decrease]) \}.
+$PAR
+On the rightmost interval \{ans_rule()\}, \(f\) is \{pop_up_list([@label_increase_decrease]) \}.
+
+
+$PAR $HR $PAR
+\{ openDiv({ "class" => "inProblemHint" }) \}
+* Mind the braces you use.  \( [] \) is inclusive of bounds, while \( () \) is exclusive.
+* exactly \(0\) is neither positive nor negative
+\{ closeDiv() \}
+
+END_TEXT
+
+######################## Answer starts here.
+
+Context()->normalStrings;
+
+ANS($int1->cmp);
+ANS(str_cmp($int1_increase));
+ANS($int2->cmp);
+ANS(str_cmp($int2_increase));
+ANS($int3->cmp);
+ANS(str_cmp($int3_increase));
+
+Context()->texStrings;
+
+
+ENDDOCUMENT();

@@ -1,0 +1,159 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by tda2d
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Integrals)
+## DBsection(Definite integrals (without trigonometric functions))
+## Date(6/3/2002, summer 2023)
+## Institution(Univeristy of Utah)
+## Author(Utah ww group, modified by silviana amethyst)
+## MLT(DefIntQuadraticOverSqrtX)
+## MLTleader(1)
+## Level(3)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('1')
+## Section1('5.3')
+## Problem1('31')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('5.4')
+## Problem2('23')
+## TitleText3('Calculus I')
+## AuthorText3('Jerrold Marsden and Alan Weinstein')
+## EditionText3('2')
+## Section3('.')
+## Problem3('')
+## TitleText4('Calculus')
+## AuthorText4('Dale Varberg, Edwin J. Purcell, and Steven E. Rigdon')
+## EditionText4('9')
+## Section4('.')
+## Problem4('')
+## KEYWORDS('definite' 'integral','Calculus', 'Riemann Integral','integrals', 'definite')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/5.4_5.5_FTC/integrate_with_sqrt_in_denom.pg 
+#	to setintegrals_FTOC_1_for_definite_integrals/integrate_with_sqrt_in_denom.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_FTOC_1_for_definite_integrals/integrate_with_sqrt_in_denom.pg 
+#	to setintegrals_FTOC_1_for_definite_integrals_-_training/integrate_with_sqrt_in_denom.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl"
+);
+loadMacros("parserFormulaUpToConstant.pl");
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a1 = random(2,10,2);
+$b1 = random(2,10,1);
+
+
+$right = random(5,9,1);
+$left = random(1,4,1);
+
+
+$f = Formula(" ($a1 x^2 + $b1) / (sqrt (x) )");
+$F = Formula("2/5 * $a1 x^(5/2) + 2* $b1 * x^(1/2)");
+$F_general = FormulaUpToConstant($F);
+
+$F_left = $F->eval(x=>$left);
+$F_right = $F->eval(x=>$right);
+
+$ans = $F_right - $F_left;
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on using the fundamental theorem of Calculus with a rational power function, and vertical bar notation.
+[@ closeDiv() @]*
+
+
+One of my favorite ways to write the FTOC1 is with "vertical bar notation", which compresses the subtraction into one step.  The "vertical bar" is shorthand for "evaluate and subtract":
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+[```
+F(b) - F(a) = F(x)\Big|_a^b
+```]
+[@ closeDiv() @]*
+
+I also really like making the action a bit more explicit by noting the variable of evaluation, and the FTOC1 looks like this:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*FTOC1 with explicit vertical bar notation*
+
+[```
+\int_a^b f(x)\, dx = F(x)\Big|_{x=a}^{x=b}
+```]
+[@ closeDiv() @]*
+
+Using explicit vertical bar notation helps remind me of what [`a`] and [`b`] __do__ once I have the antiderivative [`F`].  Evaluate!
+
+---
+
+This problem uses an integrand of a flavor not directly integratrate-able without a bit of work.  This problem teaches:
+
+[@ openDiv({ "class" => "inProblemHint" }) @]*
+Simplify the integrand before integrating.  In this problem, you can use the power rule term-by-term after simplification.  
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Compute the integral using FTOC1.
+
+[``  \int_{ [$left] } ^ { [$right] } [$f] dx ``]
+[@ closeDiv() @]*
+
+
+END_PGML
+
+BEGIN_TEXT
+
+
+$BR$PAR
+
+
+
+The general antiderivative is: (include the \(+C\))$BR
+\( F_\textnormal{general} = \) \{ans_rule(40) \} 
+
+$PAR
+
+Using the FTOC, we find$BR
+\( \displaystyle \int_{ $left } ^ { $right } $f dx =  F_\textnormal{general} \Big|_{x=$left}^{x=$right} = \) \{ans_rule(40) \}
+
+END_TEXT
+
+ANS($F_general->cmp);
+ANS(num_cmp($ans));
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

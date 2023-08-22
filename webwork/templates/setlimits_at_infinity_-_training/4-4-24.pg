@@ -1,0 +1,202 @@
+## DESCRIPTION
+##   Evaluate Limits to Infinity
+## ENDDESCRIPTION
+
+## Tagged by nhamblet
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Limits at infinity, horizontal and oblique asymptotes)
+## Date(12/29/08)
+## Institution(ASU)
+## Author(N. Srivastava)
+## MLT(liminfpoly)
+## MLTleader(1)
+## Level(1)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5e')
+## Section1('2.6')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('2.6')
+## Problem2('')
+## KEYWORDS('Limit', 'Infinity', 'Horizontal Asymptote','calculus','limits','infinity')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Union/setLimitInfinity/4-4-24.pg 
+#	to setlimits_at_infinity/4-4-24.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_at_infinity/4-4-24.pg 
+#	to setlimits_at_infinity_-_training/4-4-24.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGunion.pl",            # Union College utilities
+  "MathObjects.pl",
+  "PGcourse.pl",           # Customization file for the course
+  "customCSS.pl",
+  "niceTables.pl",
+);
+
+TEXT(beginproblem());
+
+###################################
+# Setup
+
+Context("Numeric");
+
+$c = random(-5, -2, 1); # negative!
+$p = random(5, 9, 2);  # odd!
+
+$f = Formula("$c x**$p + 7x**3 - 5")->reduce('(-x)-y'=>0,'(-x)+y'=>0);
+$ans1_left = Infinity;
+$ans1_right = -Infinity;
+
+$c = random(2, 5, 1); # positive!
+$p = random(4, 10, 2); # even!
+
+$g = Formula("$c x**$p + 7x**3 - 5")->reduce('(-x)-y'=>0,'(-x)+y'=>0);
+$ans2_left = Infinity;
+$ans2_right = Infinity;
+
+
+$c = random(-7, -2, 1); # negative!
+$p = random(4, 10, 2); # even!
+
+$h = Formula("$c x**$p + 7x**3 - 5")->reduce('(-x)-y'=>0,'(-x)+y'=>0);
+$ans3_left = -Infinity;
+$ans3_right = -Infinity;
+
+###################################
+# Main text
+
+Context()->texStrings;
+
+
+$tab_pos = DataTable(
+    [
+        ["Direction \\ Degree, \(+\) coeff", "Even degree", 'Odd degree' ],
+        ["\(x \to -\infty\)", "\( \infty \)",    "\( -\infty \)" ],
+        ["\(x \to \infty\)", "\( \infty \)",    "\( \infty \)" ],
+    ],
+    align           => 'l c c',
+    horizontalrules => 1,
+#    caption => "Simple rules for polynomial with positive leading coefficient",
+    rowheaders => 1,
+    tablecss => "border:solid 1px; border-spacing:10px 5px; border-radius: 5px; border-collapse:separate;"
+);
+
+$tab_neg = DataTable(
+    [
+        ["Direction \\ Degree, \(-\) coeff", "Even degree", 'Odd degree' ],
+        ["\(x \to -\infty\)", "\(-\infty \)",    "\( \infty \)" ],
+        ["\(x \to \infty\)", "\( -\infty \)",    "\( -\infty \)" ],
+    ],
+    align           => 'l c c',
+    horizontalrules => 1,
+#    caption => "Simple rules for polynomial with positive leading coefficient",
+    rowheaders => 1,
+    tablecss => "border:solid 1px; border-spacing:10px 5px; border-radius: 5px; border-collapse:separate;"
+);
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+To start working on limits at infinity (which we use to model processes that go on forever), we'll start by examining limits of polynomials.  
+[@ closeDiv() @]*
+
+
+
+
+---
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Limits at infinity of polynomials can be deduced nearly instantly simply by looking at:
+* are we going to positive or negative infinity?
+* is the degree of the polynomial even or odd?
+* is the leading coefficient positive or negative?
+[@ closeDiv() @]*
+
+The following table summarizes limits at infinity of polynomials with positive leading coefficients, based on direction of limit, and degree of polynomial.
+
+[@ $tab_pos @]*
+
+If we have a negative leading coefficient, the values of the limits flip sign:
+
+[@ $tab_neg @]*
+---
+
+END_PGML
+
+
+BEGIN_TEXT
+Evaluate the limits.  If it does not exist, enter ${BBOLD}DNE${EBOLD}.
+
+$PAR
+
+\( \displaystyle \lim_{x\to-\infty} ($f) = \) \{ ans_rule(20) \} $BR
+\( \displaystyle \lim_{x\to\infty} ($f) = \) \{ ans_rule(20) \} 
+
+$PAR
+
+\( \displaystyle \lim_{x\to-\infty} ($g) = \) \{ ans_rule(20) \} $BR
+\( \displaystyle \lim_{x\to\infty} ($g) = \) \{ ans_rule(20) \} 
+
+
+$PAR
+
+\( \displaystyle \lim_{x\to-\infty} ($h) = \) \{ ans_rule(20) \} $BR
+\( \displaystyle \lim_{x\to\infty} ($h) = \) \{ ans_rule(20) \} 
+
+END_TEXT
+
+
+
+
+Context()->normalStrings;
+
+###################################
+# Answers
+
+$showPartialCorrectAnswers = 1;
+
+ANS($ans1_left->cmp);
+ANS($ans1_right->cmp);
+
+ANS($ans2_left->cmp);
+ANS($ans2_right->cmp);
+
+ANS($ans3_left->cmp);
+ANS($ans3_right->cmp);
+
+###################################
+
+
+;
+ENDDOCUMENT();

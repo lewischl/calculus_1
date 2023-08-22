@@ -1,0 +1,113 @@
+##DESCRIPTION
+##  Trig derivative
+##ENDDESCRIPTION
+
+##KEYWORDS('trigonometric functions', 'derivative')
+
+## DBsubject('Algebra')
+## DBchapter('Fundamentals')
+## DBsection('Real Numbers')
+## Date('')
+## Author('')
+## Institution('')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from setExam_2-Team/trigTangentLine.pg 
+#	to setderivatives_and_applications_review_quiz/trigTangentLine.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_and_applications_review_quiz/trigTangentLine.pg 
+#	to setquiz_-_derivatives_and_applications_review_-_problems_same_for_all_students/trigTangentLine.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   "contextFraction.pl",
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+SRAND($team_exam2_seed);
+$setseed = "set.seed($team_exam2_seed); $team_exam2_seed";
+
+@a = ();
+
+$a[0] = random(2,5,1);
+$a[1] = non_zero_random(-4,4,1);
+$a[2] = non_zero_random(-5,5,1);
+
+$n = random(1,3,1);
+
+if ($n==1) {
+$xden = Compute("($a[0]*6)");
+}
+elsif ($n==2) {
+$xden = Compute("($a[0]*4)");
+}
+else {
+$xden = Compute("($a[0]*3)");
+}
+
+$x = Compute("pi/$xden");
+
+$f = Formula("$a[2] + $a[1]*cos($a[0]*x)");
+
+$y = $f -> eval(x=>$x);
+
+#$df = $f -> D('x');
+$df = Formula(" -$a[0]*$a[1]*sin($a[0]*x)");
+
+$m = $df -> eval(x=>$x);
+
+$b = Compute("-$m*$x+$y");
+
+##############################################################
+#
+#  Text
+#
+#
+
+Context()->flags->set(tolType=>0.001);
+
+BEGIN_PGML
+Find the equation of the tangent line on the graph of [`f(x)=[$f]`], through [``x=\frac{\pi}{[$xden]}``], in slope intercept form.
+
+[`y=`] [_____]{$m} [`x+`] [____]{$b}.
+
+Use exact expressions.
+END_PGML
+
+ENDDOCUMENT();

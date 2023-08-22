@@ -1,0 +1,64 @@
+#DESCRIPTION
+## DBsubject(Calculus - single variable)
+## DBchapter(Integrals)
+## DBsection(Definite integrals (without trigonometric functions))
+## Institution(ASU)
+## Author(Utah ww group)
+## Level(2)
+## TitleText1('Mathematical Applications')
+## AuthorText1('Ronal J. Harshbarger and James J. Reynolds')
+## EditionText1('8')
+## Section1('.')
+## Problem1('')
+## KEYWORDS('integrals', 'definite','Calculus', 'Riemann Integral')
+# Integrals - evaluate definite integral   
+#ENDDESCRIPTION
+
+
+
+########################################
+# this file automatically moved
+#	from Library/Utah/Quantitative_Analysis/set9_Definite_Integrals_Techniques_of_Integration/pr_6.pg 
+#	to setgroup_integrals_eval_integral_-_no_hints/pr_6.pg 
+#	on 2023-06-08 15:17:56.142406 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setgroup_integrals_eval_integral_-_no_hints/pr_6.pg 
+#	to setgroup_integrals_definite_FTOC_level_1_-_no_hints/pr_6.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$x1=random(1,6,1);
+$x2= $x1 + random(1,6,1);
+TEXT(EV2(<<EOT));
+The value of \( \displaystyle \int_{$x1}^{$x2} \frac{1}{ x^2 } dx\) is
+$PAR
+\{ans_rule(20)\}
+
+EOT
+$ans1= -1/($x2) +1/$x1;
+
+ANS(num_cmp($ans1));
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

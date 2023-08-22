@@ -1,0 +1,118 @@
+##DESCRIPTION
+## Squeeze Theorem: Choose correct upper and lower bound functions.
+##ENDDESCRIPTION
+
+##KEYWORDS('indeterminant forms', 'limit')
+
+## DBsubject('Calculus')
+## DBchapter('Limits')
+## DBsection('The Squeeze Theorem and Trgonometric Limits')
+## Date('')
+## Author('Erich Jauch')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from setExam_1-Team/SqueezeTheoremBounds.pg 
+#	to setlimits_review_quiz/SqueezeTheoremBounds.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_review_quiz/SqueezeTheoremBounds.pg 
+#	to setquiz_-_limits_review_-_problems_same_for_all_students/SqueezeTheoremBounds.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "parserPopUp.pl",
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   "PGcourse.pl",      # Customization file for the course
+   "PGchoicemacros.pl",
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+SRAND($team_exam1_seed);
+$setseed = "set.seed($team_exam1_seed); $team_exam1_seed";
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$parameter = random(2,4,1);
+$b = $parameter*2;
+
+@ux = ();
+$ux[0] = Formula("x^$b + $parameter");
+$ux[1] = Formula("x^$b - $parameter");
+$ux[2] = Formula("x^$b");
+
+@lx = ();
+$lx[0] = Formula("-x^$b + $parameter");
+$lx[1] = Formula("-x^$b - $parameter");
+$lx[2] = Formula("-x^$b");
+
+$f = Formula("(x^$b)*cos(1/x) + $parameter");
+
+$mcRow1 = new_checkbox_multiple_choice();
+$mcRow1-> qa("Select the choice for \(u(x)\)","\($ux[0]\)");
+$mcRow1-> extra("\($ux[1]\)","\($ux[2]\)");
+
+$mcRow2 = new_checkbox_multiple_choice();
+$mcRow2-> qa("Select the choice for \(\ell(x)\)","\($lx[0]\)");
+$mcRow2-> extra("\($lx[1]\)","\($lx[2]\)");
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+The limit 
+
+[``\lim_{x\rightarrow0}([$f])``] 
+
+can be computed using the squeeze theorem. Choose
+the correct [`u(x)`] and [`\ell(x)`] from the lists below:
+
+[@ $mcRow1 -> print_q() @]***
+[@ $mcRow1 -> print_a() @]***
+
+[@ $mcRow2 -> print_q() @]***
+[@ $mcRow2 -> print_a() @]***
+
+END_PGML
+
+ANS( checkbox_cmp( $mcRow1->correct_ans() ) );
+ANS( checkbox_cmp( $mcRow2->correct_ans() ) );
+
+ENDDOCUMENT();

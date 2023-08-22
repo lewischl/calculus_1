@@ -1,0 +1,88 @@
+##DESCRIPTION
+##  Arithemetic problem: give the value of pi
+##ENDDESCRIPTION
+
+##KEYWORDS('arithmetic', 'pi')
+
+## DBsubject('Algebra')
+## DBchapter('Fundamentals')
+## DBsection('Real Numbers')
+## Date('')
+## Author('')
+## Institution('')
+
+
+########################################################################
+
+
+DOCUMENT();
+
+
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+COMMENT("This problem demonstrates how to embed a youtube video using a handy macro function");
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$pi = Real("pi");
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+
+This problem demonstrates how to embed a video using a handy macro function.  
+
+The video is embedded, guarded by a conditional an array of allowed video sources [|@wantVideosFrom|]*, and shows up as a QR code in the hardcopy of the problems (not true yet, i need help; specifically, i need to add a line of code to the preamble of the tex source!!!).  
+
+---
+
+You specify the source of the video by the name of the macro you choose to use when you embed the video. Here are some useful tips for working with embedding youtube videos.
+
+* File [|templates/macros/uwecyoutube.pl|]* contains the macros:
+    * [|youtubeAmethyst|]* (which only show if [|protect_underbar($instructor_amethyst)|]* is in the list of videos you want to let through) and 
+    * [|youtube|]* (which show regardless of who's listed in [|@wantVideosFrom|]*).
+* File [|templates/macros/uwecyoutube.pl|]* is where you declare the videos you want to allow through by adjusting the values in an array called [|@wantVideosFrom|]*
+
+---
+
+The following video (before the rule) is conditional on [|protect_underbar(instructor_amethyst)|]* being in [|@wantVideosFrom|]*.
+
+[@ youtubeAmethyst("dQw4w9WgXcQ"); @]*
+
+---
+
+The following *text* (before the rule) is conditional on [|protect_underbar(instructor_amethyst)|]* being in [|@wantVideosFrom|]*.
+
+[@ textAmethyst("purple, by far, is my favorite color.  my second favorite color is dark urple.") @]*
+
+---
+
+But OTOH, this video (before the rule) will show up regardless of who's in [|@wantVideosFrom|]*:
+
+[@ youtube("FGBhQbmPwH8"); @]*
+
+END_PGML
+
+ENDDOCUMENT();

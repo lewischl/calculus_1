@@ -1,0 +1,316 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by cmd6a 4/26/06
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Integrals)
+## DBsection(Fundamental theorem of calculus)
+## Date(6/3/2002, Summer 2023)
+## Institution(Indiana, UWEC (silviana))
+## MLT(FTC_02)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('1')
+## Section1('5.4')
+## Problem1('5 6 7 8 9 10 11 12 13 14 15 16')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('5.3')
+## Problem2('5 6 7 8 9 10 11 12 13 14 15 16')
+## KEYWORDS('integrals', 'fundamental theorem of calculus','Calculus', 'Riemann Integral','fundamental theorem of calculus' 'integral')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Rochester/setIntegrals4FTC/sc5_4_12.pg 
+#	to setintegrals_FTOC_2_for_derivatives_of_integral_functions/sc5_4_12.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_FTOC_2_for_derivatives_of_integral_functions/sc5_4_12.pg 
+#	to setintegrals_FTOC_2_for_derivatives_of_integral_functions_-_training/sc5_4_12.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl",
+  "contextFraction.pl",
+  "desmos.pl",
+);
+
+
+
+desmos_enable_modify_existing();
+
+
+$desmos_width= 800;
+$desmos_height=400;
+    
+sub make_desmos_graph{
+
+    my $div_id = shift(@_);
+    my $desmos_graph = MODES(
+        HTML=>qq(<div id="$div_id" style="width: ${desmos_width}px; height: ${desmos_height}px;"></div>), 
+        TeX=>'Interactive graph best viewed online'
+    );
+
+    return $desmos_graph;
+}
+$unique_div_id = "ftoc2graph";
+$desmos_graph = make_desmos_graph($unique_div_id);
+
+TEXT(beginproblem());
+
+Context("Fraction");
+
+Context()->variables->add(t=>"Real");
+
+$showPartialCorrectAnswers = 1;
+
+$desmos_code = "3hejbdg67o"; #from the url
+
+$a= Fraction("1/2");
+
+$lower_bound = 1;
+$a_graph = $lower_bound; # for desmos
+$x_init = Fraction("1.5"); # for desmos
+$ftstr = "\\sqrt\{t^3+ $a^3\}"; # used in desmos.  note that i have to escape the \ and {}.  ah, metaprogramming
+$f_of_t = Formula("sqrt(t^3+ $a^3)");
+$f_of_x = Formula("sqrt(x^3+ $a^3)");
+
+
+$left = -1.25;
+$right = 3;
+$bottom = -1;
+$top = 3;
+
+
+Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on 
+* "integral functions": functions defined by the integral of a known function
+* derivatives of basic integral functions using the FTOC2
+[@ closeDiv() @]*
+
+If you're into videos, here's one on Area Functions by Prof. Amethyst:
+
+[@ youtube("JxZytdIEe18") @]*
+
+
+---
+
+We've studied definite integrals: they compute signed areas bounded by curves, and they represent net change.  We can use definite integrals to define a new class of functions!
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*Definition of integral function*
+
+An "integral function" is a function defined by an integral, with the variable being in one of the bounds of integration.
+[@ closeDiv() @]*
+
+For example, this [`F`] is an integral function:
+
+* [`F(x) = \int_{[$lower_bound]}^x [$f_of_t] \, dt `]
+
+The bounds of the integral depend on the variable of [`F`].  In order to evaluate [`F`], we have to evaluate an integral:
+
+* [`F(\pi) = \int_{[$lower_bound]}^{\pi} [$f_of_t] \, dt `]
+* [`F(0) = \int_{[$lower_bound]}^{0} [$f_of_t] \, dt `]
+
+Here's a Desmos graph of the integral function [`F`]:
+
+[@  $desmos_graph @]*
+
+🎯 Play with the slider for [`x`] and observe how the area changes.
+
+In the interval [`x \in [-1,2]`], at what point is the area changing the fastest? At [`x = `] [_]{Real(2)}
+
+---
+
+##### Rates of area accumulation
+
+We like differetiating functions, to find their slopes, to find out how fast they're changing.  Integral functions are these new types of functions.  
+
+In our quest to "differentiate all the things", we now have an important question:
+
+>>*what's the derivative of an integral function?*<<
+
+Observe by playing with the above Desmos graph:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The rate of area accumulation is exactly the height of the function bounding the area
+[@ closeDiv() @]*
+
+* If the integrand has height [`0`], then no area is accumulated.
+* If the integrand is positive, positive area is accumulated.
+* If the integrand is negative, negative area is accumulated.
+
+🧠 It sounds a lot like the integrand of an integral function is the rate at which area is accumulated.  And it is 🎉
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*Fundamental Theorem of Calculus, Part 2* (FTOC2)
+
+[```
+\frac{d}{dx} \left( \int_a^x f(t) \, dt \right)= f(x)
+```]
+
+Simply: the derivative of the integral, is the integrand.
+[@ closeDiv() @]*
+
+I like to think of it this way:
+
+* We integrate rates of change.  
+* When we integrate, we compute a net change.  
+
+The rate at which change accumulates, is the rate of change.  
+
+---
+
+We just discovered the derivative of the integral function we've been working with:
+
+[``F(x) = \int_{[$lower_bound]}^x [$f_of_t] \, dt ``], and so so it must be
+
+[``\frac{d}{dx} F(x) = [$f_of_x]``] by the Fundamental Theorem of Calculus, Part 2.
+
+---
+END_PGML
+
+
+BEGIN_TEXT
+🎯 Use Part II of the Fundamental Theorem of Calculus to
+find the derivatives.
+END_TEXT
+
+
+$a = random(-5,5,1);
+$f_of_t = Formula("sin(t)");
+$f_of_x = Formula("sin(x)");
+Context()->texStrings;
+BEGIN_TEXT
+$BR$PAR
+
+\( \displaystyle F(x) = \int_{$a}^{x} $f_of_t \, dt \) $PAR
+\( F'(x) \) = \{ans_rule( 20)\} 
+END_TEXT
+Context()->normalStrings;
+ANS($f_of_x->cmp);
+
+
+
+
+
+$a = random(-5,5,1);
+$f_of_t = Formula("t^4 + 7t + 3");
+$f_of_x = Formula("x^4 + 7x + 3");
+Context()->texStrings;
+BEGIN_TEXT
+$BR$PAR
+
+\( \displaystyle F(x) = \int_{$a}^{x} ($f_of_t) \, dt \) $PAR
+\( F'(x) \) = \{ans_rule( 20)\} 
+END_TEXT
+Context()->normalStrings;
+ANS($f_of_x->cmp);
+
+
+
+
+
+
+
+
+
+################
+#
+#  DESMOS
+#
+
+
+$d = '$'; # make a single dollar sign.  yes, this is stupid, but necessary cuz i couldn't figure out how to just put a dollar sign in the script code below.
+
+$graphUrl = "https://www.desmos.com/calculator/$desmos_code"; # the URL of the graph to embed.
+
+
+$a = 1;
+Context()->normalStrings;
+# for an explantion of what << does, see https://stackoverflow.com/questions/11948338/what-is-print-eof-and-how-is-it-working
+TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );  
+<script>
+<!-- //
+    
+    function make_graph(url,divname){
+        var elt = document.getElementById(divname);
+
+        var calc = Desmos.Calculator(elt, {
+            keypad: false, 
+            expressions: true,
+            settingsMenu: false, 
+            expressionsTopbar: false,
+            zoomButtons: false,
+        });
+
+
+        function modifyExistingState(json)
+        {
+        var state = json.state;
+            var exprlist = state.expressions.list;
+
+            state.expressions.list[1].latex = 'f(t) = $ftstr ';
+            state.expressions.list[0].latex = 'X = $x_init ';
+            state.expressions.list[3].latex = 'a = $a_graph ';
+for (let ii = 1; ii < exprlist.length; ii++) {
+state.expressions.list[ii].secret = false;
+} 
+
+         calc.setState(state);
+
+            calc.setMathBounds({
+              left: $left,
+              right: $right,
+              bottom: $bottom,
+              top: $top
+            });
+        }
+
+        $d.getJSON(url, modifyExistingState);
+        
+
+    }
+    
+    make_graph("$graphUrl", "$unique_div_id");
+    
+
+    
+    
+// -->
+</script>
+END_SCRIPT
+
+
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.
+

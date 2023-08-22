@@ -1,0 +1,148 @@
+## DBsubject(Calculus - single variable)
+## DBchapter(Integrals)
+## DBsection(Fundamental theorem of calculus)
+## Institution(UCSB, UWEC)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('5.3')
+## Problem1('21')
+## KEYWORDS('antiderivatives')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/5.4_5.5_FTC/integrate_linear.pg 
+#	to setintegrals_FTOC_1_for_definite_integrals/integrate_linear.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_FTOC_1_for_definite_integrals/integrate_linear.pg 
+#	to setintegrals_FTOC_1_for_definite_integrals_-_training/integrate_linear.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl",
+  "contextFraction.pl"
+);
+
+
+TEXT(&beginproblem);
+
+Context("Fraction-NoDecimals");
+
+$showPartialCorrectAnswers = 1;
+$a=random(2,10,1)*random(-1,1,2);
+$b=random(1,10,1)*random(-1,1,2);
+$c=random(1,10,1)*random(-1,1,2);
+
+$f = Formula("($a x + $b)");
+$F = Formula("$a/2 x^2 + $b x");
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+The fundamental theorem of calculus provides a connection between:
+* Signed areas under curves
+* Antiderivatives of functions
+
+This theorem took thousands of years to prove, and is one of the foundations on which our modern society rests.  For more, check out "Infinite Powers" by Steven Strogatz.
+[@ closeDiv() @]*
+
+
+END_PGML
+
+BEGIN_TEXT
+
+The Fundamental Theorem of Calculus Part 1 (FTOC1) says:
+
+\{ openDiv({ "class" => "importantFormula" }) \}
+\[
+\int_a^b f(x)\, dx = F(b)-F(a)
+\]
+
+⚠️ There are conditions where this fails!!!  Infinite discontinuities are the main problem.
+\{ closeDiv() \}
+
+A general process for finding values of definite integrals / signed areas / net change is:$PAR
+
+1. Find an antiderivative \(F\) $BR
+2. Evaluate that antiderivative at \(a\) and \(b\). $BR
+3. Subtract.
+
+$PAR
+
+We're starting super basic, so the integrands here are linear functions.
+
+$PAR$HR$PAR
+
+
+
+END_TEXT
+
+BEGIN_TEXT
+
+$PAR
+
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
+Use the Fundamental Theorem of Calculus to evaluate \(\displaystyle \int_{2}^{\,8} ($f) \,dx\).
+\{ closeDiv() \}
+
+$PAR
+
+1. Antidifferentiate. $BR
+$SPACE \( F(x) = \int($f)\, dx = \) \{ans_rule(30)\} \( + C\)
+
+$PAR
+2. Evaluate the antiderivative. ℹ️ Since \(C\) will subtractively cancel in step 3, choose \(C=0\) to make your life easier. $BR
+$SPACE \( F(2) = \) \{ ans_rule(10) \} $BR
+$SPACE \( F(8) = \) \{ ans_rule(10) \}
+
+$PAR
+3. Subtract and conclude.  ⚠️ Beware double negatives! $BR
+$SPACE \(\displaystyle \int_{2}^{\,8}{($f)}\,dx = \) \{ans_rule(30)\}
+$PAR$HR$PAR
+
+
+\{ openDiv({ "class" => "inProblemHint" }) \}
+Be careful to use parenthesis to group numbers together.  An explicit way of writing this is:
+\[
+\int_a^b f(x)\, dx = (F(b))-(F(a))
+\]
+See the extra \(()\) I added?  One of the most common mistakes is to forget to distribute the (-) across \((F(a))\).
+\{ closeDiv() \}
+
+END_TEXT
+
+
+BEGIN_HINT
+
+\{amethystHint("For a thorough video explaining definite integration, see this one by Prof. Amethyst.  For examples, jump to time 33 minutes.$PAR")\}
+\{youtubeAmethyst("uS7TqCvKXPs?t=2004")\}
+
+END_HINT
+Context()->normalStrings;
+
+ANS($F->cmp);
+ANS(num_cmp($F->eval(x=>2)));
+ANS(num_cmp($F->eval(x=>8)));
+ANS(num_cmp($F->eval(x=>8)-$F->eval(x=>2)));
+ENDDOCUMENT();

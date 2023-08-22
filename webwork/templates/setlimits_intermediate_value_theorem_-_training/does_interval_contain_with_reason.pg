@@ -1,0 +1,147 @@
+##DESCRIPTION
+## Determine if the IVT says interval contains a root
+##ENDDESCRIPTION
+
+## Shotwell cleaned
+## tcao , PAID on 11-24-2003
+## improved silviana amethyst 2023
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Continuity - intermediate value theorem)
+## Date(6/3/2002)
+## MLT(isitguaranteed)
+## MLTleader(1)
+## Level(4)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('2.5')
+## Problem1('45')
+## KEYWORDS('limit', 'continuity')
+
+
+
+########################################
+# this file automatically moved
+#	from set2.8_IVT/does_interval_contain_with_reason.pg 
+#	to setlimits_intermediate_value_theorem/does_interval_contain_with_reason.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_intermediate_value_theorem/does_interval_contain_with_reason.pg 
+#	to setlimits_intermediate_value_theorem_-_training/does_interval_contain_with_reason.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGcourse.pl",
+  "customCSS.pl",
+);
+
+TEXT(beginproblem());
+
+Context()->texStrings;
+
+$f_cts = "f is continuous over that interval";
+$f_has_discty = "f has a discontinuity in that interval";
+
+
+$ans1 = "does";
+$ans2 = $f_cts;
+
+$ans3 = "does not";
+$ans4 = $f_has_discty;
+
+$ans5 = "does not";
+$ans6 = $f_has_discty;
+
+$ans7 = "does";
+$ans8 = $f_cts;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+A problem focusing on why continuity is required as part of the Intermediate Value Theorem.
+
+This problem is NOT about root finding.
+[@ closeDiv() @]*
+
+
+Pay attention to the asymptotes!
+
+---
+
+END_PGML
+
+
+
+BEGIN_TEXT
+
+
+Consider the function
+\( \displaystyle f(x) =  \frac{x}{x^2-5x+6} \).
+
+
+
+
+$PAR
+
+The IVT \{pop_up_list(['?','does','does not']) \} apply to \(f\) for the interval \( [4,5] \) because 
+    \{pop_up_list(['?',$f_cts,$f_has_discty]) \}.  
+   
+
+$PAR
+
+The IVT \{pop_up_list(['?','does','does not']) \} apply to \(f\) for the interval \( [2.5, 4] \) because 
+    \{pop_up_list(['?',$f_cts,$f_has_discty]) \}.  
+    
+    $PAR
+    
+    
+The IVT \{pop_up_list(['?','does','does not']) \} apply to \(f\) for the interval \( [2,3] \) because 
+    \{pop_up_list(['?',$f_cts,$f_has_discty]) \}.  
+    
+    $PAR
+The IVT \{pop_up_list(['?','does','does not']) \} apply to \(f\) for the interval \( [0,1] \) because 
+    \{pop_up_list(['?',$f_cts,$f_has_discty]) \}.  
+    
+    
+
+$PAR
+
+
+    
+END_TEXT
+
+Context()->normalStrings;
+
+
+
+ANS(str_cmp($ans1));
+ANS(str_cmp($ans2));
+
+ANS(str_cmp($ans3));
+ANS(str_cmp($ans4));
+
+ANS(str_cmp($ans5));
+ANS(str_cmp($ans6));
+
+ANS(str_cmp($ans7));
+ANS(str_cmp($ans8));
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

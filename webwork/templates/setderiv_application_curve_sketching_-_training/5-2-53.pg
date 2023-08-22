@@ -1,0 +1,146 @@
+########################################
+# this file automatically moved
+#	from local/Library/ASU-topics/setSecondDerivative/5-2-53.pg 
+#	to setderiv_application_curve_sketching/5-2-53.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderiv_application_curve_sketching/5-2-53.pg 
+#	to setderiv_application_curve_sketching_-_training/5-2-53.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros("PG.pl",
+           "PGbasicmacros.pl",
+           "PGanswermacros.pl",
+		"extraAnswerEvaluators.pl",
+        "MathObjects.pl",
+        "PGcourse.pl",
+   );
+
+TEXT(beginproblem());
+
+$a = random(2,9,1);
+
+Context("Numeric");
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Calculus is all about relationships between curves.  
+* Functions and their slope functions (first derivatives).
+* Functions and their concavity functions (second derivatives)
+
+The point is, if you know some stuff determined by [`f'`] and [`f''`], together with asymptotic behaviour, you pretty much know the function.   
+
+In this series of problems we give you a function and ask you to compute a bunch of properties of the functions.  From these properties, you should be able to sketch a reasonable graph.  
+
+[@ closeDiv() @]*
+
+
+[@   openDiv({ "class" => "importantFormula" }) @]*
+The ability to predict what a graph will look like just from its first and second derivatives is perhaps the most important skill in Calculus.
+
+🧠 Think about it.  
+* The first derivative tells us increasing / decreasing.  
+* The second derivative tell us how the rate of change is changing.  Slowing down?  Speeding up?
+
+With this information we can start to be able to tell the future.  Like, we know a lot about the way our global tempurature is changing based on various human inputs.  We know pretty solidly what's going to happen over the next 20-50 years, and it's *not* good.  🔥 
+
+[@  closeDiv() @]*
+
+---
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+
+Consider the function 
+
+[``f(x) = [$a] x^2 \ln(x), \quad x > 0 ``]
+
+[@ closeDiv() @]*
+
+END_PGML
+
+
+
+BEGIN_TEXT
+
+
+$PAR
+
+(a) List all the critical points of \(f(x)\). 
+(If there are no critical points, enter $BBOLD none${EBOLD}.)
+$BR
+\(x=\) \{ans_rule(50)\}
+$PAR
+
+(b) Use interval notation to indicate where \(f(x)\) is increasing.
+$BR
+Increasing: \{ans_rule(50)\}
+$PAR
+
+(c) Use interval notation to indicate where \(f(x)\) is decreasing.
+$BR
+Decreasing: \{ans_rule(50)\}
+$PAR
+
+(d) List the \(x\) values that correspond to the local maxima of
+\(f(x)\). (If there are no local maxima, enter $BBOLD none${EBOLD}.)
+$BR
+\(x\) values of local maximums \(=\) \{ans_rule(30)\}
+$PAR
+
+(e) List the \(x\) values that correspond to the local minima of
+\(f(x)\). (If there are no local minima, enter $BBOLD none${EBOLD}.)
+$BR
+\(x\) values of local minimums \(=\) \{ans_rule(30)\}
+$PAR
+
+(f) Use interval notation to indicate where \( f(x) \) is concave up.
+$BR
+Concave up: \{ans_rule(50)\}
+$PAR
+
+(g) Use interval notation to indicate where \( f(x) \) is concave down.
+$BR
+Concave down: \{ans_rule(50)\}
+$PAR
+
+(h) List the \(x\) values of all the inflection points of
+\(f\). (If there are no inflection points, enter $BBOLD none${EBOLD}.)
+$BR
+\(x\) values of inflection points \(=\) \{ans_rule(30)\}
+$PAR
+
+🏁 Lastly, use the above information to sketch the function, without looking at a computer-generated graph.  
+
+
+
+END_TEXT
+
+Context("Interval");
+$showPartialCorrectAnswers = 1;
+
+ANS(Compute("exp(-1/2)")->cmp);  #critical points
+ANS(Compute("(exp(-1/2),inf)")->cmp);  #increasing
+ANS(Compute("(0,exp(-1/2))")->cmp); #decreasing
+ANS(Compute("none")->cmp); #local max
+ANS(Compute("exp(-1/2)")->cmp); #local min
+ANS(Compute("(exp(-3/2),inf)")->cmp); #concave up
+ANS(Compute("( 0,exp(-3/2) )")->cmp); #concave down
+ANS(Compute("exp(-3/2)")->cmp); #inflection points
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

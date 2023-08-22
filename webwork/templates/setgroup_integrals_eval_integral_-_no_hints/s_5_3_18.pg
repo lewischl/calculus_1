@@ -1,0 +1,54 @@
+#####################################################################
+
+
+########################################
+# this file automatically moved
+#	from local/Library/UMN/calculusStewartCCC/s_5_3_18.pg 
+#	to setgroup_integrals_eval_integral_-_no_hints/s_5_3_18.pg 
+#	on 2023-06-08 15:17:56.142406 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+#####################################################################
+
+$showPartialCorrectAnswers = 1;
+
+TEXT(beginproblem());
+
+#####################################################################
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$a = random(1,5,1);
+$b = random(2,4,1);
+$c = random(5,8,1);
+
+$an = Compute("$b*e^($a)+$c*sin($a)-$b");
+
+
+#####################################################################
+
+Context()->texStrings;
+BEGIN_TEXT
+Evaluate the integral:$BR
+\(\displaystyle \int_{0}^{$a} \!\left( $b e^x+$c\cos(x)\right)  \, dx=\) \{ans_rule(20) \}$BR
+${BITALIC}(Give an exact answer.)$EITALIC
+END_TEXT
+Context()->normalStrings;
+
+#####################################################################
+
+ANS( $an->cmp() );
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

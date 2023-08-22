@@ -1,0 +1,69 @@
+assignmentType      = default
+openDate          = 02/04/2030 at 11:59pm CST
+reducedScoringDate = 02/04/2030 at 11:59pm CST
+dueDate           = 02/04/2030 at 11:59pm CST
+answerDate        = 02/04/2030 at 11:59pm CST
+enableReducedScoring = N
+paperHeaderFile   = defaultHeader
+screenHeaderFile  = defaultHeader
+description       = 
+restrictProbProgression = 0
+emailInstructor   = 0
+
+problemListV2
+problem_start
+problem_id = 1
+source_file = setgroup_limits_make_func_cont_-_no_hints/s1_5_37.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 2
+source_file = setgroup_limits_make_func_cont_-_no_hints/ur_lr_5_6.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 3
+source_file = setgroup_limits_make_func_cont_-_no_hints/c1s5p5.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 4
+source_file = setgroup_limits_make_func_cont_-_no_hints/s_2_4_prob03.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 5
+source_file = setgroup_limits_make_func_cont_-_no_hints/3-2-72.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+

@@ -1,0 +1,136 @@
+## DESCRIPTION
+## Definite Integral via the Fundamental Theorem
+## ENDDESCRIPTION
+
+## Tagged by YL
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Techniques of integration)
+## DBsection(Substitution (without trigonometric functions))
+## Institution(ASU, UWEC 2023)
+## Author(unknown, then silviana amethyst)
+## MLT(affine_definite)
+## MO(1)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('5.3')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('5.3')
+## Problem2('')
+## KEYWORDS('calculus', 'Integration', 'definite', 'ftc', 'fundamental theorem')
+
+
+
+########################################
+# this file automatically moved
+#	from Library/ASU-topics/setCalculusFundamentalTheorem/6-5-18.pg 
+#	to setintegrals_FTOC_1_for_definite_integrals/6-5-18.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_FTOC_1_for_definite_integrals/6-5-18.pg 
+#	to setintegrals_FTOC_1_for_definite_integrals_-_training/6-5-18.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$l = random(-2, -1);
+$r = random(1, 2);
+
+$a = list_random(-1, 1) * random(2, 4);
+$aa = abs($a);
+
+$al = ( $a > 0 ? $a*$l : $a*$r );
+$ar = ( $a > 0 ? $a*$r : $a*$l );
+
+Context('Numeric')->flags->set(
+	reduceConstants => 0,
+	reduceConstantFunctions => 0
+);
+$f = Formula("e^($a*x)")->reduce;
+$D = Formula("(1/$aa)*(e^($ar) - e^($al))")->with(
+	tolType => 'absolute',
+	tolerance => exp($al)/(100*$aa)
+);
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on using the fundamental theorem of Calculus with an exponential of the form [`e^{kx}`]
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*Integration of exponential functions with linear function in exponent*
+
+[```
+\int e^{kx+b} \, dx = \frac{1}{k} e^{kx+b} + C
+```]
+[@ closeDiv() @]*
+
+We'll study more generally how to "undo the chain rule" in the section on "integration by substitution".
+
+
+[@ openDiv({ "class" => "inProblemHint" }) @]*
+To integrate a definite integral using FTOC1:
+
+1. Find an antiderivative
+2. Evaluate that antiderivative
+3. Subtract
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+
+BEGIN_TEXT
+Evaluate the definite integral using the FTOC1 and the exponential-of-a-linear rule:
+$BR $BR
+\( \displaystyle \int_{$l}^{$r} $f \, dx
+= \) \{ ans_rule() \}
+END_TEXT
+Context()->normalStrings;
+
+ANS($D->cmp);
+
+Context()->texStrings;
+BEGIN_SOLUTION
+Integrating by inspection gives
+\[
+\int _ {$l} ^ {$r} $f \, dx =
+\textstyle
+\{ ($a > 0 ? '' : '-' ) \}
+\frac1{$aa} $f \; \Bigg| _ {$l} ^ {$r}
+= $D.
+\]
+END_SOLUTION
+
+ENDDOCUMENT();

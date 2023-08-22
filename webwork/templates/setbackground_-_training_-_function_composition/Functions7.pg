@@ -1,0 +1,74 @@
+## DBsubject(Algebra)
+## DBchapter(Functions)
+## DBsection(Compositions and combinations of functions)
+## Institution(University of Massachusetts Amherst)
+## Author(Siman Wong and Patrick O'Brien)
+## Level(1)
+## MO(1)
+## KEYWORDS('composition Of Functions')
+
+
+
+########################################
+# this file automatically moved
+#	from Library/UMass-Amherst/Abstract-Algebra/PS-Functions/Functions7.pg 
+#	to setreview_function_operations/Functions7.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setreview_function_operations/Functions7.pg 
+#	to setbackground_-_training_-_function_composition/Functions7.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();     
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "parserImplicitPlane.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+
+
+$a = random(3,8,1);
+
+
+
+TEXT(EV3(<<'EOT'));
+Consider the functions $BR $BR
+
+\( f(x) = $a ^x,\)   \( g(x) = x ^{$a}\) $BR $BR
+
+Determine the following compositions of functions: $BR $BR
+
+\((f \circ f)(x) =\) \{ans_rule(10)\} $BR $BR
+
+\((f \circ g)(x) =\) \{ans_rule(10)\} $BR $BR
+
+\((g \circ f)(x) =\) \{ans_rule(10)\} $BR $BR
+
+\((g \circ g)(x) =\) \{ans_rule(10)\} $BR $BR
+
+EOT
+
+
+ANS( Compute("$a^{$a^{x}}")->cmp() );
+ANS( Compute("$a^{x^{$a}}")->cmp() );
+ANS( Compute("$a^{$a x}")->cmp() );
+ANS( Compute("x^{$a*$a}")->cmp() );
+
+ENDDOCUMENT();     

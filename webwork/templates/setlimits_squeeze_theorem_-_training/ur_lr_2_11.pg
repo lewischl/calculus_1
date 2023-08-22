@@ -1,0 +1,121 @@
+##DESCRIPTION
+## Find limits using the squeeze theorem
+##ENDDESCRIPTION
+
+## Shotwell cleaned
+## tcao , PAID on 11-24-2003
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Squeeze theorem)
+## Date(6/3/2002)
+## MLT(limits_squeeze_linear_and_quadratic)
+## MLTleader(1)
+## Level(3)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('2.3')
+## Problem1('33')
+## KEYWORDS('limits', 'sequences', 'squeeze theorem')
+## MO(1)-TF-12/18/2014
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/ma122DB/set1/ur_lr_2_11.pg 
+#	to setlimits_squeeze_theorem/ur_lr_2_11.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_squeeze_theorem/ur_lr_2_11.pg 
+#	to setlimits_squeeze_theorem_-_training/ur_lr_2_11.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "contextArbitraryString.pl",
+  "PGcourse.pl",
+  "customCSS.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Numeric");
+
+
+
+$a = random(-4,4,1);
+$b = random(-6,6,1);
+$c = random(-6,6,1);
+# coefficients of quadratic  x^2 + a1x + a2 passing through c at a
+$a1 = $b-$a;
+$a2 = -$a*$b+$c;
+# coefficients of line b1x +b2  passing through c at a and tangent to quadratic above.
+$b1 = $a + $b;
+$b2 = -$a*($a +$b) + $c;
+
+$pol = nicestring([1, $a1, $a2]);
+$lhs = nicestring([$b1, $b2]);
+$showPartialCorrectAnswers=1;
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+A problem where we have a squeeze, but no function definitions.  The squeeze theorem can be used even without formulas!
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The squeeze theorem:
+
+---
+
+If on an open interval containing [`x = a`] we have two functions [`\ell`] and [`u`] such that 
+
+* [`\ell(x) \leq f(x) \leq u(x) `]
+* [`\displaystyle \lim_{x \to a} \ell(x) =  \lim_{x \to a} u(x) = L `]
+
+Then it must be that [`` \lim_{x \to a} f(x) = L``].
+
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+BEGIN_TEXT
+Suppose that we have a function \(f\) such that \[ $lhs  \le f(x) \le $pol \] $BR 
+
+Use this to compute the limit. $PAR
+
+\( \displaystyle \lim_{x\to $a} f(x) = \) \{ans_rule(25)\} 
+
+END_TEXT
+
+Context('Numeric');
+ANS(Real($c)->cmp);
+
+Context("ArbitraryString");
+
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

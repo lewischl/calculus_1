@@ -1,0 +1,139 @@
+#Problem APEX 1.6.12
+
+
+
+########################################
+# this file automatically moved
+#	from Library/Valdosta/APEX_Calculus/1.6/APEX_1.6_12.pg 
+#	to setlimits_extra_practice/APEX_1.6_12.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_extra_practice/APEX_1.6_12.pg 
+#	to setlimits_introducing_limits_-_training_-_graphical_limits/APEX_1.6_12.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+# Load whatever macros you need for the problem
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGgraphmacros.pl",
+  "parserPopUp.pl",
+  "PGcourse.pl",
+  "customCSS.pl",
+);
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Finding limits using graphs)
+## Institution(Valdosta State University)
+## Author(S. V. Ault)
+## Level(2)
+## TitleText1('APEX Calculus')
+## AuthorText1('Hartman')
+## EditionText1('3.0')
+## Section1('1.6')
+## Problem1('12')
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+
+#####################################################################
+
+$a = random(2,8,1);
+$xmin = -3;
+$ymin = -10;
+$xmax = 3;
+$ymax = 10;
+
+$w = 300;  # graph size
+$tw = 300; # graph size in TeX
+
+$graph1 = init_graph($xmin,$ymin,$xmax,$ymax,'axes'=>[0,0],
+  'ticks'=>[6,20],'grid'=>[6,20],'pixels'=>[250,250],'size'=>[500,500]);
+
+$p1 = FEQ("x^2 * sin($a * pi * x) for x in [$xmin,$xmax] 
+  using color:blue weight:2");
+
+plot_functions($graph1,$p1);
+
+($graph1->fn)[0]->steps(150);
+
+$ans_ab = "DNE";
+$ans_c = 0;
+
+###############################################################
+Context()->texStrings;
+
+BEGIN_TEXT
+
+\{ openDiv({ "class" => "problemPurpose" }) \}
+This problem studies an oscillating function with varying amplitude.
+\{ closeDiv() \}
+
+$PAR
+
+\{ openDiv({ "class" => "importantFormula" }) \}
+If a function does not tend toward a single value, but can't make up its mind and tries to approach two or more values, then the limit doesn't exist.
+\{ closeDiv() \}
+
+
+$PAR
+
+$BCENTER
+\{image(insertGraph($graph1),width=>$w,height=>$w,tex_size=>$tw)\}
+$ECENTER $PAR
+$HR
+Evaluate the given limits using the above graph of 
+\( f(x) = \displaystyle 
+x^2 \sin($a\pi x) \).
+$BR
+Enter $BBOLD DNE $EBOLD if the limit does not exist.
+$PAR
+\(\displaystyle \lim_{x \to -\infty} f(x)\) = \{ ans_rule(8) \}
+$PAR
+\(\displaystyle \lim_{x \to 0} f(x)\) = \{ ans_rule(8) \}
+$PAR
+\(\displaystyle \lim_{x \to \infty} f(x)\) = \{ ans_rule(8) \}
+
+END_TEXT
+
+Context()->normalStrings;
+
+#####################################################################
+
+
+
+
+ANS( num_cmp( $ans_ab, strings=>["INF", "-INF", "DNE"] ) );
+ANS( num_cmp( $ans_c, strings=>["INF", "-INF", "DNE"] ) );
+ANS( num_cmp( $ans_ab, strings=>["INF", "-INF", "DNE"] ) );
+
+
+Context()->texStrings;
+SOLUTION(EV3(<<'END_SOLUTION'));
+$BR$BBOLD Solution:$EBOLD 
+$PAR
+The limits as \( x\to \pm\infty\) do not exist because the
+function oscillates indefinitely.  The limit as \( x \to 0\) is
+equal to 0 because the function is continuous at that point and 
+\( f(0) = 0\).
+END_SOLUTION
+
+
+
+ENDDOCUMENT();    

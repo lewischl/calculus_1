@@ -1,0 +1,31 @@
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl",
+  "MathObjects.pl",
+);
+
+$showPartialCorrectAnswers = 1;
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$a = random(2,7,1);
+$b = random(3,8,1);
+
+TEXT(beginproblem());
+BEGIN_TEXT
+Compute the following limits, using l'Hopital's rule if appropriate.
+$BR
+\( \displaystyle \lim_{x\to\infty}\frac{\arctan(x^{$a})}{x^{$b}} =\) \{ ans_rule()\}
+$PAR
+\( \displaystyle \lim_{x\to 0^+}\sqrt[$b]{x}\ln(x) =\) \{ ans_rule()\}$BR
+${BITALIC}(Give exact answers.)$EITALIC
+END_TEXT
+
+ANS(Compute("0")->cmp);
+ANS(Compute("0")->cmp);
+
+ENDDOCUMENT();

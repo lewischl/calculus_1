@@ -1,0 +1,105 @@
+##DESCRIPTION
+##  Find a derivative of a polynomial, evaluate it at a point
+##ENDDESCRIPTION
+
+## Shotwell cleaned
+## tcao , PAID on 11-24-2003
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Definition of the derivative)
+## Date(6/3/2002)
+## MLT(DefDerMinimal)
+## Level(3)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('2.8')
+## Problem1('20')
+## KEYWORDS('derivatives')
+
+
+
+########################################
+# this file automatically moved
+#	from Library/ma122DB/set3/s2_9_21.pg 
+#	to setderivatives_limit_definition_of_derivative/s2_9_21.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGcourse.pl",
+  "customCSS.pl",
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+
+$a1 = random(2,7,1);
+$b1 = random(2,12,1);
+$c1 = random(1,40,1);
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+As we learn the derivative by definition, we work up to more and more complicated functions.  This problem guides you through a computation with a quadratic function.  There's a fair amount of algebra and simplification needed, and it's good practice.
+
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The definition of the derivative, which tells us the slope of the tangent line and the instantaneous rate of change at point or time [`x=a`]:
+
+[```
+f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}
+```]
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+
+Follow these  steps to find the derivative of this quadratic by definition:
+1. Evaluate: [`f(x+h)`].
+    * This is function composition.  Everywhere you see an [`x`], replace it with [`x+h`].
+    * Expand out collect like terms, both for [`x`] and [`h`].  
+    * Be careful when foiling out [`(x+h)^2`] to multiply all terms by [`[$a1]`]. Same with the linear term -- it's easy to forget to distribute the [`[$b1]`].
+2. Subtract: [`f(x+h) - f(x)`].
+    * All the constants will cancel!!!
+3. Divide by [`h`]: [`\frac{f(x+h) - f(x)}{h}`].
+    * When doing a derivative, the [`h`] in the denominator will always cancel! 
+4. Simplify.
+5. Take the limit as [`h \to 0`]: [`\lim_{h \to 0} \frac{f(x+h) - f(x)}{h}`]
+
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+
+
+
+
+BEGIN_TEXT
+If \( f(x) =  $a1 x^2 - $b1 x -$c1 \), use the definition of derivative
+to find \( f'( x ) \). 
+
+$PAR
+\( f'( x ) = \) \{ans_rule(25) \}
+
+END_TEXT
+
+ANS(fun_cmp("2*$a1*x-$b1"));
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

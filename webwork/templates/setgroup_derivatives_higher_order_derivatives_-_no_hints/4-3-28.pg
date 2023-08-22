@@ -1,0 +1,79 @@
+## DESCRIPTION
+## Calculus: Second Derivatives
+## ENDDESCRIPTION
+
+## Tagged by cmd6a 2/9/06
+## updated tbf - Dec 2014
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Higher-order derivatives)
+## Institution(ASU)
+## MLT(hod_2nd_poly)
+## MLTleader(1)
+## Level(2)
+## MO(1)
+## KEYWORDS('calculus', 'differentiation', 'second derivative')
+
+
+
+########################################
+# this file automatically moved
+#	from Library/ASU-topics/setSecondDerivative/4-3-28.pg 
+#	to setderivatives_higher_order_derivatives/4-3-28.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_higher_order_derivatives/4-3-28.pg 
+#	to setgroup_derivatives_higher_order_derivatives_-_no_hints/4-3-28.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+$b = non_zero_random(-8,8,1);
+$c = non_zero_random(-8,8,1);
+while( ($b)**2 == 1 )
+{
+    $b = non_zero_random(-8,8,1);
+}
+
+$g = Formula(" x^4 + {$b} x^2 + {$c} ")->reduce;
+$g2 = Formula("2*$b + 12*x**2");
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+
+Context()->texStrings;
+BEGIN_TEXT
+
+Find \(g''(x)\) for
+\[ g(x) = $g  \]
+$BR
+\(g''(x)\) = \{ans_rule(35)\}
+
+END_TEXT
+Context()->normalStrings;
+
+ANS($g2->cmp);
+
+;
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

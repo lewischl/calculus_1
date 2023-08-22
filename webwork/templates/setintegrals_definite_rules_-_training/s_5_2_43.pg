@@ -1,0 +1,143 @@
+#based on: Library/UMN/calculusStewartCCC/s_5_2_43.pg
+
+#####################################################################
+
+
+########################################
+# this file automatically moved
+#	from local/Library/UMN/calculusStewartCCC/s_5_2_43.pg 
+#	to setintegrals_definite_by_geometry/s_5_2_43.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_definite_by_geometry/s_5_2_43.pg 
+#	to setintegrals_definite_rules_-_training/s_5_2_43.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+#####################################################################
+
+$showPartialCorrectAnswers = 1;
+
+TEXT(beginproblem());
+
+#####################################################################
+
+Context("Numeric");
+
+$a = random(6,10,1); # bound
+$f = random(20,40,1);
+$g = random(10,20,1);
+$h = non_zero_random(-20,10,1);
+
+
+$s1 = random(2,4,1); # scalars
+$s2 = random(5,6,1);
+$s3 = random(-6,-4,1);
+
+$an = $d*$b+$e*$c;
+
+$ans = Compute("$an");
+
+#####################################################################
+
+Context()->texStrings;
+
+
+
+
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem teaches an important fundamental skill in integration: willingness to split an integral across [`\pm`], and factor out scalars.
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Integrals split across sums and differences:
+
+[```
+\int_a^b (f(x) \pm  g(x) )\, dx = \int_a^b f(x)\, dx \pm \int_a^b g(x) \, dx
+```]
+[@ closeDiv() @]*
+
+
+END_PGML
+BEGIN_TEXT
+Assume (and transcribe to your paper work for reference):$BR
+\(\displaystyle \int_0^{$a}\! f(x) \, dx = $f\)  $BR
+\(\displaystyle \int_{0}^{$a}\! g(x) \, dx = $g\) $BR
+\(\displaystyle \int_{0}^{$a}\! h(x) \, dx = $h\) $BR
+
+$PAR
+
+🎯 Compute the following integrals:$BR
+\(\displaystyle \int_0^{$a}\big[ f(x)+ g(x)\big]dx=\) \{ans_rule(20) \} $BR
+\(\displaystyle \int_0^{$a}\big[ f(x)+ h(x)\big]dx=\) \{ans_rule(20) \} $BR
+\(\displaystyle \int_0^{$a}\big[ f(x)+ g(x) + h(x)\big]dx=\) \{ans_rule(20) \} $BR
+$PAR
+END_TEXT
+Context()->normalStrings;
+
+ANS( num_cmp($f+$g) );
+ANS( num_cmp($f+$h) );
+ANS( num_cmp($f+$g+$h) );
+
+
+BEGIN_PGML
+
+---
+
+We can combine the sum/difference rule with the constant-multiple rule to obtain "linearity":
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The definite integral is a "linear operator".  
+* Sums and differences split
+* Constants factor out
+
+[```
+\int_a^b (A f(x) \pm  B g(x) )\, dx = A \int_a^b f(x)\, dx \pm B \int_a^b g(x) \, dx
+```]
+[@ closeDiv() @]*
+
+🎯 Use the "linearity" property to compute these integrals from the above given values of integrals.
+
+END_PGML
+
+
+BEGIN_TEXT
+\(\displaystyle \int_0^{$a}\big[$s1 f(x)+$s2 g(x)\big]dx=\) \{ans_rule(20) \} $BR
+\(\displaystyle \int_0^{$a}\big[$s1 f(x)+$s3 h(x)\big]dx=\) \{ans_rule(20) \} $BR
+\(\displaystyle \int_0^{$a}\big[$s1 f(x)+$s2 g(x) + $s3 h(x)\big]dx=\) \{ans_rule(20) \} $BR
+END_TEXT
+
+Context()->normalStrings;
+ANS( num_cmp($s1*$f + $s2*$g) );
+ANS( num_cmp($s1*$f + $s3*$h) );
+ANS( num_cmp($s1*$f + $s2*$g + $s3*$h) );
+#####################################################################
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

@@ -1,0 +1,91 @@
+##DESCRIPTION
+##  Calculus problem: Use the integral of a marginal cost function to answer economics questions.
+##ENDDESCRIPTION
+
+##KEYWORDS('Marginal Cost', 'Net Change', "Definite Integral")
+
+## DBsubject('Calculus')
+## DBchapter('Integration')
+## DBsection('Net Change as the Integral of a Rate of Change')
+## Date('8/18/2022')
+## Author('Erich Jauch')
+## Institution('UWEC')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   "contextCurrency.pl"
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$src = random(4,8,1);
+
+$c1 = -1*$src/100;
+$c0 = $src*20;
+
+$mc = Formula("$c0 + $c1*x +0.0001*x^2")->reduce;
+$c = Formula("$c0*x + $c1/2*x^2 +0.0001/3*x^3")->reduce;
+
+$start = $src*100;
+$end = $start*1.5;
+$setupcost = $src*1500;
+
+$c1 = $c->eval(x=>$start);
+$c2 = $c->eval(x=>$end);
+
+Context("Currency");
+$ans1 = Currency($c2-$c1)->round;
+
+$ans2 = Currency($c2 + $setupcost)->round;
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+If the marginal cost to produce [`x`] units of a certain good is [`C^\prime(x) = [$mc]`],
+answer the following questions:
+
+A. What is the additional cost changing production from [`[$start]`] units
+to [`[$end]`] units of this good? [_____]{num_cmp($ans1)}
+
+B. Assume it costs [`\$[$setupcost]`] to set up the process and begin production. What
+is the total cost to produce [`[$end]`] units of this good? [_____]{num_cmp($ans2)}
+END_PGML
+
+BEGIN_PGML_HINT
+A. Recall that the FTOC says that [`\displaystyle\int_a^b C^\prime(x)~dx=C(b)-C(a)`]
+
+B. Setup costs would represent that cost associated to [`0`] units produced. Said another way,
+[`C(0)=[$setupcost]`].
+END_PGML_HINT
+
+ENDDOCUMENT();
+
+
+
+
+
+
+
