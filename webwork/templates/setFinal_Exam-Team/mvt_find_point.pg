@@ -1,0 +1,94 @@
+##DESCRIPTION
+##  Mean value theorem
+##ENDDESCRIPTION
+
+##KEYWORDS('applications of derivatives', 'mvt', 'mean value theorem')
+
+## DBsubject('Calculus')
+## DBchapter('Applications of Derivatives')
+## DBsection('Mean value theorem')
+## Date('')
+## Author('silviana amethyst')
+## Institution('uwec')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   "parserPopUp.pl",
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+SRAND(100);
+$setseed = "set.seed(100); 100";
+
+
+$a = random(3,7,1);
+$b = random(3,7,1);
+$r = random(2,4,1);
+
+$cty_statement = PopUp(
+  ["is not continuous","is continuous"],
+  "is continuous");
+  
+$diff_statement = PopUp(
+  ["is not differentiable","is differentiable"],
+  "is differentiable");
+
+$aroc = $a/$r; # love this, so nice
+
+$loc_attained = 8/27*$r**3;  
+  
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+
+The mean value theorem guarantees that a differentiable function attains its average rate of change.  This problem has you find a point of attainment.
+
+---
+
+Consider the function
+
+[``f(x) = [$a]x^{2/3} + [$b]``]
+
+over the interval [`[0,[$r**3]]`].
+
+Some questions:
+* Is the function continuous over the closed interval [`[0,[$r**3]]`]?
+* Is the function differentiable over the open interval [`(0,[$r**3])`]?
+* What is the average rate of change of [`f`] over [`[0,[$r**3]]`]? 
+* At what [`x`] value is that average rate attained?
+
+---
+
+[`f`] [___]{$cty_statement} on [`[0,[$r**3]]`].    (select the option)
+
+[`f`] [___]{$diff_statement} on [`(0,[$r**3])`].    (select the option)
+
+Average rate of change = [______]{$aroc}
+
+The average rate of change is attained at [`x = `] [___]{$loc_attained}
+END_PGML
+
+ENDDOCUMENT();

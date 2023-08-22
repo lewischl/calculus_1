@@ -1,0 +1,91 @@
+##DESCRIPTION
+##  one-sided Infinite Limit: Rational function limit at odd parity dicontinuity
+##ENDDESCRIPTION
+
+##KEYWORDS('indeterminant forms', 'limit')
+
+## DBsubject('Calculus')
+## DBchapter('Limits')
+## DBsection('Indeterminant Forms')
+## Date('')
+## Author('Silviana Amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "parserPopUp.pl",
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+SRAND(202203);
+$setseed = "set.seed(202203); 202203";
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$parameter = random(2,4,1);
+$c = $parameter; # the point of interest
+
+$d = random(2,4,1);
+
+$n = random(3,4,1);
+
+
+
+@ans = ();
+$ans[0] = min($c,$d);
+$ans[1] = max($c,$d);
+$ans[2] = "inf";
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+## Part 1.
+
+Consider the function:
+
+[``f(x) =  \frac{[$n]x - [$n*$d]}{x^2 - [$c+$d]x + [$c*$d]}``]
+
+Identify the two points of discontinuity.  Enter the [``x``]-coordinates, starting with the smaller of the two.
+
+[``f``] is discontinuous at 
+* [``x = ``] [____]{$ans[0]}  (the smaller), 
+* and at [``x = ``] [____]{$ans[1]}  (the larger)
+
+
+---
+
+## Part 2. 
+
+Next, find the following limit:
+
+[``\lim_{x\rightarrow [$c]^+}  \frac{[$n]x - [$n*$d]}{x^2 - [$c+$d]x + [$c*$d]} = ``] [____]{$ans[2]}
+
+(Enter DNE if the limit does not exist)
+
+END_PGML
+
+ENDDOCUMENT();

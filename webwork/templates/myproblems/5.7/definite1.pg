@@ -31,7 +31,18 @@ Evaluate the *definite* integral:
 
 $PAR
 \(\displaystyle \int_{3\pi/4}^{\pi} \cos(2x)\, dx=\) \{ ans_rule(10) \}
+
+$PAR
+
+Enter an exact expression.
 END_TEXT
+
+BEGIN_HINT
+Remember, pay attention to the bounds of integration when you substitute. 
+
+\{amethystHint("$PAR$HR$PAR Here's an example (not with trig, but hey) of a definite integration problem from Prof. Amethyst: $PAR")\}
+\{ youtubeAmethyst("dYbSuMZQRzc") \}
+END_HINT
 
 ANS(Compute("$a")->cmp);
 

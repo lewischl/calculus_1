@@ -1,0 +1,74 @@
+##DESCRIPTION
+##  Infinite Limit: Rational function with no horizontal asymptote
+##ENDDESCRIPTION
+
+
+##KEYWORDS('limits at infinity', 'limit')
+
+## DBsubject('Calculus')
+## DBchapter('Limits')
+## DBsection('Limits at infinity')
+## Date('')
+## Author('Silviana Amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "parserPopUp.pl",
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+SRAND(202203);
+$setseed = "set.seed(202203); 202203";
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$parameter = random(10,20,2);
+
+$n = $parameter;
+$d = $n+random(4,8,1);
+
+$q1 = random(-9,-2);
+$q2 = random(2,9);
+$q3 = random(1000,2000,100);
+
+
+@ans = ();
+$ans[0] = "-inf";
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+Find the following limit:
+
+[``\lim_{x\rightarrow\infty} \frac{[$n] x^5 - x^2 + [$q1]}{-[$d] x^3 + [$q2] x^2 + [$q3]} = ``] [____]{$ans[0]}
+
+(Enter DNE if the limit does not exist)
+
+END_PGML
+
+ENDDOCUMENT();

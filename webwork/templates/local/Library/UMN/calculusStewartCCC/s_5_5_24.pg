@@ -1,0 +1,50 @@
+#####################################################################
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "parserFormulaUpToConstant.pl",
+  "PGcourse.pl", 
+);
+
+#####################################################################
+
+$showPartialCorrectAnswers = 1;
+
+TEXT(beginproblem());
+
+#####################################################################
+
+Context("Numeric");
+Context()->variables->set(x=>{limits=>[0,4]});
+
+$a = random(1,2,1);
+
+if ($a==1) {
+$f = '\sin';
+$ans = FormulaUpToConstant("-cos(ln(x))");
+}
+
+if ($a==2) {
+$f = '\cos';
+$ans = FormulaUpToConstant("sin(ln(x))");
+}
+
+#####################################################################
+
+Context()->texStrings;
+BEGIN_TEXT
+Calculate the indefinite integral:
+$PAR
+\(\displaystyle \int \frac{$f (\ln x)}{x}  \, dx=\) \{ ans_rule(10) \}$BR
+${BITALIC}(Use a capital $BBOLD C$EBOLD for an arbitrary constant.)$EITALIC
+
+END_TEXT
+Context()->normalStrings;
+
+#####################################################################
+
+ANS( $ans->cmp() );
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

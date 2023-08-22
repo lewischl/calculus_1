@@ -1,0 +1,77 @@
+##DESCRIPTION
+##  Secant Line: Given two points on a function curve, find equation of secant line.
+##ENDDESCRIPTION
+
+##KEYWORDS('Secant line', 'limit')
+
+## DBsubject('Calculus')
+## DBchapter('Limits')
+## DBsection('Instantaneous Rate of Change')
+## Date('')
+## Author('Erich Jauch')
+## Institution('UWEC')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "parserPopUp.pl",
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+SRAND(202203);
+$setseed = "set.seed(202203); 202203";
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$parameter = random(2,8,2);
+$a = $parameter/2;
+$b = $a+4;
+
+$h = $parameter;
+$k = $parameter/2*3;
+
+$f = Formula("(x-$h)^2-$k")->reduce;
+
+$fa = $f->eval(x=>$a);
+$fb = $f->eval(x=>$b);
+
+$m = Compute("($fb-$fa)/($b-$a)");
+$y0 = Compute("$fa-$m*$a");
+
+@ans = ();
+$ans[0] = Formula("$m*x+$y0")->reduce;
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+Given the following function [`f(x)=[$f]`], find the equation of the secant line through
+[`x=[$a]`] and [`x=[$b]`] in slope intercept form.
+
+[`y=`] [___]{$ans[0]}
+
+END_PGML
+
+ENDDOCUMENT();

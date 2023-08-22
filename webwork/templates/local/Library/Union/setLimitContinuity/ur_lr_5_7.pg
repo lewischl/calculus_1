@@ -1,0 +1,100 @@
+## DESCRIPTION
+##   Find a Constant to Make a Function Continuous
+## ENDDESCRIPTION
+
+## Tagged by nhamblet
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Continuity - concept of)
+## Date(8/23/07)
+## Institution(ASU)
+## Author(K. Lesh)
+## MLT(cc-m3)
+## MLTleader(1)
+## Level(3)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('2.5')
+## Problem1('85')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Rogawski')
+## EditionText2('1')
+## Section2('2.4')
+## Problem2('85')
+## KEYWORDS('Continuous', 'Piecewise','Calculus','continuity', 'limits')
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGunion.pl",            # Union College utilities
+  "MathObjects.pl",
+  "contextPiecewiseFunction.pl",
+  "PGcourse.pl",           # Customization file for the course
+);
+
+$showHint=-1;
+
+TEXT(beginproblem());
+
+###################################
+# Setup
+
+Context("PiecewiseFunction")->variables->add(b=>'Real');
+
+$b = random(1,4,1);
+$x = 3*$b-7;
+$c = 6*$x*$x;
+
+$f = PiecewiseFunction(
+  "-2 x+b if x < $x else
+   -$c/(x-b) if x >= $x"
+)->reduce;
+
+Context("Numeric");
+
+###################################
+# Main text
+
+BEGIN_TEXT
+In this problem, we have a piecewise function \(f\) that has a parameter \(b\) in it.  If the parameter has a special value, then \(f\) will be continuous.  For all other values of \(b\), the function \(f\) is discontinuous.  
+
+$PAR$HR$PAR
+
+Let \[ f(x) = \{$f->with(final_period=>1)->TeX\} \]
+Find all values of the constant \(b\) for which \(f\) is
+a continuous function at \( $x \).   If no such value exists, type DNE.
+$PAR
+\( b= \) \{ans_rule(25)\}$BR
+${BITALIC}(List your answers separated by commas.)${EITALIC}
+END_TEXT
+
+BEGIN_HINT
+
+In this problem, the unknown constant we can adjust to make the function constant is in the formulas for evaluating.  The function is constant if the two branches meet at the transition point -- that is, if they have the same value there.  Thus, we can find the value of the constant by evaluating the both branches of the function at the transition point, in this problem \( x = $x \), setting them equal to each other, and solving for \(b\).
+
+\{ amethystHint("$PAR$HR$PAR Like Desmos?  So do I!  This graph demonstrates finding b so that f is continuous.  You'll have to change the numbers to match your functions.  https://www.desmos.com/calculator/corm2o11nw") \}
+
+\{amethystHint("$PAR$HR$PAR I suggest checking out this video from Prof. Amethyst for an explanation of problems of this type, where we're finding how to make a piecewise function continuous:$BR$BR")\}
+
+\{ youtubeAmethyst(DdKDfIuSN30) \}
+
+\{ amethystHint("$PAR$HR$PAR For a more computational video on how-to, check out this one:$PAR") \}
+\{ youtubeAmethyst("MILVFzVe_Zo") \}
+END_HINT
+###################################
+# Answers
+
+$showPartialCorrectAnswers = 1;
+$ans1 = 4*$x;
+$ans2 = -1*$x;
+ANS(List(Compute("$ans1"), Compute("$ans2"))->cmp);
+
+###################################
+
+
+;
+ENDDOCUMENT();

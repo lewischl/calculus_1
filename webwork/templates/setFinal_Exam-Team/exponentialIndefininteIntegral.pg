@@ -1,0 +1,68 @@
+##DESCRIPTION
+##  indefinite integral problem: chain rule
+##ENDDESCRIPTION
+
+##KEYWORDS('indefinite integral', 'exponetial')
+
+## DBsubject('Calculus')
+## DBchapter('Integral')
+## DBsection('Indefinite Integral')
+## Date('11/26/22')
+## Author('Erich Jauch')
+## Institution('UWEC')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   "AnswerFormatHelp.pl",
+   "parserFormulaUpToConstant.pl",
+   "contextFraction.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+SRAND(42);
+$setseed = "set.seed(42); 42";
+Context("Numeric");
+
+$a = non_zero_random(-12,21,3);
+$p = random(2,6,1);
+
+$f = Formula("$a*x^($p-1)*e^(x^$p)")->reduce;
+
+Context("Fraction");
+$coef = Compute("$a/($p)");
+$F = FormulaUpToConstant("$coef*e^(x^$p)");
+
+$ans = $F;
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+
+Evaluate the following indefinite integral:
+
+[``\int [$f]~dx=``] [_____]{$ans} 
+END_PGML
+
+ENDDOCUMENT();

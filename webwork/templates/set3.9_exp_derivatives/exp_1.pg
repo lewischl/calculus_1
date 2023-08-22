@@ -71,11 +71,11 @@ END_TEXT
 
 
 BEGIN_HINT
-Check out this video from Prof. Amethyst about derivatives of exponential functions:
+The general rule for exponentials is \(\frac{d}{dx} b^x = \ln(b) b^x \).
 
-$BR$BR
+\{amethystHint("$PAR$HR$PAR Check out this video from Prof. Amethyst about derivatives of exponential functions:$BR$BR")\}
 
-\{ youtube("EpxyT34-OXM") \}
+\{ youtubeAmethyst("EpxyT34-OXM") \}
 
 END_HINT
 

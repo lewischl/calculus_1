@@ -23,7 +23,7 @@ $a2 = $a**2;
 
 BEGIN_TEXT
 Evaluate the limit
-\[\displaystyle \lim_{x \to 0} \frac{x}{\sqrt{$a2+$b x}-$a}.\]
+\[\displaystyle \lim_{x \to 0} \frac{x}{\sqrt{$a2+$b x}-$a}\]
 $PAR
 Limit =  \{ans_rule(25) \}$BR
 ${BITALIC}(Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE${EBOLD}.)${EITALIC}
@@ -32,11 +32,10 @@ $BR$BR
 END_TEXT
 
 BEGIN_HINT
-Here's a video from Prof. Amethyst on the topic of "multiply by the conjugate":
+This is a "multiply by the conjugate" problem.  
 
-$BR$BR
-
-\{ youtube(FLN8c8X6i7Y) \}
+\{ amethystHint("$PAR$HR$PAR Here's a video from Prof. Amethyst on the topic of 'multiply by the conjugate':$BR$BR") \}
+\{ youtubeAmethyst("FLN8c8X6i7Y") \}
 END_HINT
 
 $twoa = 2*$a;

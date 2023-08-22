@@ -1,0 +1,70 @@
+##DESCRIPTION
+##  Continuity Question
+##ENDDESCRIPTION
+
+##KEYWORDS('derivative', 'limit')
+
+## DBsubject('Calculus')
+## DBchapter('Limits')
+## DBsection('Definition of the Derivative')
+## Date('')
+## Author('Erich Jauch')
+## Institution('UWEC')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "parserPopUp.pl",
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+SRAND(500);
+$setseed = "set.seed(500); 500";
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$parameter = random(2,8,2);
+
+$point = $parameter/2;
+
+$f = Formula("$parameter*x^2 + 3*$parameter/2*x-  $parameter/2");
+
+$df = $f->D('x');
+
+@ans = ();
+$ans[0] = $df->eval(x => $point);
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+Given the function [`f(x) = [$f]`], use the definition of the derivative to find the value
+of [`f^\prime([$point])`].
+
+[`f^\prime([$point])=`] [____]{$ans[0]}
+
+END_PGML
+
+ENDDOCUMENT();

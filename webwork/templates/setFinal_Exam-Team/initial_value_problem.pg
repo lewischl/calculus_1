@@ -1,0 +1,68 @@
+##DESCRIPTION
+##  Area approximation using rectangles
+##ENDDESCRIPTION
+
+##KEYWORDS('integral', 'initial value problem')
+
+## DBsubject('Calculus')
+## DBchapter('Integral')
+## DBsection('Indefinite integration')
+## Date('11/28/22')
+## Author('silviana amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+SRAND(42);
+$setseed = "set.seed(42); 42";
+
+$y0 = random(1,4,1);
+$x0 = 0;
+
+$a = random(1,4,1);
+$b = random(1,4,1);
+
+$c = $y0 - $a;
+
+$ans = Formula("$a* cos(x) + $b*x + $c")->reduce;
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+
+
+Solve the following initial value problem, by finding a function [`y`] such that 
+
+* [``\frac{dy}{dx} = -[$a]\sin(x) + [$b] ``]
+* [``y([$x0]) = [$y0] ``]
+
+[`y(x) = `] [_____]{$ans}
+END_PGML
+
+ENDDOCUMENT();

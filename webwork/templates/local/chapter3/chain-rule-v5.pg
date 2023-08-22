@@ -26,8 +26,13 @@ Find the derivative of the function \( \displaystyle f(x)=  \left(\frac{x^2+$b}{
 
 $PAR
 \( f'(x)= \) \{ ans_rule(50) \}$BR
-$BITALIC(Give an exact answer.)$EITALIC
+
 END_TEXT
+
+$showHint=-1;
+BEGIN_HINT
+First use the power rule, then the quotient rule when you "chain out" the derivative of the inside.
+END_HINT
 Context()->normalStrings;
 
 ANS($ans->cmp);

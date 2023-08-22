@@ -1,0 +1,60 @@
+#Problem 2.5.25
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGunion.pl",            # Union College utilities
+  "MathObjects.pl",
+  "PGcourse.pl",           # Customization file for the course
+);
+
+TEXT(beginproblem());
+
+###################################
+# Setup
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$solutionexits=1;
+$a=random(2,5,1);
+$b=$a*$a;
+$c=2*$a;
+$c1=$a-$c;
+$an=2*$a;
+TEXT(beginproblem());
+
+BEGIN_TEXT
+Evaluate the limit
+\[ \lim\limits_{x \to $b} \displaystyle  \left( \frac {1} {\sqrt {x} -  $a} - \frac {$c} {x - $b} \right).\]
+$PAR
+Limit =  \{ans_rule(25) \}$BR
+${BITALIC}(Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE${EBOLD}.)${EITALIC}
+
+$BR$BR
+
+\{ theresahint \}
+
+END_TEXT
+
+BEGIN_HINT
+This problem needs a common denominator, to combine the two fractions.  The right term is fine, it's the left that's a problem.  Try "multiply by the conjugate" on the left term, the one that involves the square root.  That will yield the common denominator you need.  
+
+$BR$BR
+
+After doing that, you'll still have an indeterminate form limit problem.  Since it involves \( \sqrt \Box \), I suggest using "multiply by the conjugate".  
+
+$PAR$HR $PAR
+
+Alternatively, realize that \( (x - b) = (\sqrt x - \sqrt b) ( \sqrt x + \sqrt b) \), and use that to cancel directly in a fashion more like "factor and cancel", in this problem with \( b = $b \).
+
+END_HINT
+#BEGIN_SOLUTION
+#$BR$BBOLD Solution:$EBOLD 
+#$BR
+#\(\displaystyle \lim\limits_{x \to $b}  \left( \frac {1} {\sqrt x - $a} - \frac {$c} {x - $b} \right) =  \lim\limits_{x \to $b} \frac { \sqrt{x} + $a - $c}{(\sqrt{x}-$a)(\sqrt{x}+$a)} = \lim\limits_{x \to $b} \frac { \sqrt{x} + $c1}{(\sqrt{x}-$a)(\sqrt{x}+$a)} = \frac {1}{$an}\).
+#END_SOLUTION
+ANS( Compute( "1/$an" )->cmp() );
+
+ENDDOCUMENT();

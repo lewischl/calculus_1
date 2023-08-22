@@ -1,0 +1,84 @@
+##DESCRIPTION
+## Higher order derivative: 2nd and 3rd derivative of a combination of power functions.
+##ENDDESCRIPTION
+
+##KEYWORDS('arithmetic', 'pi')
+
+## DBsubject('Algebra')
+## DBchapter('Fundamentals')
+## DBsection('Real Numbers')
+## Date('')
+## Author('')
+## Institution('')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   "contextFraction.pl",
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+SRAND(271828);
+$setseed = "set.seed(271828); 271828";
+
+@a = ();
+
+$a[0] = non_zero_random(-5,5,1);
+$a[1] = non_zero_random(-5,5,1);
+$a[2] = non_zero_random(-5,5,1);
+$a[3] = non_zero_random(-5,5,1);
+$a[4] = non_zero_random(-5,5,1);
+$a[5] = non_zero_random(-5,5,1);
+
+@p = ();
+
+$p[0] = random(-5,-1,1);
+$p[1] = random(10,8,1);
+
+Context("Fraction-NoDecimals");
+
+$p[2] = Fraction(random(1,5,2),2);
+$p[3] = Fraction(random(2,8,3),3);
+
+@df = ();
+
+$df[0] = Formula("$a[0]*x^$p[0]+$a[1]*x^$p[1]+$a[4]*x+$a[5]+$a[2]*x^$p[2]+$a[3]*x^$p[3]")->reduce();
+$df[1] = $df[0] -> D('x');
+$df[2] = $df[1] -> D('x');
+$df[3] = $df[2] -> D('x');
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+Find the requested derivatives for  [``f(x)=[$df[0]]``]:
+
+[``\frac{df}{dx}=``] [_____]{$df[1]}
+
+[``\frac{d^2f}{dx^2}=``] [_____]{$df[2]}
+
+[``\frac{d^3f}{dx^3}=``] [_____]{$df[3]}
+END_PGML
+
+ENDDOCUMENT();

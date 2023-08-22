@@ -1,0 +1,56 @@
+########################################################################
+
+DOCUMENT();      
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+Context()->variables->add(epsilon=>'Real', a=>'Real');
+Context()->variables->set(epsilon => {TeX => '\epsilon'});
+
+##############################################################
+#
+#  Setup
+#
+#
+
+
+$m = Real(non_zero_random(-5,5));
+$b = Real(non_zero_random(-5,5));
+$f = Formula("$m*x+$b")->reduce;
+$f2 = Formula("$m*a+$b")->reduce;
+$delta = Formula("epsilon/abs($m)")->reduce;
+##############################################################
+#
+#  Text
+#
+#
+
+Context()->texStrings;
+BEGIN_TEXT
+Consider \(\displaystyle\lim_{x\to a}($f)=$f2\).
+$BR
+Find the largest \(\delta\) so that \(\vert f(x)-f(a)\vert <\epsilon\) when \(\vert x-a\vert < \delta\).
+$BR
+\(\delta = \) \{$delta->ans_rule\}
+$BR
+(Type ${BBOLD}epsilon$EBOLD for \(\epsilon\).)
+END_TEXT
+Context()->normalStrings;
+
+##############################################################
+#
+#  Answers
+#
+#
+
+ANS($delta->cmp());
+ENDDOCUMENT();        

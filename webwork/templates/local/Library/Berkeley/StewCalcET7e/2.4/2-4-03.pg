@@ -1,0 +1,113 @@
+# DESCRIPTION
+# A graphical delta-epsilon problem involving the function \sqrt{x}.
+# ENDDESCRIPTION
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Definitions and existence (conceptual))
+## Date(9/30/2012)
+## Institution(Berkeley)
+## Author(Ian Haken)
+## MLT(DCfinddeltafromgraph)
+## MLTleader(1)
+## Level(6)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('7')
+## Section1('2.4')
+## Problem1('3')
+## KEYWORDS('calculus', 'limit', 'delta-epsilon')
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGgraphmacros.pl",
+  "PGcourse.pl"
+);
+
+TEXT(&beginproblem);
+$showPartialCorrectAnswers = 1;
+
+$L=random(1,3,1);
+$epsilon = random(0.2, ($L < 3 ? 0.9 : 0.3), 0.1);
+
+$a=$L*$L;
+$ans = 2*$epsilon*$L-$epsilon*$epsilon;
+
+$gr = init_graph(-2,-1,11,4,
+  axes=>[0,0],
+  grid=>[13,5],
+  size=>[420,250]
+);
+
+$gr->lb('reset');
+$gr->lb(new Label(11, sqrt(11), 'f(x)', 'black', 'right', 'bottom'));
+
+$gr->lb(new Label(0, $L+$epsilon, $L+$epsilon, 'black','right', 'middle'));
+$gr->moveTo(0,$L+$epsilon);
+$gr->lineTo(($L+$epsilon)**2,$L+$epsilon,'red',1,'dashed');
+$gr->lineTo(($L+$epsilon)**2,0,'red',1,'dashed');
+
+$gr->lb(new Label(0, $L-$epsilon, $L-$epsilon, 'black','right', 'middle'));
+$gr->moveTo(0,$L-$epsilon);
+$gr->lineTo(($L-$epsilon)**2,$L-$epsilon,'red',1,'dashed');
+$gr->lineTo(($L-$epsilon)**2,0,'red',1,'dashed');
+
+$gr->lb(new Label(0, $L, $L, 'black', 'right', 'middle'));
+$gr->moveTo(0,$L);
+$gr->lineTo($a,$L,'green',1,'dashed');
+$gr->lineTo($a,0,'green',1,'dashed');
+$gr->lb(new Label($a, 0, $a, 'black', 'center', 'top'));
+$gr->lb(new Label(($L-$epsilon)**2, 0, '?', 'black', 'center', 'top'));
+$gr->lb(new Label(($L+$epsilon)**2, 0, '?', 'black', 'center', 'top'));
+
+add_functions($gr, "sqrt(x) for x in <0,11> using color:blue and weight:2");
+
+BEGIN_TEXT
+Use the given graph of \( f(x) = \sqrt{x} \) to find the largest number
+\( \delta \) such that
+\[
+  \text{if} \qquad 0 < \left|x-$a\right| < \delta \qquad
+  \text{then} \qquad \left| \sqrt{x} - $L \right| < $epsilon \;.
+\]
+$PAR
+\{ image( insertGraph($gr), width=>420, height=>250, tex_size=>600 ) \}
+$PAR
+\(\delta = \) \{ans_rule(20)\}
+
+$BR$BR
+
+\{ theresahint \}
+END_TEXT
+
+BEGIN_HINT
+
+This problem asks us to find an upper bound \(\delta\) on the size of the interval on the \(x\)-axis, such that over the interval, the function values are within \($epsilon\) of \($L\).
+
+$BR$BR
+
+--- If you're needing a hint to get those ? values
+
+$BR$BR
+
+This function is the square root function, \(f(x) = \sqrt{x}\).  We see "the gap" is the interval of function values \(f(x) \in ($L-$epsilon, $L+$epsilon)\), which is equivalent to the inequality \(|f(x) - $L| < $epsilon \).  The question marks (?) show the \(x\)-values which map to \($L-$epsilon\) and \($L+$epsilon\).  To compute these \(x\)-coordinates, you have, say \( \sqrt{?} = ($L - $epsilon) \).  Solve this to to find the left ?.  (Should be two steps: arithmetic, and squaring).  Similarly for the right ?.
+
+$BR$BR
+
+After computing the values of the two (?), remember to choose \(\delta\) to be the smaller of the two distances from \($a\) to the two ? on the \(x\)-axis.
+
+
+
+
+
+\{amethystHint("$PAR$HR$PAR If you're needing help conceptually, Prof. Amethyst has a whole playlist just on the epsilon-delta definition of the limit: $BR https://www.youtube.com/playlist?list=PLuXUO0hmPkqQxrtsyP_QWxpDOjtu7u8ll")\}
+\{amethystHint("$BR$BR For this problem see specifically the below video:")\}
+\{ youtubeAmethyst(Jw8zjSulJRk) \}
+
+END_HINT
+
+ANS(num_cmp($ans, reltol => 0.001));
+
+ENDDOCUMENT();

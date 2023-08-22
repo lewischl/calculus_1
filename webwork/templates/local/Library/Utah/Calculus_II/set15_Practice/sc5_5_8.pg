@@ -3,6 +3,7 @@ DOCUMENT();        # This should be the first executable line in the problem.
 loadMacros(
 "uwecAhrendt.pl",
   "parserFormulaUpToConstant.pl",
+  "contextFraction.pl",
 );
 
 TEXT(beginproblem());
@@ -13,7 +14,8 @@ Context("Numeric");
 
 $a = random(3,9,1);
 $power = $a - 1;
-$coeff = 1 / $a;
+Context("Fraction");
+$coeff = Fraction(1 / $a);
 $funct = "$coeff * e^(x^$a)";
 
 BEGIN_TEXT
@@ -25,8 +27,10 @@ $PAR
 ${BITALIC}(Use a capital $BBOLD C$EBOLD for an arbitrary constant.)$EITALIC
 END_TEXT
 
+Context("Fraction");
 $answer=FormulaUpToConstant("$coeff * e^(x^$a)");
 
 ANS($answer->cmp());
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.
+

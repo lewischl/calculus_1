@@ -1,0 +1,43 @@
+#####################################################################
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+#####################################################################
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+
+#####################################################################
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+Context()->variables->set(x=>{limits=>[0.05,2]});
+
+$a = random(2,5,1);
+$b = random(3,8,1);
+$am1 = $a-1;
+$b2 = 2*$b;
+
+$ans = Compute("[sqrt(x)*e^(x^$a)*(x^2+1)^$b]*[(1/(2*x))+$a*x^($am1)+($b2*x)/(x^2+1)]");
+
+#####################################################################
+Context()->texStrings;
+BEGIN_TEXT
+Use logarithmic differentiation to find the derivative of the function \(\displaystyle y = \sqrt{x}\,e^{x^$a}\,(x^2+1)^$b.\)
+
+$PAR
+\(\displaystyle y' = \) \{ans_rule(30)\}$BR
+$BITALIC(Give an exact answer.)$EITALIC
+END_TEXT
+Context()->normalStrings;
+
+#####################################################################
+
+ANS($ans->cmp());
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

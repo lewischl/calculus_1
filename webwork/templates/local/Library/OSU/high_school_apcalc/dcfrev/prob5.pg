@@ -1,0 +1,89 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by cmd6a 5/29/06
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Definition of the derivative)
+## Institution(OSU)
+## Level(3)
+## KEYWORDS('calculus','limit','derivative')
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGauxiliaryFunctions.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+Context("Numeric");
+Context()->variables->add(h => "Real");
+$showPartialCorrectAnswers = 1;
+
+$a = random(2,9,1);
+$b = random(2,7,1);
+$c = random(3,11,1);
+$d = random(-11,-1,1);
+
+$simp = $a*($d)**2 + $b*$d;
+$ans2 = Compute("($a*($d+h)^2+$b*($d+h)- $simp)/h")->reduce();
+$ans3 = 2*$a*$d+$b;
+$ans3 = Compute("$ans3");
+
+BEGIN_TEXT
+If \( f(x) =  $a x^2 + $b x + $c\), find \( f'( $d ) \) using the
+definition of derivative.$BR
+$BR
+By definition, 
+ \( \displaystyle f'( $d ) = \lim_{h\to 0} \)\{ans_rule(70)\} $BR
+ (instantiate the difference quotient without simplifying.  You should have a symbolic expression with one variable, \(h\); it should be a fraction with \(h\) on the bottom.  Note that we are focusing on a particular \(x\)-value of interest, so \(x\) is *not* a variable in this expression),
+$PAR
+Computing this limit, we find that
+\(f'($d) = \) \{ans_rule(20) \} $BR
+(now do the algebra on the difference quotient, take the limit, and find a number).
+$BR$BR
+
+\{ theresahint \}
+END_TEXT
+
+
+BEGIN_HINT
+
+Part 1. $PAR
+
+Instantiate the difference quotient, with \(x=$d\).  Webwork accepts equivalent expressions, so write the difference \(f($d+h) - f($d)\) in the numerator, without canceling terms.  The denominator should just be \(h\).
+
+$PAR
+$HR
+$PAR
+
+Part 2.
+$PAR
+Want a hint on how to find the value of \(f'($d)\)?  Here's what I've got (assuming you've written down the difference quotient correctly):
+$BR$BR
+Focus on the numerator.  Do the following:$BR$BR
+- Let the \($c\)'s additively cancel, get that right out of the way.$BR
+- Distribute out the \(($d+h)^2\).$BR
+- Distribute the \($a\) and \($b\) across their quantities$BR
+- Let all the additive constants cancel.  They all will.$BR
+- Everything else that remains in the numerator should have \(h\) or \(h^2\) in it.  Collect into two terms.$BR
+- Factor out an \(h\) from everything up top.$BR
+- Cancel the \(h\) you just factored out with the \(h\) in the denominator.$BR
+- "plug in" \(h=0\), as you take the limit as \(h\to 0\).$BR
+- The number you get is the value of \(f'($d)\).$BR
+$BR$BR
+If you're still having trouble, watch out for double negatives when distributing -- that's a common error.
+END_HINT
+ANS($ans2->cmp);
+ANS($ans3->cmp);
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.
+

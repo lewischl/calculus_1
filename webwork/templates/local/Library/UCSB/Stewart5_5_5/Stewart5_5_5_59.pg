@@ -15,6 +15,7 @@
 DOCUMENT();
 
 loadMacros(
+"PGcourse.pl",
 "uwecAhrendt.pl",
 );
 
@@ -36,6 +37,10 @@ $PAR
 ${BITALIC}(Use a capital $BBOLD C$EBOLD for an arbitrary constant.)$EITALIC
 
 END_TEXT
+
+BEGIN_HINT
+Try \(u = \cos x\)?
+END_HINT
 
 ANS(Compute("$a")->cmp);
 

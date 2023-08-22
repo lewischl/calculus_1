@@ -15,15 +15,11 @@ $showHint = 1;
 sub theresahint {
  my $hintafter = $showHint+1;
 
-my $logReminder = '';
-if ($numOfAttempts<$hintafter and $problemSeed%4==0){
-    $logReminder = 'And remember to log your lessons!';}
-
 my $hintReminder = '';
 if ($numOfAttempts<$hintafter){
-    $hintReminder = 'This problem has a hint that shows after ' . $hintafter . ' attempts. ';}
+    $hintReminder = '(This problem has a hint that shows after ' . $hintafter . ' attempts.)';}
 
-$hintReminder . $logReminder;
+$hintReminder;
 };
 
 

@@ -29,7 +29,14 @@ Let \( f(x) = \dfrac{$a x^2}{$b-$c x}\), and compute the following derivatives:
 $PAR
 \( f'(x) \) = \{ans_rule(50) \}$BR
 \( f''( x ) \) = \{ans_rule(50) \}
+
+$PAR
+\{ theresahint \}
 END_TEXT
+
+BEGIN_HINT
+The first derivative, \(f'\), has a *something squared*.  So when we want to compute \(f''\), we'll have to deal with that, and it's going to be difficult.  I suggest that you expand and collect both the numerator and denominator of \(f'\), before computing \(f''\). 
+END_HINT
 
 ANS(Compute($deriv1f)->cmp);
 ANS(Compute($deriv2f)->cmp);

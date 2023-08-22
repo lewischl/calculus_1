@@ -1,0 +1,105 @@
+##DESCRIPTION
+##  Continuity Question
+##ENDDESCRIPTION
+
+##KEYWORDS('continuity', 'limit')
+
+## DBsubject('Calculus')
+## DBchapter('Limits')
+## DBsection('Continuity')
+## Date('')
+## Author('Erich Jauch')
+## Institution('UWEC')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "parserPopUp.pl",
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+SRAND(202203);
+$setseed = "set.seed(202203); 202203";
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$parameter = random(2,5,1);
+
+@bound = ();
+
+$bound[0] = -1 * $parameter;
+$bound[1] = $parameter;
+
+@c = ();
+
+$c[0] = non_zero_random(-5,5,1);
+$c[1] = $c[0] + non_zero_random(-5,5,1);
+$c[2] = non_zero_random(-5,5,1);
+$c[3] = random(2,4,1);
+
+Context()->variables->add(k => "Real",c => "Real");
+
+if ($bound[0]-($bound[0]-$c[0])^2==0) {
+$c[0] = $c[0]+1;
+}
+
+@f = ();
+
+$f[0] = Formula("k*(x-$c[0])^2+$c[1]")->reduce;
+$f[1] = Formula("k*x+$c[2]")->reduce;
+$f[2] = Formula("$c[3]*x+c");
+
+$knum = Compute("$c[1]-$c[2]");
+$kden = Compute("$bound[0]-($bound[0]-$c[0])^2");
+
+$k = Compute("$knum/$kden")->reduce;
+
+$c = Compute("$knum/$kden*$bound[1]+$c[2]-$c[3]*$bound[1]");
+
+@ans = ();
+$ans[0] = $k;
+$ans[1] = $c;
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+We have a piecewise-defined function [`f(x)`] below. Determine the values of [`k`] and [`c`] which make [`f`] continuous.
+
+>>[``f(x)=\begin{cases}
+[$f[0]] & \text{if }x\leq[$bound[0]]\\
+[$f[1]] & \text{if }[$bound[0]]<x\leq[$bound[1]]\\
+[$f[2]] & \text{if }x>[$bound[1]]\\
+\end{cases}``]<<
+
+Enter your values for [`k`] and [`c`] below:
+
+[`k=`] [____]{$ans[0]}
+
+[`c=`] [____]{$ans[1]}
+
+END_PGML
+
+ENDDOCUMENT();

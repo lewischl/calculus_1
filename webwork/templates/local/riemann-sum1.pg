@@ -1,0 +1,66 @@
+## this file copied from Chris Hlas's Math114 content, Summer 2022, by permission of Chris Hlas
+## this automatic process executed by silviana amethyst
+## original filename local/riemann-sum1.pg
+
+# Requires files from https://www.mathstat.dal.ca/~selinger/downloads/draggable/
+DOCUMENT();
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"draggableProof.pl",
+);
+
+# TEXT(beginproblem());
+
+$CorrectProof = DraggableProof([
+"Setup: \(\displaystyle \lim_{n \to \infty} \sum_{i=1}^{n} f\left(0 + \frac{8}{n} i\right) \frac{8}{n} \)",
+
+"\(\displaystyle \lim_{n \to \infty} \sum_{i=1}^{n} \left(\frac{8^2}{n^2} i^2 - 1 \right) \frac{8}{n} \)",
+
+"\(\displaystyle \lim_{n \to \infty} \sum_{i=1}^{n} \left(\frac{512}{n^3} i^2 - \frac{8}{n} \right) \)",
+
+"\(\displaystyle \lim_{n \to \infty} \left[\sum_{i=1}^{n} \frac{512}{n^3} i^2 - \sum\limits_{i=1}^{n} \frac{8}{n} \right] \)",
+
+"\(\displaystyle \lim_{n \to \infty} \left[\frac{512}{n^3}\sum_{i=1}^{n}  i^2 - \frac{8}{n} \sum_{i=1}^{n} 1 \right] \)",
+
+"\(\displaystyle \lim_{n \to \infty} \left[\frac{512}{n^3} \cdot \frac{n(n+1)(2n+1)}{6} - \frac{8}{n} \cdot n \right] \)",
+
+"\(\displaystyle \lim_{n \to \infty} \left[\frac{1024 n^3 + 1536 n^2  + 512 n}{6n^3}  - 8 \right] \)",
+
+"\(\displaystyle \lim_{n \to \infty} \frac{1024 n^3 + 1536 n^2  + 512 n}{6n^3}  - \lim_{n \to \infty} 8  \)",
+
+"\(\displaystyle \lim_{n \to \infty} \frac{3072 n^2 + 3072 n  + 512}{18n^2}  - \lim_{n \to \infty} 8  \), by L'Hopital's rule",
+
+"\(\displaystyle \lim_{n \to \infty} \frac{6144 n + 3072}{36n}  - \lim_{n \to \infty} 8  \), by L'Hopital's rule",
+
+"\(\displaystyle \lim_{n \to \infty} \frac{6144}{36}  - \lim_{n \to \infty} 8  \), by L'Hopital's rule",
+
+"\( \dfrac{6144}{36} - 8 = \dfrac{488}{3} \).",
+],
+
+# Red herrings
+[],
+
+SourceLabel => "Possible steps:",
+TargetLabel =>  "Place steps in correct order here:",
+);
+
+Context()->texStrings;
+
+BEGIN_TEXT
+Instructor's note: This problem is in testing so is not worth any points.
+
+
+Solve \( \int\limits_{0}^{8}(x^2 - 1)\,dx \) using Riemann sums.
+
+$PAR
+\{ $CorrectProof->Print \}
+
+END_TEXT
+Context()->normalStrings;
+
+# Answer Evaluation
+ANS($CorrectProof->cmp);
+
+
+ENDDOCUMENT();

@@ -17,7 +17,8 @@ loadMacros(
 "PGbasicmacros.pl",
 "PGauxiliaryFunctions.pl",
 "MathObjects.pl",
-"AnswerFormatHelp.pl"
+"AnswerFormatHelp.pl",
+"PGcourse.pl"
 );
 
 TEXT(&beginproblem);
@@ -33,7 +34,16 @@ Evaluate the limit
 ${BITALIC}(If the limit does not exist, enter ${BBOLD}DNE${EBOLD}.)${EITALIC}
 $PAR
 Limit =  \{ans_rule(25) \}
+$BR$BR
+\{ theresahint \}
 END_TEXT
+
+BEGIN_HINT
+This is a "multiply by the conjugate" problem.  
+
+\{ amethystHint("$PAR$HR$PAR Here's a video from Prof. Amethyst on the topic of 'multiply by the conjugate':$BR$BR") \}
+\{ youtubeAmethyst("FLN8c8X6i7Y") \}
+END_HINT
 
 Context("Numeric");
 $twoa = 2*$a;

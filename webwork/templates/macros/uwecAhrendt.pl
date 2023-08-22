@@ -14,30 +14,7 @@ $TEXT_ENLARGE = "$BITALIC (Click the image for a larger version.) $EITALIC";
 $TEXT_CONSTANT_c = "(Use $BBOLD c$EBOLD to denote an arbitrary constant.)";
 
 
-sub youtubeAmethyst {
-  my $video_id = shift // 1;
 
-#iframe('//www.youtube.com/embed/' . $video_id . '?rel=0&amp;modestbranding=1&amp;fs=1', height=>'315', width=>'560', id=>'', name=>'' );
-
-  #my $thehtml = "<iframe src='//www.youtube.com/embed/" . $video_id . "?rel=0&amp;modestbranding=1&amp;fs=1' frameborder='1' height='315' width='560'></iframe>";
-  my $thehtml = "<iframe src='//www.youtube.com/embed/" . $video_id . "' width='560' height='315' allowfullscreen='allowfullscreen' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'></iframe>";
-
-if ($whosTeaching==$amethyst){
-  HTML($thehtml, '\fbox{Podcast video.}');}
-}
-
-
-
-sub youtube {
-  my $video_id = shift // 1;
-
-#iframe('//www.youtube.com/embed/' . $video_id . '?rel=0&amp;modestbranding=1&amp;fs=1', height=>'315', width=>'560', id=>'', name=>'' );
-
-  #my $thehtml = "<iframe src='//www.youtube.com/embed/" . $video_id . "?rel=0&amp;modestbranding=1&amp;fs=1' frameborder='1' height='315' width='560'></iframe>";
-  my $thehtml = "<iframe src='//www.youtube.com/embed/" . $video_id . "' width='560' height='315' allowfullscreen='allowfullscreen' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'></iframe>";
-
-  HTML($thehtml, '\fbox{Podcast video.}');
-}
 
 $BDEFN = HTML('<blockquote style="border: 2px solid #666; padding: 10px; margin: 10px 100px 10px 100px; background-color: #ccc;"><b>Definition:</b>','Definition:');
 $EDEFN = HTML('</blockquote>', '');

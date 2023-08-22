@@ -66,9 +66,16 @@ $BR$BR
 
 $BR$BR
 \( f'(x) = \) \{ ans_rule(50) \}
+
+
+$PAR
+\{theresahint\}
 END_TEXT
 
+BEGIN_HINT
+When taking this derivative, remember the formula \( (b^\Box)' = \ln b \cdot b^\Box \, \Box' \). 
 
+END_HINT
 
 ##############################################################
 #

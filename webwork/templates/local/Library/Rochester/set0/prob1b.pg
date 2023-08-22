@@ -1,0 +1,79 @@
+##DESCRIPTION
+##  sample of entering functions as answers
+##ENDDESCRIPTION
+## nsilva tagged and PAID on 9-27-2004
+
+## DBsubject(WeBWorK)
+## DBchapter(WeBWorK tutorial)
+## DBsection(WeBWorK tutorial)
+## Date(6/3/2002)
+## Static(1)
+## KEYWORDS('functions')
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGauxiliaryFunctions.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+
+BEGIN_TEXT
+Let us review the rules of precedence.$PAR
+
+What is \(1+2\cdot3\)?
+\{ ans_rule(25) \}
+END_TEXT
+
+$ans = 7;
+ANS(num_cmp($ans));
+
+
+BEGIN_TEXT
+$PAR What is \( 2\cdot 3^2 \)? 
+\{ ans_rule(25) \}
+END_TEXT
+
+$ans = 2*3**2;
+ANS(num_cmp($ans));
+
+BEGIN_TEXT
+
+$PAR
+How do you enter \( \dfrac {1+\sin(3)}{2+\tan(4)}\quad\)? Hint: this is a good place to use
+parentheses ( )' or brackets [ ]'s and also to use the ${LQ}Preview${RQ} button. 
+\{ ans_rule(25) \}
+END_TEXT
+
+$ans = (1+sin(3))/(2+tan(4)) ;
+ANS(num_cmp($ans));
+
+
+BEGIN_TEXT
+$PAR
+
+Remember that multiplication and division have the same precedence (as do addition and subtraction). $BR
+For example, what does 2/3*4 mean?  Enter 2/3*4 and use the Preview button to see what you get.$BR
+\{ ans_rule(25) \}
+END_TEXT
+
+$ans = 8/3;
+ANS(num_cmp($ans));
+
+BEGIN_TEXT
+$PAR
+
+Now change 2/3*4 so that the multiplication is done first.$BR
+\{ ans_rule(25) \}
+END_TEXT
+
+$ans = 2/12;
+ANS(num_cmp($ans));
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

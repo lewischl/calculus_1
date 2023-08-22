@@ -1,0 +1,50 @@
+#based on: Library/UMN/calculusStewartCCC/s_3_1_42.pg
+
+
+#####################################################################
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGgraphmacros.pl",
+  "PGcourse.pl"
+);
+#####################################################################
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+
+#####################################################################
+
+Context("Numeric");
+Context()->variables->are(r=>'Real');
+Context()->variables->set(r=>{limits=>[0.01,6]});
+
+$a = random(3,5,1);
+$b = Compute("$a-1");
+
+$a2 = $a**2;
+$bma = -$b-$a;
+
+$ans1 = Compute("(1/2)*(1/sqrt(r))+(1/$a)*r^(-$b/$a)");
+$ans2 = Compute("-(1/4)*r^(-3/2)-($b/$a2)*r^(($bma)/$a)");
+
+#####################################################################
+Context()->texStrings;
+BEGIN_TEXT
+Let \(G(r) = \sqrt{r} +\sqrt[$a]{r}.\)  Compute each of the following derivatives:
+
+$PAR
+\(G'(r) = \) \{ans_rule(30)\}$BR
+\(G''(r) =\) \{ans_rule(30)\}
+END_TEXT
+Context()->normalStrings;
+
+#####################################################################
+
+ANS($ans1->cmp());
+ANS($ans2->cmp());
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

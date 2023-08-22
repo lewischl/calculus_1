@@ -1,0 +1,88 @@
+##DESCRIPTION
+##  Use the basic differentiation rules
+##ENDDESCRIPTION
+
+##KEYWORDS('derivatives', 'chain rule')
+
+## DBsubject('Calculus')
+## DBchapter('Derivatives')
+## DBsection('Derivative as a function')
+## Date('')
+## Author('silviana amethyst')
+## Institution('uwec')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+SRAND(271828);
+$setseed = "set.seed(271828); 271828";
+
+$c1 = random(10,19,1); 
+$c2 = random(2,7,1); 
+$c3 = random(3,8,1); 
+
+$p1 = random(5,9,1); 
+$p2 = $p1-2;
+
+@f = ();
+@derivs = ();
+
+$f[0] = Formula("$c1*x^ $p1 - $c2*x^$p2 + $c3")->reduce;
+$derivs[0] = Formula("$p1*$c1*x^($p1-1) - $p2*$c2*x^($p2-1)")->reduce;
+
+$d1 = random(3,8,1); 
+$d2 = $d1+3;
+
+$f[1] = Formula("$d1*x e^x - $d2*sin(x)")->reduce;
+$derivs[1] = Formula("$d1*(x e^x + e^x)  - $d2*cos(x)")->reduce;
+
+$e1 = random(3,8,1); 
+$e2 = $e1+3;
+
+$f[2] = Formula("(x^2-$e1)/(x^2+$e2)")->reduce;
+$derivs[2] = Formula("((x^2+$e2)*2*x - (x^2-$e1)*2x) / ( (x^2+$e2)^2 )")->reduce;
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+Differentiate:
+
+---
+
+[``\frac{d}{dx}\left([$f[0]]\right)  = ``] [______]{"[$derivs[0]]"}
+
+
+[``\frac{d}{dx}\left([$f[1]]\right)  = ``] [______]{"[$derivs[1]]"}
+
+
+[``\frac{d}{dx}\left([$f[2]]\right)  = ``] [______]{"[$derivs[2]]"}
+
+END_PGML
+
+ENDDOCUMENT();

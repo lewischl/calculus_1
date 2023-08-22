@@ -1,0 +1,67 @@
+##DESCRIPTION
+##  Logarithmic derivative: Natural log derivative involving the chain rule.
+##ENDDESCRIPTION
+
+##KEYWORDS('arithmetic', 'pi')
+
+## DBsubject('Algebra')
+## DBchapter('Fundamentals')
+## DBsection('Real Numbers')
+## Date('')
+## Author('')
+## Institution('')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+SRAND(42);
+$setseed = "set.seed(42); 42";
+
+@a = ();
+
+$a[0] = non_zero_random(-7,7,1);
+$a[1] = non_zero_random(-7,7,1);
+$a[2] = random(1,5,1);
+
+$f = Formula("$a[2]*x^2+$a[1]*x+$a[0]")->reduce();
+$df = $f -> D('x');
+
+$ans = Formula("$df/$f");
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+Consider the function
+
+>>[`f(x)=\ln([$f])`]<<
+
+Find [`f^\prime(x)=`] [_____]{$ans}
+END_PGML
+
+ENDDOCUMENT();
