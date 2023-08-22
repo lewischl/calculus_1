@@ -8,7 +8,7 @@
 ## DBchapter('Limits')
 ## DBsection('Indeterminant Forms')
 ## Date('')
-## Author('Erich Jauch')
+## Author('Erich Jauch and silviana amethyst')
 ## Institution('UWEC')
 
 ########################################################################
@@ -28,8 +28,8 @@ loadMacros(
 # Print problem number and point value (weight) for the problem
 TEXT(beginproblem());
 
-SRAND(42);
-$setseed = "set.seed(42); 42";
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
 
 # Show which answers are correct and which ones are incorrect
 $showPartialCorrectAnswers = 1;
@@ -44,11 +44,13 @@ Context("Numeric");
 $parameter = random(2,6,1);
 $b = $parameter**2;
 
-$num = Formula("sqrt(x)-$parameter");
-$den = Formula("x-$b");
+$num = Formula("x-$b");
+$den = Formula("sqrt(x)-$parameter");
 
-$limnum = Compute("1");
-$limden = Compute("2*$parameter");
+
+
+$limnum = Compute("2*$parameter");
+$limden = Compute("1");
 
 @ans = ();
 $ans[0] = Compute("$limnum/$limden")->reduce();

@@ -1,0 +1,73 @@
+##DESCRIPTION
+##  Translate the limit to english using drag and drop
+##ENDDESCRIPTION
+
+##KEYWORDS('limits', 'notation')
+
+## DBsubject('Calculus')
+## DBchapter('Limits')
+## DBsection('Notation')
+## Date('Spring 2023')
+## Author('silviana amethyst')
+## Institution('uwec')
+
+########################################################################
+
+
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"PGcourse.pl",
+"draggableProof.pl",
+);
+
+$a = random(2,13,1);
+$limit = random(-30,-51,1);
+TEXT(beginproblem());
+
+$CorrectProof = DraggableProof([
+
+   "The limit of f(x)",
+   "as x approaches",
+   "$a",
+   "from above or from the right",
+   "is equal to",
+   "$limit"],
+
+#  The lines below are extras and will be listed as options but not
+#  needed for the correct answer in $Proof.
+
+[  "from below or from the left"  ],
+     
+SourceLabel => "Your given blocks",
+TargetLabel =>  "Write out the limit statement"
+);
+
+#########################################
+
+###
+###  The proposition to prove is posted here
+###
+
+
+
+BEGIN_TEXT
+Translate to english:
+
+\[ \lim_{x \to $a^+}f(x) = $limit \]
+
+$PAR  $BCENTER $BITALIC
+
+
+
+\{ $CorrectProof->Print \}
+
+END_TEXT
+
+ANS($CorrectProof->cmp);
+
+
+
+ENDDOCUMENT();

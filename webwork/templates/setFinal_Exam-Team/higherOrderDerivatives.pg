@@ -37,8 +37,8 @@ $showPartialCorrectAnswers = 1;
 #
 Context("Numeric");
 
-SRAND(42);
-$setseed = "set.seed(42); 42";
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
 
 @a = ();
 
@@ -61,7 +61,7 @@ $p[3] = Fraction(random(2,8,3),3);
 
 @df = ();
 
-$df[0] = Formula("$a[0]*x^$p[0]+$a[1]*x^$p[1]+$a[4]*x+$a[5]+$a[2]*x^$p[2]+$a[3]*x^$p[3]")->reduce();
+$df[0] = Formula("$a[0]*x^$p[0]+$a[1]*x^$p[1]+$a[4]*x+$a[5]")->reduce();
 $df[1] = $df[0] -> D('x');
 $df[2] = $df[1] -> D('x');
 $df[3] = $df[2] -> D('x');
@@ -72,7 +72,9 @@ $df[3] = $df[2] -> D('x');
 #
 
 BEGIN_PGML
-Find the requested derivatives for  [``f(x)=[$df[0]]``]:
+[``f(x)=[$df[0]]``]
+
+Find these derivatives:
 
 [``\frac{df}{dx}=``] [_____]{$df[1]}
 

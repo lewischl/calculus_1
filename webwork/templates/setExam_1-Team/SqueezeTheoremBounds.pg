@@ -29,8 +29,8 @@ loadMacros(
 # Print problem number and point value (weight) for the problem
 TEXT(beginproblem());
 
-SRAND(202203);
-$setseed = "set.seed(202203); 202203";
+SRAND($team_exam1_seed);
+$setseed = "set.seed($team_exam1_seed); $team_exam1_seed";
 
 # Show which answers are correct and which ones are incorrect
 $showPartialCorrectAnswers = 1;
@@ -73,7 +73,11 @@ $mcRow2-> extra("\($lx[1]\)","\($lx[2]\)");
 #
 
 BEGIN_PGML
-The function [``\lim_{x\rightarrow0}[$f]``] can be computed using the squeeze theorem. Choose
+The limit 
+
+[``\lim_{x\rightarrow0}([$f])``] 
+
+can be computed using the squeeze theorem. Choose
 the correct [`u(x)`] and [`\ell(x)`] from the lists below:
 
 [@ $mcRow1 -> print_q() @]***

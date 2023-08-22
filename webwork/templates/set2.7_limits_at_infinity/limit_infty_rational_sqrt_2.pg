@@ -1,0 +1,73 @@
+##DESCRIPTION
+##  Limit at infinity of rational function with square root.  Value of limit is infinity.
+##ENDDESCRIPTION
+
+##KEYWORDS('limits', 'infinity')
+
+## DBsubject('Calculus')
+## DBchapter('Limits')
+## DBsection('Limits at infinity')
+## Date('Spring 2023')
+## Author('silviana amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$a = random(2,8,1);
+
+$cst1 = random(2,16,1);
+$cst2 = random(2,16,1);
+
+$b = non_zero_random(-8,8,1);
+
+$a_squared = $a**2;
+
+if ($b > 0){
+    $ans1 = Infinity;
+    $ans2 = -(Infinity);
+}
+else{
+    $ans1 = -(Infinity);
+    $ans2 = Infinity;
+}
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+Compute the limits:
+
+[`` \lim_{x \to \infty} \frac{\sqrt{[$a_squared] x^4 + [$cst1]}}{[$b]x + [$cst2]} = ``] [_____]{$ans1}
+
+
+
+[`` \lim_{x \to -\infty} \frac{\sqrt{[$a_squared] x^4 + [$cst1]}}{[$b]x + [$cst2]} = ``] [_____]{$ans2}
+END_PGML
+
+ENDDOCUMENT();

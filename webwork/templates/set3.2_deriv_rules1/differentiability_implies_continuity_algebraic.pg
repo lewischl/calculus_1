@@ -1,0 +1,96 @@
+##DESCRIPTION
+##  given a graph of a derivative, state points and intervals of continuity
+##ENDDESCRIPTION
+
+##KEYWORDS('derivative','differentiability','continuity')
+
+## DBsubject('Calculus')
+## DBchapter('Derivatives')
+## DBsection('Derivative basics')
+## Date('')
+## Author('silviana amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "parserPopUp.pl",
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   "PGcourse.pl",      # Customization file for the course
+   "PGbasicmacros.pl",
+    "PGchoicemacros.pl",
+    "extraAnswerEvaluators.pl", # needed for the set comparisons
+    "contextLimitedPolynomial.pl",
+"contextPolynomialFactors.pl",
+"contextLimitedPowers.pl",
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+COMMENT("this problem is hardcoded, needs randomization");
+
+$sidetrack = 1;
+
+$a = 2;
+$b = 3;
+
+$scale = 3;
+
+# used on both sides of infinite limit
+
+$n = Formula("$scale*x^2-$scale*($a + $sidetrack)x + $scale*$a*$sidetrack")->reduce; 
+$d = Formula("x^2-($a + $b)x + $a*$b")->reduce; 
+
+Context("Numeric");
+
+$f = Formula("$n/$d"); 
+
+
+
+Context()->normalStrings;
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+# 
+BEGIN_PGML
+Suppose [`\displaystyle f'(x) = [$f] `].
+
+---
+
+On what intervals must [`f`] be continuous?  
+
+[_____]{interval_cmp("(-inf,$a)U($a,$b)U($b,inf)", strings=>["none"])}
+
+
+Use interval notation, with "U" being union.  If there are none, enter "none".
+
+
+END_PGML
+
+
+Context()->normalStrings;
+
+
+ENDDOCUMENT();

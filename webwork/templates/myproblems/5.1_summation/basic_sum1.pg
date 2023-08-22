@@ -72,15 +72,15 @@ $PAR
 END_TEXT
 
 BEGIN_HINT
-I want you to use the convention that 0^0 is equal to 1, for the third part of this problem.  
+I want you to use the convention that \(0^0\) is equal to 1, for the third part of this problem.  
 
 $PAR
 
-Generally, mathematicians have reasons for treating the expression has having various meanings.  To me, it's 1.  So, use 1.   Here's \{ htmlLink( "https://en.wikipedia.org/wiki/Zero_to_the_power_of_zero", "the wikipedia page on 0^0" ) \}.
+Generally, mathematicians have reasons for treating the expression has having various meanings.  To me, it's 1.  So, use 1.   Here's \{ htmlLink( "https://en.wikipedia.org/wiki/Zero_to_the_power_of_zero", "the wikipedia page on \(0^0\)" ) \}.
 
 $PAR
 
-It's notable that the programming language for WebWork, Perl, gives us 1 when asked 0^0.  I literally coded the solution to the problem using the expression 0^0 + 1^1 + 2^2 + ... , and Perl is treating 0^0 = 1.
+It's notable that the programming language for WebWork, Perl, gives us 1 when asked \(0^0\).  I literally coded the solution to the problem using the expression \(0^0 + 1^1 + 2^2 + ... \), and Perl is treating \(0^0 = 1\).
 END_HINT
 
 

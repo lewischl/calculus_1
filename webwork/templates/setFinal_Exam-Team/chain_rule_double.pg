@@ -36,8 +36,8 @@ $showPartialCorrectAnswers = 1;
 #
 Context("Numeric");
 
-SRAND(42);
-$setseed = "set.seed(42); 42";
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
 
 $a = random(10,19,1); 
 $b = random(2,7,1); 
@@ -47,7 +47,8 @@ $p = random(4,9,1);
 
 
 
-$f = Formula("(sin($a*x^2-$b*x+$c))^$p")->reduce;
+$f = Formula("(cos($a*x^2-$b*x+$c))^$p")->reduce;
+$ans = Formula("-[$p]*(cos([$a]*x^2-[$b]*x+[$c]))^([$p]-1) * (sin([$a]*x^2-[$b]*x+[$c])) * (2*[$a]*x-[$b])");
 ##############################################################
 #
 #  Text
@@ -61,7 +62,9 @@ Differentiate [`f`].
 
 ---
 
-[``\frac{df}{dx} = ``] [_____]{"[$p]*(sin([$a]*x^2-[$b]*x+[$c]))^([$p]-1) * (cos([$a]*x^2-[$b]*x+[$c])) * (2*[$a]*x-[$b])"} 
+[``\frac{df}{dx} = ``] [_____]{$ans} 
+
+
 END_PGML
 
 # ,limits=>[2,5]

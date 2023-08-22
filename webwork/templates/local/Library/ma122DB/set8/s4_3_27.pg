@@ -33,7 +33,7 @@ loadMacros(
 );
 
 TEXT(beginproblem());
-$showPartialCorrectAnswers = 0;
+$showPartialCorrectAnswers = 1;
 
 BEGIN_TEXT
 $BR$BR \{image("s4_3_27.gif", width=>300)\} $BR$BR
@@ -46,10 +46,10 @@ are true. Input $BITALIC T $EITALIC if the condition is true, otherwise input $B
 (e) \( f''(x)<0 \) if \(x>4\);  \{ans_rule(10) \} $PAR
 
 (f) $BR
-There are two inflection points of \(f(x)\).$BR
+There are two inflection points of \(f(x)\). (assume they're integers)$PAR
  The smaller one is \(x=\) \{ans_rule(10) \}$BR
 the larger is  \(x=\) \{ans_rule(10) \} $BR
-(assume they're nice numbers)$BR
+$BR
 END_TEXT
 $ans1 = "T";
 $ans2 = "F";

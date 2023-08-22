@@ -30,7 +30,7 @@ $vol = Compute("$v");
 Context()->texStrings;
 BEGIN_TEXT
 If $area square centimeters of material is available to make a box
-with a square base and an open top, find the largest possible volume
+with a square base and an open top by cutting squares from the four corners, find the largest possible volume
 of the box.
 
 $PAR

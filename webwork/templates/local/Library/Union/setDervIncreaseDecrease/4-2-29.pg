@@ -77,11 +77,11 @@ $PAR
 $BR
 $BBOLD Notes:$EBOLD
 In the first two, your answer should either be a single
-interval, such as (0,1), a comma separated list of intervals, such as (-inf, 2), (3,4), or the word
+interval, such as "(0,1)", a union-symbol separated list of intervals, such as "(-inf, 2) U (3,4)", or the word
 ${LQ}none$RQ.
 $PAR
-In the last two, your answer should be a comma separated list of \( x\) values or the word
-${LQ}none$RQ.
+In the last two, your answer should be a comma-separated list of \( x\) values or the word
+${LQ}"none"$RQ (use double quotes to enter string mode).
 
 END_TEXT
 Context()->normalStrings;

@@ -36,6 +36,8 @@ $c=random(1,8,1);
 $x1=$c**2;
 $y1=$x1 +$c;
 
+$showHint=-1;
+
 BEGIN_TEXT
 Let \(f(x) = x + \sqrt{x}\) . 
 
@@ -51,7 +53,7 @@ $BR$BR
 END_TEXT
 ANS(num_cmp("1 + 0.5/$c", relTol=>.1));
 
-$showHint=-1;
+
 BEGIN_HINT
 The symbol \(m\) is the slope of the line.  The tangent line.  How do we find the slope of the tangent line again?  Ah, the derivative \(f'(x)\) tells is the slope at a point \(x\).  Try using the power rule on both terms, \( \frac{d}{dx} x^n = n x^{n-1} \).
 END_HINT

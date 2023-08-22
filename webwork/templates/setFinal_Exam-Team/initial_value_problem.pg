@@ -36,8 +36,8 @@ $showPartialCorrectAnswers = 1;
 #
 Context("Numeric");
 
-SRAND(42);
-$setseed = "set.seed(42); 42";
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
 
 $y0 = random(1,4,1);
 $x0 = 0;
@@ -57,7 +57,7 @@ $ans = Formula("$a* cos(x) + $b*x + $c")->reduce;
 BEGIN_PGML
 
 
-Solve the following initial value problem, by finding a function [`y`] such that 
+Solve the following initial value problem by finding a function [`y`] such that 
 
 * [``\frac{dy}{dx} = -[$a]\sin(x) + [$b] ``]
 * [``y([$x0]) = [$y0] ``]

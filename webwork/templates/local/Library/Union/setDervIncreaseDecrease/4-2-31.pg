@@ -40,7 +40,7 @@ $c = non_zero_random(-9,9,2);
 $f=Formula("$c + $b x - x^3");#->reduce;
 
 $inc=List(Interval( "(-sqrt($b/3),sqrt($b/3))" ));
-$dec=Compute( "(-infinity,-sqrt($b/3)) , (sqrt($b/3),infinity)"   );
+$dec=Compute( "(-inf,-sqrt($b/3)) U (sqrt($b/3),inf)"   );
 $xrelamaxs=List(    sqrt($b/3)  );
 $xrelamins=List(   -sqrt($b/3)  );
 
@@ -71,10 +71,9 @@ $PAR
 $BR
 $BBOLD Notes:$EBOLD $BR
 - In the first two, your answer should either be $BR
-• a single interval, such as (0,1), $BR
-• a comma separated list of intervals, such as (-inf, 2), (3,4), or $BR
+• a single interval, such as "(0,1)", $BR
+• a union-separated list of intervals, such as "(-inf, 2) U (3,4)", or $BR
 • the word ${LQ}none$RQ.  $BR
-THIS IS DIFFERENT FROM OTHER PROBLEMS WHICH USED \( \cup \) as the joiner between intervals.  Sigh.
 $PAR
 - In the last two, your answer should be a comma separated list of \( x\) values or the word
 ${LQ}none$RQ.

@@ -1,0 +1,44 @@
+assignmentType      = default
+openDate          = 04/17/2023 at 05:11am CDT
+reducedScoringDate = 05/11/2023 at 09:59pm CDT
+dueDate           = 05/13/2023 at 05:11am CDT
+answerDate        = 05/13/2023 at 05:11am CDT
+enableReducedScoring = Y
+paperHeaderFile   = defaultHeader
+screenHeaderFile  = defaultHeader
+description       = 
+restrictProbProgression = 0
+emailInstructor   = 0
+
+problemListV2
+problem_start
+problem_id = 1
+source_file = set5.6_net-change/quadraticVelocity.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 2
+source_file = local/Library/Utah/AP_Calculus_I/set6_The_Integral/z3.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 4
+source_file = my_problems/5.6_net-change/oil_leaking.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+

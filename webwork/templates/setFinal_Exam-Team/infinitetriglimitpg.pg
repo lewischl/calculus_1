@@ -28,8 +28,8 @@ loadMacros(
 # Print problem number and point value (weight) for the problem
 TEXT(beginproblem());
 
-SRAND(42);
-$setseed = "set.seed(42); 42";
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
 
 # Show which answers are correct and which ones are incorrect
 $showPartialCorrectAnswers = 1;
@@ -46,7 +46,8 @@ $b = $parameter+random(4,8,1);
 
 @ans = ();
 $ans[0] = "DNE";
-
+$ans[1] = "DNE";
+$ans[2] = -$b;
 
 ##############################################################
 #
@@ -55,10 +56,14 @@ $ans[0] = "DNE";
 #
 
 BEGIN_PGML
-Find the following limit:
+Find the following limits:
 
 [``\lim_{x\rightarrow\infty}(\cos([$parameter]x)-[$b]) = ``] [____]{$ans[0]}
 
+
+[``\lim_{x\rightarrow\infty}(x \cos([$parameter]x)-[$b]) = ``] [____]{$ans[1]}
+
+[``\lim_{x\rightarrow\infty} \left(\frac{1}{x} \cos([$parameter]x)-[$b] \right) = ``] [____]{$ans[2]}
 (Enter DNE if the limit does not exist)
 
 END_PGML

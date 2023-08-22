@@ -1,0 +1,101 @@
+##DESCRIPTION
+##  match the sums that are equal
+##ENDDESCRIPTION
+
+##KEYWORDS('matching','tutorial')
+
+## DBsubject('Calculus')
+## DBchapter('Integration')
+## DBsection('Summation notation')
+## Date('spring 2023')
+## Author('silviana amethest')
+## Institution('uwec')
+
+# this derived from https://webwork.maa.org/pod/pg/lib/Match.html
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   
+   # added for matching
+   "PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"unionTables.pl",
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+
+
+$ml = new_match_list();
+
+
+
+	$ml->qa(
+		'\( \displaystyle \sum_{n=1}^4{n} \) $BR',        '\( \displaystyle \sum_{n=0}^3 (n+1) \) $BR',
+		'\( \displaystyle \sum_{n=3}^6(n-1) \) $BR',      '\( \displaystyle \sum_{n=2}^5 (n) \) $BR',
+		'\( \displaystyle \sum_{n=0}^3 (n^2 + 1)  \) $BR', '\( \displaystyle \sum_{n=0}^3 (n^2) + 4  \) $BR',
+	);
+    
+    
+    	$ml->extra(
+
+	);
+    
+    $ml->choose(3); # would show the first question and a random question while
+    
+    # After calling choose, use choose_extra to select which of the extra 'answers' will be given to each student. 
+    #Note that unused answers are dumped into the list of extra 'answers' so the indexing may be difficult to grasp at first. 
+    #(This can be stopped by doing the following: $ml->dumpExtra = "";)
+    $ml->choose_extra(0);
+    
+    #$ml->makeLast(
+	#	'All of the above',
+	#	'None of the above'
+	#);
+    
+    $ml->ans_rule_len(10);
+
+
+BEGIN_TEXT
+
+This problem asks you to think about equivalent ways of phrasing the same sum, by shifting indices.
+
+$PAR $HR $PAR
+
+
+Match the equal sums:
+
+
+
+
+
+$PAR
+\{ $ml->print_q() \}
+$PAR
+\{ $ml->print_a() \}
+
+$PAR$PAR
+\{ theresahint \}
+END_TEXT
+
+
+ANS(str_cmp($ml->ra_correct_ans));
+
+
+BEGIN_HINT
+
+\{ youtube(NpiXCzR18zE) \}
+END_HINT
+
+ENDDOCUMENT();
+

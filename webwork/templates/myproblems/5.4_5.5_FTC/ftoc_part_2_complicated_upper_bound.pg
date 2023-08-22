@@ -58,16 +58,17 @@ $a= random(1, 5, 1);
 $b= random(2, 5, 1);
 
 TEXT(EV2(<<EOT));
-Use part I of the Fundamental Theorem of Calculus to
+Use Part II of the Fundamental Theorem of Calculus to
 find the derivative of
-\[ h(x) = \int_{-$a}^{\sin(x)} (\cos(t^$b)+t) dt \]
 
-$BR \(h'(x) = \)\{ANS_RULE(1, 35)\} $BR
-$BR $BR [NOTE:  Enter a function as your answer.  Make sure that your
-syntax is correct, i.e. remember to put all the necessary *, (, ), etc.]
-For more help see:
-\{ htmlLink('http://webwork.maa.org/wiki/Available_Functions',
-  'WeBWorK functions')\}
+$PAR
+
+\( \displaystyle h(x) = \int_{-$a}^{\sin(x)} (\cos(t^$b)+t) dt \)
+
+$PAR
+
+\(h'(x) = \)\{ANS_RULE(1, 35)\} 
+
 EOT
 
 $answer="cos(x)*(cos((sin(x))^$b)+sin(x))" ;

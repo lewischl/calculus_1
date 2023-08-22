@@ -1,0 +1,73 @@
+##DESCRIPTION
+##  Differentiate expressions using implicit differentation
+##ENDDESCRIPTION
+
+##KEYWORDS('implicit differentiation')
+
+## DBsubject('Calculus')
+## DBchapter('Derivatives')
+## DBsection('Implicit differentiation')
+## Date('')
+## Author('silviana amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+
+
+Context()->variables->add(
+dx=>"Real", dy=>"Real", y=>"Real"
+);
+
+$ans1 = Compute("6x + 15 y^2 dy/dx");
+$ans2 = Compute("y + x dy/dx");
+$ans3 = Compute("28x^3 + 2(2x y^2 + 2 x^2 y dy/dx)");
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+Assume that [`y`] is an implicit function of [`x`].  General advice for implicit differentiation is to "chain out" the derivative of a variable, if the variable of differentiation is different from the variable being differentiated.  For example,
+
+[`` \begin{aligned} \frac{d}{dx} x^2 &= 2x  \\  \frac{d}{dx} y^2 &= 2y  \frac{dy}{dx}  \end{aligned} ``]
+
+---
+
+Use implicit differentiation to compute the derivatives.  Use the symbols [`dy`] and [`dx`] to express the derivative of [`y`] with respect to [`x`].
+
+[`` \frac{d}{dx} \left( 3x^2 + 5y^3  \right) = ``] [_____]{$ans1}
+
+
+[`` \frac{d}{dx} \left( xy  \right) = ``] [_____]{$ans2}
+
+[`` \frac{d}{dx} \left( 7x^4 + 2 x^2 y^2  \right) = ``] [_____]{$ans3}
+
+END_PGML
+
+ENDDOCUMENT();

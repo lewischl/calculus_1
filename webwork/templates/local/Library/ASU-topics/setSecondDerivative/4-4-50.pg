@@ -50,11 +50,11 @@ $BR
 \(x\) values of local minimums \(=\) \{ans_rule(30)\}
 $PAR
 
-(f) Use interval notation to indicate where \( f(x) \) is concave up.  $BR Use commas to separate intervals.  NOTE TO SILVIANA: FIX THIS FOR FALL 2022.
+(f) Use interval notation to indicate where \( f(x) \) is concave up.  
 $BR
 Concave up: \{ans_rule(50)\}
-$PAR
 
+$PAR
 (g) Use interval notation to indicate where \( f(x) \) is concave down.
 $BR
 Concave down: \{ans_rule(50)\}
@@ -79,7 +79,7 @@ ANS(Compute("($a3/4,inf)")->cmp);
 ANS(Compute("(-inf,0)U(0,$a3/4)")->cmp);
 ANS(Compute( "none")->cmp);
 ANS(Compute( "$a3/4")->cmp);
-ANS(Compute("(-inf,0),($a/2,inf)")->cmp);
+ANS(Compute("(-inf,0)U($a/2,inf)")->cmp);
 ANS(Compute("(0,$a/2)")->cmp);
 ANS(Compute( "0, $a/2")->cmp);
 

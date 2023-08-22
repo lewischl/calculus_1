@@ -35,8 +35,8 @@ $showPartialCorrectAnswers = 1;
 #  Setup
 #
 #
-SRAND(42);
-$setseed = "set.seed(42); 42";
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
 
 Context("Numeric");
 
@@ -86,12 +86,15 @@ $ans = $area;
 #
 
 BEGIN_PGML
-Approximate the following definite integral using left endpoints and 4 rectangles. (Give an exact answer)
->>[``\int_[$lower]^[$upper]([$f])~dx``]<<
 
->>[@ image(insertGraph($graph1), width => 400, height => 400) @]*<<
 
-Approximation is [_____]{$ans}
+>>[@ image(insertGraph($graph1), width => 400, height => 400, tex_size=>400) @]*<<
+
+Approximate the following definite integral using left endpoints and 4 rectangles. 
+
+[``\int_[$lower]^[$upper]([$f])~dx``]
+
+Approximation is [`L_4  = `] [_____]{$ans}
 END_PGML
 
 ENDDOCUMENT();

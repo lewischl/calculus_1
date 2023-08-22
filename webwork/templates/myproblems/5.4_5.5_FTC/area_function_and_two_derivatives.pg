@@ -24,7 +24,8 @@ loadMacros(
   "MathObjects.pl",
   "littleneck.pl",
   "contextFraction.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "PGchoicemacros.pl",
 );
 # allow the student to change the seed for this problem.
 
@@ -50,9 +51,45 @@ $Fa=Compute("$A");
 Context("Fraction");
 $Ga=Compute("$a/$A");
 Context("Numeric");
+
+
+
+
+
+
+
+$mc = new_checkbox_multiple_choice();
+$mc -> qa (
+" Select those of the above computations required the use of the Fundamental Theorem of Calculus Part 2?", 
+
+"\( F'($a) \)$BR"
+);
+$mc -> extra(
+"\( F($a) \)$BR",
+);
+
+    
+    
+    
+    
 ###################################
 # Main text
 Context()->texStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 BEGIN_TEXT
 Let \(\displaystyle F(x)=\int^{x}_{$a} $f\;dt\). Find
 $PAR
@@ -61,6 +98,14 @@ $PAR
 (b) \( F'($a) \) \(=\) \{ans_rule(20) \} 
 $PAR
 (c) \( F''($a) \) \(=\) \{ans_rule(20) \} 
+
+
+$PAR $HR $PAR
+
+\{ $mc -> print_q() \}
+$BR
+\{ $mc -> print_a() \}
+
 
 $PAR
 \{theresahint\}
@@ -74,6 +119,14 @@ END_TEXT
 ANS($fa->cmp);
 ANS($Fa->cmp);
 ANS($Ga->cmp);
+
+
+install_problem_grader(~~&std_problem_grader);
+
+$showPartialCorrectAnswers = 0;
+
+ANS( checkbox_cmp( $mc->correct_ans() ) );
+
 
 BEGIN_HINT
 Part (a) is a direct application of the Area Function, defined by the FTOC Part II on page 326.  See Example 1 on page 327. 

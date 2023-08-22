@@ -41,42 +41,53 @@ loadMacros(
 
 TEXT(beginproblem());
 
-SRAND(42);
-$setseed = "set.seed(42); 42";
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
 
 ###################################
 # Setup
 
-$a = random(10,50,10);
-$h = random(10,25,1);
+$r = random(30,40,0.1);
+$dr_dt = random(1.2, 2.4,0.1);
+$dA_dt = 8*pi*$r*$dr_dt;
+$dV_dt = 4*pi*$r**2*$dr_dt;
 
 ###################################
 # Main text
 
 BEGIN_TEXT
-Gravel is being dumped from a conveyor belt at a rate of
-$a \( {\rm ft}^3{\rm /min}\). It forms a pile in the shape of a right circular
-cone whose base diameter is twice the height of the cone.
-$PAR
-How fast is the height of the pile increasing when the pile is $h ft high?
-$PAR
-The height is increasing at \{ans_rule(20) \} ft/min.
-$BR$BR
+A spherical black hole is growing as it gobbles up the nearby mass.  Its radius is currently growing at a rate of \($dr_dt\) kilometers per ten thousand years, and right now the radius is \($r\) kilometers.
 
----
+$BR$HR$BR
 
-$BR$BR
+How fast is the surface area growing?
 
-Tip for the final: This problem is a placeholder for other related rates problems.  Cubes, squares.  Spheres, circles.
+$BR
+
+\(\displaystyle \frac{dA}{dt} = \) \{ans_rule(30) \} square kilometers per ten thousand years.
+
+$BR$HR$BR
+
+How fast is the volume changing?
+
+$BR
+
+\(\displaystyle \frac{dV}{dt} = \) \{ans_rule(30) \} cubic kilometers per ten thousand years.
+
+$BR$HR$BR
+
+Tip for the final: This problem is a placeholder for other related rates problems.  Cubes, squares.  Spheres, circles.  Probably not a cone.
 END_TEXT
 ###################################
 # Answers
 
 $showPartialCorrectAnswers = 1;
 
-$ans= $a/($h*$h*pi);
 
-ANS(Real($ans)->cmp);
+
+ANS(Real($dA_dt)->cmp);
+ANS(Real($dV_dt)->cmp);
+
 ###################################
 
 

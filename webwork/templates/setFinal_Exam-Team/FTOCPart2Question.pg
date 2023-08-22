@@ -34,8 +34,8 @@ $showPartialCorrectAnswers = 1;
 #  Setup
 #
 #
-SRAND(42);
-$setseed = "set.seed(42); 42";
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
 
 Context("Numeric");
 
@@ -57,7 +57,9 @@ $ans = Formula("$p*x^($p-1)*(tan(x^$p)+sqrt(x^$p))")->reduce;
 #
 
 BEGIN_PGML
-Use the Fundamental Theorem of Calculus to find:
+Integral functions are used to measure accumulations.  Notable applications are as cumulative density functions in statistics, where they represent probability of observing events.
+
+Use the Fundamental Theorem of Calculus to find the following derivative of an integral function:
 
 [``\frac{d}{dx}\int_[$lower]^[$upper]([$f])~dt=``] [_____]{$ans}
 END_PGML

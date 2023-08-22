@@ -48,7 +48,7 @@ $x1 = random(1,5,1);
 $funct1 = Compute("($a1)*(-$n1)*x^(-$n1-1)");
 
 BEGIN_TEXT
-If \( f(x) =  \frac { $a1 } {x ^{ $n1 } } \), find \( f'( x ) \).
+If \( \displaystyle f(x) =  \frac { $a1 } {x ^{ $n1 } } \), find \( f'( x ) \).
 $BR$BR Answer: \{ans_rule(25) \}
 END_TEXT
 

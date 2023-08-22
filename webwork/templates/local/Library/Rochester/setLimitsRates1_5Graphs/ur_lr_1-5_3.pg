@@ -143,7 +143,7 @@ sub g_rule {
 # plot the f graph
 
 $graphf = init_graph(-2,-2,5,5,grid =>[7,7], axes => [0,0],'size'=>[800,800]);
-$graphg = init_graph(-2,-2,5,5,,grid =>[7,7], axes => [0,0],'size'=>[800,800]);
+$graphg = init_graph(-2,-2,5,5,grid =>[7,7], axes => [0,0],'size'=>[800,800]);
 $f1 = new Fun($hermite_f1->rf_f,$graphf);
 $f2 = new Fun($hermite_f2->rf_f,$graphf);
 $graphf->stamps(open_circle($xf, $hermite_f1->rf_f->($xf), 'red')   );
@@ -170,9 +170,20 @@ $g2->domain($xg, 4);
 
 TEXT(beginproblem());
 
+$showHint=-1;
+
 # draw the graphs
 BEGIN_TEXT
 
+This problem has you compute a bunch of different things from the graphs of two functions.  The parts are all either function values or limits.  This reinforces the difference between limits and function values: the limit is where the function is going -- a dynamic process -- whereas the function value is just concerned with the value at that one point.  
+
+$PAR
+
+Note: This problem has several parts about function composition, which is where outputs of one function become inputs to the next.  In particular, \(f(g(x))\) is the composition of \(g\) into \(f\).  Outputs of \(g\) become inputs to \(f\).  It's as if the vertical axis for the plot of \(g\) is the horizontal axis for \(f\).  I have a video in a hint at the bottom, if you'd like video help.  
+
+$PAR
+$HR
+$PAR
 
 \{ begintable(2) \}
 \{ row( image( insertGraph($graphf) ,width=>400,height=>400, tex_size =>800 ), image( insertGraph($graphg),width=>400,height=>400 , tex_size =>800 )   )\}
@@ -289,6 +300,13 @@ The graphs of \( f(x) \) and \( g(x) \) are given above.  Use them to evaluate e
 Write $BITALIC DNE$EITALIC if the limit or value does not exist (or if it's infinity).
 $BR
 \{ match_questions_list(@questions[@slice]  ) \}
+
+$PAR
+
+$HR
+$PAR
+
+\{ theresahint \}
 END_TEXT
 
 

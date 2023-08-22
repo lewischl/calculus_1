@@ -38,8 +38,8 @@ Context("Numeric");
 
 Context()->variables->add(t => 'Real');
 
-SRAND(42);
-$setseed = "set.seed(42); 42";
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
 
 $center = 5;
 $b = $center + random(1,4,1);
@@ -63,7 +63,7 @@ $ans = $volume->eval(t=>$t1) - $volume->eval(t=>$t0);
 BEGIN_PGML
 
 
-Water flows into a holding pond at a rate of [`f(t) = [$flow_rate] `] cubic meters per hour, where [`t`] is measure in hours.
+Water flows into a holding pond at a rate of [`r(t) = [$flow_rate] `] cubic meters per hour, where [`t`] is measure in hours.
 
 How much net water flowed into the pond between hours [`[$t0]`] and [`[$t1]`]?
 

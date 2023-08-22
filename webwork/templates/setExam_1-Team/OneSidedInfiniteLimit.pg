@@ -28,8 +28,9 @@ loadMacros(
 # Print problem number and point value (weight) for the problem
 TEXT(beginproblem());
 
-SRAND(202203);
-$setseed = "set.seed(202203); 202203";
+
+SRAND($team_exam1_seed);
+$setseed = "set.seed($team_exam1_seed); $team_exam1_seed";
 
 # Show which answers are correct and which ones are incorrect
 $showPartialCorrectAnswers = 1;
@@ -44,7 +45,8 @@ Context("Numeric");
 $parameter = random(2,4,1);
 $c = $parameter; # the point of interest
 
-$d = random(2,4,1);
+$d = $c+random(2,4,1);
+
 
 $n = random(3,4,1);
 
@@ -69,7 +71,7 @@ Consider the function:
 
 [``f(x) =  \frac{[$n]x - [$n*$d]}{x^2 - [$c+$d]x + [$c*$d]}``]
 
-Identify the two points of discontinuity.  Enter the [``x``]-coordinates, starting with the smaller of the two.
+Identify the two points of discontinuity.  Enter the [``x``]-coordinates, starting with the smaller of the two. 
 
 [``f``] is discontinuous at 
 * [``x = ``] [____]{$ans[0]}  (the smaller), 

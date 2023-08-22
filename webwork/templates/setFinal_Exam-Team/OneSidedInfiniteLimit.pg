@@ -28,8 +28,8 @@ loadMacros(
 # Print problem number and point value (weight) for the problem
 TEXT(beginproblem());
 
-SRAND(42);
-$setseed = "set.seed(42); 42";
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
 
 # Show which answers are correct and which ones are incorrect
 $showPartialCorrectAnswers = 1;
@@ -53,7 +53,7 @@ $n = random(3,4,1);
 @ans = ();
 $ans[0] = min($c,$d);
 $ans[1] = max($c,$d);
-$ans[2] = "inf";
+$ans[2] = "-inf";
 
 
 ##############################################################
@@ -63,26 +63,24 @@ $ans[2] = "inf";
 #
 
 BEGIN_PGML
-## Part 1.
 
 Consider the function:
 
 [``f(x) =  \frac{[$n]x - [$n*$d]}{x^2 - [$c+$d]x + [$c*$d]}``]
 
-Identify the two points of discontinuity.  Enter the [``x``]-coordinates, starting with the smaller of the two.  If the two values are the same, the order doesn't matter.
+---
 
-[``f``] is discontinuous at 
-* [``x = ``] [____]{$ans[0]}  (the smaller), 
+First, identify the two points of discontinuity.  Enter the [``x``]-coordinates, starting with the smaller of the two.  If the two values are the same, the order doesn't matter.
+
+[``f``] is discontinuous 
+* at [``x = ``] [____]{$ans[0]}  (the smaller), 
 * and at [``x = ``] [____]{$ans[1]}  (the larger)
-
 
 ---
 
-## Part 2. 
-
 Next, find the following limit:
 
-[``\lim_{x\rightarrow [$c]^+}  \frac{[$n]x - [$n*$d]}{x^2 - [$c+$d]x + [$c*$d]} = ``] [____]{$ans[2]}
+[``\lim_{x\rightarrow [$c]^-}  \frac{[$n]x - [$n*$d]}{x^2 - [$c+$d]x + [$c*$d]} = ``] [____]{$ans[2]}
 
 (Enter DNE if the limit does not exist)
 

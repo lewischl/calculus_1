@@ -45,7 +45,7 @@ $b = random(2,8,2);
 if ($a == $b) {$b++;}
 $c = random(380,390,2); 
 
-$$showhint=-1;
+$showHint=-1;
 
 Context()->texStrings;
 BEGIN_TEXT

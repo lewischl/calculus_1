@@ -73,11 +73,16 @@ TEXT(beginproblem());
 #
 $CT->texStrings;
 BEGIN_TEXT
-A cylindrical can, open at the top, is to hold $Vol cm\(\small{^3}\) of liquid. Find the height and radius
-that minimize the amount of material needed to manufacture the can. 
+A cylindrical can, open at the top, is to hold $Vol cm\(\small{^3}\) of liquid.  That is, the can has sides and a bottom, but no top.
 
-$BR
-Enter your answer exactly, with rational exponents.  Do not use a calculator to produce a floating point number.  The answers will almost certainly involve \(\pi\), since there's a circular thing involved.
+$PAR
+
+Find the height and radius that minimize the amount of material needed to manufacture the can. 
+
+$PAR 
+Tips: $BR
+* Enter your answer exactly, with rational exponents.  Do not use a calculator to produce a floating point number.  $BR
+* The answers will almost certainly involve \(\pi\), since there's a circular thing involved.
 $PAR
 \{ $Qlist->print_q \}
 

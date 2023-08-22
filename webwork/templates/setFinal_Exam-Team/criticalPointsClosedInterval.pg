@@ -36,8 +36,8 @@ $showPartialCorrectAnswers = 1;
 #
 Context("Numeric");
 
-SRAND(42);
-$setseed = "set.seed(42); 42";
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
 
 $root1 = random(1,5,1);
 $root2 = -1*$root1-2;
@@ -90,10 +90,10 @@ Consider the function [`f(x)=[$f]`] on the interval [`[[$a],[$b]]`].
 1) Find the critical point(s) for [`f(x)`]
 [_____]{$crits} (seperate multiple answers with a comma)
 
-2) Find the location(s) of the absolute maximum(s) [`f(x)`]
+2) Find the [`x`]-values of the location(s) of the absolute maximum(s) [`f(x)`]
 [_____]{$maxX} (seperate multiple answers with a comma)
 
-2) Find the location(s) of the absolute minimum(s) [`f(x)`]
+3) Find the [`x`]-values of the location(s) of the absolute minimum(s) [`f(x)`]
 [_____]{$minX} (seperate multiple answers with a comma)
 END_PGML
 

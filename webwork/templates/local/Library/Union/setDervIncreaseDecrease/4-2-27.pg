@@ -68,12 +68,12 @@ Let \( f(x) = $f \).  Find all open intervals on which \( f \) is increasing  an
 $PAR
 \{$al->print_q\}
 $BR
-$BBOLD Notes:$EBOLD
-In the first two, your answer should either be a single
-interval, such as (0,1), a comma separated list of intervals, such as (-inf, 2), (3,4), or the word
+$BBOLD Notes:$EBOLD $PAR
+
+In the first two, your answer should be intervals, or the word
 ${LQ}none$RQ.
-$PAR
-In the last two, your answer should be a comma separated list of \( x\) values or the word
+$BR
+In the last two, your answer should be a comma-separated list of \( x\) values or the word
 ${LQ}none$RQ.
 
 END_TEXT

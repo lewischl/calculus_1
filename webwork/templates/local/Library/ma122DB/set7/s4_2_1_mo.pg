@@ -59,7 +59,7 @@ $PAR
 First, we'll verify that this function satisfies the three hypotheses of Rolle's
 Theorem on the inverval.
 $PAR
-\(f(x)\) is \{ans_rule(20) \} on \([0,4]\); (type a word) $BR
+\(f(x)\) is \{ans_rule(20) \} on \([0,4]\); (type a word inside double quotes, like "word") $BR
 \(f(x)\) is \{ans_rule(20) \} on \((0,4)\); (type a word) $BR
 \(f(0)=f(4)= \) \{ans_rule(20) \}.$BR
 $BITALIC(Make sure to spell any words that are used in the above answers correctly!)$EITALIC

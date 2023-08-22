@@ -36,8 +36,8 @@ $showPartialCorrectAnswers = 1;
 #
 #
 
-SRAND(42);
-$setseed = "set.seed(42); 42";
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
 
 Context("Numeric");
 

@@ -1,0 +1,54 @@
+assignmentType      = default
+openDate          = 03/10/2023 at 04:39am CST
+reducedScoringDate = 04/17/2023 at 09:59pm CDT
+dueDate           = 05/13/2023 at 04:39am CDT
+answerDate        = 05/13/2023 at 04:39am CDT
+enableReducedScoring = Y
+paperHeaderFile   = defaultHeader
+screenHeaderFile  = defaultHeader
+description       = 
+restrictProbProgression = 0
+emailInstructor   = 0
+
+problemListV2
+problem_start
+problem_id = 1
+source_file = set4.8_newtons_method/multipleApproxNewtonMethod.pg
+value = 1
+max_attempts = -1
+showMeAnother = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 1 
+problem_end
+problem_start
+problem_id = 2
+source_file = set4.8_newtons_method/NewtonMethodCertainError.pg
+value = 1
+max_attempts = -1
+showMeAnother = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 1 
+problem_end
+problem_start
+problem_id = 3
+source_file = set4.8_newtons_method/NewtonMethodWhichRoot.pg
+value = 1
+max_attempts = -1
+showMeAnother = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 1 
+problem_end
+problem_start
+problem_id = 4
+source_file = set4.8_newtons_method/NewtonMethodApproxSquareRoot.pg
+value = 1
+max_attempts = -1
+showMeAnother = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 1 
+problem_end
+

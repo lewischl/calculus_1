@@ -41,8 +41,8 @@ $showPartialCorrectAnswers = 1;
 #
 Context("Numeric");
 
-SRAND(314);
-$setseed = "set.seed(314); 314";
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
 
 $r1 = random(2,4,1);
 

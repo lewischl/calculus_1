@@ -28,8 +28,8 @@ loadMacros(
 # Print problem number and point value (weight) for the problem
 TEXT(beginproblem());
 
-SRAND(42);
-$setseed = "set.seed(42); 42";
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
 
 # Show which answers are correct and which ones are incorrect
 $showPartialCorrectAnswers = 1;
@@ -128,6 +128,12 @@ $ans[0] = $ypointF[1] + $ypointg[1];
 $ans[1] = $ypointF[1] - $ypointg[1];
 $ans[2] = $ypointF[1] * $ypointg[1];
 
+
+$ans[3] = "-inf";
+$ans[4] = "-inf";
+$ans[5] = "-inf";
+
+
 ##############################################################
 #
 #  Text
@@ -149,6 +155,15 @@ Find the following limits:
 [`` \lim_{x \to [$xlim[1]]^-} (f-g) = ``] [_____]{$ans[1]}
 
 [`` \lim_{x \to [$xlim[1]]^-} (fg) = ``] [_____]{$ans[2]}
+
+---
+
+
+[`` \lim_{x \to [$xlim[2]]^+} (f+g) = ``] [_____]{$ans[3]}
+
+[`` \lim_{x \to [$xlim[2]]^+} (f-g) = ``] [_____]{$ans[4]}
+
+[`` \lim_{x \to [$xlim[2]]^+} (fg) = ``] [_____]{$ans[5]}
 
 
 

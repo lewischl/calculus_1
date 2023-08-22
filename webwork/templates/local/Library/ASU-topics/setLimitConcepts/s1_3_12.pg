@@ -23,6 +23,11 @@ Evaluate the limit
 If the limit does not exist, enter DNE.
 $PAR Limit =  \{ans_rule(25) \}$BR
 ${BITALIC}(Give an exact answer.)$EITALIC
+
+$PAR
+
+\{ theresahint \}
+
 EOT
 
 #$ans = ($a1* ($e1*$e1-1))/ ($b1* $e1*$e1* ($e1 -1)**3 );
@@ -31,6 +36,12 @@ $num = ($a1* ($e1*$e1-1));
 $denom = ($b1* $e1*$e1* ($e1 -1)**3 );
 
 ANS(Compute("$num/$denom")->cmp);
+
+
+
+BEGIN_HINT
+Just evaluate the function at the point...  Type in a rational number.
+END_HINT
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.
 

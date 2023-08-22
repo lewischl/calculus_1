@@ -8,7 +8,7 @@ $whosTeaching = $amethyst;
 sub _uwecAmethyst_init {}; #don't reload this file
 
 
-$showHint = 1;
+$showHint = -1;
 
 #This problem has a hint that will show after $showHint attempt(s).
 
@@ -31,3 +31,20 @@ if ($whosTeaching==$amethyst){
 $hintText;
 }
 };
+
+
+
+
+sub array_min{
+    my @sorted = num_sort(@_);
+    return $sorted[0];
+};
+
+sub array_max{
+    my @sorted = num_sort(@_);
+    return $sorted[-1];
+};
+
+
+
+

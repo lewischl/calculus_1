@@ -45,20 +45,20 @@ $showPartialCorrectAnswers = 1;
 #
 Context("Numeric");
 
-SRAND(100);
-$setseed = "set.seed(100); 100";
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
 
 $a = 2; # locations of asymptotes.  difficult to get vertical asymptotes correct if leave random.  help wanted.
 $b = 0; # shift
 
-$C = Formula("1/(x^2-$a^2) + $b")->reduce; # the solution
+$C = Formula("(x-$a)(x+$a)")->reduce; 
 $A = Formula("$a*x^2/(x^2+$a^2) + $b")->reduce;
 $B = Formula("2*$a*1/(x^2+$a^2) + $b")->reduce;
-$D = Formula("-x/(x^2-$a^2) + $b")->reduce;
+$D = Formula("-(x-$a)(x+$a)")->reduce;
 
 $graph_selection = PopUp(
   ["A","B","C","D"],
-  "C");
+  "B");
   
 
 @xlim = ();
@@ -113,22 +113,22 @@ BEGIN_PGML
 #### Graphs
 
 [@ LayoutTable(
-  [ [ image(insertGraph($graph1), width => 300, height => 300), image(insertGraph($graph2), width => 300, height => 300) ],
-    [ image(insertGraph($graph3), width => 300, height => 300), image(insertGraph($graph4), width => 300, height => 300) ] ] ) @]*
+  [ [ image(insertGraph($graph1), width => 300, height => 300, tex_size=>300), image(insertGraph($graph2), width => 300, height => 300, tex_size=>300) ],
+    [ image(insertGraph($graph3), width => 300, height => 300, tex_size=>300), image(insertGraph($graph4), width => 300, height => 300, tex_size=>300) ] ] ) @]*
 
 ---
 
 #### Properties
 
-Given the following list of properties of a function, select the one of the following four graphs that matches.
+Given the following list of properties of a function, select the one of the pictured four graphs that matches.
 
 * Concave down on [`(-[$a],[$a])`].
 * Concave up on [`(-\infty,-[$a]) \cup ([$a], \infty)`].
-* Increasing on [`(-\infty, -[$a]) \cup (-[$a], 0)`].
-* Decreasing on [`(0, [$a]) \cup ([$a], \infty)`].
+* Increasing on [`(-\infty, 0) `].
+* Decreasing on [`(0, \infty)`].
 * Horizontal asymptotes at [`[$b]`].
-* No inflection points in domain.
-* Vertical asymptotes at [`\pm [$a]`].
+* Two inflection points.
+* No vertical asymptotes.
 
 
 The matching graph is [____]{$graph_selection}

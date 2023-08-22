@@ -1,0 +1,92 @@
+##DESCRIPTION
+##  match the casual description to the mathy sentence
+##ENDDESCRIPTION
+
+##KEYWORDS('matching','tutorial')
+
+## DBsubject('Algebra')
+## DBchapter('Fundamentals')
+## DBsection('Real Numbers')
+## Date('spring 2023')
+## Author('silvaina amethest')
+## Institution('uwec')
+
+# this derived from https://webwork.maa.org/pod/pg/lib/Match.html
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   
+   # added for matching
+   "PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"unionTables.pl",
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+
+
+$ml = new_match_list();
+
+
+
+	$ml->qa(
+		'the sum law for limits','\(\displaystyle  \lim_{x \to a} (f(x)+g(x)) = \lim_{x \to a} f(x) +  \lim_{x \to a} g(x)\)',
+		'the product law for limits','\(\displaystyle  \lim_{x \to a} (f(x)g(x)) = \lim_{x \to a} f(x) \cdot  \lim_{x \to a} g(x)\)',
+		'the rational law for limits','\(\displaystyle  \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\lim_{x \to a} f(x)}{ \lim_{x \to a} g(x)}\) but only if \(\displaystyle \lim_{x \to a} g(x) \neq 0 \)',
+		'the constant law for limits','\(\displaystyle  \lim_{x \to a} c = c\)',
+        'the identity law for limits','\(\displaystyle  \lim_{x \to a} x = a \)',
+	);
+    
+    
+    	$ml->extra(
+		'\(\displaystyle  \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\lim_{x \to a} f(x)}{ \lim_{x \to a} g(x)}\)',
+		'\(\displaystyle  \lim_{x \to a} c = 0\)'
+	);
+    
+    $ml->choose(5); # would show the first question and a random question while
+    
+    # After calling choose, use choose_extra to select which of the extra 'answers' will be given to each student. 
+    #Note that unused answers are dumped into the list of extra 'answers' so the indexing may be difficult to grasp at first. 
+    #(This can be stopped by doing the following: $ml->dumpExtra = "";)
+    $ml->choose_extra(2);
+    
+    #$ml->makeLast(
+	#	'All of the above',
+	#	'None of the above'
+	#);
+    
+    $ml->ans_rule_len(10);
+
+
+BEGIN_TEXT
+
+Match the law's name to the verbal description.  Not all verbal descriptions are true statements -- some are lies!
+
+$PAR $HR $PAR
+
+
+
+$PAR
+\{ $ml->print_q() \}
+$PAR
+\{ $ml->print_a() \}
+
+END_TEXT
+
+
+ANS(str_cmp($ml->ra_correct_ans));
+
+
+ENDDOCUMENT();
+

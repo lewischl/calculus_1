@@ -55,12 +55,12 @@ $ans = "($a*m**(-$b+1))/(-$b+1)";
 ANS(fun_cmp($ans, mode=>"antider", vars=>"m"));
 
 BEGIN_HINT
-# Variable names $PAR
+Variable names $PAR
 
 The symbol \(m\) is just the name of a variable.  It may as well be \(x\) or \(t\).  But today, it's \(m\).  If you want it to look more familiar, you could replace \(m\) with \(x\), and \(dm\) with \(dx\).  Names of variables are arbitrary!
 $PAR$HR$PAR
 
-# Technique$PAR
+Technique$PAR
 
 Factor out the constant multiple \($a\).  Rewrite the \(m\) from the denominator using a negative power.  Then use the power rule.
 END_HINT

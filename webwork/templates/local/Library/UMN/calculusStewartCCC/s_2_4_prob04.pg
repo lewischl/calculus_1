@@ -174,7 +174,7 @@ Context()->normalStrings;
 
 #####################################################################
 
-Context()->flags->set(ignoreEndpointTypes => 1);
+Context()->flags->set(ignoreEndpointTypes => 0);
 ANS($ans->cmp(showTypeWarnings=>0));
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

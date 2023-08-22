@@ -30,6 +30,7 @@ loadMacros(
 # Print problem number and point value (weight) for the problem
 TEXT(beginproblem());
 
+
 # Show which answers are correct and which ones are incorrect
 $showPartialCorrectAnswers = 1;
 
@@ -40,8 +41,8 @@ $showPartialCorrectAnswers = 1;
 #
 Context("Numeric");
 
-SRAND(42);
-$setseed = "set.seed(42); 42";
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
 
 Context()->variables->add(t => 'Real');
 
@@ -71,21 +72,21 @@ $backward="($stationary1,$stationary2)";
 #
 
 BEGIN_PGML
-A girl is riding a bicycle down a very long hallway.  Her position is well-modeled by a function of time, called [`s`], for times [`t \geq 0`].  Let [``` s(t) = [$s]```]
+A rabbit is running down a rabbit hole.  Its position is well-modeled by a function of time, called [`s`], for times [`t \geq 0`].  Let [``` s(t) = [$s]```]
 
 ---
 
-Answer these questions about her instantaneous rate of change:
+Answer these questions about the rabbit's instantaneous rate of change:
 
-* Time intervals moving forward: [_____]{interval_cmp($forward, strings=>["none"])}.  Use interval notation.  Enter _none_ if she never goes forward after [`t=0`].
+* Time intervals moving forward : [_____]{interval_cmp($forward, strings=>["none"])}.  
+* Time intervals moving backward:  [_____]{interval_cmp($backward, strings=>["none"])}.  
+* Times stationary: [_____]{Compute("$stationary1, $stationary2")->cmp}   
 
-* Time intervals moving backward:  [_____]{interval_cmp($backward, strings=>["none"])}.  Use interval notation.  Enter _none_ if she never goes backward after [`t=0`].
-
-* Times stationary: [_____]{Compute("$stationary1, $stationary2")->cmp}   Enter your answer
-as a comma separated list, with lower values first.  Enter _none_ if the girl
-is never at rest.
 
 ---
+Instructions:
+* For the intervals, use interval notation.  Enter _none_ if it never goes forward after [`t=0`].
+* For the time points, enter your answer as a comma separated list, with lower values first.  Enter _none_ if the rabbit is never at rest.
 
 Hints: 
 * time starts at [`t=0`]

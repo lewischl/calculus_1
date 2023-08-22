@@ -78,6 +78,11 @@ $BR
 For \( x \in (-\infty, A) \), \(f\) is \{ans_rule(20) \}$BR
 For \( x \in (A,B) \), \(f\) is \{ans_rule(20) \}$BR
 For \( x \in (B,\infty) \), \(f\) is \{ans_rule(20) \}
+
+$PAR
+$HR
+$PAR
+As usual, prefer exact expressions to approximations.  Use Webwork as your calculator!
 END_TEXT
 Context()->normalStrings;
 

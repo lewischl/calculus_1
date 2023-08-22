@@ -37,8 +37,8 @@ $showPartialCorrectAnswers = 1;
 #
 Context("Numeric");
 
-SRAND(42);
-$setseed = "set.seed(42); 42";
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
 
 $a = random(7,9,1);
 $b = random(2,4,1);
@@ -61,27 +61,11 @@ $denom_after_diff = Formula("-($a+$b)+2x")->reduce;
 
 BEGIN_PGML
 
-The following limit problem is solvable using L'Hopital's rule:
+Solve using L'Hopital's rule:
 
-[`` \lim_{x \to [$a]} \left( [$f[0]] \right) ``]
+[`` \lim_{x \to [$a]} \left( [$f[0]] \right) =``] [______]{$limits[0]} 
 
----
-
-After verifying that the limit is indeterminate form and applying L'Hopital's rule, we find that 
-
-[`` \lim_{x \to [$a]} \left( [$f[0]] \right) = \lim_{x \to [$a]} \left( \frac{N}{D}\right)``], where 
-
-[`N = `] [______]{"[$num_after_diff]"} (enter a function)
-
-[`D = `] [______]{"[$denom_after_diff]"} (enter a function)
-
----
-
-Thus, we find that the value of the limit is 
-
-[`` \lim_{x \to [$a]} \left( [$f[0]] \right) =``] [______]{$limits[0]} (enter a number)
-
-
+[`` \lim_{x \to -\infty} \left( [$f[0]] \right) =``] [______]{1} 
 
 END_PGML
 

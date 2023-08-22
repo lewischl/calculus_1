@@ -38,8 +38,8 @@ $showPartialCorrectAnswers = 1;
 #
 Context("Numeric");
 
-SRAND(202203);
-$setseed = "set.seed(202203); 202203";
+SRAND($team_exam1_seed);
+$setseed = "set.seed($team_exam1_seed); $team_exam1_seed";
 
 
 @xlim = ();

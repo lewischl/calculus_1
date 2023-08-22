@@ -37,8 +37,8 @@ $showPartialCorrectAnswers = 1;
 #
 Context("Numeric");
 
-SRAND(271828);
-$setseed = "set.seed(271828); 271828";
+SRAND($team_exam2_seed);
+$setseed = "set.seed($team_exam2_seed); $team_exam2_seed";
 
 @a = ();
 

@@ -37,6 +37,7 @@ $showpartialcorrectanswers = 1;
 $a = random(2, 13, 1);
 $b = random(2,7,1);
 
+$showHint=-1;
 
 TEXT(EV3(<<'EOT'));
 Suppose that \( f(x) = $a x^2 - $b x\).  Find:
@@ -47,28 +48,28 @@ $BR
 $BR
 (B) The slope of the graph of \(f(x)\) at \(x = 2\) and \(x = 3\).
 $BR
-Slope at x = 2: \{ans_rule(20) \}
+Slope at \(x = 2\): \{ans_rule(20) \}
 $BR
-Slope at x = 3: \{ans_rule(20) \}
+Slope at \(x = 3\): \{ans_rule(20) \}
 $BR
 $BR
-(C) An equation for the tangent lines at \(x = 2\) and \(x = 3\).
+(C) Find equations for two tangent lines.
 $BR
-Equation for the tangent line at \(x = 2\): \(y =\)\{ans_rule(30) \}
-$BR
-Equation for the tangent line at \(x = 3\): \(y =\)\{ans_rule(30) \}
+Equation for the tangent line at \(x = 2\): $BR\(y(x) =\)\{ans_rule(30) \}
+$PAR
+Equation for the tangent line at \(x = 3\): $BR\(y(x) =\)\{ans_rule(30) \}
 $BR
 $BR
 (D) List all values of \(x\) where the tangent line is
 horizontal.
 $BR
-Value(s) of \(x\) = \{ans_rule(20) \}
+Value(s) of such \(x\): \{ans_rule(20) \}
 
 $BR$BR
 \{ theresahint \}
 EOT
 
-$showHint=-1;
+
 BEGIN_HINT
 (A) -- Differentiate
 $BR$BR

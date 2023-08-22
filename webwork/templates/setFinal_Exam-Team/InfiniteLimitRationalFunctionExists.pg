@@ -28,8 +28,8 @@ loadMacros(
 # Print problem number and point value (weight) for the problem
 TEXT(beginproblem());
 
-SRAND(42);
-$setseed = "set.seed(42); 42";
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
 
 # Show which answers are correct and which ones are incorrect
 $showPartialCorrectAnswers = 1;
@@ -52,7 +52,9 @@ $q2 = random(2,9);
 
 @ans = ();
 $ans[0] = $n/$d;
-
+$ans[1] = ($n)**0.5/($d)**0.5;
+$ans[2] = 0;
+$ans[3] = "inf";
 
 ##############################################################
 #
@@ -61,11 +63,15 @@ $ans[0] = $n/$d;
 #
 
 BEGIN_PGML
-Find the following limit:
+Find the following limits: (Enter DNE if a limit does not exist)
 
 [``\lim_{x\rightarrow\infty} \frac{[$n] x^2 - x + [$q1]}{[$d] x^2 + [$q2] x  - \frac{1}{x}} =``] [____]{$ans[0]}
 
-(Enter DNE if the limit does not exist)
+[``\lim_{x\rightarrow\infty} \frac{\sqrt{[$n] x^2 - x + [$q1] }}{ \sqrt{[$d] x^2 + [$q2] x  } } =``] [____]{$ans[1]}
+
+[``\lim_{x\rightarrow\infty} \frac{[$n] x^3 - x + [$q1] }{ [$d] x^4 + [$q2] x  - \frac{2}{x}  } =``] [____]{$ans[2]}
+
+[``\lim_{x\rightarrow\infty} \frac{[$n] x^4 - x + [$q1] }{ [$d] x^2 + [$q2] x  + \frac{1}{x^2}  } =``] [____]{$ans[3]}
 
 END_PGML
 

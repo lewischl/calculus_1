@@ -68,9 +68,8 @@ Let \( f(x) = $f \) for \(x>0\).  Find all open intervals on which \( f \) is in
 $PAR
 \{$al->print_q\}
 $BR
-$BBOLD Notes:$EBOLD
-In the first two, your answer should either be a single
-interval, such as (0,1), a comma separated list of intervals, such as (-inf, 2), (3,4), or the word
+$BBOLD Notes:$EBOLD $BR
+In the first two, your answer should intervals or the word
 ${LQ}none$RQ.
 $PAR
 In the last two, your answer should be a comma separated list of \( x\) values or the word
