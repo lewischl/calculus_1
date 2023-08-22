@@ -1,0 +1,134 @@
+## DESCRIPTION
+##   Increasing and Decreasing Intervals
+## ENDDESCRIPTION
+
+## Tagged by nhamblet
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Increasing/decreasing functions and local extrema)
+## Date(6/3/2002)
+## Institution(Rochester)
+## Level(3)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('1')
+## Section1('4.3')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('5')
+## Section2('4.3')
+## Problem2('')
+## TitleText3('Calculus: Early Transcendentals')
+## AuthorText3('Stewart')
+## EditionText3('6')
+## Section3('4.3')
+## Problem3('')
+## KEYWORDS('Graph', 'Critical', 'Increasing', 'Decreasing','Calculus','Derivatives', 'first derivative', 'critical points', 'minimum', 'maximum', 'minimum,maximum')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Rochester/setDerivatives10MaxMin/sc4_3_10_mo.pg 
+#	to setderiv_application_optimization_derivative_tests/sc4_3_10_mo.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderiv_application_optimization_derivative_tests/sc4_3_10_mo.pg 
+#	to setgroup_deriv_application_first_deriv_is_incr_decr_-_no_hints/sc4_3_10_mo.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context()->strings->add(inc=>{},dec=>{});
+
+
+$a = random(2,20,1);
+
+$ans1 = Real(-2/$a);
+$ans2 = Real(0);
+$ans3 = String("INC");
+$ans4 = String("DEC");
+$ans5 = String("INC");
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+Context()->texStrings;
+BEGIN_TEXT
+Consider the function \( f(x) = x^{2}e^{$a x} \).$BR
+For this function there are three important intervals separated by critical numbers \(A\) and \(B\):
+ \( (-\infty, A] \), \( [A,B] \), and \( [B,\infty) \).
+$PAR
+
+Find \( A \) \{ans_rule(20) \}  (\(A\) must be the *minimum* of the two critical points)
+$BR and  \( B \) \{ans_rule(20) \}
+$PAR
+For each of the following intervals, determine whether \( f(x) \)
+is increasing (type INC) or decreasing (type DEC).
+$BR 
+
+For \( x \in (-\infty, A) \), \(f\) is \{ans_rule(20) \}$BR
+For \( x \in (A,B) \), \(f\) is \{ans_rule(20) \}$BR
+For \( x \in (B,\infty) \), \(f\) is \{ans_rule(20) \}
+
+$PAR
+$HR
+$PAR
+As usual, prefer exact expressions to approximations.  Use Webwork as your calculator!
+END_TEXT
+Context()->normalStrings;
+
+
+##############################################################
+#
+#  Answers
+#
+#
+
+
+ANS(
+	$ans1->cmp,
+	$ans2->cmp,
+	$ans3->cmp,
+	$ans4->cmp,
+	$ans5->cmp
+);
+
+
+;
+
+;
+ENDDOCUMENT();
+

@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setderivatives_product_and_quotient_rule/quotient-rule-v1.pg
+source_file = setgroup_derivatives_quotient_rule_-_no_hints/quotient-rule-v1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setderivatives_product_and_quotient_rule/quotient-rule-v3.pg
+source_file = setgroup_derivatives_quotient_rule_-_no_hints/quotient-rule-v3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setderivatives_quotient_rule/quot-rule_poly1.pg
+source_file = setgroup_derivatives_quotient_rule_-_no_hints/quot-rule_poly1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setderivatives_quotient_rule/s3_2_7.pg
+source_file = setgroup_derivatives_quotient_rule_-_no_hints/s3_2_7.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

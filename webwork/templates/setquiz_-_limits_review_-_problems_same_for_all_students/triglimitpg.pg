@@ -1,0 +1,94 @@
+##DESCRIPTION
+##  indeterminate Question
+##ENDDESCRIPTION
+
+##KEYWORDS('indeterminate forms', 'limit')
+
+## DBsubject('Calculus')
+## DBchapter('Limits')
+## DBsection('Indeterminate Forms')
+## Date('')
+## Author('Erich Jauch')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from setExam_1-Team/triglimitpg.pg 
+#	to setlimits_review_quiz/triglimitpg.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_review_quiz/triglimitpg.pg 
+#	to setquiz_-_limits_review_-_problems_same_for_all_students/triglimitpg.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "parserPopUp.pl",
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+
+SRAND($team_exam1_seed);
+$setseed = "set.seed($team_exam1_seed); $team_exam1_seed";
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$parameter = random(2,4,1);
+$b = $parameter+4;
+
+Context()->variables->add(t=>"Real");
+
+$fnum = Formula("1-cos($b*t)");
+$fden = Formula("sin($parameter*t)");
+
+@ans = ();
+$ans[0] = 0;
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+Find the following limit:
+
+[``\lim_{t\rightarrow0}\frac{[$fnum]}{[$fden]}=``] [____]{$ans[0]}
+
+END_PGML
+
+ENDDOCUMENT();

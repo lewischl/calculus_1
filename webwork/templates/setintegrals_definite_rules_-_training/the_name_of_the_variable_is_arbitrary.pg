@@ -1,0 +1,79 @@
+##DESCRIPTION
+##  Properties of the definite integrals
+##ENDDESCRIPTION
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Integrals)
+## DBsection(Conceptual understanding of integration)
+## Date()
+## KEYWORDS('integrals', 'theory')
+
+
+
+########################################
+# this file automatically moved
+#	from set5.2_definite-integral/the_name_of_the_variable_is_arbitrary.pg 
+#	to setintegrals_definite_by_geometry/the_name_of_the_variable_is_arbitrary.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_definite_by_geometry/the_name_of_the_variable_is_arbitrary.pg 
+#	to setintegrals_definite_rules_-_training/the_name_of_the_variable_is_arbitrary.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a= random(1, 5, 1);
+$b= random(6, 10, 1);
+$c= non_zero_random(-70, 70, 1);
+
+BEGIN_TEXT
+Suppose \( \displaystyle \int_{$a}^{$b} f(x)\,  dx = $c \). Then:
+
+$PAR$HR 
+$PAR
+
+\(\displaystyle \int_{$a}^{$b} f(t) \, dt = \) \{ans_rule(10)\}
+
+$PAR
+
+\(\displaystyle \int_{$a}^{$b} f(\theta) \, d\theta = \) \{ans_rule(10)\}
+
+$PAR
+
+\(\displaystyle \int_{$a}^{$b} f(z) \, dz = \) \{ans_rule(10)\}
+
+
+$PAR$HR 
+$PAR
+
+This problem demonstrates that, so long as we change it in both the function and the differential, the name of the variable is \{pop_up_list(['?','arbitrary','of great importance','stupid','intrinsic','extrinsic']) \}.
+END_TEXT
+
+ANS(num_cmp($c));
+ANS(num_cmp($c));
+ANS(num_cmp($c));
+
+ANS(str_cmp('arbitrary'));
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.
+

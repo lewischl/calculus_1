@@ -1,0 +1,55 @@
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Rochester/setIntegrals4FTC/sc5_4_14.pg 
+#	to setintegrals_FTOC_2_for_derivatives_of_integral_functions/sc5_4_14.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_FTOC_2_for_derivatives_of_integral_functions/sc5_4_14.pg 
+#	to setgroup_integrals_derivatives_of_integral_functions_level_1_-_no_hints/sc5_4_14.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGauxiliaryFunctions.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a1= random(1, 6, 1);
+$b1= random(2, 5, 1);
+
+TEXT(EV2(<<EOT));
+Compute the derivative of
+\(\displaystyle f(x) = \int_{x}^{$a1} \sin(t^{$b1}) dt. \)
+
+$BR
+$BR
+\(f'(x) =  \) \{ans_rule( 30)\}
+EOT
+
+$answer="-sin(x^$b1)" ;
+
+ANS(fun_cmp($answer));
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.
+

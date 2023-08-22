@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setintegrals_FTOC_1_for_definite_integrals/integrate_with_sqrt_in_denom.pg
+source_file = setintegrals_FTOC_1_for_definite_integrals_-_challenge/integrate_with_sqrt_in_denom.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setintegrals_FTOC_1_for_definite_integrals/integrate_sqrt_over_poly.pg
+source_file = setintegrals_FTOC_1_for_definite_integrals_-_challenge/integrate_sqrt_over_poly.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setintegrals_FTOC_1_for_definite_integrals/integrate_infinite_discontinuity.pg
+source_file = setintegrals_FTOC_1_for_definite_integrals_-_challenge/integrate_infinite_discontinuity.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setintegrals_FTOC_1_for_definite_integrals/osu_in_3_3.pg
+source_file = setintegrals_FTOC_1_for_definite_integrals_-_challenge/osu_in_3_3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setintegrals_FTOC_1_for_definite_integrals/osu_in_3_2.pg
+source_file = setintegrals_FTOC_1_for_definite_integrals_-_challenge/osu_in_3_2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setintegrals_FTOC_1_for_definite_integrals/s5_3_32.pg
+source_file = setintegrals_FTOC_1_for_definite_integrals_-_challenge/s5_3_32.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setintegrals_FTOC_1_for_definite_integrals/s4_4_20.pg
+source_file = setintegrals_FTOC_1_for_definite_integrals_-_challenge/s4_4_20.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = setintegrals_FTOC_1_for_definite_integrals/6-5-18.pg
+source_file = setintegrals_FTOC_1_for_definite_integrals_-_challenge/6-5-18.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -93,7 +93,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 9
-source_file = setintegrals_FTOC_1_for_definite_integrals/6-5-20.pg
+source_file = setintegrals_FTOC_1_for_definite_integrals_-_challenge/6-5-20.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

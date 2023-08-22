@@ -1,0 +1,84 @@
+##DESCRIPTION
+##  Find a derivative of a function of the form sqrt(ax), evaluate it
+##  at a given point
+##ENDDESCRIPTION
+
+## Shotwell cleaned
+## tcao , PAID on 11-24-2003
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Derivatives of polynomials and power functions)
+## Date(6/3/2002)
+## MLT(Monomial_fractional_exponent)
+## Level(3)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('3.1')
+## Problem1('14')
+## KEYWORDS('derivatives')
+## MO(1)
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/set3.2_deriv_rules1/sqrt_x.pg 
+#	to setderivatives_derivative_basics/sqrt_x.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_derivative_basics/sqrt_x.pg 
+#	to setderivatives_rates_and_slopes_-_concepts_and_story/sqrt_x.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+Context("Numeric");
+
+# see https://webwork.maa.org/wiki/FormulaTestPoints
+Context()->variables->set(x=>{limits=>[1,5]});
+
+$showPartialCorrectAnswers = 1;
+
+$a1 = random(17,24,1);
+$b1 = random(2,8,1);
+$c1 = random(2,7,1);
+$d1 = random(2,6,1);
+$x1 = random(2,8,1);
+
+$funct1 = Compute("sqrt($a1)/(2*sqrt(x))");
+
+BEGIN_TEXT
+If \( f(x) =  \sqrt{ $a1 x } \), find \( f'( x ) \).
+$BR$BR \(f'(x) = \) \{ans_rule(25) \}
+$BR
+END_TEXT
+
+ANS($funct1->cmp);
+
+$showHint=-1;
+BEGIN_HINT
+Use the power rule.  Rewrite the function using powers instead of square root symbols. Also remember that \(\frac{1}{2} - 1 = \frac{-1}{2}\).
+END_HINT
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

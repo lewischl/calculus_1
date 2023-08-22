@@ -1,0 +1,73 @@
+## DBsubject(Calculus - single variable)
+## DBchapter(Techniques of integration)
+## DBsection(Substitution (with trigonometric functions))
+## Institution(UCSB)
+## MLT(trigpower)
+## MLTleader(1)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('5.5')
+## Problem1('59')
+## KEYWORDS('integration', 'substitution')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/5.7/definite1.pg 
+#	to setintegrals_by_substitution/definite1.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_by_substitution/definite1.pg 
+#	to setgroup_integrals_usub_definite_-_no_hints/definite1.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+"PGcourse.pl",
+);
+
+Context("Numeric");
+
+TEXT(&beginproblem);
+$showPartialCorrectAnswers = 1;
+$a=1/2;
+
+BEGIN_TEXT
+
+$PAR
+Evaluate the *definite* integral:
+
+$PAR
+\(\displaystyle \int_{3\pi/4}^{\pi} \cos(2x)\, dx=\) \{ ans_rule(10) \}
+
+$PAR
+
+Enter an exact expression.
+END_TEXT
+
+BEGIN_HINT
+Remember, pay attention to the bounds of integration when you substitute. 
+
+\{amethystHint("$PAR$HR$PAR Here's an example (not with trig, but hey) of a definite integration problem from Prof. Amethyst: $PAR")\}
+\{ youtubeAmethyst("dYbSuMZQRzc") \}
+END_HINT
+
+ANS(Compute("$a")->cmp);
+
+ENDDOCUMENT();

@@ -1,0 +1,78 @@
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Rules of limits - basic)
+## Institution(W.H.Freeman)
+## Author(JustAsk!)
+## Level(2)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('2')
+## Section1('2.4')
+## Problem1('77')
+## KEYWORDS('calculus', 'continuity', 'limits', 'exponential functions')
+#Problem et2e 2.4.77
+## Updated 12/2014 by G. Jennings 
+
+
+
+########################################
+# this file automatically moved
+#	from Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.4_Limits_and_Continuity/2.4.77.pg 
+#	to setlimits_extra_practice/2.4.77.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_extra_practice/2.4.77.pg 
+#	to setgroup_limits_compute_limit_not_indeterminate_form_-_no_hints/2.4.77.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "freemanMacros.pl",
+  "PGcourse.pl"
+);
+
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 0;
+$solutionexits=1;
+
+Context("Numeric");
+
+$a = Real(random(2,5,1));
+$b = Real(random(2,4,1));
+
+Context()->texStrings;
+
+BEGIN_TEXT
+\{ textbook_ref_exact("Rogawski ET 2e", "2.4","77") \}$BR
+Evaluate the following limit: 
+$BR $BR
+\(\lim\limits_{x\rightarrow $a}10^{x^2-$b\cdot x}\) = \{ans_rule()\}
+END_TEXT
+
+$l=10**($a**2-$b*$a);
+ANS($l->cmp);
+
+BEGIN_SOLUTION
+
+\(\lim\limits_{x\rightarrow $a}10^{x^2-$b\cdot x}=10^{$a^2-$b\cdot $a} = $l\).
+
+END_SOLUTION
+
+ENDDOCUMENT();

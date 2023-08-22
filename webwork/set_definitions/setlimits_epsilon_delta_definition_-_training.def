@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setlimits_formal_definition/2-4-03.pg
+source_file = setlimits_epsilon_delta_definition_-_training/2-4-03.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setlimits_formal_definition/stewart-7E-Ch2-Sec4-epsilon-delta-to-limit.pg
+source_file = setlimits_epsilon_delta_definition_-_training/stewart-7E-Ch2-Sec4-epsilon-delta-to-limit.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setlimits_formal_definition/stewart-7E-Ch2-Sec4-limit-to-epsilon-delta.pg
+source_file = setlimits_epsilon_delta_definition_-_training/stewart-7E-Ch2-Sec4-limit-to-epsilon-delta.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setlimits_formal_definition/stewart-7E-Ch2-Sec4-Prob13.pg
+source_file = setlimits_epsilon_delta_definition_-_training/stewart-7E-Ch2-Sec4-Prob13.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setlimits_formal_definition/formal-definition-of-a-limit.pg
+source_file = setlimits_epsilon_delta_definition_-_training/formal-definition-of-a-limit.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setlimits_formal_definition/limit-def-subs.pg
+source_file = setlimits_epsilon_delta_definition_-_training/limit-def-subs.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setlimits_formal_definition/limit-def-subs2.pg
+source_file = setlimits_epsilon_delta_definition_-_training/limit-def-subs2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = setlimits_extra_practice/preview_1_2_b.pg
+source_file = setlimits_epsilon_delta_definition_-_training/preview_1_2_b.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

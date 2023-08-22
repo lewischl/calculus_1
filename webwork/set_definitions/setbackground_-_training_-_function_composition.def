@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setreview_simplifying/1050s5p17.pg
+source_file = setbackground_-_training_-_function_composition/1050s5p17.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setreview_simplifying/MCH1-4-1-16-What-is-a-function.pg
+source_file = setbackground_-_training_-_function_composition/MCH1-4-1-16-What-is-a-function.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setreview_simplifying/di3.pg
+source_file = setbackground_-_training_-_function_composition/di3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setreview_simplifying/Question52.pg
+source_file = setbackground_-_training_-_function_composition/Question52.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setreview_function_operations/p16.pg
+source_file = setbackground_-_training_-_function_composition/p16.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setreview_function_operations/Functions7.pg
+source_file = setbackground_-_training_-_function_composition/Functions7.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setreview_function_operations/Q52.pg
+source_file = setbackground_-_training_-_function_composition/Q52.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = setreview_function_operations/Q15.pg
+source_file = setbackground_-_training_-_function_composition/Q15.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -93,7 +93,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 9
-source_file = setreview_function_operations/describe_composition.pg
+source_file = setbackground_-_training_-_function_composition/describe_composition.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

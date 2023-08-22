@@ -23,7 +23,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = Library/ma122DB/set10/s4_10_12.pg
+source_file = setgroup_integrals_initial_value_problems_level_1_-_no_hints/s4_10_12.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setintegrals_initial_value_problems/linear1.pg
+source_file = setgroup_integrals_initial_value_problems_level_1_-_no_hints/linear1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setintegrals_initial_value_problems/linear2.pg
+source_file = setgroup_integrals_initial_value_problems_level_1_-_no_hints/linear2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setintegrals_initial_value_problems/s4_10_12.pg
+source_file = setgroup_integrals_initial_value_problems_level_1_-_no_hints/s4_10_12.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

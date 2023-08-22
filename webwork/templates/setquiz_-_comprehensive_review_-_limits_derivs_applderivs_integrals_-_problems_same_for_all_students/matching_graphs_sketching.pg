@@ -1,0 +1,162 @@
+##DESCRIPTION
+##  Match graphs of a sketched function
+##ENDDESCRIPTION
+
+##KEYWORDS('applications of derivatives', 'Curve Sketching', 'graphical')
+
+## DBsubject('Calculus')
+## DBchapter('Applications of Derivatives')
+## DBsection('Curve Sketching')
+## Date('')
+## Author('silviana amethyst')
+## Institution('uwec')
+
+# adapted from Problem 54, Rogawski 4th ed, Section 4.6, page 262
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from setFinal_Exam-Team/matching_graphs_sketching.pg 
+#	to setcomprehensive_review_quiz/matching_graphs_sketching.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setcomprehensive_review_quiz/matching_graphs_sketching.pg 
+#	to setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/matching_graphs_sketching.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   "parserPopUp.pl",
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   "niceTables.pl",
+);
+
+
+
+  
+  
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
+
+$a = 2; # locations of asymptotes.  difficult to get vertical asymptotes correct if leave random.  help wanted.
+$b = 0; # shift
+
+$C = Formula("(x-$a)(x+$a)")->reduce; 
+$A = Formula("$a*x^2/(x^2+$a^2) + $b")->reduce;
+$B = Formula("2*$a*1/(x^2+$a^2) + $b")->reduce;
+$D = Formula("-(x-$a)(x+$a)")->reduce;
+
+$graph_selection = PopUp(
+  ["A","B","C","D"],
+  "B");
+  
+
+@xlim = ();
+$xlim[0] = -$a-2; 
+$xlim[1] = $a+2; 
+
+@ylim = ();
+$ylim[0] = -4; # hardcoded!!!!
+$ylim[1] = 4;  # hardcoded!!!!  :sad:
+$eps = 0.01;
+
+$tick = 1;
+
+$graph1 = GraphWithTikZ(function => [[$A,dmin => $xlim[0],dmax => -$a,label=>"A"],
+                                     [$A,dmin => -$a+$eps,dmax => $a-$eps,useLegend=>0],
+                                     [$A,dmin => $a+$eps,dmax => $xlim[1],useLegend=>0]
+                                    ],
+                        xmin => $xlim[0],xmax => $xlim[1],ymin => $ylim[0],ymax =>$ylim[1],ytick => $tick,xtick => $tick,useLegend=>1);
+     
+
+                        
+$graph2 = GraphWithTikZ(function => [[$B,dmin => $xlim[0],dmax => $xlim[1],label=>"B"]],
+                        xmin => $xlim[0],xmax => $xlim[1],ymin => $ylim[0],ymax =>$ylim[1],smooth=>'smooth',ytick => $tick,xtick => $tick,useLegend=>1);
+                   
+                   
+$graph3 = GraphWithTikZ(function => [[$C,dmin => $xlim[0],dmax => -$a,label=>"C"],
+                                     [$C,dmin => -$a+$eps,dmax => $a-$eps,useLegend=>0],
+                                     [$C,dmin => $a+$eps,dmax => $xlim[1],useLegend=>0]
+                                    ],
+                        xmin => $xlim[0],xmax => $xlim[1],ymin => $ylim[0],ymax =>$ylim[1],ytick => $tick,xtick => $tick,useLegend=>1);
+
+                      
+                        
+$graph4 = GraphWithTikZ(function => [[$D,dmin => $xlim[0],dmax => -$a,label=>"D"],
+                                     [$D,dmin => -$a+$eps,dmax => $a-$eps,useLegend=>0],
+                                     [$D,dmin => $a+$eps,dmax => $xlim[1],useLegend=>0]
+                                    ],
+                        xmin => $xlim[0],xmax => $xlim[1],ymin => $ylim[0],ymax =>$ylim[1],ytick => $tick,xtick => $tick,useLegend=>1);
+                        
+
+          
+          
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+
+#### Graphs
+
+[@ LayoutTable(
+  [ [ image(insertGraph($graph1), width => 300, height => 300, tex_size=>300), image(insertGraph($graph2), width => 300, height => 300, tex_size=>300) ],
+    [ image(insertGraph($graph3), width => 300, height => 300, tex_size=>300), image(insertGraph($graph4), width => 300, height => 300, tex_size=>300) ] ] ) @]*
+
+---
+
+#### Properties
+
+Given the following list of properties of a function, select the one of the pictured four graphs that matches.
+
+* Concave down on [`(-[$a],[$a])`].
+* Concave up on [`(-\infty,-[$a]) \cup ([$a], \infty)`].
+* Increasing on [`(-\infty, 0) `].
+* Decreasing on [`(0, \infty)`].
+* Horizontal asymptotes at [`[$b]`].
+* Two inflection points.
+* No vertical asymptotes.
+
+
+The matching graph is [____]{$graph_selection}
+
+END_PGML
+
+ENDDOCUMENT();

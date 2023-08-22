@@ -1,0 +1,121 @@
+## DBsubject(Algebra)
+## DBchapter(Rational equations and functions)
+## DBsection(Graphs of rational functions)
+## Institution(Univeristy of Utah)
+## Author(Utah ww group)
+## Level(2)
+## Static(1)
+## TitleText1('Precalculus')
+## AuthorText1('Ron Larson and Robert  Hostetler')
+## EditionText1('7')
+## Section1('.')
+## Problem1('')
+## KEYWORDS('algebra')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Utah/College_Algebra/set7_Polynomial_and_Rational_Functions/1050s7p28/1050s7p28.pg 
+#	to setreview_graphs_of_functions/1050s7p28.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setreview_graphs_of_functions/1050s7p28.pg 
+#	to setbackground_-_training_-_graphs_of_functions/1050s7p28.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl",
+  "PGuwecTikZutils.pl", #Custom TikZ code
+);
+loadMacros("customCSS.pl");
+
+COMMENT("todo: this problem needs the order of the graphs to be randomized");
+COMMENT("todo: this problem needs the locations of the asymptotes to be randomized");
+
+install_problem_grader(~~&std_problem_grader);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
+$showPartialCredit = 0;
+
+$f = Formula("x/(x-1)")->reduce;
+$g = Formula("x^2/(5*(x+1))")->reduce;
+$h = Formula("x/(x^2+1)")->reduce;
+
+@xlim = (-4, 4);
+@ylim = (-4, 4);
+$xtick = 1;
+$ytick = 1;
+
+$eps = 0.01;
+
+$graph = GraphWithTikZ(function => [[$f,dmin => $xlim[0],dmax => 1-$eps,label=>"1",color=>"red"],
+                                    [$g,dmin => $xlim[0],dmax => -1-$eps,label=>"2",color=>"blue",useLegend=>1],
+                                    [$h,dmin => $xlim[0],dmax => $xlim[1],label=>"3",color=>"black"],
+                                    [$f,dmin => 1+$eps,dmax => $xlim[1],label=>"1",useLegend=>0,color=>"red"],[$g,dmin => -1+$eps,dmax => $xlim[1],label=>"2",useLegend=>0,color=>"blue"]],
+                        xmin => $xlim[0],xmax => $xlim[1],ymin => $ylim[0],ymax =>$ylim[1],smooth=>'smooth',ytick => $ytick,xtick => $xtick,useLegend=>1);
+
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem is intended to help you recall that vertical asymptotes correspond to zeros of the denominator of a rational function, because near to the vertical asymptote we're diving by a smaller and smaller number.
+[@ closeDiv() @]*
+
+Here are graphs of three rational functions, two with vertical asymptotes and one without.
+
+[@image($graph, height => 320, width => 480);@]*
+
+[@ openDiv({ "class" => "promptOrInstruction" } ) @]*
+Match the graphs shown above with the functions listed below.  Enter the matching number of the function from the lengend.  
+
+[@ closeDiv() @]*
+
+Try to answer the problem without using a graphing calculator -- use knowledge of where the denominator is [`0`].
+
+* [`\dfrac{x}{x-1}`] : [___]{"1"}
+
+* [`\dfrac{x^2}{5(x+1)}`]: [___]{"2"}
+
+* [`\dfrac{x}{x^2+1}`] : [___]{"3"}
+
+
+END_PGML
+
+
+
+
+# solution commented out as my institution doesn't have maple.  Also, maple is expensive and Desmos is free.  Just use Desmos.
+
+#BEGIN_SOLUTION
+#$BR $BBOLD Solution:$EBOLD
+#The following Maple Statement will create the graphs shown:
+
+#$BR
+#\(
+#plot([x/(x-1),x^2/(5*x+5),x/(x^2+1)],x=-4..4,y=-4..4, thickness=2, discont = true);
+#\)
+
+#END_SOLUTION
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

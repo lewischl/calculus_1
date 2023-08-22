@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setlimits_indeterminate_forms/intro.pg
+source_file = setlimits_indeterminate_forms_-_training/intro.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setlimits_indeterminate_forms/factor_and_cancel_simple.pg
+source_file = setlimits_indeterminate_forms_-_training/factor_and_cancel_simple.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setlimits_indeterminate_forms/s1_3_16.pg
+source_file = setlimits_indeterminate_forms_-_training/s1_3_16.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setlimits_indeterminate_forms/s1_3_5.pg
+source_file = setlimits_indeterminate_forms_-_training/s1_3_5.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setlimits_indeterminate_forms/s1_3_19.pg
+source_file = setlimits_indeterminate_forms_-_training/s1_3_19.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setlimits_indeterminate_forms/s1_3_6.pg
+source_file = setlimits_indeterminate_forms_-_training/s1_3_6.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setlimits_indeterminate_forms/Stewart5_2_3_15.pg
+source_file = setlimits_indeterminate_forms_-_training/Stewart5_2_3_15.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = setlimits_indeterminate_forms/Stewart5_2_3_23.pg
+source_file = setlimits_indeterminate_forms_-_training/Stewart5_2_3_23.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -93,7 +93,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 9
-source_file = setlimits_indeterminate_forms/2-3-23.pg
+source_file = setlimits_indeterminate_forms_-_training/2-3-23.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -103,7 +103,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 10
-source_file = setlimits_indeterminate_forms/Stewart5_2_3_31.pg
+source_file = setlimits_indeterminate_forms_-_training/Stewart5_2_3_31.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -113,7 +113,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 11
-source_file = setlimits_indeterminate_forms/2.5.25.pg
+source_file = setlimits_indeterminate_forms_-_training/2.5.25.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -123,7 +123,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 12
-source_file = setlimits_indeterminate_forms/2-3-12.pg
+source_file = setlimits_indeterminate_forms_-_training/2-3-12.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -133,7 +133,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 13
-source_file = setlimits_indeterminate_forms/indeterminate_meaning.pg
+source_file = setlimits_indeterminate_forms_-_training/indeterminate_meaning.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -143,7 +143,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 14
-source_file = setlimits_extra_practice/s_2_3_12.pg
+source_file = setlimits_indeterminate_forms_-_training/s_2_3_12.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

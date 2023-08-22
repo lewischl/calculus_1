@@ -23,7 +23,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setcomprehensive_review_quiz/LimitGraphicalSolve.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/LimitGraphicalSolve.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setcomprehensive_review_quiz/FixContinuityPieceWiseFunction.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/FixContinuityPieceWiseFunction.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setcomprehensive_review_quiz/ConjugateLimit.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/ConjugateLimit.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setcomprehensive_review_quiz/AverageRateOfChange.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/AverageRateOfChange.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setcomprehensive_review_quiz/infinitetriglimitpg.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/infinitetriglimitpg.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setcomprehensive_review_quiz/LimitLawGivenFunctions.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/LimitLawGivenFunctions.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setcomprehensive_review_quiz/InfiniteLimitRationalFunctionExists.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/InfiniteLimitRationalFunctionExists.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -93,7 +93,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = setcomprehensive_review_quiz/OneSidedInfiniteLimit.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/OneSidedInfiniteLimit.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -103,7 +103,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 9
-source_file = setcomprehensive_review_quiz/GraphicalLimitLaw.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/GraphicalLimitLaw.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -113,7 +113,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 10
-source_file = setcomprehensive_review_quiz/IVTMinimalRoots.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/IVTMinimalRoots.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -123,7 +123,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 11
-source_file = setcomprehensive_review_quiz/rates_of_change.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/rates_of_change.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -133,7 +133,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 12
-source_file = setcomprehensive_review_quiz/chain_rule_double.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/chain_rule_double.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -143,7 +143,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 13
-source_file = setcomprehensive_review_quiz/derivative_as_fn-basic_derivatives.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/derivative_as_fn-basic_derivatives.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -153,7 +153,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 14
-source_file = setcomprehensive_review_quiz/productAndQuotientRule2.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/productAndQuotientRule2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -163,7 +163,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 15
-source_file = setcomprehensive_review_quiz/logDerivative.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/logDerivative.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -173,7 +173,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 16
-source_file = setcomprehensive_review_quiz/higherOrderDerivatives.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/higherOrderDerivatives.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -183,7 +183,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 17
-source_file = setcomprehensive_review_quiz/trigTangentLine.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/trigTangentLine.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -193,7 +193,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 18
-source_file = setcomprehensive_review_quiz/lhopital.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/lhopital.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -203,7 +203,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 19
-source_file = setcomprehensive_review_quiz/implicitCurveDerivative.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/implicitCurveDerivative.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -213,7 +213,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 20
-source_file = setcomprehensive_review_quiz/relatedRateGravel.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/relatedRateGravel.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -223,7 +223,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 21
-source_file = setcomprehensive_review_quiz/criticalPointsClosedInterval.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/criticalPointsClosedInterval.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -233,7 +233,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 22
-source_file = setcomprehensive_review_quiz/first_derivative_test_graphical.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/first_derivative_test_graphical.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -243,7 +243,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 23
-source_file = setcomprehensive_review_quiz/second_derivative_test_graphical.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/second_derivative_test_graphical.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -253,7 +253,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 24
-source_file = setcomprehensive_review_quiz/matching_graphs_sketching.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/matching_graphs_sketching.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -263,7 +263,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 25
-source_file = setcomprehensive_review_quiz/applied_opt_divided_rectangle_min.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/applied_opt_divided_rectangle_min.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -273,7 +273,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 26
-source_file = setcomprehensive_review_quiz/fractionIndefiniteIntegral.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/fractionIndefiniteIntegral.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -283,7 +283,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 27
-source_file = setcomprehensive_review_quiz/exponentialIndefininteIntegral.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/exponentialIndefininteIntegral.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -293,7 +293,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 28
-source_file = setcomprehensive_review_quiz/definiteIntegralPolynomial.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/definiteIntegralPolynomial.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -303,7 +303,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 29
-source_file = setcomprehensive_review_quiz/FTOCPart2Question.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/FTOCPart2Question.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -313,7 +313,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 30
-source_file = setcomprehensive_review_quiz/ApproxArea.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/ApproxArea.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -323,7 +323,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 31
-source_file = setcomprehensive_review_quiz/application_net_change.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/application_net_change.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -333,7 +333,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 32
-source_file = setcomprehensive_review_quiz/definite_integral_substitution.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/definite_integral_substitution.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -343,7 +343,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 33
-source_file = setcomprehensive_review_quiz/initial_value_problem.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/initial_value_problem.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -353,7 +353,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 34
-source_file = setcomprehensive_review_quiz/summation_notation.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/summation_notation.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -363,7 +363,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 35
-source_file = setcomprehensive_review_quiz/definite_integral_unknown_functions.pg
+source_file = setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/definite_integral_unknown_functions.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

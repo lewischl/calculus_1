@@ -1,0 +1,71 @@
+#based on: Library/UMN/calculusStewartCCC/s_5_2_43.pg
+
+#####################################################################
+
+
+########################################
+# this file automatically moved
+#	from local/Library/UMN/calculusStewartCCC/s_5_2_43.pg 
+#	to setintegrals_definite_by_geometry/s_5_2_43.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_definite_by_geometry/s_5_2_43.pg 
+#	to setintegrals_definite_rules_-_training/s_5_2_43.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+#####################################################################
+
+$showPartialCorrectAnswers = 1;
+
+TEXT(beginproblem());
+
+#####################################################################
+
+Context("Numeric");
+
+$a = random(6,10,1);
+$b = random(20,40,1);
+$c = random(10,20,1);
+$d = random(2,4,1);
+$e = random(5,6,1);
+
+$an = $d*$b+$e*$c;
+
+$ans = Compute("$an");
+
+#####################################################################
+
+Context()->texStrings;
+BEGIN_TEXT
+Assume \(\displaystyle \int_0^{$a}\! f(x) \, dx = $b\) and \(\displaystyle \int_{0}^{$a}\! g(x) \, dx = $c\).
+
+Compute the following integral:$BR
+\(\displaystyle \int_0^{$a}\big[$d f(x)+$e g(x)\big]dx=\) \{ans_rule(20) \}
+END_TEXT
+Context()->normalStrings;
+
+#####################################################################
+
+ANS( $ans->cmp() );
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

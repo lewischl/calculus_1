@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = Library/Rochester/setDerivatives9Approximations/ur_dr_9_1_mo.pg
+source_file = setgroup_deriv_application_linearization_-_no_hints/ur_dr_9_1_mo.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = Library/UMN/calculusStewartCCC/s_3_9_prob02.pg
+source_file = setgroup_deriv_application_linearization_-_no_hints/s_3_9_prob02.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 9
-source_file = Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/4_Applications_of_the_Derivative/4.1_Linear_Approximation_and_Applications/4.1.54.pg
+source_file = setgroup_deriv_application_linearization_-_no_hints/4.1.54.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

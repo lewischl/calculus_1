@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setderivatives_applied_for_related_rates/5-5-03.pg
+source_file = setderivatives_related_rates_-_challenge/5-5-03.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setderivatives_applied_for_related_rates/s_4_1_4.pg
+source_file = setderivatives_related_rates_-_challenge/s_4_1_4.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setderivatives_applied_for_related_rates/rectangular_fishtank.pg
+source_file = setderivatives_related_rates_-_challenge/rectangular_fishtank.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setderivatives_applied_for_related_rates/cube1.pg
+source_file = setderivatives_related_rates_-_challenge/cube1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setderivatives_applied_for_related_rates/cube2.pg
+source_file = setderivatives_related_rates_-_challenge/cube2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setderivatives_applied_for_related_rates/ball_of_wax.pg
+source_file = setderivatives_related_rates_-_challenge/ball_of_wax.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setderivatives_applied_for_related_rates/rolling_snowball.pg
+source_file = setderivatives_related_rates_-_challenge/rolling_snowball.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = setderivatives_applied_for_related_rates/gravel_cone.pg
+source_file = setderivatives_related_rates_-_challenge/gravel_cone.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -93,7 +93,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 9
-source_file = setderivatives_applied_for_related_rates/ladder1.pg
+source_file = setderivatives_related_rates_-_challenge/ladder1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -103,7 +103,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 10
-source_file = setderivatives_applied_for_related_rates/ladder2.pg
+source_file = setderivatives_related_rates_-_challenge/ladder2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

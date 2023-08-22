@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setderivatives_differentation_on_implicit_curves/differentiating_expressions.pg
+source_file = setderivatives_differentation_on_implicit_curves_-_training/differentiating_expressions.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setderivatives_differentation_on_implicit_curves/implicitly_differentiate_equality.pg
+source_file = setderivatives_differentation_on_implicit_curves_-_training/implicitly_differentiate_equality.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setderivatives_differentation_on_implicit_curves/implicit_ellipse.pg
+source_file = setderivatives_differentation_on_implicit_curves_-_training/implicit_ellipse.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setderivatives_differentation_on_implicit_curves/s2_6_1_mo.pg
+source_file = setderivatives_differentation_on_implicit_curves_-_training/s2_6_1_mo.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setderivatives_differentation_on_implicit_curves/implicit_sqrts.pg
+source_file = setderivatives_differentation_on_implicit_curves_-_training/implicit_sqrts.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setderivatives_differentation_on_implicit_curves/c2s6p1.pg
+source_file = setderivatives_differentation_on_implicit_curves_-_training/c2s6p1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setderivatives_differentation_on_implicit_curves/s2_6_4_mo.pg
+source_file = setderivatives_differentation_on_implicit_curves_-_training/s2_6_4_mo.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = setderivatives_second_derivatives_on_implicit_curves/s3_7_29.pg
+source_file = setderivatives_differentation_on_implicit_curves_-_training/s3_7_29.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

@@ -1,0 +1,92 @@
+## DBsubject(Calculus - single variable)
+## DBchapter(Integrals)
+## DBsection(Fundamental theorem of calculus)
+## Institution(UCSB)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('5.3')
+## Problem1('21')
+## KEYWORDS('antiderivatives')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/5.4_5.5_FTC/integrate_linear.pg 
+#	to setintegrals_FTOC_1_for_definite_integrals/integrate_linear.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_FTOC_1_for_definite_integrals/integrate_linear.pg 
+#	to setintegrals_FTOC_1_for_definite_integrals_-_training/integrate_linear.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl"
+);
+
+TEXT(&beginproblem);
+$showPartialCorrectAnswers = 1;
+$a=random(2,10,1)*random(-1,1,2);
+$b=random(1,10,1)*random(-1,1,2);
+$c=random(1,10,1)*random(-1,1,2);
+
+BEGIN_TEXT
+
+$PAR
+Use the Fundamental Theorem of Calculus to evaluate (if it exists)
+\[\int_{2}^{\,8}{($a x + $b)}\,dx.\]
+If the integral does not exist, type "DNE" as your answer.
+
+$PAR
+\{ans_rule(30)\}
+
+$PAR
+\{theresahint \}
+END_TEXT
+
+BEGIN_HINT
+
+Use the Fundamental Theorem of Calculus Part 1 to solve this problem.  Remember that FTOC1 says:
+
+\[
+\int_a^b f(x)\, dx = F(b)-F(a)
+\]
+
+1. Find an antiderivative \(F\) $BR
+2. Evaluate that antiderivative at \(a\) and \(b\). $BR
+3. Subtract.
+
+$PAR
+
+Be careful to use parenthesis to group numbers together.  An explicit way of writing this is:
+\[
+\int_a^b f(x)\, dx = (F(b))-(F(a))
+\]
+See the extra \(()\) I added?  One of the most common mistakes is to forget to distribute the (-) across \((F(a))\).
+
+\{amethystHint("$PAR$HR$PAR For a thorough video explaining definite integration, see this one by Prof. Amethyst.  For examples, jump to time 33 minutes.$PAR")\}
+\{youtubeAmethyst("uS7TqCvKXPs?t=2004")\}
+
+END_HINT
+
+ANS(std_num_str_cmp("30*$a+6*$b", ["DNE"]));
+
+ENDDOCUMENT();

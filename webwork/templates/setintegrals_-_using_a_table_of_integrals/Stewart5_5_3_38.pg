@@ -1,0 +1,65 @@
+## DBsubject(Calculus - single variable)
+## DBchapter(Integrals)
+## DBsection(Fundamental theorem of calculus)
+## Institution(UCSB)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('5.3')
+## Problem1('38')
+## KEYWORDS('antiderivatives')
+
+
+
+########################################
+# this file automatically moved
+#	from Library/UCSB/Stewart5_5_3/Stewart5_5_3_38.pg 
+#	to setintegrals_further_integral_formulas/Stewart5_5_3_38.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_further_integral_formulas/Stewart5_5_3_38.pg 
+#	to setintegrals_-_using_a_table_of_integrals/Stewart5_5_3_38.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl"
+);
+
+TEXT(&beginproblem);
+$showPartialCorrectAnswers = 1;
+$a=random(1,10,1)*random(-1,1,2);
+$b=random(1,10,1)*random(-1,1,2);
+$c=random(1,10,1)*random(-1,1,2);
+
+BEGIN_TEXT
+
+$PAR
+Use the Fundamental Theorem of Calculus to evaluate (if it exists)
+\[\int_{0}^{\,1}{\frac{$a}{t^2+1}}\,dt.\]
+If the integral does not exist, type "DNE" as your answer.
+
+$PAR
+\{ans_rule(30)\}
+
+END_TEXT
+
+ANS(std_num_str_cmp("$a*pi/4", ["DNE"]));
+
+ENDDOCUMENT();

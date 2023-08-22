@@ -1,0 +1,105 @@
+## this file copied from Chris Hlas's Math114 content, Summer 2022, by permission of Chris Hlas
+## this automatic process executed by silviana amethyst
+## original filename local/average-rate-of-change-2.pg
+
+
+
+########################################
+# this file automatically moved
+#	from local/average-rate-of-change-2.pg 
+#	to setlimits_average_rates_of_change/average-rate-of-change-2.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_average_rates_of_change/average-rate-of-change-2.pg 
+#	to setlimits_-_rates_of_change_-_concepts_and_story/average-rate-of-change-2.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl",
+  "niceTables.pl",
+  "PGML.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$y1=random(5, 20, 1);
+$y2=random(21, 50 , 1);
+$y3=random(51, 80 ,1);
+$y4=random(81,100, 1);
+$y5=random(101, 120, 1);
+
+BEGIN_PGML
+The position of a cat running from a dog down a dark alley is given by the values of the table.
+
+[@
+DataTable(
+[
+    ["`t` seconds", 0, 1,     2,     3,     4,     5],
+    ["`s` feet",    0, [$y1], [$y2], [$y3], [$y4], [$y5]]],
+    midrules => 1,
+    align => "|l|c|c|c|c|c|c|",
+    rowheaders => 1,
+    center => 1,
+);
+@]***
+
+A. Find the average velocity for the time period beginning when [`t=2`] and lasting:
+
+    - three seconds, [`V_{\text{avg}} =`] [_]{($y5-$y2)/3}  
+    - two seconds,  [`V_{\text{avg}} =`] [_]{($y4-$y2)/2} 
+    - one second, [`V_{\text{avg}} =`] [_]{($y3-$y2)} 
+    
+B. Estimate the instantaneous velocity when [`t=2`] by finding the average velocity from [`t=1`] to [`t=3`]: [_]{($y3-$y1)/2}
+END_PGML
+
+
+BEGIN_HINT
+Use the formula for average velocity (that fraction with deltas).  The numerator should be a difference of positions (a distance travelled), and the denominator should be a difference of times (a duration of time).
+$BR$BR
+We can't use a limit to estimate the instantaneous velocity at \(t=2\), because we don't have a function to evaluate.  We'll settle for the mediocre estimate from this table of data, and the slope of a secant line centered at the time of interest.
+$BR$BR
+When in doubt, use more decimal places.
+END_HINT
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.
+
+## DESCRIPTION
+## Rates of Change
+## ENDDESCRIPTION
+
+## Tagged by tda2d
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Motivational applications (estimation))
+## Institution(ASU)
+## MLT(catdog)
+## Level(3)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('1')
+## Section1('2.1')
+## Problem1('1')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('2.1')
+## Problem2('1')
+## KEYWORDS('Differentiation' 'Rates of Change','Calculus','Secant', 'Tangent','Derivatives','tangent line','secant line', 'average,instantaneous velocity','tangent,secant lines')

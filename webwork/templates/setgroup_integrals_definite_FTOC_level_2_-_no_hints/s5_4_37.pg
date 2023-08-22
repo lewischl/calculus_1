@@ -1,0 +1,71 @@
+##DESCRIPTION
+## Evaluate an integral
+##ENDDESCRIPTION
+
+## Shotwell cleaned
+## lcao , PAID on 11-24-2003
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Integrals)
+## DBsection(Definite integrals (with trigonometric functions))
+## Date(6/3/2002)
+## Level(3)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('5.4')
+## Problem1('37')
+## KEYWORDS('integrals', 'theory', 'definite')
+
+
+
+########################################
+# this file automatically moved
+#	from Library/ma122DB/set12/s5_4_37.pg 
+#	to setgroup_integrals_definite_FTOC_level_2_-_no_hints/s5_4_37.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGcourse.pl"
+);
+
+$showPartialCorrectAnswers = 1;
+
+$a = random(2,9,1);
+
+TEXT(beginproblem());
+
+BEGIN_TEXT
+\( \displaystyle \int_0^{\pi/4} \frac{$a + \cos^3 u}{\cos^2 u}\, du\) 
+=  \{ ans_rule()\}
+END_TEXT
+
+$answ = "$a + sqrt(2)/2";
+ANS(num_cmp($answ));
+
+BEGIN_SOLUTION
+$PAR SOLUTION $PAR
+\[ \begin{array}{rcl} \displaystyle \int_0^{\pi/4} \frac{$a + \cos^3 u}{\cos^2 u}\, du 
+&=& \displaystyle  \int_0^{\pi/4} \left(\frac{$a}{\cos^2 u} + \frac{\cos^3 u}{\cos^2 u}\right)  \, du 
+ \\ &=&  \displaystyle \int_0^{\pi/4} ($a\sec^2 u + \cos u ) \, du 
+ \\ &=& \displaystyle   $a\tan u + \sin u  \Big]_0^{\pi/4}  
+ \\ &=&  \left($a\tan\left(\frac{\pi}{4}\right)  +
+ \sin\left(\frac{\pi}{4}\right) \right) - \left( $a \tan 0 +\sin 0\right)
+\\ &=&\displaystyle \left($a \cdot 1 + \frac{\sqrt{2}}{2} \right) - 
+($a \cdot 0 + 0 ) 
+\\ &=& \displaystyle $a + \frac{\sqrt{2}}{2}
+\end{array}
+\]
+END_SOLUTION
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.
+
+
+

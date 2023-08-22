@@ -1,0 +1,89 @@
+## this file copied from Chris Hlas's Math114 content, Summer 2022, by permission of Chris Hlas
+## this automatic process executed by silviana amethyst
+## original filename local/induction-i.pg
+
+# Requires files from https://www.mathstat.dal.ca/~selinger/downloads/draggable/
+
+
+########################################
+# this file automatically moved
+#	from local/induction-i.pg 
+#	to setproof_by_induction/induction-i.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setproof_by_induction/induction-i.pg 
+#	to setproof_-_by_induction_-_challenge/induction-i.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"draggableProof.pl",
+);
+
+# TEXT(beginproblem());
+
+$CorrectProof = DraggableProof([
+"Verify \(n=1\), left-side first, \(\sum\limits_{i = 1}^{1} i = 1 \).",
+
+"Verify \(n=1\), right-side second, \(\frac{1(1+1)}{2} = \frac{1(2)}{2} = \frac{2}{2} = 1 \).",
+
+"Thus the base case \((n=1)\) holds.",
+
+"(Induction Hypothesis): Assume the \(n=k\) case holds, that is, assume \( \sum\limits_{i=1}^{k} i = \frac{k(k+1)}{2} \) for some \(k \geq 1\).",
+
+"Check the \(n=k+1\) case holds, that is, \(\sum\limits_{i=1}^{k+1}{i} \stackrel{?}{=} \frac{(k+1) (k+2)}{2}\).",
+
+"Observe that \(\sum\limits_{i=1}^{k+1}{i}\)",
+
+"\(= \sum\limits_{i=1}^{k}{i} + \sum\limits_{i=k+1}^{k+1}{i} \)",
+
+"\(= \sum\limits_{i=1}^{k}{i} + (k+1) \)",
+
+"\(= \frac{k(k+1)}{2} + (k+1) \) by the induction hypothesis",
+
+"\(= \frac{k(k+1)}{2} + \frac{2(k+1)}{2} \)",
+
+"\(= \frac{k(k+1) + 2(k+1)}{2} \)",
+
+"\(= \frac{(k+1)(k + 2)}{2} \).",
+
+"We conclude that \(\sum\limits_{i=1}^{n} i = \dfrac{n(n+1)}{2} \) for all \(n \geq 1\). QED"],
+
+# Red herrings
+[],
+
+SourceLabel => "Possible steps:",
+TargetLabel =>  "Place steps in correct order here:",
+);
+
+Context()->texStrings;
+
+BEGIN_TEXT
+
+Verify \(\sum\limits_{i=1}^{n} i = \dfrac{n(n+1)}{2} \) using proof by induction.
+
+$PAR
+\{ $CorrectProof->Print \}
+
+END_TEXT
+Context()->normalStrings;
+
+# Answer Evaluation
+ANS($CorrectProof->cmp);
+
+
+ENDDOCUMENT();

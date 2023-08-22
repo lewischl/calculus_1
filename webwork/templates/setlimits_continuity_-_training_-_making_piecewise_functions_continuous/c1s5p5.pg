@@ -1,0 +1,152 @@
+## DESCRIPTION
+##   Find a Constant to Make a Function Continuous
+## ENDDESCRIPTION
+
+## Tagged by nhamblet
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Continuity - concept of)
+## Date(6/3/2002)
+## Institution(ASU)
+## Author(K. Lesh)
+## MLT(cc-m2)
+## Level(4)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5e')
+## Section1('2.5')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('2.5')
+## Problem2('')
+## TitleText3('Calculus: Early Transcendentals')
+## AuthorText3('Rogawski')
+## EditionText3('1')
+## Section3('2.4')
+## Problem3('85')
+## KEYWORDS('Continuous', 'Piecewise','Calculus','continuity')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Union/setLimitContinuity/c1s5p5.pg 
+#	to setlimits_continuity/c1s5p5.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_continuity/c1s5p5.pg 
+#	to setlimits_continuity_-_training_-_making_piecewise_functions_continuous/c1s5p5.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGunion.pl",
+  "MathObjects.pl",
+  "contextPiecewiseFunction.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+###################################
+# Setup
+
+Context("PiecewiseFunction")->variables->add(a=>'Real');
+Context()->reduction->set('(-x)+y'=>0, '(-x)-y'=>0);
+
+$A=random(2,6,1);
+$b=random(-1,1,1);
+$c=random(7,10,1);
+$d=non_zero_random(-6,6,1);
+$e=random(-6,6,1);
+$E=non_zero_random(-6,6,1);
+$F=non_zero_random(-6,6,1);
+
+$B=$b-$A*$d;
+$C=$c-$d*$b;
+$D=-$c*$d;
+
+$left  = Formula("($A x^3 + $B x^2 + $C x + $D) / (x - $d)")->reduce;
+$right = Formula("$E x^2 + $F x + a")->reduce;
+
+$f = PiecewiseFunction(
+  "x < $d" => $left,
+  "x >= $d" => $right,
+);
+
+Context("Numeric");
+
+###################################
+# Main text
+
+BEGIN_TEXT
+Find the value of the constant \(a\) that makes the following
+function continuous on \((-\infty,\infty)\).
+\[ f(x) = \{$f->TeX\} \]
+$PAR
+\(a=\) \{ans_rule(25) \}
+
+$BR$BR
+\{ theresahint \}
+END_TEXT
+
+
+BEGIN_HINT
+Need a bit of help?  
+
+$BR$BR
+
+First, this is a "find the value that makes it continuous" problem, so we'll be doing the typical method: evaluating both branches at the transition point, setting equal, and solving for the unknown.
+
+$BR$BR
+
+Division by 0 got you down, cuz of that \((x - $d)\) factor in the denominator (and the fact that the numerator is also 0)?  I have two options for you for how to deal with this "removable discontinuity".
+
+$BR$BR
+
+Option 1.  Since we can't evaluate the left branch at \(x = $d\), we need another approach.  What about using your calculator to find the limit at that point?  Plot that branch around the transition point, and you should be able to find the value of the limit.  Or, evaluate the function \($left\) very near the transition point, say at \( x = $d - 0.0001\).
+
+$BR$BR
+Option 2. Try polynomial long division to get rid of the common factor; this is a more exact route than using a calculator, and Prof. Amethyst thinks it's fun.  Divide the numerator \(($A x^3 + $B x^2 + $C x + $D)\) by \((x - $d)\).  Here's a video explaining how to do polynomial long division:
+
+$BR$BR
+
+\{ youtube(_FSXJmESFmQ) \}
+
+
+
+
+\{ amethystHint("$BR$BR For help on the concept of making piecewise functions continuous, check out this YouTube video from Prof. Amethyst:$BR$BR")\}
+\{ youtubeAmethyst(DdKDfIuSN30) \}
+
+END_HINT
+###################################
+# Answers
+
+$showPartialCorrectAnswers = 1;
+$ans=$A*$d**2 +$b*$d + $c - ( $E*$d**2 + $F*$d );
+ANS(Real($ans)->cmp);
+
+###################################
+
+
+;
+ENDDOCUMENT();

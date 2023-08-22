@@ -23,7 +23,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/5_The_Integral/5.2_The_Definite_Integral/5.2.13.pg
+source_file = setgroup_integrals_definite_by_geometry_-_no_hints/5.2.13.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = Library/UMN/calculusStewartCCC/s_5_2_31.pg
+source_file = setgroup_integrals_definite_by_geometry_-_no_hints/s_5_2_31.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setintegrals_definite_by_geometry/s5_2_31.pg
+source_file = setgroup_integrals_definite_by_geometry_-_no_hints/s5_2_31.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

@@ -1,0 +1,119 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by cmd6a 4/20/06
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Linear approximation and differentials)
+## Institution(Rochester)
+## MLT(LinearApprox_Dome)
+## MLTleader(1)
+## Level(5)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('1')
+## Section1('4.1')
+## Problem1('31')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('3.10')
+## Problem2('43')
+## KEYWORDS('derivatives', 'differentials','Calculus')
+
+## Modified ('6/25/2008')
+## ModifiedBy('nbennett')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Rochester/setDerivatives9Approximations/c2s9p7_mo.pg 
+#	to setderiv_application_linear_approximation/c2s9p7_mo.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderiv_application_linear_approximation/c2s9p7_mo.pg 
+#	to setderiv_application_linear_approximation_differentials_and_estimation_-_training/c2s9p7_mo.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGanswermacros.pl",
+"PGauxiliaryFunctions.pl",
+"MathObjects.pl",   							
+"PGcourse.pl"         # Customization file for the course
+);
+
+TEXT(beginproblem());
+########################################
+# Setup
+
+Context("Numeric");
+$showPartialCorrectAnswers = 1;
+
+Context()->flags->set(reduceConstants=>0);
+
+$thickness=random(.01,.09,.01);
+$diam=random(15,45,5);
+$diamcm=$diam;
+$radius=$diamcm/2;
+
+$f = Real("2*pi*($radius^2)*$thickness");
+
+########################################
+# Main Text
+
+Context()->texStrings;
+BEGIN_TEXT
+Use differentials to estimate the amount of paint in cubic centimeters
+needed to apply a coat
+of paint \({$thickness:%8.2f}\) centimeters thick to a hemispherical dome with a diameter of
+\({$diam}\) centimeters. $PAR \{ ans_rule(20) \} \( \text{cm}^3 \)
+END_TEXT
+
+BEGIN_HINT
+Ok, hint time!  In this problem, we're finding the amount of paint.  Paint is sold by volume, neh?  So, we must be finding the volume of paint we need.  To do this, we'll find the predicted change in volume of the hemisphere using a differential.
+
+$BR$BR
+
+First, write a formula for the volume of a hemisphere, as a function of radius.  Note that it's half the volume of a full sphere.
+
+$BR$BR
+
+Second, we want to find the linearly predicted change in the volume, as the radius (half the diameter) changes from \($radius\) to \($radius+$thickness\).
+
+$BR$BR
+
+Use a differential for the volume of the hemisphere, with \(r=$radius\), and \(dr=$thickness\).
+END_HINT
+Context()->normalStrings;
+
+########################################
+# Answers
+
+Context()->{format}{number} = "%.5f";
+
+ANS($f->cmp);
+
+########################################
+
+
+
+ENDDOCUMENT();

@@ -1,0 +1,120 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by tda2d
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Related rates)
+## Date(6/3/2002)
+## Institution(UCSB)
+## MLT(RelatedRate-ConePile)
+## MLTleader(1)
+## Level(5)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('3.9')
+## Problem1('25')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Rogawski')
+## EditionText2('1')
+## Section2('3.11')
+## Problem2('25')
+## TitleText3('Calculus: Early Transcendentals')
+## AuthorText3('Stewart')
+## EditionText3('5')
+## Section3('3.10')
+## Problem3('23')
+## KEYWORDS('derivative' 'related rates','derivatives', 'related rates','Differentiation','Product','Quotient')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/set3.10_related_rates/gravel_cone.pg 
+#	to setderivatives_applied_for_related_rates/gravel_cone.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_applied_for_related_rates/gravel_cone.pg 
+#	to setgroup_derivatives_related_rates_level_2_-_no_hints/gravel_cone.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGunion.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+###################################
+# Setup
+
+$a = random(10,50,10);
+$h = random(10,25,1);
+
+###################################
+# Main text
+
+BEGIN_TEXT
+Gravel is being dumped from a conveyor belt at a rate of
+$a \( {\rm ft}^3{\rm /min}\). It forms a pile in the shape of a right circular
+cone whose base diameter and height are always the same.
+$PAR
+How fast is the height of the pile increasing when the pile is $h ft high?
+$PAR
+The height is increasing at \{ans_rule(20) \} ft/min.
+$BR$BR
+\{ theresahint \}
+END_TEXT
+###################################
+# Answers
+
+$showPartialCorrectAnswers = 1;
+
+$ans= 4*$a/($h*$h*pi);
+
+ANS(Real($ans)->cmp);
+
+$showHint=-1;
+BEGIN_HINT
+Start by drawing a picture of a cone.  Ensure that the cone is a right cone, and that the diameter and height are the same.  The cross section is a particular triangle.
+$BR$BR
+Write an equation giving the volume of the cone.  It will involve both the radius and the height of the cone. 
+$BR$BR
+Substitute away one of the radius or height.  You can do this because the triangle in cross section is always of a certain shape.  That is, there is a similar-triangle relationship between radius and height coming from the triangle.  Write it down, and use it to substitute out a variable.  Your equation for volume should now have volume on one side, and an expression in either height or diameter.
+I suggest you keep the height in the equation and substitute away the diameter, because the question involves the height.
+$BR$BR
+Ok, next take the time-derivative of both sides.  Be careful to remember to "chain out" the time-derivative of the height!
+$BR$BR
+Finally, substitute in your known values for things.  Solve for the desired quantity.  Bam.
+
+
+
+
+\{ amethystHint("$BR$HR$BR Prof. Amethyst does also have a video on the subject of a related rates problem involving a cone.  Perhaps you'd find it useful?$BR$BR") \}
+\{ youtubeAmethyst("DmtHKq5_s7c") \}
+END_HINT
+###################################
+
+
+
+ENDDOCUMENT();

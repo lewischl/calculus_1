@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setderivatives_chain_rule_level_1/trig_to_the_notation_matching.pg
+source_file = setderivatives_chain_rule_-_training/trig_to_the_notation_matching.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setderivatives_chain_rule_level_1/trig_to_the_derivatives_matching.pg
+source_file = setderivatives_chain_rule_-_training/trig_to_the_derivatives_matching.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setderivatives_chain_rule_level_1/s3_5_16_mine.pg
+source_file = setderivatives_chain_rule_-_training/s3_5_16_mine.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setderivatives_chain_rule_level_1/s2_5_8_mo.pg
+source_file = setderivatives_chain_rule_-_training/s2_5_8_mo.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setderivatives_chain_rule_level_1/s3_5_7.pg
+source_file = setderivatives_chain_rule_-_training/s3_5_7.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setderivatives_chain_rule_level_1/der_unknown_func_at_point.pg
+source_file = setderivatives_chain_rule_-_training/der_unknown_func_at_point.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setderivatives_chain_rule_level_1/chain-rule-v2.pg
+source_file = setderivatives_chain_rule_-_training/chain-rule-v2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = setderivatives_chain_rule_level_1/chain-rule-v3.pg
+source_file = setderivatives_chain_rule_-_training/chain-rule-v3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -93,7 +93,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 9
-source_file = setderivatives_chain_rule_level_1/s3_5_53.pg
+source_file = setderivatives_chain_rule_-_training/s3_5_53.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -103,7 +103,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 10
-source_file = setderivatives_chain_rule_level_1/s3_5_16.pg
+source_file = setderivatives_chain_rule_-_training/s3_5_16.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -113,7 +113,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 11
-source_file = setderivatives_chain_rule_level_1/s3_5_38b.pg
+source_file = setderivatives_chain_rule_-_training/s3_5_38b.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -123,7 +123,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 12
-source_file = setderivatives_chain_rule_level_1/s2_8_15.pg
+source_file = setderivatives_chain_rule_-_training/s2_8_15.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -133,7 +133,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 13
-source_file = setderivatives_extra_practice/prob11.pg
+source_file = setderivatives_chain_rule_-_training/prob11.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -143,7 +143,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 14
-source_file = setproving_grounds/CompositionReview.pg
+source_file = setderivatives_chain_rule_-_training/CompositionReview.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -153,7 +153,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 15
-source_file = setproving_grounds/ChainRuleIntroduction.pg
+source_file = setderivatives_chain_rule_-_training/ChainRuleIntroduction.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -163,7 +163,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 16
-source_file = setderivatives_chain_rule_level_2/trig_w_product.pg
+source_file = setderivatives_chain_rule_-_training/trig_w_product.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

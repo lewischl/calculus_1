@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setlimits_squeeze_theorem/ur_lr_2_11.pg
+source_file = setgroup_limits_squeeze_thrm_-_no_hints/ur_lr_2_11.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setlimits_squeeze_theorem/squeeze1.pg
+source_file = setgroup_limits_squeeze_thrm_-_no_hints/squeeze1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setlimits_squeeze_theorem/squeeze.pg
+source_file = setgroup_limits_squeeze_thrm_-_no_hints/squeeze.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

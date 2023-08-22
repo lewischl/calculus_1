@@ -1,0 +1,68 @@
+##DESCRIPTION
+## Take a derivative
+##ENDDESCRIPTION
+
+## Shotwell cleaned
+## tcao , PAID on 11-24-2003
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Derivatives of exponential functions)
+## Date(6/3/2002)
+## MLT(DerivExpPlusPoly)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('3.1')
+## Problem1('19')
+## KEYWORDS('derivatives')
+
+
+
+########################################
+# this file automatically moved
+#	from Library/ma122DB/set3/s3_1_19.pg 
+#	to setderivatives_power_rule_and_basic_rules/s3_1_19.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_power_rule_and_basic_rules/s3_1_19.pg 
+#	to setderivatives_power_rule_and_basic_rules_-_training/s3_1_19.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$an = random(2,7,1);
+$as = random(-1,1,2);
+$a  = $an * $as;
+$c = random(2,15,1);
+
+BEGIN_TEXT
+Let \( f(x) =  $a e^{x} + $c x \). Determine \( f'( x ). \)
+$BR$BR \(f'(x) = \) \{ans_rule(20) \}
+END_TEXT
+
+$ans = "$a * exp(x)+$c";
+ANS(fun_cmp($ans));
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

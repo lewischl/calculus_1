@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setintegrals_applied_as_net_change/quadraticVelocity.pg
+source_file = setintegrals_applied_as_net_change_-_training/quadraticVelocity.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setintegrals_applied_as_net_change/z3.pg
+source_file = setintegrals_applied_as_net_change_-_training/z3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setintegrals_applied_as_net_change/oil_leaking.pg
+source_file = setintegrals_applied_as_net_change_-_training/oil_leaking.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

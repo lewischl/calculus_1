@@ -1,0 +1,95 @@
+##DESCRIPTION
+##  indefinite integral problem: chain rule
+##ENDDESCRIPTION
+
+##KEYWORDS('indefinite integral', 'exponetial')
+
+## DBsubject('Calculus')
+## DBchapter('Integral')
+## DBsection('Indefinite Integral')
+## Date('11/26/22')
+## Author('Erich Jauch')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from setFinal_Exam-Team/exponentialIndefininteIntegral.pg 
+#	to setcomprehensive_review_quiz/exponentialIndefininteIntegral.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setcomprehensive_review_quiz/exponentialIndefininteIntegral.pg 
+#	to setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/exponentialIndefininteIntegral.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   "AnswerFormatHelp.pl",
+   "parserFormulaUpToConstant.pl",
+   "contextFraction.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
+
+Context("Numeric");
+
+$a = non_zero_random(-12,21,3);
+$p = random(2,6,1);
+
+$f = Formula("$a*x^($p-1)*e^(x^$p)")->reduce;
+
+Context("Fraction");
+$coef = Compute("$a/($p)");
+$F = FormulaUpToConstant("$coef*e^(x^$p)");
+
+$ans = $F;
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+
+Evaluate the following indefinite integral:
+
+[``\int [$f]~dx=``] [_____]{$ans} 
+
+Include the constant of integration as [`+C`] inside your answer.
+END_PGML
+
+ENDDOCUMENT();

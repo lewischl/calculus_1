@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setderivatives_extra_practice/prob11.pg
+source_file = setgroup_derivatives_chain_rule_-_level_2_-_no_hints/prob11.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setderivatives_extra_practice/high_power_poly.pg
+source_file = setgroup_derivatives_chain_rule_-_level_2_-_no_hints/high_power_poly.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setderivatives_extra_practice/chain-rule-v1.pg
+source_file = setgroup_derivatives_chain_rule_-_level_2_-_no_hints/chain-rule-v1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setderivatives_chain_rule_level_1/chain-rule-v3.pg
+source_file = setgroup_derivatives_chain_rule_-_level_2_-_no_hints/chain-rule-v3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setderivatives_chain_rule_level_2/chain-rule-v5.pg
+source_file = setgroup_derivatives_chain_rule_-_level_2_-_no_hints/chain-rule-v5.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

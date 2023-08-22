@@ -1,0 +1,65 @@
+#Problem 2.6.48
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.48.pg 
+#	to setlimits_of_trigonometric_functions/2.6.48.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_of_trigonometric_functions/2.6.48.pg 
+#	to setlimits_of_trigonometric_functions_-_training/2.6.48.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGgraphmacros.pl",
+  "PGcourse.pl", 
+);
+
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$n=random(3,7,2);
+
+BEGIN_TEXT
+Evaluate the limit, if it exists:
+$PAR
+\(\displaystyle\lim_{h \to \frac {\pi}{2}} \frac {1 - \cos($n h)} {h}=\) \{ans_rule(25) \}
+$PAR
+$BITALIC(Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE$EBOLD.)$EITALIC
+
+END_TEXT
+
+#$a=2/$PI;
+#SOLUTION(EV3(<<'END_SOLUTION'));
+#$BR$BBOLD Solution:$EBOLD 
+#$BR
+#The function is continuous at \( h=\frac {\pi}{2}\) so we may use substitution: $BR
+#\( \lim\limits_{h \to \frac {\pi}{2}} \frac {1 - \cos $n h} {h} = \frac {1 - \cos (\frac {$n \pi}{2}) } {\frac {\pi}{2}}= \frac {2}{\pi}\).
+#END_SOLUTION
+
+
+ANS(Compute("2/pi")->cmp());
+
+ENDDOCUMENT();
+

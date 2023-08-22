@@ -133,7 +133,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 13
-source_file = setreview_odds_and_ends/point_on_number_line.pg
+source_file = setexample_problems/point_on_number_line.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -143,7 +143,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 14
-source_file = setproving_grounds/ArrayOfAnswers.pg
+source_file = setexample_problems/ArrayOfAnswers.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -153,7 +153,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 15
-source_file = setproving_grounds/ArrayOfAnswersPGML.pg
+source_file = setexample_problems/ArrayOfAnswersPGML.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -163,7 +163,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 16
-source_file = setproving_grounds/ArrayOfAnswersPGML_with_css.pg
+source_file = setexample_problems/ArrayOfAnswersPGML_with_css.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -173,7 +173,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 17
-source_file = setproving_grounds/answer_box_in_integral_bound.pg
+source_file = setexample_problems/answer_box_in_integral_bound.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -183,7 +183,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 18
-source_file = setproving_grounds/answer_box_in_sqrt_in_denominator.pg
+source_file = setexample_problems/answer_box_in_sqrt_in_denominator.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -193,7 +193,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 19
-source_file = setlimits_extra_practice/oracle_function.pg
+source_file = setexample_problems/oracle_function.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

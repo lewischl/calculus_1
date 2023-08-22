@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = Library/UMN/calculusStewartCCC/s_4_3_2.pg
+source_file = setgroup_deriv_application_concavity_second_deriv_-_no_hints/s_4_3_2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = Library/Valdosta/APEX_Calculus/3.4/APEX_3.4_14-15.pg
+source_file = setgroup_deriv_application_concavity_second_deriv_-_no_hints/APEX_3.4_14-15.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = Library/Valdosta/APEX_Calculus/3.4/APEX_3.4_8-9.pg
+source_file = setgroup_deriv_application_concavity_second_deriv_-_no_hints/APEX_3.4_8-9.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setderiv_application_optimization_derivative_tests/second_der_test_graphical_2.pg
+source_file = setgroup_deriv_application_concavity_second_deriv_-_no_hints/second_der_test_graphical_2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setderiv_application_optimization_derivative_tests/second_der_test_1.pg
+source_file = setgroup_deriv_application_concavity_second_deriv_-_no_hints/second_der_test_1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

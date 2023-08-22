@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.5_Evaluating_Limits_Algebraically/2.5.25.pg
+source_file = setgroup_limits_limit_by_rationalizing_-_no_hints/2.5.25.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = Library/UCSB/Stewart5_2_3/Stewart5_2_3_31.pg
+source_file = setgroup_limits_limit_by_rationalizing_-_no_hints/Stewart5_2_3_31.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setlimits_extra_practice/s_2_3_18.pg
+source_file = setgroup_limits_limit_by_rationalizing_-_no_hints/s_2_3_18.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

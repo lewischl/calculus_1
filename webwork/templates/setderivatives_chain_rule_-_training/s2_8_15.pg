@@ -1,0 +1,82 @@
+##DESCRIPTION
+## Find a derivative of a fraction of linear polynomials, evaluate it at a    ## point
+##ENDDESCRIPTION
+
+## Shotwell cleaned 
+## tcao , PAID on 11-24-2003
+## updated 12/2014
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Quotient rule (without trigonometric functions))
+## Date(6/3/2002)
+## MLT(quotRuleNoTrigConstantoverLinear)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('2.7')
+## Problem1('15')
+## KEYWORDS('derivatives')
+## MO(1)
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/ma122DB/set3/s2_8_15.pg 
+#	to setderivatives_chain_rule_level_1/s2_8_15.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_chain_rule_level_1/s2_8_15.pg 
+#	to setderivatives_chain_rule_-_training/s2_8_15.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+Context('Numeric');
+
+$a = random(2,7,1);
+$b = random(2,8,1);
+$c = random(2,7,1);
+
+$funct = Formula("-$a*$b/($b*x +$c)^2");
+
+BEGIN_TEXT
+Let \( f(x) =  \dfrac { $a } { $b x + $c } \). Compute \( f'( x ) \).  
+$PAR
+
+\( f'( x ) \) = \{ans_rule(30) \}
+
+
+
+END_TEXT
+
+
+ANS($funct->cmp);
+
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

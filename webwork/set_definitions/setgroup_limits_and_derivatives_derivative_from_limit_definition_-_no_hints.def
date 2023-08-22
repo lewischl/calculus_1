@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/3_Differentiation/3.1_Definition_of_the_Derivative/3.1.51.pg
+source_file = setgroup_limits_and_derivatives_derivative_from_limit_definition_-_no_hints/3.1.51.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = Library/OSU/high_school_apcalc/dchmwk3/prob3.pg
+source_file = setgroup_limits_and_derivatives_derivative_from_limit_definition_-_no_hints/prob3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = Library/Wiley/setAnton_Section_2.2/Question14.pg
+source_file = setgroup_limits_and_derivatives_derivative_from_limit_definition_-_no_hints/Question14.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setlimits_extra_practice/3-2-55.pg
+source_file = setgroup_limits_and_derivatives_derivative_from_limit_definition_-_no_hints/3-2-55.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setlimits_extra_practice/3-2-53.pg
+source_file = setgroup_limits_and_derivatives_derivative_from_limit_definition_-_no_hints/3-2-53.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

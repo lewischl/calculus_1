@@ -1,0 +1,97 @@
+##DESCRIPTION
+##  Translate the limit to english using drag and drop
+##ENDDESCRIPTION
+
+##KEYWORDS('limits', 'notation')
+
+## DBsubject('Calculus')
+## DBchapter('Limits')
+## DBsection('Notation')
+## Date('Spring 2023')
+## Author('silviana amethyst')
+## Institution('uwec')
+
+########################################################################
+
+
+
+
+
+########################################
+# this file automatically moved
+#	from set2.2_limits/translate_to_english_one_sided_above.pg 
+#	to setlimits_introducing_limits/translate_to_english_one_sided_above.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_introducing_limits/translate_to_english_one_sided_above.pg 
+#	to setlimits_introducing_limits_-_training_-_limits_with_formulas/translate_to_english_one_sided_above.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"PGcourse.pl",
+"draggableProof.pl",
+);
+
+$a = random(2,13,1);
+$limit = random(-30,-51,1);
+TEXT(beginproblem());
+
+$CorrectProof = DraggableProof([
+
+   "The limit of f(x)",
+   "as x approaches",
+   "$a",
+   "from above or from the right",
+   "is equal to",
+   "$limit"],
+
+#  The lines below are extras and will be listed as options but not
+#  needed for the correct answer in $Proof.
+
+[  "from below or from the left"  ],
+     
+SourceLabel => "Your given blocks",
+TargetLabel =>  "Write out the limit statement"
+);
+
+#########################################
+
+###
+###  The proposition to prove is posted here
+###
+
+
+
+BEGIN_TEXT
+Translate to english:
+
+\[ \lim_{x \to $a^+}f(x) = $limit \]
+
+$PAR  $BCENTER $BITALIC
+
+
+
+\{ $CorrectProof->Print \}
+
+END_TEXT
+
+ANS($CorrectProof->cmp);
+
+
+
+ENDDOCUMENT();

@@ -1,0 +1,119 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by tda2d
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Related rates)
+## Date(6/3/2002)
+## Institution(UCSB)
+## MLT(RelatedRate-ConePile)
+## MLTleader(1)
+## Level(5)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('3.9')
+## Problem1('25')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Rogawski')
+## EditionText2('1')
+## Section2('3.11')
+## Problem2('25')
+## TitleText3('Calculus: Early Transcendentals')
+## AuthorText3('Stewart')
+## EditionText3('5')
+## Section3('3.10')
+## Problem3('23')
+## KEYWORDS('derivative' 'related rates','derivatives', 'related rates','Differentiation','Product','Quotient')
+
+
+
+########################################
+# this file automatically moved
+#	from set3.10_related_rates1/ladder1.pg 
+#	to setderivatives_applied_for_related_rates/ladder1.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_applied_for_related_rates/ladder1.pg 
+#	to setderivatives_related_rates_-_training/ladder1.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGunion.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+###################################
+# Setup
+
+$ladder = random(3,7,0.1);
+$dh_dt = random(0.8, 1.5, 0.1);
+
+$h = $ladder;
+while ($h==$ladder){    
+    $h = random(2.5, $ladder, 0.1);
+}
+
+###################################
+# Main text
+
+BEGIN_TEXT
+Someone has leaned a ladder precariously against a wall, and it's sliding away, as in Figures 5 and 6 of your book, on page 200.  The dimensions are different, though!
+$BR$BR
+
+The length of the ladder is $ladder meters, and the top of the ladder is sliding down the wall at an alarming $dh_dt meters per second.
+
+$BR$BR
+
+Calculate the rate at which the bottom of the ladder is sliding away from the wall when the top of the ladder is $h meters from the floor.
+
+
+$BR$BR
+The bottom of the ladder is sliding away at \{ans_rule(40) \} meters per second.
+
+$BR$BR
+\{ theresahint \}
+END_TEXT
+###################################
+# Answers
+
+$showPartialCorrectAnswers = 1;
+
+$ans= $h*$dh_dt / sqrt($ladder**2 - $h**2);
+
+ANS(Real($ans)->cmp);
+
+
+BEGIN_HINT
+
+This is a sliding ladder problem, similar to Example 3, page 200 in Rogawski 4th Edition.
+
+\{amethystHint("$BR$HR$PAR Prof. Amethyst has a video that goes closely with this sliding ladder problem:$BR")\}
+\{ youtubeAmethyst("XbXXuQICc3U")\}
+END_HINT
+###################################
+
+
+ENDDOCUMENT();

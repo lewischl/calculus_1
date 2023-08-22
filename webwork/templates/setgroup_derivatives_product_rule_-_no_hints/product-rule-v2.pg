@@ -1,0 +1,61 @@
+
+
+########################################
+# this file automatically moved
+#	from local/chapter3/product-rule-v2.pg 
+#	to setderivatives_product_and_quotient_rule/product-rule-v2.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_product_and_quotient_rule/product-rule-v2.pg 
+#	to setgroup_derivatives_product_rule_-_no_hints/product-rule-v2.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();  
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+$showPartialCorrectAnswers = 1;
+
+Context()->variables->set(x=>{limits=>[0.01,6]});
+
+$a = random(2,6,1);
+$b = random(2,5,1);
+$ab = $a*$b;
+$a3 = $a*3;
+
+$ans = Compute("$ab-($a3/2)*sqrt(x)+$b*e^x-1/(2*sqrt(x))*e^x-sqrt(x)*e^x");
+
+Context()->texStrings;
+BEGIN_TEXT
+Find the derivative of the function \( \displaystyle f(x)= ($a x+e^x)($b - \sqrt{x}) \).
+
+$BR$BR
+
+\( f'(x)= \) \{ ans_rule() \}$BR
+$BITALIC (Give an exact answer.)$EITALIC 
+END_TEXT
+Context()->normalStrings;
+
+ANS($ans->cmp);
+
+ENDDOCUMENT();

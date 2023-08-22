@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setderivatives_extra_practice/x_to_the_minus_n.pg
+source_file = setgroup_derivatives_power_rule_-_no_hints/x_to_the_minus_n.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setderivatives_extra_practice/3-4-11.pg
+source_file = setgroup_derivatives_power_rule_-_no_hints/3-4-11.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

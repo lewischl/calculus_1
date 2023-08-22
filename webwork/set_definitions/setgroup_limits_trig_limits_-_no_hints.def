@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = setlimits_of_trigonometric_functions/2.6.25.pg
+source_file = setgroup_limits_trig_limits_-_no_hints/2.6.25.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -93,7 +93,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 9
-source_file = setlimits_of_trigonometric_functions/2.6.40.pg
+source_file = setgroup_limits_trig_limits_-_no_hints/2.6.40.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -103,7 +103,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 10
-source_file = setlimits_of_trigonometric_functions/2.6.46.pg
+source_file = setgroup_limits_trig_limits_-_no_hints/2.6.46.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

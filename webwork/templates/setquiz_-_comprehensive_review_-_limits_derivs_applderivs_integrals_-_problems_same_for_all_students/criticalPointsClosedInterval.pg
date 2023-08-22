@@ -1,0 +1,124 @@
+##DESCRIPTION
+##  Arithemetic problem: give the value of pi
+##ENDDESCRIPTION
+
+##KEYWORDS('arithmetic', 'pi')
+
+## DBsubject('Algebra')
+## DBchapter('Fundamentals')
+## DBsection('Real Numbers')
+## Date('')
+## Author('')
+## Institution('')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from setFinal_Exam-Team/criticalPointsClosedInterval.pg 
+#	to setcomprehensive_review_quiz/criticalPointsClosedInterval.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setcomprehensive_review_quiz/criticalPointsClosedInterval.pg 
+#	to setquiz_-_comprehensive_review_-_limits_derivs_applderivs_integrals_-_problems_same_for_all_students/criticalPointsClosedInterval.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
+
+$root1 = random(1,5,1);
+$root2 = -1*$root1-2;
+
+$crits = List($root1,$root2);
+
+$a = $root2 - 1;
+$b = $root1 + 3;
+
+$s = random(3,9,3);
+
+$c = non_zero_random(-20,20,4);
+
+$f = Formula("$s/3*x^3-1*$s*($root1+$root2)/2*x^2+$s*$root1*$root2*x+$c")->reduce;
+
+$fa = $f -> eval(x=>$a);
+$fb = $f -> eval(x=>$b);
+$f1 = $f -> eval(x=>$root1);
+$f2 = $f -> eval(x=>$root2);
+
+if ($fb>$f2) {
+$maxX = $b;
+}
+elsif ($fb<$f2) {
+$maxX = $root2;
+}
+else {
+$maxX = List($b,$root2);
+}
+
+if ($fa<$f1) {
+$minX = $a;
+}
+elsif ($fa>$f1) {
+$minX = $root1;
+}
+else {
+$minX = List($a,$root1);
+}
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+Consider the function [`f(x)=[$f]`] on the interval [`[[$a],[$b]]`].
+
+1) Find the critical point(s) for [`f(x)`]
+[_____]{$crits} (seperate multiple answers with a comma)
+
+2) Find the [`x`]-values of the location(s) of the absolute maximum(s) [`f(x)`]
+[_____]{$maxX} (seperate multiple answers with a comma)
+
+3) Find the [`x`]-values of the location(s) of the absolute minimum(s) [`f(x)`]
+[_____]{$minX} (seperate multiple answers with a comma)
+END_PGML
+
+ENDDOCUMENT();

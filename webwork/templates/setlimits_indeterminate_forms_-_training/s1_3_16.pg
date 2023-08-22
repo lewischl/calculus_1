@@ -1,0 +1,81 @@
+##DESCRIPTION
+##  Evalute a limit of a fraction of two polynomials,
+##  involves factoring a quadratic polynomial
+##ENDDESCRIPTION
+
+## Shotwell cleaned
+## tcao , PAID on 11-24-2003
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Evaluating limits - factoring)
+## Date(6/3/2002)
+## MLT(elf-d)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('2.3')
+## Problem1('11')
+## KEYWORDS('limits', 'factoring')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/ma122DB/set1/s1_3_16.pg 
+#	to setlimits_indeterminate_forms/s1_3_16.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_indeterminate_forms/s1_3_16.pg 
+#	to setlimits_indeterminate_forms_-_training/s1_3_16.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a1 = random(1,10,1);
+$b1 = random(1,10,1);
+$t1 = $a1+$b1;
+$n1 = $a1*$b1;
+
+BEGIN_TEXT
+Evaluate the limit
+\[ \lim_{ x \rightarrow -$a1 } \frac {x^2 + $t1 x + $n1 }{ x + $a1 } \]
+Answer: \{ans_rule(25) \}
+
+$BR$BR
+\{ theresahint \}
+END_TEXT
+
+BEGIN_HINT
+This problem is solvable by using the technique of factor-and-cancel.  The numerator and denominator have a common root.  Your goal is to factor out the root in both the top and the bottom, cancel that expression, and then plug in the point of interest to reveal the exact value of the limit.
+
+\{ amethystHint("$BR$BRHere's a video from Prof. Amethyst on the topic:$BR$BR")\}
+\{ youtubeAmethyst(IIZFqSDwWGM) \} 
+END_HINT
+
+$ans = "-$a1 + $b1";
+ANS(num_cmp($ans));
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.
+

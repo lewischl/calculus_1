@@ -1,0 +1,101 @@
+## DESCRIPTION
+##   The Product Rule
+## ENDDESCRIPTION
+
+## Tagged by nhamblet
+## Updated December 2014 at OPL Workshop by JDA
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Product rule (without trigonometric functions))
+## Institution(ASU)
+## MLT(prodruleNoTrigFuncConceptual)
+## Level(4)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('1')
+## Section1('3.3')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('5')
+## Section2('3.2')
+## Problem2('')
+## TitleText3('Calculus: Early Transcendentals')
+## AuthorText3('Stewart')
+## EditionText3('6')
+## Section3('3.2')
+## Problem3('')
+## KEYWORDS('Derivative', 'Product','derivatives','product rule','derivative' 'product' 'quotient')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/set3.3_product_rule/poly_times_unknown_g.pg 
+#	to setderivatives_product_rule/poly_times_unknown_g.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_product_rule/poly_times_unknown_g.pg 
+#	to setderivatives_product_rule_-_training/poly_times_unknown_g.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context('Numeric');
+
+$a = random(2,5,1);
+$b = 3+$a;
+$n = random(5,12,1);
+
+$c = (-1)**(-1+$n);
+$d = (-1)**($n);
+$deriv1 = Compute("$a*$n*$c + $b*$d");
+
+BEGIN_TEXT
+Even though we don't have a formula for a function \(g\), if we have its value at a point of interest, as well as the value of \(g^\prime\) there, too, we can still compute derivatives of functions involving \(g\).  Let's try:
+$BR$BR
+Given that
+\[ \begin{array}{rcl}
+f(x) &=& x^{$n} g(x) \\
+g(-1)&=& $a \\
+g'(-1)&=& $b,
+\end{array} \]
+calculate \( f'( -1 ) \). \{ans_rule(30) \}
+
+$BR$BR \{ theresahint \}
+
+END_TEXT
+
+
+BEGIN_HINT
+Use the product rule and the power rule by the books, for \(f(x)\).  The derivative of the product is the derivative of the first times the second, plus the first times the derivative of the second.
+$BR$BR
+Then evaluate \(f\) at \(x = -1\).  Use the given values for \(g\) at the point of interest.
+END_HINT
+ANS($deriv1->cmp);
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

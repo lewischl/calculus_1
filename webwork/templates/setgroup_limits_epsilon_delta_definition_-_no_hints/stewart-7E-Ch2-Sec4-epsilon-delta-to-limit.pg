@@ -1,0 +1,92 @@
+# DESCRIPTION
+# Precise definition of limit problem
+# Convert between epsilon-delta notation notation and limits
+# ENDDESCRIPTION
+
+## DBsubject('WeBWorK')
+## DBchapter('Demos')
+## DBsection('Problem')
+## KEYWORDS('limit, definition')
+## TitleText1('Calculus: Early Transcendentals')
+## EditionText1('7E')
+## AuthorText1('Limits and Derivatives')
+## Section1('Definition of the Derivative')
+## Problem1('')
+## Author('Christopher S Hlas')
+## Institution('UW-Eau Claire')
+
+
+
+########################################
+# this file automatically moved
+#	from math114/stewart-7E-Ch2-Sec4-epsilon-delta-to-limit.pg 
+#	to setlimits_formal_definition/stewart-7E-Ch2-Sec4-epsilon-delta-to-limit.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_formal_definition/stewart-7E-Ch2-Sec4-epsilon-delta-to-limit.pg 
+#	to setgroup_limits_epsilon_delta_definition_-_no_hints/stewart-7E-Ch2-Sec4-epsilon-delta-to-limit.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+$a = random(1, 6, 1);
+$coef = non_zero_random(-5,5);
+$exp = random(2, 3, 1);
+$L = Compute( $coef*$a**$exp );
+$f = Compute("$coef x**$exp")->reduce();
+
+Context()->texStrings;
+BEGIN_TEXT
+For all \( \varepsilon > 0 \), there exists a \( \delta > 0 \) so that \(| $f - $L | < \varepsilon \) when \(| x - $a | < \delta \).
+$PAR
+Using the information above above, fill in the blanks below based on the formal definition of a limit and limit notation.
+$PAR
+\( \displaystyle \lim_{x \to a} \) \{ans_rule(1)\} \( = \) \{ans_rule(1)\} 
+$PAR
+
+\( a = \) \{ans_rule(1)\} 
+
+$BR$BR
+\{ theresahint \}
+END_TEXT
+
+BEGIN_HINT
+My first hint is to look again at the formal definition of the limit.  You can find it on page 113 of our textbook.  This problem asks you to map between parts of the formal definition in general, and the specific function, point of interest, and limit above.
+$BR$BR
+For the value of \(a\), put in the point of study.  Where is \(x\) going?
+$BR
+For the function \(f(x)\), just put the function without any additive constants.  
+$BR
+For the limit \(L\), put what the limit of the function is at the point of interest.  Remember, in the definition of the limit we're considering \(|f(x) - L|\), and the minus sign is important!
+END_HINT
+
+Context()->normalStrings;
+
+ANS( Compute($f)->cmp() );
+ANS( Compute($L)->cmp() );
+ANS( Compute($a)->cmp() );
+
+$showPartialCorrectAnswers = 1;
+
+ENDDOCUMENT();

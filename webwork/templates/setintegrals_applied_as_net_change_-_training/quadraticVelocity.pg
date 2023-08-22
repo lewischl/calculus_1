@@ -1,0 +1,75 @@
+
+
+########################################
+# this file automatically moved
+#	from set5.6_net-change/quadraticVelocity.pg 
+#	to setintegrals_applied_as_net_change/quadraticVelocity.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_applied_as_net_change/quadraticVelocity.pg 
+#	to setintegrals_applied_as_net_change_-_training/quadraticVelocity.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGauxiliaryFunctions.pl",
+"PGML.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a = random(1,2,1);
+$b = random($a+1,4,1);
+
+$s = random(-1,1,2);
+$s = -1;
+$ss= "";
+if ($s == -1) {$ss = "-"}
+
+$f1 = $s*($a + $b);
+$f2 = $s*$a*$b;
+
+$t1 = random(-3,0,1);
+$t2 = random(5,6,1);
+
+$Et1 = $t1**3/3 - ($a+$b)*$t1**2/2 + $a*$b*$t1;
+$Ea  = $a**3/3 - ($a+$b)*$a**2/2 + $a*$b*$a;
+$Eb  = $b**3/3 - ($a+$b)*$b**2/2 + $a*$b*$b;
+$Et2 = $t2**3/3 - ($a+$b)*$t2**2/2 + $a*$b*$t2;
+
+$ans1 = $s * ($Et2 - $Et1);
+$ans2 = $Et2 - $Et1 + 2 * ($Ea - $Eb);
+
+BEGIN_PGML
+The velocity function for a particle moving along a line is given by [` v(t) = [$ss] t^2 - [$f1] t + [$f2]  \text{ cm/s}`] . Find the displacement and the total distance traveled by the particle 
+during the time interval [`[[$t1],[$t2]]`].
+
+net displacement [`=`] [_______]{[$ans1]} [`\text{cm}`]
+
+total distance traveled [`=`] [_______]{[$ans2]} [`\text{cm}`]
+
+END_PGML
+
+BEGIN_PGML_HINT
+Remember that for displacement cares about left versus right, while distance does not.
+END_PGML_HINT
+
+ENDDOCUMENT();

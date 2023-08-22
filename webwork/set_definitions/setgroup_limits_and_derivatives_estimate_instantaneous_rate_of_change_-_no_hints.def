@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setgroup_limits_and_derivatives_estimate_rate_of_change_-_no_hints/2-1-estimate-rate-of-change-v1.pg
+source_file = setgroup_limits_and_derivatives_estimate_instantaneous_rate_of_change_-_no_hints/2-1-estimate-rate-of-change-v1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setgroup_limits_and_derivatives_estimate_rate_of_change_-_no_hints/2-1-estimate-rate-of-change-v2.pg
+source_file = setgroup_limits_and_derivatives_estimate_instantaneous_rate_of_change_-_no_hints/2-1-estimate-rate-of-change-v2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setgroup_limits_and_derivatives_estimate_rate_of_change_-_no_hints/2-1-estimate-rate-of-change-v3.pg
+source_file = setgroup_limits_and_derivatives_estimate_instantaneous_rate_of_change_-_no_hints/2-1-estimate-rate-of-change-v3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

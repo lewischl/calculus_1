@@ -1,0 +1,105 @@
+## DESCRIPTION
+## Continuity
+## ENDDESCRIPTION
+
+## Tagged by cmd6a 5/26/06
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Continuity - concept of)
+## Date(5/16/2000)
+## Institution(OSU)
+## Author(Zig Fiedorowicz)
+## Level(4)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('2.5')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('2.5')
+## Problem2('')
+## KEYWORDS('calculus', 'limit', 'continuity', 'piecewise')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/OSU/high_school_apcalc/dcrev1/prob5.pg 
+#	to setlimits_continuity/prob5.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_continuity/prob5.pg 
+#	to setlimits_continuity_-_training_-_kinds_of_discontinuities/prob5.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl"
+);
+
+
+
+$showPartialCorrectAnswers = 0;
+
+
+$a = random(2,9,1);
+$b = random(2,5,1);
+$ab = $a*$b;
+$ab2 = 2*$ab;
+
+$questStr1 = EV2("\(\lim_{x\to $a^+} f(x)\) and \(\lim_{x\to $a^-} f(x)\) both exist and are finite, but they are not equal. $BR");
+$ansStr1 = EV2("\(f(x)=\left\lbrace\begin{array}{ll}$b x &\mbox{if }x<$a\\ 0   &\mbox{if }x=$a\\ $b x - $ab2 &\mbox{if }x>$a \\ \end{array}\right.\) $BR");
+$questStr2 = EV2("The graph of \(y=f(x)\) has vertical tangent line at \(($a,f($a))\) $BR");
+$ansStr2 = EV2("\(f(x)=\sqrt[3]{x- $a}\) $BR");
+$questStr3 = EV2("\(\lim_{x\to $a^-}f(x)=-\infty\). $BR");
+$ansStr3 = EV2("\(f(x)=\frac{1}{x- $a}\) $BR");
+$questStr4 = EV2("\(\lim_{x\to $a^+}f(x)\) exists but \(\lim_{x\to $a^-}f(x)\) does not. $BR");
+$ansStr4 = EV2("\(f(x)=\left\lbrace\begin{array}{ll}\cos\left(\frac{1}{x- $a}\right) &\mbox{if }x<$a\\ 0   &\mbox{if }x=$a\\ $b x + $ab2 &\mbox{if }x>$a\\ \end{array}\right.\) $BR");
+$questStr5 = EV2("\(\lim_{x\to $a}f(x)=\infty\). $BR");
+$ansStr5 = EV2("\(f(x)=\frac{1}{(x- $a)^2}\) $BR");
+$questStr6 = EV2("\(\lim_{x\to $a}f(x)\) exists but \(f\) is not continuous at $a. $BR");
+$ansStr6 = EV2("\(f(x)=\left\lbrace\begin{array}{ll}$b x &\mbox{if }x<$a\\ 0   &\mbox{if }x=$a\\ $ab2 - $b x &\mbox{if }x>$a\\ \end{array}\right.\) $BR");
+
+@questions =( $questStr1,$questStr2,$questStr3,$questStr4,$questStr5,$questStr6);
+@answers =( $ansStr1,$ansStr2,$ansStr3,$ansStr4,$ansStr5,$ansStr6);
+@shuffle = &shuffle(scalar(@questions));
+
+TEXT(beginproblem());
+
+BEGIN_TEXT
+Shown below are six statements about functions. Match each statement to one of
+the functions shown below which BEST matches that statement.
+$BR
+END_TEXT
+
+TEXT(
+&match_questions_list(@questions),
+&OL(@answers[@shuffle])
+);
+
+ANS(str_cmp([ @ALPHABET[&invert(@shuffle)] ] ) );
+
+ENDDOCUMENT();
+
+
+
+

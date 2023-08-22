@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setintegrals_approximating_area_using_rectangles/sc5_2_3_mo.pg
+source_file = setintegrals_approximating_area_using_rectangles_-_training/sc5_2_3_mo.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setintegrals_approximating_area_using_rectangles/xsinx_4_rect_RL.pg
+source_file = setintegrals_approximating_area_using_rectangles_-_training/xsinx_4_rect_RL.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setintegrals_approximating_area_using_rectangles/left_and_right_w_comparison.pg
+source_file = setintegrals_approximating_area_using_rectangles_-_training/left_and_right_w_comparison.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setintegrals_approximating_area_using_rectangles/left_right_w_compare_2.pg
+source_file = setintegrals_approximating_area_using_rectangles_-_training/left_right_w_compare_2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setintegrals_approximating_area_using_rectangles/S05.01.AreaDistance.PTP00.pg
+source_file = setintegrals_approximating_area_using_rectangles_-_training/S05.01.AreaDistance.PTP00.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setintegrals_approximating_area_using_rectangles/S05.01.AreaDistance.PTP02.pg
+source_file = setintegrals_approximating_area_using_rectangles_-_training/S05.01.AreaDistance.PTP02.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setintegrals_approximating_area_using_rectangles/sc5_2_3.pg
+source_file = setintegrals_approximating_area_using_rectangles_-_training/sc5_2_3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = setintegrals_approximating_area_using_rectangles/tracogna17.pg
+source_file = setintegrals_approximating_area_using_rectangles_-_training/tracogna17.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

@@ -1,0 +1,117 @@
+## DESCRIPTION
+## intervals of increasing and decreasing; first derivative
+## ENDDESCRIPTION
+
+## Tagged by jjh2b 8/22/06
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Increasing/decreasing functions and local extrema)
+## Date(8/23/07)
+## Institution(Union College)
+## Author(K. Lesh)
+## Level(2)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('1')
+## Section1('4.3')
+## Problem1('25')
+## KEYWORDS('calculus','increasing','decreasing')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Union/setDervIncreaseDecrease/4-2-27.pg 
+#	to setderiv_application_optimization_derivative_tests/4-2-27.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderiv_application_optimization_derivative_tests/4-2-27.pg 
+#	to setgroup_deriv_application_finding_local_optima_formulas_-_no_hints/4-2-27.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGunion.pl",            # Union College utilities
+  "MathObjects.pl",
+  "alignedChoice.pl",      # for aligned answer blanks
+  "PGcourse.pl",           # Customization file for the course
+);
+
+TEXT(beginproblem());
+
+###################################
+# Setup
+
+$r1 = random(-9,-1,2);
+$r2 = random(2,8,2);
+
+$b = ($r1 + $r2);
+$c = -$r1*$r2;
+
+$f=Formula("$c + $b x - x^2")->reduce;
+
+$inc=List(Interval( "(-infinity,$b/2)" ));
+$dec=List(Interval( "($b/2,infinity)"));
+$xrelamaxs=List($b/2);
+$xrelamins=List('NONE');
+
+###################################
+#  Make an aligned list to present Q and A.
+###################################
+
+$al = new_aligned_list(ans_rule_len=>35, numbered=>1, tex_spacing=>"3pt", equals=>0);
+$al->qa(
+  "\(f\) is increasing on the intervals: ",    $inc->cmp,
+  "\(f\) is decreasing on the intervals: ",   $dec->cmp,
+  "The local maximums of \(f\) occur at \(x =\) ",   $xrelamaxs->cmp,
+  "The local minimums of \(f\) occur at \(x =\) ",    $xrelamins->cmp,
+);
+
+###################################
+# Main text
+
+Context()->texStrings;
+BEGIN_TEXT
+Let \( f(x) = $f \).  Find all open intervals on which \( f \) is increasing  and decreasing.  Then determine the \( x\)-coordinates of all local extrema.
+$PAR
+\{$al->print_q\}
+$BR
+$BBOLD Notes:$EBOLD $PAR
+
+In the first two, your answer should be intervals, or the word
+${LQ}none$RQ.
+$BR
+In the last two, your answer should be a comma-separated list of \( x\) values or the word
+${LQ}none$RQ.
+
+END_TEXT
+Context()->normalStrings;
+
+###################################
+# Answer checking
+
+$showPartialCorrectAnswers = 1;
+ANS($al->correct_ans);
+
+
+###################################
+
+
+;
+ENDDOCUMENT();

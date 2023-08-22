@@ -23,7 +23,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 2
-source_file = Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/5_The_Integral/5.1_Approximating_and_Computing_Area/5.1.42.pg
+source_file = setgroup_integrals_summation_notation_level_2_using_formulas_-_no_hints/5.1.42.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/5_The_Integral/5.1_Approximating_and_Computing_Area/5.1.36.pg
+source_file = setgroup_integrals_summation_notation_level_2_using_formulas_-_no_hints/5.1.36.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

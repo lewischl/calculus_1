@@ -1,0 +1,145 @@
+##DESCRIPTION
+## Calculus problem: Newton's Method problem requesting mulitple approximations
+##ENDDESCRIPTION
+
+##KEYWORDS('calculus', 'approximation', 'derivative')
+
+## DBsubject('Calculus')
+## DBchapter('Applications of the Derivative')
+## DBsection('Newtons's Method')
+## Date('8/1/2022')
+## Author('Erich Jauch')
+## Institution('')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('1')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from setExam_2-Team/NewtonsMethodMultipleApproximations.pg 
+#	to setderivatives_and_applications_review_quiz/NewtonsMethodMultipleApproximations.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_and_applications_review_quiz/NewtonsMethodMultipleApproximations.pg 
+#	to setquiz_-_derivatives_and_applications_review_-_problems_same_for_all_students/NewtonsMethodMultipleApproximations.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();      
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   "PGauxiliaryFunctions.pl",
+);
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+SRAND($team_exam2_seed);
+$setseed = "set.seed($team_exam2_seed); $team_exam2_seed";
+
+$n = non_zero_random(-3,3,1);
+if ($n<0) {
+$f = Formula("x^3 - $n*x^2+1")->reduce;
+}
+else {
+$f = Formula("x^3 - $n*x^2-1")->reduce;
+}
+$fprime = $f -> D('x');
+
+$crit = Compute("2*$n/3");
+
+
+@x = ();
+$x[0] = $n;
+
+@f = ();
+@fprime = ();
+
+foreach my $i (0..3) {
+$j = $i+1;
+$f[$i] = $f->eval(x=>$x[$i]);
+$fprime[$i] = $fprime->eval(x=>$x[$i]);
+$x[$j] = $x[$i] - $f[$i]/$fprime[$i];
+}
+
+Context()->variables->add(xn => ['Real',TeX=>"x_n"]);
+$fn = $f->substitute(x => "xn");
+$fprimen = $fprime->substitute(x => "xn");
+
+$x = abs($n)+3;
+
+$y = abs($f -> eval(x => $crit))+3;
+
+$graph1 = GraphWithTikZ(function => [$f],xmin => -$x,xmax => $x,ymin => -$y,ymax => $y,dmin => -$x,dmax => $x,smooth=>'smooth',samples=>400);
+
+##############################################################
+#
+#  Text
+#
+#
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+BEGIN_PGML
+The graph below is the function [`f(x)=[$f]`]
+
+>>[@ image(insertGraph($graph1), width => 300, tex_size=>300) @]*<<
+
+Use Newton's Method to find the first 3 approximations of the real root of [`f`] with an intial value of [`x_0 =[$x[0]]`]. (Use lots of decimal places or exact expressions.)
+
+[`x_1=`] [____]{$x[1]}
+
+[`x_2=`] [____]{$x[2]}
+
+[`x_3=`] [____]{$x[3]}
+END_PGML
+
+##############################################################
+#
+#  Solutions
+#
+#
+BEGIN_PGML_SOLUTION
+We begin that recalling that the Newton's Method says that
+
+[`\displaystyle x_{n+1}=x_n-\frac{f(x_n)}{f^\prime(x_n)}=x_n - \frac{[$fn]}{[$fprimen]}`]
+
+This leads us to our iterative process to find our 3 solutions:
+
+[`\displaystyle x_1= [$x[0]] - \frac{[$f[0]]}{[$fprime[0]]}=[$x[1]]`],
+
+[`\displaystyle x_2= [$x[1]] - \frac{[$f[1]]}{[$fprime[1]]}=[$x[2]]`],
+
+[`\displaystyle x_3= [$x[2]] - \frac{[$f[2]]}{[$fprime[2]]}=[$x[3]]`],
+END_PGML_SOLUTION
+
+ENDDOCUMENT();        

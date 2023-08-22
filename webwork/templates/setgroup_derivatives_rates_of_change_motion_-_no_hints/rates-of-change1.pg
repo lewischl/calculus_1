@@ -1,0 +1,99 @@
+## this file copied from Chris Hlas's Math114 content, Summer 2022, by permission of Chris Hlas
+## this automatic process executed by silviana amethyst
+## original filename local/rates-of-change1.pg
+
+
+
+########################################
+# this file automatically moved
+#	from local/rates-of-change1.pg 
+#	to setderivatives_applied_as_rates_of_change/rates-of-change1.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_applied_as_rates_of_change/rates-of-change1.pg 
+#	to setgroup_derivatives_rates_of_change_motion_-_no_hints/rates-of-change1.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+    "PGbasicmacros.pl",
+    "PGanswermacros.pl",
+    "Parser.pl",
+    "PGML.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$x1 = random(1, 2);
+$x2 = random(2, 5);
+# velocity factored (3t - $x1)(t - $x2)
+$a = 3;
+$b = (3 * -$x2 - $x1)/2;
+$c = $x1 * $x2;
+
+Context('Numeric');
+
+BEGIN_PGML
+A particle moves according to the law of motion
+    [``` s=t^3 ? {[$b]} t^2 + [$c] t, \quad t\ge 0, ```]
+[`t\ge 0`], where [`t`] is measured in seconds and [`s`] in feet.
+
+A. Find the velocity at time [`t`].
+
+    Answer: [_]{fun_cmp("$a*t^2 + 2*$b*t + $c",vars=>['t'])}
+
+B. What is the velocity at [`3`] seconds?
+
+    Answer: [_]{num_cmp("$a*3^2 + 2*$b*3 + $c")}
+
+C. When is the particle at rest? 
+
+    Enter your answer as a comma separated list.  Enter *None* if the particle is never at rest.
+
+    Answer: [_]{Compute("$x1/3, $x2")->cmp}
+
+D. When is the particle moving in the positive direction? 
+
+    When [`0\leq t \lt`] [_]{num_cmp("$x1/3")} 
+    and [`t \gt`] [_]{num_cmp("$x2")}
+
+END_PGML
+
+
+COMMENT('MathObject version');
+ENDDOCUMENT();
+
+##TYPE('word problem')
+##KEYWORDS('derivatives', 'velocity', 'distance')
+##DESCRIPTION
+## Kinematic equations
+##ENDDESCRIPTION
+
+## Shotwell cleaned
+## tcao , PAID on 11-24-2003
+
+## DBsubject('Calculus')
+## DBchapter('Differentiation')
+## DBsection('Rates of Change in the Natural and Social Sciences')
+## Date('6/3/2002')
+## Author('')
+## Institution('')
+## TitleText1('Calculus: Early Transcendentals')
+## EditionText1('6')
+## AuthorText1('Stewart')
+## Section1('3.7')
+## Problem1('3')

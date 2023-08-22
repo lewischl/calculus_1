@@ -23,7 +23,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = Library/UMN/calculusStewartCCC/s_5_3_18.pg
+source_file = setgroup_integrals_definite_FTOC_level_1_-_no_hints/s_5_3_18.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setgroup_integrals_eval_integral_-_no_hints/s5_3_32.pg
+source_file = setgroup_integrals_definite_FTOC_level_1_-_no_hints/s5_3_32.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setgroup_integrals_eval_integral_-_no_hints/Stewart5_5_4_31.pg
+source_file = setgroup_integrals_definite_FTOC_level_1_-_no_hints/Stewart5_5_4_31.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setgroup_integrals_eval_integral_-_no_hints/pr_6.pg
+source_file = setgroup_integrals_definite_FTOC_level_1_-_no_hints/pr_6.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setgroup_integrals_eval_integral_-_no_hints/osu_in_3_2.pg
+source_file = setgroup_integrals_definite_FTOC_level_1_-_no_hints/osu_in_3_2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setgroup_integrals_eval_integral_-_no_hints/6-5-28.pg
+source_file = setgroup_integrals_definite_FTOC_level_1_-_no_hints/6-5-28.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setgroup_integrals_eval_integral_-_no_hints/5-4-30.pg
+source_file = setgroup_integrals_definite_FTOC_level_1_-_no_hints/5-4-30.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -93,7 +93,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = setgroup_integrals_eval_integral_-_no_hints/5-4-19.pg
+source_file = setgroup_integrals_definite_FTOC_level_1_-_no_hints/5-4-19.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -103,7 +103,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 9
-source_file = setintegrals_FTOC_1_for_definite_integrals/integrate_linear.pg
+source_file = setgroup_integrals_definite_FTOC_level_1_-_no_hints/integrate_linear.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -113,7 +113,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 10
-source_file = setintegrals_FTOC_1_for_definite_integrals/integrate_infinite_discontinuity.pg
+source_file = setgroup_integrals_definite_FTOC_level_1_-_no_hints/integrate_infinite_discontinuity.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -123,7 +123,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 11
-source_file = setintegrals_FTOC_1_for_definite_integrals/s4_4_20.pg
+source_file = setgroup_integrals_definite_FTOC_level_1_-_no_hints/s4_4_20.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -133,7 +133,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 12
-source_file = setintegrals_FTOC_1_for_definite_integrals/6-5-18.pg
+source_file = setgroup_integrals_definite_FTOC_level_1_-_no_hints/6-5-18.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -143,7 +143,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 13
-source_file = setintegrals_FTOC_1_for_definite_integrals/6-5-20.pg
+source_file = setgroup_integrals_definite_FTOC_level_1_-_no_hints/6-5-20.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

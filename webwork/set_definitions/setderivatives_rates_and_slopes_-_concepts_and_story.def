@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setderivatives_derivative_basics/deriv_pos_neg.pg
+source_file = setderivatives_rates_and_slopes_-_concepts_and_story/deriv_pos_neg.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setderivatives_derivative_basics/where_f_incr_decr_given_fprime.pg
+source_file = setderivatives_rates_and_slopes_-_concepts_and_story/where_f_incr_decr_given_fprime.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setderivatives_derivative_basics/does_power_apply_TF.pg
+source_file = setderivatives_rates_and_slopes_-_concepts_and_story/does_power_apply_TF.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setderivatives_derivative_basics/where_f_incr_decr_given_fprime_2.pg
+source_file = setderivatives_rates_and_slopes_-_concepts_and_story/where_f_incr_decr_given_fprime_2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setderivatives_derivative_basics/s2_8_13_revised.pg
+source_file = setderivatives_rates_and_slopes_-_concepts_and_story/s2_8_13_revised.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setderivatives_derivative_basics/power_rule_polynomial.pg
+source_file = setderivatives_rates_and_slopes_-_concepts_and_story/power_rule_polynomial.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setderivatives_derivative_basics/s2_1_19.pg
+source_file = setderivatives_rates_and_slopes_-_concepts_and_story/s2_1_19.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = setderivatives_derivative_basics/x_to_the_minus_n.pg
+source_file = setderivatives_rates_and_slopes_-_concepts_and_story/x_to_the_minus_n.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -93,7 +93,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 9
-source_file = setderivatives_derivative_basics/sqrt_x.pg
+source_file = setderivatives_rates_and_slopes_-_concepts_and_story/sqrt_x.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -103,7 +103,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 10
-source_file = setderivatives_derivative_basics/s2_8_7.pg
+source_file = setderivatives_rates_and_slopes_-_concepts_and_story/s2_8_7.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -113,7 +113,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 11
-source_file = setderivatives_derivative_basics/s2_7_7.pg
+source_file = setderivatives_rates_and_slopes_-_concepts_and_story/s2_7_7.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -123,7 +123,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 12
-source_file = setderivatives_derivative_basics/s2_8_9.pg
+source_file = setderivatives_rates_and_slopes_-_concepts_and_story/s2_8_9.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -133,7 +133,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 13
-source_file = setderivatives_derivative_basics/differentiability_implies_continuity_graphically.pg
+source_file = setderivatives_rates_and_slopes_-_concepts_and_story/differentiability_implies_continuity_graphically.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -143,7 +143,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 14
-source_file = setderivatives_derivative_basics/differentiability_implies_continuity_algebraic.pg
+source_file = setderivatives_rates_and_slopes_-_concepts_and_story/differentiability_implies_continuity_algebraic.pg
 value = 1
 max_attempts = -1
 showMeAnother = -2

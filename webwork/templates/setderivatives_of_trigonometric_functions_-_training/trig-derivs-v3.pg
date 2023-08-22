@@ -1,0 +1,61 @@
+
+
+########################################
+# this file automatically moved
+#	from local/chapter3/trig-derivs-v3.pg 
+#	to setderivatives_of_trigonometric_functions/trig-derivs-v3.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_of_trigonometric_functions/trig-derivs-v3.pg 
+#	to setderivatives_of_trigonometric_functions_-_training/trig-derivs-v3.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();  
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+$showPartialCorrectAnswers = 1;
+
+
+$a = random(2,9,1);
+$c = random(2,6,2);
+$d = random(2,4,2);
+if ($d == $c) {$d = 6;}
+
+$ad = $a*$d;
+
+$ans = Compute("$ad / ($c*sin(x)+$d*cos(x))**2");
+
+Context()->texStrings;
+BEGIN_TEXT
+Find the derivative of the function \( \displaystyle f(x)= \frac{$a \sin(x)}{$c \sin(x) + $d \cos(x)}\).
+
+$PAR
+\( f'(x)= \) \{ ans_rule() \}$BR
+$BITALIC(Give an exact answer.)$EITALIC 
+END_TEXT
+Context()->normalStrings;
+
+ANS($ans->cmp);
+
+ENDDOCUMENT();

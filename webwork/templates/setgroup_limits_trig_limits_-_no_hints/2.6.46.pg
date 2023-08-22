@@ -4,9 +4,21 @@
 
 ########################################
 # this file automatically moved
-#	from Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.46.pg 
+#	from local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.46.pg 
+#	to setlimits_of_trigonometric_functions/2.6.46.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_of_trigonometric_functions/2.6.46.pg 
 #	to setgroup_limits_trig_limits_-_no_hints/2.6.46.pg 
-#	on 2023-06-08 15:17:56.142406 by silviana amethyst.
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
 # if this problem uses static images, they should also have been moved from that location to here.
 # if not, look in the source directory for images that didn't make it.
 ########################################
@@ -14,52 +26,43 @@
 
 DOCUMENT();
 
-# Load whatever macros you need for the problem
 loadMacros(
   "PGstandard.pl",
-  "PGchoicemacros.pl",
+  "MathObjects.pl",
   "PGgraphmacros.pl",
-  "freemanMacros.pl",
-  "PGcourse.pl"
+  "PGcourse.pl", 
 );
-
-## DBsubject(Calculus - single variable)
-## DBchapter(Limits and continuity)
-## DBsection(Evaluating limits - trigonometric)
-## Institution(W.H.Freeman)
-## Author(JustAsk!)
-## MLT(limits_trig_one_minus_cosx_over_sinx)
-## MLTleader(1)
-## Level(3)
-## TitleText1('Calculus: Early Transcendentals')
-## AuthorText1('Rogawski')
-## EditionText1('2')
-## Section1('2.6')
-## Problem1('46')
-## KEYWORDS('calculus', 'limits', 'trigonometric functions', 'trigonometric limits')
-
-$showPartialCorrectAnswers = 0;
-$solutionexits=1;
-$a=random(2,9,1);
-$b=random(2,9,1);
+#####################################################################
 
 TEXT(beginproblem());
 
+$showPartialCorrectAnswers = 1;
+
+#####################################################################
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$a=random(2,9,1);
+$b=random(2,9,1);
+
 BEGIN_TEXT
-\{ textbook_ref_exact("Rogawski ET 2e", "2.6","46") \}$BR
-Evaluate the limit:$BR
-\( \lim\limits_{t \to 0} \frac {1 - \cos $a t} {\sin $b t} = \)  \{ ans_rule(6) \}
+Evaluate the limit, if it exists:
 $PAR
+\(\displaystyle\lim_{t \to 0} \frac {1 - \cos($a t)} {\sin($b t)}=\) \{ans_rule(25) \}
+$PAR
+$BITALIC(Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE$EBOLD.)$EITALIC
+
 END_TEXT
 
-SOLUTION(EV3(<<'END_SOLUTION'));
-$BR$BBOLD Solution:$EBOLD 
-$BR
-A single multiplication by \(\frac {$a}{$b} \cdot \frac {$b t}{$a t} \) turns this limit into the quotient of two familiar limits. $BR
-\( \lim\limits_{t \to 0} \frac {1 - \cos $a t} {\sin $b t} = \frac {$a}{$b} \lim\limits_{t \to 0} \frac {$b t} {\sin $b t} \cdot \frac {1 - \cos $a t}{$a t} = \frac {$a}{$b} \cdot 1 \cdot 0 = 0\).
-END_SOLUTION
+#SOLUTION(EV3(<<'END_SOLUTION'));
+#$BR$BBOLD Solution:$EBOLD 
+#$BR
+#A single multiplication by \(\frac {$a}{$b} \cdot \frac {$b t}{$a t} \) turns this limit into the quotient of two familiar limits. $BR
+#\( \lim\limits_{t \to 0} \frac {1 - \cos $a t} {\sin $b t} = \frac {$a}{$b} \lim\limits_{t \to 0} \frac {$b t} {\sin $b t} \cdot \frac {1 - \cos $a t}{$a t} = \frac {$a}{$b} \cdot 1 \cdot 0 = 0\).
+#END_SOLUTION
 
-ANS( num_cmp( 0 ) );
+ANS( Compute("0")->cmp );
 
 ENDDOCUMENT();
 

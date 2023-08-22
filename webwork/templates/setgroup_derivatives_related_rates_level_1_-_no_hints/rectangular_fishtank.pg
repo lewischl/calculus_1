@@ -1,0 +1,114 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by tda2d
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Related rates)
+## Date(6/3/2002)
+## Institution(UCSB)
+## MLT(RelatedRate-ConePile)
+## MLTleader(1)
+## Level(5)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('3.9')
+## Problem1('25')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Rogawski')
+## EditionText2('1')
+## Section2('3.11')
+## Problem2('25')
+## TitleText3('Calculus: Early Transcendentals')
+## AuthorText3('Stewart')
+## EditionText3('5')
+## Section3('3.10')
+## Problem3('23')
+## KEYWORDS('derivative' 'related rates','derivatives', 'related rates','Differentiation','Product','Quotient')
+
+
+
+########################################
+# this file automatically moved
+#	from set3.10_related_rates1/rectangular_fishtank.pg 
+#	to setderivatives_applied_for_related_rates/rectangular_fishtank.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_applied_for_related_rates/rectangular_fishtank.pg 
+#	to setgroup_derivatives_related_rates_level_1_-_no_hints/rectangular_fishtank.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGunion.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+###################################
+# Setup
+
+$v_dot = random(0.5, 1.1, 0.1);
+$a = 3.2;
+$b = 1.1;
+$h = 1.9;
+
+###################################
+# Main text
+
+BEGIN_TEXT
+Consider a large rectangular fish tank with base dimensions \($a \times $b\) feet, which is \($h\) feet tall.
+$BR$BR
+How fast is the water level rising if the water is filling the tank at a rate of \($v_dot\) cubic feet per minute?  (Be exact or use lots of decimal places).
+$BR$BR
+The water level is increasing at \{ans_rule(20) \} ft/min.
+
+$BR$BR
+\{ theresahint \}
+END_TEXT
+###################################
+# Answers
+
+$showPartialCorrectAnswers = 1;
+
+$ans= $v_dot/($a*$b);
+
+ANS(Real($ans)->cmp);
+
+
+BEGIN_HINT
+Write a formula for the volume of the water in terms of the three dimensions.  Two of those dimensions are constant.  
+
+$BR$BR
+
+Take the time derivative.  Plug in known values, and solve for the unknown rate.
+
+$BR$BR
+
+\{ amethystHint("Prof. Amethyst does also have a video that goes closely with this problem: $PAR")\}
+\{ youtubeAmethyst("8lfy0Wa_kYs")\}
+END_HINT
+###################################
+
+
+ENDDOCUMENT();

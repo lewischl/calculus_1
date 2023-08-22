@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = Library/Union/setDervOptimization/4-5-23.pg
+source_file = setgroup_deriv_application_extreme_values_closed_interval_-_no_hints/4-5-23.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = Library/Rochester/setDerivatives10MaxMin/S04.01.MaxMinValues.PTP01.pg
+source_file = setgroup_deriv_application_extreme_values_closed_interval_-_no_hints/S04.01.MaxMinValues.PTP01.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/4_Applications_of_the_Derivative/4.2_Extreme_Values/4.2.19.pg
+source_file = setgroup_deriv_application_extreme_values_closed_interval_-_no_hints/4.2.19.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

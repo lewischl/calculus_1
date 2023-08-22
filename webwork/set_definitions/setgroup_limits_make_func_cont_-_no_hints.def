@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setlimits_continuity/c1s5p5.pg
+source_file = setgroup_limits_make_func_cont_-_no_hints/c1s5p5.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setlimits_continuity/s_2_4_prob03.pg
+source_file = setgroup_limits_make_func_cont_-_no_hints/s_2_4_prob03.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setlimits_extra_practice/3-2-72.pg
+source_file = setgroup_limits_make_func_cont_-_no_hints/3-2-72.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

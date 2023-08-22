@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setderiv_application_linear_approximation/c2s9p7_mo.pg
+source_file = setderiv_application_linear_approximation_-_challenge/c2s9p7_mo.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

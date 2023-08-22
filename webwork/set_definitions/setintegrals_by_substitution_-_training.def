@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setintegrals_by_substitution/indefinite_neg_power1.pg
+source_file = setintegrals_by_substitution_-_training/indefinite_neg_power1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setintegrals_by_substitution/usub_exp_of_polynomial.pg
+source_file = setintegrals_by_substitution_-_training/usub_exp_of_polynomial.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setintegrals_by_substitution/indefinite_trig_1.pg
+source_file = setintegrals_by_substitution_-_training/indefinite_trig_1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setintegrals_by_substitution/sc5_5_8.pg
+source_file = setintegrals_by_substitution_-_training/sc5_5_8.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setintegrals_by_substitution/s_5_5_24.pg
+source_file = setintegrals_by_substitution_-_training/s_5_5_24.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setintegrals_by_substitution/explicit_u_sub.pg
+source_file = setintegrals_by_substitution_-_training/explicit_u_sub.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setintegrals_by_substitution/definite1.pg
+source_file = setintegrals_by_substitution_-_training/definite1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = setintegrals_by_substitution/Stewart5_5_5_59.pg
+source_file = setintegrals_by_substitution_-_training/Stewart5_5_5_59.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -93,7 +93,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 9
-source_file = setintegrals_by_substitution/definite2.pg
+source_file = setintegrals_by_substitution_-_training/definite2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -103,7 +103,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 10
-source_file = setintegrals_by_substitution/definite3.pg
+source_file = setintegrals_by_substitution_-_training/definite3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -113,7 +113,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 11
-source_file = setintegrals_by_substitution/definite4.pg
+source_file = setintegrals_by_substitution_-_training/definite4.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -123,7 +123,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 12
-source_file = setintegrals_by_substitution/definite5.pg
+source_file = setintegrals_by_substitution_-_training/definite5.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -133,7 +133,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 13
-source_file = setintegrals_by_substitution/sc5_5_20.pg
+source_file = setintegrals_by_substitution_-_training/sc5_5_20.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -143,7 +143,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 14
-source_file = setproving_grounds/SubstitutionIntroduction.pg
+source_file = setintegrals_by_substitution_-_training/SubstitutionIntroduction.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

@@ -1,0 +1,66 @@
+
+
+########################################
+# this file automatically moved
+#	from local/chapter2/2-1-estimate-rate-of-change-v2.pg 
+#	to setgroup_limits_and_derivatives_estimate_rate_of_change_-_no_hints/2-1-estimate-rate-of-change-v2.pg 
+#	on 2023-06-08 15:17:56.142406 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setgroup_limits_and_derivatives_estimate_rate_of_change_-_no_hints/2-1-estimate-rate-of-change-v2.pg 
+#	to setgroup_limits_and_derivatives_estimate_instantaneous_rate_of_change_-_no_hints/2-1-estimate-rate-of-change-v2.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+loadMacros("PG.pl",
+           "PGbasicmacros.pl",
+           "MathObjects.pl",
+           "PGanswermacros.pl",
+           "PGauxiliaryFunctions.pl",
+           "PGgraphmacros.pl",
+		   "freemanMacros.pl",
+		   "AnswerFormatHelp.pl",
+           "Parser.pl");
+
+$showPartialCorrectAnswers = 0;
+
+
+TEXT(beginproblem());
+Context("Numeric");
+
+
+$t=random(2,3,1);
+$a=random(2,15,1);
+
+$answ=Real("-$a*e^(-$t*e)");
+
+
+BEGIN_TEXT
+Estimate the slope of the tangent line of the function \(f(x)=$a e^{-x} \) at the point \(x=$t e\).
+
+$PAR 
+The slope of the tangent line at \( x=$t e\) is approximately \{ ans_rule(10) \}.$BR
+${BITALIC}(Give your answer correct to at least three or four decimal places.)$EITALIC
+
+END_TEXT
+
+ANS( $answ->cmp(
+  tolType => 'absolute',
+  tolerance => .001,
+));
+
+
+
+
+ENDDOCUMENT();

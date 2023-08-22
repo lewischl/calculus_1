@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = Library/Utah/Calculus_I/set6_Applications_of_the_Derivative/1210s6p7.pg
+source_file = setgroup_derivatives_slope0_is_horizontal_-_no_hints/1210s6p7.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

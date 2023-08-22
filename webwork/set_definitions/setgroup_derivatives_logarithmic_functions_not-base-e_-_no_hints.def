@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setderivatives_extra_practice/log-and-exp-v2.pg
+source_file = setgroup_derivatives_logarithmic_functions_not-base-e_-_no_hints/log-and-exp-v2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setderivatives_of_logarithmic_functions/deriv_of_log_x_to_the_n.pg
+source_file = setgroup_derivatives_logarithmic_functions_not-base-e_-_no_hints/deriv_of_log_x_to_the_n.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setderivatives_of_logarithmic_functions/sc3_7_2_mo.pg
+source_file = setgroup_derivatives_logarithmic_functions_not-base-e_-_no_hints/sc3_7_2_mo.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setderivatives_of_logarithmic_functions/sum_with_constant.pg
+source_file = setgroup_derivatives_logarithmic_functions_not-base-e_-_no_hints/sum_with_constant.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setderivatives_of_logarithmic_functions/log-and-exp-v1.pg
+source_file = setgroup_derivatives_logarithmic_functions_not-base-e_-_no_hints/log-and-exp-v1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setderivatives_of_logarithmic_functions/product_x_log_to_power.pg
+source_file = setgroup_derivatives_logarithmic_functions_not-base-e_-_no_hints/product_x_log_to_power.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setderivatives_of_logarithmic_functions/log-and-exp-v2.pg
+source_file = setgroup_derivatives_logarithmic_functions_not-base-e_-_no_hints/log-and-exp-v2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = setderivatives_of_logarithmic_functions/ur_dr_13_11.pg
+source_file = setgroup_derivatives_logarithmic_functions_not-base-e_-_no_hints/ur_dr_13_11.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -93,7 +93,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 9
-source_file = setderivatives_of_logarithmic_functions/5-2-24.pg
+source_file = setgroup_derivatives_logarithmic_functions_not-base-e_-_no_hints/5-2-24.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setderiv_application_applied_optimization_level_1/fenced_area.pg
+source_file = setderiv_application_applied_optimization_-_training/fenced_area.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setderiv_application_applied_optimization_level_1/min_perimeter_rectangle.pg
+source_file = setderiv_application_applied_optimization_-_training/min_perimeter_rectangle.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setderiv_application_applied_optimization_level_1/4-5-47.pg
+source_file = setderiv_application_applied_optimization_-_training/4-5-47.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setderiv_application_applied_optimization_level_1/s4_7_3.pg
+source_file = setderiv_application_applied_optimization_-_training/s4_7_3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setderiv_application_applied_optimization_level_1/abstract1.pg
+source_file = setderiv_application_applied_optimization_-_training/abstract1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setderiv_application_applied_optimization_level_1/4-5-48.pg
+source_file = setderiv_application_applied_optimization_-_training/4-5-48.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setderiv_application_applied_optimization_level_1/s3_8_6.pg
+source_file = setderiv_application_applied_optimization_-_training/s3_8_6.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

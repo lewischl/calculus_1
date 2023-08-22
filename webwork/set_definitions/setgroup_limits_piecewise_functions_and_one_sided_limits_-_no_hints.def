@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setgroup_limits_pw_func_one_sided_limits_-_no_hints/s_2_2_7.pg
+source_file = setgroup_limits_piecewise_functions_and_one_sided_limits_-_no_hints/s_2_2_7.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setgroup_limits_pw_func_one_sided_limits_-_no_hints/ns2_2_xx.pg
+source_file = setgroup_limits_piecewise_functions_and_one_sided_limits_-_no_hints/ns2_2_xx.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setgroup_limits_pw_func_one_sided_limits_-_no_hints/stef2_3p3.pg
+source_file = setgroup_limits_piecewise_functions_and_one_sided_limits_-_no_hints/stef2_3p3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setgroup_limits_pw_func_one_sided_limits_-_no_hints/Stewart5_2_3_45.pg
+source_file = setgroup_limits_piecewise_functions_and_one_sided_limits_-_no_hints/Stewart5_2_3_45.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setlimits_extra_practice/APEX_1.4_13.pg
+source_file = setgroup_limits_piecewise_functions_and_one_sided_limits_-_no_hints/APEX_1.4_13.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setlimits_extra_practice/APEX_1.4_18.pg
+source_file = setgroup_limits_piecewise_functions_and_one_sided_limits_-_no_hints/APEX_1.4_18.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setlimits_extra_practice/s_2_4_prob03.pg
+source_file = setgroup_limits_piecewise_functions_and_one_sided_limits_-_no_hints/s_2_4_prob03.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = setlimits_extra_practice/s_2_5_16.pg
+source_file = setgroup_limits_piecewise_functions_and_one_sided_limits_-_no_hints/s_2_5_16.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -93,7 +93,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 9
-source_file = setlimits_extra_practice/ur_lr_3_5.pg
+source_file = setgroup_limits_piecewise_functions_and_one_sided_limits_-_no_hints/ur_lr_3_5.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -103,7 +103,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 10
-source_file = setlimits_extra_practice/prob7.pg
+source_file = setgroup_limits_piecewise_functions_and_one_sided_limits_-_no_hints/prob7.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = Library/Union/setDervVelocity/3-2-66.pg
+source_file = setgroup_derivatives_rates_of_change_motion_-_no_hints/3-2-66.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = Library/Utah/AP_Calculus_I/set2_Derivatives_and_Limits/1210s3p24.pg
+source_file = setgroup_derivatives_rates_of_change_motion_-_no_hints/1210s3p24.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/3_Differentiation/3.4_Rates_of_Change/3.4.27.pg
+source_file = setgroup_derivatives_rates_of_change_motion_-_no_hints/3.4.27.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = Library/UMN/calculusStewartCCC/s_3_1_45.pg
+source_file = setgroup_derivatives_rates_of_change_motion_-_no_hints/s_3_1_45.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setderivatives_applied_as_rates_of_change/rates-of-change1.pg
+source_file = setgroup_derivatives_rates_of_change_motion_-_no_hints/rates-of-change1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setderivatives_applied_as_rates_of_change/s3_3_3_mo.pg
+source_file = setgroup_derivatives_rates_of_change_motion_-_no_hints/s3_3_3_mo.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setderivatives_applied_as_rates_of_change/s3_3_7_mo.pg
+source_file = setgroup_derivatives_rates_of_change_motion_-_no_hints/s3_3_7_mo.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setgroup_limits_compute_limit_-_no_hints/3-2-30a.pg
+source_file = setgroup_limits_compute_limit_not_indeterminate_form_-_no_hints/3-2-30a.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setgroup_limits_compute_limit_-_no_hints/s1_3_6.pg
+source_file = setgroup_limits_compute_limit_not_indeterminate_form_-_no_hints/s1_3_6.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setgroup_limits_compute_limit_-_no_hints/3-2-51.pg
+source_file = setgroup_limits_compute_limit_not_indeterminate_form_-_no_hints/3-2-51.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setgroup_limits_compute_limit_-_no_hints/3-2-25.pg
+source_file = setgroup_limits_compute_limit_not_indeterminate_form_-_no_hints/3-2-25.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setgroup_limits_compute_limit_-_no_hints/3-2-30.pg
+source_file = setgroup_limits_compute_limit_not_indeterminate_form_-_no_hints/3-2-30.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setgroup_limits_compute_limit_-_no_hints/s1_3_12.pg
+source_file = setgroup_limits_compute_limit_not_indeterminate_form_-_no_hints/s1_3_12.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setlimits_extra_practice/s_2_3_12.pg
+source_file = setgroup_limits_compute_limit_not_indeterminate_form_-_no_hints/s_2_3_12.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = setlimits_extra_practice/3-2-26.pg
+source_file = setgroup_limits_compute_limit_not_indeterminate_form_-_no_hints/3-2-26.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -93,7 +93,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 9
-source_file = setlimits_extra_practice/2.4.77.pg
+source_file = setgroup_limits_compute_limit_not_indeterminate_form_-_no_hints/2.4.77.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -103,7 +103,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 10
-source_file = setlimits_extra_practice/2-3-37.pg
+source_file = setgroup_limits_compute_limit_not_indeterminate_form_-_no_hints/2-3-37.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

@@ -23,7 +23,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setintegrals_FTOC_2_for_derivatives_of_integral_functions/der_func_def_int_x_lower_limit.pg
+source_file = setgroup_integrals_derivatives_of_integral_functions_level_1_-_no_hints/der_func_def_int_x_lower_limit.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setintegrals_FTOC_2_for_derivatives_of_integral_functions/second_deriv_func_def_by_int.pg
+source_file = setgroup_integrals_derivatives_of_integral_functions_level_1_-_no_hints/second_deriv_func_def_by_int.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setintegrals_FTOC_2_for_derivatives_of_integral_functions/sc5_4_14.pg
+source_file = setgroup_integrals_derivatives_of_integral_functions_level_1_-_no_hints/sc5_4_14.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setintegrals_FTOC_2_for_derivatives_of_integral_functions/sc5_4_12.pg
+source_file = setgroup_integrals_derivatives_of_integral_functions_level_1_-_no_hints/sc5_4_12.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

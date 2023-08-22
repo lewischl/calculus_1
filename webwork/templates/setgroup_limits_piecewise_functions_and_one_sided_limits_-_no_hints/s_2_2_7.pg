@@ -1,0 +1,114 @@
+#DESCRIPTION
+##  Calculus: Limits of Functions
+##ENDDESCRIPTION
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(One-sided limits - concept of)
+## Date(08/29/2010)
+## Institution(University of Minnesota)
+## Author(Justin Sukiennik)
+## MLT(limits_one_sided_three_line_spline)
+## MLTleader(1)
+## Level(2)
+## MO(1)
+## TitleText1('Calculus: Concepts and Contexts')
+## AuthorText1('Stewart')
+## EditionText1('4 Custom UMTYMP Ed.')
+## Section1('2.2')
+## Problem1('7')
+## KEYWORDS('calculus', 'function', 'limit', 'piecewise function')
+
+#####################################################################
+
+
+########################################
+# this file automatically moved
+#	from local/Library/UMN/calculusStewartCCC/s_2_2_7.pg 
+#	to setgroup_limits_pw_func_one_sided_limits_-_no_hints/s_2_2_7.pg 
+#	on 2023-06-08 15:17:56.142406 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setgroup_limits_pw_func_one_sided_limits_-_no_hints/s_2_2_7.pg 
+#	to setgroup_limits_piecewise_functions_and_one_sided_limits_-_no_hints/s_2_2_7.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl", 
+);
+#####################################################################
+
+TEXT(beginproblem());
+
+install_problem_grader(~~&std_problem_grader);
+
+$showPartialCorrectAnswers = 0;
+
+#####################################################################
+
+$a = random(1,5,1);
+$b = random(1,5,1);
+
+$c = Compute("2+$b");
+
+###############################################################
+
+$ans1 = -1-$a;
+$ans2 = 1+$b;
+$ans3 = "DNE";
+$ans4 = 1+$b;
+$ans5 = -1-$a;
+
+###############################################################
+Context()->texStrings;
+
+BEGIN_TEXT
+Sketch the graph of the following function and use it to determine the following limits.  If a limit $BITALIC does not exist, $EITALIC type ${BBOLD}DNE${EBOLD}.
+\[
+f(x) = 
+\begin{cases}
+x-$a, &\text{for } x \le -1 \\
+x^2+$b, &\text{for } -1 < x \le 1 \\
+$c-x, &\text{for } x > 1
+\end{cases}
+\]
+$HR
+$BBOLD 1. $EBOLD \(\displaystyle \lim_{x \to -1^{-}}f(x) = \) \{ans_rule(20)\}
+$PAR
+$BBOLD 2. $EBOLD  \(\displaystyle \lim_{x \to -1^{+}}f(x) = \) \{ans_rule(20)\}
+$PAR
+$BBOLD 3. $EBOLD  \(\displaystyle \lim_{x \to -1}f(x) = \) \{ans_rule(20)\}
+$PAR
+$BBOLD 4. $EBOLD  \(\displaystyle \lim_{x \to 1}f(x) = \) \{ans_rule(20)\}
+$PAR
+$BBOLD 5. $EBOLD  \(\displaystyle f(-1) = \) \{ans_rule(20)\}
+$HR
+END_TEXT
+
+Context()->normalStrings;
+
+#####################################################################
+
+ANS( Compute("$ans1")->cmp );
+ANS( Compute("$ans2")->cmp );
+ANS( Compute("$ans3")->cmp );
+ANS( Compute("$ans4")->cmp );
+ANS( Compute("$ans5")->cmp );
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

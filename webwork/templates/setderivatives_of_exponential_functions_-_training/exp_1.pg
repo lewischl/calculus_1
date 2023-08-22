@@ -1,0 +1,116 @@
+##DESCRIPTION
+##  Algebra problem: true or false for inequality 
+##ENDDESCRIPTION
+
+##KEYWORDS('algebra', 'inequality', 'fraction')
+
+## DBsubject('Algebra')
+## DBchapter('Fundamentals')
+## DBsection('Real Numbers')
+## Date('6/3/2002')
+## Author('')
+## Institution('')
+## TitleText1('Precalculus')
+## EditionText1('3')
+## AuthorText1('Stewart, Redlin, Watson')
+## Section1('1.1')
+## Problem1('22')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set3.9_exp_derivatives/exp_1.pg 
+#	to setderivatives_of_exponential_functions/exp_1.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_of_exponential_functions/exp_1.pg 
+#	to setderivatives_of_exponential_functions_-_training/exp_1.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();      
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "PGcourse.pl",
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+
+
+
+
+##############################################################
+#
+#  Text
+#
+#
+Context("Numeric");
+Context()->texStrings;
+
+
+$a = random(2,15,1);
+
+
+$f_prime = Formula( "ln($a)* $a**x");
+
+BEGIN_TEXT
+Find the derivative of 
+$BR$BR
+\(f(x) = $a^x\)
+
+$BR$BR
+\( f'(x) = \) \{ ans_rule(50) \}
+
+$BR$BR
+
+\{ theresahint \}
+END_TEXT
+
+
+BEGIN_HINT
+The general rule for exponentials is \(\frac{d}{dx} b^x = \ln(b) b^x \).
+
+\{amethystHint("$PAR$HR$PAR Check out this video from Prof. Amethyst about derivatives of exponential functions:$BR$BR")\}
+
+\{ youtubeAmethyst("EpxyT34-OXM") \}
+
+END_HINT
+
+
+##############################################################
+#
+#  Answers
+#
+#
+
+ANS($f_prime->cmp);
+#Context()->normalStrings;
+
+ENDDOCUMENT();        

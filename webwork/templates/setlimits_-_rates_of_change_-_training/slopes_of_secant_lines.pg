@@ -1,0 +1,263 @@
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Motivational applications (estimation))
+## Level(3)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('2.1')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Rogawski')
+## EditionText2('1')
+## Section2('2.1')
+## Problem2('19')
+## KEYWORDS('secant lines', 'tangent line')
+## Author('further modified by silviana amethyst')
+
+
+########################################
+# this file automatically moved
+#	from local/Library/ma122DB/set1/s1_1_4.pg 
+#	to setlimits_average_rates_of_change/s1_1_4.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_average_rates_of_change/slopes_of_secant_lines.pg 
+#	to setlimits_-_rates_of_change_-_training/slopes_of_secant_lines.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PGcourse.pl",
+"PGbasicmacros.pl",
+"PGanswermacros.pl",
+"PGauxiliaryFunctions.pl"
+);
+
+loadMacros("customCSS.pl");
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a1 = random(2,5,1);
+$b1= random(2,5,1);
+$nice_x0 = "1/$b1";
+$nice_y0 = "$a1*$b1";
+$x0 = 1/$b1;
+$y0 = $a1*$b1;
+$x1 = $x0 + 0.1;
+$x01 = $x0 + 0.01;
+$x9 =  $x0 - 0.1;
+$x99 = $x0- 0.01;
+
+
+
+
+################################
+#  Desmos setup
+#
+#  In html mode, load the Desmos api script and create the <div> to attach the Desmos graph to.
+#  In tex mode, print a message to direct the student to the html version.
+#  Desmos API reference: https://www.desmos.com/api/v1.7/docs/index.html
+
+
+$unique_div_id = "secant_line_graph";
+$width = 700;
+$height = 400;
+
+HEADER_TEXT(MODES(
+    HTML=>'<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
+    TeX=>''
+));
+
+$desmos_div = MODES(
+    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
+    TeX=>'Interactive graph best viewed online'
+);
+
+
+
+
+
+BEGIN_TEXT
+
+\{ openDiv({ "class" => "problemPurpose" }) \}
+Secant lines are lines that are defined by two points on the graph of a function.  This problem teaches you to compute slopes of secant lines.  
+\{ closeDiv() \}
+
+
+$PAR $HR $PAR
+
+\{ openDiv({ "class" => "trainingProblemStatement" }) \}
+In this problem, you'll be computing slopes of \{ htmlLink("https://mathworld.wolfram.com/SecantLine.html", "secant lines") \}, on the graph of the function
+
+\[
+y = \frac{$a1}{x}
+\]
+\{ closeDiv() \}
+
+The function is a \{ htmlLink( "https://undergroundmathematics.org/glossary/hyperbola", "hyperbola" ) \} with a vertical asymptote at \(x = 0\), because the denominator is \(0\) at that point (and there's no matching zero in the numerator -- the issue is complicated!).
+
+END_TEXT
+
+BEGIN_PGML
+
+---
+
+When we talk about [@ htmlLink("https://mathworld.wolfram.com/SecantLine.html", "secant lines") @]*, we often fix one of the two points that define the line.  I like to call that point the *fixed point*, *base point*, or *point of interest*.  A second point moves, but one of them stays the same.  (Doing this provides a bridge to talking about the method for defining tangent lines).
+
+END_PGML
+
+BEGIN_TEXT
+
+Take the point \(P\) to be the fixed point for this problem.  It must line on the graph, so giving you the \(x\)-value also gives you the \(y\)-value.  Just evaluate the function.
+
+$PAR
+
+Let \(x_0 = $x0\).  Then the fixed point has coordinates \(P = ($x0, \) \{ans_rule(10)\} \()\)
+
+$PAR
+$HR
+$PAR
+
+Let the $BBOLD moving point $EBOLD  be called \( Q \), and we'll denote its coordinates as \( (x_1, y(x_1) ) .\)  
+
+\{ openDiv( {"class" => "inProblemHint"} ) \}
+Note that \(y(x_1)\) in the second coordinate of \(Q\) means function evaluation, not multiplication by \(x_1\).  We use parentheses to denote function evaluation sometimes, and multiplication at other times.  I wish they had different symbols, but alas, they don't right now.
+\{ closeDiv() \}
+
+
+$PAR
+
+END_TEXT
+
+ANS(num_cmp($y0));
+
+BEGIN_TEXT
+
+$PAR
+$HR
+$PAR
+
+\{ openDiv( {"class" => "promptOrInstruction"} ) \}
+Find the slope of the secant line \( PQ \) for the following values of \( x_1 \). Remember that slope of a line is always defined using "rise over run".  Compute the difference of the \(y\)-coordinates, and divide by the difference of the \(x\)-coordinates.
+\{ closeDiv() \}
+
+$PAR
+
+These first two have the moving point \(Q\) to the right of \(P\).  This means the value of \(\Delta x\) is positive. $PAR
+
+If \( x_1= $x1 \), the slope of the secant line through \( P\) and \(Q \) is: \{ans_rule(25) \} $BR
+
+If \( x_1= $x01 \), the slope of the secant line is: \{ans_rule(25)\} $BR
+$PAR
+
+These next two have the moving point \(Q\) to the left of \(P\).  This means the value of \(\Delta x\) is negative.  Negative values of \(\Delta x\) mean the second point is to the left.$PAR
+
+
+If \( x_1= $x9 \), the slope of the secant line is: \{ans_rule(25)\} $BR
+
+
+If \( x_1= $x99 \), the slope of the secant line is: \{ans_rule(25) \} $BR$BR
+
+
+
+\{ openDiv( {"class" => "inProblemHint"} ) \}
+(Use lots of decimal places!!!)
+\{ closeDiv() \}
+
+
+$PAR
+$HR  $PAR
+
+
+
+$PAR
+
+Here's an interactive Desmos graph that lets you control the moving point, keeping the \(P\) fixed.  Notice how the secant lines "point down", suggesting that all the requested slopes are negative...
+
+
+\{ $desmos_div \}
+
+
+$PAR
+\{ theresahint \}
+
+END_TEXT
+
+$ans1 ="-$a1/($x0*$x1)";
+$ans2 ="-$a1/($x0*$x01)";
+$ans3 ="-$a1/($x0*$x9)";
+$ans4 ="-$a1/($x0*$x99)";
+
+
+ANS(num_cmp($ans1));
+ANS(num_cmp($ans2));
+ANS(num_cmp($ans3));
+ANS(num_cmp($ans4));
+
+BEGIN_HINT
+
+Here's a diagram you'll hopefully find helpful, for a particular function \(y = y(x) = 6/x\).  The number in your numerator is probably different.
+
+$PAR
+
+\{ image( "plot_PQ_n_over_x.jpg", width=>800,  
+tex_size=>700, extra_html_tags=>'alt="A graph of the function 6/x, with two marked points P and Q.  The points are separated by distance ∆x = 0.1.  There is a secant line through P and Q, and the image computes the slope of the secant line through the two points."' ) \}
+
+
+END_HINT
+
+
+
+TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
+<script>
+
+    var arstarst = document.getElementById("$unique_div_id");
+
+    var my_calculator = Desmos.Calculator(arstarst, {
+        keypad: false, 
+        expressions: true,
+        settingsMenu: true, 
+        expressionsTopbar: true
+    });
+
+    my_calculator.setExpressions([
+        { id: 'y', latex: 'f(x)=$a1/x'},
+        { id: 'base_point', latex: '($x0, f($x0))', label: 'point of interest'},
+        { id: 'x1', latex: 'x_1 = $x1'},
+        { id: 'moving_point', latex: '(x_1, f(x_1))', label: 'moving point'},
+        { id: 'secant_line', latex: 'y = (f(x_1)-f($x0))/(x_1-$x0)*(x-$x0) + f($x0)', label: 'secant line'},
+    ]);
+    
+    my_calculator.setMathBounds({
+      left: -2,
+      right: 10,
+      bottom: -2,
+      top: 15
+    });
+    
+    my_calculator.updateSettings({ fontSize: Desmos.FontSizes.SMALL });
+    
+    var state = my_calculator.getState();
+</script>
+END_SCRIPT
+
+
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.
+

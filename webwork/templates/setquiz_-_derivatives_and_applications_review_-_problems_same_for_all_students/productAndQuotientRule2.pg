@@ -1,0 +1,104 @@
+##DESCRIPTION
+##  Product and Quotient rule: Product divided by another function without specific functions
+##ENDDESCRIPTION
+
+##KEYWORDS('derivatives', 'product rule', 'quotient rule')
+
+## DBsubject('Calculus')
+## DBchapter('Derivatives')
+## DBsection('Product and Quotient Rule')
+## Date('10/24/22')
+## Author('Erich Jauch')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from setExam_2-Team/productAndQuotientRule2.pg 
+#	to setderivatives_and_applications_review_quiz/productAndQuotientRule2.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_and_applications_review_quiz/productAndQuotientRule2.pg 
+#	to setquiz_-_derivatives_and_applications_review_-_problems_same_for_all_students/productAndQuotientRule2.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+SRAND($team_exam2_seed);
+$setseed = "set.seed($team_exam2_seed); $team_exam2_seed";
+
+$a = random(-4,4,1);
+
+@f = ();
+
+$f[0] = random(-7,7,1);
+$f[1] = random(-7,7,1);
+$f[2] = non_zero_random(-7,7,1);
+
+@df = ();
+
+$df[0] = random(-7,7,1);
+$df[1] = random(-7,7,1);
+$df[2] = random(-7,7,1);
+
+$ans = Compute("(($df[0]*$f[1]+$f[0]*$df[1])*$f[2] - $f[0]*$f[1]*$df[2])/($f[2])^2");
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+
+Consider the following composite function [`h`]:
+
+>>[``h(x) = \frac{f(x)g(x)}{k(x)}``]<<
+
+Find the numerical value of [`h^\prime([$a])`] given that 
+
+[` \begin{aligned} f([$a]) =& [$f[0]] &   f^\prime([$a])=& [$df[0]]  \\ g([$a]) =& [$f[1]]  & g^\prime([$a]) =& [$df[1]] \\ k([$a]) =& [$f[2]] &  k^\prime([$a]) =& [$df[2]] \end{aligned} `].
+
+---
+
+[`h^\prime([$a])=`] [_____]{$ans}
+END_PGML
+
+ENDDOCUMENT();

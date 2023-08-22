@@ -1,0 +1,59 @@
+
+
+########################################
+# this file automatically moved
+#	from local/Library/ma122DB/set4/s3_3_13.pg 
+#	to setderivatives_applied_as_rates_of_change/s3_3_13.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_applied_as_rates_of_change/s3_3_13.pg 
+#	to setderivatives_applied_as_rates_of_change_-_training/s3_3_13.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"uwecAhrendt.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+$showPartialCorrectAnswers = 1;
+
+$a1 = random(3,17,1);
+$b1 = random(3,17,1);
+
+BEGIN_TEXT
+A spherical balloon is being inflated. Find the rate of change of the surface
+area of the balloon with respect to the radius \(r\) when \(r\) equals each of the following values:
+
+$PAR
+(Note that the surface area of a sphere is given by \(S(r)=4\pi r^2\). )
+$PAR
+\(r=$a1\): \{ans_rule(20) \} units area per unit radius$BR
+\(r=$b1\): \{ans_rule(20) \} units area per unit radius
+
+END_TEXT
+
+$c1 = 8*$a1;
+$c2 = 8*$b1;
+
+#$ans1 = "8*pi*$a1";
+#$ans2 = "8*pi*$b1";
+ANS(Compute("$c1*pi")->cmp);
+ANS(Compute("$c2*pi")->cmp);
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

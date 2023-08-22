@@ -1,0 +1,142 @@
+## DBsubject(Algebra)
+## DBchapter(Functions)
+## DBsection(Compositions and combinations of functions)
+## Institution(Univeristy of Utah)
+## Author(Utah ww group)
+## MLT(ccf-subs-comp-lin-frac)
+## MLTleader(1)
+## Level(2)
+## Static(1)
+## TitleText1('Precalculus')
+## AuthorText1('Ron Larson and Robert  Hostetler')
+## EditionText1('7')
+## Section1('.')
+## Problem1('')
+## TitleText2('Mathematical Applications')
+## AuthorText2('Ronald J. Harshbarger and James J. Reynolds')
+## EditionText2('8')
+## Section2('.')
+## Problem2('')
+## KEYWORDS('algebra')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Utah/College_Algebra/set5_Functions_and_Their_Graphs/1050s5p17.pg 
+#	to setreview_simplifying/1050s5p17.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setreview_simplifying/1050s5p17.pg 
+#	to setbackground_-_training_-_function_composition/1050s5p17.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl",
+  "PGML.pl",
+  "customCSS.pl",
+);
+
+#install_problem_grader(~~&std_problem_grader);
+TEXT(beginproblem());
+#$showPartialCorrectAnswers = 0;
+#$showPartialCredit = 0;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Function composition, or when we use one function's output as the input to another, is a really common operation in this class.
+
+
+
+This problem asks you to remember about function evaluation and function composition.
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+There are several ways of denoting function composition:
+
+* [` f(g(x)) = (f \circ g) (x)`].  This form explicitly notes the name of the variable is [`x`].
+* [` f(g) = f \circ g`].  This form suppresses the name of the variable.
+* [`f(g(2)) = (f \circ g) (2)`].  This means to compose [`g`] into [`f`], and then evaluate at [`2`].
+[@ closeDiv() @]*
+
+
+And I remind you, there's also function evaluation:
+* [`f(3)`] means evaluate [`f`] at input with value [`3`].
+
+For example, if 
+* [`p(x) = 3x^2`] and 
+* [`q(x) = 14-x`], 
+
+then we can compose in two orders: 
+* [`p(q(x)) = p(q) = 3(14-x)^2`]
+* [`q(p(x)) = q(p) = 14-3x^2`]
+
+See how different they are!  So, function composition puts old functions together into new ones.
+
+---
+
+I offer you a video on function composition: 
+
+[@ youtube(ZFPkQkURSxk)@]* 
+
+---
+
+Prefer a webpage reminder of how to work with function composition?  Check out
+[@ htmlLink( "https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:composite/x9e81a4f98389efdf:composing/v/function-composition", "this Khan Academy page about composition." ) @]*
+
+
+---
+
+
+[@ openDiv({ "class" => "trainingProblemStatement" }) @]*
+
+Suppose  [```f(x) = \frac{x}{x+1}.```]
+
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Evaluate or compose.
+[@ closeDiv() @]*
+
+
+
+* [`f(1) = `]  [@ ans_rule(18) @]*  
+* [`f(t) =  `] [@ ans_rule(18) @]* 
+* [`f(x^2) =  `] [@ ans_rule(18) @]*  
+* [`f(f(x)) =  `] [@ ans_rule(18) @]*
+
+
+END_PGML
+
+
+ANS(num_cmp(1/2));
+ANS(fun_cmp("t/(t+1)", limits=>[[2,3]], vars=>["t"]));
+ANS(fun_cmp("x^2/(x^2 +1)", vars=>["x"]));
+ANS(fun_cmp("x/(2*x+1)", limits=>[[1,3]], vars=>["x"]));
+
+
+
+
+
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

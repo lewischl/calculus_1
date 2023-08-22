@@ -1,0 +1,74 @@
+#based on: Library/UMN/calculusStewartCCC/s_3_1_42.pg
+
+
+#####################################################################
+
+
+########################################
+# this file automatically moved
+#	from local/Library/UMN/calculusStewartCCC/s_3_1_42.pg 
+#	to setderivatives_higher_order_derivatives/s_3_1_42.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_higher_order_derivatives/s_3_1_42.pg 
+#	to setderivatives_higher_order_derivatives_-_training/s_3_1_42.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGgraphmacros.pl",
+  "PGcourse.pl"
+);
+#####################################################################
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+
+#####################################################################
+
+Context("Numeric");
+Context()->variables->are(r=>'Real');
+Context()->variables->set(r=>{limits=>[0.01,6]});
+
+$a = random(3,5,1);
+$b = Compute("$a-1");
+
+$a2 = $a**2;
+$bma = -$b-$a;
+
+$ans1 = Compute("(1/2)*(1/sqrt(r))+(1/$a)*r^(-$b/$a)");
+$ans2 = Compute("-(1/4)*r^(-3/2)-($b/$a2)*r^(($bma)/$a)");
+
+#####################################################################
+Context()->texStrings;
+BEGIN_TEXT
+Let \(G(r) = \sqrt{r} +\sqrt[$a]{r}.\)  Compute each of the following derivatives:
+
+$PAR
+\(G'(r) = \) \{ans_rule(30)\}$BR
+\(G''(r) =\) \{ans_rule(30)\}
+END_TEXT
+Context()->normalStrings;
+
+#####################################################################
+
+ANS($ans1->cmp());
+ANS($ans2->cmp());
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

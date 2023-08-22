@@ -1,0 +1,115 @@
+##DESCRIPTION
+##  Calculus problem: Use the integral of a rate function to answer a basic applied integration problem.
+##ENDDESCRIPTION
+
+##KEYWORDS('Oil Leaking', 'Net Change', "Definite Integral")
+
+## DBsubject('Calculus')
+## DBchapter('Integration')
+## DBsection('Net Change as the Integral of a Rate of Change')
+## Date('8/19/2022')
+## Author('silviana amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from my_problems/5.6_net-change/oil_leaking.pg 
+#	to setintegrals_applied_as_net_change/oil_leaking.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_applied_as_net_change/oil_leaking.pg 
+#	to setintegrals_applied_as_net_change_-_training/oil_leaking.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+Context()->variables->add(t => 'Real');
+
+
+$start = 0; # lower bound is always 0
+$end = random(100,200,10); # end time, upper bound 
+
+$constant = random(4.5,9.5,1);
+$linear = random(3,10,1);
+
+$rate = Formula("$constant + $linear * t")->reduce;
+$integralofrate = Formula("$constant*t + $linear / 2 * t^2")->reduce;
+
+$ratecost = random(100,300,5); 
+$basecost = random(20000,40000,2000); 
+
+$c1 = $integralofrate->eval(t=>$start);
+$c2 = $integralofrate->eval(t=>$end);
+
+$ans1 = Compute("$c2-$c1")->reduce;
+$ans2 = Compute("$ans1 * $ratecost + $basecost")->reduce;
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+Oil is leaking from a large drum, which has been improperly disposed of in the woods, contaminating the soil.  The rate of leakage is [`r(t) = [$rate]`] mL / day.
+
+
+---
+
+
+A. How many mL of oil leaks in the first [$end] days?  [_____]{num_cmp($ans1)}
+
+B. The financial cleanup cost for this spill is $[$ratecost] dollars per mL, plus a base administrative cost of $[$basecost].  How much does it cost to clean up the spill, if the drum is removed, and oil stops leaking, at [$end] days? [_____]{num_cmp($ans2)}
+
+---
+
+Note that the taxpayers (and the environment) will likely bear the cost of cleanup -- the company will simply "go out of business"...
+END_PGML
+
+
+
+ENDDOCUMENT();
+
+
+BEGIN_PGML_HINT
+A. Recall that the FTOC says that [`\displaystyle\int_a^b C^\prime(x)~dx=C(b)-C(a)`]
+
+B. Setup costs would represent that cost associated to [`0`] units produced. Said another way,
+[`C(0)=[$setupcost]`].
+END_PGML_HINT

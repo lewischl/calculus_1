@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setlimits_introducing_limits/ur_lr_1-5_1_mo.pg
+source_file = setlimits_introducing_limits_-_training_-_graphical_limits/ur_lr_1-5_1_mo.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setlimits_introducing_limits/3-2-36.pg
+source_file = setlimits_introducing_limits_-_training_-_graphical_limits/3-2-36.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setlimits_introducing_limits/s_2_5_3.pg
+source_file = setlimits_introducing_limits_-_training_-_graphical_limits/s_2_5_3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setlimits_introducing_limits/ur_lr_1-5_1.pg
+source_file = setlimits_introducing_limits_-_training_-_graphical_limits/ur_lr_1-5_1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setlimits_introducing_limits/many_limits_graphical.pg
+source_file = setlimits_introducing_limits_-_training_-_graphical_limits/many_limits_graphical.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setlimits_extra_practice/s_2_2_5.pg
+source_file = setlimits_introducing_limits_-_training_-_graphical_limits/s_2_2_5.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setlimits_extra_practice/graphs.pg
+source_file = setlimits_introducing_limits_-_training_-_graphical_limits/graphs.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -83,7 +83,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 8
-source_file = setlimits_extra_practice/APEX_1.6_12.pg
+source_file = setlimits_introducing_limits_-_training_-_graphical_limits/APEX_1.6_12.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -93,7 +93,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 9
-source_file = setlimits_extra_practice/preview_1_2_c.pg
+source_file = setlimits_introducing_limits_-_training_-_graphical_limits/preview_1_2_c.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

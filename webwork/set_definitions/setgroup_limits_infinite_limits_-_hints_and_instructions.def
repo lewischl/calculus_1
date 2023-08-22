@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = Library/270/setLimitsRates3Infinite/ur_lr_3_18.pg
+source_file = setgroup_limits_infinite_limits_-_hints_and_instructions/ur_lr_3_18.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

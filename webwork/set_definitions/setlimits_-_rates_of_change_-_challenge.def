@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setlimits_average_rates_of_change/s1_1_4.pg
+source_file = setlimits_-_rates_of_change_-_challenge/s1_1_4.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setlimits_average_rates_of_change/s1_1_5.pg
+source_file = setlimits_-_rates_of_change_-_challenge/s1_1_5.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setlimits_average_rates_of_change/average-rate-of-change-2.pg
+source_file = setlimits_-_rates_of_change_-_challenge/average-rate-of-change-2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -43,7 +43,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 4
-source_file = setlimits_average_rates_of_change/2.1.6.pg
+source_file = setlimits_-_rates_of_change_-_challenge/2.1.6.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setlimits_average_rates_of_change/average-rate-of-change-1.pg
+source_file = setlimits_-_rates_of_change_-_challenge/average-rate-of-change-1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setlimits_extra_practice/Stewart5_2_1_6.pg
+source_file = setlimits_-_rates_of_change_-_challenge/Stewart5_2_1_6.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -73,7 +73,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 7
-source_file = setlimits_extra_practice/Stewart5_2_1_7.pg
+source_file = setlimits_-_rates_of_change_-_challenge/Stewart5_2_1_7.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

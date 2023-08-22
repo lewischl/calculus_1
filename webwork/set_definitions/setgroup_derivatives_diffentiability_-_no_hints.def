@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = Library/UMN/calculusStewartCCC/s_2_7_38.pg
+source_file = setgroup_derivatives_diffentiability_-_no_hints/s_2_7_38.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setderivatives_derivative_basics/differentiability_implies_continuity_algebraic.pg
+source_file = setgroup_derivatives_diffentiability_-_no_hints/differentiability_implies_continuity_algebraic.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setderivatives_derivative_basics/differentiability_implies_continuity_graphically.pg
+source_file = setgroup_derivatives_diffentiability_-_no_hints/differentiability_implies_continuity_graphically.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1

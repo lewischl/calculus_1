@@ -13,7 +13,7 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setproof_by_induction/induction-i.pg
+source_file = setproof_-_by_induction_-_challenge/induction-i.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -23,7 +23,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 2
-source_file = setproof_by_induction/induction-ii.pg
+source_file = setproof_-_by_induction_-_challenge/induction-ii.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -33,7 +33,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 3
-source_file = setproof_by_induction/induction-iii.pg
+source_file = setproof_-_by_induction_-_challenge/induction-iii.pg
 value = 1
 max_attempts = -1
 showMeAnother = -2

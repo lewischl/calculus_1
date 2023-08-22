@@ -1,0 +1,80 @@
+## DESCRIPTION
+## Calculus: Limits and Derivatives
+## ENDDESCRIPTION
+
+## Tagged by LD
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Rules of limits - basic)
+## Date(5/26/2005)
+## Institution(UCSB)
+## Author(Jeff Holt)
+## Level(2)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('2.3')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('2.3')
+## Problem2('')
+## KEYWORDS('limits', 'derivatives','Product','Quotient','Differentiation')
+
+
+
+
+########################################
+# this file automatically moved
+#	from Library/UVA-Stew5e/setUVA-Stew5e-C02S03-CalcLimits/2-3-37.pg 
+#	to setlimits_extra_practice/2-3-37.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_extra_practice/2-3-37.pg 
+#	to setlimits_introducing_limits_-_training_-_limits_with_formulas/2-3-37.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a = random(1,8,1);
+$b=-$a;
+
+BEGIN_TEXT
+Evaluate the limit
+\[ \lim_{ x \rightarrow $b } |x + $a|\]
+Enter $BBOLD Inf $EBOLD for \(\infty\), $BBOLD -Inf $EBOLD for \(-\infty\),
+and $BBOLD DNE $EBOLD if the limit does not exist.
+$PAR Limit = \{ans_rule(25) \}
+$BR
+END_TEXT
+
+$ans = (0);
+#ANS(num_cmp($ans,strings=>["I","-I","DNE"]));
+ANS(Compute($ans)->cmp());
+ENDDOCUMENT();        # This should be the last executable line in the problem.

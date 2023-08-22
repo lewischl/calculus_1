@@ -53,7 +53,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 5
-source_file = setreview_odds_and_ends/turkey_cooling.pg
+source_file = setmotivating_calculus_-_the_language_of_change/turkey_cooling.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
@@ -63,7 +63,7 @@ att_to_open_children = 0
 problem_end
 problem_start
 problem_id = 6
-source_file = setreview_odds_and_ends/n5-2008-11.pg
+source_file = setmotivating_calculus_-_the_language_of_change/n5-2008-11.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
