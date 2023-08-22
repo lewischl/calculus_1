@@ -1,5 +1,3 @@
-
-
 ########################################
 # this file automatically moved
 #	from local/Library/ASU-topics/setSecondDerivative/5-2-53.pg 
@@ -29,6 +27,7 @@ loadMacros("PG.pl",
            "PGanswermacros.pl",
 		"extraAnswerEvaluators.pl",
         "MathObjects.pl",
+        "PGcourse.pl",
    );
 
 TEXT(beginproblem());
@@ -38,10 +37,48 @@ $a = random(2,9,1);
 Context("Numeric");
 
 
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Calculus is all about relationships between curves.  
+* Functions and their slope functions (first derivatives).
+* Functions and their concavity functions (second derivatives)
+
+The point is, if you know some stuff determined by [`f'`] and [`f''`], together with asymptotic behaviour, you pretty much know the function.   
+
+In this series of problems we give you a function and ask you to compute a bunch of properties of the functions.  From these properties, you should be able to sketch a reasonable graph.  
+
+[@ closeDiv() @]*
+
+
+[@   openDiv({ "class" => "importantFormula" }) @]*
+The ability to predict what a graph will look like just from its first and second derivatives is perhaps the most important skill in Calculus.
+
+🧠 Think about it.  
+* The first derivative tells us increasing / decreasing.  
+* The second derivative tell us how the rate of change is changing.  Slowing down?  Speeding up?
+
+With this information we can start to be able to tell the future.  Like, we know a lot about the way our global tempurature is changing based on various human inputs.  We know pretty solidly what's going to happen over the next 20-50 years, and it's *not* good.  🔥 
+
+[@  closeDiv() @]*
+
+---
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+
+Consider the function 
+
+[``f(x) = [$a] x^2 \ln(x), \quad x > 0 ``]
+
+[@ closeDiv() @]*
+
+END_PGML
+
+
 
 BEGIN_TEXT
 
-Consider the function \( f(x) = $a x^2 \ln(x), \quad x > 0 \).
+
 $PAR
 
 (a) List all the critical points of \(f(x)\). 
@@ -51,9 +88,6 @@ $BR
 $PAR
 
 (b) Use interval notation to indicate where \(f(x)\) is increasing.
-$BR
-(Use $BBOLD inf $EBOLD for \(\infty\), $BBOLD -inf $EBOLD for \(-\infty\), 
-and if there are multiple intervals, enter them as a comma separated list.)
 $BR
 Increasing: \{ans_rule(50)\}
 $PAR
@@ -90,6 +124,10 @@ $PAR
 $BR
 \(x\) values of inflection points \(=\) \{ans_rule(30)\}
 $PAR
+
+🏁 Lastly, use the above information to sketch the function, without looking at a computer-generated graph.  
+
+
 
 END_TEXT
 

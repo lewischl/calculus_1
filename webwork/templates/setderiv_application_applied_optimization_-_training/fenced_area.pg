@@ -9,7 +9,7 @@
 ## DBsection(Optimization - general)
 ## Date(6/3/2002)
 ## Institution(UCSB)
-## Author(Utah ww group)
+## Author(Utah ww group, heavily modified by silviana amethyst 2023)
 ## MLT(Optimization_Fence)
 ## MLTleader(1)
 ## Level(5)
@@ -76,7 +76,8 @@ loadMacros(
   "PGstandard.pl",
   "PGunion.pl",
   "MathObjects.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "parserPopUp.pl",
 );
 
 TEXT(beginproblem());
@@ -86,43 +87,164 @@ TEXT(beginproblem());
 
 $a=random(5000,15000,500);
 
+Context()->variables->add(y=>"Real");
+
+$Omega = Formula("2x + 3 [$a]/x");
+
+$crit = List(("sqrt(3*$a/2)")); # this is equivalent to sqrt(6a)/2
+
+$ans = 2*sqrt(6*$a);
+
+
 ###################################
 # Main text
 
-BEGIN_TEXT
 
-A rancher wants to fence in a rectangular area of $a square meters, and divide it in half with a fence down the middle parallel
-to one side.
-$PAR
-What is the shortest total length of fence that the rancher can use?
-$PAR
-Shortest total length of fence = \{ans_rule(20)\} meters.
 
-$PAR
+BEGIN_PGML
 
-\{ theresahint \}
-END_TEXT
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This is an "applied optimization" problem. 
+* Optimization, because we're computing mins and maxes
+* Applied, because the objective functions -- the functions we optimize -- have a real meaning.
 
-$show_hint=-1;
+This problem offers advice and guidance.  
+
+[@ closeDiv() @]*
+
+Before I go further, I want to disclaim:
+
+[@ openDiv({ "class" => "warning" }) @]*
+
+⚠️ The training in this set is not aimed at giving you a "model solution technique" for *every* type of applied optimization problem.  Memorization is foolhardy, and emulation is not mastery.  
+
+🧠 This set *does* aim to teach you about patterns and useful practices for solving optimization problems.
+
+[@ closeDiv() @]*
+
+---
+
+The precise steps varies by problem, as there is a very wide variety.  
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+General steps for applied optimization
+
+1. Draw a picture. 🖼️
+2. Decide on variable names. Annotate and label things.  
+3. Write a formula for the objective function.  Always call the objective function [`\Omega`].  
+4. Eliminate extra variables, if necessary, to obtain a single-variable objective function [`\Omega`].
+5. Identify an interval of validity, if necessary
+6. Optimize the objective function
+7. Conclude.
+
+[@ closeDiv() @]*
+
+
+---
+
+Problem statement:
+
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+
+A rancher wants to fence in a *rectangular area* of [`[$a]`] [`{\rm m}^2`], and divide it in half with a fence down the middle parallel to one side.
+
+What is the *shortest total length* of fence that the rancher can use?
+
+[@ closeDiv() @]*
+
+##### 1. Draw a picture
+
+Draw a rectangle on your paper.  Draw a vertical line in the middle, bisecting it. 
+
+
+##### 2. Label and name
+
+Label the vertical segments [`y`] and the horizontal segments [`x`].  Note that we want the area, so maybe shade in the area with hatching or 🐷🌷🌾
+
+
+##### 3. Write an initial objective function [`\Omega`]
+
+[@ openDiv({ "class" => "inProblemHint" }) @]*
+ℹ️ I always name my objective function [`\Omega`].  It exists to be optimized.  Even if I'm maximizing volume [`V`], minimizing distance [`D`], or optimizing profit [`p`] (unlikely), I always call it [`\Omega`].  The familiarity gives me mindset and habit.
+[@ closeDiv() @]*
+
+The area is the objective function.  At this point, we'll express it using both variables.  🎯 Write the formula for the length of the fence, our objective function:
+
+[`\Omega(x,y) = `][__]{Formula("2x+3y")}
+
+##### 4. Eliminate variables
+
+The function [`\Omega = \Omega(x,y)`].  It has too many variables!  We'll use the "constraint"  in the problem -- an equality relationship between [`x`] and [`y`] -- to get down to one variable.
+
+Harken back to the problem statement.  The area is constrained.  🎯 Write the constraint in terms of [`x`] and [`y`]:
+
+[__]{Formula("xy")} [` = [$a]`]
+
+Observe, if we know [`x`], then we know [`y`].  🎯 Solve the constraint for [`y`].
+
+[`y = `] [_]{Formula("[$a]/x")}
+
+🎯 Substitute [`y(x)`] into [`\Omega(x,y)`], and simplify to get the single-variable objective function:
+
+[`\Omega(x) = `] [_]{$Omega}
+
+##### 5. Identify an interval of validity
+
+In this problem [`x`] is a physical quantity.  🎯 Identify the interval of validity for [`x`], using interval notation:
+
+[`x \in `] [__]{Interval("[0,inf)")}  
+
+
+##### 6. Optimize [`\Omega`]
+
+🎯 Find the derivative of [`\Omega`]
+
+[`\Omega'(x)`] = [_]{$Omega->D}
+
+🎯 Compute the critical numbers.  Enter a comma separated list.
+
+The critical numbers are [`x = `] [_]{$crit}.  These are the possible values for the length of the horizontal segments.
+
+🎯 Plug those numbers into the single-variable [`\Omega(x)`], along with the boundaries of the interval of validity (Do they mean anything?).  Compare.  Which is the minimum?
+
+The minumum value of [`\Omega`] is [_]{$ans}
+
+##### Conclude
+
+We found our minimum value.  We need to add context.  The objective function was "length of fence".  🎯 Wrap it up by completing the sentence:
+
+The shortest possible length of fence to thusly enclose a rectangular area of 
+[_]{$a} [_]{PopUp(["?","feet","meters","miles","square meters","hectares"], "square meters")} requires a length of
+[_]{$ans} [_]{PopUp(["?","feet","meters","miles","square meters","hectares"], "meters")} of fence.
+
+
+---
+
+To summarize:
+
+1. Draw and label
+2. Single variable objective function
+3. Optimize
+
+The steps are compilicated, and different problems feel really different.  It's the pattern of tactic I'm trying to teach you here.  As you move forward, find the pattern.  And always name it [`\Omega`].
+
+END_PGML
+
+
+
+
+
+
+
+
+
+
+
 BEGIN_HINT
-Draw a picture, a rectangle with a fence down the middle.  
-
-$PAR
 
 \{ image( "split_farm.png", width=>300,  
 tex_size=>700, extra_html_tags=>'alt="labeled diagram of a divided field."' ) \}
-
-$PAR
-
-Label the side lengths, say \(x\) and \(y\).  There should be two of one label, and three of the other label.  Sum the side lengths for all *five* pieces of fence -- that's your objective function \(\Omega(x,y)\).  
-
-$PAR
-
-At this stage, the objective function \(\Omega\) has too many variables!  We need to eliminate a variable, using the area constraint.  Write a formula for the area, set it equal to \(A = xy = $a\).  Solve for one variable (I suggest \(y\)).  Substitute into \(\Omega(x,y)\) to get a single-variable objective function \(\Omega(x)\).  
-
-$PAR
-
-Now it's just good old optimization of a function.  That means the max must occur either at a critical point or a boundary point.  Critical points come from roots of the derivative \(\Omega'\), or from places where \(\Omega'\) isn't defined.  
 
 
 \{amethystHint("$PAR$HR$PAR Want a solution to a similar problem?  Check out this video.  Note that in the video we have a fixed amount of fence, and we want to maximize enclosed area.  In *this* problem, we have a fixed area, and we want to minimize the amount of fence we use.  They're similar, but different!$BR$BR")\}
@@ -130,16 +252,13 @@ Now it's just good old optimization of a function.  That means the max must occu
 
 \{amethystHint("$PAR$HR$PAR Need help finding the critical points?  Check out this video:$BR$BR")\}
 \{ youtubeAmethyst("etE5VWsx65Y") \}
+
 END_HINT
-###################################
-# Answers
+
+
 
 $showPartialCorrectAnswers = 1;
 
-$ans = 2*sqrt(6*$a);
-ANS(Real($ans)->cmp);
-
-###################################
 
 
 ;

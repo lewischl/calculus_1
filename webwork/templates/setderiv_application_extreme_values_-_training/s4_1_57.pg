@@ -60,12 +60,27 @@ $a1 = random(2,9,1);
 $f=Compute("-x/($a1*x^2+1)");
 $fx=$f->eval(x=>2);
 Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+An opportunity to practice what you know about critical points and the algorithm for finding absolute optima over closed intervals.
+[@ closeDiv() @]*
+
+🧠 As you find the critical points, you'll take the derivative and find its roots.  Is this function continuous?  Is it ever not defined?
+
+---
+
+END_PGML
+
+
 BEGIN_TEXT
 Consider the function \( f(x) = \displaystyle $f , \quad 0\le x\le 2. \) $BR$BR
 This function has an absolute minimum value equal to: \{ans_rule(15) \} $BR
 which is attained at \(x=\) \{ans_rule(15) \}
-$BR
-and an absolute maximum value equal to: \{ans_rule(20) \} $BR
+$PAR
+It has an absolute maximum value equal to: \{ans_rule(20) \} $BR
 which is attained at \(x=\) \{ans_rule(15) \} $BR
 END_TEXT
 Context()->normalStrings;

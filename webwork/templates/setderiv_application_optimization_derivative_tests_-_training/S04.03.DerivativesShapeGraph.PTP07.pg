@@ -73,8 +73,15 @@ $graphfp = init_graph(-2,-10,4,15,'axes'=>[0,0]);
 ($fpRef) = plot_functions( $graphfp,$fp);
 
 $label_f = new Label ( .5,14,'y = f(x)',$bk,'left');$graphf->lb($label_f);
-$label_fp = new Label ( .5,14,'y = f~~'(x)',$bk,'left');$graphfp->lb($label_fp);
+$label_fp = new Label ( .5,14,"y = f'(x)",$bk,'left');$graphfp->lb($label_fp);
 
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem aims to connect between increasing / decreasing on a graph, and the sign of the first derivative.
+[@ closeDiv() @]*
+
+END_PGML
 BEGIN_TEXT
 
 \{ image(insertGraph($graphf), width=>200, height=>200) \}
@@ -82,7 +89,7 @@ BEGIN_TEXT
 \{ image(insertGraph($graphfp), width=>200, height=>200) \}
 
 $PAR
-The graphs above are approximate graphs of \( f \) and \( f' \) for the function
+Above are graphs of \( f \) and \(f'\) for the function
 
 $PAR
 
@@ -90,9 +97,13 @@ $PAR
 
 $PAR
 
-Note that \( f \) is decreasing (and \( f' \) is negative) on the interval \( (0,a) \).  
 
-$PAR $HR $PAR
+
+$PAR $HR $PAR 
+
+The function \( f \) is decreasing (and \( f' \) is negative) on the interval \( (0,a) \).  
+
+$PAR
 
 Compute value of the right endpoint \(a\).
 $PAR

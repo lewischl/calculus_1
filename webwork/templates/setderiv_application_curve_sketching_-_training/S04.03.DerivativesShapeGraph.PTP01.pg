@@ -79,26 +79,58 @@ TEXT(beginproblem());
 
 $showPartialCorrectAnswers = 1;
 
-TEXT(EV2(<<EOT));
-Please answer the following questions about the function
-$BR
-$BR
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Calculus is all about relationships between curves.  
+* Functions and their slope functions (first derivatives).
+* Functions and their concavity functions (second derivatives)
+
+The point is, if you know some stuff determined by [`f'`] and [`f''`], together with asymptotic behaviour, you pretty much know the function.   
+
+In this series of problems we give you a function and ask you to compute a bunch of properties of the functions.  
+[@ closeDiv() @]*
+
+END_PGML
+
+BEGIN_TEXT
+
+\{amethystHint("$PAR$HR$PAR For a video of Prof. Amethyst sketching a polynomial using these techniques, check out this video:$PAR")\}
+\{ youtubeAmethyst(TPr9Rw3DVv8) \}
+
+END_TEXT
+
+BEGIN_PGML
+
+---
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+
+Instructions:
+
+- If you are asked to find [`x`]- or
+[`y`]-values, enter either a number, a list of numbers separated by
+commas, or *None* if there aren't any solutions. 
+
+- Use for the interval parts enter [@ $MYEMPTYSET @]* if the interval is empty.
+
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+
+BEGIN_TEXT
+
 \[ f(x) = $a x^5 - $b x^4.  \]
 $BR
 
-${BITALIC}Instructions:${EITALIC} $BR
-- If you are asked to find \(x\)- or
-\(y\)-values, enter either a number, a list of numbers separated by
-commas, or ${BITALIC}None${EITALIC} if there aren't any solutions. $BR
-- Use \{ helpLink('interval notation') \} if you are asked to find an
-interval or union of intervals, and enter $MYEMPTYSET if the interval
-is empty.
 
-$BR
-$BR
-
-
-(a) Find the critical numbers of \(f\), where it is increasing and
+🎯 Find the critical numbers of \(f\), where it is increasing and
 decreasing, and its local extrema.
 $BR
 Critical numbers \( x = \) \{ans_rule(40)\} 
@@ -114,7 +146,7 @@ $BR
 $BR
 
 
-(b) Find where \(f\) is concave up, concave down, and has inflection points.
+🎯 Find where \(f\) is concave up, concave down, and has inflection points.
 $BR
 Concave up on the interval(s) \( x \in \) \{ans_rule(40)\} 
 $BR
@@ -125,7 +157,7 @@ $BR
 $BR
 
 
-(c) Find any horizontal and vertical asymptotes of \(f\).
+🎯 Find any horizontal and vertical asymptotes of \(f\).
 $BR
 Horizontal asymptotes at \(y = \) \{ans_rule(40)\}
 $BR
@@ -133,7 +165,7 @@ Vertical asymptotes at \(x = \) \{ans_rule(40)\}
 $BR
 $BR
 
-(d) Sketch a graph of the function \( f \) without having a graphing
+🎯 🏁 Sketch a graph of the function \( f \) without having a graphing
 calculator do it for you.  $BR
 1. Mark the \(y\)-intercept and the \(x\)-intercepts, if they are known.   $BR
 2. Draw dashed lines for horizontal and vertical asymptotes.  $BR
@@ -141,25 +173,20 @@ calculator do it for you.  $BR
 4. Use what you know from parts (a) and (b) to sketch the remaining parts of the graph of \( f
 \).   
 
-$BR$BR
-$HR
-$BR
-Sketching graphs is an important skill that takes practice, and you may be asked to do it on quizzes or exams.
 
-$BR
-\{ theresahint \}
-EOT
+$PAR $HR $PAR
 
-BEGIN_HINT
+\{ openDiv({ "class" => "inProblemHint" }) \}
+
 On the topic of asymptotes...  $PAR
 • Horizontal asymptotes correspond to finite limits at infinity.  See Example 7, page 259 in your book. $BR
 • Vertical asympotes come from infinite discontinuities, and where we're trying to divide by 0.  See Example 6, page 258, for an example where the function has a vertical asymptote.
 
+\{ closeDiv() \}
 
-\{amethystHint("$PAR$HR$PAR For a video of Prof. Amethyst sketching a polynomial using these techniques, check out this video:$PAR")\}
-\{ youtubeAmethyst(TPr9Rw3DVv8) \}
+END_TEXT
 
-END_HINT
+
 
 # critical numbers, increasing, decreasing, maxima, minima
 ANS(number_list_cmp( "0,4*$b/(5*$a)" , strings=>["none"] ));

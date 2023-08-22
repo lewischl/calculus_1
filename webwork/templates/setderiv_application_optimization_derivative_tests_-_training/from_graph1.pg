@@ -52,7 +52,8 @@ DOCUMENT();        # This should be the first executable line in the problem.
 
 loadMacros(
   "PGstandard.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  'parserPopUp.pl'
 );
 
 COMMENT("todo: replace hardcoded image with dynamically generated one");
@@ -61,30 +62,50 @@ COMMENT("this problem is NOT randomized");
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 
-BEGIN_TEXT
-$BR$BR
-\{image("s4_3_26.gif",width=>300)\} $BR$BR
-For the function \(f\) given above, determine whether the following conditions
-are true. 
+BEGIN_PGML
 
-$PAR
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem reminds you of the connection between the sign of the first derivative and the graph of the function.
+[@ closeDiv() @]*
 
-(Input $BITALIC T $EITALIC if the condition is true, otherwise input $BITALIC F $EITALIC.) $BR$BR
-(a) \( f'(-1)=0; \)  \{ans_rule(10) \} $BR
-(b) \( f'(1) \) does not exist;  \{ans_rule(10) \} $BR
-(c) \( f'(x)<0 \) if \(|x|<1\);  \{ans_rule(10) \} $BR
-(d) \( f'(x)>0 \) if \(|x|>1\);  \{ans_rule(10) \} $BR
-(e) \( f''(x)<0 \) if \(x\not=1\).  \{ans_rule(10) \}. $BR
- $BR
-END_TEXT
-$ans1 = "T";
-$ans2 = "T";
-$ans3 = "T";
-$ans4 = "T";
-$ans5 = "T";
-ANS(str_cmp($ans1));
-ANS(str_cmp($ans2));
-ANS(str_cmp($ans3));
-ANS(str_cmp($ans4));
-ANS(str_cmp($ans5));
+[@ openDiv({ "class" => "importantFormula" }) @]*
+* [`f`] is increasing exactly where [`f'`] is positive
+* [`f`] is decreasing exactly where [`f'`] is negative
+[@ closeDiv() @]*
+
+END_PGML
+
+
+$true = "true";
+$false = "false";
+sub make_popup{
+my $val = shift(@_);
+return PopUp([ "?", $true, $false ], $val);
+}
+
+
+BEGIN_PGML
+
+[@ image("s4_3_26.gif",width=>300) @]* 
+
+
+For the function [`f`] in the graph, determine the truth of the statements. 
+
+---
+
+[` f'(-1)=0 `]  [_]{make_popup($true)}
+
+[` f'(1) `] does not exist   [_]{make_popup($true)}
+
+[` f'(x)<0 `] where [`|x|<1`]  [_]{make_popup($true)}
+
+[` f'(x)>0 `] where [`|x|>1`]   [_]{make_popup($true)}
+
+
+
+
+END_PGML
+
+
+
 ENDDOCUMENT();        # This should be the last executable line in the problem.

@@ -55,37 +55,51 @@ $showPartialCorrectAnswers = 1;
 
 $a1 = random(2,9,1);
 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+An absolute optimization problem with a product of a polynomial and an exponential.  Finding the roots of the derivative can present a challenge, so this problem tries to point out a way to overcome it.
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+
+The trick in this problem is to algebraically find the critical points.  Of course, they're where [`f'`] is undefined, or where [`f'=0`].  
+
+ℹ️ Since this [`f`] is everywhere differentiable, all critical points will come from the [`f'=0`] condition.
+
+
+
+So, solving [`f'=0`].  That's what this problem is mostly about.  Try these steps:
+1. Take the derivative using the product rule 
+2. Factor out an exponential, so you have [`f' = \exp(\Box) \cdot (\textnormal{polynomial}) `]. 
+3. Set equal to [`0`]. 
+4. Now you have the product of two things equaling [`0`].  One of those two things must equal [`0`]. 
+5. The exponential factor can never equal [`0`].  The function [`\exp(\Box) \neq 0`], no matter what [`\Box`] is. 
+6. The polynomial factor can definitely equal [`0`].  That's where the critical point comes from.  Set the polynomial factor equal to [`0`], and solve!
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
 BEGIN_TEXT
 
 Consider the function \( f(x) = xe^{-$a1 x}, \quad 0\le x\le 2. \) $BR$BR
-This function has an absolute minimum value equal to: \{ans_rule(15) \} $BR
-which is attained at \(x=\) \{ans_rule(15) \} $BR
-and an absolute maximum value equal to: \{ans_rule(20) \} $BR
+This function has an absolute minimum value equal to \{ans_rule(15) \} $BR
+which is attained at \(x=\) \{ans_rule(15) \} 
+
+$PAR
+
+\(f\) has an absolute maximum value equal to \{ans_rule(20) \} $BR
 which is attained at \(x=\) \{ans_rule(15) \} $BR
 
 $PAR
 Prefer exact expressions, or use lots of decimal places.
-$PAR
-
-\{ theresahint \}
 
 END_TEXT
 
-BEGIN_HINT
-The trick in this problem is to algebraically find the critical points.  Of course, they're where \(f'\) is undefined, or where \(f'=0\).  Since \(f\) is everywhere differentiable, all critical points will come from the \(f'=0\) condition.
 
-$PAR$HR$PAR 
-
-So, solving \(f'=0\).  I think that's what you're asking for help on.  Try these steps:$PAR
-1. Take the derivative using the product rule $BR
-2. Factor out an exponential, so you have \(f' = \exp(\Box) \cdot (\textnormal{polynomial}) \). $BR
-3. Set equal to 0. $BR
-4. Now you have the product of two things equaling 0.  One of those two things must equal 0. $BR
-5. The exponential factor can never equal 0.  The function \(\exp(\Box) \neq 0\), no matter what \(\Box\) is. $BR
-6. The polynomial factor can definitely equal 0.  That's where the critical point comes from.  Set the polynomial factor equal to 0, and solve!
-
-
-END_HINT
 
 ANS(num_cmp(0));
 ANS(num_cmp(0));

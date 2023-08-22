@@ -177,62 +177,87 @@ Purpose:
 
 As we have seen, the derivative of a function is _another function_, which almost always has a derivative of its own. You have found second derivatives algebraically before, but can we tell anything about them visually?
 
+This problem examines the four basic pieces of a curve, connecting them to the first and second derivatives.
+
 [@ closeDiv() @]*
 END_PGML
+
+
+
+
+
+
+
+
+
+
+
 
 Section::Begin("Curve 1");
 
 BEGIN_PGML
 
-Here is a curve and its tangent line. Move the slider to see how the tangent line changes! Then answer the questions below.
+
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Here is a curve and its tangent line. Move the slider to see how the tangent line changes! Then answer the questions below.  
+[@ closeDiv() @]*
 
 [@ $desmos_div @]*
 
-[@ openDiv({ "class" => "promptOrInstruction" }) @]*
-Use the above Desmos graph to answer the following questions.
+
+Use the slider for [`a`], observe the slope of the tangent line [`g'(a)`] as we move from left to right.  Estimate the slope of the tangent line from the graph.
+
+* At [`x=[$x1_min+1.8]`], the slope is [`f'\big([$x1_min+1.8]\big)=`] [____]{$g1->D->eval(x=>$x1_min+1.8)->cmp(tolType   => 'absolute',tolerance => .01)}
+* At [`x=[$x1_min+2.8]`], the slope is [`f'\big([$x1_min+2.8]\big)=`] [____]{$g1->D->eval(x=>$x1_min+2.8)->cmp(tolType   => 'absolute',tolerance => .05)}
+* At [`x=[$x1_min+3.6]`], the slope is [`f'\big([$x1_min+3.6]\big)=`] [____]{$g1->D->eval(x=>$x1_min+3.6)->cmp(tolType   => 'absolute',tolerance => .1)}
+
+---
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+* [`f'`] is positive where [`f`] is increasing.
+* [`f''`] is positive where [`f'`] is increasing
+* [`f'''`] is positive where [`f''`] is increasing
+
+[`\Box'`] is positive where [`\Box`] is increasing.
+
+⭐️ The second derivative is positive where the first derivative is increasing.
+
 [@ closeDiv() @]*
-
-* Using the slider for [`a`], see what the tangent line looks like for different values of [`x`].
-
-* Estimate the slope when [`x=[$x1_min+1.8]`]: [`f'\big([$x1_min+1.8]\big)=`] [____]{$g1->D->eval(x=>$x1_min+1.8)->cmp(tolType   => 'absolute',tolerance => .01)}
-
-* Estimate the slope when [`x=[$x1_min+2.8]`]: [`f'\big([$x1_min+2.8]\big)=`] [____]{$g1->D->eval(x=>$x1_min+2.8)->cmp(tolType   => 'absolute',tolerance => .05)}
-
-* Estimate the slope when [`x=[$x1_min+3.6]`]: [`f'\big([$x1_min+3.6]\big)=`] [____]{$g1->D->eval(x=>$x1_min+3.6)->cmp(tolType   => 'absolute',tolerance => .1)}
 
 As [`x`] increases (as we move from left to right):
 
 * [`g(x)`] is [_]{$increase}, so [`g'(x)`] is [_]{$positive}.
-
 * [`g'(x)`] is [_]{$increase}, so [`g''(x)`] is [_]{$positive}.
 
 END_PGML
 Section::End();
 
+
+
+
+
+
+
+
+
 Section::Begin("Curve 2");
 
 BEGIN_PGML
 
-Here's another curve, with similar questions:
+
 
 [@ $desmos_div2 @]*
 
-[@ openDiv({ "class" => "promptOrInstruction" }) @]*
-Use the above Desmos graph to answer the following questions.
-[@ closeDiv() @]*
+Use the slider for [`a`], observe the slope of the tangent line [`g'(a)`] as we move from left to right.  Estimate the slope of the tangent line from the graph.
 
-* Using the slider for [`a`], see what the tangent line looks like for different values of [`x`].
-
-* Estimate the slope when [`x=[$x2_max-3.6]`]: [`f'\big([$x2_max-3.6]\big)=`] [____]{$g2->D->eval(x=>$x2_max-3.6)->cmp(tolType   => 'absolute',tolerance => .1)}
-
-* Estimate the slope when [`x=[$x2_max-2.8]`]: [`f'\big([$x2_max-2.8]\big)=`] [____]{$g2->D->eval(x=>$x2_max-2.8)->cmp(tolType   => 'absolute',tolerance => .05)}
-
-* Estimate the slope when [`x=[$x2_max-1.8]`]: [`f'\big([$x2_max-1.8]\big)=`] [____]{$g2->D->eval(x=>$x2_max-1.8)->cmp(tolType   => 'absolute',tolerance => .01)}
+* When [`x=[$x2_max-3.6]`] the slope is [`f'\big([$x2_max-3.6]\big)=`] [____]{$g2->D->eval(x=>$x2_max-3.6)->cmp(tolType   => 'absolute',tolerance => .1)}
+* When [`x=[$x2_max-2.8]`] the slope is [`f'\big([$x2_max-2.8]\big)=`] [____]{$g2->D->eval(x=>$x2_max-2.8)->cmp(tolType   => 'absolute',tolerance => .05)}
+* When [`x=[$x2_max-1.8]`] the slope is [`f'\big([$x2_max-1.8]\big)=`] [____]{$g2->D->eval(x=>$x2_max-1.8)->cmp(tolType   => 'absolute',tolerance => .01)}
 
 As [`x`] increases (as we move from left to right):
 
 * [`g(x)`] is [_]{$increase}, so [`g'(x)`] is [_]{$positive}.
-
 * [`g'(x)`] is [_]{$decrease}, so [`g''(x)`] is [_]{$negative}.
 
 END_PGML
@@ -242,26 +267,18 @@ Section::Begin("Curve 3");
 
 BEGIN_PGML
 
-And here's another one:
 
 [@ $desmos_div3 @]*
 
-[@ openDiv({ "class" => "promptOrInstruction" }) @]*
-Use the above Desmos graph to answer the following questions.
-[@ closeDiv() @]*
+* Using the slider for [`a`], see what the tangent line looks like for different values of [`x`].Use the slider for [`a`], observe the tangent line for different values of [`x`].  Estimate the slope of the tangent line from the graph.
 
-* Using the slider for [`a`], see what the tangent line looks like for different values of [`x`].
-
-* Estimate the slope when [`x=[$x3_max-3.6]`]: [`f'\big([$x3_max-3.6]\big)=`] [____]{$g3->D->eval(x=>$x3_max-3.6)->cmp(tolType   => 'absolute',tolerance => .1)}
-
-* Estimate the slope when [`x=[$x3_max-2.8]`]: [`f'\big([$x3_max-2.8]\big)=`] [____]{$g3->D->eval(x=>$x3_max-2.8)->cmp(tolType   => 'absolute',tolerance => .05)}
-
-* Estimate the slope when [`x=[$x3_max-1.8]`]: [`f'\big([$x3_max-1.8]\big)=`] [____]{$g3->D->eval(x=>$x3_max-1.8)->cmp(tolType   => 'absolute',tolerance => .01)}
+* When [`x=[$x3_max-3.6]`] the slope is [`f'\big([$x3_max-3.6]\big)=`] [____]{$g3->D->eval(x=>$x3_max-3.6)->cmp(tolType   => 'absolute',tolerance => .1)}
+* When [`x=[$x3_max-2.8]`] the slope is [`f'\big([$x3_max-2.8]\big)=`] [____]{$g3->D->eval(x=>$x3_max-2.8)->cmp(tolType   => 'absolute',tolerance => .05)}
+* When [`x=[$x3_max-1.8]`] the slope is [`f'\big([$x3_max-1.8]\big)=`] [____]{$g3->D->eval(x=>$x3_max-1.8)->cmp(tolType   => 'absolute',tolerance => .01)}
 
 As [`x`] increases (as we move from left to right):
 
 * [`g(x)`] is [_]{$decrease}, so [`g'(x)`] is [_]{$negative}.
-
 * [`g'(x)`] is [_]{$increase}, so [`g''(x)`] is [_]{$positive}.
 
 END_PGML
@@ -271,44 +288,35 @@ Section::Begin("Curve 4");
 
 BEGIN_PGML
 
-And one more:
 
 [@ $desmos_div4 @]*
 
-[@ openDiv({ "class" => "promptOrInstruction" }) @]*
-Use the above Desmos graph to answer the following questions.
-[@ closeDiv() @]*
+Use the slider for [`a`], observe the slope of the tangent line [`g'(a)`] as we move from left to right.  Estimate the slope of the tangent line from the graph.
 
-* Using the slider for [`a`], see what the tangent line looks like for different values of [`x`].
-
-* Estimate the slope when [`x=[$x4_min+1.8]`]: [`f'\big([$x4_min+1.8]\big)=`] [____]{$g4->D->eval(x=>$x4_min+1.8)->cmp(tolType   => 'absolute',tolerance => .01)}
-
-* Estimate the slope when [`x=[$x4_min+2.8]`]: [`f'\big([$x4_min+2.8]\big)=`] [____]{$g4->D->eval(x=>$x4_min+2.8)->cmp(tolType   => 'absolute',tolerance => .05)}
-
-* Estimate the slope when [`x=[$x4_min+3.6]`]: [`f'\big([$x4_min+3.6]\big)=`] [____]{$g4->D->eval(x=>$x4_min+3.6)->cmp(tolType   => 'absolute',tolerance => .1)}
+* When [`x=[$x4_min+1.8]`] the slope is [`f'\big([$x4_min+1.8]\big)=`] [____]{$g4->D->eval(x=>$x4_min+1.8)->cmp(tolType   => 'absolute',tolerance => .01)}
+* When [`x=[$x4_min+2.8]`] the slope is [`f'\big([$x4_min+2.8]\big)=`] [____]{$g4->D->eval(x=>$x4_min+2.8)->cmp(tolType   => 'absolute',tolerance => .05)}
+* When [`x=[$x4_min+3.6]`] the slope is [`f'\big([$x4_min+3.6]\big)=`] [____]{$g4->D->eval(x=>$x4_min+3.6)->cmp(tolType   => 'absolute',tolerance => .1)}
 
 As [`x`] increases (as we move from left to right):
 
 * [`g(x)`] is [_]{$decrease}, so [`g'(x)`] is [_]{$negative}.
-
 * [`g'(x)`] is [_]{$decrease}, so [`g''(x)`] is [_]{$negative}.
 
 END_PGML
 Section::End();
 
-Section::Begin("Passcode");
+Section::Begin("Food for thought");
 
 BEGIN_PGML
 
 We know that increasing functions have positive derivatives, and decreasing functions have negative derivatives.
 
-But what about the second derivative?
+* But what about the second derivative?
+* Graphs 1 and 3 both had positive second derivatives. What do they have in common visually? And what do graphs 2 and 4 have in common visually?
 
-Graphs 1 and 3 both had positive second derivatives. What do they have in common visually? And what do graphs 2 and 4 have in common visually?
+Keep those questions in mind as we go forward. 
 
-Keep those questions in mind as we go forward. The passcode for the next question is [`[$passcode1]`].
-
-Enter it here: [_]{$passcode1}
+🔑 The passcode for the next question is [`[$passcode1]`].  Enter it here: [_]{$passcode1}
 
 END_PGML
 Section::End();
@@ -356,10 +364,10 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 
     my_calculator.setExpressions([
         { id: 'slider', latex: 'a=$x1_mid', sliderBounds: {min: $x1_min, max: $x1_max, step: 0.1}},
-        { id: 'base_point', latex: '(a, g(a))'},
-        { id: 'tangent_line', latex: 'y = g\'(a)*(x-a) + g(a)', label: 'tangent line'},
-        { latex: ' '},{ latex: ' '},{ latex: ' '},{ latex: ' '},{ latex: ' '},
-        { id: 'g_curve', latex: 'g(x)=$y1-\\sqrt{16-(x-$x1_min)^2} \\left\\{$x1_min\\leq x\\leq$x1_max\\right\\}'},
+        { id: 'base_point', latex: '(a, g(a))', label: '(a,g(a))', showLabel: 'true', secret:'true'},
+        { id: 'tangent_line', latex: 'y = g\'(a)*(x-a) + g(a)', label: 'tangent line', secret:'true'},
+        { id: 'slope', latex: 'g\'(a)'},
+        { id: 'g_curve', latex: 'g(x)=$y1-\\sqrt{16-(x-$x1_min)^2} \\left\\{$x1_min\\leq x\\leq$x1_max\\right\\}', secret:'true'},
     ]);
     
     my_calculator.setMathBounds({
@@ -390,10 +398,10 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 
     my_calculator2.setExpressions([
         { id: 'slider', latex: 'a=$x2_mid', sliderBounds: {min: $x2_min, max: $x2_max, step: 0.1}},
-        { id: 'base_point', latex: '(a, g(a))'},
-        { id: 'tangent_line', latex: 'y = g\'(a)*(x-a) + g(a)', label: 'tangent line'},
-        { latex: ' '},{ latex: ' '},{ latex: ' '},{ latex: ' '},{ latex: ' '},
-        { id: 'g_curve', latex: 'g(x)=$y2+\\sqrt{16-(x-$x2_max)^2} \\left\\{$x2_min\\leq x\\leq$x2_max\\right\\}'},
+        { id: 'base_point', latex: '(a, g(a))', secret:'true', label: 'point of tangency', showLabel:'true'},
+        { id: 'tangent_line', latex: 'y = g\'(a)*(x-a) + g(a)', label: 'tangent line', secret:'true'},
+        { id: 'slope', latex: 'g\'(a)'},
+        { id: 'g_curve', latex: 'g(x)=$y2+\\sqrt{16-(x-$x2_max)^2} \\left\\{$x2_min\\leq x\\leq$x2_max\\right\\}', secret: 'true'},
     ]);
 
     my_calculator2.setMathBounds({
@@ -424,10 +432,10 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 
     my_calculator3.setExpressions([
         { id: 'slider', latex: 'a=$x3_mid', sliderBounds: {min: $x3_min, max: $x3_max, step: 0.1}},
-        { id: 'base_point', latex: '(a, g(a))'},
-        { id: 'tangent_line', latex: 'y = g\'(a)*(x-a) + g(a)', label: 'tangent line'},
-        { latex: ' '},{ latex: ' '},{ latex: ' '},{ latex: ' '},{ latex: ' '},
-        { id: 'g_curve', latex: 'g(x)=$y3-\\sqrt{16-(x-$x3_max)^2} \\left\\{$x3_min\\leq x\\leq$x3_max\\right\\}'},
+        { id: 'base_point', latex: '(a, g(a))', secret:'true', label:'is the slope here increasing or decreasing?', showLabel:'true'},
+        { id: 'tangent_line', latex: 'y = g\'(a)*(x-a) + g(a)', label: 'tangent line', secret:'true'},
+        { id: 'slope', latex: 'g\'(a)'},
+        { id: 'g_curve', latex: 'g(x)=$y3-\\sqrt{16-(x-$x3_max)^2} \\left\\{$x3_min\\leq x\\leq$x3_max\\right\\}', secret: 'true'},
     ]);
 
     my_calculator3.setMathBounds({
@@ -458,10 +466,10 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 
     my_calculator4.setExpressions([
         { id: 'slider', latex: 'a=$x4_mid', sliderBounds: {min: $x4_min, max: $x4_max, step: 0.1}},
-        { id: 'base_point', latex: '(a, g(a))'},
-        { id: 'tangent_line', latex: 'y = g\'(a)*(x-a) + g(a)', label: 'tangent line'},
-        { latex: ' '},{ latex: ' '},{ latex: ' '},{ latex: ' '},{ latex: ' '},
-        { id: 'g_curve', latex: 'g(x)=$y4+\\sqrt{16-(x-$x4_min)^2} \\left\\{$x4_min\\leq x\\leq$x4_max\\right\\}'},
+        { id: 'base_point', latex: '(a, g(a))', secret:'true',label: 'move left to right. slope increase or decrease?'},
+        { id: 'tangent_line', latex: 'y = g\'(a)*(x-a) + g(a)', label: 'tangent line', secret:'true'},
+        { id: 'slope', latex: 'g\'(a)'},
+        { id: 'g_curve', latex: 'g(x)=$y4+\\sqrt{16-(x-$x4_min)^2} \\left\\{$x4_min\\leq x\\leq$x4_max\\right\\}', secret: 'true'},
     ]);
 
     my_calculator4.setMathBounds({

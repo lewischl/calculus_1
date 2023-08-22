@@ -56,16 +56,55 @@ $showPartialCorrectAnswers=0;
 $a = random(8,15,1);
 $b = $a**2;
 
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+In the realm of "applied optimization", this is a simple problem.  I'm using it early in this training set deliberately because it's simple, to help see *some* of the pattern before we see the bigger picture.
+[@ closeDiv() @]*
+
+One of the things that makes these problems difficult is that you're not told the variable names, the function names, etc.  You have to make up the notation!  I have advice:
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+When choosing names for optimization problems:
+* always name the objective function (the quantity you're optimizing) [`\Omega`].  It helps see the pattern, and when you see [`\Omega`] you'll think "I should optimize that...".
+* Choose "obvious" variable names if possible.  
+    * Oldies but goodies like [`x`], [`y`], [`z`] are my favorite
+    * Volume should be [`V`], area should be [`A`], distance should be [`D`]...
+    * [`a`] and [`b`] are pretty ok.  
+* Avoid choices that lead to mistakes:
+    * [`l`] (a lowercase L) is *terrible*.  It looks like a one.  Use [`\ell`] instead.  [@ htmlLink("https://www.youtube.com/watch?v=GNpIOlDhigw", "Put a loop on it")@]*.
+    * [`o`] and [`O`] are utter 🗑️ for variable names.  They look too much like [`0`].  Don't do it.  
+[@ closeDiv() @]*
+
+
+Ok, so here's what you're gonna do on this problem:
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Steps for *this* problem
+
+1. Decide on variable names.  Choose [`x`] and [`y`] please.
+2. Write a formula for [`\Omega(x,y)`], the quantity to optimize.  In this case, it's the sum we're minimizing.
+3. Eliminate [`y`] using the given constraint to obtain [`\Omega(x)`].  Solve "the product is [`[$b]`] for [`y`] and substitute into [`\Omega`].
+5. Note that [`x`] must be positive, and so must [`y`].
+6. Optimize the objective function.  
+7. Conclude.  In this case, we want the numbers that minimize the sum, *not* the actual sum of the numbers.
+
+[@ closeDiv() @]*
+
+END_PGML
+
 BEGIN_TEXT
 
 Find two positive numbers whose product is \($b\) and whose sum is a
 minimum.
 $BR$BR
-Answer:  \{ans_rule(10)\}, \{ans_rule(10)\} 
+The two positive numbers are:  \{ans_rule(10)\} and \{ans_rule(10)\}  (in either order)
 
-$BR$BR
-\{ theresahint \}
 END_TEXT
+
 
 
 BEGIN_HINT

@@ -51,14 +51,20 @@ This problem is about rates of usage, and the fact that if we have a constant ra
 [@ closeDiv() @]*
 
 
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A rate is determined by "change in quantity" divided by "duration of quantity".  Think "distance over time".
 
+We can accumulate a rate by multiplying "rate of change" by "duration of change".  Think "speed times time".
+[@ closeDiv() @]*
+
+---
 
 [@ openDiv({ "class" => "trainingProblemStatement" }) @]*
 * Mr. Bowen used [`[$gallons]`] gallons of paint on [`\frac{1}{3}`] of his fence. 
 * The fence is [`[$area]`] square feet in area.
 [@ closeDiv() @]*
 
----
+
 Answer the questions, which are about rates and durations of rates:
 
 

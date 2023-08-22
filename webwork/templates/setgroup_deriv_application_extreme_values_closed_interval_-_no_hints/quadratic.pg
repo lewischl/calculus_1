@@ -1,0 +1,221 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by tda2d
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Global extrema)
+## Date(5/29/2005)
+## Institution(UVA)
+## Author(Jeff Holt) heavily modified by silviana amethyst summer 2023
+## MLT(GlobalExtremes_PolyMulti)
+## MLTleader(1)
+## Level(4)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('1')
+## Section1('4.2')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('5')
+## Section2('4.1')
+## Problem2('')
+## TitleText3('Calculus: Early Transcendentals')
+## AuthorText3('Stewart')
+## EditionText3('6')
+## Section3('4.1')
+## Problem3('')
+## KEYWORDS('derivative' 'extrema' 'optimization','calculus', 'differentiation', 'maximum', 'minimum','derivatives')
+
+
+
+########################################
+# this file automatically moved
+#	from Library/Union/setDervOptimization/4-5-23.pg 
+#	to setgroup_deriv_application_extreme_values_closed_interval_-_no_hints/4-5-23.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGunion.pl",
+  "MathObjects.pl",
+  "alignedChoice.pl",
+  "PGcourse.pl",
+  "contextFraction.pl",
+);
+
+TEXT(beginproblem());
+
+###################################
+# Setup
+
+Context('Fraction');
+
+$scale = random(0.5,5.5,1);
+
+# the two roots 
+$r1 = random(-5,-1,1); # one is negative
+$r2 = random(1,8,1); # one is positive
+
+$a = Fraction($scale);
+$b = Fraction(-$scale*($r1 + $r2));
+$c = Fraction($scale*($r1*$r2));
+
+$f = Formula("$a x^2 + $b x + $c")->reduce;
+
+
+@crit = ( ($r1+$r2)/2, ); # parabola.  crit number halfway between, always.
+
+$num_crit = @crit;
+
+
+
+# given a left and right endpoint, finds the max and min
+# uses the crit list previously constructed.
+sub make_q_list{
+    my $left = shift(@_);
+    my $right = shift(@_);
+    my @crit_inside = ();
+    for my $ii (0..($num_crit-1)){
+
+        my $c = $crit[$ii];
+        if ( ($left<=$c) and ($c<=$right)){
+            push(@crit_inside, ($c));
+        }
+    }
+
+    my @x_vals= ($left, $right);
+    push @x_vals, @crit_inside;
+    
+    my @f_vals = ();
+    my $num_x_to_consider = @x_vals;
+
+    for my $ii (0..($num_x_to_consider-1)){
+        $f_vals[$ii] = $f->eval(x=>$x_vals[$ii]);
+    }
+
+    my $ans_min = array_min(@f_vals); # this uses a function silviana wrote, since List::Utils isn't avaialble in webwork.  ugh.
+    my $ans_max = array_max(@f_vals); # this uses a function silviana wrote, since List::Utils isn't avaialble in webwork.  ugh.
+
+    my $a1 = new_aligned_list(ans_rule_len=>25, numbered=>0, tex_spacing=>"3pt", align =>"LEFT");
+    
+    $a1->qa(
+      "Absolute minimum value ", Real($ans_min)->cmp,
+      "Absolute maximum value ", Real($ans_max)->cmp,
+    );
+  
+    return $a1;
+} # make_q_list
+
+
+
+
+
+
+###################################
+# Main text
+
+Context()->texStrings;
+BEGIN_TEXT
+
+
+$PAR
+
+Find the absolute maximum and absolute minimum values of the function over each of the indicated intervals.
+
+$PAR
+
+\( f(x) = $f \)
+
+$PAR$HR $PAR
+END_TEXT
+
+
+
+
+###################################################################
+#
+#  yes, this is a lot of copypasta.  perl blows, and perl in webwork is even worse.
+# 
+
+
+
+
+
+
+
+
+
+
+$left = $r1-random(1,3,1);
+$right = 0;
+$question_list = make_q_list($left, $right);
+BEGIN_TEXT
+Over the interval \([$left, $right]\)
+\{ $question_list->print_q\}
+END_TEXT
+ANS($question_list->correct_ans);
+
+
+
+TEXT("$PAR $BR");
+$left = 0;
+$right = $r2+random(1,3,1);
+$question_list = make_q_list($left, $right);
+BEGIN_TEXT
+Over the interval \([$left, $right]\)
+\{ $question_list->print_q\}
+END_TEXT
+ANS($question_list->correct_ans);
+
+
+
+TEXT("$PAR $BR");
+$left = $r1-random(1,3,1);
+$right = $r2+random(1,3,1);
+$question_list = make_q_list($left, $right);
+BEGIN_TEXT
+Over the interval \([$left, $right]\)
+\{ $question_list->print_q\}
+END_TEXT
+ANS($question_list->correct_ans);
+
+
+
+TEXT("$PAR $BR");
+$left = $r1+0.5;
+$right = $r2-0.25;
+$question_list = make_q_list($left, $right);
+BEGIN_TEXT
+Over the interval \([$left, $right]\)
+\{ $question_list->print_q\}
+END_TEXT
+ANS($question_list->correct_ans);
+
+Context()->normalStrings;
+
+###################################
+# Answers
+
+$showPartialCorrectAnswers = 1;
+
+
+
+
+###################################
+
+$fp=$f->D;
+
+Context()->texStrings;
+
+ENDDOCUMENT();

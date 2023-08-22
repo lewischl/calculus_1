@@ -1,0 +1,109 @@
+## DESCRIPTION
+##   ****
+## ENDDESCRIPTION
+
+## KEYWORDS('Equations and functions, Review')
+
+## DBsubject('Calculus')
+## DBchapter('Derivatives')
+## DBsection('Algebra review')
+## Date('8/13/2023')
+## Author('W. Shull')
+## Institution('UWEC')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+########################################
+#DO I NEED TO KEEP THIS DOCUMENTATION?
+
+# this file automatically moved
+#	from setproving_grounds/SubstitutionIntroduction.pg 
+#	to setintegrals_by_substitution_-_training/SubstitutionIntroduction.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",        # the new parser
+  "contextFraction.pl",
+  "parserMultiAnswer.pl",
+"answerHints.pl",
+"PGML.pl",
+   "scaffold.pl",
+  "PGcourse.pl",           # Customization file for the course
+);
+
+loadMacros("niceTables.pl", "parserFormulaUpToConstant.pl");
+
+Context("Numeric");
+
+#Context()->variables->add(u=>"Real", dx=>"Real", du=>"Real");
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+BEGIN_PGML
+
+Here are some review videos that may help for this homework set, as well as future ones.
+
+END_PGML
+
+#SRAND($psvn);
+
+###################################
+# Main text
+###########################################
+#  The scaffold
+Scaffold::Begin(can_open => "always", is_open => "never");
+###########################################
+Section::Begin("Asymptotes Desmos (11:45)");
+
+BEGIN_PGML
+
+[@
+kalturaShull("1_3jjcpkwv")
+@]*
+
+END_PGML
+
+#Context()->texStrings;
+
+Section::End();
+
+Section::Begin("Determining asymptotes and “holes” algebraically (25:57)");
+
+BEGIN_PGML
+
+[@
+kalturaShull("1_l3dycis4")
+@]*
+
+END_PGML
+Section::End();
+
+Section::Begin("What are absolute values? (0:51)");
+
+BEGIN_PGML
+
+[@
+kalturaShull("1_9y2pywmv")
+@]*
+
+END_PGML
+Section::End();
+
+Context()->normalStrings;
+
+$showPartialCorrectAnswers = 1;
+
+  Scaffold::End();
+
+#COMMENT('MathObject version');
+ENDDOCUMENT();

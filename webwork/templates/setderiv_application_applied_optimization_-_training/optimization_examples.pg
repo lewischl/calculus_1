@@ -51,7 +51,7 @@ $showPartialCorrectAnswers = 1;
 
 BEGIN_PGML
 
-Here are some background geometry videos! They should be useful for both related rates and optimization (and are attached to both homework sets). *On this page of videos, there is no calculus, only geometry.*
+Here are a bunch of example videos of applied optimization questions, grouped roughly by the kind of question.
 
 END_PGML
 
@@ -61,7 +61,7 @@ END_PGML
 # Main text
 ###########################################
 #  The scaffold
-Scaffold::Begin();
+Scaffold::Begin(is_open=>"first_incorrect");
 ###########################################
 Section::Begin("Cylindrical can (9:49)");
 
@@ -75,17 +75,6 @@ END_PGML
 
 #Context()->texStrings;
 
-Section::End();
-
-Section::Begin("Closest point on a parabola (9:07)");
-
-BEGIN_PGML
-
-[@
-kalturaShull("1_12h5soq0")
-@]*
-
-END_PGML
 Section::End();
 
 Section::Begin("Diagonally crossing a river (13:48)");
@@ -111,6 +100,18 @@ END_PGML
 
 Section::End();
 
+Section::Begin("Semicircle on top of rectangle (5:54)");
+
+BEGIN_PGML
+
+[@
+kalturaShull("1_9i4xn4tx")
+@]*
+
+END_PGML
+
+Section::End();
+
 Section::Begin("Maximizing revenue selling TVs (9:17)");
 BEGIN_PGML
 
@@ -122,122 +123,93 @@ END_PGML
 
 Section::End();
 
-Section::Begin("Spheres, cylinders, and cones (11:03)");
+Section::Begin("Find two real numbers (or one); 6 examples");
 BEGIN_PGML
 
 [@
-kalturaShull("1_i0g0q692")
-@]*
-[@
-kalturaShull("1_i0g0q692")
-@]*
-[@
-kalturaShull("1_i0g0q692")
-@]*
-[@
-kalturaShull("1_i0g0q692")
+kalturaShull("1_ubgay904")
 @]*
 
+[@
+kalturaShull("1_8kn1spt5")
+@]*
+
+[@
+kalturaShull("1_zzzejy1e")
+@]*
+
+[@
+kalturaShull("1_bykdimmv")
+@]*
+
+[@
+kalturaShull("1_e119ml0t")
+@]*
+
+[@
+kalturaShull("1_svrh07ef")
+@]*
 
 END_PGML
 
 Section::End();
-Section::Begin("Spheres, cylinders, and cones (11:03)");
+Section::Begin("Wire/fencing (squares and rectangles); 4 examples");
 BEGIN_PGML
 
 [@
-kalturaShull("1_i0g0q692")
+kalturaShull("1_1w1glm32")
 @]*
 [@
-kalturaShull("1_i0g0q692")
+kalturaShull("1_lm0r6uj4")
 @]*
 [@
-kalturaShull("1_i0g0q692")
+kalturaShull("1_el9zuxrx")
 @]*
 [@
-kalturaShull("1_i0g0q692")
+kalturaShull("1_poiqa0g7")
 @]*
-
 
 END_PGML
 
 Section::End();
-Section::Begin("Spheres, cylinders, and cones (11:03)");
+
+Section::Begin("Minimizing distance; 4 examples");
 BEGIN_PGML
 
 [@
-kalturaShull("1_i0g0q692")
-@]*
-[@
-kalturaShull("1_i0g0q692")
-@]*
-[@
-kalturaShull("1_i0g0q692")
-@]*
-[@
-kalturaShull("1_i0g0q692")
+kalturaShull("1_3sccs9tc")
 @]*
 
+[@
+kalturaShull("1_12h5soq0")
+@]*
+
+[@
+kalturaShull("1_en7yw9cm")
+@]*
+
+[@
+kalturaShull("1_3tqutct4")
+@]*
 
 END_PGML
 
 Section::End();
-Section::Begin("Spheres, cylinders, and cones (11:03)");
+Section::Begin("Rectangular solids with square bases; 3 examples");
+
 BEGIN_PGML
 
 [@
-kalturaShull("1_i0g0q692")
-@]*
-[@
-kalturaShull("1_i0g0q692")
-@]*
-[@
-kalturaShull("1_i0g0q692")
-@]*
-[@
-kalturaShull("1_i0g0q692")
+kalturaShull("1_ku5w4tyq")
 @]*
 
-
-END_PGML
-
-Section::End();
-Section::Begin("Spheres, cylinders, and cones (11:03)");
-BEGIN_PGML
-
 [@
-kalturaShull("1_i0g0q692")
-@]*
-[@
-kalturaShull("1_i0g0q692")
-@]*
-[@
-kalturaShull("1_i0g0q692")
-@]*
-[@
-kalturaShull("1_i0g0q692")
+kalturaShull("1_0h2fasj7")
 @]*
 
-
-END_PGML
-
-Section::End();
-Section::Begin("Spheres, cylinders, and cones (11:03)");
-BEGIN_PGML
-
 [@
-kalturaShull("1_i0g0q692")
+kalturaShull("1_wgdy15ga")
 @]*
-[@
-kalturaShull("1_i0g0q692")
-@]*
-[@
-kalturaShull("1_i0g0q692")
-@]*
-[@
-kalturaShull("1_i0g0q692")
-@]*
-
 
 END_PGML
 

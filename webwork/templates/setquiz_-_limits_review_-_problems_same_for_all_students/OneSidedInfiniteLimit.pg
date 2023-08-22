@@ -89,8 +89,6 @@ $ans[2] = "inf";
 #
 
 BEGIN_PGML
-## Part 1.
-
 Consider the function:
 
 [``f(x) =  \frac{[$n]x - [$n*$d]}{x^2 - [$c+$d]x + [$c*$d]}``]
@@ -103,8 +101,6 @@ Identify the two points of discontinuity.  Enter the [``x``]-coordinates, starti
 
 
 ---
-
-## Part 2. 
 
 Next, find the following limit:
 

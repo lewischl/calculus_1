@@ -77,34 +77,70 @@ $ans3 = Compute("$c1/sqrt(3)");
 #
 
 Context()->texStrings;
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+The mean value theorem guarantees the average rate of change is attained, for differential phenomena -- at least once.  Sometimes the rate is attained more than once.  This problem offers guidance.
+
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The Mean Value Theorem (MVT)
+
+If a function [`f`] is both:
+
+1. differentable inside an interval [`(a,b)`]
+2. continuous on all of [`[a,b]`],
+
+then there *must* exist a point [`x = c`] inside [`(a,b)`] such that:
+
+[``` \frac{f(b) - f(a)}{b-a} = f'(c) ```]
+
+---
+
+
+
+
+[@ closeDiv() @]*
+
+
+END_PGML
+
 BEGIN_TEXT
-Consider the function \( f(x) = $fun\) on the interval \( [ -$c1 , $c1 ] \). $PAR
-Find the average or mean slope of the function on this interval. $BR
-\(\textnormal{average slope} = \) \{ans_rule(20) \}
+
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
+We want to find the point(s) at which the instantaneous rate of change is equal to the average rate of change.  $PAR
+1. Find the derivative (instantanous rate of change) and set it equal to the average rate you computed above.  $BR
+2. Solve.
+
+We only 100% *know* this will succeed because of the MVT.
+\{ closeDiv() \} 
+
 $PAR
+
+Consider the function \( f(x) = $fun\) on the interval \( [ -$c1 , $c1 ] \). $PAR
+🎯 Find the average or mean slope of the function on this interval. $BR
+\(\textnormal{average slope} = \) \{ans_rule(20) \}
+$PAR$BR
 
 Note that \(f\) is differentiable and continuous on \( [ -$c1 , $c1 ] \).  Thus, by the Mean Value Theorem, we know there must exist at least one \( c \) in the open interval
-\( ( -$c1 , $c1 ) \) such that \( f'( c) \) is equal to this mean slope.  Find \(c\). 
+\( ( -$c1 , $c1 ) \) such that \( f'( c) \) is equal to this mean slope.  
+
+$PAR
+🎯 Find such values \(c\), and use a comma-separated list. 
+
 
 $PAR
 
-(For this problem, there are two values of \( c \) that work. Separate your two values with a comma)
+The AROC is attained at \(c = \) \{ans_rule(40)\}  $SPACE
 
-$PAR
 
-\(c = \) \{ans_rule(40)\}
-
-$PAR
-
-\{theresahint\}
 END_TEXT
 
-BEGIN_HINT
-First find the average slope over the interval; it's a rise/run calculation.  Second, set \(f'\) equal to that slope, and solve.  The two solutions are the two values of \(c\).
 
-\{amethystHint("$PAR$HR$PAR Prof. Amethyst has a segment in a full lecture about the Mean Value Theorem.  Jump to about 42 minutes in the following video (use chapters for quick navigation).$PAR")\}
-\{ youtubeAmethyst("_GEjAupnqG8") \}
-END_HINT
 Context()->normalStrings;
 
 

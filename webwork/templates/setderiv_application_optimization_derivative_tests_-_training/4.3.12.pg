@@ -40,7 +40,7 @@
 
 DOCUMENT();
 
-loadMacros("PG.pl","PGbasicmacros.pl","PGanswermacros.pl");
+loadMacros("PG.pl","PGbasicmacros.pl","PGanswermacros.pl", "PGcourse.pl");
 
 loadMacros("Parser.pl");
 
@@ -133,24 +133,38 @@ plot_functions($graph,$f_graph);
 
 Context()->texStrings;
 
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+We're building towards reasoning about a function just from the intervals on which it's increasing and decreasing, so that we can classify points as local optima without even seeing a graph of the actual function, and without an explicit formula for it.  Just us and derivatives, trying to tell the future.
+ [@ closeDiv() @]*
+
+END_PGML
+
 BEGIN_TEXT
 \{ beginproblem() \}
-Assume \(f(x)\) is a differentiable function and the graph of its ${BBOLD}derivative${EBOLD}, \(f'(x)\), is given below.
+
 $PAR
 \{ image(insertGraph($graph), width=>300,tex_size=>800 ) \}
 
 $PAR
-Determine the intervals on which \(f\) is increasing or decreasing.
+Here is a graph of \(\frac{df}{dx}\) for a function \(f\) we know not.  Based just on this, determine the intervals on which \(f\) is increasing or decreasing.  
+
+
 
 $PAR
-On the interval \{ans_rule()\}, \(f\) is \{pop_up_list([@label_increase_decrease]) \}.
+On the leftmost interval \{ans_rule()\}, \(f\) is \{pop_up_list([@label_increase_decrease]) \}.
 $PAR
-On the interval \{ans_rule()\}, \(f\) is \{pop_up_list([@label_increase_decrease]) \}.
+On the middle interval \{ans_rule()\}, \(f\) is \{pop_up_list([@label_increase_decrease]) \}.
 $PAR
-On the interval \{ans_rule()\}, \(f\) is \{pop_up_list([@label_increase_decrease]) \}.
+On the rightmost interval \{ans_rule()\}, \(f\) is \{pop_up_list([@label_increase_decrease]) \}.
 
-$PAR
-${BITALIC}(Make sure to enter the intervals in order, reading the graph from left-to-right.  That is, the first interval should be the left-most interval.)$EITALIC
+
+$PAR $HR $PAR
+\{ openDiv({ "class" => "inProblemHint" }) \}
+* Mind the braces you use.  \( [] \) is inclusive of bounds, while \( () \) is exclusive.
+* exactly \(0\) is neither positive nor negative
+\{ closeDiv() \}
 
 END_TEXT
 

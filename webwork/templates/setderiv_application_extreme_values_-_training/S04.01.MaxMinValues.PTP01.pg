@@ -78,25 +78,45 @@ $fn = Compute("$A3*x^3+$A2*x^2+$A1*x+$A0")->reduce;
 $answer=List($a,$b);
 
 Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on finding critical numbers or critical points of functions.  They're so important!  They're the potential locations of optima.
+[@ closeDiv() @]*
+
+
+Here's a video from Prof. Amethyst describing methods for finding critical points:
+
+>>[@ youtube(etE5VWsx65Y) @]*<<
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A "critical number" is a point where the derivative is [`0`].
+
+To find critical numbers,
+1. Differentiate the function
+2. Set the derivative equal to [`0`] and solve.
+
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
 BEGIN_TEXT
-Find all critical numbers of the polynomial
+Find all critical numbers of the polynomial.  List them separated by commas.  If there are no critical numbers, enter ${BBOLD}None${EBOLD}.
+
 \[ f(x) = $fn \]
-and then list them (separated by commas) in the box below.
-If there are no critical numbers, enter ${BBOLD}None${EBOLD}.
+
 $PAR
 List of critical numbers: \{ans_rule(36) \}
 
-$BR$BR
 
-\{theresahint\}
 END_TEXT
 
-BEGIN_HINT
-Critical points / critical values / critical numbers (there are lots of names for them!) are points where a function's derivative is 0 (so the tangent line is horizontal), or the derivative is not defined (e.g. there's a jump, cusp, or other oddity).  In this case, we're interested in the \(x\)-coordinates of the points.
 
-\{amethystHint("$PAR$HR$PAR Here's a video describing methods for finding critical points:$BR$BR")\}
-\{youtubeAmethyst(etE5VWsx65Y)\}
-END_HINT
 
 Context()->normalStrings;
 

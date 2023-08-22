@@ -72,35 +72,51 @@ $xrelamins=List(   -sqrt($b/3)  );
 #  Make an aligned list to present Q and A.
 ###################################
 
-$al = new_aligned_list(ans_rule_len=>35, numbered=>1, tex_spacing=>"3pt", equals=>0);
-$al->qa(
-  "\(f\) is increasing on the intervals: ",    $inc->cmp,
-  "\(f\) is decreasing on the intervals: ",   $dec->cmp,
-  "The local maximums of \(f\) occur at \(x =\) ",   $xrelamaxs->cmp,
-  "The local minimums of \(f\) occur at \(x =\) ",    $xrelamins->cmp,
+$intervals = new_aligned_list(ans_rule_len=>35, numbered=>0, tex_spacing=>"3pt", equals=>0);
+$intervals->qa(
+  "\(f\) is increasing on the intervals $SPACE",    $inc->cmp,
+  "\(f\) is decreasing on the intervals $SPACE",   $dec->cmp,
+
 );
+
+$extrema = new_aligned_list(ans_rule_len=>35, numbered=>0, tex_spacing=>"3pt", equals=>0);
+$extrema->qa(
+  "The local maximums of \(f\) occur at \(x =\) $SPACE",   $xrelamaxs->cmp,
+  "The local minimums of \(f\) occur at \(x =\) $SPACE",    $xrelamins->cmp,
+);
+
+
 
 ###################################
 # Main text
 
 Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem uses the first derivative test to classify critical points of a function.  Many modern computer-based systems "optimize".  Optima are mins and maxes of functions.  We're training you to understand what it means to experience a minimum or maximum of something.
+[@ closeDiv() @]*
+
+END_PGML
+
+
 BEGIN_TEXT
 Let \( f(x) = $f \). 
 
 $PAR
 
-Find all open intervals on which \( f \) is increasing  and decreasing.  Then determine the \( x\)-coordinates of all local extrema.
+🎯 Find all open intervals on which \( f \) is increasing and decreasing.  Use interval notation.
+
+\{$intervals->print_q\}
+
 $PAR
-\{$al->print_q\}
-$BR
-$BBOLD Notes:$EBOLD $BR
-- In the first two, your answer should either be $BR
-• a single interval, such as "(0,1)", $BR
-• a union-separated list of intervals, such as "(-inf, 2) U (3,4)", or $BR
-• the word ${LQ}none$RQ.  $BR
+
+🎯 Determine the \( x\)-coordinates of all local extrema.  Classify the critical numbers using the first derivative test.  Use a comma separated list or "none".
 $PAR
-- In the last two, your answer should be a comma separated list of \( x\) values or the word
-${LQ}none$RQ.
+
+\{$extrema->print_q\}
+
 
 END_TEXT
 Context()->normalStrings;
@@ -109,8 +125,8 @@ Context()->normalStrings;
 # Answer checking
 
 $showPartialCorrectAnswers = 1;
-ANS($al->correct_ans);
-
+ANS($intervals->correct_ans);
+ANS($extrema->correct_ans);
 ###################################
 
 

@@ -48,6 +48,8 @@ loadMacros(
   "customCSS.pl",
 );
 
+COMMENT("todo: reformat to use a table and a dropdown.  the linear layout *sucks*.");
+
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 
@@ -101,6 +103,7 @@ You place a frozen turkey pot pie in an oven and bake it for 45 minutes. Then yo
 * The horizontal axis is time, starting at the time you put it in the oven. 
 * The vertical axis is temperature.  
 
+🎯 Use the radio button to select the graph that qualitatively matches the scenario.
 END_PGML
 
 
@@ -111,8 +114,6 @@ $PAR
 $PAR
 \{ $m->print_a() \}
 
-$PAR
-(Click on any graph to view a larger graph.)
 
 END_TEXT
 

@@ -121,7 +121,7 @@ $passcode1 = random(1000,9999);
 #  Text
 
 Scaffold::Begin(can_open => "always",
-      is_open  => "always");
+      is_open  => "never");
 
 BEGIN_PGML
 

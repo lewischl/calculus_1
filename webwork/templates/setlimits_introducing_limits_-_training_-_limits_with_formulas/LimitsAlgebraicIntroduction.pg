@@ -74,7 +74,6 @@ $aa4=Formula("$a-.01");
 $aa5=Formula("$a-.001");
 $aa6=Formula("$a-.0001");
 
-
 $av1=Real("($a3*$aa1-4.9*(($aa1)^2)-($a3 *$a -4.9* (($a)^2)))/0.01");
 $av2=Real("($a3*$aa2-4.9*(($aa2)^2)-($a3 *$a -4.9* (($a)^2)))/0.001");
 $av3=Real("($a3*$aa3-4.9*(($aa3)^2)-($a3 *$a -4.9* (($a)^2)))/0.0001");
@@ -187,7 +186,7 @@ $passcode1 = random(1000,9999);
 TEXT(beginproblem());
 Context()->texStrings;
 
-Scaffold::Begin();
+Scaffold::Begin(can_open => "when_previous_correct", is_open  => "first_incorrect");
 ###########################################
 Section::Begin("Part 1");
 

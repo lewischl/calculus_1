@@ -61,7 +61,7 @@ END_PGML
 # Main text
 ###########################################
 #  The scaffold
-Scaffold::Begin();
+Scaffold::Begin(can_open => "always", is_open => "never");
 ###########################################
 Section::Begin("Rectangles, circles, and right triangles (8:53)");
 

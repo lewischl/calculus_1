@@ -61,7 +61,7 @@ END_PGML
 # Main text
 ###########################################
 #  The scaffold
-Scaffold::Begin();
+Scaffold::Begin(is_open=>"first_incorrect");
 ###########################################
 Section::Begin("Rectangles, circles, and right triangles (8:53)");
 

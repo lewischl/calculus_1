@@ -124,17 +124,14 @@ Calculus is the language of change.
 
 
 
-Match the units with the quantities they model or describe.
-
-
-[@ $ml->print_q() @]*
-
-[@ $ml->print_a() @]*
-
-
-
+Match the units with the quantities they model or describe.  There are more options for units than modeled quantities; you will not use all the units.
 
 END_PGML
+
+TEXT( ColumnTable($ml->print_q(), $ml->print_a()));
+
+
+
 
 
 ANS(str_cmp($ml->ra_correct_ans));

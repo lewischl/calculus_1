@@ -1,0 +1,106 @@
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "parserGraphTool.pl"
+);
+TEXT(beginproblem());
+
+COMMENT("example of: have a student create a circle in graphtool");
+# https://webwork.maa.org/wiki/GraphTool	
+
+# Initialization: It is important to include the parseGraphTool.pl macro.
+
+# Define the answer checker for the graph tool.
+# This checker allows the student to graph the correct circle multiple 
+# times.  The idea is that the graph is graded based on appearance.  
+# No matter how many times the student graphs the correct circle, 
+# the resulting graph appears the same.
+
+$gt_checker = sub {
+    my ($correct, $student, $ans, $value) = @_;
+    return 0 if $ans->{isPreview};
+
+    my $score = 0;
+    my @errors;
+    my $count = 1;
+
+    # Get the center and point that define the correct circle and 
+    # compute the square of the radius.
+
+    my ($cx, $cy) = $correct->[0]->extract(3)->value;
+    my ($px, $py) = $correct->[0]->extract(4)->value;
+    my $r_squared = ($cx - $px) ** 2 + ($cy - $py) ** 2;
+
+    my $pointOnCircle = sub {
+        my $point = shift;
+        my ($x, $y) = $point->value;
+        return ($x - $cx) ** 2 + ($y - $cy) ** 2  == $r_squared;
+    };
+
+    # Iterate through the objects the student graphed and check to
+    # see if each is the correct circle.
+    for (@$student) {
+        my $nth = Value::List->NameForNumber($count++);
+        
+        # This checks if the student input matches the circle, type
+        # (solid or dashed), the center of the circle and
+        # checks if a point is on the circle. 
+
+        $score += 1, next
+        if ($_->extract(1) eq $correct->[0]->extract(1) &&
+            $_->extract(2) eq $correct->[0]->extract(2) &&
+            $_->extract(3) == $correct->[0]->extract(3) &&
+            $pointOnCircle->($_->extract(4)));
+
+        # The following gives additional information to the student.
+        
+        push(@errors, "The $nth object graphed is not a circle"),
+        next if ($_->extract(1) ne $correct->[0]->extract(1));
+
+        push(@errors, "The $nth object graphed should be a " .
+                      $correct->[0]->extract(2) . " circle."),
+        next if ($_->extract(2) ne $correct->[0]->extract(2));
+
+        push(@errors, "The $nth object graphed is incorrect.");
+    }
+
+    return ($score, @errors);
+};
+
+
+$h = non_zero_random(-5, 5);
+$k = non_zero_random(-5, 5);
+$r = random(1, 4);
+
+Context()->variables->add("y" => "Real");
+$circle_eq_lhs = Formula("(x-$h)^2 + (y-$k)^2")->reduce;
+
+$gt = GraphTool("{circle, solid, ($h, $k), ($h + $r, $k)}")->with(
+    bBox => [-11, 11, 11, -11],
+    cmpOptions => { list_checker => $gt_checker }
+);
+
+
+
+BEGIN_PGML
+Graph the circle given by the following equation.
+
+    [`[$circle_eq_lhs] = [$r ** 2]`]
+
+[_]{$gt}
+END_PGML
+
+
+BEGIN_PGML_SOLUTION
+The equation of the circle of the form:
+
+[`[$circle_eq_lhs] = [$r ** 2]`]
+
+has a center at [`([$h],[$k])`] and radius [$r].   To enter the graph, click the circle tool, then click the center at [`([$h],[$k])`] and then click a second point that is [$r] units from the center.  This is easist going left, right, up or down from the center.
+END_PGML_SOLUTION
+
+ENDDOCUMENT();
+
+

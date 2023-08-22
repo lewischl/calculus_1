@@ -163,7 +163,7 @@ BEGIN_PGML
 
 A pair of functions [`f(x)`] and [`g(x)`] are graphed below.  
 
->>[@ image(insertGraph($graph1), width => 400, height => 400) @]* [@ image(insertGraph($graph2), width => 400, height => 400) @]*<<
+>>[@ image(insertGraph($graph1), width => 300, height => 200) @]* [@ image(insertGraph($graph2), width => 300, height => 200) @]*<<
 
 ---
 

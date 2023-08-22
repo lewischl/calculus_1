@@ -44,7 +44,8 @@ DOCUMENT();        # This should be the first executable line in the problem.
 loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "parserPopUp.pl",
 );
 
 Context('Numeric');
@@ -64,32 +65,112 @@ $displayfunction = Compute("$a0 x^($a1) + $a2 x - $a3")->reduce();
 $fprime = Compute("$a0 * $a1 * x**($a1-1) + $a2")->reduce;
 
 Context()->texStrings;
-BEGIN_TEXT
-In this problem you will use Rolle's theorem to determine whether 
-it is possible for the function \[ f(x) = $displayfunction \] 
-to have two or more real roots (or, equivalently, whether the graph of 
-\( y = f(x) \) crosses the \(x\)-axis two or more times). $BR$BR
 
-Suppose that \( f(x) \) has at least two real roots.  Choose 
-two of these roots and call the smaller one \( a \) and the 
-larger one \( b \).  By applying Rolle's theorem to \( f(x) \) on the
-interval \( [a,b] \), there exists at least one number 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on Rolle's theorem
+[@ closeDiv() @]*
+
+Rolle's Theorem is a common-sense theorem: If a thing starts and stops at the same point, and moves differentiably, then it must reverse course at some point.
+
+Rolle's Theorem is a "special case" of the Mean Value Theorem -- the average rate of change is zero if a thing starts and stops at the same point.
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Rolle's Theorem
+
+If a function [`f`] has the following three properties:
+
+1. differentable inside an interval [`(a,b)`]
+2. continuous on all of [`[a,b]`],
+3. [`f(a) = f(b)`]
+
+then...
+
+there *must* exist a point [`x = c`] inside [`(a,b)`] at which the derivative is [`0`]:
+
+[``` f'(c) = 0```]
+[@ closeDiv() @]*
+
+🧠 Rolle's Theorem is an "existential" statement: we *know* [`c`] exists, but we didn't get a recipe to compute it.
+
+---
+
+END_PGML
+
+
+
+
+
+$pops1 = PopUp(
+  ["?", "of opposite sign","equal", "of the same sign", "both zero", "infinite"],
+  "equal");
+
+
+if ( $sign == 1 ){
+$right = "f' is a sum of even powers with positive coefficients";
+$wrong_but_close = "f' is a sum of even powers with negative coefficients";
+}
+else{ # negative sign on the two coefficients
+$right = "f' is a sum of even powers with negative coefficients";
+$wrong_but_close = "f' is a sum of even powers with positive coefficients";
+}
+
+$pops2 = PopUp(
+  ["?", "f' is an odd function", $right, $wrong_but_close, "f' has an additive constant", "f' has only two terms"],
+  $right);
+
+
+BEGIN_TEXT
+
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
+In this problem you will use Rolle's theorem conclude, without a graph evaluation, that the function \[ f(x) = $displayfunction \] 
+cannot possibly have two or more real roots.  $PAR
+
+Equivalently, we'll prove it's impossible for the graph of \( y = f(x) \) to cross the \(x\)-axis two or more times). $BR$BR
+
+
+\{ closeDiv() \}
+
+$PAR
+
+🗺️ Plan of attack: $PAR
+
+
+We're engaging in the mathematical activity called "proof".  We're going to find a contradiction ⚡️ by assuming that the function $BBOLD does $EBOLD have two or more roots.  🎯 Fill in the pieces to complete the narrative argument.
+
+$PAR $BR
+
+1. Suppose that \( f(x) \) has at least two real roots.  (This is the "assume" step -- we're disproving it at the end)
+$PAR
+
+2. We can arbitrarily choose two of these roots, and call the smaller one \( a \) and the 
+larger one \( b \).  
+$PAR
+
+3. We show \(f\) satisfies the requirements for Rolle's theorem on the interval \( [a,b] \).  We can do this because the function values at \(a\) and \(b\) are \{ $pops1->menu() \}.
+$PAR
+Thus, there exists at least one number 
 \( c \) in the interval \( (a,b) \) so that \( f'(c) = \) \{ans_rule(15)\}.
-$BR$BR
-BUT!!! Here's the thing!  The values of the derivative \( f'(x) = \) \{ans_rule(15)\} are always 
-\{pop_up_list(['?','changing','negative','zero','positive','undefined']) \},
+
+$PAR
+
+4. Arrive at a contradiction ⚡️: a statement you know to be true, must also be false.  Here's the thing!  The values of the derivative \( f'(x) = \) \{ans_rule(15)\} are always 
+\{pop_up_list(['?','changing','negative','zero','positive','undefined']) \} because \{ $pops2->menu() \},
 and therefore it is \{pop_up_list(['?','plausible','unlikely','possible','impossible']) \}
 for \( f(x) \) to have two or more real roots.
 
 $BR$BR
 
-\{ theresahint \}
+
 END_TEXT
 
-BEGIN_HINT
-Take the derivative of \(f\).  Is it possible that it ever changes sign?  Look at the powers that appear in \(f'\).
-END_HINT
 Context()->normalStrings;
+
+
+ANS($pops1->cmp()); # f(a) = f(b)
 
 $answer1 = "0";
 $answer2 = $fprime;
@@ -97,9 +178,12 @@ if ( $sign == 1 ) { $answer3 = "positive"; } else { $answer3 = "negative"; }
 $answer4 = "impossible";
 
 ANS(Real(0)->cmp);
-ANS($fprime->cmp);
-ANS(str_cmp($answer3));
-ANS(str_cmp($answer4));
+ANS($fprime->cmp); # compute the derivative
+ANS(str_cmp($answer3)); # pos / neg
+
+ANS($pops2->cmp()); # reasoning
+
+ANS(str_cmp($answer4)); # impossible
 
 
 ENDDOCUMENT();

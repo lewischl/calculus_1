@@ -1,5 +1,4 @@
 
-
 ########################################
 # this file automatically moved
 #	from local/Library/Union/setDervOptimization/4-5-23.pg 
@@ -116,37 +115,52 @@ $a3->qa(
 # Main text
 
 Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Absolute optima are the max and min values on either the entire domain, or a closed interval of interest.  As we change the interval, different critical points influence the outcome.
+[@ closeDiv() @]*
+
+For a video from Prof. Amethyst describing a process for finding the absolute min and max of a function over a closed interval (the topic of this problem), please see the following video.  
+
+* Three examples of absolute optimization start at about 28 minutes in this video (use the chapters to navigate).  
+* Conceptual topics precede the examples, with a presentation of the absolute optimization algorithm appearing at about 20 minutes.
+
+>>[@ youtube("45THdDilo4w") @]*<<
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Absolute optimization requires a continuous function over a closed interval.  Absolute optima will occur at either a critical point, or a boundary point of the interval.  
+
+1. Find all critical points.  
+2. Evaluate the function at the critical points *and at the boundary points*.  
+3. Find the max and min.
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+
 BEGIN_TEXT
 Find the absolute maximum and absolute minimum values of the function
-\[  f(x) = $f\]
+\[  f(x) = $f \]
 over each of the indicated intervals.
 $PAR
-(a) Interval = \([$p1, 0]\).
+Interval = \([$p1, 0]\).
 \{$a1->print_q\}
 $BR
-(b) Interval = \([$p2, $p4]\).
+Interval = \([$p2, $p4]\).
 \{$a2->print_q\}
 $BR
-(c) Interval = \([$p1, $p4]\).
+Interval = \([$p1, $p4]\).
 \{$a3->print_q\}
 
-$BR$BR$BR
-\{theresahint\}
+
 END_TEXT
 
-BEGIN_HINT
-Absolute optimization requires a continuous function over a closed interval.  Absolute optima will occur at either a critical point, or a boundary point of the interval.  $PAR
 
-Find all critical points.  Then evaluate the function at the critical points, and at the boundary points.  Find the max and min.
-
-$PAR
-
-One more note: in optimization, we can be interested in either the min/max function values, or the locations at which those min/max values are attained.  Either we're interested in the \(y\) coordinates (function values) or the \(x\) coordinates (locations).  There's skill in knowing which a problem is asking for.  In this problem, we're asking for the *values*.
-
-
-\{amethystHint("$PAR$HR$PAR For a video from Prof. Amethyst describing a process for finding the absolute min and max of a function over a closed interval (the topic of this problem), please see the following video.  $PAR • Three examples of absolute optimization start at about 28 minutes in this video (use the chapters to navigate).  $BR • Conceptual topics precede the examples, with a presentation of the absolute optimization algorithm appearing at about 20 minutes.$PAR")\}
-\{youtubeAmethyst("45THdDilo4w")\}
-END_HINT
 Context()->normalStrings;
 
 ###################################

@@ -67,8 +67,22 @@ END_PGML
 # Main text
 ###########################################
 #  The scaffold
-Scaffold::Begin();
+Scaffold::Begin(can_open => "always", is_open => "never");
 ###########################################
+Section::Begin("Expanding sphere volume and radius (5:28)");
+
+BEGIN_PGML
+
+[@
+kalturaShull("1_ip6mj7n7")
+@]*
+
+END_PGML
+
+#Context()->texStrings;
+
+Section::End();
+
 Section::Begin("Expanding sphere volume and surface area (5:42)");
 
 BEGIN_PGML
@@ -81,6 +95,17 @@ END_PGML
 
 #Context()->texStrings;
 
+Section::End();
+
+Section::Begin("Ladder sliding down a wall (6:31)");
+
+BEGIN_PGML
+
+[@
+kalturaShull("1_mzcmfwbb")
+@]*
+
+END_PGML
 Section::End();
 
 Section::Begin("Car driving away from house: distance and angle (10:56)");
@@ -105,6 +130,18 @@ kalturaShull("1_dpmn2c4r")
 END_PGML
 Section::End();
 
+Section::Begin("Rotating search light (7:15)");
+
+BEGIN_PGML
+
+[@
+kalturaShull("1_j9yt5iox")
+@]*
+
+END_PGML
+
+Section::End();
+
 Section::Begin("Red laser dot (4:31)");
 
 BEGIN_PGML
@@ -117,6 +154,18 @@ END_PGML
 
 Section::End();
 
+Section::Begin("Two cars approaching intersection (9:18)");
+BEGIN_PGML
+
+[@
+kalturaShull("1_spuzphdh")
+@]*
+
+END_PGML
+
+Section::End();
+
+
 Section::Begin("Police car to the north and truck to the east both moving: distance (7:19) and angle (6:40)");
 BEGIN_PGML
 
@@ -126,6 +175,17 @@ kalturaShull("1_gjheq5eu")
 
 [@
 kalturaShull("1_t0k0oalf")
+@]*
+
+END_PGML
+
+Section::End();
+
+Section::Begin("Water entering cone-shaped tank (8:14)");
+BEGIN_PGML
+
+[@
+kalturaShull("1_iec90o62")
 @]*
 
 END_PGML

@@ -4,6 +4,7 @@
 
 ## Tagged by tda2d
 
+## Author(Original author unknown.  Heavily modified by silviana amethyst)
 ## DBsubject(Calculus - single variable)
 ## DBchapter(Applications of differentiation)
 ## DBsection(Optimization - general)
@@ -47,7 +48,8 @@ loadMacros(
   "PGunion.pl",
   "MathObjects.pl",
   "alignedChoice.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "parserPopUp.pl",
 );
 
 TEXT(beginproblem());
@@ -56,50 +58,84 @@ TEXT(beginproblem());
 # Setup
 
 $a = random(13,19,1);
-$as = $a**2;
-$perimeter = 4*$a;
+$as = Real($a**2);
+$perimeter = Real(4*$a);
 
 ###################################
 #  Make an aligned list to present Q and A.
 ###################################
 
-$a1 = new_aligned_list(ans_rule_len=>10, numbered=>1, tex_spacing=>"3pt", equals=>0, align => LEFT);
-$a1->qa(
-  "Dimensions:", List($a, $a)->cmp,
-  "Minimum perimeter:", Real($perimeter)->cmp,
-);
 
 ###################################
 # Main text
 
-BEGIN_TEXT
-Find the dimensions of the rectangle with area $as square inches
-that has minimum perimeter, and then find the minimum perimeter.
-$PAR
-\{$a1->print_q\}
-$PAR
-Enter your result for the dimensions as a comma separated list of two numbers.  Do not include the units.
 
-$BR$BR
-\{ theresahint \}
-END_TEXT
+BEGIN_PGML
 
-BEGIN_HINT
-In this problem, we have a constraint on area, and the objective function \(\Omega\) is the length of the perimeter.  
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This is an "applied optimization" problem, focusing on area.
+* Optimization, because we're computing mins and maxes
+* Applied, because the objective functions -- the functions we optimize -- have a real meaning.
 
-$PAR
+This problem offers advice and guidance.  
 
-Write a multi-variable \(\Omega\), and then eliminate a variable using the constraint.  Note any domain of validity for the variable.  After that, this is an absolute optimization problem.
+[@ closeDiv() @]*
 
-\{amethystHint("$PAR$HR$PAR For a similar problem (with contraint and objectives swapped), check out this video by Prof. Amethyst:$BR$BR")\}
-\{ youtubeAmethyst(B9yswlydgpk) \}
-END_HINT
+
+
+The precise steps varies by problem, as there is a very wide variety.  
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+General steps for applied optimization
+
+1. Draw a picture. 🖼️
+2. Decide on variable names. Annotate and label things.  
+3. Write a formula for the objective function.  Always call the objective function [`\Omega`].  
+4. Eliminate extra variables, if necessary, to obtain a single-variable objective function [`\Omega`].
+5. Identify an interval of validity, if necessary
+6. Optimize the objective function
+7. Conclude.
+
+[@ closeDiv() @]*
+
+
+Specified to this problem, the steps might be:
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Steps for *this* problem
+
+1. Draw rectangle.
+2. Name the sides [`x`] and [`y`] 
+3. Write a formula for the [`\Omega(x,y)`] modeling the perimeter.
+4. Eliminate [`y`] using the area constraint to obtain [`\Omega(x)`].  Solve [`A`] for [`y`] and substitute into [`\Omega`].
+5. Note that [`x`] is a length of fence and cannot be negative.
+6. Optimize the objective function over [`[0, \infty)`] to find [`\Omega_\textnormal{min}`]
+7. Conclude.
+
+[@ closeDiv() @]*
+
+
+---
+
+Find the dimensions and perimeter of the rectangle with area [`[$as]`] square inches
+that has minimum perimeter.  
+
+Dimensions [`x \times y`]: [_]{List($a, $a)}  
+
+Minimum perimeter: [_]{Real($perimeter)} inches
+
+[@ openDiv({ "class" => "inProblemHint" }) @]*
+Enter your result for the dimensions as a comma separated list of two numbers
+[@ closeDiv() @]*
+END_PGML
+
+
+
 ###################################
 # Answer checking
 
 $showPartialCorrectAnswers = 1;
 
-ANS($a1->correct_ans);
 
 ###################################
 
