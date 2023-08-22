@@ -1,0 +1,68 @@
+assignmentType      = gateway
+openDate          = 09/02/2023 at 05:16am CDT
+reducedScoringDate = 09/02/2023 at 05:16am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
+enableReducedScoring = Y
+paperHeaderFile   = defaultHeader
+screenHeaderFile  = headers/Header_challenge_untimed.pg
+attemptsPerVersion  = 0
+timeInterval        = 0
+versionsPerInterval = 0
+versionTimeLimit    = 0
+problemRandOrder    = 0
+problemsPerPage     = 0
+hideScore           = N
+hideScoreByProblem  = N
+hideWork            = N
+capTimeLimit        = 0
+description       = untimed
+restrictProbProgression = 0
+emailInstructor   = 0
+
+problemListV2
+problem_start
+problem_id = 1
+source_file = setintegrals_approximating_area_-_challenge/sc5_2_3.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 2
+source_file = setintegrals_approximating_area_-_challenge/xsinx_4_rect_RL.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 3
+source_file = group:group_integrals_approx_by_rectangles_overunderestimate_-_no_hints
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 4
+source_file = group:group_integrals_approx_by_rectangles_overunderestimate_-_no_hints
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+

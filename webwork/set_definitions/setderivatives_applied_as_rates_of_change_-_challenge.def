@@ -1,112 +1,66 @@
-assignmentType      = default
-openDate          = 02/24/2023 at 03:11am CST
-reducedScoringDate = 03/14/2023 at 09:59pm CDT
-dueDate           = 05/13/2023 at 03:11am CDT
-answerDate        = 12/17/2023 at 03:11am CST
+assignmentType      = gateway
+openDate          = 09/02/2023 at 03:15am CDT
+reducedScoringDate = 09/02/2023 at 03:15am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = defaultHeader
-description       = 
+screenHeaderFile  = headers/Header_challenge_untimed.pg
+attemptsPerVersion  = 0
+timeInterval        = 0
+versionsPerInterval = 0
+versionTimeLimit    = 0
+problemRandOrder    = 1
+problemsPerPage     = 0
+hideScore           = N
+hideScoreByProblem  = N
+hideWork            = N
+capTimeLimit        = 0
+description       = 4 problems unlimited time
 restrictProbProgression = 0
 emailInstructor   = 0
 
 problemListV2
 problem_start
 problem_id = 1
-source_file = setderivatives_applied_as_rates_of_change_-_challenge/s3_3_7_mo.pg
+source_file = group:group_derivatives_rates_of_change_motion_-_no_hints
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 2
-source_file = setderivatives_applied_as_rates_of_change_-_challenge/S03.03.RatesOfChange.PTP01.pg
+source_file = group:group_derivatives_rates_of_change_motion_-_no_hints
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 3
-source_file = setderivatives_applied_as_rates_of_change_-_challenge/s3_3_3_mo.pg
+source_file = group:group_derivatives_rates_of_change_speeding_up_slowing_down_-_no_hints
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 4
-source_file = setderivatives_applied_as_rates_of_change_-_challenge/3-2-66.pg
+source_file = group:group_derivatives_rates_of_change_non-time_rates_-_no_hints
 value = 1
 max_attempts = -1
 showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 5
-source_file = setderivatives_applied_as_rates_of_change_-_challenge/s3_3_11.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 6
-source_file = setderivatives_applied_as_rates_of_change_-_challenge/s3_3_13.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 7
-source_file = setderivatives_applied_as_rates_of_change_-_challenge/rates-of-change1.pg
-value = 2
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 8
-source_file = setderivatives_applied_as_rates_of_change_-_challenge/1210s3p24.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 9
-source_file = setderivatives_applied_as_rates_of_change_-_challenge/3.4.27.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 10
-source_file = setderivatives_applied_as_rates_of_change_-_challenge/s_3_1_45.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

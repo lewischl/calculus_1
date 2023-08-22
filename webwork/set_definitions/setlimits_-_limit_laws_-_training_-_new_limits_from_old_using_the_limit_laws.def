@@ -1,11 +1,11 @@
 assignmentType      = default
-openDate          = 01/30/2023 at 02:04am CST
-reducedScoringDate = 02/09/2023 at 09:59pm CST
-dueDate           = 05/13/2023 at 02:04am CDT
-answerDate        = 12/17/2023 at 02:04am CST
+openDate          = 09/02/2023 at 02:07am CDT
+reducedScoringDate = 09/02/2023 at 02:07am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = defaultHeader
+screenHeaderFile  = headers/Header_training.pg
 description       = 
 restrictProbProgression = 0
 emailInstructor   = 0
@@ -17,6 +17,7 @@ source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -27,6 +28,7 @@ source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -37,6 +39,7 @@ source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -47,6 +50,7 @@ source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -57,156 +61,95 @@ source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 6
-source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/s_2_3_2_copy.pg
+source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/3-2-30a.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 7
-source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/3-2-30a.pg
+source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/s1_3_6.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 8
-source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/s1_3_6.pg
+source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/3-2-51.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 9
-source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/3-2-51.pg
+source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/ur_lr_1-5_3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 10
-source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/ur_lr_1-5_3.pg
+source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/s1_3_4.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 11
-source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/s_2_3_1.pg
+source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/3-2-26.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 12
-source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/s1_3_4.pg
+source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/3-2-30.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 13
-source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/3-2-26.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 14
-source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/ns_2_3_1.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 15
-source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/3-2-25.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 16
-source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/3-2-30.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 17
-source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/s1_3_4.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 18
-source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/s1_3_3_mo.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 19
-source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/3-2-26.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 20
 source_file = setlimits_-_limit_laws_-_training_-_new_limits_from_old_using_the_limit_laws/s1_3_12.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

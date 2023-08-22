@@ -1,14 +1,46 @@
-assignmentType      = default
-openDate          = 03/10/2023 at 04:39am CST
-reducedScoringDate = 04/17/2023 at 09:59pm CDT
-dueDate           = 05/13/2023 at 04:39am CDT
-answerDate        = 12/17/2023 at 04:39am CST
+assignmentType      = gateway
+openDate          = 09/02/2023 at 04:13am CDT
+reducedScoringDate = 09/02/2023 at 04:13am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = defaultHeader
-description       = 
+screenHeaderFile  = headers/Header_challenge_untimed.pg
+attemptsPerVersion  = 0
+timeInterval        = 0
+versionsPerInterval = 0
+versionTimeLimit    = 0
+problemRandOrder    = 0
+problemsPerPage     = 0
+hideScore           = N
+hideScoreByProblem  = N
+hideWork            = N
+capTimeLimit        = 0
+description       = 2 problems that are  the same every time
 restrictProbProgression = 0
 emailInstructor   = 0
 
 problemListV2
+problem_start
+problem_id = 1
+source_file = setderiv_application_newtons_method_root_finding_-_challenge/NewtonMethodApproxCubeRoot.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 2
+source_file = setderiv_application_newtons_method_root_finding_-_challenge/NewtonMethod_quintic.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
 

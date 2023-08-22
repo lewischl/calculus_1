@@ -1,11 +1,11 @@
 assignmentType      = default
-openDate          = 01/30/2023 at 02:03am CST
-reducedScoringDate = 02/08/2023 at 09:59pm CST
-dueDate           = 05/13/2023 at 02:03am CDT
-answerDate        = 12/17/2023 at 02:03am CST
+openDate          = 09/02/2023 at 02:05am CDT
+reducedScoringDate = 09/02/2023 at 02:05am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = defaultHeader
+screenHeaderFile  = headers/Header_training.pg
 description       = 
 restrictProbProgression = 0
 emailInstructor   = 0
@@ -13,70 +13,77 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setlimits_introducing_limits_-_training_-_graphical_limits/ur_lr_1-5_1_mo.pg
+source_file = setlimits_introducing_limits_-_training_-_graphical_limits/graphical_limit_preview.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 2
-source_file = setlimits_introducing_limits_-_training_-_graphical_limits/3-2-36.pg
+source_file = setlimits_introducing_limits_-_training_-_graphical_limits/ur_lr_1-5_1_mo.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 3
-source_file = setlimits_introducing_limits_-_training_-_graphical_limits/s_2_5_3.pg
+source_file = setlimits_introducing_limits_-_training_-_graphical_limits/3-2-36.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 4
-source_file = setlimits_introducing_limits_-_training_-_graphical_limits/ur_lr_1-5_1.pg
+source_file = setlimits_introducing_limits_-_training_-_graphical_limits/s_2_5_3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 5
-source_file = setlimits_introducing_limits_-_training_-_graphical_limits/many_limits_graphical.pg
+source_file = setlimits_introducing_limits_-_training_-_graphical_limits/ur_lr_1-5_1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 6
-source_file = setlimits_introducing_limits_-_training_-_graphical_limits/s_2_2_5.pg
+source_file = setlimits_introducing_limits_-_training_-_graphical_limits/many_limits_graphical.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 7
-source_file = setlimits_introducing_limits_-_training_-_graphical_limits/graphs.pg
+source_file = setlimits_introducing_limits_-_training_-_graphical_limits/s_2_2_5.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -87,16 +94,7 @@ source_file = setlimits_introducing_limits_-_training_-_graphical_limits/APEX_1.
 value = 1
 max_attempts = -1
 showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 9
-source_file = setlimits_introducing_limits_-_training_-_graphical_limits/preview_1_2_c.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

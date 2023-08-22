@@ -27,6 +27,7 @@ source_file = setgroup_integrals_definite_rules_no_formulas_just_values_-_no_hin
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -37,6 +38,7 @@ source_file = setgroup_integrals_definite_rules_no_formulas_just_values_-_no_hin
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -47,6 +49,7 @@ source_file = setgroup_integrals_definite_rules_no_formulas_just_values_-_no_hin
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -57,76 +60,51 @@ source_file = setgroup_integrals_definite_rules_no_formulas_just_values_-_no_hin
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 5
-source_file = setgroup_integrals_definite_rules_no_formulas_just_values_-_no_hints/s_5_2_42.pg
+source_file = setgroup_integrals_definite_rules_no_formulas_just_values_-_no_hints/the_name_of_the_variable_is_arbitrary.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 6
-source_file = setgroup_integrals_definite_rules_no_formulas_just_values_-_no_hints/the_name_of_the_variable_is_arbitrary.pg
+source_file = setgroup_integrals_definite_rules_no_formulas_just_values_-_no_hints/puzzle_of_given_values.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 7
-source_file = setgroup_integrals_definite_rules_no_formulas_just_values_-_no_hints/s_5_2_43.pg
+source_file = setgroup_integrals_definite_rules_no_formulas_just_values_-_no_hints/s5_2_37.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 8
-source_file = setgroup_integrals_definite_rules_no_formulas_just_values_-_no_hints/puzzle_of_given_values.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 9
-source_file = setgroup_integrals_definite_rules_no_formulas_just_values_-_no_hints/s5_2_37.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 10
 source_file = setgroup_integrals_definite_rules_no_formulas_just_values_-_no_hints/s5_2_44.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 11
-source_file = setgroup_integrals_definite_rules_no_formulas_just_values_-_no_hints/s5_2_45.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

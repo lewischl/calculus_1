@@ -1,44 +1,14 @@
 assignmentType      = default
-openDate          = 04/17/2023 at 05:11am CDT
-reducedScoringDate = 05/11/2023 at 09:59pm CDT
-dueDate           = 07/13/2023 at 05:12am CDT
-answerDate        = 12/17/2023 at 05:11am CST
+openDate          = 09/02/2023 at 05:24am CDT
+reducedScoringDate = 09/02/2023 at 05:24am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = setintegrals_applied_as_net_change_-_challenge/CombinedHeaderFile.pg
-description       = Use definite integration of a rate of change to model the net change for a variety of phenomena.  This set assumes you have these skills:<n><n>- definite integration of functions<n>- understand the difference between displacement and distance traveled<n>- understand units in the context of integration
+screenHeaderFile  = headers/Header_challenge_untimed.pg
+description       = not developed, don't use.  just do in-class activities or written homeworks.
 restrictProbProgression = 0
 emailInstructor   = 0
 
 problemListV2
-problem_start
-problem_id = 1
-source_file = setintegrals_applied_as_net_change_-_challenge/quadraticVelocity.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 2
-source_file = setintegrals_applied_as_net_change_-_challenge/z3.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 4
-source_file = setintegrals_applied_as_net_change_-_challenge/oil_leaking.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
 

@@ -1,11 +1,11 @@
 assignmentType      = default
-openDate          = 01/30/2023 at 02:12am CST
-reducedScoringDate = 02/20/2023 at 09:59pm CST
-dueDate           = 05/13/2023 at 02:12am CDT
-answerDate        = 12/17/2023 at 02:12am CST
+openDate          = 09/02/2023 at 02:19am CDT
+reducedScoringDate = 09/02/2023 at 02:19am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = defaultHeader
+screenHeaderFile  = headers/Header_training.pg
 description       = 
 restrictProbProgression = 0
 emailInstructor   = 0
@@ -17,6 +17,7 @@ source_file = setlimits_intermediate_value_theorem_-_training/s_2_4_prob04.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -27,56 +28,29 @@ source_file = setlimits_intermediate_value_theorem_-_training/S02.05.Intermediat
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 3
+source_file = setlimits_intermediate_value_theorem_-_training/2-8-ivthrm.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 4
-source_file = setlimits_intermediate_value_theorem_-_training/APEX_1.5_35.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 5
-source_file = setlimits_intermediate_value_theorem_-_training/2-8-ivthrm.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 6
-source_file = setlimits_intermediate_value_theorem_-_training/S02.05.IntermediateValueThm.PTP02.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 7
-source_file = setlimits_intermediate_value_theorem_-_training/IVT_table.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 8
 source_file = setlimits_intermediate_value_theorem_-_training/does_interval_contain_with_reason.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

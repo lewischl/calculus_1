@@ -1,12 +1,12 @@
 assignmentType      = default
-openDate          = 01/01/2024 at 12:12am CST
-reducedScoringDate = 01/01/2024 at 12:12am CST
-dueDate           = 01/01/2024 at 12:12am CST
-answerDate        = 01/01/2024 at 12:12am CST
+openDate          = 12/31/2029 at 11:59pm CST
+reducedScoringDate = 12/31/2029 at 11:59pm CST
+dueDate           = 12/31/2029 at 11:59pm CST
+answerDate        = 12/31/2029 at 11:59pm CST
 enableReducedScoring = N
 paperHeaderFile   = defaultHeader
 screenHeaderFile  = defaultHeader
-description       = 
+description       = --------- divider
 restrictProbProgression = 0
 emailInstructor   = 0
 

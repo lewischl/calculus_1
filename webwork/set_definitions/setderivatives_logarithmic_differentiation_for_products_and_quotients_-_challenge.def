@@ -1,54 +1,24 @@
-assignmentType      = default
-openDate          = 02/24/2023 at 03:14am CST
-reducedScoringDate = 03/16/2023 at 09:59pm CDT
-dueDate           = 05/13/2023 at 03:14am CDT
-answerDate        = 12/17/2023 at 03:14am CST
+assignmentType      = gateway
+openDate          = 09/02/2023 at 03:24am CDT
+reducedScoringDate = 09/02/2023 at 03:24am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = defaultHeader
-description       = 
+screenHeaderFile  = headers/Header_challenge_untimed.pg
+attemptsPerVersion  = 0
+timeInterval        = 0
+versionsPerInterval = 0
+versionTimeLimit    = 0
+problemRandOrder    = 0
+problemsPerPage     = 0
+hideScore           = N
+hideScoreByProblem  = N
+hideWork            = N
+capTimeLimit        = 0
+description       = undeveloped.  skip this content for now.
 restrictProbProgression = 0
 emailInstructor   = 0
 
 problemListV2
-problem_start
-problem_id = 1
-source_file = setderivatives_logarithmic_differentiation_for_products_and_quotients_-_challenge/ur_dr_7_2.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 2
-source_file = setderivatives_logarithmic_differentiation_for_products_and_quotients_-_challenge/prob11.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 3
-source_file = setderivatives_logarithmic_differentiation_for_products_and_quotients_-_challenge/S03.07.LogarithmicDifferentiation.PTP01.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 4
-source_file = setderivatives_logarithmic_differentiation_for_products_and_quotients_-_challenge/sc3_7_32.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
 

@@ -1,12 +1,12 @@
 assignmentType      = default
-openDate          = 01/27/2023 at 12:07am CST
-reducedScoringDate = 02/03/2023 at 09:59pm CST
-dueDate           = 05/13/2023 at 12:07am CDT
-answerDate        = 12/17/2023 at 12:07am CST
+openDate          = 09/01/2023 at 01:07am CDT
+reducedScoringDate = 09/01/2023 at 01:07am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = defaultHeader
-description       = 
+screenHeaderFile  = headers/Header_training.pg
+description       = not developed yet.
 restrictProbProgression = 0
 emailInstructor   = 0
 
@@ -17,6 +17,7 @@ source_file = setbackground_-_training_-_absolute_value_functions/ks_2_7_72.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

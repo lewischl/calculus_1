@@ -27,6 +27,7 @@ source_file = setgroup_integrals_derivatives_of_integral_functions_level_2_-_no_
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -37,16 +38,18 @@ source_file = setgroup_integrals_derivatives_of_integral_functions_level_2_-_no_
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 3
-source_file = setgroup_integrals_derivatives_of_integral_functions_level_2_-_no_hints/c4s4p4B.pg
+source_file = setgroup_integrals_derivatives_of_integral_functions_level_2_-_no_hints/s5_3_47.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

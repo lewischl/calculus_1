@@ -1,82 +1,78 @@
 assignmentType      = default
-openDate          = 03/10/2023 at 04:28am CST
-reducedScoringDate = 04/10/2023 at 09:59pm CDT
-dueDate           = 05/13/2023 at 04:28am CDT
-answerDate        = 12/17/2023 at 04:28am CST
+openDate          = 09/02/2023 at 04:07am CDT
+reducedScoringDate = 09/02/2023 at 04:07am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = defaultHeader
-description       = 
+screenHeaderFile  = headers/Header_training.pg
+description       = four guided problems focused on area
 restrictProbProgression = 0
 emailInstructor   = 0
 
 problemListV2
 problem_start
 problem_id = 1
-source_file = setderiv_application_applied_optimization_-_training/fenced_area.pg
-value = 1
+source_file = setderiv_application_applied_optimization_-_training/geometry_review_videos.pg
+value = 0
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 2
-source_file = setderiv_application_applied_optimization_-_training/min_perimeter_rectangle.pg
-value = 1
+source_file = setderiv_application_applied_optimization_-_training/optimization_examples.pg
+value = 0
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 3
-source_file = setderiv_application_applied_optimization_-_training/4-5-47.pg
+source_file = setderiv_application_applied_optimization_-_training/s4_7_3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 4
-source_file = setderiv_application_applied_optimization_-_training/s4_7_3.pg
+source_file = setderiv_application_applied_optimization_-_training/fenced_area.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 5
-source_file = setderiv_application_applied_optimization_-_training/abstract1.pg
+source_file = setderiv_application_applied_optimization_-_training/min_perimeter_rectangle.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 6
-source_file = setderiv_application_applied_optimization_-_training/4-5-48.pg
+source_file = setderiv_application_applied_optimization_-_training/4-5-47.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 7
-source_file = setderiv_application_applied_optimization_-_training/s3_8_6.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

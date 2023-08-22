@@ -1,11 +1,11 @@
 assignmentType      = default
-openDate          = 04/17/2023 at 05:10am CDT
-reducedScoringDate = 05/08/2023 at 09:59pm CDT
-dueDate           = 05/13/2023 at 05:10am CDT
-answerDate        = 12/17/2023 at 05:10am CST
+openDate          = 09/02/2023 at 05:20am CDT
+reducedScoringDate = 09/02/2023 at 05:20am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = defaultHeader
+screenHeaderFile  = headers/Header_training.pg
 description       = 
 restrictProbProgression = 0
 emailInstructor   = 0
@@ -13,20 +13,22 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setintegrals_by_substitution_-_training/indefinite_neg_power1.pg
+source_file = setintegrals_by_substitution_-_training/SubstitutionIntroduction.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 2
-source_file = setintegrals_by_substitution_-_training/usub_exp_of_polynomial.pg
+source_file = setintegrals_by_substitution_-_training/indefinite_neg_power1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -37,116 +39,51 @@ source_file = setintegrals_by_substitution_-_training/indefinite_trig_1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 4
-source_file = setintegrals_by_substitution_-_training/sc5_5_8.pg
+source_file = setintegrals_by_substitution_-_training/sc5_5_20.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 5
-source_file = setintegrals_by_substitution_-_training/s_5_5_24.pg
+source_file = setintegrals_by_substitution_-_training/definite_explicit_u_sub.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 6
-source_file = setintegrals_by_substitution_-_training/explicit_u_sub.pg
+source_file = setintegrals_by_substitution_-_training/definite1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 7
-source_file = setintegrals_by_substitution_-_training/definite1.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 8
-source_file = setintegrals_by_substitution_-_training/Stewart5_5_5_59.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 9
-source_file = setintegrals_by_substitution_-_training/definite2.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 10
-source_file = setintegrals_by_substitution_-_training/definite3.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 11
 source_file = setintegrals_by_substitution_-_training/definite4.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 12
-source_file = setintegrals_by_substitution_-_training/definite5.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 13
-source_file = setintegrals_by_substitution_-_training/sc5_5_20.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 14
-source_file = setintegrals_by_substitution_-_training/SubstitutionIntroduction.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

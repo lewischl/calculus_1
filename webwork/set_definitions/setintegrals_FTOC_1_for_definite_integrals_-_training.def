@@ -1,11 +1,11 @@
 assignmentType      = default
-openDate          = 04/17/2023 at 05:08am CDT
-reducedScoringDate = 05/03/2023 at 09:59pm CDT
-dueDate           = 05/13/2023 at 05:08am CDT
-answerDate        = 12/17/2023 at 05:08am CST
+openDate          = 09/02/2023 at 05:10am CDT
+reducedScoringDate = 09/02/2023 at 05:10am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = defaultHeader
+screenHeaderFile  = headers/Header_training.pg
 description       = 
 restrictProbProgression = 0
 emailInstructor   = 0
@@ -17,6 +17,7 @@ source_file = setintegrals_FTOC_1_for_definite_integrals_-_training/integrate_li
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -27,96 +28,62 @@ source_file = setintegrals_FTOC_1_for_definite_integrals_-_training/def_integral
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 3
-source_file = setintegrals_FTOC_1_for_definite_integrals_-_training/integrate_infinite_discontinuity.pg
+source_file = setintegrals_FTOC_1_for_definite_integrals_-_training/integrate_with_sqrt_in_denom.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 4
-source_file = setintegrals_FTOC_1_for_definite_integrals_-_training/integrate_with_sqrt_in_denom.pg
+source_file = setintegrals_FTOC_1_for_definite_integrals_-_training/6-5-18.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 5
-source_file = setintegrals_FTOC_1_for_definite_integrals_-_training/integrate_sqrt_over_poly.pg
+source_file = setintegrals_FTOC_1_for_definite_integrals_-_training/natural_log_negative_bounds.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 6
-source_file = setintegrals_FTOC_1_for_definite_integrals_-_training/osu_in_3_3.pg
+source_file = setintegrals_FTOC_1_for_definite_integrals_-_training/integrate_infinite_discontinuity.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 7
-source_file = setintegrals_FTOC_1_for_definite_integrals_-_training/osu_in_3_2.pg
+source_file = setintegrals_FTOC_1_for_definite_integrals_-_training/out_of_order_bounds.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 8
-source_file = setintegrals_FTOC_1_for_definite_integrals_-_training/s5_3_32.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 9
-source_file = setintegrals_FTOC_1_for_definite_integrals_-_training/s4_4_20.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 10
-source_file = setintegrals_FTOC_1_for_definite_integrals_-_training/6-5-18.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 11
-source_file = setintegrals_FTOC_1_for_definite_integrals_-_training/6-5-20.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

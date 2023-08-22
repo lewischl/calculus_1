@@ -1,12 +1,12 @@
 assignmentType      = default
-openDate          = 04/17/2023 at 05:01am CDT
-reducedScoringDate = 04/24/2023 at 09:59pm CDT
-dueDate           = 05/13/2023 at 05:01am CDT
-answerDate        = 12/17/2023 at 05:01am CST
+openDate          = 09/02/2023 at 05:17am CDT
+reducedScoringDate = 09/02/2023 at 05:17am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = defaultHeader
-description       = 
+screenHeaderFile  = headers/Header_challenge_untimed.pg
+description       = not developed, not using at this time
 restrictProbProgression = 0
 emailInstructor   = 0
 
@@ -17,6 +17,7 @@ source_file = setproof_-_by_induction_-_challenge/induction-i.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -27,6 +28,7 @@ source_file = setproof_-_by_induction_-_challenge/induction-ii.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -36,9 +38,10 @@ problem_id = 3
 source_file = setproof_-_by_induction_-_challenge/induction-iii.pg
 value = 1
 max_attempts = -1
-showMeAnother = -2
+showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
-att_to_open_children = 1 
+att_to_open_children = 0 
 problem_end
 

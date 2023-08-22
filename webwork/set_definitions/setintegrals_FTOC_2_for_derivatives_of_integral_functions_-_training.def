@@ -1,11 +1,11 @@
 assignmentType      = default
-openDate          = 04/17/2023 at 05:09am CDT
-reducedScoringDate = 05/05/2023 at 09:59pm CDT
-dueDate           = 05/13/2023 at 05:09am CDT
-answerDate        = 12/17/2023 at 05:09am CST
+openDate          = 09/02/2023 at 05:18am CDT
+reducedScoringDate = 09/02/2023 at 05:18am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = defaultHeader
+screenHeaderFile  = headers/Header_training.pg
 description       = 
 restrictProbProgression = 0
 emailInstructor   = 0
@@ -13,10 +13,11 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setintegrals_FTOC_2_for_derivatives_of_integral_functions_-_training/which_is_an_antiderivative_checkbox.pg
+source_file = setintegrals_FTOC_2_for_derivatives_of_integral_functions_-_training/sc5_4_12.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -27,16 +28,18 @@ source_file = setintegrals_FTOC_2_for_derivatives_of_integral_functions_-_traini
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 3
-source_file = setintegrals_FTOC_2_for_derivatives_of_integral_functions_-_training/ftoc2_select_true_statements.pg
+source_file = setintegrals_FTOC_2_for_derivatives_of_integral_functions_-_training/second_deriv_func_def_by_int.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -47,6 +50,7 @@ source_file = setintegrals_FTOC_2_for_derivatives_of_integral_functions_-_traini
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -57,76 +61,29 @@ source_file = setintegrals_FTOC_2_for_derivatives_of_integral_functions_-_traini
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 6
-source_file = setintegrals_FTOC_2_for_derivatives_of_integral_functions_-_training/second_deriv_func_def_by_int.pg
+source_file = setintegrals_FTOC_2_for_derivatives_of_integral_functions_-_training/ftoc_part_2_complicated_upper_bound.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 7
-source_file = setintegrals_FTOC_2_for_derivatives_of_integral_functions_-_training/sc5_4_14.pg
+source_file = setintegrals_FTOC_2_for_derivatives_of_integral_functions_-_training/ftoc2_select_true_statements.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 8
-source_file = setintegrals_FTOC_2_for_derivatives_of_integral_functions_-_training/ftoc_part_2_complicated_upper_bound.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 9
-source_file = setintegrals_FTOC_2_for_derivatives_of_integral_functions_-_training/sc5_4_18a.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 10
-source_file = setintegrals_FTOC_2_for_derivatives_of_integral_functions_-_training/c4s4p4B.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 11
-source_file = setintegrals_FTOC_2_for_derivatives_of_integral_functions_-_training/sc5_4_12.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 12
-source_file = setintegrals_FTOC_2_for_derivatives_of_integral_functions_-_training/s5_3_47.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

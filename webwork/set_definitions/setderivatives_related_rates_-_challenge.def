@@ -1,112 +1,88 @@
-assignmentType      = default
-openDate          = 02/24/2023 at 03:15am CST
-reducedScoringDate = 03/16/2023 at 09:59pm CDT
-dueDate           = 05/13/2023 at 03:15am CDT
-answerDate        = 12/17/2023 at 03:15am CST
+assignmentType      = gateway
+openDate          = 09/02/2023 at 03:26am CDT
+reducedScoringDate = 09/02/2023 at 03:26am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = defaultHeader
-description       = 
+screenHeaderFile  = headers/Header_challenge_untimed.pg
+attemptsPerVersion  = 0
+timeInterval        = 0
+versionsPerInterval = 0
+versionTimeLimit    = 0
+problemRandOrder    = 0
+problemsPerPage     = 0
+hideScore           = N
+hideScoreByProblem  = N
+hideWork            = N
+capTimeLimit        = 0
+description       = 6 problems, no time limit.  Not randomly ordered -- this content is hard enough.
 restrictProbProgression = 0
 emailInstructor   = 0
 
 problemListV2
 problem_start
 problem_id = 1
-source_file = setderivatives_related_rates_-_challenge/5-5-03.pg
+source_file = group:group_derivatives_related_rates_level_1_-_no_hints
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 2
-source_file = setderivatives_related_rates_-_challenge/s_4_1_4.pg
+source_file = group:group_derivatives_related_rates_level_1_-_no_hints
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 3
-source_file = setderivatives_related_rates_-_challenge/rectangular_fishtank.pg
+source_file = group:group_derivatives_related_rates_level_1_-_no_hints
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 4
-source_file = setderivatives_related_rates_-_challenge/cube1.pg
+source_file = group:group_derivatives_related_rates_level_2_-_no_hints
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 5
-source_file = setderivatives_related_rates_-_challenge/cube2.pg
+source_file = group:group_derivatives_related_rates_level_2_-_no_hints
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 6
-source_file = setderivatives_related_rates_-_challenge/ball_of_wax.pg
+source_file = group:group_derivatives_related_rates_level_2_-_no_hints
 value = 1
 max_attempts = -1
 showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 7
-source_file = setderivatives_related_rates_-_challenge/rolling_snowball.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 8
-source_file = setderivatives_related_rates_-_challenge/gravel_cone.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 9
-source_file = setderivatives_related_rates_-_challenge/ladder1.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 10
-source_file = setderivatives_related_rates_-_challenge/ladder2.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

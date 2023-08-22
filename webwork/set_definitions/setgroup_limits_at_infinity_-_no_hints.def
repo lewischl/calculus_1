@@ -17,6 +17,7 @@ source_file = setgroup_limits_at_infinity_-_no_hints/ur_lr_3_1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -27,6 +28,7 @@ source_file = setgroup_limits_at_infinity_-_no_hints/4-4-24.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -37,6 +39,7 @@ source_file = setgroup_limits_at_infinity_-_no_hints/s2_6_15.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -47,6 +50,7 @@ source_file = setgroup_limits_at_infinity_-_no_hints/Stewart5_2_6_26.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -57,6 +61,7 @@ source_file = setgroup_limits_at_infinity_-_no_hints/Stewart5_2_6_33.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -67,106 +72,95 @@ source_file = setgroup_limits_at_infinity_-_no_hints/s3_5_5_mo.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 7
-source_file = setgroup_limits_at_infinity_-_no_hints/s3_5_5_mo.pg
+source_file = setgroup_limits_at_infinity_-_no_hints/s_2_6_18.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 8
-source_file = setgroup_limits_at_infinity_-_no_hints/s2_6_15.pg
+source_file = setgroup_limits_at_infinity_-_no_hints/ur_lr_3_6_mo.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 9
-source_file = setgroup_limits_at_infinity_-_no_hints/ur_lr_3_1.pg
+source_file = setgroup_limits_at_infinity_-_no_hints/ur_lr_3_18.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 10
-source_file = setgroup_limits_at_infinity_-_no_hints/s_2_6_18.pg
+source_file = setgroup_limits_at_infinity_-_no_hints/limit_infty_rational_sqrt.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 11
-source_file = setgroup_limits_at_infinity_-_no_hints/ur_lr_3_6_mo.pg
+source_file = setgroup_limits_at_infinity_-_no_hints/limit_infty_rational_sqrt_2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 12
-source_file = setgroup_limits_at_infinity_-_no_hints/ur_lr_3_18.pg
+source_file = setgroup_limits_at_infinity_-_no_hints/limit_at_inf_trig_dne.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 13
-source_file = setgroup_limits_at_infinity_-_no_hints/limit_infty_rational_sqrt.pg
+source_file = setgroup_limits_at_infinity_-_no_hints/Anton1_3_Q36.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 14
-source_file = setgroup_limits_at_infinity_-_no_hints/limit_infty_rational_sqrt_2.pg
+source_file = setlimits_at_infinity_-_training/limit_at_inf_trig_dne.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 15
-source_file = setgroup_limits_at_infinity_-_no_hints/limit_at_inf_trig_dne.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 16
-source_file = setgroup_limits_at_infinity_-_no_hints/Anton1_3_Q36.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

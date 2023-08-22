@@ -1,42 +1,78 @@
 assignmentType      = default
-openDate          = 03/10/2023 at 04:27am CST
-reducedScoringDate = 04/07/2023 at 09:59pm CDT
-dueDate           = 05/13/2023 at 04:27am CDT
-answerDate        = 12/17/2023 at 04:27am CST
+openDate          = 09/02/2023 at 04:05am CDT
+reducedScoringDate = 09/02/2023 at 04:05am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = defaultHeader
-description       = 
+screenHeaderFile  = headers/Header_training.pg
+description       = this set is weak.  do activities, don't rely on these problems.
 restrictProbProgression = 0
 emailInstructor   = 0
 
 problemListV2
 problem_start
 problem_id = 1
-source_file = setderiv_application_curve_sketching_-_training/S04.03.DerivativesShapeGraph.PTP01.pg
+source_file = setderiv_application_curve_sketching_-_training/ConcavityIntroduction.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 2
-source_file = setderiv_application_curve_sketching_-_training/4-4-50.pg
+source_file = setderiv_application_curve_sketching_-_training/NumberLineIntroduction.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 3
+source_file = setderiv_application_curve_sketching_-_training/NumberLineSecondDerivative.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 4
+source_file = setderiv_application_curve_sketching_-_training/S04.03.DerivativesShapeGraph.PTP01.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 5
+source_file = setderiv_application_curve_sketching_-_training/4-4-50.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 6
 source_file = setderiv_application_curve_sketching_-_training/5-2-53.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

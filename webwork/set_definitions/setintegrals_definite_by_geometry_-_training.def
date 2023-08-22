@@ -1,11 +1,11 @@
 assignmentType      = default
-openDate          = 04/17/2023 at 05:02am CDT
-reducedScoringDate = 04/28/2023 at 09:59pm CDT
-dueDate           = 05/13/2023 at 05:02am CDT
-answerDate        = 12/17/2023 at 05:02am CST
+openDate          = 09/02/2023 at 05:02am CDT
+reducedScoringDate = 09/02/2023 at 05:02am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = defaultHeader
+screenHeaderFile  = headers/Header_training.pg
 description       = 
 restrictProbProgression = 0
 emailInstructor   = 0
@@ -13,40 +13,44 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setintegrals_definite_by_geometry_-_training/s5_2_31.pg
+source_file = setintegrals_definite_by_geometry_-_training/integrate_constant.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 2
-source_file = setintegrals_definite_by_geometry_-_training/5.2.13.pg
+source_file = setintegrals_definite_by_geometry_-_training/integrate_linear_two_triangles.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 3
-source_file = setintegrals_definite_by_geometry_-_training/calc_by_geometry_linear.pg
+source_file = setintegrals_definite_by_geometry_-_training/s_5_2_31.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 4
-source_file = setintegrals_definite_by_geometry_-_training/s_5_2_31.pg
+source_file = setintegrals_definite_by_geometry_-_training/circles.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

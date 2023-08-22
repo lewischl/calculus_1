@@ -1,92 +1,56 @@
 assignmentType      = default
-openDate          = 04/17/2023 at 05:01am CDT
-reducedScoringDate = 04/24/2023 at 09:59pm CDT
-dueDate           = 05/13/2023 at 05:01am CDT
-answerDate        = 12/17/2023 at 05:01am CST
+openDate          = 09/02/2023 at 05:13am CDT
+reducedScoringDate = 09/02/2023 at 05:13am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = defaultHeader
-description       = 
+screenHeaderFile  = headers/Header_training.pg
+description       = needs a problem on non-uniform partition
 restrictProbProgression = 0
 emailInstructor   = 0
 
 problemListV2
 problem_start
 problem_id = 1
-source_file = setintegrals_approximating_area_using_rectangles_-_training/sc5_2_3_mo.pg
+source_file = setintegrals_approximating_area_using_rectangles_-_training/what_if_impossible_to_integrate.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 2
-source_file = setintegrals_approximating_area_using_rectangles_-_training/xsinx_4_rect_RL.pg
+source_file = setintegrals_approximating_area_using_rectangles_-_training/left_and_right_parabola_desmos.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 3
-source_file = setintegrals_approximating_area_using_rectangles_-_training/left_and_right_w_comparison.pg
+source_file = setintegrals_approximating_area_using_rectangles_-_training/sc5_2_3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 4
-source_file = setintegrals_approximating_area_using_rectangles_-_training/left_right_w_compare_2.pg
+source_file = setintegrals_approximating_area_using_rectangles_-_training/over_under_estimate.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 5
-source_file = setintegrals_approximating_area_using_rectangles_-_training/S05.01.AreaDistance.PTP00.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 6
-source_file = setintegrals_approximating_area_using_rectangles_-_training/S05.01.AreaDistance.PTP02.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 7
-source_file = setintegrals_approximating_area_using_rectangles_-_training/sc5_2_3.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 8
-source_file = setintegrals_approximating_area_using_rectangles_-_training/tracogna17.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

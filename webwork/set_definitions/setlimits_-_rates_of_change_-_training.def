@@ -1,11 +1,11 @@
 assignmentType      = default
-openDate          = 01/30/2023 at 02:02am CST
-reducedScoringDate = 02/06/2023 at 09:59pm CST
-dueDate           = 05/13/2023 at 02:02am CDT
-answerDate        = 12/17/2023 at 02:02am CST
+openDate          = 09/02/2023 at 02:01am CDT
+reducedScoringDate = 09/02/2023 at 02:01am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = defaultHeader
+screenHeaderFile  = headers/Header_training.pg
 description       = 
 restrictProbProgression = 0
 emailInstructor   = 0
@@ -17,6 +17,7 @@ source_file = setlimits_-_rates_of_change_-_training/guided_training_velocity_th
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -27,6 +28,7 @@ source_file = setlimits_-_rates_of_change_-_training/average-rate-of-change-data
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -37,6 +39,7 @@ source_file = setlimits_-_rates_of_change_-_training/average_inst_rates_are_seca
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -47,26 +50,51 @@ source_file = setlimits_-_rates_of_change_-_training/slopes_of_secant_lines.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 5
-source_file = setlimits_-_rates_of_change_-_training/2.1.6.pg
+source_file = setlimits_-_rates_of_change_-_concepts_and_story/s1_1_5.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 6
+source_file = setlimits_-_rates_of_change_-_training/2.1.6.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 7
 source_file = setlimits_-_rates_of_change_-_training/average-rate-of-change-1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 8
+source_file = setlimits_-_rates_of_change_-_concepts_and_story/2.1.7.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

@@ -3,10 +3,10 @@ openDate          = 01/01/2020 at 12:01am CST
 reducedScoringDate = 01/01/2020 at 12:01am CST
 dueDate           = 01/01/2020 at 12:01am CST
 answerDate        = 01/01/2020 at 12:01am CST
-enableReducedScoring = Y
+enableReducedScoring = N
 paperHeaderFile   = defaultHeader
 screenHeaderFile  = defaultHeader
-description       = 
+description       = --------- divider
 restrictProbProgression = 0
 emailInstructor   = 0
 

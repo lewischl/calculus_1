@@ -1,11 +1,11 @@
 assignmentType      = default
-openDate          = 04/17/2023 at 05:05am CDT
-reducedScoringDate = 05/01/2023 at 09:59pm CDT
-dueDate           = 05/13/2023 at 05:05am CDT
-answerDate        = 12/17/2023 at 05:05am CST
+openDate          = 09/02/2023 at 05:04am CDT
+reducedScoringDate = 09/02/2023 at 05:04am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = defaultHeader
+screenHeaderFile  = headers/Header_training.pg
 description       = 
 restrictProbProgression = 0
 emailInstructor   = 0
@@ -13,40 +13,44 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setintegrals_antiderivatives_power_rule_and_basic_rules_-_training/antidifferentiation_polynomial_coeffs_powers.pg
+source_file = setintegrals_antiderivatives_power_rule_and_basic_rules_-_training/AntiderivativePowerRuleIntroduction.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 2
-source_file = setintegrals_antiderivatives_power_rule_and_basic_rules_-_training/antideriv_polynomial.pg
+source_file = setintegrals_antiderivatives_power_rule_and_basic_rules_-_training/antidifferentiation_polynomial_coeffs_powers.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 3
-source_file = setintegrals_antiderivatives_power_rule_and_basic_rules_-_training/Stewart5_4_10_13.pg
+source_file = setintegrals_antiderivatives_power_rule_and_basic_rules_-_training/antideriv_polynomial.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 4
-source_file = setintegrals_antiderivatives_power_rule_and_basic_rules_-_training/s5_4_7.pg
+source_file = setintegrals_antiderivatives_power_rule_and_basic_rules_-_training/sine_cosine.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -57,96 +61,29 @@ source_file = setintegrals_antiderivatives_power_rule_and_basic_rules_-_training
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 6
-source_file = setintegrals_antiderivatives_power_rule_and_basic_rules_-_training/integrate_polynomial.pg
+source_file = setintegrals_antiderivatives_power_rule_and_basic_rules_-_training/inverse_power_functions.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 7
-source_file = setintegrals_antiderivatives_power_rule_and_basic_rules_-_training/S05.03.FundThmCalc.PTP15.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 8
-source_file = setintegrals_antiderivatives_power_rule_and_basic_rules_-_training/integrate_variable_m_power_rule.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 9
-source_file = setintegrals_antiderivatives_power_rule_and_basic_rules_-_training/s3_10_3func.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 10
-source_file = setintegrals_antiderivatives_power_rule_and_basic_rules_-_training/6-1-46.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 11
-source_file = setintegrals_antiderivatives_power_rule_and_basic_rules_-_training/6-1-09.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 12
 source_file = setintegrals_antiderivatives_power_rule_and_basic_rules_-_training/fractionIndefininteIntegral.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 13
-source_file = setintegrals_antiderivatives_power_rule_and_basic_rules_-_training/Stewart5_4_10_13.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 14
-source_file = setintegrals_antiderivatives_power_rule_and_basic_rules_-_training/S05.03.FundThmCalc.PTP15.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

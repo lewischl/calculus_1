@@ -17,6 +17,7 @@ source_file = setgroup_derivatives_basic_rules_no_formulas_-_no_hints/derive-rul
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

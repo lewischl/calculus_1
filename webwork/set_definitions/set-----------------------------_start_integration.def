@@ -1,12 +1,12 @@
 assignmentType      = default
-openDate          = 04/17/2023 at 12:01am CDT
-reducedScoringDate = 04/17/2023 at 12:01am CDT
-dueDate           = 05/13/2023 at 05:00am CDT
-answerDate        = 12/17/2023 at 05:00am CST
-enableReducedScoring = Y
+openDate          = 09/02/2023 at 05:00am CDT
+reducedScoringDate = 09/02/2023 at 05:00am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
+enableReducedScoring = N
 paperHeaderFile   = defaultHeader
 screenHeaderFile  = defaultHeader
-description       = Problems training you on how to use the basics of summation notation.
+description       = --------- divider
 restrictProbProgression = 0
 emailInstructor   = 0
 

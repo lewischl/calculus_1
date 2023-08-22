@@ -1,142 +1,88 @@
-assignmentType      = default
-openDate          = 03/10/2023 at 04:25am CST
-reducedScoringDate = 04/05/2023 at 09:59pm CDT
-dueDate           = 05/13/2023 at 04:25am CDT
-answerDate        = 12/17/2023 at 04:25am CST
+assignmentType      = gateway
+openDate          = 09/02/2023 at 04:04am CDT
+reducedScoringDate = 09/02/2023 at 04:04am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = defaultHeader
-description       = 
+screenHeaderFile  = headers/Header_challenge_untimed.pg
+attemptsPerVersion  = 0
+timeInterval        = 0
+versionsPerInterval = 0
+versionTimeLimit    = 0
+problemRandOrder    = 1
+problemsPerPage     = 0
+hideScore           = N
+hideScoreByProblem  = N
+hideWork            = N
+capTimeLimit        = 0
+description       = 6 problems, no time limit.  random order.
 restrictProbProgression = 0
 emailInstructor   = 0
 
 problemListV2
 problem_start
 problem_id = 1
-source_file = setderiv_application_optimization_derivative_tests_-_challenge/from_graph1.pg
+source_file = group:group_deriv_application_first_deriv_is_incr_decr_-_no_hints
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 2
-source_file = setderiv_application_optimization_derivative_tests_-_challenge/S04.03.DerivativesShapeGraph.PTP07.pg
+source_file = group:group_deriv_application_first_deriv_test_formula_-_no_hints
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 3
-source_file = setderiv_application_optimization_derivative_tests_-_challenge/s4_3_27.pg
+source_file = group:group_deriv_application_first_deriv_test_graphical_-_no_hints
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 4
-source_file = setderiv_application_optimization_derivative_tests_-_challenge/sc4_3_10_mo.pg
+source_file = group:group_deriv_application_finding_local_optima_formulas_-_no_hints
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 5
-source_file = setderiv_application_optimization_derivative_tests_-_challenge/4.3.12.pg
+source_file = group:group_deriv_application_concavity_second_deriv_formula_-_no_hints
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 6
-source_file = setderiv_application_optimization_derivative_tests_-_challenge/4-2-31.pg
+source_file = group:group_deriv_application_concavity_second_deriv_graphical_-_no_hints
 value = 1
 max_attempts = -1
 showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 7
-source_file = setderiv_application_optimization_derivative_tests_-_challenge/4-2-29.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 8
-source_file = setderiv_application_optimization_derivative_tests_-_challenge/4-2-71.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 9
-source_file = setderiv_application_optimization_derivative_tests_-_challenge/4-2-27.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 10
-source_file = setderiv_application_optimization_derivative_tests_-_challenge/first_der_test_graphical_2.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 11
-source_file = setderiv_application_optimization_derivative_tests_-_challenge/first_der_test_graphical.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 12
-source_file = setderiv_application_optimization_derivative_tests_-_challenge/second_der_test_graphical_2.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 13
-source_file = setderiv_application_optimization_derivative_tests_-_challenge/second_der_test_1.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

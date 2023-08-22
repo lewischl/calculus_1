@@ -13,120 +13,99 @@ emailInstructor   = 0
 problemListV2
 problem_start
 problem_id = 1
-source_file = setgroup_derivatives_trig_derivs_-_no_hints/s2_4_32.pg
+source_file = setgroup_derivatives_trig_derivs_-_no_hints/1210s4p3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 2
-source_file = setgroup_derivatives_trig_derivs_-_no_hints/1210s4p3.pg
+source_file = setgroup_derivatives_trig_derivs_-_no_hints/s2_4_21a.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 3
-source_file = setgroup_derivatives_trig_derivs_-_no_hints/Stewart5_3_4_23.pg
+source_file = setgroup_derivatives_trig_derivs_-_no_hints/trig-derivs-v2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 4
-source_file = setgroup_derivatives_trig_derivs_-_no_hints/s2_4_21a.pg
+source_file = setgroup_derivatives_trig_derivs_-_no_hints/trig-derivs-v3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 5
-source_file = setgroup_derivatives_trig_derivs_-_no_hints/trig-derivs-v2.pg
+source_file = setgroup_derivatives_trig_derivs_-_no_hints/trig-derivs-v4.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 6
-source_file = setgroup_derivatives_trig_derivs_-_no_hints/trig-derivs-v3.pg
+source_file = setgroup_derivatives_trig_derivs_-_no_hints/3-4-06.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 7
-source_file = setgroup_derivatives_trig_derivs_-_no_hints/trig-derivs-v4.pg
+source_file = setgroup_derivatives_trig_derivs_-_no_hints/s2_4_27a.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 8
-source_file = setgroup_derivatives_trig_derivs_-_no_hints/3-4-06.pg
+source_file = setgroup_derivatives_trig_derivs_-_no_hints/s2_4_26a_mo.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 9
-source_file = setgroup_derivatives_trig_derivs_-_no_hints/s2_4_33.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 10
-source_file = setgroup_derivatives_trig_derivs_-_no_hints/s2_4_27a.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 11
-source_file = setgroup_derivatives_trig_derivs_-_no_hints/s2_4_26a_mo.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 12
 source_file = setgroup_derivatives_trig_derivs_-_no_hints/s2_4_30.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

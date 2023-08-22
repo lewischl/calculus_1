@@ -1,11 +1,11 @@
 assignmentType      = default
-openDate          = 03/10/2023 at 04:39am CST
-reducedScoringDate = 04/17/2023 at 09:59pm CDT
-dueDate           = 05/13/2023 at 04:39am CDT
-answerDate        = 12/17/2023 at 04:39am CST
+openDate          = 09/02/2023 at 04:12am CDT
+reducedScoringDate = 09/02/2023 at 04:12am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = defaultHeader
+screenHeaderFile  = headers/Header_training.pg
 description       = 
 restrictProbProgression = 0
 emailInstructor   = 0
@@ -16,39 +16,43 @@ problem_id = 1
 source_file = setderiv_application_newtons_method_root_finding_-_training/multipleApproxNewtonMethod.pg
 value = 1
 max_attempts = -1
-showMeAnother = -2
+showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
-att_to_open_children = 1 
+att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 2
 source_file = setderiv_application_newtons_method_root_finding_-_training/NewtonMethodCertainError.pg
 value = 1
 max_attempts = -1
-showMeAnother = -2
+showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
-att_to_open_children = 1 
+att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 3
 source_file = setderiv_application_newtons_method_root_finding_-_training/NewtonMethodWhichRoot.pg
 value = 1
 max_attempts = -1
-showMeAnother = -2
+showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
-att_to_open_children = 1 
+att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 4
 source_file = setderiv_application_newtons_method_root_finding_-_training/NewtonMethodApproxSquareRoot.pg
 value = 1
 max_attempts = -1
-showMeAnother = -2
+showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
-att_to_open_children = 1 
+att_to_open_children = 0 
 problem_end
 

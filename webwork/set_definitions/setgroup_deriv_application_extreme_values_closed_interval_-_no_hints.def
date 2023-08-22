@@ -1,8 +1,8 @@
 assignmentType      = default
-openDate          = 04/03/2030 at 11:59pm CDT
-reducedScoringDate = 04/03/2030 at 11:59pm CDT
-dueDate           = 04/03/2030 at 11:59pm CDT
-answerDate        = 04/03/2030 at 11:59pm CDT
+openDate          = 04/02/2030 at 11:59pm CDT
+reducedScoringDate = 04/02/2030 at 11:59pm CDT
+dueDate           = 04/02/2030 at 11:59pm CDT
+answerDate        = 04/02/2030 at 11:59pm CDT
 enableReducedScoring = N
 paperHeaderFile   = defaultHeader
 screenHeaderFile  = defaultHeader
@@ -17,26 +17,18 @@ source_file = setgroup_deriv_application_extreme_values_closed_interval_-_no_hin
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 2
-source_file = setgroup_deriv_application_extreme_values_closed_interval_-_no_hints/S04.01.MaxMinValues.PTP01.pg
+source_file = setgroup_deriv_application_extreme_values_closed_interval_-_no_hints/quadratic.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 3
-source_file = setgroup_deriv_application_extreme_values_closed_interval_-_no_hints/4.2.19.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

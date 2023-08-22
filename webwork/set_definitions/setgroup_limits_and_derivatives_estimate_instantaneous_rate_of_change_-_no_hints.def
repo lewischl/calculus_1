@@ -17,7 +17,8 @@ source_file = setgroup_limits_and_derivatives_estimate_instantaneous_rate_of_cha
 value = 1
 max_attempts = -1
 showMeAnother = -1
-prPeriod = 0
+showHintsAfter = -2
+prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
@@ -27,7 +28,8 @@ source_file = setgroup_limits_and_derivatives_estimate_instantaneous_rate_of_cha
 value = 1
 max_attempts = -1
 showMeAnother = -1
-prPeriod = 0
+showHintsAfter = -2
+prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
@@ -37,7 +39,19 @@ source_file = setgroup_limits_and_derivatives_estimate_instantaneous_rate_of_cha
 value = 1
 max_attempts = -1
 showMeAnother = -1
-prPeriod = 0
+showHintsAfter = -2
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 4
+source_file = setlimits_-_rates_of_change_-_concepts_and_story/Stewart5_2_1_7.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+showHintsAfter = -2
+prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end

@@ -17,6 +17,7 @@ source_file = setgroup_derivatives_deriv_gives_incr_decr_-_no_hints/4.3.12.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

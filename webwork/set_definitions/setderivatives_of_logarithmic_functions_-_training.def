@@ -1,11 +1,11 @@
 assignmentType      = default
-openDate          = 02/24/2023 at 03:14am CST
-reducedScoringDate = 03/16/2023 at 09:59pm CDT
-dueDate           = 05/13/2023 at 03:14am CDT
-answerDate        = 12/17/2023 at 03:14am CST
+openDate          = 09/02/2023 at 03:20am CDT
+reducedScoringDate = 09/02/2023 at 03:20am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = defaultHeader
+screenHeaderFile  = headers/Header_training.pg
 description       = 
 restrictProbProgression = 0
 emailInstructor   = 0
@@ -17,6 +17,7 @@ source_file = setderivatives_of_logarithmic_functions_-_training/deriv_of_log_x_
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -27,6 +28,7 @@ source_file = setderivatives_of_logarithmic_functions_-_training/sc3_7_2_mo.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -37,56 +39,18 @@ source_file = setderivatives_of_logarithmic_functions_-_training/sum_with_consta
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 4
-source_file = setderivatives_of_logarithmic_functions_-_training/log-and-exp-v1.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 5
-source_file = setderivatives_of_logarithmic_functions_-_training/product_x_log_to_power.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 6
 source_file = setderivatives_of_logarithmic_functions_-_training/log-and-exp-v2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 7
-source_file = setderivatives_of_logarithmic_functions_-_training/ur_dr_13_11.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 8
-source_file = setderivatives_of_logarithmic_functions_-_training/5-2-24.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

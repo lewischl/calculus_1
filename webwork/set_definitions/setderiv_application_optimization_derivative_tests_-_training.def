@@ -1,11 +1,11 @@
 assignmentType      = default
-openDate          = 03/10/2023 at 04:25am CST
-reducedScoringDate = 04/05/2023 at 09:59pm CDT
-dueDate           = 05/13/2023 at 04:25am CDT
-answerDate        = 12/17/2023 at 04:25am CST
+openDate          = 09/02/2023 at 04:03am CDT
+reducedScoringDate = 09/02/2023 at 04:03am CDT
+dueDate           = 12/17/2023 at 09:59pm CST
+answerDate        = 12/17/2023 at 11:59pm CST
 enableReducedScoring = Y
 paperHeaderFile   = defaultHeader
-screenHeaderFile  = defaultHeader
+screenHeaderFile  = headers/Header_training.pg
 description       = 
 restrictProbProgression = 0
 emailInstructor   = 0
@@ -17,6 +17,7 @@ source_file = setderiv_application_optimization_derivative_tests_-_training/from
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -27,116 +28,117 @@ source_file = setderiv_application_optimization_derivative_tests_-_training/S04.
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 3
-source_file = setderiv_application_optimization_derivative_tests_-_training/s4_3_27.pg
+source_file = setderiv_application_optimization_derivative_tests_-_training/sc4_3_10_mo.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 4
-source_file = setderiv_application_optimization_derivative_tests_-_training/sc4_3_10_mo.pg
+source_file = setderiv_application_optimization_derivative_tests_-_training/4.3.12.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 5
-source_file = setderiv_application_optimization_derivative_tests_-_training/4.3.12.pg
-value = 1
+source_file = setderiv_application_optimization_derivative_tests_-_training/ConcavityIntroduction.pg
+value = 3
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 6
-source_file = setderiv_application_optimization_derivative_tests_-_training/4-2-31.pg
-value = 1
+source_file = setderiv_application_optimization_derivative_tests_-_training/first_derivative_test.pg
+value = 3
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 7
-source_file = setderiv_application_optimization_derivative_tests_-_training/4-2-29.pg
-value = 1
+source_file = setderiv_application_optimization_derivative_tests_-_training/second_derivative_test.pg
+value = 3
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 8
-source_file = setderiv_application_optimization_derivative_tests_-_training/4-2-71.pg
+source_file = setderiv_application_optimization_derivative_tests_-_training/4-2-31.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 9
-source_file = setderiv_application_optimization_derivative_tests_-_training/4-2-27.pg
+source_file = setderiv_application_optimization_derivative_tests_-_training/first_der_test_graphical_2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 10
-source_file = setderiv_application_optimization_derivative_tests_-_training/first_der_test_graphical_2.pg
+source_file = setderiv_application_optimization_derivative_tests_-_training/first_der_test_graphical.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 11
-source_file = setderiv_application_optimization_derivative_tests_-_training/first_der_test_graphical.pg
+source_file = setderiv_application_optimization_derivative_tests_-_training/second_der_test_graphical_2.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 12
-source_file = setderiv_application_optimization_derivative_tests_-_training/second_der_test_graphical_2.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 13
 source_file = setderiv_application_optimization_derivative_tests_-_training/second_der_test_1.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

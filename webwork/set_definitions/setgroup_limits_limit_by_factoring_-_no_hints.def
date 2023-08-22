@@ -17,6 +17,7 @@ source_file = setgroup_limits_limit_by_factoring_-_no_hints/s1_3_19.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -27,6 +28,7 @@ source_file = setgroup_limits_limit_by_factoring_-_no_hints/Stewart5_2_3_15.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -37,86 +39,95 @@ source_file = setgroup_limits_limit_by_factoring_-_no_hints/2-3-12.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 4
-source_file = setgroup_limits_limit_by_factoring_-_no_hints/s1_3_19.pg
+source_file = setgroup_limits_limit_by_factoring_-_no_hints/factor_and_cancel_simple.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 5
-source_file = setgroup_limits_limit_by_factoring_-_no_hints/Stewart5_2_3_15.pg
+source_file = setgroup_limits_limit_by_factoring_-_no_hints/s1_3_16.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 6
-source_file = setgroup_limits_limit_by_factoring_-_no_hints/factor_and_cancel_simple.pg
+source_file = setgroup_limits_limit_by_factoring_-_no_hints/s1_3_5.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 7
-source_file = setgroup_limits_limit_by_factoring_-_no_hints/s1_3_16.pg
+source_file = setgroup_limits_limit_by_factoring_-_no_hints/s1_3_6.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 8
-source_file = setgroup_limits_limit_by_factoring_-_no_hints/s1_3_5.pg
+source_file = setgroup_limits_limit_by_factoring_-_no_hints/Stewart5_2_3_30.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 9
-source_file = setgroup_limits_limit_by_factoring_-_no_hints/s1_3_6.pg
+source_file = setgroup_limits_limit_by_factoring_-_no_hints/s1_3_36.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 10
-source_file = setgroup_limits_limit_by_factoring_-_no_hints/Stewart5_2_3_30.pg
+source_file = setlimits_introducing_limits_-_training_-_limits_with_formulas/common_root3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 11
-source_file = setgroup_limits_limit_by_factoring_-_no_hints/s1_3_36.pg
+source_file = setlimits_introducing_limits_-_training_-_limits_with_formulas/common_root4.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 

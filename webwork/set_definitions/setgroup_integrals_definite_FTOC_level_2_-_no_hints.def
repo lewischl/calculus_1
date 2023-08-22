@@ -27,6 +27,7 @@ source_file = setgroup_integrals_definite_FTOC_level_2_-_no_hints/s5_4_37.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -37,6 +38,7 @@ source_file = setgroup_integrals_definite_FTOC_level_2_-_no_hints/s5_4_25.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
@@ -47,66 +49,18 @@ source_file = setgroup_integrals_definite_FTOC_level_2_-_no_hints/s4_4_27.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
 problem_start
 problem_id = 4
-source_file = setgroup_integrals_definite_FTOC_level_2_-_no_hints/s_5_3_14.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 5
-source_file = setgroup_integrals_definite_FTOC_level_2_-_no_hints/sc5_5_44_mo.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 6
-source_file = setgroup_integrals_definite_FTOC_level_2_-_no_hints/s5_4_37.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 7
-source_file = setgroup_integrals_definite_FTOC_level_2_-_no_hints/s4_4_27.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 8
-source_file = setgroup_integrals_definite_FTOC_level_2_-_no_hints/s5_4_25.pg
-value = 1
-max_attempts = -1
-showMeAnother = -1
-prPeriod = -1
-counts_parent_grade = 0
-att_to_open_children = 0 
-problem_end
-problem_start
-problem_id = 9
 source_file = setgroup_integrals_definite_FTOC_level_2_-_no_hints/osu_in_3_3.pg
 value = 1
 max_attempts = -1
 showMeAnother = -1
+showHintsAfter = -2
 prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
