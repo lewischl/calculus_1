@@ -58,25 +58,52 @@ loadMacros(
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem continues training you on methods for solving problems where we don't have explicit functions, but we still want to know information about values of derivatives.
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A general practice for finding a value of a derivative when we have implicit functions and an equality relationship:
+
+1. Differentiate the equality with respect to time.  Be sure to chain out time derivatives!
+2. Substitute in known information
+3. Solve for the desired quantity using algebra.
+
+[@ closeDiv() @]*
+
+---
+
+END_PGML
 $a = random(1,5,1);
 $b = random(1,5,1);
 $c = non_zero_random(-5,5,1);
 $d = $a**2 + $b**2;
+BEGIN_TEXT
 
-TEXT(EV2(<<EOT));
+
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
 
 Suppose that \(x = x(t)\) and \(y=y(t)\) are both functions of
-\(t\).  If
+\(t\), and that they are related via the equation
 \[
     x^2 + y^2 = $d,
 \]
-and \(dx/dt = $c\) when \(x = $a\) and \(y = $b\), what is \(dy/dt\)?
+Also, when \(x = $a\) and \(y = $b\) we know that \(x\) is changing as \(dx/dt = $c\).
+
+\{ closeDiv() \} 
+$PAR
+
+How fast is \(y\) changing?  That is, what's the value of \(dy/dt\)?
 $BR
 $BR
 \(dy/dt\) = \{ans_rule(20) \}
 $BR
 
-EOT
+END_TEXT
 
 $ans = -$a*$c/($b);
 ANS(num_cmp($ans));

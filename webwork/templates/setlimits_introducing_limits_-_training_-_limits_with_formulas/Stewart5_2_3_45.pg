@@ -41,7 +41,8 @@ loadMacros(
   "PGstandard.pl",
   "PGchoicemacros.pl",
   "MathObjects.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(&beginproblem);
@@ -50,11 +51,22 @@ $a=random(1,10,1)*random(-1,1,2);
 $b=random(1,10,1)*random(-1,1,2);
 $c=random(1,10,1)*random(-1,1,2);
 
+
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+It's important to be able to approach new functions, and combine functions.  This problem introduces a new function, the signum function, and then combines it with the absolute value function.
+[@ closeDiv() @]*
+END_PGML
+
 BEGIN_TEXT
 
 $PAR
 
-The $BITALIC signum $EITALIC(or sign) $BITALIC function$EITALIC, denoted by sgn, is defined by $PAR
+The $BITALIC signum $EITALIC(or sign) $BITALIC function$EITALIC, denoted by \(\mathrm{sgn(x)}\), tells us the sign of the input, returning \(+1\) if the input is positive, \(-1\) if the input is negative, and \(0\) if the input is \(0\).  
+
+$PAR
+
+It's defined using a piecewise function by $PAR
 \[\mathrm{sgn}\; {x} = \begin{cases}
       -1 & \textrm{if }x < 0 \\
        0  & \textrm{if }x = 0 \\
@@ -64,10 +76,21 @@ The $BITALIC signum $EITALIC(or sign) $BITALIC function$EITALIC, denoted by sgn,
 
 Find each of the following limits.  If the limit does not exist, enter ${BBOLD} DNE ${EBOLD} below. $PAR
 
-(a) \(\displaystyle \lim_{x \to 0^+} \mathrm{sgn} \;{x}\) = \{ans_rule(10)\} $BR
-(b) \(\displaystyle \lim_{x \to 0^-} \mathrm{sgn}\; {x}\) = \{ans_rule(10)\} $BR
-(c) \(\displaystyle \lim_{x \to 0} \mathrm{sgn} \;{x}\) = \{ans_rule(10)\}   $BR
-(d) \(\displaystyle \lim_{x \to 0} |\mathrm{sgn}\; {x}|\) = \{ans_rule(10)\}
+\(\displaystyle \lim_{x \to 0^+} \mathrm{sgn} \;{x}\) = \{ans_rule(10)\} $PAR
+\(\displaystyle \lim_{x \to 0^-} \mathrm{sgn}\; {x}\) = \{ans_rule(10)\} $PAR
+\(\displaystyle \lim_{x \to 0} \mathrm{sgn} \;{x}\) = \{ans_rule(10)\}   
+
+$PAR
+$HR
+$PAR
+
+This last set combines absolute value \(|\cdot|\) with the sign function.  Remember, absolute value just takes inputs and makes them positive!
+
+$PAR
+
+\(\displaystyle \lim_{x \to 0^+} |\mathrm{sgn}\; {x}|\) = \{ans_rule(10)\}$PAR
+\(\displaystyle \lim_{x \to 0^-} |\mathrm{sgn}\; {x}|\) = \{ans_rule(10)\}$PAR
+\(\displaystyle \lim_{x \to 0} |\mathrm{sgn}\; {x}|\) = \{ans_rule(10)\}
 
 $PAR
 
@@ -76,6 +99,8 @@ END_TEXT
 ANS(fun_cmp(1));
 ANS(fun_cmp(-1));
 ANS(fun_cmp(DNE));
-ANS(fun_cmp(1));
 
+ANS(fun_cmp(1));
+ANS(fun_cmp(1));
+ANS(fun_cmp(1));
 ENDDOCUMENT();

@@ -62,29 +62,43 @@ $b1 = random(2,27,1);
 $x1 = random(-11,11,1);
 $m1 = $a1;
 
-TEXT(EV2(<<EOT));
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+Polynomials are simple functions used across science to model phenomena.  You have to be able to differentiate them quickly by hand.
+
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+
+The derivative is the slope of the tangent line.  Draw the original function.  Then draw the tangent line to it.  It's.... the same line.  What can you conclude about the slope of the tangent line?
+
+[@ closeDiv() @]*
+
+
+
+END_PGML
+
+BEGIN_TEXT
 Let \( f(x) = $a1 x + $b1  \).  
 
 $BR
 
-Using the definition of the derivative (the limit of the difference quotient), find the instantaneous rate of change of \( f( x ) \) at 
+Find the instantaneous rate of change of \( f( x ) \) at 
 \( x=$x1 \).
 $BR $BR
-\(f'($x1) = \) \{ans_rule(20) \}
-$BR
-$BR$BR
+\( \displaystyle f'(5) = \frac{df}{dx}\Big| _{x = $x1} = \) \{ans_rule(20) \}
 
-\{ theresahint \}
-EOT
+
+END_TEXT
 
 $ans = $m1;
 ANS(num_cmp($ans));
 
 
-BEGIN_HINT
-The derivative is the slope of the tangent line.  Draw the original function.  Then draw the tangent line to it.  It's.... the same line.  What can you conclude about the slope of the tangent line?
-
-END_HINT
 
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

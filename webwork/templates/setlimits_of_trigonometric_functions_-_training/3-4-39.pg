@@ -30,6 +30,7 @@ loadMacros(
   "MathObjects.pl",
   "PGgraphmacros.pl",
   "PGcourse.pl", 
+  "customCSS.pl",
 );
 #####################################################################
 
@@ -45,16 +46,24 @@ Parser::Number::NoDecimals();
 $a = random(2,9,1);
 $b = random(2,6,1);
 
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+A problem demonstrating that though patterns are useful, they're sometimes a bit seductive. 
+[@ closeDiv() @]*
+
+Mind the numbers of things we have in the function's definition.  Use the identity once, and then remember that [`\sin \theta`] is a continuous function -- evaluate at the point of interest!  There is a hint in this problem, too.
+
+---
+
+END_PGML
 BEGIN_TEXT
-Evaluate the limit, if it exists:
+Evaluate the limit.  Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE$EBOLD.
 $PAR
 \(\displaystyle\lim_{ \theta \to 0 } \frac{ \sin^{2}($a \theta)}{ $b \theta }=\) \{ans_rule(25) \}
-$PAR
-$BITALIC(Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE$EBOLD.)$EITALIC
 
-$BR$BR
-
-\{ theresahint \}
 END_TEXT
 
 BEGIN_HINT
@@ -79,9 +88,6 @@ $BR$BR
 
 Wrap the problem up by multiplying together both the constant, and the values of the two limits you found.  
 
-$BR$BR
-
-Remember, you can use your calculator to verify and guide you.  That graphical feedback can be really valuable!
 END_HINT
 Context()->normalStrings;
 

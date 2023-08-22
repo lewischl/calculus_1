@@ -1,0 +1,113 @@
+##DESCRIPTION
+##  Review of what it means to solve a problem
+##ENDDESCRIPTION
+
+##KEYWORDS('arithmetic', 'pi')
+
+## DBsubject('calculus')
+## DBchapter('review')
+## DBsection('solving equations')
+## Date('summer 2023')
+## Author('silviana amethyst')
+## Institution('')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+      "parserPopUp.pl",   # <--------------------------------------NEEDED FOR DROPDOWN MENUS
+   "PGcourse.pl",      # Customization file for the course
+   
+);
+
+loadMacros("customCSS.pl");
+
+COMMENT("uses CSS for styling");
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Computing zeros of lines is a common task in this class.  This problem offers some reminder instruction.
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A line can be written in many forms.
+
+* slope-intercept form, [`y = mx+b`]
+* point-slope form, [`y-y_0 = m(x-x_0)`]
+[@ closeDiv() @]*
+
+There's also
+* "standard form", [`Ax + By + C = 0`]
+
+but we don't use it very much in this class right now, but you will in Calculus 3, where you'll learn about change in multiple dimensions.
+
+
+---
+
+
+To solve a linear function is to compute the one point at which the line intersects the horizontal axis --- it takes on value [`0`] there.
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A general routine for solving any equation is:
+
+1. Set the function equal to [`0`], or set [`y = 0`] if the relationship is implicit (like in point-slope form or "standard" form).
+2. Do algebraic manipuations to get [`x`] by itself, on one side of the [`=`] sign.  The root is on the other side.
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+$m1 = non_zero_random(-9,9);
+$b1 = non_zero_random(-9,9);
+
+
+$m2 = non_zero_random(-9,9);
+$b2 = non_zero_random(-19,47);
+
+$y3 = non_zero_random(-19,15);
+$x3 = non_zero_random(-19,15);
+$m3 = non_zero_random(-19,15);
+
+BEGIN_PGML
+[@ openDiv({ "class" => "instructionOrPrompt" }) @]*
+Solve these linear equations using algebra.
+[@ closeDiv() @]*
+
+* The root of [`f(t) = [$m1]t + [$b1]`] is [`t = `] [___]{Compute(-$b1/$m1)}
+* The solution of [`y = [$m2]x + [$b2]`] is at [`x = `] [___]{Compute(-$b2/$m2)}
+* There's a zero of the line [`y-[$y3] = [$m3](x-[$x3])`] at [___]{Compute( (-$y3+$m3*$x3 ) / $m3)}
+
+END_PGML
+
+ENDDOCUMENT();

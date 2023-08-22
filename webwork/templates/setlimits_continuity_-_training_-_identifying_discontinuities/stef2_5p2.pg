@@ -54,7 +54,10 @@ loadMacros("PG.pl",
            "PGbasicmacros.pl",
            "PGchoicemacros.pl",
            "PGanswermacros.pl",
-           "PGauxiliaryFunctions.pl");
+           "PGauxiliaryFunctions.pl","PGcourse.pl","customCSS.pl",);
+
+
+Context("Numeric");
 
 $a = random(2,8,1);
 $b = random(1,3,1);
@@ -67,51 +70,76 @@ TEXT(beginproblem());
 
 $showPartialCorrectAnswers = 1;
 
+BEGIN_TEXT
 
-TEXT(EV3(<<'EOT'));
+\{ openDiv({ "class" => "problemPurpose" }) \}
+This problem connects the formula for a function with locations of discontinuities and one-sided limits.
+\{ closeDiv() \}
+
+$PAR
+
+\{ openDiv({ "class" => "importantFormula" }) \}
+Discontinuities of rational functions occur where the denominator is \(0\).
+\{ closeDiv() \}
+
+$PAR
+$HR
+$PAR
+
+END_TEXT
+
+
+BEGIN_TEXT
 Let
 \[ f(x) = \frac{$a x ? {$ab}}{x^4 ? {$c2} x^3 ? {$cs}x^2}. \]
 Find  each point of discontinuity of \(f\), and for each
 give the value of the point of discontinuity and evaluate the
 indicated one-sided limits.
-$PAR
-$HR
+
 $PAR
 Notes:
-$BR -If needed,   use 'INF' for \(\infty\) and '-INF' for \(-\infty\).
 $BR -If you have extra boxes (less than three points of discontinuity), fill those in with an 'x'.
 $BR -If you have more than one point, give them in
-numerical order, from smallest to largest.
+numerical order, from smallest to largest (left to right).
 $PAR
 $HR
 $PAR
-Point 1: \(C = \) \{ans_rule(10)\}
+Point 1: $PAR
+\(C = \) \{ans_rule(10)\}
 $BR
 \(\displaystyle{\lim_{x \rightarrow C^{-}} f(x)}\) = \{ans_rule(10)\}
 $BR
 \(\displaystyle{\lim_{x \rightarrow C^{+}} f(x)}\) = \{ans_rule(10)\}
+$BR
+What kind of discontinuity is at this point?  \{ pop_up_list(['?', 'Removable', 'Jump', 'Infinite', 'Essential', 'None']) \} 
 $PAR
 $BR
-Point 2: \(C = \) \{ans_rule(10)\}
+Point 2: $PAR
+\(C = \) \{ans_rule(10)\}
 $BR
 \(\displaystyle{\lim_{x \rightarrow C^{-}} f(x)}\) = \{ans_rule(10)\}
 $BR
 \(\displaystyle{\lim_{x \rightarrow C^{+}} f(x)}\) = \{ans_rule(10)\}
+$BR
+What kind of discontinuity is at this point?  \{ pop_up_list(['?', 'Removable', 'Jump', 'Infinite', 'Essential', 'None']) \} 
 $PAR
 $BR
-Point 3: \(C = \) \{ans_rule(10)\}
+Point 3: $PAR
+\(C = \) \{ans_rule(10)\}
 $BR
 \(\displaystyle{\lim_{x \rightarrow C^{-}} f(x)}\) = \{ans_rule(10)\}
 $BR
 \(\displaystyle{\lim_{x \rightarrow C^{+}} f(x)}\) = \{ans_rule(10)\}
+$BR
+What kind of discontinuity is at this point?  \{ pop_up_list(['?', 'Removable', 'Jump', 'Infinite', 'Essential', 'None']) \} 
 $PAR
 $BR
 
-EOT
+END_TEXT
 
-@answers = (num_cmp(0, strings=>["x","INF","-INF"]),num_cmp("-INF", strings=>["x","INF","-INF"]),num_cmp("-INF", strings=>["x","INF","-INF"]),
-            num_cmp($c, strings=>["x","INF","-INF"]),num_cmp("INF", strings=>["x","INF","-INF"]),num_cmp("INF", strings=>["x","INF","-INF"]),
-            num_cmp("x", strings=>["x","INF","-INF"]),num_cmp("x", strings=>["x","INF","-INF"]),num_cmp("x", strings=>["x","INF","-INF"]));
+@answers = (num_cmp(0, strings=>["x"]), (-Infinity)->cmp(strings=>["x"]),(-Infinity)->cmp(strings=>["x"]), str_cmp("Infinite"),
+            num_cmp($c, strings=>["x"]),(Infinity)->cmp(strings=>["x"]),(Infinity)->cmp(strings=>["x"]), str_cmp("Infinite"),
+            num_cmp("x", strings=>["x"]),num_cmp("x", strings=>["x"]),num_cmp("x", strings=>["x"]), str_cmp("None"));
 
 
 

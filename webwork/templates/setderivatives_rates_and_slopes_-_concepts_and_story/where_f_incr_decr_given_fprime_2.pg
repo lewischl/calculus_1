@@ -49,6 +49,7 @@ loadMacros(
    "PGuwecTikZutils.pl", #Custom TikZ code
    "PGanswermacros.pl",
    "PGauxiliaryFunctions.pl",
+   "customCSS.pl",
    "extraAnswerEvaluators.pl" # needed for the set comparisons
 );
 
@@ -102,14 +103,35 @@ $x_der_zero = 1;
 #
 
 BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+The meaning of a function is only given by context.  By interpreting a given function either as [`f`] or [`f'`], we get different outcomes.
+
+In this problem, we give you a derivative, but not the original function.  This is actually pretty common: sometimes it's easier to know how fast something is changing than how much of that thing you have; for example, flow of water into/out of a lake.
+
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+* a horizontal tangent line has slope 0, and tangent lines with slope 0 are horizontal
+* [`f'`] is positive where [`f`] is increasing
+* [`f'`] is negative where [`f`] is decreasing
+* [`f'`] is the slope of [`f`]
+
+These all are still true if we only have information about [`f'`], the slope function for [`f`].
+[@ closeDiv() @]*
+
+---
 Here's a graph of the derivative [`f'`] of an unknown function.  Assume all the interesting behaviour is depicted.
 
->>[@ image(insertGraph($graph1), width => 500, height => 500) @]*<<
+>>[@ image(insertGraph($graph1), width => 500, height => 300) @]*<<
 
 
 ---
 
-For what interval(s) is [`f(x)`] increasing?  If there are no such intervals, use "none".  The union symbol is "U".
+For what interval(s) is [`f(x)`] increasing?  If there are no such intervals, use "none".   Remember, I gave you [`f'`], not [`f`] in the graph above!
 
 On the interval(s) [_____]{interval_cmp($interval_increasing, strings=>["none"])}, [`f`] is increasing. 
 

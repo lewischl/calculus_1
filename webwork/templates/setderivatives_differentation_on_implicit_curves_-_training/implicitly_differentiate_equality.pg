@@ -66,8 +66,7 @@ Context()->variables->add(
 dx=>"Real", dy=>"Real", y=>"Real"
 );
 
-$lhs = Compute(" 17(2x y^2 + 2x^2 y dy/dx)");
-$rhs = Compute("1/(2 x^(0.5) ) + dy/dx");
+
 
 ##############################################################
 #
@@ -75,7 +74,15 @@ $rhs = Compute("1/(2 x^(0.5) ) + dy/dx");
 #
 #
 
+
 BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem offers training on differentiating the equalities that define implicit curves.  
+
+Implicit curves are defined by expressions like [`f(x,y) = g(x,y)`].
+[@ closeDiv() @]*
+
 When two quantities are equal, their derivatives must also be equal.  Otherwise they're changing at different rates, and how can they possibly be the same?!?!
 
 For example,
@@ -84,18 +91,42 @@ For example,
 
 ---
 
-Given 
-
-[`` 17 x^2 y^2 =  \sqrt{x} + y``] 
-
-
-implicitly differentiate the equality with respect to [`x`].  Use the symbols [`dy`] and [`dx`] to express the derivative of [`y`] with respect to [`x`].  Keep left on left, right on right.
-
-[_____]{$lhs} [`  = `] [_____]{$rhs}
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Implicitly differentiate the equalities with respect to [`x`].  Use the symbols [`dy`] and [`dx`] to express the derivative of [`y`] with respect to [`x`].  Keep left on left, right on right.
+[@ closeDiv() @]*
+END_PGML
 
 
+# i'm manually writing the derivatives because webwork (i don't think) knows how to do this
+$lhs = Compute(" 4x^3 + 4y^3 dy/dx");
+$rhs = Compute("0");
+BEGIN_PGML
+
+>> <<
+
+[`` x^4 + y^4 =  1``]    
+    [_____]{$lhs} [`  = `] [_____]{$rhs}
 
 
 END_PGML
+
+
+
+# i'm manually writing the derivatives because webwork (i don't think) knows how to do this
+$lhs = Compute(" 17(2x y^2 + 2x^2 y dy/dx)");
+$rhs = Compute("1/(2 x^(0.5) ) + dy/dx");
+BEGIN_PGML
+
+>> <<
+
+[`` 17 x^2 y^2 =  \sqrt{x} + y``]    
+    [_____]{$lhs} [`  = `] [_____]{$rhs}
+
+---
+
+As mathematicians (you're one right now!) we *can* use prime notation for [`\frac{dy}{dx} = y'`], but Webwork can't accept them, so we're using differential notation for now.  I also like differential notation because it makes the independent variable explicit --- it's in the bottom.
+END_PGML
+
+
 
 ENDDOCUMENT();

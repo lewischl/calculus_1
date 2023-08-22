@@ -91,20 +91,57 @@ $d5g0 = $d5g->eval(x=>0);
 # Main Text
 
 Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem offers training on prime notation for higher-order derivatives -- derivatives beyond the first.
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A "higher order derivative" is any derivative beyond the first.  We can use primes to indicate taking derivatives.  We use prime to denote differentiation only when the independent variable is clear.  If a function has more than one variable, we should use differential notation to explicitly name the variable of differentiation
+
+* The number of primes is the number of derivatives.  For example, [`f''`] is the second derivative of [`f`].
+* Beyond three primes they become unwieldly, so we use a parenthentical integer in the space for the exponent.  For example, [`f^{(4)}`] is the fourth derivative of [`f`].
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+
+$table = DataTable([
+
+[ "\(g(x) =\)" . ans_rule(30)   , "\(g(0) =\)" . ans_rule(30)  ],
+[ "\(g'(x) =\)" . ans_rule(30)   , "\(g'(0) =\)" . ans_rule(30)  ],
+[ "\(g''(x) =\)" . ans_rule(30)   , "\(g''(0) =\)" . ans_rule(30)  ],
+[ "\(g'''(x) =\)" . ans_rule(30)   , "\(g'''(0) =\)" . ans_rule(30)  ],
+[ "\(g^{(4)}(x) =\)" . ans_rule(30)   , "\(g^{(4)}(0) =\)" . ans_rule(30)  ],
+[ "\(g^{(5)}(x) =\)" . ans_rule(30)   , "\(g^{(5)}(0) =\)" . ans_rule(30)  ],
+
+]);
+
 BEGIN_TEXT
-If \( g(t) = $a t^4 + $b t^2 + $c \) find
-$BR$BR
-\(g(0) =\)\{ans_rule(15) \} $BR$BR
-\(g'(0) =\)\{ans_rule(15) \} $BR$BR
-\(g''(0) =\)\{ans_rule(15) \} $BR$BR
-\(g'''(0) =\)\{ans_rule(15) \} $BR$BR
-\(g^{(4)}(0) =\)\{ans_rule(15) \} $BR$BR
-\(g^{(5)}(0) =\)\{ans_rule(15) \} $BR
+If \( g(x) = $g \) find the following:
+
+\{ $table \}
+
 END_TEXT
 Context()->normalStrings;
 
 ########################################
 # Answers
+
+
+ANS($g->cmp);
+ANS($dg->cmp);
+ANS($d2g->cmp);
+ANS($d3g->cmp);
+ANS($d4g->cmp);
+ANS($d5g->cmp);
+
 
 ANS($g0->cmp);
 ANS($dg0->cmp);

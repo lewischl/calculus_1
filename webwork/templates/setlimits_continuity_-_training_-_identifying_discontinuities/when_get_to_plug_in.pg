@@ -48,7 +48,8 @@ loadMacros(
    "PGuwecTikZutils.pl", #Custom TikZ code
    "PGcourse.pl",      # Customization file for the course
    "PGbasicmacros.pl",
-    "PGchoicemacros.pl"
+    "PGchoicemacros.pl",
+    "customCSS.pl",
 );
 
 # Print problem number and point value (weight) for the problem
@@ -105,7 +106,9 @@ $BR
 
 $PAR
 
-(This problem does not show you which parts you have incorrect, to force you to think about the selections)
+\{ openDiv({ "class" => "inProblemHint" }) \}
+This problem does not show you which parts you have incorrect, to force you to think about the selections
+\{ closeDiv() \}
 END_TEXT
 
 

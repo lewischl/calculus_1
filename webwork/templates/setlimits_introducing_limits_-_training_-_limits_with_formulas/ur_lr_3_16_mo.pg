@@ -53,6 +53,7 @@ loadMacros(
    "AnswerFormatHelp.pl",
    "unionTables.pl",        # for customized match set up
    "PGcourse.pl",        # Customization file for the course
+   "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -89,9 +90,33 @@ $sl = 2;#     = random(0,3,1);  # choose one of the 4 questions
 
 
 Context()->texStrings;
+
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem studies limits of functions at points where the function is not defined.  We'll learn algebraic techniques for this elsewhere -- this problem focuses on numerical and graphical techniques.
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Some functions are not defined at certain places.  But that doesn't imply the limit doesn't exist!  
+
+To find the value of a limit at a point where a function isn't defined:
+* Numerically: Plug in inputs very near to the point of interest to the function.  
+    * For a two-sided limit, do this both just to the left and right of the point of interest!
+    * For a one-sided limit, do just on the side of concern.  
+* Graphically: Plot the function and inspect near the point of interest. Focus on both sides, or just one side, as appropriate.
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Estimate each of the following limits graphically and/or numerically.  
+* If the limit exists, provide an estimate accurate to at least three decimal places. 
+* If the limit does not exist, type *DNE*.
+[@ closeDiv() @]*
+
+END_PGML
+
 BEGIN_TEXT
-$BR
-Estimate each of the following limits graphically and/or numerically.  Provide an estimate accurate to at least three decimal places. If it is an infinite limit, use \(\infty\) or \(-\infty\) as appropriate.  Otherwise, if the limit does not exist, type ${BBOLD}DNE$EBOLD.
 $PAR
 \( \displaystyle{
          \lim_{x\to $xval[$sl]^-}$questions[$sl]= }\) \{ans_rule(20)\}

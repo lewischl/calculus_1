@@ -68,22 +68,74 @@ TEXT(beginproblem());
 ###################################
 # Setup
 
-$a = random(10,50,10);
-$h = random(10,25,1);
+
 
 ###################################
 # Main text
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This is an example of a problem that has "too many variables" to start.  It teaches the skill of using a constraint or geometric property as a tool to reduce the number of variables in a problem.
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The volume of a cone is [``V_{\rm cone} = \frac{4}{3}\pi r^2 h ``]
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+$a = random(10,50,10);
+$h = random(10,25,1);
+
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Follow these steps, and try to see the pattern of using a constraint to eliminate a variable:
+
+1. Draw a picture of a growing cone.  Label the radius, height, and volume.  Draw arrows to denote change.
+2. Relate the variables for volume, radius, and height.
+3. Don't differentiate yet.
+4. Draw a picture of a cross-section of the cone, and then a larger one that shares the tip.   👀 See the [@ htmlLink("https://www.mathsisfun.com/geometry/triangles-similar.html","similar triangles") @]*.
+5. Use the similar triangle relationship to eliminate the radius from the equation for volume.
+6. Now differentiate
+7. Substitute in known quantities.
+8. Solve for the desired quantity, the rate at which height increases.
+
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
 
 BEGIN_TEXT
+
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
+
 Gravel is being dumped from a conveyor belt at a rate of
 $a \( {\rm ft}^3{\rm /min}\). It forms a pile in the shape of a right circular
-cone whose base diameter and height are always the same.
+cone whose height is always three times the radius.
+
+\{ closeDiv() \}
+
 $PAR
-How fast is the height of the pile increasing when the pile is $h ft high?
+How fast is the height of the pile increasing when the pile is $h \( {\rm ft}\) high?
 $PAR
-The height is increasing at \{ans_rule(20) \} ft/min.
-$BR$BR
-\{ theresahint \}
+
+END_TEXT
+
+
+
+BEGIN_TEXT
+
+$PAR
+The height is increasing at \{ans_rule(20) \} \( {\rm ft}\)/\( {\rm min}\).
+
 END_TEXT
 ###################################
 # Answers
@@ -94,23 +146,13 @@ $ans= 4*$a/($h*$h*pi);
 
 ANS(Real($ans)->cmp);
 
-$showHint=-1;
+
 BEGIN_HINT
-Start by drawing a picture of a cone.  Ensure that the cone is a right cone, and that the diameter and height are the same.  The cross section is a particular triangle.
-$BR$BR
-Write an equation giving the volume of the cone.  It will involve both the radius and the height of the cone. 
-$BR$BR
-Substitute away one of the radius or height.  You can do this because the triangle in cross section is always of a certain shape.  That is, there is a similar-triangle relationship between radius and height coming from the triangle.  Write it down, and use it to substitute out a variable.  Your equation for volume should now have volume on one side, and an expression in either height or diameter.
-I suggest you keep the height in the equation and substitute away the diameter, because the question involves the height.
-$BR$BR
-Ok, next take the time-derivative of both sides.  Be careful to remember to "chain out" the time-derivative of the height!
-$BR$BR
-Finally, substitute in your known values for things.  Solve for the desired quantity.  Bam.
 
+Prof. Amethyst does also have a video on the subject of a related rates problem involving a cone.  The problem isn't exactly the same, but perhaps you'd find it useful?
 
+$BR$BR
 
-
-\{ amethystHint("$BR$HR$BR Prof. Amethyst does also have a video on the subject of a related rates problem involving a cone.  Perhaps you'd find it useful?$BR$BR") \}
 \{ youtubeAmethyst("DmtHKq5_s7c") \}
 END_HINT
 ###################################

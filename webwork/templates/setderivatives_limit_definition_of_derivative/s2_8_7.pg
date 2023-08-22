@@ -43,7 +43,8 @@ loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
   "AnswerFormatHelp.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -52,7 +53,7 @@ $showPartialCorrectAnswers = 1;
 Context("Numeric");
 Context()->noreduce('(-x)-y');
 
-
+do{
 $a1 = random(2,4,1);
 $b1 = random(2,7,1);
 $c1 = random(2,7,1);
@@ -63,18 +64,83 @@ $df = $f->D;
 $y1 = $f->eval(x=>$x1);
 $m1 = $df->eval(x=>$x1);
 $b1 = $y1 - $m1 * $x1;
+}
+while ($m1==0);
+
 
 Context()->texStrings;
 
-BEGIN_TEXT
-Let \( f(x) = $f \). Compute \( f'( $x1 ). \)
-$BR$BR
-Answer: \{ans_rule(20) \}
-$BR$BR
 
-Use this to find the equation of the tangent line to the parabola
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+This problem trains you on going from function to tangent line via the defintion of the derivative.   
+
+The tangent line is the best possible linear approximation of a curvy function, so being able to write tangent lines is a central conceptual skill in Calculus.
+
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The definition of the derivative, which tells us the slope of the tangent line and the instantaneous rate of change at point or time [`x=a`]:
+
+[```
+f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}
+```]
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A tangent line requires a few ingredients:
+1. The slope of the tangent line -- the derivative at the point of tangency.
+2. The coordinates for the point of tangency.
+[@ closeDiv() @]*
+
+---
+
+
+END_PGML
+
+BEGIN_TEXT
+Let \( f(x) = $f \).  Compute the slope of the line tangent to \(f\) at \(x = $x1\).
+$PAR
+\( f'( $x1 ) = \) \{ans_rule(20) \}
+
+
+$PAR
+$HR
+$PAR
+
+END_TEXT
+
+BEGIN_PGML
+
+---
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Point-slope form is a great way to write equations for lines.   The line with
+* slope [`m`]
+* going through point [`(x_0, y_0)`]
+
+has formula 
+
+[```
+y-y_0 = m(x-x_0)
+```]
+[@ closeDiv() @]*
+
+By doing algebra, we can massage from point-slope form into the familiar slope-intercept form [`y = mx+b`].
+
+END_PGML
+
+BEGIN_TEXT
+
+Use the value of \(f'($x1)\) you computed above to find the equation of the tangent line to the parabola
  \( y = $f \)
-at the point \( ( $x1 , $y1 ) \).
+at the point \( ($x1, f($x1)) = ( $x1 , $y1 ) \).
 
 $BR$BR
 
@@ -84,38 +150,18 @@ Determine \( m \) and \(b\). $BR$BR
 \(m=\)\{ans_rule(20)  \}
 $BR$BR
 \(b=\)\{ans_rule(20)  \}
-$BR
-$BR
 
-\{ theresahint \}
-END_TEXT
-
-BEGIN_HINT
-This problem should be done in two stages.  
-
-$BR$BR
-
-We're writing the equation for a tangent line in slope-intercept form.  We can get the slope from \(f'($x1)\), but that intercept we can't compute directly.  So, we'll use point-slope form for a line, which requires two ingredients:$BR
-- the slope, \(m\), which in this case, because it's a tangent line, comes from \(m = f'(a)\).$BR
-- a point on the line, \(x_0, f(x_0)\), in this case the given point.
-
-$BR$BR
-
-Reminder of point-slope form (put it on a notecard, we're going to use it a lot):
-$BR$BR
-
-\( y-y_0 = m (x-x_0) \)
-
-$BR$BR
-
-So, $BR
-1. compute the slope \(f'($x1)\), then $BR
-2. use it with the point to get ahold of the line we want. 
-
-$BR$BR
+$PAR
+$HR
+$PAR
 
 It's possible to check your work, too.  In your calculator, plot the curve and what you have for the tangent line.  Is the line actually tangent at \(($x1,$y1)\)?  It sure better go through the point!  
-END_HINT
+
+END_TEXT
+
+
+
+
 
 ANS($m1->cmp);
 ANS($m1->cmp);

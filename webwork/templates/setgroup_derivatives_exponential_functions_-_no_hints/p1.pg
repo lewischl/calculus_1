@@ -1,0 +1,53 @@
+########################################
+# this file automatically moved
+#	from local/chapter3/trig-derivs-v1.pg 
+#	to setgroup_derivatives_trig_derivs_-_no_hints/trig-derivs-v1.pg 
+#	on 2023-06-08 15:17:56.142406 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setgroup_derivatives_trig_derivs_-_no_hints/trig-derivs-v1.pg 
+#	to setgroup_derivatives_exponential_functions_-_no_hints/trig-derivs-v1.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();  
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+$showPartialCorrectAnswers = 1;
+
+$a = random(2,8,1);
+$b = non_zero_random(-8,8,2);
+$f = Formula("e^($b x sin(x) + $a)")->reduce;
+
+Context()->texStrings;
+
+BEGIN_TEXT
+Find the derivative of the function.  Give an exact answer.
+$PAR
+\( \displaystyle f(x)= $f \) $BR
+\( f'(x)= \) \{ ans_rule() \}
+END_TEXT
+Context()->normalStrings;
+
+ANS($f->D->cmp);
+
+ENDDOCUMENT();

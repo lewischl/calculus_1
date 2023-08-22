@@ -88,10 +88,13 @@ $rhs5 = Compute("y dx/dt + x dy/dt");
 #  Text
 #
 #
-
 BEGIN_PGML
 
+[@ openDiv({ "class" => "problemPurpose" }) @]*
 This problem pushes you to embrace the general truism that if two quantities are equal, their derivatives must also be equal.
+
+[@ closeDiv() @]*
+
 
 ---
 

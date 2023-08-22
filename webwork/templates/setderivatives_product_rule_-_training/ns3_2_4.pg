@@ -60,7 +60,8 @@ DOCUMENT();        # This should be the first executable line in the problem.
 loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -71,33 +72,53 @@ Context('Numeric');
 $a = random(1,5,1);
 $b = non_zero_random(-5,5,1);
 $c = non_zero_random(-5,5,1);
-$f = Compute("$a*x^2 + $b*x + $c")->reduce;
+$f = Formula("$a*x^2 + $b*x + $c")->reduce;
+$fp = Formula("2*$a*x+$b")->reduce;
 
 $bc=$b+$c;
-$g_prime = Compute("($a*x^2 + (2*$a + $b)*x + $bc)*e^x")->reduce;
+#$g_prime = Compute("($a*x^2 + (2*$a + $b)*x + $bc)*e^x")->reduce;
 
 Context()->texStrings;
-BEGIN_TEXT
+
+BEGIN_PGML
+
 Find the derivative of the function
-\[ g(x) = ($f)e^x  \]
 
-$BR
+[```g(x) = ([$f])e^x```]
 
-\( g'(x) = \) \{ ans_rule(50) \}
+Since the original function is named [`g`], I recommend using the names [`f_1`] and [`g_1`]:
 
-END_TEXT
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Product Rule:
 
-ANS($g_prime->cmp);
+If [`f_1`] and [`g_1`] are differentiable functions, then
 
-$fp=$f->D;
-BEGIN_SOLUTION
-$PAR SOLUTION $PAR 
-The product rule gives
-\[ \begin{array}{rcl} g'(x) &=& \displaystyle e^x \frac{d}{dx} ($f) + ($f) \frac{d}{dx}(e^x) 
-\\ & =& e^x  ($fp) + ($f) e^x 
-\\ &=&$g_prime
-\end{array}
-\]
-END_SOLUTION
+>>[``(f_1g_1)'=f_1'g_1+g_1'f_1``]<<
+[@ closeDiv() @]*
+
+
+[`g'(x)=`] [_]{Formula("($fp)*e^x+($f)*e^x")->reduce}
+
+END_PGML
+
+#BEGIN_TEXT
+
+#$BR
+
+#\( g'(x) = \) \{ ans_rule(50) \}
+
+#END_TEXT
+
+#ANS($g_prime->cmp);
+
+#BEGIN_SOLUTION
+#$PAR SOLUTION $PAR
+#The product rule gives
+#\[ \begin{array}{rcl} g'(x) &=& \displaystyle e^x \frac{d}{dx} ($f) + ($f) \frac{d}{dx}(e^x) 
+#\\ & =& e^x  ($fp) + ($f) e^x 
+#\\ &=&$g_prime
+#\end{array}
+#\]
+#END_SOLUTION
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

@@ -47,6 +47,8 @@ loadMacros(
    "PGcourse.pl",      # Customization file for the course
 );
 
+COMMENT("todo: reformat to use a LayoutTable");
+
 # Print problem number and point value (weight) for the problem
 TEXT(beginproblem());
 
@@ -83,24 +85,39 @@ $ans5 = Compute("y dx/dt + x dy/dt");
 
 BEGIN_PGML
 
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem offers a connection between implicit differentation for slopes on implicit curves, and the broader world of changing quantities.
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
 Implicit differentiation works for any independent variable:
-* if the variable of differentation is the variable being differentiated, we get [`1`].
+* If the variable of differentation is the variable being differentiated, we get [`1`].
 * If there's a variable mismatch, we have to "chain out" a derivative
+[@ closeDiv() @]*
 
-For example
+For example, because the variable of the function [`x^2`] and the variable of differentiation [`x`] match:
 
-[`` \begin{aligned} \frac{d}{dx} x^2 &= 2x \end{aligned} ``]
+[`` \begin{aligned} \frac{d}{dx} x^2 = 2x \end{aligned} ``].
 
-because the variables match, but
+BUT!  When we differentiate with another variable, we have to use implicit differentiation.  In these two examples, the variable of differentiation [`t`] mismatches with the variables being differentiated, so we must ⛓️ "chain out" derivatives.
 
+* [`` \frac{d}{dt} x^2 = 2x  \frac{dx}{dt} ``]  This describes the time-rate-of-change of the area of a square 🔲.
 
-[``\begin{aligned}  \frac{d}{dt} x^2 &= 2x  \frac{dx}{dt}   \\  \frac{d}{dt} V &= \frac{dV}{dt} \end{aligned} ``]
+* [`` \frac{d}{dt} 4x = 4 \frac{dx}{dt} ``]  This describes the time-rate-of-change of the perimeter of a square  🔲.
 
-because the variable of differentiation, [`t`], mismatches with the variables being differentiated, so we "chain out" derivatives.
+Here's a video from Professor Shull explaining this with an example (this same video was at the top of the previous "problem"):
+
+[@
+kalturaShull("1_aewjtaot")
+@]*
+
 
 ---
 
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
 Use implicit differentiation to compute the derivatives.  Use differential notation (like [`dx/dt`]) to express derivatives.
+[@ closeDiv() @]*
 
 The area of a circle:
 [`` \frac{d}{dt} \left( \pi r^2  \right) = ``] [_____]{$ans1}

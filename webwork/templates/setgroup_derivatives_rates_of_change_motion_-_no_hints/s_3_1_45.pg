@@ -63,16 +63,16 @@ $ans4 = Compute("$a*$b");
 #####################################################################
 Context()->texStrings;
 BEGIN_TEXT
-The equation of motion of a particle is \(s = t^$a - $a t,\) where \(s\) is in meters and \(t\) is in seconds.  Assuming that \(t \ge 0,\)  answer the following questions.
+The equation of motion of a particle is \(s = t^$a - $a t,\) where \(s\) is in meters and \(t\) is in seconds, and  \(t \ge 0,\).
 $HR
 $BBOLD 1. $EBOLD Find the velocity \(v\) as a function of \(t.\) $BR
-Answer: \(v(t) = \) \{ans_rule(30)\} $PAR
+\(v(t) = \) \{ans_rule(30)\} $PAR
 $BBOLD 2. $EBOLD Find the acceleration \(a\) as a function of \(t.\) $BR
-Answer: \(a(t) =\) \{ans_rule(30)\} $PAR
+\(a(t) =\) \{ans_rule(30)\} $PAR
 $BBOLD 3. $EBOLD Find the acceleration after \(2\) seconds. $BR
-Answer (in \(\text{m/s}^2\)): \(a(2) = \) \{ans_rule(20)\} $PAR
+\(a(2) = \) \{ans_rule(20)\} \(\text{m/s}^2\)) $PAR
 $BBOLD 4. $EBOLD Find the acceleration when the velocity is \(0.\)$BR
-Answer (in \(\text{m/s}^2\)): \(a =\) \{ans_rule(20)\} $PAR 
+\(a =\) \{ans_rule(20)\}  \(\text{m/s}^2\) $PAR 
 $HR
 END_TEXT
 Context()->normalStrings;

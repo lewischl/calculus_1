@@ -47,7 +47,10 @@ loadMacros(
 "PGauxiliaryFunctions.pl",
 "MathObjects.pl",
 "PGcourse.pl",
+"customCSS.pl",
 );
+
+COMMENT("todo: reformat the hint to use PGML");
 
 Context("Numeric");
 
@@ -65,33 +68,55 @@ $a7 = random(2,15,1);$b7 = random(2,15,1);
 $a8 = random(2,15,1);$b8 = random(2,15,1);
 $a9 = random(2,15,1);$b9 = random(2,15,1);
 
-TEXT(EV2(<<EOT));
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem further explores the connection between horizontal asymptotes and finite value of limits at infinity.  
+[@ closeDiv() @]*
+
+This problem has a sizeable hint, but I want you to try first.  Use what you know so far about leading behaviour, asymptotes, and limits at infinity to compute the limits.
+
+---
+
+END_PGML
+
+BEGIN_TEXT
 Show that each of the following functions has a horizontal asymptote by calculating the given limit.
+$BR
+If it does not exist, enter ${BBOLD}DNE${EBOLD}.
+
+
 
 $PAR
-${BITALIC}(If the limit approaches \(\infty\), enter ${BBOLD}INF${EBOLD}; if it approaches \(-\infty\), enter ${BBOLD}-INF${EBOLD}; otherwise, if it does not exist, enter ${BBOLD}DNE${EBOLD}.)${EITALIC}$BR
+
+\(\displaystyle{
+      \lim_{x\to\infty}\frac{-$a0 x}{$a1+2 x}= }\) \{ans_rule(10)\}$PAR
+
+\(\displaystyle{
+      \lim_{x\to-\infty}\frac{$a3 x-$a4}{x^3+$a5 x-$a6}= }\) \{ans_rule(10)\}$PAR
+
+\(\displaystyle{
+      \lim_{x\to\infty}\frac{x^2-$a7 x -$a8}{$a9-$b0 x^2}= }\) \{ans_rule(10)\}$PAR
 
 $BR
 \(\displaystyle{
-      \lim_{x\to\infty}\frac{-$a0 x}{$a1+2 x}= }\) \{ans_rule(10)\}$BR$BR
+        \lim_{x\to\infty}\frac{\sqrt{x^2+$b1 x}}{$b2-$b3 x}= }\) \{ans_rule(10)\}$PAR
+
 \(\displaystyle{
-      \lim_{x\to-\infty}\frac{$a3 x-$a4}{x^3+$a5 x-$a6}= }\) \{ans_rule(10)\}$BR$BR
-\(\displaystyle{
-      \lim_{x\to\infty}\frac{x^2-$a7 x -$a8}{$a9-$b0 x^2}= }\) \{ans_rule(10)\}$BR$BR
-\(\displaystyle{
-        \lim_{x\to\infty}\frac{\sqrt{x^2+$b1 x}}{$b2-$b3 x}= }\) \{ans_rule(10)\}$BR$BR
-\(\displaystyle{
-        \lim_{x\to-\infty}\frac{\sqrt{x^2+$b1 x}}{$b2-$b3 x}= }\) \{ans_rule(10)\}$BR$BR
-        
-        \{ theresahint \}
-EOT
+        \lim_{x\to-\infty}\frac{\sqrt{x^2+$b1 x}}{$b2-$b3 x}= }\) \{ans_rule(10)\}$PAR
+
+
+END_TEXT
+
 
 BEGIN_HINT
-You may be wondering about the sign on the answer.  Good question!
+You may be wondering about the signs of the answers.  Good question!
 
 $BR$BR
 
-In these problems, there's a numerator and denominator to think about.
+In these problems, there's a numerator and denominator to think about.  Some notes:
 
 $BR$BR
 

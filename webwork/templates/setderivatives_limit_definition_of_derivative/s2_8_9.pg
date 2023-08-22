@@ -39,36 +39,141 @@ DOCUMENT();        # This should be the first executable line in the problem.
 loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+     "PGuwecTikZutils.pl", #Custom TikZ code
+  "customCSS.pl",
+  "contextFraction.pl",
 );
 
 TEXT(beginproblem());
-Context("Numeric");
+
 $showPartialCorrectAnswers = 1;
 
+
+Context("Fraction");
+
 $a1 = random(1,8,1);
+$x1 = random(2,6,1);
 
 
-$x1=0;
-while ($x1==0) {
-  	$x1 = random(-5,5,1);
-}
-$y1 = $a1/$x1;
-$m1 = -$a1/($x1)**2;
-$ans2 = Compute("$y1 -($m1*$x1)");
-$ans1 = Compute("-($a1)/($x1)^2");
+$f = Formula("$a1/x");
+
+
+$y1 = Fraction($f->eval(x=>$x1));
+$m1 = $f->D->eval(x=>$x1);
+
+
+$ans2 = Fraction($y1 -($m1*$x1));
+$ans1 = Fraction(-($a1)/($x1)**2);
+
+@xlim = (0, $x1+2);
+
+@f_at_boundaries = ($f->eval(x=>0.5), $f->eval(x=>$xlim[1])+0.1, 0);
+
+
+@ylim = (array_min(@f_at_boundaries), array_max(@f_at_boundaries));
+
+
+$tick = 1;
+
+Context()->texStrings;
+
+$graph1 = GraphWithTikZ(function => [  
+                                     [$f,xmin=>0.01,xmax=>$xlim[1],label=>"$f",color=>"blue",samples=>500],
+                                    ],
+points => [
+           [Point(($x1,$f->eval(x=>$x1))),color=>"blue",label=>"($x1, f($x1))"],
+          ],
+    xmin => $xlim[0],xmax => $xlim[1],ymin =>$ylim[0],ymax =>$ylim[1], # axis limits.  these should be computed, as in this example
+    smooth=>'smooth', #smooth, not cornery
+    ytick => $tick,xtick => $tick, useLegend=>1); # where to mark the axis.  xtick, ytick is the distance between marks.  they do not have to be the same.
+    
+    
+    
+
+    
+    
+    
+    
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+This problem uses the definition of the derivative for a reciprocal function like "one over [`x`]".  The algebra is more complicated, fostering skills in 
+* algebra
+* common denominators
+* organization of work on paper to keep track of a complicated computation
+
+[@ closeDiv() @]*
+
+
+>>[@ image(insertGraph($graph1), width => 400, height => 400) @]*<<
+
+---
+
+END_PGML
+
 
 BEGIN_TEXT
-Let \( f(x) = \frac{$a1}{x} \). Compute \( f'( $x1 ) \).
-$BR$BR 
+Let \( f(x) = $f \). 
 
-Answer: \{ ans_rule(20) \}
+To write an equation for a tangent line, we will need the \(y\)-value of the point of tangency.  We also need it for \(f'($x1)\) if we're going to compute the slope by definition.  Compute.
+
+$PAR
+
+\( f( $x1 ) = \) \{ ans_rule(20) \}
+
+$PAR$HR$PAR
+
+Next we need the slope.
+
+
+\{ openDiv({ "class" => "importantFormula" }) \}
+The definition of the derivative, which tells us the slope of the tangent line and the instantaneous rate of change at point or time \(x=a\):
+\[
+f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}
+\]
+\{ closeDiv() \}
+
+$PAR
+
+END_TEXT
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+
+Follow these  steps to find the derivative of this reciprocal function:
+1. Evaluate: [`f(x+h)`] with [`f = [$f]`].
+    * This is function composition.  Everywhere you see an [`x`], replace it with [`x+h`].
+2. Subtract: [`f(x+h) - f(x)`].
+    * You'll have a difference with unlike denominators.  
+3. Get a common denominator by multiplying each term by a special version of [`1`].
+4. Combine the terms.  
+    * The constant terms in the numerator will additively cancel.  
+    * Every term in the numerator will have an [`h`] in it.
+5. Instead of dividing by [`h`], multiply by [`\frac{1}{h}`]
+    * When doing a derivative, the [`h`] in the denominator will always cancel! 
+4. Simplify.
+5. Take the limit as [`h \to 0`] to get [`f'([$x1])`].
+
+[@ closeDiv() @]*
+
+END_PGML
+
+BEGIN_TEXT
+
+\( f'( $x1 ) = \) \{ ans_rule(20) \}
 $BR$BR
 
 
-Use this to find the equation of the tangent line to the hyperbola
-\( \displaystyle y = \frac{$a1}{x} \) at the point \( ( $x1 , {$y1:%0.3f} ) \).
-The equation of this tangent line can be written in the form \( y = mx+b \).
+
+$PAR$HR$PAR
+
+Finally, use the point of tangency and the slope of the tangent line to find the equation of the tangent line to the hyperbola
+\( \displaystyle y = \frac{$a1}{x} \) at the point \( ( $x1 , f($x1) ) \) in slope-intercept form \( y = mx+b \). $BR
 Determine \( m \) and \(b\).
 $BR$BR
 \(m=\)\{ans_rule(20)  \}
@@ -77,6 +182,7 @@ $BR$BR
 
 END_TEXT
 
+ANS($y1->cmp);
 ANS($ans1->cmp);
 ANS($ans1->cmp);
 ANS($ans2->cmp);

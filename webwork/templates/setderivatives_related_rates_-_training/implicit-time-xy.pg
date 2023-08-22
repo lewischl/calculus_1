@@ -75,8 +75,16 @@ loadMacros(
   "PGcourse.pl"
 );
 
+
+
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
+
+Context()->variables->add(
+dx=>"Real", dy=>"Real", y=>"Real", 
+dt=>"Real", t=>"Real", 
+);
+
 
 $a1 = non_zero_random(-4,4,1);
 $b1 = non_zero_random(-4,4,1);
@@ -84,39 +92,79 @@ $c1 = non_zero_random(-4,4,1);
 
 $deriv1 = -$c1*$c1*$b1/$a1;
 
-TEXT(EV2(<<EOT));
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
 Implicit differentiation can be used to help evaluate derivatives, when *several* variables are implicitly dependent on another.
+
+[@ closeDiv() @]*
+
+END_PGML
+
+
+BEGIN_TEXT
 
 $PAR$HR$PAR
 
-Let \(x = x(t)\) and \(y = y(t)\) both be (implicit) functions of time.  That means that they are functions, we just don't know their formulas.  
+Let \(x = x(t)\) and \(y = y(t)\) both be implicit functions of time.  That means that they are functions, we just don't know their formulas.  This is pretty common.  I often cook in my oven 🍰, and it heats over time.  The temperature of the oven \(T\) is a function of time, so \(T = T(t)\). I just don't know its formula.  
 
-$PAR Suppose \(x\) and \(y\) are related via an equation that says their product is always \($a1\):
+$PAR 
 
-$PAR \( xy = $a1 \) $PAR
+Suppose \(x\) and \(y\) are related via an equation that says their product is always \($a1\):
+$BR \( xy = $a1 \) $PAR
 
-Finally, assume that we know the time-rate-of-change of \(y\): \(\displaystyle{ \frac { dy }{ dt } = $b1} \).
+Finally, assume that we know the time-rate-of-change of \(y\): $BR 
+\(\displaystyle{ \frac { dy }{ dt } = $b1} \).
 
 $PAR
 
-Recall the basic principal of implicit differentiation: if two things are equal, then their derivatives must always be equal, too.
-Use implicit differentiation with respect to time \(t\) to differentiate the equation \(xy=$a1\), and substitute known quantities to find \( \displaystyle{\frac { dx }{ dt } } \) when  \( x = $c1 \).
+Recall the basic principal of implicit differentiation
+
+\{ openDiv({ "class" => "importantFormula" }) \}
+If two things are equal, then their derivatives must always be equal
+\{ closeDiv() \}
+
+$PAR $HR $PAR
+
+Use implicit differentiation with respect to time \(t\) to differentiate the equation \(xy=$a1\) with respect to \(t\). Use the product rule.  $PAR
+
+$BCENTER
+
+\( xy = $a1 \) $BR
+\{ ans_rule(20) \} \( = \) \{ ans_rule(20) \}
+
+$ECENTER
+
+END_TEXT
+
+ANS(Formula("dx/dt*y + x*dy/dt")->cmp);
+ANS(Compute(0)->cmp);
+
+
+
+
+
+
+BEGIN_TEXT
+$PAR $HR $PAR
+
+To find \( \frac { dx }{ dt }  \) when  \( x = $c1 \):$BR
+• Substitute known quantities$BR
+• Use algebra to solve for \( \frac { dx }{ dt }\).
+
 $PAR
 \( \displaystyle{\frac { dx }{ dt } } \) = \{ans_rule(20) \}
 
-$BR$BR
-\{ theresahint \}
-EOT
+END_TEXT
 
-$ans = $deriv1;
-ANS(num_cmp($ans));
+ANS(num_cmp($deriv1));
 
-Context("Fraction");
-$y=Compute("$a1/$c1");
-$y1=Compute("-$c1/$y*$b1 ");
-Context()->texStrings;
 
-$showHint=-1;
+
+
+
+
+
 BEGIN_HINT
 This problem is very similar to those from Section 3.8, Implicit Differentiation.
 $BR$BR
@@ -126,6 +174,14 @@ Realize that if you know \(x\), then you know \(y\), since \(xy=$a1\).
 $BR$BR
 Plug in the values for \(x\), and \(\frac { dy }{ dt }\) that you were given. Finally, solve for \(\frac{dx}{dt}\).
 END_HINT
+
+
+
+Context("Fraction");
+$y=Compute("$a1/$c1");
+$y1=Compute("-$c1/$y*$b1 ");
+Context()->texStrings;
+
 
 BEGIN_SOLUTION
 $PAR SOLUTION $PAR 

@@ -60,7 +60,8 @@ loadMacros(
   "PGgraphmacros.pl",
   "extraAnswerEvaluators.pl",
   "MathObjects.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl"
 );
 
 TEXT(beginproblem());
@@ -82,14 +83,24 @@ $c = "1/x^2 + 1/$j";
 
 Context()->texStrings;
 BEGIN_TEXT
+
+
+\{ openDiv({ "class" => "problemPurpose" }) \}
+This problem shows that parenthesis placement matters.
+\{ closeDiv() \}
+
+$PAR
+
 Let $SPACE \( h(x) = \displaystyle\frac{1}{x^2} \) .  
-$BR
-$BR
-(a) Find \( h( x + $k )  = \) \{ ans_rule(20) \}
+$PAR $HR $PAR
+
+Evaluate:
 $BR$BR
-(b) Find \( h( x ) + $k  = \) \{ ans_rule(20) \}
+ \( h( x + $k )  = \) \{ ans_rule(20) \}
 $BR$BR
-(c) Find \( h( x ) + h( $k )  = \) \{ ans_rule(20) \}
+\( h( x ) + $k  = \) \{ ans_rule(20) \}
+$BR$BR
+ \( h( x ) + h( $k )  = \) \{ ans_rule(20) \}
 
 END_TEXT
 Context()->normalStrings;

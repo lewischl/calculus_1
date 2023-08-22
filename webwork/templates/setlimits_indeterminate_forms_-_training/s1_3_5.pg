@@ -61,7 +61,8 @@ loadMacros(
   "PGstandard.pl",
   "PGunion.pl",
   "MathObjects.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -69,29 +70,52 @@ TEXT(beginproblem());
 ###################################
 # Setup
 
+Context("Numeric");
+
 $a1 = random(3,8,1);
 $b1 = random(3,8,1);
 $c1 = random(3,8,1);
 $d1 = random(3,8,1);
 $e1 = random(-3,-1,1);
 
+$numer = Formula("x - $a1");
+$denom = Formula("$b1 x^2 -$c1 x +$d1");
+
+
+while ($denom->eval(x=>$a1) == 0){
+    $c1 = random(3,8,1);
+    $denom = Formula("$b1 x^2 -$c1 x +$d1");
+}
+
 ###################################
 # Main text
 
+BEGIN_PGML
+
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+As we learn factor and cancel, it's tempting to use it for every limit problem with a fraction.  This problem trains you to always start by plugging in the point of interest.
+[@ closeDiv() @]*
+
+END_PGML
 BEGIN_TEXT
-Evaluate the limit
-\[ \lim_{ x \rightarrow $e1 } \frac {x - $a1 }{ $b1 x^2 -$c1 x +$d1 }. \]
-${BITALIC}(If the limit does not exist, enter ${LQ}DNE${RQ}.)${EITALIC}
+Evaluate the limits. $BR If the limit does not exist, enter ${LQ}DNE${RQ}. $PAR
+
+\( \displaystyle \lim_{ x \rightarrow $e1 } \frac {x - $a1 }{ $b1 x^2 -$c1 x +$d1 } = \) \{ans_rule(25) \}
+
 $PAR
-Limit =  \{ans_rule(25) \}
+
+\( \displaystyle \lim_{ x \rightarrow $a1 } \frac {x - $a1 }{ $b1 x^2 -$c1 x +$d1 } = \) \{ans_rule(25) \}
+
 END_TEXT
 
 ###################################
 # Answers
 
-$ans = ($e1 - $a1 )/( $b1*$e1*$e1 -$c1*$e1 +$d1 );
+$ans = ($e1 - $a1 )/( $b1*$e1**2 -$c1*$e1 +$d1 );
 ANS(Real($ans)->cmp);
 
+ANS(Real(0)->cmp);
 
 ;
 ENDDOCUMENT();

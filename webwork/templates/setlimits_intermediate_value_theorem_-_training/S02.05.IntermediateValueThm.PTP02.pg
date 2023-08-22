@@ -47,26 +47,110 @@ DOCUMENT();        # This should be the first executable line in the problem.
 
 loadMacros(
   "PGstandard.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
+
+Context("Numeric");
+
 $a = random(-10,10);
 $b = $a+0.1;
 
+$f = Formula("x^3-3x +$b");
+
+Context()->texStrings;
+
+BEGIN_PGML
+
+This problem explores existence of roots.  Here's a way of phrasing the IVT so that we can see the connection more clearly:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The Intermediate Value Theorem (IVT) for roots
+
+---
+
+If 
+1. [`f`] is a continuous function on [`[a,b]`], and 
+2. [`f`] changes sign on [`[a,b]`], 
+
+then...
+
+There MUST exist a root somewhere inside [`(a,b)`].
+[@ closeDiv() @]*
+
+
+Sometimes there's a root inside an interval even if there's not a sign change on it.  After all, knowing function values at the boundaries of an interval is only knowledge of two points.  The IVT is about *guaranteeing* existence of roots.  It doesn't rule them out!
+
+---
+
+END_PGML
+
 BEGIN_TEXT
-Determine whether the Intermediate Value Theorem implies that the equation
-\( x^3-3x +$b =0 \) has a root in the interval \((0,1)\).
-$BR$BR
-The Intermediate Value Theorem \{pop_up_list(['?','does','does not']) \} imply that the equation above has a root in that interval.  
+Determine whether the Intermediate Value Theorem implies that function
+\(f(x) = $f \) has a root in the interval \((0,1)\).
+$PAR
+\( f(0) = \) \{ ans_rule() \}
+
+$PAR
+\( f(1) = \) \{ ans_rule() \}
+
+$PAR
+
+The Intermediate Value Theorem \{pop_up_list(['?','does','does not']) \} imply that \(f(x)\) has a root in that interval.  
 END_TEXT
 
 $ans1 = "does not";
 if ($a==0 || $a==1) {$ans1="does";}
 
+ANS($f->eval(x=>0)->cmp);
+ANS($f->eval(x=>1)->cmp);
 ANS(str_cmp($ans1));
 
-COMMENT('It is best to give only one attempt for this problem.');
+
+
+
+
+
+
+
+
+$a = random(-8,8,1);
+
+$b = random(-8,8,1);
+
+while ($a==$b){
+$b = random(-8,8,1);
+}
+
+$g = Formula("x^2 - ($a+$b)x + $a*$b")->reduce;
+
+BEGIN_TEXT
+$PAR $HR $PAR
+
+Now for another function: \( g(x) = $g  \) on the interval \((-10,10)\).
+$PAR
+\( g(-10) = \) \{ ans_rule() \}
+
+$PAR
+\( g(10) = \) \{ ans_rule() \}
+
+$PAR
+
+The Intermediate Value Theorem \{pop_up_list(['?','does','does not']) \} guarantee that the equation above has a root in \( (-10,10)\), just from looking at boundary information.  
+
+$PAR The function \(g(x)\) \{pop_up_list(['?','does','does not']) \} actually have roots inside \( (-10, 10) \).
+END_TEXT
+
+
+ANS($g->eval(x=>-10)->cmp);
+ANS($g->eval(x=>10)->cmp);
+ANS(str_cmp("does not"));
+ANS(str_cmp("does"));
+
+
+
 
 $b2=$b-2;
 if ($a==0 || $a==1) {

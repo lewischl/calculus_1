@@ -50,7 +50,8 @@ loadMacros(
   "AnswerFormatHelp.pl",
   "PGgraphmacros.pl",
   "MathObjects.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 Context('Numeric');
 
@@ -102,23 +103,39 @@ $ans5 = Compute("sqrt(3-$b)");
 ###############################################################
 Context()->texStrings;
 
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+The "limit laws" let us use knowledge about limits, and combine them to know new limits.  This problem has you compute limits from graphs, and them combine those limits using the limit laws.  This shows that the limit laws work even if we don't have formulas for the functions, but just know certain limits.
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+We can use the limit laws to combine old limits into new ones.  Compute the necessary limits by themselves for [`f`] and [`g`] using the graphs, and then combine using the limit laws.
+
+For example, if we want to know [``\lim_{x \to -1}[f+g]``], we would 
+1. compute the limits of [`f`] and [`g`] at [`x=1`], and 
+2. then add those two values together since "the limit of the sum is the sum of the limits".
+[@ closeDiv() @]*
+
+
+END_PGML
+
 BEGIN_TEXT
-Use the given graphs of the function \(f\) (left, in blue) and \(g\) (right, in red) to find the following limits:
+
 $PAR
 $BCENTER
 \{image(insertGraph($graph1),width=>$w,height=>$w,tex_size=>$tw)\}   
 \{image(insertGraph($graph2),width=>$w,height=>$w,tex_size=>$tw)\}
 $ECENTER $PAR
 $HR
-$BBOLD 1. $EBOLD \(\displaystyle \lim_{x \to 1}[f(x)+g(x)] = \) \{ans_rule(20)\} \{ AnswerFormatHelp("limits") \}
+\(\displaystyle \lim_{x \to 1}[f(x)+g(x)] = \) \{ans_rule(20)\}
 $PAR
-$BBOLD 2. $EBOLD \(\displaystyle \lim_{x \to 2}[f(x)+g(x)] = \) \{ans_rule(20)\}
+ \(\displaystyle \lim_{x \to 2}[f(x)+g(x)] = \) \{ans_rule(20)\}
 $PAR
-$BBOLD 3. $EBOLD  \(\displaystyle \lim_{x \to 0}f(x)g(x) = \) \{ans_rule(20)\}
+  \(\displaystyle \lim_{x \to 0}f(x)g(x) = \) \{ans_rule(20)\}
 $PAR
-$BBOLD 4. $EBOLD  \(\displaystyle \lim_{x \to 0}\frac{f(x)}{g(x)} = \) \{ans_rule(20)\}
+ \(\displaystyle \lim_{x \to 0}\frac{f(x)}{g(x)} = \) \{ans_rule(20)\}
 $PAR
-$BBOLD 5. $EBOLD  \(\displaystyle \lim_{x \to -1}\sqrt{3+f(x)} = \) \{ans_rule(20)\}
+  \(\displaystyle \lim_{x \to -1}\sqrt{3+f(x)} = \) \{ans_rule(20)\}
 $HR
 $BBOLD Note: $EBOLD $BITALIC You can click on the graphs to enlarge the images.$EITALIC
 $HR

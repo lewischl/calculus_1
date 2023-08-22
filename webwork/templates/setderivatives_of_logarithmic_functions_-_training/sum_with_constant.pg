@@ -54,16 +54,22 @@ $a = random(2,9,1);
 $b = random(2,9,1);
 if ($a == $b) { $b=$b+1;} 
 
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Sometimes it looks like we need to use rules.  👀 Watch out for constant expressions hiding as functions.
+[@ closeDiv() @]*
+
+END_PGML
+
 BEGIN_TEXT
 
-If \( f(x) = e^{$a} + \ln ($b) \), $BR
-then \( f'(x) = \) \{ ans_rule(10) \} 
+\( f(x) = e^{$a} + \ln ($b) \), $BR
+\( f'(x) = \) \{ ans_rule(10) \} 
 
 END_TEXT
 
-BEGIN_HINT 
-The expression \(e^n\) is a constant when \(n\) is constant.  What about that log there?
-END_HINT
+
 ANS(Formula(0)->cmp);
 
 ENDDOCUMENT();       # This should be the last executable line in the problem.

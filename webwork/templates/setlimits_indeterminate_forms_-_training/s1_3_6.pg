@@ -1,5 +1,3 @@
-
-
 ########################################
 # this file automatically moved
 #	from local/Library/ASU-topics/setLimitConcepts/s1_3_6.pg 
@@ -30,6 +28,7 @@ loadMacros(
   "MathObjects.pl",
   "PGcourse.pl",
     "uwecAhrendt.pl",
+    "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -45,13 +44,22 @@ $c1 = random(3,8,1);
 $d1 = random(3,8,1);
 $e1 = random(-3,-1,1);
 
-TEXT(EV3(<<'EOT'));
-Evaluate the limit
-\(\displaystyle\lim_{ x \to $e1 } \frac { $b1 x^2 -$c1 x +$d1 } {x - $a1 } \).
-If the limit does not exist enter DNE.
-$PAR Limit =  \{ans_rule(25) \}$BR
-${BITALIC}(Give an exact answer.)$EITALIC
-EOT
+
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+An opportunity to show what you've learned so far.
+[@ closeDiv() @]*
+
+END_PGML
+
+BEGIN_TEXT
+Evaluate the limit.  If the limit does not exist enter DNE.
+
+$PAR
+
+\(\displaystyle\lim_{ x \to $e1 } \frac { $b1 x^2 -$c1 x +$d1 } {x - $a1 }  = \)\{ans_rule(25) \}
+
+END_TEXT
 
 $numer = $b1*$e1*$e1 -$c1*$e1 +$d1;
 $denom = $e1 - $a1;

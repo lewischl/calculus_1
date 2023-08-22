@@ -87,7 +87,7 @@ Context()->flags->set(reduceConstantFunctions=>0);
 Context()->texStrings;
 
 BEGIN_TEXT
-The Transformers are still feeding that cube energy.  Now we know and are curious about some different properties of the cube.  
+The Transformers are feeding a cube energy.  
 $BR$BR
 The volume is growing at a rate of \($dv_dt\) cm\(^3\)/min, and the cube is of volume $v cm\(^3\).  
 $BR$BR

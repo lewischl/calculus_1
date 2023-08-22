@@ -76,16 +76,69 @@ $h = 1.9;
 ###################################
 # Main text
 
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+A related rates problem with a lot of constants.  Training on recognizing which aspects are changing, and which are static.
+[@ closeDiv() @]*
+
+END_PGML
 BEGIN_TEXT
-Consider a large rectangular fish tank with base dimensions \($a \times $b\) feet, which is \($h\) feet tall.
+$PAR
+
+
+Prof. Amethyst does also have a video that goes closely with this problem: $PAR
+
+\{ youtube("8lfy0Wa_kYs")\}
+
+$PAR
+END_TEXT
+BEGIN_PGML
+
+---
+
+A very useful truism:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+If a quantity is not changing (it's constant), then its derivative is [`0`].
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+There's no "here's how to solve all related rates problems".  But this is a good routine:
+
+1. Draw a picture and label everything.  Identify changing quantities via action arrows.  Name things.
+2. Write an equality relationship to relate the variables and constants.
+3. Differentiate the equality with respect to time [`t`].
+4. Substitute in known quantities.  The drawing helps.
+5. Solve for the desired quantity, using algebra.
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+BEGIN_TEXT
+Consider a large rectangular fish tank with base dimensions \($a \times $b\) feet, which is \($h\) feet tall and only partially full of water.
 $BR$BR
 How fast is the water level rising if the water is filling the tank at a rate of \($v_dot\) cubic feet per minute?  (Be exact or use lots of decimal places).
 $BR$BR
-The water level is increasing at \{ans_rule(20) \} ft/min.
+The water level is increasing at \{ans_rule(20) \} \( \text{ft/min}\).
 
-$BR$BR
-\{ theresahint \}
+
 END_TEXT
+
+BEGIN_PGML
+
+---
+
+[@ openDiv({ "class" => "inProblemHint" }) @]*
+Neither the height of the tank nor the depth of the water is relevant, because the cross-sectional area is constant throughout the tank.  Compare to a vase of water.  It fills slowly at the bottom, but in the next the level changes really quickly!
+[@ closeDiv() @]*
+
+
+END_PGML
+
+
 ###################################
 # Answers
 
@@ -96,18 +149,7 @@ $ans= $v_dot/($a*$b);
 ANS(Real($ans)->cmp);
 
 
-BEGIN_HINT
-Write a formula for the volume of the water in terms of the three dimensions.  Two of those dimensions are constant.  
 
-$BR$BR
-
-Take the time derivative.  Plug in known values, and solve for the unknown rate.
-
-$BR$BR
-
-\{ amethystHint("Prof. Amethyst does also have a video that goes closely with this problem: $PAR")\}
-\{ youtubeAmethyst("8lfy0Wa_kYs")\}
-END_HINT
 ###################################
 
 

@@ -49,6 +49,7 @@ loadMacros(
    "MathObjects.pl",
    #"source.pl",        # allows code to be displayed on certain sites.
    "PGcourse.pl",      # Customization file for the course
+   "customCSS.pl",
 );
 
 # Print problem number and point value (weight) for the problem
@@ -73,48 +74,55 @@ $val = Real("1");
 #
 
 Context()->texStrings;
-BEGIN_TEXT
+BEGIN_PGML
+
 In this section's webwork content, you'll train to use algebraic techniques to find exact values for indeterminate form limits.  
 
-$PAR
+The two main techniques in this assignment are: 
+1. Factor-and-cancel 
+2. Multiply by the conjugate 
 
-The two main techniques in this assignment are: $BR
-1. Factor-and-cancel $BR
-2. Multiply by the conjugate $BR
 
-$PAR
 
 We don't always tell you which method to use, and not every problem has a hint.  Part of being competent at this skill is deciding which technique to use for each problem.
 
-$PAR
+---
 
-A general technique might be described like this: $BR
-1. Plug in the point of interest.  If you get a real number, you're done.  If you get an indeterminate form, then you have more work to do. $BR
-2. Try a method.  Fraction of algebraic things, try factor-and-cancel.  See a square root symbol?  Use multiply by the conjugate.   $BR
-3. Once you've made a substitution or transformation, cancel something. $BR
+A general technique might be described like this: 
+
+1. Plug in the point of interest.  If you get a real number, you're done.  If you get an indeterminate form, then you have more work to do. 
+2. Try a method.  Fraction of algebraic things, try factor-and-cancel.  See a square root symbol?  Use multiply by the conjugate.   
+3. Once you've made a substitution or transformation, cancel something. 
 4. Now plug in the point of interest again.  If you get an indeterminate form again, you still have more work to do.  If you get a real number, you are done!
 
-\{ amethystHint("$PAR") \}
-\{ youtubeAmethyst("_E7YVlLlD90") \}
+This summary video from Prof. Amethyst gives an overview of Indeterminate Forms.
 
-$PAR
-$HR
-$PAR
+[@ youtube("_E7YVlLlD90") @]*
 
-Remember, your instructor is dedicated to your success!!!  There are lots of ways to get help in Calculus 1, including: $BR
-• Go to your teacher's "student help hours" or "office hours" $BR
-• Check out the Math Lab at UWEC.  Free tutoring!!! $BR
-• Work with friends from your class.  Math is best done as a group activity! $BR
 
-$PAR
-$HR
-$PAR
+---
 
-To indicate that you've read this, enter the value \(1\) to the text box:
+[@ openDiv({ "class" => "importantFormula" }) @]*
 
-$BR
-Confirm: \{ans_rule(10) \}
-END_TEXT
+Remember, your instructor is dedicated to your success!!!  There are lots of ways to get help in Calculus 1, including: 
+
+* Go to your teacher's "student help hours" or "office hours" 
+* Check out the Math Lab at UWEC.  Free tutoring!!! 
+* Work with friends from your class.  Math is best done as a group activity! 
+
+[@ closeDiv() @]*
+
+
+---
+
+
+To indicate that you've read this, enter the value [`1`] in the answer box:
+
+
+Confirm: [@ ans_rule(10) @]*
+
+END_PGML
+
 Context()->normalStrings;
 
 ##############################################################

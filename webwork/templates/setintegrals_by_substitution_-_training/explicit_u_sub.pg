@@ -139,8 +139,11 @@ Watch out, the bounds of integration change when we make a substitution!  $PAR
 Many videos on \{ htmlLink( "https://www.youtube.com/playlist?list=PLuXUO0hmPkqRItfWYy1uC_siuQ-IJGCiN", "this playlist on u-substitution" ) \} may be helpful.  
 
 
-\{amethystHint("$PAR$HR$PAR Check out this video from Prof. Amethyst, on paying attention to how the bounds of integration change in a definite integration problem that requires substitution: $PAR.")\}
+\{amethystHint("$PAR$HR$PAR Check out these two videos, one from Prof. Amethyst and one from Prof. Shull, on paying attention to how the bounds of integration change in a definite integration problem that requires substitution: $PAR.")\}
+
 \{ youtubeAmethyst("VO3gGQ-cazM") \}
+
+\{kalturaShull("1_mivq4azh")\}
 END_HINT
 
 

@@ -3,7 +3,7 @@
 
 sub _youtube_init {}; #don't reload this file
 
-# these integers are arbitrary but distinct numbers.  there's probably a bit operation that's much more clever, but nuts to that.  integers in an array with tests for membership using ~~
+# these integers are arbitrary but distinct numbers.  there's probably a bit operation that's much more clever, but nuts to that.  integers in an array with tests for membership
 $instructor_someoneelse = "someone else";
 $instructor_amethyst = "silviana amethyst";
 $instructor_shull = "Warren Shull";
@@ -11,16 +11,15 @@ $instructor_anyone = "any online video source";
 
 $instructor_unset = "unset instructor for video and text filtering";
 
-# remove or 
 @wantVideosFrom = ($instructor_amethyst, $instructor_anyone, $instructor_shull);  # 
 
 
 
-
-
-
-
-
+# expects a single string as input.
+sub show_instructors_content{
+  my $instructor = $_[0];
+  return find_string_in_array($instructor, \@wantVideosFrom);  # that's an array reference right there.
+}
 
 
 ### 
@@ -33,21 +32,21 @@ sub kalturaAmethyst {
   my $video_id = shift // 1;
   my $start_time = shift // 0; #start at beginning by default (time is in seconds as an integer);
 
-   kalturaFilterBySource($video_id, $start_time, $instructor_amethyst);
+   return kalturaFilterBySource($video_id, $start_time, $instructor_amethyst);
 }
 
 sub kalturaAnyone {
   my $video_id = shift // 1;
   my $start_time = shift // 0; #start at beginning by default (time is in seconds as an integer);
 
-   kalturaFilterBySource($video_id, $start_time, $instructor_anyone);
+   return kalturaFilterBySource($video_id, $start_time, $instructor_anyone);
 }
 
 sub kalturaShull {
   my $video_id = shift // 1;
   my $start_time = shift // 0; #start at beginning by default (time is in seconds as an integer);
 
-   kalturaFilterBySource($video_id, $start_time, $instructor_shull);
+   return kalturaFilterBySource($video_id, $start_time, $instructor_shull);
 }
 
 
@@ -74,18 +73,16 @@ my $instructor_id = shift // $instructor_unset; #start at beginning by default (
 
 
 # now we do a filtering operation using the array of allowed instructors
-if ($instructor_id ~~ @wantVideosFrom){ # the ~~ means "is contained in"
-    kaltura($video_id, $instructor_id);
+
+
+if (show_instructors_content($instructor_id)){ 
+    return kaltura($video_id, $instructor_id);
 }
-elsif ($instructor_id == $instructor_unset){
+elsif ($instructor_id eq $instructor_unset){
     HTML("UNSET INSTRUCTOR ID WHEN EMBEDDING A KALTURA VIDEO.  it's expected to the the third argument to a call to `kalturaFilterBySource`");
 }
 
 }
-
-
-
-
 
 
 
@@ -103,7 +100,7 @@ sub youtubeAmethyst {
     my $video_id = shift // 1;
     my $instructor_id = $instructor_amethyst;
 
-    youtubeFilterBySource($video_id, $instructor_id);
+    return youtubeFilterBySource($video_id, $instructor_id);
 }
 
 
@@ -112,10 +109,11 @@ sub youtubeFilterBySource {
     my $video_id = shift // 1;
     my $instructor_id = shift // $instructor_unset;
 
-if ($instructor_id ~~ @wantVideosFrom){ # the ~~ means "is contained in".  
-    youtube($video_id);
+if (show_instructors_content($instructor_id)){ 
+    return youtube($video_id);
 }
-
+else{
+}
 }
 
 
@@ -129,9 +127,9 @@ sub youtube {
   my $inline_link = "https://www.youtube.com/watch?v=" . $video_id;
 
   # conditional on mode of output (which is NOT controlled here, but is part of "ambient webwork magic")
-  HTML($thehtml, '\fbox{Podcast video.}');  HTML($embed_link, '\\href{https://www.youtube.com/watch?v=ZD037VSAG2I}{link to video}');  # conditionally generate text for electronic or hardcopy display (which is NOT controlled here, but is part of "ambient webwork magic").  note: `HTML` is a terrible name for this command.  
+    HTML($embed_link, "\\href{$inline_link}{link to video}   \\qrcode[height=1cm]{$inline_link}");  # conditionally generate text for electronic or hardcopy display (which is NOT controlled here, but is part of "ambient webwork magic").  note: `HTML` is a terrible name for this command.  
 } # re: sub youtube
-
+# reminder: double \\ is to get a single \, becuase \ is escape here.
 
 
 
@@ -148,32 +146,32 @@ sub youtube {
 
 sub amethystHint {
 my $text = shift;
-textAmethyst($text);
+return textAmethyst($text);
 }
 
 
 sub textAmethyst {
 my $hintText = shift;
 
-textFilterByInstructor($hintText, $instructor_amethyst);
+return textFilterByInstructor($hintText, $instructor_amethyst);
 };
 
 
 sub textShull {
 my $hintText = shift;
 
-textFilterByInstructor($hintText, $instructor_shull);
+return textFilterByInstructor($hintText, $instructor_shull);
 };
 
 sub textFilterByInstructor {
 my $hintText = shift;
 my $instructor_id = shift // instructor_unset;
 
-if ($instructor_id ~~ @wantVideosFrom){
-    $hintText;
+if (show_instructors_content($instructor_id)){ 
+    return $hintText;
 }
-elsif ($instructor_id == $instructor_unset){
-    "UNSET INSTRUCTOR IN textFilterByInstructor.  IT'S THE SECOND ARGUMENT, PLEASE SET IT.  SEE `macros/uwecyoutube.pl` FOR MORE" . $hintText;
+elsif ($instructor_id eq $instructor_unset){
+    return "UNSET INSTRUCTOR IN textFilterByInstructor.  IT'S THE SECOND ARGUMENT, PLEASE SET IT.  SEE `macros/uwecyoutube.pl` FOR MORE" . $hintText;
 }
 else{
     ; # this is empty -- this is the code that happens when a course is set up to NOT embed videos from silviana.

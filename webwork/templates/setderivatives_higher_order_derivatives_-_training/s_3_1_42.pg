@@ -46,29 +46,98 @@ Context("Numeric");
 Context()->variables->are(r=>'Real');
 Context()->variables->set(r=>{limits=>[0.01,6]});
 
+
+#####################################################################
+Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Rational powers often give trouble to newcomers to differentation, especially when
+* the power isn't explicitly expressed, but uses the radical symbol
+* doing multiple differentation
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+To differentate an expression with a root symbol:
+
+1. Rewrite the root using an explicit rational power.  [``\sqrt[n]{x} = x^{1/n}``]
+2. Use the power rule
+
+If the expression under the root is more complicated than just the variable, you probably need to use the "chain rule", which this problem assumes you have not yet covered, so we're not doing that.
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+BEGIN_TEXT
+Compute each of the derivatives.
+
+$PAR
+
+END_TEXT
+
 $a = random(3,5,1);
 $b = Compute("$a-1");
 
 $a2 = $a**2;
 $bma = -$b-$a;
 
+$ans1 = Compute("(1/$a)*r^(-$b/$a)");
+$ans2 = Compute("-($b/$a2)*r^(($bma)/$a)");
+
+BEGIN_TEXT
+
+$PAR $BR
+
+\(F(r) = \sqrt[$a]{r}.\)   $PAR
+
+\(F'(r) = \) \{ans_rule(30)\}$PAR
+\(F''(r) =\) \{ans_rule(30)\}
+END_TEXT
+
+ANS($ans1->cmp());
+ANS($ans2->cmp());
+
+
+
+
+
+
+
+$a = random(7,9,1);
+$b = Compute("$a-1");
+$c = non_zero_random(-15,15,1);
+
+$a2 = $a**2;
+$bma = -$b-$a;
+
+
 $ans1 = Compute("(1/2)*(1/sqrt(r))+(1/$a)*r^(-$b/$a)");
 $ans2 = Compute("-(1/4)*r^(-3/2)-($b/$a2)*r^(($bma)/$a)");
 
-#####################################################################
-Context()->texStrings;
 BEGIN_TEXT
-Let \(G(r) = \sqrt{r} +\sqrt[$a]{r}.\)  Compute each of the following derivatives:
 
-$PAR
-\(G'(r) = \) \{ans_rule(30)\}$BR
+$PAR $BR
+
+\(G(r) = \sqrt{r} +\sqrt[$a]{r}.\)   $PAR
+
+\(G'(r) = \) \{ans_rule(30)\}$PAR
 \(G''(r) =\) \{ans_rule(30)\}
 END_TEXT
+
+
+ANS($ans1->cmp());
+ANS($ans2->cmp());
+
 Context()->normalStrings;
 
 #####################################################################
 
-ANS($ans1->cmp());
-ANS($ans2->cmp());
+
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

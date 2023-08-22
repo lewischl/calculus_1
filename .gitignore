@@ -3,3 +3,5 @@
 *.log
 tmp.html
 *.tmp
+*.pg.bak*
+*.xml.bak*

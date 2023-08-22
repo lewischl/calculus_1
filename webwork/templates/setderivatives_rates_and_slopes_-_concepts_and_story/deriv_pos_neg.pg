@@ -49,7 +49,8 @@ loadMacros(
    "PGuwecTikZutils.pl", #Custom TikZ code
    "PGanswermacros.pl",
    "PGauxiliaryFunctions.pl",
-   "extraAnswerEvaluators.pl" # needed for the set comparisons
+   "extraAnswerEvaluators.pl", # needed for the set comparisons
+   "customCSS.pl",
 );
 
 COMMENT("this problem is hardcoded, needs randomization");
@@ -102,15 +103,31 @@ $x_der_zero = 2;
 #
 #
 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+This problem teaches the profound association between the sign of the derivative, and whether a function is increasing or decreasing.
+
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+* a horizontal line has slope 0, and lines with slope 0 are horizontal
+* [`f'`] is positive where the graph is increasing
+* [`f'`] is negative where the graph is decreasing
+
+[@ closeDiv() @]*
+
+END_PGML
 BEGIN_PGML
 Here's a graph of a function [`f`].  Assume all the interesting behaviour is depicted.
-
->>[@ image(insertGraph($graph1), width => 500, height => 500) @]*<<
-
-
+>>[@ image(insertGraph($graph1), width => 500, height => 300) @]*<<
 ---
 
-For what interval(s) is [`f'(x)`] positive?  If there are no such intervals, use "none".  The union symbol is "U".
+For what interval(s) is [`f'(x)`] positive?  If there are no such intervals, use "none". 
 
 On the interval(s) [_____]{interval_cmp($interval_increasing, strings=>["none"])}, [`f'`] is positive. 
 

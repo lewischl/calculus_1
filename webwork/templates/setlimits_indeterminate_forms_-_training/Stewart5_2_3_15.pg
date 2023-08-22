@@ -1,5 +1,4 @@
 
-
 ########################################
 # this file automatically moved
 #	from local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_15.pg 
@@ -29,6 +28,7 @@ loadMacros(
   "PGunion.pl",            # Union College utilities
   "MathObjects.pl",
   "PGcourse.pl",           # Customization file for the course
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -46,12 +46,19 @@ do {
 $num = nicestring([1, 0, -$a*$a], ['t^2', 't', '']);
 $den = nicestring([$b, -$a*$b+$c, -$a*$c], ['t^2', 't', '']);
 
-BEGIN_TEXT
-Evaluate the limit
-\[ \lim_{t\to $a} \frac{$num}{$den}.\]
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+An opportunity to show what you've learned so far.
+[@ closeDiv() @]*
 
-Limit = \{ans_rule(25)\}$BR
-${BITALIC}(Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE${EBOLD}.)${EITALIC}
+END_PGML
+
+BEGIN_TEXT
+Evaluate the limit.   Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE${EBOLD}.
+
+$PAR
+
+\( \displaystyle \lim_{t\to $a} \frac{$num}{$den} = \) \{ans_rule(25)\}
 
 END_TEXT
 

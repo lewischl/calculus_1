@@ -43,11 +43,15 @@ Context()->texStrings;
 BEGIN_TEXT
 \{ textbook_ref_exact("Rogawski ET 2e", "3.4","27") \}
 $PAR
-A ball is tossed up vertically from ground level and returns to earth $t s later.  What was the initial velocity of the ball and how high did it go?
+A ball is tossed up vertically from ground level and returns to earth \($t\) \( \text{s} \)  later.  
+
 $PAR
-\( v_0 \) = \{ans_rule()\} m/s
+
+What was the initial velocity of the ball and how high did it go?  Use SI units.
+$PAR
+\( v_0 \) = \{ans_rule()\} \(\text{m/s}\)
 $BR
-\( h \) = \{ans_rule()\} m
+\( h \) = \{ans_rule()\} \(\text{m}\)
 END_TEXT
 
 ANS($ansa->cmp);

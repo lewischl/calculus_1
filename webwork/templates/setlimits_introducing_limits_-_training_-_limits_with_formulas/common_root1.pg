@@ -47,7 +47,8 @@ DOCUMENT();        # This should be the first executable line in the problem.
 
 loadMacros(
   "PGstandard.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -59,10 +60,15 @@ $t1 = $a1+$b1;
 $n1 = $a1*$b1;
 
 BEGIN_TEXT
-Evaluate the limit using your calculator, either using graphical or numerical techniques.  $BR
-(We'll learn an algebriac technique called "factor and cancel" later in this chapter).
-\[ \lim_{ x \rightarrow -$a1 } \frac {x^2 + $t1 x + $n1 }{ x + $a1 } \]
-Answer: \{ans_rule(25) \}
+\{ openDiv({ "class" => "problemPurpose" }) \}
+This problem continues to emphasize techniques for limits when the function isn't defined at the point of interest. $BR (We learn an algebriac technique called "factor and cancel" in another section).
+\{ closeDiv() \}
+
+$PAR
+Evaluate the limit using your calculator, either using graphical or numerical techniques.  $PAR
+
+\( \displaystyle \lim_{ x \rightarrow -$a1 } \frac {x^2 + $t1 x + $n1 }{ x + $a1 } = \) \{ans_rule(25) \}
+
 END_TEXT
 
 $ans = "-$a1 + $b1";

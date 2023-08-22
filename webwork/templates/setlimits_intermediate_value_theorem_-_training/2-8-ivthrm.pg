@@ -32,7 +32,8 @@ loadMacros(
   "PGchoicemacros.pl",
   "parserPopUp.pl",
   "MathObjects.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 $showPartialCorrectAnswers = 1;
@@ -43,20 +44,77 @@ $ya = random(5,20,1);
 $yb = $ya - random(2,15,1);
 $L = random($yb+1,$ya-1,1);
 
-
+$no = "No, the function value is outside the range f($a) to f($b)";
+$yes = "Yes, function continuous and $L is inside range f($a) to f($b)";
 
 $ans1 = PopUp(["?", 
-      "No, there is not enough info to use the Intermediate Value Theorem",
-      "Yes, because of the Intermediate Value Theorem"], 
-"Yes, because of the Intermediate Value Theorem");
+      $no,
+      $yes], 
+$yes);
+
+$ans1 = PopUp(["?", 
+      $no,
+      $yes], 
+$no);
 
 TEXT(beginproblem());
 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem is about whether the IVT gives us any useful information if a candidate output value is outside the range of the function on the interval of interest.
+[@ closeDiv() @]*
+
+END_PGML
+
+
 BEGIN_TEXT
 Let \(f\) be continuous on \( [$a, $b] \), where 
-\( f($a) = $ya \) and \( f($b) = $yb \).  Can we conclude that a value
-\( $a < c < $b \) exists such that \( f(c) = $L \) ?
+\( f($a) = $ya \) and \( f($b) = $yb \).  
+
+$PAR 
+
+Can we infer the existence of a value
+\( $a < c < $b \) such that \( f(c) = $L \) ?
 $PAR \{ $ans1->menu() \}
+
+
+END_TEXT
+
+
+
+$a = random(1,10,1)*random(-1,1,2);
+$b = $a + random(1,10,1);
+$ya = random(5,20,1);
+$yb = $ya - random(2,15,1);
+$L = $ya + random(2,4,1);
+
+$no = "No, the function value is outside the range g($a) to g($b)";
+$yes = "Yes, function continuous and $L is inside range g($a) to g($b)";
+
+$ans2 = PopUp(["?", 
+      $no,
+      $yes], 
+$no);
+
+
+BEGIN_TEXT
+
+$PAR $HR $PAR
+
+Let's try another one. $PAR
+
+Let \(g\) be continuous on \( [$a, $b] \), where 
+\( g($a) = $ya \) and \( g($b) = $yb \).  
+
+$PAR 
+
+Can we infer the existence of a value
+\( $a < c < $b \) such that \( g(c) = $L \) ?
+$PAR \{ $ans2->menu() \}
+
+
 END_TEXT
 
 
@@ -72,5 +130,6 @@ END_TEXT
 
 
 ANS($ans1->cmp());
+ANS($ans2->cmp());
 
 ENDDOCUMENT();    

@@ -53,6 +53,7 @@ loadMacros(
     "contextLimitedPolynomial.pl",
 "contextPolynomialFactors.pl",
 "contextLimitedPowers.pl",
+"customCSS.pl",
 );
 
 # Print problem number and point value (weight) for the problem
@@ -68,7 +69,6 @@ $showPartialCorrectAnswers = 1;
 #
 Context("Numeric");
 
-COMMENT("this problem is hardcoded, needs randomization");
 
 $sidetrack = 1;
 
@@ -99,16 +99,43 @@ Context()->normalStrings;
 
 # 
 BEGIN_PGML
-Suppose [`\displaystyle f'(x) = [$f] `].
 
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+This problem explores the connection between continuity and differentiability.  Namely, 
+* differentiability implies continuity
+
+and conversely, 
+
+* discontinuity implies non-differentiability.
+
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+Not every function is differentiable everywhere. Jumps, holes, and vertical asymptotes all make a function not-differentiable at those points.  So, continuity is required for differentiability.
+
+Relatedly, a differentiable function must be continuous.  Otherwise the tangent line wouldn't be defined!
+
+[@ closeDiv() @]*
+
+
+In this problem, I'm giving you [`f'`], and we're answering questions about the unknown function [`f`].
 ---
 
-On what intervals must [`f`] be continuous?  
-
-[_____]{interval_cmp("(-inf,$a)U($a,$b)U($b,inf)", strings=>["none"])}
+Suppose [`\displaystyle f'(x) = [$f] `].
 
 
-Use interval notation, with "U" being union.  If there are none, enter "none".
+* Where must [`f`] be discontinuous?   Use list notation.    
+    [`f`] is discontinous at [___]{List($a, $b)}
+
+
+* On what intervals must [`f`] be continuous?   Use interval notation.  If there are none, enter "none".    
+    On the intervals [_____]{interval_cmp("(-inf,$a)U($a,$b)U($b,inf)", strings=>["none"])}.
+
+
+
 
 
 END_PGML

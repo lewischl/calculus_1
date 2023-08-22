@@ -56,10 +56,11 @@ DOCUMENT();        # This should be the first executable line in the problem.
 loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
-COMMENT("todo: fix instructions for what to enter for infinity");
+
 #####################################################################
 
 TEXT(beginproblem());
@@ -76,34 +77,68 @@ $ans = Compute("-$a/$b");
 ###############################################################
 Context()->texStrings;
 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on limits at infinity for rational functions of polynomials / power functions
+[@ closeDiv() @]*
+
+
+Here's a video from Prof. Amethyst on leading behaviour for limits at infinity:
+
+[@ youtube("dQeeS4ixgKU") @]*
+
+
+You might also find this video helpful:
+
+[@ youtube("YwbZbjjYKhY") @]*
+
+
+This is a limit at infinity problem, and "leading behaviour" is a great way to solve these problems.  Basically, we do this:
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+Leading behaviour:
+
+1. find the term in the numerator and denominator which go to [`\infty`] the fastest
+2. ignore all the other terms (cross them out) and treat them as [`0`]
+3. simplify and find the value of the limit
+
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+
 BEGIN_TEXT
-Find the following limit.  If the limit goes to \(\infty\), write "inf".  If a limit goes to \(-\infty\), write "-inf". 
-\[
-\lim_{y \to \infty} \frac{2-$a y^2}{$b y^2+4}
-\]
+Find the following limits. 
 
-Limit: \{ans_rule(20)\}
+$PAR
 
-$BR$BR
-\{ theresahint \}
+\( \displaystyle \lim_{y \to \infty} \frac{2-$a y^2}{$b y^2+4} = \) \{ans_rule(20)\}
+
+
+$PAR
+
+\( \displaystyle \lim_{y \to \infty} \frac{2-$a y^4}{$b y^4+4} = \) \{ans_rule(20)\}
+
+
+$PAR
+
+\( \displaystyle \lim_{y \to \infty} \frac{2-$a y^6 - 7y^3}{$b y^6+4 + 1000 y^4} = \) \{ans_rule(20)\}
+
 END_TEXT
 
-BEGIN_HINT
-This is a limit at infinity problem, and "leading behaviour" is a great way to solve these problems.  
 
-\{ amethystHint("$PAR$HR$PAR Here's a video from Prof. Amethyst on leading behaviour: $BR")\}
-
-\{ youtubeAmethyst("dQeeS4ixgKU") \}
-
-\{ amethystHint("$PAR$HR$PAR You might also find this video helpful: $BR")\}
-
-\{ youtubeAmethyst("YwbZbjjYKhY") \}
-
-END_HINT
 Context()->normalStrings;
 
 #####################################################################
 
+ANS( $ans->cmp );
+ANS( $ans->cmp );
 ANS( $ans->cmp );
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

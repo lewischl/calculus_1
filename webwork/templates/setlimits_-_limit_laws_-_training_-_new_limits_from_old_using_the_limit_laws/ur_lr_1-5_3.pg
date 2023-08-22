@@ -51,7 +51,10 @@ loadMacros(
   "AnswerFormatHelp.pl",
   "MathObjects.pl",
   "PGgraphmacros.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
+ 'niceTables.pl',
+ "PGML.pl",
 );
 Context('Numeric');
 
@@ -197,22 +200,49 @@ TEXT(beginproblem());
 $showHint=-1;
 
 # draw the graphs
+
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem has you compute a bunch of different things from the graphs of two functions.  The parts are all either function values or limits.  This reinforces the difference between limits and function values: the limit is where the function is going -- a dynamic process -- whereas the function value is just concerned with the value at that one point.  
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+This problem has several parts about function composition, which is where outputs of one function become inputs to the next.  
+
+
+In particular for notation,
+* [`f(g(x))`] is the composition of [`g`] into [`f`].  
+* Outputs of [`g`] become inputs to [`f`].  
+* It's as if the vertical axis for the plot of [`g`] is the horizontal axis for [`f`].   Direction matters!
+
+If we want to find [`` \lim_{x \to 2^-} f(g(x))``]:
+1. find [`` \lim_{x \to 2^-} g(x)``], and call it [``L_g``]. Pay attention to the direction with which [`g \to L_g`]:
+    * Does it go from above?  Then we have [``g \to L_g^+``].
+    * From below?  Then we have [``g \to L_g^-``].
+2. find [`` \lim_{x \to L_g^\pm} f(x) ``], paying attention to the direction.  This limit is your answer.
+[@ closeDiv() @]*
+
+
+I put a Kahn Academy video down at the bottom, too 😊.
+END_PGML
+
+
+
+
+
+
 BEGIN_TEXT
 
-This problem has you compute a bunch of different things from the graphs of two functions.  The parts are all either function values or limits.  This reinforces the difference between limits and function values: the limit is where the function is going -- a dynamic process -- whereas the function value is just concerned with the value at that one point.  
+$PAR$HR$PAR
 
-$PAR
-
-Note: This problem has several parts about function composition, which is where outputs of one function become inputs to the next.  In particular, \(f(g(x))\) is the composition of \(g\) into \(f\).  Outputs of \(g\) become inputs to \(f\).  It's as if the vertical axis for the plot of \(g\) is the horizontal axis for \(f\).  I have a video in a hint at the bottom, if you'd like video help.  
-
-$PAR
-$HR
-$PAR
-
+$BCENTER
 \{ begintable(2) \}
-\{ row( image( insertGraph($graphf) ,width=>400,height=>400, tex_size =>800 ), image( insertGraph($graphg),width=>400,height=>400 , tex_size =>800 )   )\}
+\{ row( image( insertGraph($graphf) ,width=>350,height=>350, tex_size =>350 ), image( insertGraph($graphg),width=>350,height=>350 , tex_size =>350 )   )\}
 \{ row( '\(f(x)\)', '\(g(x)\)') \}
 \{ endtable() \}
+
+$ECENTER
 END_TEXT
 
 sub rnd {
@@ -229,122 +259,146 @@ sub rnd {
 @questions = ();
 @answers = ();
 
-qa( ~~@questions, ~~@answers,
+$prompts[0] = "\displaystyle \lim_{x\to $xf^-} [f(x) + g(x) ]  ";
+$answers[0] = num_cmp(rnd( f_rule($xf-.00001) +g_rule($xf-.00001)  ), strings=>['DNE'] );  # we are expecting integer answers
 
-'\( \displaystyle \lim_{x\to $xf^-} [f(x) + g(x) ] \) ',
-num_cmp(rnd( f_rule($xf-.00001) +g_rule($xf-.00001)  ), strings=>['DNE'] ),  # we are expecting integer answers
+$prompts[1] = "\displaystyle \lim_{x\to $xf^+} [f(x) + g(x) ]  ";
+$answers[1] = num_cmp(rnd( f_rule($xf+.00001) +g_rule($xf+.00001)  ), strings=>['DNE'] );  # we are expecting integer answers
 
-'\( \displaystyle \lim_{x\to $xf^+} [f(x) + g(x) ] \) ',
-num_cmp(rnd( f_rule($xf+.00001) +g_rule($xf+.00001)  ), strings=>['DNE'] ),  # we are expecting integer answers
+$prompts[2] = "f($xf) + g($xf) ";
+$answers[2] = num_cmp(f_rule($xf) + g_rule($xf), strings=>['DNE'] );
 
-'\( f($xf) + g($xf) \)',
-num_cmp(f_rule($xf) + g_rule($xf), strings=>['DNE'] ),
+$prompts[3] = "\displaystyle \lim_{x\to $xf^-} f(x)g(x)   ";
+$answers[3] = num_cmp(rnd( f_rule($xf-.00001)*g_rule($xf-.00001) ), strings=>['DNE'] );  # we are expecting integer answers
 
-'\( \displaystyle \lim_{x\to $xf^-} [f(x)g(x) ] \) ',
-num_cmp(rnd( f_rule($xf-.00001)*g_rule($xf-.00001) ), strings=>['DNE'] ),  # we are expecting integer answers
+$prompts[4] = "\displaystyle \lim_{x\to $xf^+} f(x)g(x)   ";
+$answers[4] = num_cmp(rnd( f_rule($xf+.00001)*g_rule($xf+.00001)  ), strings=>['DNE'] );  # we are expecting integer answers
 
-'\( \displaystyle \lim_{x\to $xf^+} [f(x)g(x) ] \) ',
-num_cmp(rnd( f_rule($xf+.00001)*g_rule($xf+.00001)  ), strings=>['DNE'] ),  # we are expecting integer answers
+$prompts[5] = "f($xf)g($xf) ";
+$answers[5] = num_cmp(f_rule($xf)*g_rule($xf), strings=>['DNE'] );
 
-'\( f($xf)g($xf) \)',
-num_cmp(f_rule($xf)*g_rule($xf), strings=>['DNE'] ),
+$prompts[6] = "\displaystyle \lim_{x\to $xf^-} f( g(x) )   ";
+$answers[6] = num_cmp(rnd( f_rule(g_rule($xf-.00001)  ) ), strings=>['DNE'] );  # we are expecting integer answers
 
-'\( \displaystyle \lim_{x\to $xf^-} [f( g(x) ) ] \) ',
-num_cmp(rnd( f_rule(g_rule($xf-.00001)  ) ), strings=>['DNE'] ),  # we are expecting integer answers
+$prompts[7] = "\displaystyle \lim_{x\to $xf^+} f( g(x) )   ";
+$answers[7] = num_cmp(rnd( f_rule(g_rule($xf+.00001) ) ), strings=>['DNE'] );  # we are expecting integer answers
 
-'\( \displaystyle \lim_{x\to $xf^+} [f( g(x) ) ] \) ',
-num_cmp(rnd( f_rule(g_rule($xf+.00001) ) ), strings=>['DNE'] ),  # we are expecting integer answers
-
-'\( f( g($xf) ) \)',
-num_cmp(f_rule( g_rule($xf) ), strings=>['DNE'] ),
+$prompts[8] = "f( g($xf) ) ";
+$answers[8] = num_cmp(f_rule( g_rule($xf) ), strings=>['DNE'] );
 
 #check for zeros in answering the division limits
-'\( \displaystyle \lim_{x\to $xf^-} [f(x)/g(x) ] \) ',
-  ( not rnd(g_rule($xf-.00001) ) and  rnd(f_rule($xf-.00001) ) ) ? num_cmp('DNE', strings=>['DNE'])        # if g is zero, but f is not
-           : num_cmp(rnd( f_rule($xf-.00001)/g_rule($xf-.00001) , -3 ), tol =>.002, strings=>['DNE'] ),  # the chances of g being identically zero are small since the derivatives at defined points are never zero.
+$prompts[9] = "\displaystyle \lim_{x\to $xf^-} f(x)/g(x)   ";
+$answers[9] =   ( not rnd(g_rule($xf-.00001) ) and  rnd(f_rule($xf-.00001) ) ) ? num_cmp('DNE', strings=>['DNE'])        # if g is zero, but f is not
+           : num_cmp(rnd( f_rule($xf-.00001)/g_rule($xf-.00001) , -3 ), tol =>.002, strings=>['DNE'] );  # the chances of g being identically zero are small since the derivatives at defined points are never zero.
 
 # we are expecting integer answers
-'\( \displaystyle \lim_{x\to $xf^+} [f(x)/g(x) ] \) ',
-( not rnd(g_rule($xf+.00001) ) and  rnd(f_rule($xf+.00001) ) ) ? num_cmp('DNE', strings=>['DNE'])
-           : num_cmp(rnd( f_rule($xf+.00001)/g_rule($xf+.00001) , -3 ), tol =>.002, strings=>['DNE'] ) ,
+$prompts[10] = " \displaystyle \lim_{x\to $xf^+} f(x)/g(x)   ";
+$answers[10] = ( not rnd(g_rule($xf+.00001) ) and  rnd(f_rule($xf+.00001) ) ) ? num_cmp('DNE', strings=>['DNE'])
+           : num_cmp(rnd( f_rule($xf+.00001)/g_rule($xf+.00001) , -3 ), tol =>.002, strings=>['DNE'] ) ;
 
 # we are expecting integer answers
-'\( f($xf)/g($xf) \)',
-(rnd(g_rule($xf)) ) ? num_cmp( rnd(f_rule($xf)/g_rule($xf), -3), tol =>.002, strings=>['DNE'] ) : num_cmp('DNE', strings=>['DNE']),
+$prompts[11] = " f($xf)/g($xf) ";
+$answers[11] = (rnd(g_rule($xf)) ) ? num_cmp( rnd(f_rule($xf)/g_rule($xf), -3), tol =>.002, strings=>['DNE'] ) : num_cmp('DNE', strings=>['DNE']);
 
-'\( \displaystyle \lim_{x\to $xg^-} [f(x) + g(x) ] \) ',
-num_cmp(rnd( f_rule($xg-.00001) +g_rule($xg-.00001) ), strings=>['DNE'] ),   # we are expecting integer answers
+$prompts[12] = " \displaystyle \lim_{x\to $xg^-} [f(x) + g(x) ]  ";
+$answers[12] = num_cmp(rnd( f_rule($xg-.00001) +g_rule($xg-.00001) ), strings=>['DNE'] );   # we are expecting integer answers
 
-'\( \displaystyle \lim_{x\to $xg^+} [f(x) + g(x) ] \) ',
-num_cmp(rnd( f_rule($xg+.00001) +g_rule($xg+.00001)  ), strings=>['DNE'] ),  # we are expecting integer answers
+$prompts[13] = " \displaystyle \lim_{x\to $xg^+} [f(x) + g(x) ]  ";
+$answers[13] = num_cmp(rnd( f_rule($xg+.00001) +g_rule($xg+.00001)  ), strings=>['DNE'] );  # we are expecting integer answers
 
-'\( f($xg) + g($xg) \)',
-num_cmp(f_rule($xg) + g_rule($xg), strings=>['DNE'] ),
+$prompts[14] = " f($xg) + g($xg) ";
+$answers[14] = num_cmp(f_rule($xg) + g_rule($xg), strings=>['DNE'] );
 
-'\( \displaystyle \lim_{x\to $xg^-} [f(x)g(x) ] \) ',
-num_cmp(rnd( f_rule($xg-.00001)*g_rule($xg-.00001) ), strings=>['DNE'] ),  # we are expecting integer answers
+$prompts[15] = " \displaystyle \lim_{x\to $xg^-} f(x)g(x)   ";
+$answers[15] = num_cmp(rnd( f_rule($xg-.00001)*g_rule($xg-.00001) ), strings=>['DNE'] );  # we are expecting integer answers
 
-'\( \displaystyle \lim_{x\to $xg^+} [f(x)g(x) ] \) ',
-num_cmp(rnd( f_rule($xg+.00001)*g_rule($xg+.00001) ), strings=>['DNE'] ),  # we are expecting integer answers
+$prompts[16] = " \displaystyle \lim_{x\to $xg^+} f(x)g(x)   ";
+$answers[16] = num_cmp(rnd( f_rule($xg+.00001)*g_rule($xg+.00001) ), strings=>['DNE'] );  # we are expecting integer answers
 
-'\( f($xg)g($xg) \)',
-num_cmp(f_rule($xg)*g_rule($xg), strings=>['DNE'] ),
+$prompts[17] = " f($xg)g($xg) ";
+$answers[17] = num_cmp(f_rule($xg)*g_rule($xg), strings=>['DNE'] );
 
-'\( \displaystyle \lim_{x\to $xg^-} [f( g(x) ) ] \) ',
-num_cmp(rnd( f_rule( g_rule($xg-.00001) )), strings=>['DNE'] ) ,  # we are expecting integer answers
+$prompts[18] = " \displaystyle \lim_{x\to $xg^-} f( g(x) )   ";
+$answers[18] = num_cmp(rnd( f_rule( g_rule($xg-.00001) )), strings=>['DNE'] ) ;  # we are expecting integer answers
 
-'\( \displaystyle \lim_{x\to $xg^+} [f( g(x) ) ] \) ',
-num_cmp(rnd( f_rule( g_rule( $xg + .00001 ) ) ), strings=>['DNE']  ),  # we are expecting integer answers
+$prompts[19] = " \displaystyle \lim_{x\to $xg^+} f( g(x) )   ";
+$answers[19] = num_cmp(rnd( f_rule( g_rule( $xg + .00001 ) ) ), strings=>['DNE']  );  # we are expecting integer answers
 
-'\( f( g($xg) ) \)',
-num_cmp(f_rule( g_rule($xg) ), strings=>['DNE'] ),
+$prompts[20] = " f( g($xg) ) ";
+$answers[20] = num_cmp(f_rule( g_rule($xg) ), strings=>['DNE'] );
 
 #check for zeros in answering the division limits
-'\( \displaystyle \lim_{x\to $xg^-} [f(x)/g(x) ] \) ',
-( not rnd(g_rule($xg-.00001) ) and  rnd(f_rule($xg-.00001) ) ) ? num_cmp('DNE', strings=>['DNE'])        # if g is zero, but f is not
-           : num_cmp(rnd( f_rule($xg-.00001)/g_rule($xg-.00001) , -3 ), tol =>.002, strings=>['DNE'] ),  # the chances of g being identically zero are small since the derivatives at defined points are never zero.
+$prompts[21] = " \displaystyle \lim_{x\to $xg^-} f(x)/g(x)   ";
+$answers[21] = ( not rnd(g_rule($xg-.00001) ) and  rnd(f_rule($xg-.00001) ) ) ? num_cmp('DNE', strings=>['DNE'])        # if g is zero, but f is not
+           : num_cmp(rnd( f_rule($xg-.00001)/g_rule($xg-.00001) , -3 ), tol =>.002, strings=>['DNE'] );  # the chances of g being identically zero are small since the derivatives at defined points are never zero.
 
 # we are expecting integer answers
-'\( \displaystyle \lim_{x\to $xg^+} [f(x)/g(x) ] \) ',
-( not rnd(g_rule($xg+.00001) ) and  rnd(f_rule($xg+.00001) ) ) ? num_cmp('DNE', strings=>['DNE'])
-           : num_cmp(rnd( f_rule($xg+.00001)/g_rule($xg+.00001) , -3 ), tol =>.002, strings=>['DNE'] ) ,
+$prompts[22] = " \displaystyle \lim_{x\to $xg^+} f(x)/g(x)   ";
+$answers[22] = ( not rnd(g_rule($xg+.00001) ) and  rnd(f_rule($xg+.00001) ) ) ? num_cmp('DNE', strings=>['DNE'])
+           : num_cmp(rnd( f_rule($xg+.00001)/g_rule($xg+.00001) , -3 ), tol =>.002, strings=>['DNE'] ) ;
 
 # we are expecting integer answers
-'\( f($xg)/g($xg) \)',
-(rnd(g_rule($xg)) ) ? num_cmp( rnd(f_rule($xg)/g_rule($xg), -3), tol =>.002, strings=>['DNE'] ) : num_cmp('DNE', strings=>['DNE']),
+$prompts[23] = " f($xg)/g($xg) ";
+$answers[23] = (rnd(g_rule($xg)) ) ? num_cmp( rnd(f_rule($xg)/g_rule($xg), -3), tol =>.002, strings=>['DNE'] ) : num_cmp('DNE', strings=>['DNE']);
 
-);
 
-@slice = NchooseK(scalar(@questions) ,24);
+
+
 
 BEGIN_TEXT
 
-$BR
-The graphs of \( f(x) \) and \( g(x) \) are given above.  Use them to evaluate each quantity below.
+$PAR
+Use the graphs of \( f(x) \) and \( g(x) \) to evaluate each quantity.$BR
 Write $BITALIC DNE$EITALIC if the limit or value does not exist (or if it's infinity).
-$BR
-\{ match_questions_list(@questions[@slice]  ) \}
 
 $PAR
 
-$HR
-$PAR
-
-\{ theresahint \}
 END_TEXT
 
 
-ANS(@answers[@slice]     );
 
-BEGIN_HINT
+
+
+
+@rows = ();
+
+for my $i (0..7){
+    my $a = $i*3 + 0;
+    my $b = $i*3 + 1;
+    my $c = $i*3 + 2;
+    push(@rows, [ '\( ' . $prompts[$a] . ' = \) ' . ans_rule(10),
+                  '\( ' . $prompts[$b] . ' = \) ' . ans_rule(10),
+                  '\( ' . $prompts[$c] . ' = \) ' . ans_rule(10) ] );
+}
+
+
+
+BEGIN_PGML
+[@ LayoutTable( [ @rows ], align => 'lll', tablecss=>'border:solid 1px;     border-collapse: separate; border-radius: 5px; padding: 10px; border-spacing: 10px 0px')  @]*
+END_PGML
+
+
+
+
+BEGIN_TEXT
+
+$PAR$HR$PAR
+
 For function composition, \(f(g(x))\), the inside function happens first.  Evaluate the inside function's limit, and note whether that limiting value is approached from above or below.  Then, the outside function should be tested for a limit at this intermediate value (in the direction noted earlier).
 
 $PAR 
 
-Looking for a video on limits with function composition?  Check out this one from Khan Academy: $PAR
+Check out this video on limits and function composition from Khan Academy: $PAR
 
+$BCENTER
 \{ youtube(RgfKNIkpFWc) \}
+$ECENTER
+
+END_TEXT
 
 
-END_HINT
+for my $i (0..23){
+ANS($answers[$i]);
+}
+
 ENDDOCUMENT();        # This should be the last executable line in the problem.

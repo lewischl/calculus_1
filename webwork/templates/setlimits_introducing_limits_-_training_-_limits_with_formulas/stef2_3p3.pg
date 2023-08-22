@@ -55,7 +55,8 @@ loadMacros(
   "PGstandard.pl",
   "PGchoicemacros.pl",
   "MathObjects.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -68,17 +69,27 @@ $b = random(1,5,1);
 $c1 = $m*$a + $b +1;
 $c2 = $a-1;
 
+BEGIN_PGML
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A two-sided limit exists only if 
+* both one-sided limits exist, and 
+* they're both equal
+[@ closeDiv() @]*
+
+Use what you've learned about one- and two-sided limits of piecewise functions to solve the problem.  Numerical and graphical techniques are both great choices.
+
+END_PGML
 BEGIN_TEXT
 $BR
-Let \(f(x) =
+\(f(x) =
             \begin{cases}
               \sqrt{-$c2-x}+$b, &\text{if}\ x< -$a\\
                $b,         &\text{if}\ x=-$a\\
               $m x+$c1, &\text{if}\ x> -$a
               \end{cases}
 \)
-$BR
-$BR
+$PAR $HR $PAR
 Calculate the following limits. Enter ${BBOLD}DNE${EBOLD} if the limit does not exist.
 $BR
 $BR

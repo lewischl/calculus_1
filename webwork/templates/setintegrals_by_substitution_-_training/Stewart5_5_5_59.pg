@@ -62,7 +62,7 @@ $PAR
 END_TEXT
 
 BEGIN_HINT
-Try \(u = \cos x\)?
+Try \(u = \cos x\)? Or if you're past that step, see the videos in the previous problem.
 END_HINT
 
 ANS(Compute("$a")->cmp);

@@ -41,12 +41,21 @@ Parser::Number::NoDecimals();
 
 $n=random(3,7,2);
 
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+A reminder to first check whether you have indeterminate form before going to all the work of using identities or techniques.
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
 BEGIN_TEXT
-Evaluate the limit, if it exists:
+Evaluate the limit, if it exists.  Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE$EBOLD.
 $PAR
 \(\displaystyle\lim_{h \to \frac {\pi}{2}} \frac {1 - \cos($n h)} {h}=\) \{ans_rule(25) \}
-$PAR
-$BITALIC(Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE$EBOLD.)$EITALIC
+
 
 END_TEXT
 

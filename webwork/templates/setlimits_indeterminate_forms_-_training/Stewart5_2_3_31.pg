@@ -1,5 +1,4 @@
 
-
 ########################################
 # this file automatically moved
 #	from local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_31.pg 
@@ -31,6 +30,7 @@ loadMacros(
 "PGauxiliaryFunctions.pl",
 "MathObjects.pl",
 "PGcourse.pl",
+"customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -45,22 +45,43 @@ $a = random(1,8,1);
 $b = random(2,9,1);
 $a2 = $a**2;
 
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+An opportunity to practice multiply by the conjugate.  
+
+I find that some students get a bit confused when the point of interest is [`x = 0`], since the function doesn't have the familiar form with a [`+`] or [`-`] where expected.  Rest assured, it's there.  We're just adding [`0`], so we hid it!
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+Follow the steps:
+
+1. Try plugging in.  Get indeterminate form.
+2. Multiply by conjugate.
+3. Distribute, but only the top/bottom with [`\sqrt{}`].
+4. Cancel
+5. Try to plug in again.
+
+[@ closeDiv() @]*
+
+END_PGML
+
+
+
 BEGIN_TEXT
-Evaluate the limit
-\[\displaystyle \lim_{x \to 0} \frac{x}{\sqrt{$a2+$b x}-$a}\]
-$PAR
-Limit =  \{ans_rule(25) \}$BR
-${BITALIC}(Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE${EBOLD}.)${EITALIC}
-$BR$BR
-\{ theresahint \}
+Evaluate the limit.  Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE${EBOLD}.
+
+$PAR 
+\( \displaystyle \lim_{x \to 0} \frac{x}{\sqrt{$a2+$b x}-$a} = \)  \{ans_rule(25) \}
+
+
 END_TEXT
 
-BEGIN_HINT
-This is a "multiply by the conjugate" problem.  
 
-\{ amethystHint("$PAR$HR$PAR Here's a video from Prof. Amethyst on the topic of 'multiply by the conjugate':$BR$BR") \}
-\{ youtubeAmethyst("FLN8c8X6i7Y") \}
-END_HINT
 
 $twoa = 2*$a;
 $g = gcd($twoa,$b);

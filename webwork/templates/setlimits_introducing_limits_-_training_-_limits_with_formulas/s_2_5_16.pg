@@ -50,7 +50,8 @@ loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
   "AnswerFormatHelp.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl"
 );
 #####################################################################
 
@@ -61,20 +62,38 @@ $showPartialCorrectAnswers = 1;
 #####################################################################
 
 $a = random(4,8,1);
-$b = random(2,3,1);
+$b = random(2,3,1); # notably, these random ranges do not overlap!
 
-$ans = Compute("Infinity");
-
+$ans_left = Compute("Infinity");
+$ans_right = Compute("Infinity");
+$ans_both = Compute("DNE");
 ###############################################################
 Context()->texStrings;
 
-BEGIN_TEXT
-Find the following limit.  
-\[
-\lim_{x \to -$a^{-}} \frac{x+$b}{x+$a}
-\]
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Many of the limits we're interested in are where the function is not defined at the point of interest.  Sometimes you get a real number, and sometimes you get a flavor of infinity.
+[@ closeDiv() @]*
 
-Limit: \{ans_rule(20)\} 
+[@ openDiv({ "class" => "importantFormula" }) @]*
+For a rational function that's not defined at a point, a one-sided limit at that point is an infinity if the numerator has a root at that point less times than the denominator.
+
+This function's numerator does not have a root at [`x = [$a]`], but the denominator does.  So, we get one of [`\pm \infty`].  The sign is determined by the combination of signs of the numerator and denominator.
+
+As usual, a two-sided limit exists only if both one-sided limits exist and match.
+[@ closeDiv() @]*
+
+END_PGML
+BEGIN_TEXT
+
+
+Find the following limits.    
+$PAR
+\( \displaystyle \lim_{x \to -$a^{-}} \frac{x+$b}{x+$a}  = \) \{ans_rule(20)\} 
+$PAR
+\( \displaystyle \lim_{x \to -$a^{+}} \frac{x+$b}{x+$a}  = \) \{ans_rule(20)\} 
+$PAR
+\( \displaystyle \lim_{x \to -$a} \frac{x+$b}{x+$a}  = \) \{ans_rule(20)\} 
 
 END_TEXT
 
@@ -82,6 +101,7 @@ Context()->normalStrings;
 
 #####################################################################
 
-ANS( $ans->cmp );
-
+ANS( $ans_left->cmp );
+ANS( $ans_right->cmp );
+ANS( $ans_both->cmp );
 ENDDOCUMENT();        # This should be the last executable line in the problem.

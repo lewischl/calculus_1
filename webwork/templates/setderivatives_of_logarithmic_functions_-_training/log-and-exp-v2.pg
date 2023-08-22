@@ -1,5 +1,3 @@
-
-
 ########################################
 # this file automatically moved
 #	from local/chapter3/log-and-exp-v2.pg 
@@ -28,32 +26,169 @@ loadMacros(
 "PGstandard.pl",
 "MathObjects.pl",
 "AnswerFormatHelp.pl",
+"PGcourse.pl",
 );
 
 TEXT(beginproblem());
 
 Context("Numeric");
-Parser::Number::NoDecimals();
+#Parser::Number::NoDecimals();
 $showPartialCorrectAnswers = 1;
+
+
+
+
+
+Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on non-base-[`e`] logarithm functions
+[@ closeDiv() @]*
+
+We know the log rule (with chain rule):
+
+* [`` (\ln(\Box))' = \frac{\Box'}{\Box} ``]
+
+Let's expand to include bases other than the natural number [`e`].  Common other bases are 
+* base [`2`] -- related to half lives, both due to radioactive decay (physics) and half lives of drugs in an organism as its metabolized (biology, medicine).
+* base [`10`] -- things like the pH scale (chemisty), and deciBels (acoustics and physics)
+
+
+---
+
+We'll start by treating [`\log_b(x)`].  
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+[``` 
+\left( \log_b(x) \right)' = \frac{1}{\ln b} \frac{1}{x}
+```]
+[@ closeDiv() @]*
+
+Find the derivatives using the log-[`b`] derivative rule.  Use exact expressions.
+
+END_PGML
+
+
+### ℹ️ i'm using tex strings here since i couldn't figure out how to enter log-base-b into Formula objects (without the change of base formula, which I don't want to use).
+$b = random(2,4,1);
+$a = non_zero_random(-10,10,1);
+$f = "\log_$b(x)";
+$deriv = Formula("1/ln($b) * x");
+BEGIN_TEXT
+$PAR $BR
+\( f(x) = $f \) $BR
+\( f'(x) = \) \{ ans_rule(10) \}
+END_TEXT
+ANS($deriv->cmp);
+
+
+$b = random(5,10,1);
+$a = non_zero_random(-10,10,1);
+$f = "\log_$b(x) + x^2 + 3x + 1";
+$deriv = Formula("1/ln($b) * x + 2x + 3");
+BEGIN_TEXT
+$PAR $BR
+\( f(x) = $f \) $BR
+\( f'(x) = \) \{ ans_rule(10) \}
+END_TEXT
+ANS($deriv->cmp);
+
+
+
+
+
+
+BEGIN_PGML
+
+---
+
+Now we're ready for putting functions inside of non-base-[`b`] logs.  It's just the chain rule.  ⛓️ Chain it out!
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+[``` 
+\left( \log_b(f(x)) \right)' = \frac{1}{\ln b} \frac{f'(x)}{f(x)}
+```]
+
+Or, using box notation,
+
+[``` 
+\left( \log_b(\Box) \right)' = \frac{1}{\ln b} \frac{\Box'}{\Box}
+```]
+
+You can merge the two fractions if you want.
+
+
+[``` 
+\left( \log_b(\Box) \right)' = \frac{\Box'}{\ln (b) \cdot \Box}
+```]
+
+[@ closeDiv() @]*
+
+---
+
+Compute the derivatives of the general log functions.  Use exact expressions.
+
+END_PGML
+
+
+
+### ℹ️ i'm using tex strings here since i couldn't figure out how to enter log-base-b into Formula objects (without the change of base formula, which I don't want to use).
+$a = random(2,8,1);
+$b = random(2,8,1);
+$c = random(2,8,1);
+$f = "\log_{$a}($b x+$c)";
+$ans = Compute("$b/[ln($a)*($b*x+$c)]");
+
+BEGIN_TEXT
+$PAR $BR
+\( \displaystyle f(x)= $f\) $BR
+\( f'(x)= \) \{ ans_rule(50) \}
+
+END_TEXT
+ANS($ans->cmp() );
+
+
+
 
 
 $a = random(2,8,1);
 $b = random(2,8,1);
 $c = random(2,8,1);
+$f = "\log_{$a}(\sin(x) + 1)";
+$ans = Compute("(cos(x))/[ln($a)*(sin(x) + 1)]");
 
-$ans = Compute("$b/[ln($a)*($b*x+$c)]");
-
-
-Context()->texStrings;
 BEGIN_TEXT
-Find the derivative of the function \( \displaystyle f(x)= \log_{$a}($b x+$c)\).
+$PAR $BR
+\( \displaystyle f(x)= $f\) $BR
+\( f'(x)= \) \{ ans_rule(50) \}
 
-$PAR
-\( f'(x)= \) \{ ans_rule(50) \}$BR
-$BITALIC(Give an exact answer.)$EITALIC 
 END_TEXT
-Context()->normalStrings;
-
 ANS($ans->cmp() );
+
+
+
+$a = 10;
+$f = "\log_{$a}(x^3 + 5x + 7)";
+$ans = Compute("(3 x^2 + 5)/[ln($a)*(x^3 + 5x + 7)]");
+
+BEGIN_TEXT
+$PAR $BR
+\( \displaystyle f(x)= $f\) $BR
+\( f'(x)= \) \{ ans_rule(50) \}
+
+END_TEXT
+ANS($ans->cmp() );
+
+
+
+
+
+
+
+
+Context()->normalStrings;
 
 ENDDOCUMENT();

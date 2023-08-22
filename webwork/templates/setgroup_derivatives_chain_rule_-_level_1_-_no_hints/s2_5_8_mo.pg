@@ -103,19 +103,6 @@ $fpatx1 = $fp->eval(x=>$x1);
 Context()->texStrings;
 BEGIN_TEXT
 
-\{ openDiv({ "class" => "importantFormula" }) \}
-The chain rule for square roots:
-\[
-\sqrt{\Box}' = \frac{1}{2 \sqrt{\Box}} \Box '
-\]
-
-\{ closeDiv() \}
-
-
-$PAR
-$HR
-$PAR
-
 Let \[ f(x) = $f\]
 $PAR
 \( f'( x ) = \) \{ans_rule(40) \}

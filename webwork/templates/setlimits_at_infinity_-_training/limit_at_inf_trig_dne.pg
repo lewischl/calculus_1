@@ -67,6 +67,7 @@ $c = non_zero_random(-8,8,1);
 $ans1 = Compute("DNE");
 $ans2 = Compute("DNE");
 
+$f = Formula("$a cos($b x ) + $c")->reduce;
 ##############################################################
 #
 #  Text
@@ -76,10 +77,10 @@ $ans2 = Compute("DNE");
 BEGIN_PGML
 Compute the limits.  If a limit does not exist, use "DNE".
 
-[`` \lim_{x \to \infty} \left( [$a]\cos( [$b]x ) + [$c] \right)= ``] [_____]{$ans1}
+[`` \lim_{x \to \infty} \left( [$f] \right)= ``] [_____]{$ans1}
 
 
-[`` \lim_{x \to -\infty} \left( [$a]\cos( [$b]x ) + [$c] \right)= ``] [_____]{$ans2}
+[`` \lim_{x \to -\infty} \left( [$f] \right)= ``] [_____]{$ans2}
 END_PGML
 
 ENDDOCUMENT();

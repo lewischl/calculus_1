@@ -74,8 +74,9 @@ Context()->variables->add(t=>'Real');
 $f = Formula("(t^3) - $a*(t^2)- $b*t");
 
 Context()->flags->set(reduceConstants=>0);
-# The following variable is the solution to the equation $x = 3*(t^2) - 2*$a*t - $b = velocity
-$zero = Compute("(2*$a + sqrt((2*$a)^2 - 4*3*(-$b - $x)))/(2*3)");
+# The following variable is the solution to the equation 
+# $x = 3*(t^2) - 2*$a*t - $b == velocity
+$time = Compute("(2*$a + sqrt((2*$a)^2 - 4*3*(-$b - $x)))/(2*3)");
 
 
 ########################################
@@ -88,19 +89,19 @@ The position function of a particle is given by
 $PAR
 When does the particle reach a velocity of \($x\) m/s?
 $BR$BR
-Answer: \{ans_rule(40) \}
+At time \(t = \) \{ans_rule(40) \}.
 END_TEXT
+
+
 Context()->normalStrings;
 
 ########################################
 # Answers
 
-ANS($zero->cmp);
+ANS($time->cmp);
 
 ########################################
 
-
-;
 
 ;
 ENDDOCUMENT();

@@ -53,7 +53,9 @@ loadMacros(
   "littleneck.pl",
   "MathObjects.pl",
   "contextFraction.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
+  "niceTables.pl",
 );
 # allow the student to change the seed for this problem.
 
@@ -90,13 +92,44 @@ $g=$g1/$g2;
 ###################################
 # Main text
 Context()->texStrings;
+
+$tab = DataTable(
+  [
+    ["\( \displaystyle \lim_{x \to -\infty} e^{-x} = \infty \)", "\( \displaystyle \lim_{x \to \infty} e^{-x} = 0 \)"],
+    ["\( \displaystyle \lim_{x \to -\infty} e^{x} = 0 \)", "\( \displaystyle \lim_{x \to \infty} e^{x} = \infty \)"],
+  ],
+);
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem trains on using the powers for leading behaviour when working with a rational function of exponentials.
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The function [`` e^{-x}``] is the mirror image of [``e^x``] across the [`y`]-axis.
+
+[@ $tab @]***
+
+[@ closeDiv() @]*
+
+💡 We can use these properties to do leading behaviour at [`\pm \infty`] for exponentials other than just [`e^x`], and neglect the smaller terms (cuz they go to 0) to make limits a snap.
+
+---
+
+END_PGML
+
+
 BEGIN_TEXT
-Find the following limit.
+Find the following limit.  Enter "DNE" if limit does not exist.
+
 $PAR
-Notes: Enter "DNE" if limit Does Not Exist.$PAR
+
 \(\displaystyle \lim_{x\to -\infty} $f\)
  = \{ans_rule(20) \} 
 END_TEXT
+
+
 
 ###################################
 # Answers
@@ -107,8 +140,10 @@ ANS($ans->cmp);
 
 
 ###################################
+
 Context()->texStrings;
-SOLUTION(EV3(<<'END_SOLUTION'));
+BEGIN_SOLUTION
+
 $PAR SOLUTION $PAR
 \[\displaystyle \lim_{x\to -\infty} $f= \lim_{x\to -\infty} $g=$ans\]
 END_SOLUTION

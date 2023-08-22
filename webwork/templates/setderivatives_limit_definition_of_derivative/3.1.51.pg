@@ -30,6 +30,7 @@ DOCUMENT();
 loadMacros("PG.pl","PGbasicmacros.pl","PGanswermacros.pl","PGcourse.pl");
 loadMacros("Parser.pl");
 loadMacros("freemanMacros.pl");
+loadMacros("customCSS.pl");
 
 #$f = Formula("x^3");
 #$a = Real(5);
@@ -41,6 +42,29 @@ $f_a = $f->substitute(x=>$a);
 $form = Formula("($f_a_plus_h-$f_a)/(h)");
 
 Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+This problem gives you a pre-instantiated derivative-by-definition, and asks you to recognize where it may have come from.  We hope to continue to train you to understand the pieces of the definition of the derivative.
+
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The definition of the derivative, which tells us the slope of the tangent line and the instantaneous rate of change at point or time [`x=a`]:
+
+[```
+f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}
+```]
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
 BEGIN_TEXT
 \{ beginproblem() \}
 The definition of the derivative has been applied to a function \(f(x)\) at the point \(x=a\).  Determine the function \(f(x)\) and the value of the point of interest \(a\).
@@ -50,18 +74,14 @@ The definition of the derivative has been applied to a function \(f(x)\) at the 
 $BR
 \( a = \) \{ans_rule()\}
 
-$BR$BR
-\{ theresahint \}
-
 END_TEXT
-Context()->normalStrings;
 
 BEGIN_HINT
-Yo!  You want a hint, I got a hint.$BR$BR
+Yo!  You want a hint, I got a hint.$PAR
 
 Focus on the numerator.  There's a difference going on.  Since this is a derivative, \(f(a+h)\) is the first term, and we're subtracting \(f(a)\).  $BR
 * I suggest first identifying the value of the point of interest, \(x = a\).  $BR
-* Then, identify the action \(f\) is performing on \(a\) to get \(f(a)\), which is being subtracted.  $BR
+* Then, identify the action \(f\) is performing on \(a\) to get \(f(a)\), which is being subtracted.  How is \($a\) related to \($f_a\)?$BR
 * Finally, verify that the same action is happening to \(a+h\) in the first term in the numerator.  That should confirm \(f(x)\).
 END_HINT
 

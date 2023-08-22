@@ -79,11 +79,35 @@ $df=Compute("$a1*sin(x)*cos(x)+$a1*x*(cos^2(x)-sin^2(x))");
 $dfVal = $df->substitute(x=>$x1);
 
 Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+We can combine the trig functions with other operations, like multiplication.  
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The triple product rule.  
+
+[```
+(fgh)' = f'gh+fg'h+fgh'
+```]
+
+Each gets a turn with the prime, and add 'em up!
+[@ closeDiv() @]*
+
+END_PGML
+
 BEGIN_TEXT
-If \( f(x) =  $f \), find \( f'( x ) \).
+
+Use the triple product rule to differentiate \(f\). $PAR
+
+\( f(x) =  $f \)
 $BR $BR
 \(f'(x)=\)\{ans_rule(50) \}
-$BR $BR
+
 END_TEXT
 
 Context()->normalStrings;

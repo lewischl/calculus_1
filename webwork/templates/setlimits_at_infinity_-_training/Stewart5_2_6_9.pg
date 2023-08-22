@@ -40,7 +40,8 @@ DOCUMENT();
 loadMacros(
   "PGstandard.pl",
   "PGchoicemacros.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(&beginproblem);
@@ -49,16 +50,38 @@ $a=random(1,10,1)*random(-1,1,2);
 $b=random(1,10,1)*random(-1,1,2);
 $c=random(1,10,1)*random(-1,1,2);
 
+$x_vals = " x \in \{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 50, 100 \} ";
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Seeing growth in numbers is a powerful way to find patterns.  
+[@ closeDiv() @]*
+
+There are lots of good ways to compute function values quickly.  
+* The "ans trick" in a TI is pretty hot 🔥
+* The "trace trick" is good because it comes with a picture, but you have to have the x-value in the window for it to work
+* You can also use the "y-vars trick".
+
+---
+
+END_PGML
+
 BEGIN_TEXT
 
 $PAR
 
-Guess the value of the limit \( \displaystyle \lim_{x \to \infty} \frac{x^2}{2^x}\), by evaluating the function in the limit expression for $BR
-\(x=\ \) 0,1,2,3,4,5,6,7,8,9,10,20,50, and 100. (Sketch a graph to support your guess.)
+Guess the value of the limit by evaluating the function in the limit expression for 
+\(  $x_vals \). 
+
+$PAR 
+
+Sketch a graph to support your conclusion.
 
 $PAR
 
-\{ans_rule(10)\}
+\( \displaystyle \lim_{x \to \infty} \frac{x^2}{2^x} = \) \{ans_rule(10)\}
 
 END_TEXT
 

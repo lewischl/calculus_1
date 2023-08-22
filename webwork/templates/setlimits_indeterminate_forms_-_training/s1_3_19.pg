@@ -47,7 +47,8 @@ DOCUMENT();        # This should be the first executable line in the problem.
 
 loadMacros(
   "PGstandard.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -57,10 +58,19 @@ $tag = random(0,5,1);
 @choose = ("a","b","s","t","u","v");
 $x = $choose[$tag];
 
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Sometimes the variable isn't named [`x`].  And sometimes the factoring can be surprising.  
+
+Seek to factor out common factors early.
+[@ closeDiv() @]*
+
+END_PGML
+
 BEGIN_TEXT
-Evaluate the limit using algebraic techniques:
-\[ \lim_{ $x \rightarrow 1 } \frac { { $x }^3- $x }  { { $x }^2- 1 } \]
-Answer: \{ans_rule(25) \}
+Evaluate the limit using algebraic techniques: $PAR
+
+\( \displaystyle  \lim_{ $x \rightarrow 1 } \frac { { $x }^3- $x }  { { $x }^2- 1 }  = \) \{ans_rule(25) \}
 
 
 END_TEXT

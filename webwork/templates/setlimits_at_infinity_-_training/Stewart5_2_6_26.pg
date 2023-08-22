@@ -44,6 +44,8 @@ loadMacros(
 "PGanswermacros.pl",
 "PGauxiliaryFunctions.pl",
 "MathObjects.pl",
+"PGcourse.pl",
+"customCSS.pl",
 );
 
 Context("Numeric");
@@ -51,19 +53,59 @@ Context("Numeric");
 TEXT(&beginproblem);
 $showPartialCorrectAnswers = 1;
 
+
+
+$a = non_zero_random(-9,9,1);
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+We can think about limits at infinity for any function.  The trigonometric functions offer different types of behaviour that rational functions of polynomials and exponentials can't, such as periodic and oscillatory behaviour.
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A limit only exists if the function tends toward exactly one value.  It can go above and below, but it must be going toward *exactly one* value.  
+
+Oscillating functions can have any limit.  Pay attention to the amplitude of the function as you analyze its behaviour at infinity.
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
 BEGIN_TEXT
 
+
+Evaluate the limits.  if it does not exist, enter ${BBOLD}DNE${EBOLD}.
+
 $PAR
-Evaluate the limit
-\[\displaystyle\lim_{x \to \infty} \cos(x).\]
+\( \displaystyle\lim_{x \to \infty} \cos(x) = \) \{ ans_rule(20) \}
 
-${BITALIC}(If the limit approaches \(\infty\), enter ${BBOLD}INF${EBOLD}; if it approaches \(-\infty\), enter ${BBOLD}-INF${EBOLD}; otherwise, if it does not exist, enter ${BBOLD}DNE${EBOLD}.)${EITALIC}$BR
 
-Limit = \{ ans_rule(20) \}
+$PAR
+\( \displaystyle\lim_{x \to \infty} $a \cos(x) = \) \{ ans_rule(20) \}
 
+$PAR
+\( \displaystyle\lim_{x \to \infty} ( $a \cos(x) + 1) = \) \{ ans_rule(20) \}
+
+
+$PAR
+\( \displaystyle\lim_{x \to \infty} \frac{1}{x} \cos(x) = \) \{ ans_rule(20) \}
+
+$PAR
+\( \displaystyle\lim_{x \to \infty} x^2 \cos(x) = \) \{ ans_rule(20) \}
+
+$PAR
+\( \displaystyle\lim_{x \to \infty} \frac{1}{e^x + 5} \cos(x) = \) \{ ans_rule(20) \}
 
 END_TEXT
 
 ANS(Compute("dne")->cmp);
+ANS(Compute("dne")->cmp);
+ANS(Compute("dne")->cmp);
+ANS(Compute(0)->cmp);
+ANS(Compute("dne")->cmp);
+ANS(Compute(0)->cmp);
+
 
 ENDDOCUMENT();

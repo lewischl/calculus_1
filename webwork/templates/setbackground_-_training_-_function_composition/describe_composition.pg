@@ -68,14 +68,20 @@ $mc = RadioButtons(
 TEXT(beginproblem());
 Context()->texStrings;
 BEGIN_TEXT
-Let \(m(x) = $m\). Which of the following best describes its fundamental 
-algebraic structure? $BR
+
+Which of the following best describes the fundamental algebraic structure of the function \( m(x)\)?
+
+$PAR
+
+\(m(x) = $m\)  $PAR
+
+
 \{ $mc->buttons() \}
 $PAR
 where
 $BR
  \(f(x) = \) \{ ans_rule(15) \} $BR
-\(g(x) = \) \{ ans_rule(15) \}. $BR
+\(g(x) = \) \{ ans_rule(15) \} $BR
 
 $PAR
 \{theresahint\}

@@ -205,7 +205,7 @@ We follow the above steps:
 
 1. We're given the starting point [`t_0`] of the time interval over which to observe change, and the length of the interval, which we call [`\Delta t`].  So we have the two timepoints: 
     * [`t_0 = `] [___]{$t0} 
-    * [`t_1 = 2 + \Delta t = `] [___]{$t1}
+    * [`t_1 = t_0 + \Delta t = `] [___]{$t1}
 2. We evaluate the height function to find 
     * [`y_0 = y(t_0) = y([$t0]) = `] [___]{$y0}
     * [`y_1 = y(t_1) = y([$t1]) = `] [___]{$y1}

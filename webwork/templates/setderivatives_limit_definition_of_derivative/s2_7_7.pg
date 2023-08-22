@@ -44,7 +44,8 @@ loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
   "AnswerFormatHelp.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -63,6 +64,21 @@ $y = $f->eval(x=>1);
 $m = $df->eval(x=>1);
 $b = $y - $m;
 $ans = Compute("$m x + $b");
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+An opportunity for you to use what you've learned about 
+* the limit definition of the derivative
+* point-slope form for writing equations for lines
+
+[@ closeDiv() @]*
+
+END_PGML
+
+
 
 BEGIN_TEXT
 Find an equation of the tangent line to the curve \( y=$a1-2x-3x^2 \) at the point \( (1, $b1). \)

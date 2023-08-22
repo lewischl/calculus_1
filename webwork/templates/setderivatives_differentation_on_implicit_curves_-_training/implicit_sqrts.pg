@@ -93,7 +93,7 @@ $width = 600;
 $height = 400;
 
 HEADER_TEXT(MODES(
-    HTML=>'<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
+    HTML=>'<script src="https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
     TeX=>''
 ));
 
@@ -110,6 +110,16 @@ $desmos_div = MODES(
 #
 #
 Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem offers a graphical approach together with the algebraic approach we've been training you on.  It's good to learn multiple methods of doing the same thing!
+[@ closeDiv() @]*
+
+
+END_PGML
+
 BEGIN_TEXT
 
 Consider the implicit curve given by \[  \sqrt{x} + \sqrt{y} = $a1 \]
@@ -117,22 +127,39 @@ Consider the implicit curve given by \[  \sqrt{x} + \sqrt{y} = $a1 \]
 and a point on the curve given by
 \( y($x2) = $y1 \).
 
+$PAR
+
+I've provided a graph of the function and the point of tangency below:
+
 $PAR$HR$PAR
 
 
 $PAR
 
-Use the below graph to experiment and find an approximate value of \(y'($x2)\).  
-
 $PAR
 
-In the Desmos graph, we've called the slope \(m\), and it has a slider you can play with.  Slide it to find an approximate value of \(m\) that makes the line tangent.
 
 $PAR
 
 \{ $desmos_div \}
 
 
+In the Desmos graph, we've called the slope \(m\), and it has a slider you can play with.  Slide it to find an approximate value of \(m\) that makes the line tangent.
+
+The slope \(m \approx \) \{ans_rule(10) \}
+
+
+
+    
+END_TEXT
+
+ANS(Real($deriv)->cmp(tolType   => 'absolute',
+                tolerance => .3));
+
+
+    
+BEGIN_TEXT
+    
 $PAR$HR$PAR
 
 
@@ -143,14 +170,11 @@ $BR $BR
  \( y'($x2) = \)  \{ans_rule(10) \}
 
 
-$PAR$HR$PAR
-
-\{ theresahint \}
-
 END_TEXT
 
-# this breaks submission
-# \{ $desmos_div \}
+ANS($deriv->cmp());
+
+
 
 BEGIN_HINT
 Remember the general square root rule:$BR
@@ -166,12 +190,15 @@ Context()->normalStrings;
 #
 #
 
-ANS($deriv->cmp);
 
 
 
 
 
+#############
+# desmos stuff
+# 
+$upper_bound = 2*$y1; # centers the point vertically
 
 TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 <script>
@@ -189,7 +216,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
     calculator.setExpressions([
         { id: 'implicitcurve', latex: '\\sqrt{x} + \\sqrt{y} = $a1', color: Desmos.Colors.BLUE },
         { id: 'pointoftangency', latex: '($x2,$y1)', color: Desmos.Colors.RED },
-        { id: 'slopeslider', latex: 'm=0', sliderBounds: {min: -3, max: 3, step: 0.3}},
+        { id: 'slopeslider', latex: 'm=0', sliderBounds: {min: -3, max: 3, step: 0.1}},
         { id: 'tangentline', latex: 'y-$y1=m(x-$x2)', color: Desmos.Colors.MAGENTA }
     ]);
     
@@ -197,7 +224,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
       left: -1,
       right: 50,
       bottom: -1,
-      top: 50
+      top: $upper_bound
     });
 
 

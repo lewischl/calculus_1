@@ -48,7 +48,8 @@ loadMacros(
    "PGuwecTikZutils.pl", #Custom TikZ code
    "PGcourse.pl",      # Customization file for the course
    "PGbasicmacros.pl",
-    "PGchoicemacros.pl"
+    "PGchoicemacros.pl",
+    "customCSS.pl",
 );
 
 # Print problem number and point value (weight) for the problem
@@ -230,6 +231,17 @@ $tf->choose(8);
 #
 
 # 
+
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+It's so easy to mistakenly believe that math is only about computing things.  
+
+This problem aims to connect between the graph of a function, *describing* it limits and continuity using words.
+[@ closeDiv() @]*
+
+END_PGML
+
+
 BEGIN_PGML
 We have a function [`f(x)`] graphed below:
 

@@ -55,7 +55,8 @@ loadMacros(
   "PGchoicemacros.pl",
   "extraAnswerEvaluators.pl",
   "MathObjects.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 $b = random(1,8,1);
@@ -63,23 +64,77 @@ $b = random(1,8,1);
 TEXT(beginproblem());
 
 $showPartialCorrectAnswers = 1;
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Some functions have domain restrictions, and describing their continuity is interesting.  
+[@ closeDiv() @]*
 
-TEXT(EV3(<<'EOT'));
-Let
-\[ f(x) = \sqrt{x - $b}.  \]
-Use \{helpLink("interval notation")\} to indicate where \( f \) is continuous.
 
-$BR$BR
+When we discuss the continuity of a function, we can only talk about continuity at points in its domain.  So, talking about the continuity of [`\sqrt{x}`] at [`x = -1`] makes no sense.  
 
-Domain of continuity:
+[@ openDiv({ "class" => "importantFormula" }) @]*
+At a boundary point [`x=b`] of a domain-restricted function [`f`], we can say [`f`] is continuous at [`b`] if 
+
+* the appropriate one-sided limit exists
+* the function is defined at [`x=b`]
+* the limit and the function value are equal.
+[@ closeDiv() @]*
+
+
+---
+
+END_PGML
+
+
+BEGIN_TEXT
+
+Use \{helpLink("interval notation")\} to indicate the domains / intervals.
+
+
+$PAR$PAR
+
+What is the domain of continuity for \( \sqrt{x - $b} \)?   $BR\(x \in \)
 \{ans_rule(35)\}
-EOT
 
-# @answers = "[$b,Inf)";
-# ANS(interval_cmp(@answers) );
+$PAR
+
+What is the domain of continuity for \( \ln(x - $b) \)? $BR \(x \in \)
+\{ans_rule(35)\}
+
+$PAR
+
+What is the domain of continuity for \(  \exp(x - $b) \)? $BR \(x \in \)
+\{ans_rule(35)\}
+
+$PAR
+
+What is the domain of continuity for \( \displaystyle \frac{x^2-$b}{\sqrt{x-$b}} \)? $BR \(x \in \)
+\{ans_rule(35)\}
+
+$BR
+
+
+END_TEXT
+
 
 Context("Interval");
-$ans = Compute("[$b,Inf)");
-ANS($ans->cmp);
+
+ANS(Compute("[$b,Inf)")->cmp);
+ANS(Compute("($b,Inf)")->cmp);
+ANS(Compute("(-Inf,Inf)")->cmp);
+ANS(Compute("($b,Inf)")->cmp);
+
+BEGIN_PGML
+
+---
+
+For more discussion, see
+[@ htmlLink("https://math.stackexchange.com/questions/1914931/is-sqrt-x-continuous-at-0-because-it-is-not-defined-to-the-left-of-0", "this MathExchange post discussing the continuity of \\(\\sqrt{x}\\) at \\(0\\)") @]*
+
+END_PGML
+
+
+
+
 
 ENDDOCUMENT();

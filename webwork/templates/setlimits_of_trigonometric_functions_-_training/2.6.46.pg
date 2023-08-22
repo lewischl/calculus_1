@@ -31,6 +31,7 @@ loadMacros(
   "MathObjects.pl",
   "PGgraphmacros.pl",
   "PGcourse.pl", 
+  "customCSS.pl",
 );
 #####################################################################
 
@@ -46,12 +47,38 @@ Parser::Number::NoDecimals();
 $a=random(2,9,1);
 $b=random(2,9,1);
 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+A training problem involving both of the new identities
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+We have two new identities on limits of trig functions:
+* [``\lim_{x \to 0} \frac{\sin x}{x} = 1 ``]
+* [``\lim_{x \to 0} \frac{\cos x - 1}{x} = 0 ``]
+[@ closeDiv() @]*
+
+Combined with the limit laws (the limit of the negation is the negation of the limit, etc), these two identies are very useful.
+
+Use the following steps to solve the problem:
+
+1. Split the fraction into two fractions.
+2. Multiply by a few ones: [`\frac{t}{t}`], [`\frac{[$a]}{[$a]}`], [`\frac{[$b]}{[$b]}`]
+3. Massage the fraction further to group terms in a useful way
+4. Use the identites.
+
+Check your work using a graphing calculator!
+
+---
+
+END_PGML
 BEGIN_TEXT
-Evaluate the limit, if it exists:
+Evaluate the limit, if it exists.  Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE$EBOLD.
 $PAR
 \(\displaystyle\lim_{t \to 0} \frac {1 - \cos($a t)} {\sin($b t)}=\) \{ans_rule(25) \}
-$PAR
-$BITALIC(Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE$EBOLD.)$EITALIC
+
 
 END_TEXT
 

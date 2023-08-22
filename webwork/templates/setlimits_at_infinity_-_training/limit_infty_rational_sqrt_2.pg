@@ -45,6 +45,7 @@ loadMacros(
    "PGML.pl",
    #"source.pl",        # allows code to be displayed on certain sites.
    "PGcourse.pl",      # Customization file for the course
+   "customCSS.pl",
 );
 
 # Print problem number and point value (weight) for the problem
@@ -83,6 +84,14 @@ else{
 #  Text
 #
 #
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+I want to do more work on rationals with square roots, because they commonly give students trouble.  Use leading behaviour, and pay attention to signs.
+[@ closeDiv() @]*
+
+END_PGML
 
 BEGIN_PGML
 Compute the limits:

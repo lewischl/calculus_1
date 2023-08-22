@@ -48,7 +48,8 @@ DOCUMENT();        # This should be the first executable line in the problem.
 
 loadMacros(
   "PGstandard.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -72,37 +73,51 @@ $ans7 = "does";
 $ans8 = $f_cts;
 
 
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+A problem focusing on why continuity is required as part of the Intermediate Value Theorem.
+
+This problem is NOT about root finding.
+[@ closeDiv() @]*
+
+
+Pay attention to the asymptotes!
+
+---
+
+END_PGML
+
+
+
 BEGIN_TEXT
 
 
 Consider the function
 \( \displaystyle f(x) =  \frac{x}{x^2-5x+6} \).
 
+
+
+
 $PAR
 
-Complete the sentences:
-
-$PAR
-$HR
-$PAR
-
-The Intermediate Value Theorem \{pop_up_list(['?','does','does not']) \} apply to \(f\) for the interval \( [4,5] \) because 
+The IVT \{pop_up_list(['?','does','does not']) \} apply to \(f\) for the interval \( [4,5] \) because 
     \{pop_up_list(['?',$f_cts,$f_has_discty]) \}.  
    
 
 $PAR
 
-The Intermediate Value Theorem \{pop_up_list(['?','does','does not']) \} apply to \(f\) for the interval \( [2.5, 4] \) because 
+The IVT \{pop_up_list(['?','does','does not']) \} apply to \(f\) for the interval \( [2.5, 4] \) because 
     \{pop_up_list(['?',$f_cts,$f_has_discty]) \}.  
     
     $PAR
     
     
-The Intermediate Value Theorem \{pop_up_list(['?','does','does not']) \} apply to \(f\) for the interval \( [2,3] \) because 
+The IVT \{pop_up_list(['?','does','does not']) \} apply to \(f\) for the interval \( [2,3] \) because 
     \{pop_up_list(['?',$f_cts,$f_has_discty]) \}.  
     
     $PAR
-The Intermediate Value Theorem \{pop_up_list(['?','does','does not']) \} apply to \(f\) for the interval \( [0,1] \) because 
+The IVT \{pop_up_list(['?','does','does not']) \} apply to \(f\) for the interval \( [0,1] \) because 
     \{pop_up_list(['?',$f_cts,$f_has_discty]) \}.  
     
     

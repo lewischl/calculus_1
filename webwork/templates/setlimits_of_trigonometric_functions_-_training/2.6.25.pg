@@ -33,7 +33,8 @@ loadMacros(
   "PGgraphmacros.pl",
   "MathObjects.pl",
   "freemanMacros.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 ## DBsubject(Calculus - single variable)
@@ -56,6 +57,15 @@ TEXT(beginproblem());
 
 $n=random(2,4,2);
 
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Don't assume every problem is an indeterminate form!
+[@ closeDiv() @]*
+
+END_PGML
+
+
 BEGIN_TEXT
 \{ textbook_ref_exact("Rogawski ET 2e", "2.6","25") \}$BR
 Evaluate the limit:$BR
@@ -65,7 +75,7 @@ END_TEXT
 
 $a=sin($PI/$n)/($PI/$n);
 
-SOLUTION(EV3(<<'END_SOLUTION'));
+BEGIN_SOLUTION
 $BR$BBOLD Solution:$EBOLD 
 $BR
 \(\displaystyle\frac {\sin t} {t}\) is continuous at \(t=\frac {\pi}{$n}\). Hence, by substitution: $BR

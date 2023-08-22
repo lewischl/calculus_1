@@ -132,10 +132,10 @@ As before, let's write [`h(x)=f(g(x))`]:
 [@
 DataTable(
 [
-    ['\( f(u) =\)',ans_rule(10),'\(\hspace{1cm}\)','\(f\'(u)=\)' . ans_rule(10)],
-    ['\( u=g(x) =\)',ans_rule(10),'\(\hspace{1cm}\)','\(g\'(x)=\)' . ans_rule(100)]
+    ['\( f(u) =\)',ans_rule(10),'\(\hspace{1cm}\)','\(f\'(u)=\)',ans_rule(10)],
+    ['\( u=g(x) =\)',ans_rule(10),'\(\hspace{1cm}\)','\(g\'(x)=\)',ans_rule(100)]
 ],
-align => 'r l l',
+align => 'r l l l',
 );
 @]***
 
@@ -226,7 +226,7 @@ Retype the final answer here:
 END_PGML
 Section::End();
 
-Section::Begin("Part 3: Practice undoing the Chain Rule");
+Section::Begin("Part 3a: Practice undoing the Chain Rule");
 
 BEGIN_PGML
 
@@ -252,7 +252,7 @@ END_PGML
 Section::End();
 
 
-Section::Begin("Part 4");
+Section::Begin("Part 3b");
 
 BEGIN_PGML
 
@@ -288,7 +288,7 @@ Now we find the antiderivative in terms of [`u`]:
 END_PGML
 Section::End();
 
-Section::Begin("Part 5");
+Section::Begin("Part 3c");
 
 BEGIN_PGML
 
@@ -306,13 +306,16 @@ We are finished! Notice that the derivative of your answer is the integrand we s
 END_PGML
 Section::End();
 
-Section::Begin("Part 6: More practice");
+Section::Begin("Part 4a: Another problem");
+
+#$g3=Formula("$b11*x^$b8+$b10*x^$b9")->reduce;
+#$g3d=Formula("($b11*$b8)*x^($b8-1)+($b10*$b9)*x^($b9-1)")->reduce;
 
 BEGIN_PGML
 
 Using a similar process, find
 
-[```\displaystyle\int([$b11*$b8]x^{[$b8-1]}+[$b10*$b9]x^{[$b9-1]})\cos([$b11]x^{[$b8]}+[$b10]x^{[$b9]})\,dx
+[```\displaystyle\int([$g3d])\cos([$g3])\,dx
 ```]
 
 [`u=`] [_]{Formula("[$b11]*x^[$b8]+[$b10]*x^[$b9]")->reduce}
@@ -321,12 +324,12 @@ Using a similar process, find
 
 Rewrite the integral in terms of [`u`]:
 
->>[`\displaystyle\int([$b11*$b8]x^{[$b8-1]}+[$b10*$b9]x^{[$b9-1]})\cos([$b11]x^{[$b8]}+[$b10]x^{[$b9]})\,dx=\int`][_]{Formula("cos(u)*du")->reduce}<<
+>>[`\displaystyle\int([$g3d])\cos([$g3])\,dx=\int`][_]{Formula("cos(u)*du")->reduce}<<
 
 END_PGML
 Section::End();
 
-Section::Begin("Part 7");
+Section::Begin("Part 4b");
 
 BEGIN_PGML
 
@@ -341,7 +344,7 @@ And rewrite it in terms of [`x`]:
 END_PGML
 Section::End();
 
-Section::Begin("Part 8");
+Section::Begin("Part 5: more practice");
 
 BEGIN_PGML
 
@@ -357,11 +360,7 @@ In the next three boxes: first rewrite the integral in terms of [`u`], then take
 
 [``\int(3\tan^2x-[$b15*2]\tan x)\sec^2x\,dx=\int``] [_]{Formula("(3*u^2-2*[$b15]*u)*du")->reduce} [`=`] [_]{FormulaUpToConstant("u^3-[$b15]*u^2")->reduce} [`=`] [_]{FormulaUpToConstant("tan^3(x)-[$b15]*tan^2(x)")->reduce}
 
-
-
-
 -----
-
 
 Let's solve
 

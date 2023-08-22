@@ -85,6 +85,15 @@ $fpatx1 = $fp->eval(x=>$x1);
 #
 
 Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+An opportunity to show what you learned so far.
+[@ closeDiv() @]*
+
+END_PGML
+
 BEGIN_TEXT
 If \( f(x) = $f  \), find \( f'( x ) \).
 $BR$BR 

@@ -1,0 +1,176 @@
+## DESCRIPTION
+##   ****
+## ENDDESCRIPTION
+
+## KEYWORDS('Power Rule')
+
+## DBsubject('Calculus')
+## DBchapter('Derivatives')
+## DBsection('Power Rule')
+## Date('07/20/2024')
+## Author('W. Shull')
+## Institution('UWEC')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+########################################
+# this file automatically moved
+#	from setproving_grounds/ProductRuleIntroduction.pg 
+#	to setderivatives_product_rule_-_training/ProductRuleIntroduction.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",        # the new parser
+  "contextFraction.pl",
+  "parserMultiAnswer.pl",
+"answerHints.pl",
+"PGML.pl",
+   "scaffold.pl",
+  "PGcourse.pl",           # Customization file for the course
+   "customCSS.pl",
+   "parserPopUp.pl",   # <--------------------------------------NEEDED FOR DROPDOWN MENUS
+);
+
+loadMacros("niceTables.pl", "parserFormulaUpToConstant.pl");
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+#$same_derivative = PopUp(
+#  ["Choose one", "yes","no"],
+#  "yes");
+
+Context("Numeric");
+Context()->noreduce('(-x)-y');
+Context()->noreduce('(-x)+y');
+Context()->variables->add(u=>"Real", h=>"Real", n=>"Real", k=>"Real", f=>"Real", g=>"Real");
+
+$a1=random(2,4);
+$a2=non_zero_random(-4,4);
+$a3=non_zero_random(-4,4);
+$a4=non_zero_random(-4,4);
+$a5=random(2,6);
+$a6=non_zero_random(-10,10);
+$a7=non_zero_random(-10,10);
+while($a7==$a6){$a7=non_zero_random(-10,10);}
+
+$f1=Formula("$a1*x^4+$a2*x^2")->reduce;
+$f1d=Formula("4*$a1*x^3+2*$a2*x")->reduce;
+$f2=Formula("$a3*x^5+$a4*x")->reduce;
+$f2d=Formula("5*$a3*x^4+$a4")->reduce;
+$f3=FormulaUpToConstant("$a5*x^3")->reduce;
+$f3d=Formula("3*$a5*x^2")->reduce;
+$f4=Formula("$a5*x^3+$a6")->reduce;
+$f5=Formula("$a5*x^3+$a7")->reduce;
+
+#$y1=non_zero_random(-10,10);
+
+#$g1d->{limits}=[1,16]; #Which x values are tested? We only want x values that are guaranteed to be in the domain.
+
+#SRAND($psvn); #FIX RANDOM VARIABLES ACROSS MULTIPLE PROBLEMS
+
+###################################
+# Main text
+###########################################
+#  The scaffold
+Scaffold::Begin();
+###########################################
+Section::Begin("Derivatives");
+
+Context()->texStrings;
+BEGIN_PGML
+
+We have lots of practice taking derivatives. Given [`f(x)=x^3`], for example, we know that [`f'(x)=3x^2`].
+
+But if we were given [`f'(x)=3x^2`] and not told [`f(x)`], could we have figured it out?
+
+Let's take a few more derivatives for practice:
+
+[`\frac d{dx}\left([$f1]\right)=`] [_]{$f1d}
+
+[`\frac d{dx}\left([$f2]\right)=`] [_]{$f2d}
+
+[`\frac d{dx}\left([$f4]\right)=`] [_]{$f3d}
+
+[`\frac d{dx}\left([$f5]\right)=`] [_]{$f3d}
+
+END_PGML
+Section::End();
+
+Section::Begin("Antiderivatives");
+
+BEGIN_PGML
+
+Notice that the last two functions we looked at had the same derivative! So if we are told that [`f'(x)=[$f3d]`], there is more than one possibility for [`f(x)`].
+
+In fact there are infinitely many possibilities! Any function of the form [`f(x)=[$f3]`], where [`C`] is any real number, has this derivative (since the derivative of [`C`] is 0). So we can say [`[$f4]`] is _an_ antiderivative of [`[$f3d]`], but not _the_ antiderivative.
+
+The full family of antiderivatives, [`[$f3]`], is often called the *general antiderivative*. You can write it by taking any antiderivative and simply adding [`+C`] to the end.
+
+Knowing that, find the general antiderivative of [`[$f1d]`]: [_]{FormulaUpToConstant("$f1")->reduce}
+
+Knowing that, find the general antiderivative of [`[$f2d]`]: [_]{FormulaUpToConstant("$f2")->reduce}
+
+END_PGML
+Section::End();
+
+Section::Begin("Putting it all together");
+
+BEGIN_PGML
+
+Quick reminder of all the rules:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Power Rule:
+
+For any constant exponent [`n\ne-1`]:
+
+>>[``\intx^ndx=\frac{x^{n+1}}{n+1}+C``]<<
+
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Sum and Difference Rules:
+
+>>[``\int\big(f(x)+g(x)big)dx=\int f(x)dx+\int g(x)dx``]<<
+
+>>[``\int\big(f(x)-g(x)\big)dx=\int f(x)dx-\int g(x)dx``]<<
+
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Constant Multiple Rule:
+
+>>[``\int k\cdot f(x)dx=k\int f(x)dx``]<<
+
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Exponential Rule:
+
+>>[``\int e^xdx=e^x+C``]<<
+
+[@ closeDiv() @]*
+
+END_PGML
+
+Section::End();
+
+  Scaffold::End();
+Context()->normalStrings;
+
+$showPartialCorrectAnswers = 1;
+
+COMMENT('MathObject version');
+COMMENT('Complicated chain rule problem in the code');
+ENDDOCUMENT();

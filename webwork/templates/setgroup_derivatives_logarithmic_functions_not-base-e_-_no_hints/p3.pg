@@ -1,0 +1,68 @@
+########################################
+# this file automatically moved
+#	from local/chapter3/log-and-exp-v2.pg 
+#	to setderivatives_of_logarithmic_functions/log-and-exp-v2.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_of_logarithmic_functions/log-and-exp-v2.pg 
+#	to setgroup_derivatives_logarithmic_functions_not-base-e_-_no_hints/log-and-exp-v2.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();  
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+$showPartialCorrectAnswers = 1;
+
+$base = random(2,10,1);
+
+
+$n = random(2,8,1);
+
+
+# ℹ️ webwork doesn't know about log base b to the best of my knowledge.  so using strings and manually writing derivatives.
+
+$inside = Formula("sin(x^$n)")->reduce;
+$inside_d = $inside->D->reduce;
+
+# 😳 omg an application of normal and tex strings!
+Context()->normalStrings;
+$ans = Compute("($inside_d)/[ln($base)*($inside)]");
+
+Context()->texStrings;
+$f_str = "\log_{$base}($inside)";
+
+
+
+BEGIN_TEXT
+Find the derivative.  Give an exact answer.  $PAR
+
+\( \displaystyle f(x)= $f_str\).
+$PAR
+\( f'(x)= \) \{ ans_rule(50) \} 
+END_TEXT
+Context()->normalStrings;
+
+ANS($ans->cmp() );
+
+ENDDOCUMENT();

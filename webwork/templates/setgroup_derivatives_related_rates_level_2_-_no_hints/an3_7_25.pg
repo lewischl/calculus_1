@@ -56,14 +56,14 @@ $ratio = $tank_radius/$tank_height;
 # Main text
 
 BEGIN_TEXT
-A conical water tank with vertex down has a radius of $tank_radius feet at
-the top and is $tank_height feet high.
+A conical water tank with vertex down has a radius of \($tank_radius\) feet at
+the top and is \($tank_height\) feet high.
 
-If water flows into the tank at a rate of $flow_rate \( {\rm ft}^3{\rm /min}\),
+If water flows into the tank at a rate of \($flow_rate\) \( {\rm ft}^3{\rm /min}\),
 how fast is the depth of the water increasing when the water is
-$depth feet deep?
+\($depth\) feet deep?
 $PAR
-The depth of the water is increasing at \{ ans_rule(25)\} ft/min.
+The depth of the water is increasing at \{ ans_rule(25)\} \({\rm ft}/{\rm min}\).
 END_TEXT
 
 ###################################

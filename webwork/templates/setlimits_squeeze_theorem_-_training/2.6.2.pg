@@ -47,9 +47,11 @@ loadMacros(
   "PGchoicemacros.pl",
   "PGgraphmacros.pl",
   "freemanMacros.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
+COMMENT("todo: make the hardcoded graph generated");
 
 
 $showPartialCorrectAnswers = 0;
@@ -67,19 +69,48 @@ $tf -> qa ( # each entry has to end with a comma
 "T",);
 
 $tf ->choose(2); 
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on language regarding the squeeze theorem, used for finding values of difficult-to-directly-compute limits, where we can find a pair of functions squeezing the target function.
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The squeeze theorem tells us that if a target function is "squeezed" at a point between two other functions, and we know the limits of those bounding functions, then we know the limit of our target there.
+
+Two terms:
+
+[`f(x)`] is *squeezed* by [`u(x)`] and [`\ell(x)`] at [`x=a`] if there is an open interval containing [`x=a`] on which 
+* [`\ell(x) \leq f(x) \leq u(x)`] and 
+* [` \lim\limits_{x \to a} \ell(x)= \lim\limits_{x \to a} u(x)`] 
+
+
+[`f(x)`] is *trapped* by [`u(x)`] and [`\ell(x)`] at [`x=a`] if there is an open interval containing [`x=a`] on which 
+* [`\ell(x) \leq f(x) \leq u(x)`] but  
+* [` \lim\limits_{x \to a} \ell(x) \neq \lim\limits_{x \to a} u(x)`] 
+
+Squeezing implies trapping, but not vice versa.
+[@ closeDiv() @]*
+
+END_PGML
+
 BEGIN_TEXT
 \{ textbook_ref_exact("Rogawski ET 2e", "2.6","2") \}$BR
-\{ image("figure261.png", width=>400, height=>200) \} 
+\{ image("figure261.png", width=>400, height=>250) \} 
 $PAR
 In the figure, is \(f(x)\) squeezed by \(u(x)\) and \(l(x)\) $BR
 \{ $tf-> print_q \}
 $PAR
 
 END_TEXT
-SOLUTION(EV3(<<'END_SOLUTION'));
-$BR$BBOLD Solution:$EBOLD 
-$BR
-Because there is an open interval containing \(x=3\) on which \(l(x) \leq f(x) \leq u(x) \) and \( \lim\limits_{x \to 3} l(x)= \lim\limits_{x \to 3} u(x)\) , \(f(x)\) is squeezed by \(u(x)\) and \(l(x)\) at \(x=3\). $BR
+
+
+BEGIN_SOLUTION
+Because there is an open interval containing \(x=3\) on which \(l(x) \leq f(x) \leq u(x) \) and \( \lim\limits_{x \to 3} l(x)= \lim\limits_{x \to 3} u(x)\) , \(f(x)\) is squeezed by \(u(x)\) and \(l(x)\) at \(x=3\). $PAR
+
 Because there is an open interval containing \(x=$a\) on which \(l(x) \leq f(x) \leq u(x) \), but \( \lim\limits_{x \to $a} l(x) \neq \lim\limits_{x \to $a} u(x)\), \(f(x)\) is trapped by \(u(x)\) and \(l(x)\) at \(x=$a\) but not squeezed.
 END_SOLUTION
 ANS(str_cmp( $tf->ra_correct_ans )   ) ;

@@ -42,7 +42,8 @@ loadMacros(
 "PGauxiliaryFunctions.pl",
 "MathObjects.pl",
 "AnswerFormatHelp.pl",
-"PGcourse.pl"
+"PGcourse.pl",
+"customCSS.pl",
 );
 
 TEXT(&beginproblem);
@@ -52,22 +53,25 @@ $a2 = $a**2;
 $b = random(2,$a2-1,1);
 $m = $a**2-$b;
 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+An opportunity to practice multiply by the conjugate.
+[@ closeDiv() @]*
+
+END_PGML
+
 BEGIN_TEXT
-Evaluate the limit
-\[\displaystyle \lim_{x \to $b} \frac{\sqrt{x+$m}-$a}{x-$b}. \]
-${BITALIC}(If the limit does not exist, enter ${BBOLD}DNE${EBOLD}.)${EITALIC}
+Evaluate the limit.  If the limit does not exist, enter ${BBOLD}DNE${EBOLD}.
+
 $PAR
-Limit =  \{ans_rule(25) \}
-$BR$BR
-\{ theresahint \}
+
+\( \displaystyle \lim_{x \to $b} \frac{\sqrt{x+$m}-$a}{x-$b} = \) \{ans_rule(25) \}
+
 END_TEXT
 
-BEGIN_HINT
-This is a "multiply by the conjugate" problem.  
 
-\{ amethystHint("$PAR$HR$PAR Here's a video from Prof. Amethyst on the topic of 'multiply by the conjugate':$BR$BR") \}
-\{ youtubeAmethyst("FLN8c8X6i7Y") \}
-END_HINT
 
 Context("Numeric");
 $twoa = 2*$a;

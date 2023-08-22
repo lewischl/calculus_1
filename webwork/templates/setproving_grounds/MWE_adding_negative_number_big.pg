@@ -1,0 +1,130 @@
+##DESCRIPTION
+##  Arithemetic problem: give the value of pi
+##ENDDESCRIPTION
+
+##KEYWORDS('arithmetic', 'pi')
+
+## DBsubject('Algebra')
+## DBchapter('Fundamentals')
+## DBsection('Real Numbers')
+## Date('')
+## Author('')
+## Institution('')
+
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+     "contextFraction.pl",
+  "parserMultiAnswer.pl",
+"answerHints.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "scaffold.pl",
+   "PGcourse.pl",      # Customization file for the course
+   
+   "customCSS.pl",
+);
+
+loadMacros("parserPopUp.pl");   # <--------------------------------------NEEDED FOR DROPDOWN 
+loadMacros("niceTables.pl");
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+
+
+$same_derivative = PopUp(
+  ["Choose one", "yes","no"],
+  "yes");
+  
+Context("Numeric");
+Context()->noreduce('(-x)-y'); # made no difference
+Context()->noreduce('(-x)+y'); # made no difference
+
+$m1 = non_zero_random(4,4,1);
+$b1 = non_zero_random(-8,-8,1);
+
+$y1=non_zero_random(-10,10);
+
+
+
+# Show which answers are correct and which ones are incorrect
+
+  
+##############################################################
+#
+#  Setup
+#
+#
+
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+Context()->variables->add(u=>"Real", h=>"Real");
+
+
+$f = Formula("$m1 x + $b1")->reduce;
+
+
+Scaffold::Begin();
+###########################################
+Section::Begin("Part 1: Definition review");
+Section::End();
+Section::Begin("Part 2");
+Section::End();
+Section::Begin("Part 3");
+Section::End();
+
+Section::Begin("Part 4");
+Context()->texStrings;
+BEGIN_PGML
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+[```f'(x)=\lim_{h\rightarrow0}\frac{f(x+h)-f(x)}h```]
+[@ closeDiv() @]*
+
+zero = [_]{0}
+
+[```
+\begin{eqnarray*}
+f'(x)
+&=&\lim_{h\rightarrow0}\frac{f(x+h)-f(x)}h\\
+&=&\lim_{h\rightarrow0}\frac{[$y1]-[$y1]}h\\
+&=&\lim_{h\rightarrow0}\frac{0}h\\
+&=&\lim_{h\rightarrow0}(0)=0\\
+\end{eqnarray*}
+```]
+
+[_]{$same_derivative}
+
+Let [`f(x) = [$f]`].
+
+m1 = [_]{$m1}
+
+[`f(x+h) = `] [_]{Formula("$m1(x+h)+$b1")->reduce}
+
+[_]{$same_derivative}
+
+END_PGML
+
+
+Section::End();
+
+  Scaffold::End();
+  
+  Context()->normalStrings;
+
+$showPartialCorrectAnswers = 1;
+
+ENDDOCUMENT();

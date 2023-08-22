@@ -62,7 +62,8 @@ loadMacros(
   "PGunion.pl",
   "MathObjects.pl",
   "alignedChoice.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -101,8 +102,35 @@ $alignment->qa(
 # Main text
 
 Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+In this problem you're given a formula for a piecewise function, and asked about some limits at transition points (places where we switch between branches).  This problem teaches evaluation of limits from formulas.
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+To find values of two-sided limits at transition points of piecewise functions, check if both pieces are equal at the point of interest.  You have options for how:
+
+
+
+* Plug in the point of interest to both pieces
+* Plot the pieces and see if they intersect at the point of interest
+
+To find values of one-sided limits, 
+* Plug in the point of interest to the corresponding branch
+* Plot the branch function
+
+And remember, the limit is not necessarily the function value.
+[@ closeDiv() @]*
+
+END_PGML
+
 BEGIN_TEXT
-Let
+
+$PAR $HR $PAR
+Let the function be
 \[ f(x) = \begin{cases}
                $c         & \text{ if } x \lt $x2 \\
              -x+ $a1 & \text{ if } $x2 \le x \lt $x1 \\
@@ -110,8 +138,8 @@ Let
                $a1       & \text{ if } x \gt $x1.
             \end{cases}
 \]
-Sketch the graph of this function and find the following
-limits, if they exist.$BR
+Find the following
+limits.$BR
 (${BITALIC}If a limit does not exist, enter ${EITALIC}${BBOLD}DNE${EBOLD}.)
 $PAR
 \{$alignment->print_q\}

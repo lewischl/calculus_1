@@ -119,7 +119,11 @@ $PAR
 $HR
 $PAR
 
-Now for a related word problem.  Solve.
+
+
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
+Solve the word problem.  
+\{ closeDiv() \}
 
 $PAR
 

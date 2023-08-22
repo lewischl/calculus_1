@@ -45,18 +45,20 @@ loadMacros(
 "draggableProof.pl",
 );
 
-
+Context("Numeric");
 
 TEXT(beginproblem());
 
 $CorrectProof = DraggableProof([
 
-   "\(\displaystyle f = \frac{3x^3}{4}\)",
-   "\(\displaystyle \frac{df}{dx} = \frac{d}{dx} \left( \frac{3x^3}{4} \right) \)",
-   "\(\displaystyle \frac{df}{dx} = \frac{d}{dx} \left( \frac{3}{4}x^3 \right) \)",
-   "\(\displaystyle \frac{df}{dx} = \frac{3}{4} \frac{d}{dx} \left( x^3 \right) \)",
-   "\(\displaystyle \frac{df}{dx} = \frac{3}{4} 3x^{3-1} \)",
-   "\(\displaystyle \frac{df}{dx} = \frac{9}{4} x^2 \)",
+   "\(\displaystyle f = \frac{2}{5x^3} \hspace{1cm} \) 1️⃣",
+   "factor out constant from fraction \( \hspace{1cm} \)  $BR \(\displaystyle \frac{df}{dx} =  \frac{d}{dx} \left( \frac{2}{5} \cdot \frac{1}{x^3} \right) \)  ",
+"factor out constant from derivative  \( \hspace{1cm} \) $BR \(\displaystyle \frac{df}{dx} = \frac{2}{5} \frac{d}{dx} \left( \frac{1}{x^3} \right) \) ",
+  
+   "rewrite using negative power \( \hspace{1cm} \)  $BR \(\displaystyle \frac{df}{dx} = \frac{2}{5} \frac{d}{dx} \left( x^{-3} \right) \)  ",
+   "derivative time  \( \hspace{1cm} \)  $BR\(\displaystyle \frac{df}{dx} = \frac{2}{5} (-3x^{-3-1}) \)",
+   "simplify  \( \hspace{1cm} \) $BR \(\displaystyle \frac{df}{dx} = \frac{2}{5} (-3x^{-4}) \)",
+   "look, no quotient rule \( \hspace{2cm} \)  $BR \(\displaystyle \frac{df}{dx} = \frac{-6}{5} x^{-4} \hspace{1cm} \) 🏁 ",
 ],
 
 #  The lines below are extras and will be listed as options but not
@@ -76,13 +78,37 @@ TargetLabel =>  "Create a sequence of steps leading to the derivative, without u
 
 
 
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem drives home a technique for computing derivatives of rational functions with constant denominators.  
+
+The point is that when you have constant denominator, the quotient rule is not necessary.  Instead, factor out the constant, and just use whatever rules you need to on the numerator.
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Don't use the quotient rule for [`` \displaystyle \frac{1}{x^n} ``].
+
+Instead,
+1. Factor out any multiplicative constants, both of the fraction and the derivative.
+2. Rewrite using a negative power.
+3. Use the power rule.
+4. Simplify
+
+[@ closeDiv() @]*
+
+Don't use the quotient rule when the denominator is constant.  There's no need.
+
+---
+
+END_PGML
+
+
 BEGIN_TEXT
 
-This problem drives home a technique for computing derivatives of rational functions with constant denominators.  The point is that when you have constant denominator, the quotient rule is not necessary.  Instead, factor out the constant, and just use whatever rules you need to on the numerator.
+Use the blocks to differentiate the function \(\displaystyle \frac{2}{5x^3}\) without using the quotient rule.
 
 $PAR
-
-
 
 \{ $CorrectProof->Print \}
 

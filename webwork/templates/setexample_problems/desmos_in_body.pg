@@ -110,7 +110,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
     });
 
     my_calculator.setExpressions([
-        { id: 'implicitcurve', latex: 'x^{1/2} + y^{1/2} = 9', color: Desmos.Colors.BLUE },
+        { id: 'implicitcurve', latex: '\\sqrt{x} + y^{1/2} = 9', color: Desmos.Colors.BLUE },
         { id: 'slopeslider', latex: 'm=1', sliderBounds: {min: -10, max: 10, step: 0.1}},
         { id: 'pointoftangency', latex: '(16,25)', color: Desmos.Colors.RED },
         { id: 'tangentline', latex: 'y-25=m(x-16)', color: Desmos.Colors.MAGENTA }

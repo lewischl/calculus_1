@@ -56,7 +56,7 @@ $ans = List( "$r1 , $r2" );
 
 Context() -> texStrings ;
 BEGIN_TEXT
-For what value(s) of x does the graph of
+For what value(s) of \(x\) does the graph of
 \[ f(x)=$cubic \]
 have a horizontal tangent?
 $PAR

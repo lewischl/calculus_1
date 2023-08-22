@@ -32,7 +32,8 @@ loadMacros(
   "PGchoicemacros.pl",
   "PGgraphmacros.pl",
   "parserPopUp.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 ## DBsubject(Calculus - single variable)
@@ -79,27 +80,36 @@ $ans_c = 0;
 Context()->texStrings;
 
 BEGIN_TEXT
+
+\{ openDiv({ "class" => "problemPurpose" }) \}
+This problem studies an oscillating function with varying amplitude.
+\{ closeDiv() \}
+
+$PAR
+
+\{ openDiv({ "class" => "importantFormula" }) \}
+If a function does not tend toward a single value, but can't make up its mind and tries to approach two or more values, then the limit doesn't exist.
+\{ closeDiv() \}
+
+
+$PAR
+
 $BCENTER
 \{image(insertGraph($graph1),width=>$w,height=>$w,tex_size=>$tw)\}
 $ECENTER $PAR
 $HR
-Evaluate the given limits using the graph of 
-the function \( f(x) = \displaystyle 
-x^2 \sin($a\pi x) \) shown above.
+Evaluate the given limits using the above graph of 
+\( f(x) = \displaystyle 
+x^2 \sin($a\pi x) \).
 $BR
-Enter $BBOLD INF $EBOLD for \(\infty\), $BBOLD -INF $EBOLD 
-for \(-\infty\), or $BBOLD DNE $EBOLD if the limit does not exist,
-but is neither \(\infty\) nor \(-\infty\).
-$PAR 
-If you are having a hard time seeing the picture clearly, click
-on the picture.  It will expand to a larger picture on its own page so
-that you can inspect it more clearly.
+Enter $BBOLD DNE $EBOLD if the limit does not exist.
 $PAR
-a) \(\displaystyle \lim_{x \to -\infty} f(x)\) = \{ ans_rule{8} \}
-$BR
-b) \(\displaystyle \lim_{x \to \infty} f(x)\) = \{ ans_rule{8} \}
-$BR
-c) \(\displaystyle \lim_{x \to 0} f(x)\) = \{ ans_rule{8} \}
+\(\displaystyle \lim_{x \to -\infty} f(x)\) = \{ ans_rule{8} \}
+$PAR
+\(\displaystyle \lim_{x \to 0} f(x)\) = \{ ans_rule{8} \}
+$PAR
+\(\displaystyle \lim_{x \to \infty} f(x)\) = \{ ans_rule{8} \}
+
 END_TEXT
 
 Context()->normalStrings;
@@ -117,7 +127,8 @@ END_SOLUTION
 
 
 ANS( num_cmp( $ans_ab, strings=>["INF", "-INF", "DNE"] ) );
-ANS( num_cmp( $ans_ab, strings=>["INF", "-INF", "DNE"] ) );
 ANS( num_cmp( $ans_c, strings=>["INF", "-INF", "DNE"] ) );
+ANS( num_cmp( $ans_ab, strings=>["INF", "-INF", "DNE"] ) );
+
 
 ENDDOCUMENT();    

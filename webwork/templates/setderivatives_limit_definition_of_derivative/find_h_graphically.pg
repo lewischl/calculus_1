@@ -37,7 +37,8 @@ loadMacros(
    "PGuwecTikZutils.pl", #Custom TikZ code
    "PGanswermacros.pl",
    "PGauxiliaryFunctions.pl",
-   "extraAnswerEvaluators.pl" # needed for the set comparisons
+   "extraAnswerEvaluators.pl", # needed for the set comparisons
+   "customCSS.pl",
 );
 
 
@@ -106,45 +107,88 @@ $x_der_zero = $x_vertex;
 
 BEGIN_PGML
 
-This problem drives home that 
-* a graph of a function is enough to let us compute slopes of secant lines and tangent lines
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+This problem is about the connection between instantaneous rates of change and slopes of tangent lines
+
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
 * a horizontal line has slope 0, and lines with slope 0 are horizontal
 * [`f'`] is positive where the graph is increasing
 * [`f'`] is negative where the graph is decreasing
+
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+The quantity
+
+[``\frac{\Delta f}{\Delta x} = \frac{f(a+h) - f(a)}{h}``]
+
+represents both
+* the average rate of change of [`f`] over an interval of duration [`h`]
+* the slope of the secant line passing through two points separated by distance [`h`] with one of them rooted with [`x`]-coordinate equal to [`x=a`].
+
+[@ closeDiv() @]*
 
 ---
 
 
 Here's a graph of a function [`f`].  Assume all the interesting behaviour is depicted.
 
->>[@ image(insertGraph($graph1), width => 500, height => 500) @]*<<
-
----
-
-Find a value for [`h`] for which [` \displaystyle \frac{f([$pt_of_interest] + h) - f([$pt_of_interest])}{h} = 0 `]
-
-When [`h = `][_]{$h_makes_zero}, [` \displaystyle \frac{f([$pt_of_interest] + h) - f([$pt_of_interest])}{h} = 0 `]
+>>[@ image(insertGraph($graph1), width => 400, height => 400) @]*<<
 
 
 ---
 
-For what interval(s) is [`f'(x)`] positive?  
 
-On the interval [_____]{interval_cmp($interval_increasing, strings=>["none"])}, [`f'`] is positive.
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+
+For this part, take note of these two facts, using [`x=[$x_vertex]`] as the base point:
+* The slope of the secant line passing through points with [`x`]-coordinates [`x = [$x_vertex]`] and [`x = [$x_vertex+1]`], with separation distance [`h = 1`], is positive, because [`\frac{f([$x_vertex+1])-f([$x_vertex])}{[$x_vertex+1] - [$x_vertex]}`] is positive.
+* The slope of the secant line passing through points with [`x`]-coordinates [`x = [$x_vertex]`] and [`x = [$x_vertex-1]`], with separation distance [`h = -1`], is negative, because [`\frac{f([$x_vertex-1])-f([$x_vertex])}{[$x_vertex-1] - [$x_vertex]}`] is negative.
+
+Remember there's an *exact* correspondence between slope [`0`] and horizontal lines.
+[@ closeDiv() @]*
+
+* Find a value for [`h`] for which [` \displaystyle \frac{f([$x_vertex-1] + h) - f([$x_vertex-1])}{h} = 0 `]    
+    When [`h = `][_]{2}, [` \displaystyle \frac{f([$x_vertex-1] + h) - f([$x_vertex-1])}{h} = 0 `]
 
 
----
 
-For what interval(s) is [`f'(x)`] negative?  
+* Find a value for [`h`] for which [` \displaystyle \frac{f([$pt_of_interest] + h) - f([$pt_of_interest])}{h} = 0 `]    
+    When [`h = `][_]{$h_makes_zero}, [` \displaystyle \frac{f([$pt_of_interest] + h) - f([$pt_of_interest])}{h} = 0 `]
 
-On the interval [_____]{interval_cmp($interval_decreasing, strings=>["none"])}, [`f'`] is negative.
+--
 
-
----
 
 At what [`x`]-coordinate is [`f'(x) = 0`]?  
 
 At [`x = `] [_____]{$x_der_zero}.
+
+
+
+---
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+
+Use interval notation to answer these two questions about the slope of a graph.
+
+[@ closeDiv() @]*
+
+* For what interval(s) is [`f'(x)`] positive?    
+    On the interval(s) [_____]{interval_cmp($interval_increasing, strings=>["none"])}
+
+
+
+
+* For what interval(s) is [`f'(x)`] negative?    
+    On the interval(s) [_____]{interval_cmp($interval_decreasing, strings=>["none"])}
+
+
 
 
 END_PGML

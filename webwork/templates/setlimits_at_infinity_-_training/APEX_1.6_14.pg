@@ -32,7 +32,8 @@ loadMacros(
   "PGchoicemacros.pl",
   "PGgraphmacros.pl",
   "parserPopUp.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 ## DBsubject(Calculus - single variable)
@@ -72,44 +73,57 @@ $p1 = FEQ("$a^x + $b for x in [$xmin,$xmax]
 
 plot_functions($graph1,$p1);
 
-$ans_a = $b;
-$ans_b = "INF";
-$ans_c = $b1;
+Context("Numeric");
+
+$ans_a = Real($b);
+$ans_b = Infinity;
+$ans_c = Real($b1);
 
 ###############################################################
 Context()->texStrings;
 
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This graphical problem gets us thinking about growth as a process evolves.  
+
+This is an exponential function, modeling growth where the rate of growth is propotional to how much there is.  
+* Bacteria in an unconstrained environment do this
+* Covid-19 did this at the beginning of the pandemic in 2020, until we stopped it by staying home.
+
+[@ closeDiv() @]*
+
+END_PGML
 BEGIN_TEXT
 $BCENTER
 \{image(insertGraph($graph1),width=>$w,height=>$w,tex_size=>$tw)\}
 $ECENTER $PAR
 $HR
-Evaluate the given limits using the graph of 
-the function \( f(x) = \displaystyle 
-$a^x + $b \) shown above.
+Evaluate the given limits using the graph of the function \( f(x) = \displaystyle $a^x + $b \) shown above.
 $BR
-Enter $BBOLD INF $EBOLD for \(\infty\), $BBOLD -INF $EBOLD 
-for \(-\infty\), or $BBOLD DNE $EBOLD if the limit does not exist,
-but is neither \(\infty\) nor \(-\infty\).
+Enter $BBOLD DNE $EBOLD if the limit does not exist.
+
 $PAR 
-If you are having a hard time seeing the picture clearly, click
-on the picture.  It will expand to a larger picture on its own page so
-that you can inspect it more clearly.
+Click on the picture to expand to a larger picture.
+
 $PAR
-a) \(\displaystyle \lim_{x \to -\infty} f(x)\) = \{ ans_rule{8} \}
-$BR
-b) \(\displaystyle \lim_{x \to \infty} f(x)\) = \{ ans_rule{8} \}
-$BR
-c) \(\displaystyle \lim_{x \to 0} f(x)\) = \{ ans_rule{8} \}
+\(\displaystyle \lim_{x \to -\infty} f(x)\) = \{ ans_rule{8} \}
+
+$PAR
+ \(\displaystyle \lim_{x \to \infty} f(x)\) = \{ ans_rule{8} \}
+ 
+$PAR
+\(\displaystyle \lim_{x \to 0} f(x)\) = \{ ans_rule{8} \}
 END_TEXT
 
 Context()->normalStrings;
 
 #####################################################################
 
-SOLUTION(EV3(<<'END_SOLUTION'));
-$BR$BBOLD Solution:$EBOLD 
-$PAR
+BEGIN_SOLUTION
+
 \[
   \lim_{x \to -\infty} ($a^x + $b) = 0 + $b = $b.
 \]
@@ -122,8 +136,8 @@ $PAR
 END_SOLUTION
 
 
-ANS( num_cmp( $ans_a, strings=>["INF", "-INF", "DNE"] ) );
-ANS( num_cmp( $ans_b, strings=>["INF", "-INF", "DNE"] ) );
-ANS( num_cmp( $ans_c, strings=>["INF", "-INF", "DNE"] ) );
+ANS( $ans_a->cmp );
+ANS( $ans_b->cmp );
+ANS( $ans_c->cmp );
 
 ENDDOCUMENT();    

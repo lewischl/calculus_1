@@ -45,7 +45,8 @@ DOCUMENT();        # This should be the first executable line in the problem.
 
 loadMacros(
   "PGstandard.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -54,8 +55,49 @@ $a = random(-4,6,1);
 $c1 = $a-1;
 $c2 = $a+5;
 
+
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem gets you to think about piecewise functions and what it means for them to be continuous at their transition points.
+[@ closeDiv() @]*
+
+
+
+
+Check out this video from Prof. Amethyst about determining if a piecewise function is continuous:
+
+END_PGML
+
+
+
 BEGIN_TEXT
-Let
+$BCENTER
+\{ youtube(MILVFzVe_Zo) \}
+$ECENTER
+
+$PAR
+
+END_TEXT
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A two-sided limit exists only if the one-sided limits both exist, and they're equal.  
+
+To find a two-sided limit, first find the left- and right-hand limits, and then check if they're equal.
+
+For a continuous function, the limit is equal to the function value.
+
+[@ closeDiv() @]*
+
+END_PGML
+
+BEGIN_TEXT
+$PAR
+$HR
+$PAR
+
+Consider the piecewise function
 \[f(x) = \left\lbrace \begin{array}{ll}
                $c1+x,\quad{\rm if}\,\, x<3 \\ 
                $c2-x,\quad{\rm if}\,\, x\ge 3 
@@ -70,20 +112,14 @@ $BR$BR
 $BR$BR
 \( f(3) = \) \{ans_rule(15) \}
 $BR$BR
+
 Is the function \( f \) continuous at \( 3 \)? 
 \{pop_up_list(['?', 'Yes', 'No']) \} 
 
-$BR$BR
-\{ theresahint \}
 
 END_TEXT
 
-BEGIN_HINT
-How do we find if a piecewise function is continuous?  Check out this video from Prof. Amethyst
 
-$BR$BR
-\{ youtube(MILVFzVe_Zo) \}
-END_HINT
 $ans1 = "$c2-3";
 $ans2 = "$c2-3";
 $ans3 = "$c2-3";

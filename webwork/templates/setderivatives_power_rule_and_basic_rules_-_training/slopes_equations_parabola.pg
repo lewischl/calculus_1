@@ -63,52 +63,84 @@ $b = random(2,7,1);
 
 $showHint=-1;
 
-TEXT(EV3(<<'EOT'));
-Suppose that \( f(x) = $a x^2 - $b x\).  Find:
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+This problem offers a chance to synthesize what you've learned so far.  
+
+* Differentiating quadratic functions using the power rule
+* Evaluating derivatives to find slopes at specific points
+* Writing equations for lines using point-slope form
+
+It also offers perhaps a new opportunity: using a slope function to find places where a specific slope occurs. 
+
+[@ closeDiv() @]*
+
+END_PGML
+
+BEGIN_TEXT
+Suppose that \( f(x) = $a x^2 - $b x\).  
 $BR
 $BR
-(A) \( f'(x) \) = \{ans_rule(30) \}
+(A) 
+$BR
+\( f'(x) \) = \{ans_rule(30) \}
 $BR
 $BR
-(B) The slope of the graph of \(f(x)\) at \(x = 2\) and \(x = 3\).
+(B) 
+$BR
+The slope of the graph of \(f(x)\) at \(x = 2\) and \(x = 3\).
 $BR
 Slope at \(x = 2\): \{ans_rule(20) \}
 $BR
 Slope at \(x = 3\): \{ans_rule(20) \}
 $BR
 $BR
-(C) Find equations for two tangent lines.
+(C) 
 $BR
-Equation for the tangent line at \(x = 2\): $BR\(y(x) =\)\{ans_rule(30) \}
+Find equations for two tangent lines.
+$BR
+Equation for the tangent line at \(x = 2\): $BR\(y =\)\{ans_rule(30) \}
 $PAR
-Equation for the tangent line at \(x = 3\): $BR\(y(x) =\)\{ans_rule(30) \}
+Equation for the tangent line at \(x = 3\): $BR\(y =\)\{ans_rule(30) \}
 $BR
 $BR
-(D) List all values of \(x\) where the tangent line is
-horizontal.
+(D) 
+$BR
+List all values of \(x\) where the tangent line is horizontal.  Use a comma-separated list.
 $BR
 Value(s) of such \(x\): \{ans_rule(20) \}
 
-$BR$BR
-\{ theresahint \}
-EOT
 
+$PAR
+$HR
+$PAR
 
-BEGIN_HINT
+\{ openDiv({ "class" => "inProblemHint" }) \}
+Hints: $PAR
 (A) -- Differentiate
-$BR$BR
+$BR
 (B) -- Evaluate (A)
-$BR$BR
+$BR
 (C) -- Don't forget to remember point-slope form.
-$BR$BR
+$BR
 (D) -- A horizontal line has a very special slope.
-END_HINT
+
+\{ closeDiv() \}
+END_TEXT
+
+
+
 
 @ans = (fun_cmp("2*$a*x - $b"), num_cmp(2*$a*2 - $b),
         num_cmp(2*$a*3 - $b),
         fun_cmp("(2*$a*2 - $b)*(x-2) + ($a*2**2 - $b*2)"),
         fun_cmp("(2*$a*3 - $b)*(x-3) + ($a*3**2 - $b*3)"),
-        num_cmp($b/(2*$a)));
+        List($b/(2*$a))->cmp
+        );
 ANS(@ans);
 
 ENDDOCUMENT();

@@ -75,18 +75,39 @@ $c = (-1)**(-1+$n);
 $d = (-1)**($n);
 $deriv1 = Compute("$a*$n*$c + $b*$d");
 
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Even though we don't have a formula for the function [`g`], if we have its value at a point of interest, as well as the value of [`g^\prime`] there, too, we can still compute derivatives of functions involving [`g`].  
+
+The product rule holds even if we only know the names of the functions.
+[@ closeDiv() @]*
+
+
+
+Let's try.  
+
+1. Use the product rule to differentiate [`f`].  When you have to take the derivative of [`g`], we have to just write the name of its derivative since we don't know the formula.  That's ok.
+
+2. After differentiating, evaluate [`f'`] at [`x = -1`].
+
+---
+
+END_PGML
+
 BEGIN_TEXT
-Even though we don't have a formula for a function \(g\), if we have its value at a point of interest, as well as the value of \(g^\prime\) there, too, we can still compute derivatives of functions involving \(g\).  Let's try:
-$BR$BR
+
+
 Given that
 \[ \begin{array}{rcl}
 f(x) &=& x^{$n} g(x) \\
 g(-1)&=& $a \\
 g'(-1)&=& $b,
 \end{array} \]
-calculate \( f'( -1 ) \). \{ans_rule(30) \}
+\( f'( -1 )  = \) \{ans_rule(30) \}
 
-$BR$BR \{ theresahint \}
 
 END_TEXT
 

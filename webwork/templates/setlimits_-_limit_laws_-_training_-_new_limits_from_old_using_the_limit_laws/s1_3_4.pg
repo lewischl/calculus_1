@@ -46,7 +46,8 @@ DOCUMENT();        # This should be the first executable line in the problem.
 
 loadMacros(
   "PGstandard.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -57,10 +58,32 @@ $b1 = random(3,8,1);
 $c1 = random(3,8,1);
 $e1 = random(3,8,1);
 
+
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This sequence of problems teaches methods for finding limits when we're given a formula
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+If we want to know a limit of a function, we should 
+1. find out the limits of its pieces
+2. combine using the limit laws, if possible
+
+🧠 I hope you're wondering, "what if I can't use the limit laws because I get [`0/0`]???  
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+
 BEGIN_TEXT
-Evaluate the limit
-\[ \lim_{ x \rightarrow $e1 } $c1 ( $a1 x + $b1 )^3 \]
-Answer: \{ans_rule(25) \}
+Evaluate the limit $PAR
+
+\( \displaystyle \lim_{ x \rightarrow $e1 } $c1 ( $a1 x + $b1 )^3  = \)   \{ans_rule(25) \}
 END_TEXT
 
 $ans = "$c1 *( $a1*$e1 + $b1 )^3";

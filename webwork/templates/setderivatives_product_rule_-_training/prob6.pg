@@ -70,9 +70,18 @@ $n  = random(2,8,1);
 
 $funct1 =  Compute("$a*x^($n-1)*($n+x)*e**x");
 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+A basic differentation problem using the product rule.  
+[@ closeDiv() @]*
+
+END_PGML
+
 BEGIN_TEXT
-Let \[ f(x) = $a x^ {$n} e^x \]
-$BR $BR
+Let \( f(x) = $a x^ {$n} e^x \)
+$PAR
 \( f'( x ) = \) \{ans_rule(40) \}
 END_TEXT
 

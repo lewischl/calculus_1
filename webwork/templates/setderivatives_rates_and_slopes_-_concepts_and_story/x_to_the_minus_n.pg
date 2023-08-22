@@ -71,9 +71,37 @@ $x1 = random(1,5,1);
 
 $funct1 = Compute("($a1)*(-$n1)*x^(-$n1-1)");
 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+Derivatives of fractions with [`x`] in the bottom often give trouble.  This problem teaches a technique to deal with it.
+
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+[` \frac{d}{dx} x^n = n x^{n-1}`]
+
+[` \frac{1}{x} = x^{-1} `]
+[@ closeDiv() @]*
+
+
+Rewrite the fraction using a negative power, then use the power rule.
+
+---
+
+END_PGML
+
+
 BEGIN_TEXT
 If \( \displaystyle f(x) =  \frac { $a1 } {x ^{ $n1 } } \), find \( f'( x ) \).
-$BR$BR Answer: \{ans_rule(25) \}
+$BR$BR 
+
+\( f'( x )  = \)\{ans_rule(25) \}
 END_TEXT
 
 ANS($funct1->cmp);

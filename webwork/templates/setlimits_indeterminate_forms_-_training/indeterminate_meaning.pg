@@ -48,7 +48,8 @@ loadMacros(
    "PGuwecTikZutils.pl", #Custom TikZ code
    "PGcourse.pl",      # Customization file for the course
    "PGbasicmacros.pl",
-    "PGchoicemacros.pl"
+    "PGchoicemacros.pl",
+    "customCSS.pl",
 );
 
 # Print problem number and point value (weight) for the problem
@@ -78,6 +79,7 @@ $mc -> extra(
 "The limit of \(f\) at \(c\) does not exist $BR",
 "We have to use factor-and-cancel to find the value of the limit at \(c\) $BR",
 "The limit of \(f\) at \(c\) is \(0\) $BR",
+"There's a vertical asymptote at \(x = c\) $BR",
 );
 #$mc -> makeLast("None of the above");
 
@@ -95,6 +97,14 @@ $mc -> extra(
 
 
 
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+We've been learning how to solve "indeterminate form" limit problems.  This problem asks you to think about what information you get when you find out a limit is an indeterminate form.
+[@ closeDiv() @]*
+
+END_PGML
+
 
 BEGIN_TEXT
 
@@ -104,7 +114,9 @@ $BR
 
 $PAR
 
-(This problem does not show you which parts you have incorrect, to force you to think about the selections)
+\{ openDiv({ "class" => "inProblemHint" }) \}
+This problem does not show you which parts you have incorrect, to force you to think about the selections
+\{ closeDiv() \}
 END_TEXT
 
 

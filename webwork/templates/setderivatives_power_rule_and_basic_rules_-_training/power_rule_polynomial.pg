@@ -80,6 +80,43 @@ $df = $f->D;
 $dfx = $df->eval(x=>$x1);
 
 Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+Polynomials are simple functions used across science to model phenomena.  You have to be able to differentiate them quickly by hand.
+
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+[`` \frac{d}{dx} x^n = n x^{n-1}``] -- the power rule
+
+[`` \frac{d}{dx} (f+g) = \frac{d}{dx} f  + \frac{d}{dx} g ``] -- the sum rule
+
+[`` \frac{d}{dx} (c\cdot f(x)) = c \frac{d}{dx} f(x) ``] -- the constant product rule
+
+[@ closeDiv() @]*
+
+We can way the sum and constant-product rules simply using "box notation":
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+
+[``  (\Box+\Delta)' =  \Box'  +  \Delta' ``] -- the sum rule
+
+[``  (c\cdot \Box)' = c \cdot \Box' ``] -- the constant product rule
+
+[@ closeDiv() @]*
+
+(we're not ready for [`\Box`] in the power rule yet, we need the chain rule first!)
+
+---
+
+END_PGML
+
 BEGIN_TEXT
 Let \( f(x) =  $f \), find \( f'( x ) \).
 $BR$BR 
@@ -88,7 +125,7 @@ $BR$BR
 
 $BR$BR
 
-Find \( f'( $x1 ) \).
+Find \( f'( $x1 ) \).  (I would use a calculator to help with this, after finding the formula for \(f'\).
 
 $BR$BR 
 
@@ -103,12 +140,8 @@ $C2=-5*$b1;
 $C3=-3*$c1;
 Context()->texStrings;
 
-$showHint=-1;
-BEGIN_HINT
-Use the power rule on each term of \(f\).  The answer for \(f'\) is an expression in \(x\).  Use ^ for "to the".  
 
-For the second part, evaluate the derivative at \($x1\).
-END_HINT
+
 BEGIN_SOLUTION
 $PAR SOLUTION $PAR
 The power rule gives

@@ -1,0 +1,160 @@
+##DESCRIPTION
+##  Algebra problem: true or false for inequality 
+##ENDDESCRIPTION
+
+##KEYWORDS('algebra', 'inequality', 'fraction')
+
+## DBsubject('Algebra')
+## DBchapter('Fundamentals')
+## DBsection('Real Numbers')
+## Date('6/3/2002')
+## Author('')
+## Institution('')
+## TitleText1('Precalculus')
+## EditionText1('3')
+## AuthorText1('Stewart, Redlin, Watson')
+## Section1('1.1')
+## Problem1('22')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set3.9_exp_derivatives/exp_1.pg 
+#	to setderivatives_of_exponential_functions/exp_1.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_of_exponential_functions/exp_1.pg 
+#	to setderivatives_of_exponential_functions_-_training/exp_1.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();      
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "PGcourse.pl",
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+
+
+
+
+##############################################################
+#
+#  Text
+#
+#
+Context("Numeric");
+Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on not-base-[`e`] derivatives with just [`x`] inside.
+[@ closeDiv() @]*
+
+Consider functions like [`2^x`] and [`4^x`].  They're *almost* [`e^x`], but not quite.
+
+When the base of the exponential is not the "natural number" [`e`], we have one extra factor to chain out.  Why?  Because 
+
+[``` 2^x = e^{\ln (2) \cdot x} ```]
+
+and more generally, 
+
+[``` b^x = e^{\ln (b) \cdot x} ```]
+
+Applying the chain rule, we find following differentation rule:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The rule for base [`b`] exponentials:
+
+[``` 
+\frac{d}{dx} b^x = \ln (b) \cdot b^x
+```]
+⚠️ This only works if the inside is just [`x`].  
+[@ closeDiv() @]*
+
+---
+
+Find the derivatives using the base-[`b`] rule.
+
+END_PGML
+
+
+
+$a = random(2,4,1);
+$f = Formula("$a^x");
+BEGIN_TEXT
+$PAR $BR
+
+\(f(x) = $f\) $BR
+\( f'(x) = \) \{ ans_rule(50) \}
+END_TEXT
+ANS($f->D->cmp);
+
+
+$a = random(5,10,1);
+$b = random(3,7,1);
+$f = Formula("$a^x - sin(x) + $b");
+BEGIN_TEXT
+$PAR $BR
+
+\(f(x) = $f\) $BR
+\( f'(x) = \) \{ ans_rule(50) \}
+END_TEXT
+ANS($f->D->cmp);
+
+$a = random(11,43,1);
+$b = non_zero_random(-30,30);
+$f = Formula("$a^x + $b x^2 ")->reduce;
+BEGIN_TEXT
+$PAR $BR
+
+\(f(x) = $f\) $BR
+\( f'(x) = \) \{ ans_rule(50) \}
+END_TEXT
+ANS($f->D->cmp);
+
+BEGIN_PGML
+---
+
+🤔 What if we want to take the derivative of [`b^{f(x)}`]?
+END_PGML
+##############################################################
+#
+#  Answers
+#
+#
+
+
+#Context()->normalStrings;
+
+ENDDOCUMENT();        

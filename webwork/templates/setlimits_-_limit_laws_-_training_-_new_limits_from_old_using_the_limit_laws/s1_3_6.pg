@@ -1,5 +1,4 @@
 
-
 ########################################
 # this file automatically moved
 #	from local/Library/ASU-topics/setLimitConcepts/s1_3_6.pg 
@@ -30,6 +29,7 @@ loadMacros(
   "MathObjects.pl",
   "PGcourse.pl",
     "uwecAhrendt.pl",
+    "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -45,13 +45,44 @@ $c1 = random(3,8,1);
 $d1 = random(3,8,1);
 $e1 = random(-3,-1,1);
 
-TEXT(EV3(<<'EOT'));
-Evaluate the limit
-\(\displaystyle\lim_{ x \to $e1 } \frac { $b1 x^2 -$c1 x +$d1 } {x - $a1 } \).
-If the limit does not exist enter DNE.
-$PAR Limit =  \{ans_rule(25) \}$BR
-${BITALIC}(Give an exact answer.)$EITALIC
-EOT
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This sequence of problems teaches methods for finding limits when we're given a formula
+[@ closeDiv() @]*
+
+
+
+The limit laws say:
+
+* The limit of the sum/difference is the sum/difference of the limits
+* The limit of the product is the product of the limits
+* The limit of the quotient is the quotient of the limits, unless the denominator goes to [`0`] (in which case the answer could be anything, we require more information)
+* The limit of the power is the power of the limit
+* Constants factor out of limits
+* The foundation for limits of polynomials: [`` \lim_{x \to a} x = a``] 
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+So if we want to know a limit of a function, we should 
+1. find out the limits of its pieces
+2. combine using the limit laws, if possible
+
+Importantly, the limit of a polynomial is the value of the polynomial at the point of interest!
+[``` \lim_{x \to a} \textrm{polynomial} (x) = \textrm{polynomial}(a)```]
+[@ closeDiv() @]*
+
+
+---
+
+END_PGML
+
+BEGIN_TEXT
+Evaluate the limit; If the limit does not exist enter DNE.
+$PAR
+
+\(\displaystyle\lim_{ x \to $e1 } \frac { $b1 x^2 -$c1 x +$d1 } {x - $a1 }= \) \{ans_rule(25) \}
+
+END_TEXT
 
 $numer = $b1*$e1*$e1 -$c1*$e1 +$d1;
 $denom = $e1 - $a1;

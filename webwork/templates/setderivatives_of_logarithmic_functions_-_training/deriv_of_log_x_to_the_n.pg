@@ -22,7 +22,7 @@
 ## Problem2('22')
 ## KEYWORDS('derivatives', 'logarithm','Calculus')
 ##SC section 3.7 prob 25
-## logarithmic differentiation
+
 
 
 
@@ -60,27 +60,106 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 Context('Numeric');
 
-$n = random(2,8,1);
-$x = random(2,4,1);
 
-$ans1 = Formula("$n / x")->reduce;
-$ans2 = Compute("$n* e**(-$x)")->reduce;
 
 Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on derivatives of functions using natural log.
+[@ closeDiv() @]*
+
+The natural log function [`\ln(x)`] answers the question "[`e`] to the what number is equal to [`x`]?".  Its derivative is increasing everywhere its defined.  
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The derivative of natural log
+
+[``` ( \ln(x) )' = \frac{1}{x}  ```]
+
+⚠️ This only works if the inside is just [`x`]!!
+[@ closeDiv() @]*
+
+Compute the derivatives:
+END_PGML
+
+$a = non_zero_random(-20,20,1);
+$f = Formula("ln(x) + $a x")->reduce;
 BEGIN_TEXT
-Let \[ f(x) = \ln (x^ {$n}) \]
-$BR$BR
-\( f'( x ) = \) \{ans_rule(40) \}
-$BR$BR
-\( f'( e^{$x} ) = \) \{ans_rule(40) \}
+$PAR $BR
+\(f(x) = $f\)    $BR
+\(f'(x) = \) \{ ans_rule() \} 
 END_TEXT
-Context()->normalStrings;
-
-ANS($ans1->cmp());
-ANS($ans2->cmp());
+ANS($f->D->cmp);
 
 
-BEGIN_HINT
-the derivative of $BR\(\ln \Box\) $BR is $BR \(\Box' \cdot \frac{1}{\Box}\)
-END_HINT
+$a = random(-20,-10,1);
+$b = non_zero_random(-9,9,1);
+$f = Formula("ln(x) + $a sin($b x)")->reduce;
+BEGIN_TEXT
+$PAR $BR
+\(f(x) = $f\)    $BR
+\(f'(x) = \) \{ ans_rule() \} 
+END_TEXT
+ANS($f->D->cmp);
+
+
+BEGIN_PGML
+
+---
+
+Let's incorporate the chain rule so we can put functions inside the natural log function: 
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The derivative of natural log with a function inside
+
+[``` ( \ln(f(x)) )' = \frac{1}{f(x)} f'(x)  ```]
+
+If you're into box notation, I think this next formula is pretty snappy.  (I merged the "chained out" into the fraction)
+
+[``` ( \ln(\Box) )' = \frac{\Box'}{\Box}  ```]
+
+⚠️ This only works if the base of the log is [`e`].
+[@ closeDiv() @]*
+
+Determine the derivatives using the natural log rule:
+END_PGML
+
+
+
+$n = random(2,8,1);
+$f = Formula("ln(x^$n)")->reduce;
+BEGIN_TEXT
+$PAR $BR
+\( f(x) = $f \) $BR
+\( f'( x ) = \) \{ans_rule(40) \}
+END_TEXT
+
+ANS($f->D->cmp());
+
+
+$n = random(2,8,1);
+$f = Formula("ln(sin(x))")->reduce;
+BEGIN_TEXT
+$PAR $BR
+\( f(x) = $f \) $BR
+\( f'( x ) = \) \{ans_rule(40) \}
+END_TEXT
+
+ANS($f->D->cmp());
+
+
+$n = random(2,8,1);
+$f = Formula("ln(sin($n x))")->reduce;
+BEGIN_TEXT
+$PAR $BR
+In this one, a common mistake will be to not chain out the derivative of \($n x\).$PAR
+\( f(x) = $f\) $BR
+\( f'( x ) = \) \{ans_rule(40) \}
+END_TEXT
+ANS($f->D->cmp());
+
+
+
+
 ENDDOCUMENT();        # This should be the last executable line in the problem.

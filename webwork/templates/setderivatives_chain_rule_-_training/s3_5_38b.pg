@@ -69,4 +69,13 @@ END_TEXT
 
 ANS(fun_cmp($funct1));
 
+$showHint=-1;
+BEGIN_HINT
+
+As before, try writing \(f\) as a composition \(f_1(g_1(x))\). But after that, either \(f_1\) or \(g_1\) will be a composition of its own! When you decompose it further, use \(f_2\) and \(g_2\), and use \(v\) instead of \(u\) for the new inside function \(g_2\).
+
+Depending how you chose \(f_1\) and \(g_1\), this may be either \(f_1(u)=f_2(g_2(u))=f_2(v)\) or \(g_1(x)=f_2(g_2(x))=f_2(v)\).
+
+END_HINT
+
 ENDDOCUMENT();        # This should be the last executable line in the problem.

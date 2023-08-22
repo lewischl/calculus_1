@@ -76,6 +76,35 @@ $m = $df->eval(x=>1);
 $b = $y - $m;
 $ans = Compute("$m x + $b");
 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+An opportunity to use what you've learned about the power rule, sum rule, and tangent lines to write an equation for a tangent line.
+
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+Lines can be written with two ingredients:
+
+1. a point on the line [`(x_0, y_0)`]
+2. the slope of the line [`m`]
+
+using point-slope form
+
+[`` y-y_0 = m (x-x_0) ``]
+
+
+And, most importantly, *the slope of the tangent line is the value of the derivative*.
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
 BEGIN_TEXT
 Find an equation of the tangent line to the curve \( y=$a1-2x-3x^2 \) at the point \( (1, $b1). \)
 $BR$BR

@@ -86,6 +86,13 @@ $c2 = $c1*$x1;
 $y1 = $c1 - $a1*$x1 - $b1;
 
 Context('Fraction');
+
+Context()->variables->add(y=>"Real");
+
+$dydx = Fraction("-(2*$a1*x + $b1 + y) / x")->reduce;
+
+$TTT = $dydx->eval(x=>$x1, y=>$y1);
+
 $deriv = Fraction(
 	-(2*$a1*$x1 + $b1 + $y1),
 	$x1
@@ -97,28 +104,83 @@ $deriv = Fraction(
 #
 #
 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+A training implicit differentation problem with an equation involving the basic product [`xy`].  Some guidance on method.
+[@ closeDiv() @]*
+
+
+Here's an example of implicit differentiation involving the product rule:
+[@ youtubeAmethyst("HZJ4ziSYfxk") @]*
+
+---
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+To find a formula for the slope of an implicit function:
+
+1. Write down the equality relationship between [`x`] and [`y`]
+2. Differentiate both sides *with respect to x* using implicit differentiation.
+3. Solve for [`\frac{dy}{dx} = y'`].
+
+To find the value of the derivative at a specific point, evaluate [`y'`] at that point.
+
+[@ closeDiv() @]*
+
+
+---
+
+END_PGML
+
+
+
 BEGIN_TEXT
-If \( $a1 x^2 + $b1 x + xy = $c2  \) and \( y($x1) = $y1 \),
-find \( y'($x1) \) by implicit differentiation.
-$BR $BR
-\( y'($x1) = \) \{ ans_rule(5) \}
-$BR
+
+
+If $PAR
+\( $a1 x^2 + $b1 x + xy = $c2  \) and $BR
+\( y($x1) = $y1 \),$PAR
+find \( y'($x1) \) by implicit differentiation. $PAR
+
 END_TEXT
 
-BEGIN_HINT
-There's a product in there!  Use the product rule on the \(xy\) term, and be sure to note that the derivative of \(y\) is \(y'\).
+BEGIN_PGML
 
-\{ amethystHint("$PAR$HR$PAR Here's an example of implicit differentiation involving the product rule:$PAR") \}
-\{ youtubeAmethyst("HZJ4ziSYfxk") \}
 
-END_HINT
+
+
+First, find the formula for the slope at *any* point on the curve.
+
+[`\frac{dy}{dx} = y'`] = [__]{$dydx}.
+
+Now find the slope at the specific point we're interested in.
+
+[` y'([$x1]) = `] [__]{$deriv}
+
+
+
+---
+
+Hints:
+
+[@ openDiv({ "class" => "inProblemHint" }) @]*
+This problem gives you the coordinates encoded.  We wrote "[`y([$x1]) = [$y1]`]".  That means that at [`x = [$x1]`], the [`y`]-coordinate is [`[$y1]`].
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "inProblemHint" }) @]*
+There's a product in there!  Use the product rule on the [`xy`] term.
+[@ closeDiv() @]*
+
+END_PGML
+
+
 ##############################################################
 #
 #  Answers
 #
 #
 
-ANS($deriv->cmp);
 
 $a12 = 2*$a1;
 Context()->texStrings;

@@ -97,7 +97,20 @@ foreach $i ( 1 .. int(sqrt($a2 - $x2)) ) {
 	$d = $i if ( ($a2 - $x2) % $i**2 == 0 )
 }
 
+
+Context("Numeric");
+
+
+
+
+
 Context('Fraction');
+
+Context()->variables->add(
+dx=>"Real", dy=>"Real", y=>"Real"
+);
+
+
 ($c, $r) = (
 	Fraction($b1 * $d, $a1)->reduce,
 	($a2 - $x2) / $d**2
@@ -123,6 +136,11 @@ Context('Numeric')->flags->set(
 	reduceConstants => 0,
 	reduceConstantFunctions => 0
 );
+
+Context()->variables->add(
+dx=>"Real", dy=>"Real", y=>"Real"
+);
+
 $y1 = Formula("$y1_string");
 
 $deriv = Compute('-' . $deriv_string);
@@ -135,54 +153,99 @@ $deriv = Compute('-' . $deriv_string);
 #
 
 Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+A relatively simple implicit differentation problem to train you on the steps to finding slopes of tangent lines at points on implicit curves.
+[@ closeDiv() @]*
+
+
+
+Here's a video to help you take some in implicit differentation from Prof. Amethyst
+
+[@ youtubeAmethyst("k1f3YVRHxb4") @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+To find the formula for the slope of an implicit curve at a point [`(x,y)`],
+
+1. Write down the equality relationship defining the curve
+2. Differentiate both sides *with respect to x* using implicit differentiation    
+    * Be careful to chain out [`\frac{dy}{dx}`] when differentiating expressions with [`y`].
+3. Solve the equality for [`\frac{dy}{dx} = y'`] using algebra. 
+[@ closeDiv() @]*
+
+---
+
+In this problem we study the ellipse defined by the implicit equation
+
+[``` \frac{x^2}{[$a2]} + \frac{y^2}{[$b2]} = 1 ```]
+
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+We'll start by finding the formula for [`\frac{dy}{dx}`]. Follow the steps.
+[@ closeDiv() @]*
+
+END_PGML
+
+$lhs = Formula("2x/$a2 + 2y/$b2 * dy/dx");
+$rhs = Compute(0);
+
+$dydx = Formula("- $b2/$a2 * x/y");
+BEGIN_PGML
+First, Differentiate both sides of the equality to get new the relationship
+
+>>[_____]{$lhs} [`  = `] [_____]{$rhs}<<
+
+
+Next, solve for [`\frac{dy}{dx}`]
+
+>>[``\frac{dy}{dx} = ``] [___]{$dydx}<<
+
+Nice, this tells us the slope at *any* point [`(x,y)`], if only we have its coordinates.  
+
+---
+
+Let's find the slope at a few points.  
+
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Evaluate [`\frac{dy}{dx}`] at the point to compute the slope.
+[@ closeDiv() @]*
+
+
+END_PGML
+
+
+$table = DataTable([ # start rows
+["the slope at ..."," is ",""],
+["\((0,$b1)\)"," ", ans_rule(10)],
+["\((0,-$b1)\)","", ans_rule(10)],
+["\(($x1,$y1)\)","", ans_rule(10)],
+["\(($x1,-$y1)\)","", ans_rule(10)],
+["\((-$a1,0)\)","", ans_rule(10)],
+["\(($a1,0)\)","", ans_rule(10)],
+], # end the table's rows
+align=>"l l",
+tablecss=>$standardtablecss);
+
 BEGIN_TEXT
-If
-\[ \frac{x^2}{$a2} + \frac{y^2}{$b2} = 1 \]
-and \( y($x1) = $y1 \), find
-\( y'( $x1 ) \) by implicit differentiation.
-$BR $BR
-\( y'($x1)  = \) \{ans_rule(30) \}
-$PAR
 
-$BR$BR
-
-
-
+What is the slope at the indicate point?  If it's not defined, enter "DNE". $PAR
 END_TEXT
 
-$showHint=-1;
-BEGIN_HINT
+TEXT($table);
 
-We want the slope at a particular point.  We have "encoded" the point in functional form by saying \( y($x1) = $y1 \).  That means when \(x = $x1\), \(y = $y1\).  That is, we have a point on our implicit curve (which is an ellipse), and its coordinates are \( ($x1, $y1) \).  We want to find the slope there.
-$PAR
-$HR
-$PAR
+Context("Fraction");
 
-Do not use the quotient rule to take the derivative of \(\frac{x^2}{$a2}\).  Not that it would be wrong to do so, but that it would be a bunch of extra work.  Rewrite \( \frac{x^2}{$a2} = \frac{1}{$a2} x^2\), and use the regular old power rule.  Similarly for the term containing \(y\).
-
-$PAR
-$HR
-$PAR
-
-We're thinking of \(y\) as a function of \(x\).  So the equation looks like
-
-\[ \frac{x^2}{$a2} + \frac{[y(x)]^2}{$b2} = 1 \]
-
-Taking the derivative of *each side* leads the way.  The derivative of any part with an \(x\) in it just uses the normal derivative rules.
-
-$BR$BR
-
-Taking the derivative of any part with a \(y\) in it requires the chain rule, and you have to multiply the derivative by \(y'\).  For example, 
-
-$BR \( \displaystyle \frac{d}{dx} \sin \left(2y(x)\right) = \cos (2y(x)) \cdot (2) \cdot (y'(x)) \)
-
-
-
-
-
-\{amethystHint("$PAR$HR$PAR Looking for a video to help you take some steps?  Check out this one from Prof. Amethyst:$PAR ") \}
-\{ youtubeAmethyst("k1f3YVRHxb4")\}
-END_HINT
+ANS(Compute(0)->cmp);
+ANS(Compute(0)->cmp);
+ANS($deriv->cmp);
+ANS(Compute(-$deriv)->cmp);
+ANS(Compute("DNE")->cmp);
+ANS(Compute("DNE")->cmp);
 
 Context()->normalStrings;
 ##############################################################
@@ -192,7 +255,7 @@ Context()->normalStrings;
 #
 
 
-ANS($deriv->cmp);
+
 
 ;
 

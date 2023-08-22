@@ -88,7 +88,7 @@ $popup3 = PopUp(['?','removable', 'jump', 'infinite', 'no discontinuity'],'infin
 Context()->texStrings;
 
 BEGIN_TEXT
-Sketch the graph of the function \(f\) to determine the type of discontinuity at each \(x\)-value.
+Determine the type of discontinuity at each \(x\)-value for the given function.
 \[
 f(x) = \begin{cases}
 x^2+2, &\text{ if } x < -3     \\

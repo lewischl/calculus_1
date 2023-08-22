@@ -49,6 +49,7 @@ loadMacros(
    "PGchoicemacros.pl",
    #"source.pl",         # used to display problem source button
    "PGcourse.pl",      # Customization file for the course
+   "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -78,13 +79,24 @@ $func = Compute(" ($a1 - x)( $b1 + $c1 x)/(  (3 - $d1 x )( $e1 + $f1 x ) ) ")->r
 #
 
 Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem offers a factored rational function, which feels different.  But it's no different.  Use the same techniques for limits at infinity to tackle this problem.
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
 BEGIN_TEXT
-Evaluate the limit
-\[ \lim_{ x \rightarrow \infty } $func. \]
+Evaluate the limit.  If it does not exist, enter ${BBOLD}DNE${EBOLD}.
 
-${BITALIC}(If the limit approaches \(\infty\), enter ${BBOLD}INF${EBOLD}; if it approaches \(-\infty\), enter ${BBOLD}-INF${EBOLD}; otherwise, if it does not exist, enter ${BBOLD}DNE${EBOLD}.)${EITALIC}$BR
+$PAR
 
-Limit = \{ ans_rule(20) \}
+\( \displaystyle \lim_{ x \rightarrow \infty } $func = \) \{ ans_rule(20) \}
 
 END_TEXT
 Context()->normalStrings;

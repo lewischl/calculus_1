@@ -1,5 +1,3 @@
-
-
 ########################################
 # this file automatically moved
 #	from local/Library/Rochester/setDerivatives2_5Implicit/c2s6p1.pg 
@@ -49,21 +47,27 @@ do {
 	and sqrt($q) == int(sqrt($q))
 );
 
-Context('Numeric')->variables->are(
-	x => 'Real',
-	y => 'Real'
-);
 Context()->flags->set(
 	reduceConstants => 0,
 	reduceConstantFunctions => 0,
 	formatStudentAnswer => parsed
 );
+
+Context()->variables->add(
+dx=>"Real", dy=>"Real", y=>"Real"
+);
+
 $sl = Formula("sqrt($a*x + $b*y)")->reduce;
 $sl0 = $sl->eval(x => $x0, y => $y0);
 $sq = Formula("sqrt($c*x*y)")->reduce;
 $sq0 = $sq->eval(x => $x0, y => $y0);
 $k = $sl0 + $sq0;
 $F = Formula("sqrt($a*x + $b*y) + sqrt($c*x*y)")->reduce;
+
+$lhs = Formula("1/(2*sqrt($a*x + $b*y))*($a+$b dy/dx) + 1/(2*sqrt($c*x*y))*($c*(y + x dy/dx))");
+$rhs = Formula(0);
+
+
 
 Context('Fraction');
 $dydx0 = Fraction(
@@ -73,36 +77,68 @@ $dydx0 = Fraction(
 
 $m0 = Real($dydx0);
 
+
 Context()->texStrings;
-BEGIN_TEXT
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem offers a complicated defining equation for the implicit curve, featuring a product under a square root.  It starts with an opportunity to check your differentation of the equation before you find the slope at the point.  We also point out an opportunity to make work easier if you only need the slope at one point, but not a general formula for all points.
+[@ closeDiv() @]*
+
+
+---
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+
 Find the slope of the tangent line to the curve
-\( $F = $k \) at the point \( ($x0, $y0) \).
+[` [$F] = [$k] `] at the point [` ([$x0], [$y0]) `].
 
-$PAR
+[@ closeDiv() @]*
+
+
+
+The starting point with slopes of implicit curves is correct differentation of both sides of the equation.  After differentiating, we get (keep left on left, right on right):
+
+>>[_____]{$lhs} [`  = `] [_____]{$rhs}<<
+
+---
+
+Now, the steps to do the algebra to find the formula for [`\frac{dy}{dx}`] are kinda complicated.  It would be something like: move one term to the other side; clear denominators; etc.  
+
+But this problem doesn't ask use to find the formula for [`\frac{dy}{dx}`]; we just need [`\frac{dy}{dx}|_{([$x0],[$y0])}`].
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A process with speedup if you only need the slope at one point:
+
+1. Differentiate both sides of the equality
+2. Immediately plug in [`(x,y) = (x_0, y_0)`]. 
+     The only remaining symbols should be numbers and [`\frac{dy}{dx}`]
+3. Simplify, reduce, and solve for [`\frac{dy}{dx} = y'`].
+
+[@ closeDiv() @]*
+
+Practice these steps now to save a ton of algebra.
+
+END_PGML
+
+BEGIN_TEXT
+
+$PAR$BR
+
 The slope of the tangent line to the curve at
-the given point is \{ ans_rule(15) \}.
+\( (x,y) = ($x0, $y0) \) is \{ ans_rule(15) \}.
 END_TEXT
-$showHint=-1;
-BEGIN_HINT
-Be sure to use the product rule on the inside of \(\sqrt{$c xy}\).
 
-$PAR
-
-Also, the general square root rule: $BR
-\( (\sqrt{\Box})' = \frac{1}{2 \sqrt{\Box}} \Box'\)
+ANS($m0->cmp);
 
 
-$PAR
 
-Also also, \( \frac{d}{dx}(ax+by) = a+by' \)
-END_HINT
+
 
 Context()->normalStrings;
 
-ANS($m0->cmp(
-	correct_ans_latex_string => $dydx0->TeX
-	)
-);
+
 
 #Context()->texStrings;
 #BEGIN_SOLUTION

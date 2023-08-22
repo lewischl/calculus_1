@@ -47,7 +47,8 @@ DOCUMENT();        # This should be the first executable line in the problem.
 
 loadMacros(
   "PGstandard.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -56,24 +57,85 @@ $a = random(2,5,1);
 $b = random(2,5,1);
 $c = random(2,5,1);
 
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on limits at infinity for rational functions of power functions with positive powers
+[@ closeDiv() @]*
+
+
+
+Prof. Amethyst has a video with three worked examples of the technique of leading behaviour:
+
+[@ youtubeAmethyst(YwbZbjjYKhY) @]*
+
+
+
+Leading behaviour for limits at infinity extends to situations where the powers in the numerator and denominator are not equal.  We still keep only the power with the highest power, and neglect the rest.
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+For limits at infinity of rational functions of power functions with positive powers:
+
+* If the power of the numerator is larger, the limit is a flavor of infinity
+* If the power of the numerator is smaller, the limit is a flavor of zero
+* If the powers of the numerator and denominator are equal, the limit is a non-zero constant
+
+[@ closeDiv() @]*
+
+The details of the exact value come down to the coefficients of the leading terms.  I'll leave those details to you to discover!
+
+
+---
+
+END_PGML
+
+
 BEGIN_TEXT
-Evaluate the following limit.
-\[\lim _{x\to \infty} \frac{x^4-$a x^2+$b}{x^5+$c x^3}\]
+Evaluate the following limits.  If a limit doesn't exist, enter DNE.
 
-Answer: \{ans_rule()\}
+$PAR
+\( \displaystyle \lim _{x\to \infty} \frac{x^4-$a x^2+$b}{x^5+$c x^3} = \)  \{ans_rule()\}
 
-$BR$BR$BR
-\{ theresahint \}
+$PAR
+\( \displaystyle \lim _{x\to \infty} \frac{x^5-$a x^2+$b}{x^5+$c x^3} = \)  \{ans_rule()\}
+
+$PAR
+\( \displaystyle \lim _{x\to \infty} \frac{x^6-$a x^2+$b}{x^5+$c x^3} = \)  \{ans_rule()\}
+
+
+$PAR $HR $PAR
+
+Things get a bit trickier when the limit is at \(-\infty \), because odd powers preserve signs, and even powers produce positive numbers.  Pay attention to the signs of the leading coefficients in the following sequence of limit problems.  The pattern of function degrees is the same to help highlight the pattern.  
+
+$PAR
+
+The more steps you show on paper, the more the pattern will make sense.  Keep records!  Write down patterns!
+
+
+$PAR
+\( \displaystyle \lim _{x\to -\infty} \frac{x^4-$a x^2+$b}{x^5+$c x^3} = \)  \{ans_rule()\}
+
+$PAR
+\( \displaystyle \lim _{x\to -\infty} \frac{x^5-$a x^2+$b}{x^5+$c x^3} = \)  \{ans_rule()\}
+
+$PAR
+\( \displaystyle \lim _{x\to -\infty} \frac{x^6-$a x^2+$b}{x^5+$c x^3} = \)  \{ans_rule()\}
+
 END_TEXT
 
-BEGIN_HINT
-This is a limit at infinity, and "leading behaviour" is a great way to solve these.  
+Context("Numeric");
 
-
-
-\{ amethystHint("$PAR$HR$PAR Prof. Amethyst has a video with three worked examples of the technique:$BR$BR") \}
-\{ youtubeAmethyst(YwbZbjjYKhY) \}
-END_HINT
+# limits at positive inf
 ANS(num_cmp(0));
+ANS(Real(1)->cmp);
+ANS(Infinity->cmp);
+
+# limits at negative inf
+ANS(num_cmp(0));
+ANS(Real(-1)->cmp);
+ANS((-Infinity)->cmp);
+
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

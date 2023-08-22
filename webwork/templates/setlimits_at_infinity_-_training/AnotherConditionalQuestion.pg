@@ -52,10 +52,12 @@ loadMacros(
   "PGstandard.pl",
   "PGchoicemacros.pl",
   "extraAnswerEvaluators.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
-COMMENT("todo: fix instructions for what to enter for infinity");
+COMMENT("a two-part problem where the second part is revealed after the first part is correctly solved");
+COMMENT("todo: make this a scaffolded problem");
 
 TEXT(beginproblem());
 
@@ -71,13 +73,26 @@ $twiceabsq = 2*$a*$bs;
 $ftex = "\frac{$a x^2}{x^2 - $bs }";
 $fp = "- $twiceabsq * x / ((x**2 - $bs)**2)";
 
-BEGIN_TEXT
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem aims to build the connection between vertical asymptotes and limits with value infinity.  This stands in contrast to limits *at* infinity, which has to do with *horizontal* asymptotes.
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "inProblemHint" }) @]*
 This problem has two parts.  The second part will appear after you answer the first part correctly.
-$BR
-$BR
-(a) What are the vertical asymptotes of \( \displaystyle f(x) = $ftex \)?  Your answer should be a number, a list of numbers separated by commas, or ${BITALIC}None${EITALIC}.
-$BR
-$BR 
+[@ closeDiv() @]*
+END_PGML
+
+
+BEGIN_TEXT
+
+$PAR$HR$PAR
+
+What are the vertical asymptotes of \( \displaystyle f(x) = $ftex \)?  Your answer should be a number, a list of numbers separated by commas, or ${BITALIC}None${EITALIC}.
+$PAR
 Vertical asymptotes at \( x = \) \{NAMED_ANS_RULE('ans_1',40) \}
 $BR
 
@@ -96,44 +111,40 @@ $rh_ans_hash = $ans_1_eval->evaluate($Answer_1);
 if (1 == $rh_ans_hash->{score} ) {
 
 BEGIN_TEXT
+$PAR
 $HR
-$BR
-(b) Find the following left- and right-hand limits at the vertical asymptote \( x = -$b \).   
-$BR
-$BR
-$BCENTER
+$PAR
+Find the following left- and right-hand limits.   
+$PAR
 \( \displaystyle \lim_{x \rightarrow -$b^{-}} $ftex = \) \{NAMED_ANS_RULE('ans_2',10)\} 
-$SPACE $SPACE $SPACE $SPACE $SPACE
+$PAR
 \( \displaystyle \lim_{x \rightarrow -$b^{+}} $ftex = \) \{NAMED_ANS_RULE('ans_3',10)\} 
-$ECENTER
-$BR
 
-Find the following left- and right-hand limits at the vertical asymptote \( x = $b \).
-$BR
-$BR
-$BCENTER
+$PAR
+
+
 \( \displaystyle \lim_{x \rightarrow $b^{-}} $ftex = \) \{NAMED_ANS_RULE('ans_4',10)\} 
-$SPACE $SPACE $SPACE $SPACE $SPACE
+$PAR
 \( \displaystyle \lim_{x \rightarrow $b^{+}} $ftex = \) \{NAMED_ANS_RULE('ans_5',10)\} 
-$ECENTER
-$BR
-$BR
-*Important!*  Enter I for \( \infty \), -I for \( - \infty \) (those are capital eye's), or ${BITALIC}DNE${EITALIC} for does not exist.
+
+
 END_TEXT
 
 if ($sign == 1) {
 
-NAMED_ANS(ans_2 => num_cmp("I", strings=>['I','-I','DNE']) ); 
-NAMED_ANS(ans_3 => num_cmp("-I", strings=>['I','-I','DNE']) ); 
-NAMED_ANS(ans_4 => num_cmp("-I", strings=>['I','-I','DNE']) ); 
-NAMED_ANS(ans_5 => num_cmp("I", strings=>['I','-I','DNE']) ); 
+Context("Numeric");
+
+NAMED_ANS(ans_2 => (Infinity)->cmp(strings=>['DNE']) ); 
+NAMED_ANS(ans_3 => (-Infinity)->cmp(strings=>['DNE']) ); 
+NAMED_ANS(ans_4 => (-Infinity)->cmp(strings=>['DNE']) ); 
+NAMED_ANS(ans_5 => (Infinity)->cmp(strings=>['DNE']) ); 
 
 } else {
 
-NAMED_ANS(ans_2 => num_cmp("-I", strings=>['I','-I','DNE']) ); 
-NAMED_ANS(ans_3 => num_cmp("I", strings=>['I','-I','DNE']) ); 
-NAMED_ANS(ans_4 => num_cmp("I", strings=>['I','-I','DNE']) ); 
-NAMED_ANS(ans_5 => num_cmp("-I", strings=>['I','-I','DNE']) ); 
+NAMED_ANS(ans_2 => (-Infinity)->cmp(strings=>['DNE']) ); 
+NAMED_ANS(ans_3 => (Infinity)->cmp(strings=>['DNE']) ); 
+NAMED_ANS(ans_4 => (Infinity)->cmp(strings=>['DNE']) ); 
+NAMED_ANS(ans_5 => (-Infinity)->cmp(strings=>['DNE']) ); 
 
 }
 

@@ -65,7 +65,8 @@ $tw = 500; # graph size in TeX
 $graph1 = init_graph($xmin,$ymin,$xmax,$ymax,'axes'=>[0,0],
   'ticks'=>[6,20],'grid'=>[6,20],'pixels'=>[250,250],'size'=>[500,500]);
 
-$p1 = FEQ("x^2 * sin($a * pi * x) for x in [$xmin,$xmax] 
+$vshift = non_zero_random(-3,3,1);
+$p1 = FEQ("x^2 * sin($a * pi * x)+$vshift for x in [$xmin,$xmax] 
   using color:blue weight:2");
 
 plot_functions($graph1,$p1);
@@ -73,7 +74,7 @@ plot_functions($graph1,$p1);
 ($graph1->fn)[0]->steps(150);
 
 $ans_ab = "DNE";
-$ans_c = 0;
+$ans_c = 0+$vshift;
 
 ###############################################################
 Context()->texStrings;
@@ -85,10 +86,9 @@ $ECENTER $PAR
 $HR
 Evaluate the given limits using the graph of 
 the function \( f(x) = \displaystyle 
-x^2 \sin($a\pi x) \) shown above.
+x^2 \sin($a\pi x) + $vshift \) shown above.
 $BR
-Enter $BBOLD INF $EBOLD for \(\infty\), $BBOLD -INF $EBOLD 
-for \(-\infty\), or $BBOLD DNE $EBOLD if the limit does not exist,
+Enter $BBOLD DNE $EBOLD if the limit does not exist,
 but is neither \(\infty\) nor \(-\infty\).
 $PAR 
 If you are having a hard time seeing the picture clearly, click
@@ -116,8 +116,8 @@ equal to 0 because the function is continuous at that point and
 END_SOLUTION
 
 
-ANS( num_cmp( $ans_ab, strings=>["INF", "-INF", "DNE"] ) );
-ANS( num_cmp( $ans_ab, strings=>["INF", "-INF", "DNE"] ) );
-ANS( num_cmp( $ans_c, strings=>["INF", "-INF", "DNE"] ) );
+ANS( num_cmp( $ans_ab, strings=>["DNE"] ) );
+ANS( num_cmp( $ans_ab, strings=>["DNE"] ) );
+ANS( num_cmp( $ans_c, strings=>["DNE"] ) );
 
 ENDDOCUMENT();    

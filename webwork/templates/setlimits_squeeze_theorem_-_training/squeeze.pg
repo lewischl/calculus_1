@@ -32,7 +32,8 @@ DOCUMENT();
 loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 Context("Numeric");
@@ -41,13 +42,39 @@ TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 $a=random(1,9,1);
 
+$f = Formula("x^2 * sin( $a / x )");
+
 Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+A squeeze theorem problem where we don't give you the bounding functions.  This problem aims to help you find your own bounding functions.
+[@ closeDiv() @]*
+
+Keep in mind that we need to be able to give complete justification for our answers.
+
+---
+
+In this problem, our function of interest is [`f(x) = [$f]`], and we're interested in the limit at [`x = 0`].  But the function is an indeterminate form [`0 \cdot ?`] there!!!  What to do!
+
+💡 The function involves a wave --- [`\sin([$a] / x)`], which is bounded between inside [`[-1, 1]`].  So think of the leading [`x^2`] as the amplitude of the wave.  This leads to an easy pair of bounding functions to use for the squeeze theorem:
+
+* [`\ell(x) = -x^2`]
+* [`u(x) = x^2`]
+
+These two functions squeeze [`f`] near [`x = 0`], so we can use the squeeze theorem to find the value of the limit there.
+
+END_PGML
+
+
 BEGIN_TEXT
-Evaluate the limit
-\[ \lim_{ x \rightarrow 0 } x \sin\left(\frac{$a}{x}\right)\]
-If the limit does not exist enter DNE.
-$PAR Limit = \{ans_rule(25) \}
-$BR
+Evaluate the limit.  If the limit does not exist enter DNE.
+
+$PAR
+
+\( \displaystyle  \lim_{ x \rightarrow 0 } $f = \)  \{ans_rule(25) \}
+
 END_TEXT
 Context()->normalStrings;
 
@@ -55,8 +82,7 @@ $ans = Compute(0);
 ANS($ans->cmp());
 
 BEGIN_SOLUTION
-$PAR SOLUTION $PAR
-We know that \(-1 \leq \sin\left(\frac{$a}{x}\right) \leq 1\). It follows that: \(-x \leq x \sin\left(\frac{$a}{x}\right) \leq x\).
+We know that \(-1 \leq \sin\left(\frac{$a}{x}\right) \leq 1\). It follows that: \(-x^2 \leq x \sin\left(\frac{$a}{x}\right) \leq x^2 \).
 $BR Since \(\displaystyle \lim_{ x \rightarrow 0 } x = 0\), 
 \(\displaystyle \lim_{ x \rightarrow 0 } x \sin\left(\frac{$a}{x}\right)\) must also equal 0 by the Squeeze Theorem.
 END_SOLUTION

@@ -71,6 +71,33 @@ $f=Formula("1/{x^{$a}}");
 # Main text
 
 Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+Derivatives of fractions with [`x`] in the bottom often give trouble.  This problem teaches a technique to deal with it.
+
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+[` \frac{d}{dx} x^n = n x^{n-1}`]
+
+[` \frac{1}{x} = x^{-1} `]
+[@ closeDiv() @]*
+
+
+Rewrite the fraction using a negative power, then use the power rule.
+
+---
+
+END_PGML
+
+
 BEGIN_TEXT
 Find \(\displaystyle{\frac{d}{dx}\left( $f \right)}\).
 $PAR

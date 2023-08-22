@@ -30,7 +30,8 @@ loadMacros(
   "answerHints.pl",
   "MathObjects.pl",
   "PGgraphmacros.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 #####################################################################
 
@@ -57,6 +58,8 @@ $k = Compute("-7.93");
 
 $an1 = Compute("-1");
 $an2 = Compute("0");
+
+$num_roots = 1;
 }
 
 if ($a1==2){
@@ -74,6 +77,8 @@ $k = Compute("0.13");
 
 $an1 = Compute("-3");
 $an2 = Compute("-2");
+
+$num_roots = 1;
 }
 
 if ($a1==3){
@@ -91,6 +96,8 @@ $k = Compute("-2.93");
 
 $an1 = Compute("2");
 $an2 = Compute("3");
+
+$num_roots = 1;
 }
 
 if ($a1==4){
@@ -108,6 +115,8 @@ $k = Compute("-9.93");
 
 $an1 = Compute("-5");
 $an2 = Compute("-4");
+
+$num_roots = 1;
 }
 
 ###############################################################
@@ -117,13 +126,74 @@ Context("Interval");
 Context()->constants->add(EmptySet => Set());
 Context()->flags->set(noneWord=>"EmptySet");
 
-$ans = Interval("($an1,$an2)");
+$smallest_interval = Interval("($an1,$an2)");
 
 ###############################################################
 Context()->texStrings;
 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+A training problem on how the intermediate value theorem guarantees roots in certain intervals.
+[@ closeDiv() @]*
+
+
+Here's a video from Prof. Amethyst on the IVT.
+
+[@ youtubeAmethyst(os1OxE2IQmQ) @]*
+
+
+
+The intermediate value theorem is a simple result of the notion of continuity: 
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Continuous functions cannot skip values.
+[@ closeDiv() @]*
+
+A more formal or mathematical statement of the theorem is:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The Intermediate Value Theorem (IVT)
+
+---
+
+If 
+1. [`f`] is a continuous function on [`[a,b]`], and 
+2. [`M`] is an output value anywhere inside [`(f(a), f(b))`], 
+
+then...
+
+There MUST exist an input value [`c`] somewhere inside [`(a,b)`] such that 
+* [`f(c) = M`].
+[@ closeDiv() @]*
+
+The IVT doesn't tell us *how* to find [`c`], it just guarantees that it exists.
+
+---
+
+This problem explores existence of roots.  Here's a way of phrasing the IVT so that we can see the connection more clearly:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The Intermediate Value Theorem (IVT) for roots
+
+---
+
+If 
+1. [`f`] is a continuous function on [`[a,b]`], and 
+2. [`f`] changes sign on [`[a,b]`], 
+
+then...
+
+There MUST exist a root somewhere inside [`(a,b)`].
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
 BEGIN_TEXT
-The table below gives for the value of continuous function \(f\) at each \(x\)-value.  Using the Intermediate Value Theorem and the information in the table, determine the smallest interval in which the function $BITALIC must $EITALIC have a root.
+The table below gives the value of a continuous function \(f\) at each \(x\)-value.  
 $BCENTER
 \{ begintable(12) \}
 \{ row( "  \(x\)  ", " \(f(x)\) ")\}
@@ -141,64 +211,42 @@ $BCENTER
 \{ endtable() \}
 $ECENTER
 
-Interval: \{ans_rule(20)\}
+$PAR
 
-$BR$BR
+$PAR
 
-\{ theresahint \}
+At least how many roots must \(f\) have?  \{ans_rule(20)\}
+
+$PAR
+The Intermediate Value Theorem guarantees that \(f\) will have a root over any interval over which it changes sign, and there are many options from the table above --- for example, \(f\) changes sign over \(x \in [-5, 5]\), so we know for a fact that \(f\) has a root in \( (-5,5) \). But only one interval of \(x\)-values is the narrowest among them.  $BR
+Determine the smallest \(x\)-interval in which the function $BITALIC must $EITALIC have a root.
+
+
+$PAR
+
+Smallest / narrowest interval: \{ans_rule(20)\}
+
+\{ openDiv({ "class" => "inProblemHint" }) \}
+Hint: an open interval is smaller than a closed interval!
+\{ closeDiv() \}
 END_TEXT
 
+ANS(Compute($num_roots)->cmp);
+Context()->flags->set(ignoreEndpointTypes => 0);
+ANS($smallest_interval->cmp(showTypeWarnings=>0));
 
-BEGIN_HINT
 
---- Hint part 1:
 
-$BR$BR
 
-This problem has a table of function values, and the intermediate value theorem says that if a continuous function changes sign over an interval, then there *must* be a root in that interval.  Look for sign changes in the values of \( f \).  
 
-\{amethystHint("$PAR$HR$PAR Here's a video from Prof. Amethyst on the IVT.$BR$BR")\}
 
-\{ youtubeAmethyst(os1OxE2IQmQ) \}
 
-$BR$BR--- Hint part 2:
-$BR$BR
 
-The IVT says:
-$BR$BR
----
-$BR$BR
-If a function \(f\) is continuous on \([a,b]\), then for every single value \(M\) inside \((f(a), f(a))\) there must exist a corresponding \(c\) inside \((a,b)\) such that \(f(c) = M\). 
-$BR$BR
---- Hint part 3:
-$BR$BR
-Look for the interval of \(x\)-values where \(f(x)\) changes sign. Then, remember that an open interval is smaller than a closed interval -- so use \((a,b)\) instead of \([a,b]\).
 
-$BR$BR
---- Hint part 4:
-$BR$BR
-
-The intermediate value theorem says that a continuous function (one that can only be drawn without lifting a pencil) cannot skip values.  If it starts at function value \(f(a)\) at the left endpoint of some interval, and stops at \(f(b)\) at the right endpoint, then \(f\) must take on every single value between \(f(a)\) and \(f(b)\).
-
-$BR$BR
-
-In these two problems, we have $BR
-* an unknown continuous function (we know it's continuous because the problem said so) $BR
-* a table of values for that function at various points$BR$BR
-Check out the top of the table, the first two rows of data.  The independent variable \(x\) goes from \(-5\) to \(-4\), defining an interval of \(x\)-values \([-5,-4]\).  The function goes from \($a\) to \($b\).  So, we know that the function takes on every value strictly between \($a\) and \($b\) somewhere​ inside \((-5,-4)\).  But we can't infer that \(f\) has a root (a place the function has value zero) in \((-5,-4)\), because we see positive values at both ends. In order to guarantee the existence of a root, we need to see a sign change in the values of the function.
-
-$BR$BR
-
-Look further down the table.  There's an interval of \(x\)-values over which we witness the function changing sign.  It goes from positive (above the \(x\)-axis) to negative (below the \(x\)-axis).  This means that \(0\) is a value between \(f(a)\) and \(f(b)\) on that interval.  It also means that the \(x\)-axis is between the starting and ending function value.  Well, since \(f\) is continuous it must​ take on value \(0\) in that interval.  Or, put another way, the function must cross the \(x\)-axis inside that interval.
-
-$BR$BR
-
-END_HINT
 Context()->normalStrings;
 
 #####################################################################
 
-Context()->flags->set(ignoreEndpointTypes => 0);
-ANS($ans->cmp(showTypeWarnings=>0));
+
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

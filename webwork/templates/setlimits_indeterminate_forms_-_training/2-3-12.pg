@@ -58,7 +58,9 @@ loadMacros(
 "PGbasicmacros.pl",
 "PGchoicemacros.pl",
 "PGanswermacros.pl",
-"PGauxiliaryFunctions.pl"
+"PGauxiliaryFunctions.pl",
+"PGcourse.pl",
+"customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -77,15 +79,34 @@ $d = $a + $b;
 }
 $ma = -$a;
 
-TEXT(EV2(<<EOT));
-Evaluate the limit
-\[ \lim_{ x \rightarrow $ma } \frac{x^2 ? {$d} x ? {$c}}{x ? {$a}}\]
-${BITALIC}(If the limit does not exist, enter ${BBOLD}DNE${EBOLD}.)${EITALIC}
-$PAR
-Limit =  \{ans_rule(25) \}
-EOT
+Context("Numeric");
+
+$numer = Formula("x^2 + $d x + $c")->reduce;
+$denom = Formula("x + $a")->reduce;
 
 $ans = (-$a + $b);
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Freeform practice.  Use any method.
+[@ closeDiv() @]*
+
+END_PGML
+
+Context()->texStrings;
+
+BEGIN_TEXT
+
+Evaluate the limit.  If the limit does not exist, enter ${BBOLD}DNE${EBOLD}.
+
+$PAR
+
+\( \displaystyle \lim_{ x \rightarrow $ma } \frac{$numer}{$denom} = \)  \{ ans_rule(25) \}
+
+END_TEXT
+
+
 ANS(num_cmp($ans,strings=>["DNE"]));
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

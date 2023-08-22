@@ -50,7 +50,8 @@ loadMacros(
   "parserPopUp.pl",
   "MathObjects.pl",
   "PGgraphmacros.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 #####################################################################
 
@@ -87,6 +88,23 @@ $popup3 = PopUp(['?','removable', 'jump', 'infinite', 'no discontinuity'],'infin
 ###############################################################
 Context()->texStrings;
 
+
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem gives you a piecewise function with many branches and asks you about the continuity at each transition point.
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+To determine continuity of a piecewise function at a point, focus on one transition point at a time.  
+
+* Do the two pieces meet at the same point?
+* is the function defined at that point?  Is this value equal to the limits from each side?
+[@ closeDiv() @]*
+
+---
+
+END_PGML
 BEGIN_TEXT
 Sketch the graph of the function \(f\) to determine the type of discontinuity at each \(x\)-value.
 \[

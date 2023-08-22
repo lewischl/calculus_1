@@ -51,6 +51,7 @@ loadMacros(
 "PGauxiliaryFunctions.pl",
 "MathObjects.pl",
 "PGcourse.pl",
+"customCSS.pl",
 );
 
 Context("Numeric");
@@ -63,28 +64,38 @@ $c=non_zero_random(-10, 10);
 $d=non_zero_random(-10, 10);
 $e=random(1, 10);
 
-TEXT(EV2(<<EOT));
-Evaluate the limit 
-\[ \lim_{x \rightarrow \infty}
-\frac{\sqrt{x^4 + $b x^3 +$c}}{$e x^2 +$d}. \]
-${BITALIC}(If the limit approaches \(\infty\), enter ${BBOLD}INF${EBOLD}; if it approaches \(-\infty\), enter ${BBOLD}-INF${EBOLD}; otherwise, if it does not exist, enter ${BBOLD}DNE${EBOLD}.)${EITALIC}$BR
 
-Limit = \{ ans_rule(20) \}
 
-$BR$BR
 
-\{ theresahint \}
-EOT
 
-BEGIN_HINT
 
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
 This problem asks us to compute a limit at infinity, and the square roots appears to make it more complicated.  But, using the technique of "leading behavior", it's not so bad.  
+[@ closeDiv() @]*
 
-\{ amethystHint("$PAR$HR$PAR This video from Prof. Amethyst shows how.  In particular, see Example 3 (the video has chapters).$BR$BR") \}
 
-\{ youtubeAmethyst(x2exJoAiQXE) \}
 
-END_HINT 
+This video from Prof. Amethyst shows how.  In particular, see Example 3 (the video has chapters).
+
+[@ youtubeAmethyst(x2exJoAiQXE) @]*
+
+---
+
+END_PGML
+
+
+BEGIN_TEXT
+Evaluate the limit.  If it does not exist, enter ${BBOLD}DNE${EBOLD}.
+
+$PAR
+
+\(\displaystyle \lim_{x \rightarrow \infty} \frac{\sqrt{x^4 + $b x^3 +$c}}{$e x^2 +$d} = \) \{ ans_rule(20) \}
+
+END_TEXT
+
+
 
 $answer=1/$e;
 

@@ -47,7 +47,8 @@ DOCUMENT();        # This should be the first executable line in the problem.
 
 loadMacros(
   "PGstandard.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -57,27 +58,33 @@ $tag = random(0,5,1);
 @choose = ("a","b","s","t","u","v");
 $x = $choose[$tag];
 
-BEGIN_TEXT
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
 This problem emphasizes that the name of the variable doesn't matter.
+[@ closeDiv() @]*
+
+END_PGML
+
+
+BEGIN_TEXT
 $PAR
 
 Evaluate the limit using graphical or numerical techniques.
-\[ \lim_{ $x \rightarrow 1 } \frac { { $x }^3- $x }  { { $x }^2- 1 } \]
-Answer: \{ans_rule(25) \}
-
-
-END_TEXT
-
-
-
-BEGIN_HINT
-
-Be sure to use parentheses carefully in your calculator when you plot it.  
-
 $PAR
 
-\{ amethystHint("Check out this Desmos graph:  https://www.desmos.com/calculator/g47kn8a8hs $PAR Curious how it is basically just a line...")   \}
-END_HINT
+\( \displaystyle \lim_{ $x \rightarrow 1 } \frac { { $x }^3- $x }  { { $x }^2- 1 }  = \) \{ans_rule(25) \}
+END_TEXT
+
+BEGIN_PGML
+[@ openDiv({ "class" => "inProblemHint" }) @]*
+Be sure to use parentheses carefully in your calculator when you plot it.  
+
+
+Check out [@ htmlLink("https://www.desmos.com/calculator/g47kn8a8hs ","this Desmos graph") @]*!  Curious how the graph is basically just a line, but the formula for the function is a ratio of a cubic and a quadratic!   What happens if you factor the numerator and denominator?  Do some factors cancel?
+[@ closeDiv() @]*
+END_PGML
+
+
 
 
 ANS(num_cmp(1));

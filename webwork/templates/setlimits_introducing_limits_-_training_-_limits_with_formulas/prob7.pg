@@ -56,7 +56,8 @@ loadMacros(
   "PGchoicemacros.pl",
   "PGgraphmacros.pl",
   "MathObjects.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
  
 ## Show partial correct answers
@@ -74,23 +75,39 @@ $b = random(1,9);
 
 $f = Formula("x/(x-$a)")->reduce;
 
-$ans1 = "I";
+Context("Numeric");
+
+$ans1 = Infinity;
 
 Context()->texStrings;
+BEGIN_PGML
+[@ openDiv({ "class" => "importantFormula" }) @]*
+I like reasoning about limits using things like 
+* [`10^+`] to denote "a number just larger than [`10`]"
+* [`10^-`] to denote "a number just smaller than [`10`]"
+
+This opens up new realms of arithmetic.  Like,
+* [`10^{+} - 10 = 0^+`]
+* [`10^{-} - 10 = 0^-`]
+
+and I can then more easily reason about fractions around [`0`], like
+* [`\frac{5}{0^+} = +\infty`], because I'm dividing [`5`] by a very small positive number
+* [`\frac{7}{0^-} = -\infty`], because I'm dividing [`7`] by a very small negative number
+[@ closeDiv() @]*
+END_PGML
+
+
 BEGIN_TEXT
-Find \(\> \displaystyle \lim_{x \rightarrow $a^+} $f \).
+$PAR
+Find the value of the limit.  Enter $BBOLD DNE $EBOLD if the limit does not exist.  Consider trying the notation suggested above.
 $BR
 $BR
-Enter $BBOLD I $EBOLD for \(\infty\), $BBOLD -I $EBOLD for \(-\infty\),
-and $BBOLD DNE $EBOLD if the limit does not exist.
-$BR
-$BR
-Answer: \{ans_rule(20)\}
+\(\> \displaystyle \lim_{x \rightarrow $a^+} $f = \) \{ans_rule(20)\}
 
 
 END_TEXT
 Context()->normalStrings;
-ANS(num_cmp($ans1, strings=>["I", "-I", "DNE"]));
+ANS($ans1 -> cmp);
 
 
 ENDDOCUMENT();

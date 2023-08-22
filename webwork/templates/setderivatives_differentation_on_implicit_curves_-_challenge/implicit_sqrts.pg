@@ -88,20 +88,6 @@ Context('Fraction');
 $deriv = Fraction($x1 - $a1, $x1)->reduce;
 
 
-$unique_div_id = "desmos_graph_embedded_in_webwork";
-$width = 600;
-$height = 400;
-
-HEADER_TEXT(MODES(
-    HTML=>'<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
-    TeX=>''
-));
-
-$desmos_div = MODES(
-    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
-
 
 
 ##############################################################
@@ -117,45 +103,17 @@ Consider the implicit curve given by \[  \sqrt{x} + \sqrt{y} = $a1 \]
 and a point on the curve given by
 \( y($x2) = $y1 \).
 
-$PAR$HR$PAR
-
-
 $PAR
 
-Use the below graph to experiment and find an approximate value of \(y'($x2)\).  
-
-$PAR
-
-In the Desmos graph, we've called the slope \(m\), and it has a slider you can play with.  Slide it to find an approximate value of \(m\) that makes the line tangent.
-
-$PAR
-
-\{ $desmos_div \}
-
-
-$PAR$HR$PAR
-
-
-
-Now find the exact value of
+Find the exact value of
 \( y'($x2) \) by implicit differentiation.
 $BR $BR
  \( y'($x2) = \)  \{ans_rule(10) \}
 
 
-$PAR$HR$PAR
-
-\{ theresahint \}
-
 END_TEXT
 
-# this breaks submission
-# \{ $desmos_div \}
 
-BEGIN_HINT
-Remember the general square root rule:$BR
-\( (\sqrt{\Box})' = \frac{1}{2 \sqrt{\Box}} \Box'\)
-END_HINT
 
 
 Context()->normalStrings;
@@ -169,40 +127,6 @@ Context()->normalStrings;
 ANS($deriv->cmp);
 
 
-
-
-
-
-TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
-<script>
-
-    var elt = document.getElementById("$unique_div_id");
-
-    var calculator = Desmos.Calculator(elt, {
-        keypad: false, 
-        expressions: true,
-        settingsMenu: false, 
-        expressionsTopbar: false,
-        zoomButtons: false
-    });
-
-    calculator.setExpressions([
-        { id: 'implicitcurve', latex: '\\sqrt{x} + \\sqrt{y} = $a1', color: Desmos.Colors.BLUE },
-        { id: 'pointoftangency', latex: '($x2,$y1)', color: Desmos.Colors.RED },
-        { id: 'slopeslider', latex: 'm=0', sliderBounds: {min: -3, max: 3, step: 0.3}},
-        { id: 'tangentline', latex: 'y-$y1=m(x-$x2)', color: Desmos.Colors.MAGENTA }
-    ]);
-    
-    calculator.setMathBounds({
-      left: -1,
-      right: 50,
-      bottom: -1,
-      top: 50
-    });
-
-
-</script>
-END_SCRIPT
 
 
 

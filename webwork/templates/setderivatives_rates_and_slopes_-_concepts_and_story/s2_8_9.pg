@@ -70,27 +70,58 @@ $m1 = -$a1/($x1)**2;
 $ans2 = Compute("$y1 -($m1*$x1)");
 $ans1 = Compute("-($a1)/($x1)^2");
 
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+Derivatives of fractions with [`x`] in the bottom often give trouble.  This problem teaches a technique to deal with it.
+
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+[` \frac{d}{dx} x^n = n x^{n-1}`]
+
+[` \frac{1}{x} = x^{-1} `]
+[@ closeDiv() @]*
+
+
+Rewrite the fraction using a negative power, then use the power rule.
+
+---
+
+END_PGML
+
 BEGIN_TEXT
-Let \( f(x) = \frac{$a1}{x} \). Compute \( f'( $x1 ) \).
-$BR$BR 
+Let \( \displaystyle f(x) = \frac{$a1}{x} \). 
 
-Answer: \{ ans_rule(20) \}
-$BR$BR
+$PAR
+
+Compute \( f'( $x1 ) \).
+$BR
+\( f'( $x1 )  = \) \{ ans_rule(20) \}
+
+$PAR
+
+What is the slope of the line tangent to \(f\) at \(x = $x1\)?  
+$BR
+The slope is \{ ans_rule(20) \}
 
 
-Use this to find the equation of the tangent line to the hyperbola
-\( \displaystyle y = \frac{$a1}{x} \) at the point \( ( $x1 , {$y1:%0.3f} ) \).
-The equation of this tangent line can be written in the form \( y = mx+b \).
-Determine \( m \) and \(b\).
-$BR$BR
-\(m=\)\{ans_rule(20)  \}
-$BR$BR
-\( b=\)\{ans_rule(20)  \}
+$PAR
+
+If \(f\) models the amount of a toxin in grams at position \(x\), and the unit of \(x\) is meters, what's the rate of toxin per meter when \(x = $x1\)?  
+$BR
+The rate is \{ ans_rule(20) \} grams per meter.
 
 END_TEXT
 
 ANS($ans1->cmp);
 ANS($ans1->cmp);
-ANS($ans2->cmp);
+ANS($ans1->cmp);
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

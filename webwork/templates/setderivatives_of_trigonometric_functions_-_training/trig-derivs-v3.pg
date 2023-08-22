@@ -1,5 +1,4 @@
 
-
 ########################################
 # this file automatically moved
 #	from local/chapter3/trig-derivs-v3.pg 
@@ -28,6 +27,7 @@ loadMacros(
 "PGstandard.pl",
 "MathObjects.pl",
 "AnswerFormatHelp.pl",
+"PGcourse.pl",
 );
 
 TEXT(beginproblem());
@@ -47,12 +47,25 @@ $ad = $a*$d;
 $ans = Compute("$ad / ($c*sin(x)+$d*cos(x))**2");
 
 Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+We can combine the trig functions with other operations, like division.  
+[@ closeDiv() @]*
+
+END_PGML
+
 BEGIN_TEXT
-Find the derivative of the function \( \displaystyle f(x)= \frac{$a \sin(x)}{$c \sin(x) + $d \cos(x)}\).
+Use the quotient rule to find the derivative of the function
 
 $PAR
-\( f'(x)= \) \{ ans_rule() \}$BR
-$BITALIC(Give an exact answer.)$EITALIC 
+
+\( \displaystyle f(x)= \frac{$a \sin(x)}{$c \sin(x) + $d \cos(x)}\)
+
+$PAR
+\( f'(x)= \) \{ ans_rule() \}
+
 END_TEXT
 Context()->normalStrings;
 

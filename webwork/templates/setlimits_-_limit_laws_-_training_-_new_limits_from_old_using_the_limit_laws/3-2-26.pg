@@ -61,7 +61,8 @@ loadMacros(
   "PGstandard.pl",
   "PGunion.pl",
   "MathObjects.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -78,12 +79,32 @@ $f = random(1,4,1);
 ###################################
 # Main text
 
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This sequence of problems teaches methods for finding limits when we're given a formula
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+If we want to know a limit of a function, we should 
+1. find out the limits of its pieces
+2. combine using the limit laws, if possible
+
+🧠 I hope you're wondering, "what if I can't use the limit laws because I get [`0/0`]???  
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+
 BEGIN_TEXT
-Evaluate the limit
-\[ \lim_{ x \rightarrow $a } \frac{$b x + $c}{$d x - $f}.\]
-${BITALIC}(If the limit does not exist, enter ${LQ}DNE${RQ}.)${EITALIC}
-$PAR
-Limit =  \{ans_rule(25) \}
+Evaluate the limit. $BR
+${BITALIC}(If the limit does not exist, enter ${LQ}DNE${RQ}.)${EITALIC}$PAR
+
+\( \displaystyle \lim_{ x \rightarrow $a } \frac{$b x + $c}{$d x - $f} = \) \{ans_rule(25) \}
 END_TEXT
 
 ###################################

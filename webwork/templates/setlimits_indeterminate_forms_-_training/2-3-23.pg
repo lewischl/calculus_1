@@ -58,25 +58,86 @@ loadMacros(
 "PGauxiliaryFunctions.pl",
 "MathObjects.pl",
 "AnswerFormatHelp.pl",
+"PGcourse.pl",
+"customCSS.pl",
 );
 
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
 $a = random(1,7,1);
-$c=$a**4;
+$c=$a**2;
 $d=$a**2;
-$b=2*$d*2*$a;
+
+$ans = Compute(2*$a);
+
 
 BEGIN_TEXT
-Evaluate the limit
-\[ \displaystyle \lim_{ x \rightarrow $d } \frac{x^2 - $c}{\sqrt{x} - $a}. \] ${BITALIC}(If the limit does not exist, enter ${BBOLD}DNE${EBOLD}.)${EITALIC}
+\{ openDiv({ "class" => "problemPurpose" }) \}
+Training on the technique of "multiply by the conjugate". 
+\{ closeDiv() \}
+
+$PAR$HR$PAR 
+
+Here's a video from Prof. Amethyst on the topic of 'multiply by the conjugate' $PAR
+\{ youtube("FLN8c8X6i7Y") \}
+
+$PAR$HR$PAR 
+
+END_TEXT
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Multiply by the conjugate to find a limit:
+
+1. First, verify the method is a good candidate:    
+    * Try to plug in point of interest.  Get an indeterminate form
+    * Function is a rational function with square roots in it
+2. Multiply by a special version of [`1`] -- the conjugate.
+3. Distribute the part (top/bottom) with the [`\sqrt{}`], but don't distribute the part without.
+4. Cancel common factor.  
+5. Try to plug in point of interest again.
+[@ closeDiv() @]*
+
+---
+
+In this problem, the denominator has the [`\sqrt{}`], so the form of the conjugate is determined by the denominator.  
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Advice for forming the conjugate: 
+
+* If a function looks like [`` \frac{f}{\sqrt{a} + b}``], then the conjugate is [`` \frac{\sqrt{a} - b}{\sqrt{a} - b} = 1 ``].  
+* If a function looks like [`` \frac{f}{\sqrt{a} - b}``], then the conjugate is [`` \frac{\sqrt{a} + b}{\sqrt{a} + b} = 1 ``].  
+
+Always flip the sign, and always multiply the function by [`1`].
+[@ closeDiv() @]*
+
+One more piece of advice: [`\sqrt{a} \cdot \sqrt{a} = a`].  Use this when distributing.  (In this problem don't distribute the numerator, the [`\sqrt{}`] is in the denominator.)
+
+---
+
+END_PGML
+
+
+BEGIN_TEXT
+Evaluate the limit.  If the limit does not exist, enter ${BBOLD}DNE${EBOLD}.
+
 $PAR
-Limit =  \{ans_rule(25) \}
+
+\( \displaystyle \lim_{ x \rightarrow $d } \frac{x - $c}{\sqrt{x} - $a} = \) \{ans_rule(25) \}
+
+
+$PAR
+$HR
+$PAR
+
+(actually, it's \( \sqrt{a} \cdot \sqrt{a} = |a| \), but let's not focus on that right now)
 END_TEXT
 
 Context("Numeric");
-$ans = Compute($b);
+
 ANS($ans->cmp());
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

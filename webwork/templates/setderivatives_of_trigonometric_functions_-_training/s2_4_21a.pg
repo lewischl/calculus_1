@@ -111,12 +111,41 @@ $x = $x_s*$x_n*$pi/$x_d;
 $deriv = Compute("$a*cos(x) - $b*sin(x)");
 $deriva = Compute("$a*cos($x) - $b*sin($x)");
 
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+It's important to continue to focus on the sequence of operations if we want to find the slope of the tangent line at a point:
+
+1. differentate to find a formula
+2. evaluate that formula to find the slope
+
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+* [`\frac{d}{dx} \sin x = \cos x`]
+
+* [`\frac{d}{dx} \cos x = -\sin x`]
+
+[@ closeDiv() @]*
+
+💡 Use the unit circle instead of a calculator!!!  The point for evaluation is a nice point on the circle.
+
+---
+
+END_PGML
+
 BEGIN_TEXT
 Let \[ f(x) = $a \sin x + $b \cos x \]
 $PAR
 \(f'(x) = \)  \{ans_rule(35) \}
 $PAR
-\( f'( $x_sign \frac { $x_num \pi } {$x_d} ) = \) \{ans_rule(35) \}
+\( f'\left( $x_sign \frac { $x_num \pi } {$x_d} \right) = \) \{ans_rule(35) \}
 END_TEXT
 
 

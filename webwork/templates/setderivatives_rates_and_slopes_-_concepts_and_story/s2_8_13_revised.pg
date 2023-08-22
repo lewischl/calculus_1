@@ -56,27 +56,115 @@ loadMacros(
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
-$a1 = random(2,7,1);
-$b1 = random(2,12,1);
-$c1 = random(1,40,1);
-$x1 = random(1,5,1);
-
 Context("Numeric");
 
+$n = 12;
 
-$funct1 = Compute("$a1*x^2-$b1 * x - $c1");
-$deriv1 = ($funct1->D);
+
+@funcs = ();
+
+Context()->noreduce('(-x)-y','(-x)+y'); # keep the x^2 in front.
+
+for my $ii (0..($n-1)){
+
+    $form = random(0,1,1);
+    
+    
+    $a1 = non_zero_random(-15,15,1);
+    $b1 = non_zero_random(-30,30,1);
+    $c1 = non_zero_random(-40,40,1);
+    $x1 = non_zero_random(-30,30,1);
+    
+    if ($form == 0){
+    $funcs[$ii] = Formula("$a1*x^2-$b1 * x - $c1");}
+    elsif ($form == 1){
+    $funcs[$ii] = Formula("$a1*x^2-$b1 * x - $c1");}
+    elsif ($form == 2){
+    $funcs[$ii] = Formula("$a1*x^2-$b1 * x - $c1");}
+    elsif ($form == 3){
+    $funcs[$ii] = Formula("$a1*x^2-$b1 * x - $c1");}
+    
+    $funcs[$ii] = $funcs[$ii]->reduce;
+}
+
+
 
 Context()->texStrings;
 
-BEGIN_TEXT
-If \( f(x) =  $funct1\), find \( f'( x ) \).
-$BR$BR
-Answer: \(f'(x) = \) \{ans_rule(48) \}
-END_TEXT
 
-ANS($deriv1->cmp);
+BEGIN_PGML
 
-$a12=2*$a1;
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+Quadratics are the simplest functions with non-constant derivatives.  This problem offers training on using the sum and product rules with quadratic functions.
+
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The power rule:
+* [` (x^n)' = n x^{n-1} `]
+
+The sum rule:
+* [` (f+g)' = f' + g' `]
+
+The constant rule for any constant [`c`]:
+* [` (c)' = 0 `]
+
+Together they make degree-two polynomials a snap!  
+[@ closeDiv() @]*
+
+
+---
+
+END_PGML
+
+
+sub presentation{
+
+    my $f = shift(@_);
+    return 
+    "
+    \( f(x) =  $f\)
+    $BR
+    \(f'(x) = \) 
+    " . ans_rule(48);
+}
+
+$spacing = "$BR$PAR$BR";
+
+$col1 = "";
+for $ii (0..(int($n/2)-1)){
+    $col1 = $col1 . presentation($funcs[$ii]) . $spacing;
+}
+
+
+$col2 = "";
+for $ii (int($n/2)..($n-1)){
+    $col2 = $col2 . presentation($funcs[$ii]) . $spacing;
+}
+
+TEXT("$BCENTER");
+TEXT(ColumnTable($col1,$col2));
+
+TEXT("$ECENTER");
+
+for $ii (0..($n-1)){
+    ANS($funcs[$ii]->D->cmp);
+}
+
+BEGIN_PGML
+
+---
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+⚠️ Resist the temptation to use an online calculator for this.  Differentation of polynomial functions is a fundamental skill, and using a computer to do these will not only hurt you in the long term, but it will endenture you to the computer.  
+
+With a bit of practice, I promise it will be faster to just do the derivatives than to copy-paste formulas back and forth between here and some other place.  
+[@ closeDiv() @]*
+
+END_PGML
+
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

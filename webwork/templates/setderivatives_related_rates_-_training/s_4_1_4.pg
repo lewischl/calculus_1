@@ -72,9 +72,43 @@ $ans = Compute("$ans");
 #####################################################################
 
 Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Our first full related rates problem.  I'll give some guidance along the way.
+[@ closeDiv() @]*
+
+END_PGML
+
 BEGIN_TEXT
-The length of a rectangle is increasing at a rate of \($a \text{ cm/s}\) and its width is increasing at a rate of \($b \text{ cm/s}\).  When the length is \($c \text{ cm}\) and the width is \($d\text{ cm},\) how fast is the area of the rectangle increasing?
+
+I'll start with a pose of the problem:
 $PAR
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
+The length of a rectangle is increasing at a rate of \($a \text{ cm/s}\) and its width is increasing at a rate of \($b \text{ cm/s}\).  $PAR
+
+When the length is \($c \text{ cm}\) and the width is \($d\text{ cm},\) how fast is the area of the rectangle increasing?
+\{ closeDiv() \}
+
+$PAR
+
+END_TEXT
+
+BEGIN_PGML
+
+Follow these steps:
+
+1. Draw a rectangle.  Label the horizontal legs [`x`] and vertical [`y`].  Both of the sides are changing, so draw action arrows to indicate change.  
+2. Write the equation for the area of a rectangle using variable names [`x`] and [`y`], and [`A`] for the area.
+3. Differentiate the equation with respect to time.
+4. Substitute in known quantities.
+5. Solve for [`\frac{dA}{dt}`], since we want the rate of change of the area [`A`].
+
+---
+
+END_PGML
+
+BEGIN_TEXT
 The area is increasing at \{ans_rule(30)\} \(\text{cm}^2/\text{s}\).
 END_TEXT
 Context()->normalStrings;

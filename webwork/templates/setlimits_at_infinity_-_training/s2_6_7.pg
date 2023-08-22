@@ -47,9 +47,12 @@ DOCUMENT();        # This should be the first executable line in the problem.
 loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "parserPopUp.pl",
+  "customCSS.pl",
 );
 
+COMMENT("todo: the grid layout of the functions should use a layout table");
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
@@ -57,6 +60,18 @@ Context('Numeric');
 
 $a = random(1,10,1);
 $b = non_zero_random(-10,10,1);
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem builds a connection between asymptotes and infinities.  Which goes with which? 
+[@ closeDiv() @]*
+
+---
+
+END_PGML
 
 BEGIN_TEXT
 Let \(f(x)\) be a function such that 
@@ -78,5 +93,69 @@ END_TEXT
 
 ANS(Compute($b)->cmp);
 ANS(Compute($a)->cmp);
+
+
+
+
+
+
+
+
+
+$a = random(-10,10,1);
+$b = non_zero_random(-10,10,1);
+
+BEGIN_PGML
+
+---
+
+Let's do it one more time with different numbers
+
+END_PGML
+
+BEGIN_TEXT
+Let \(g(x)\) be a function such that 
+\[\lim_{x\to\infty} g(x) = $b  \quad 
+\lim_{x\to -\infty} g(x) = $b  \]
+$BR
+\[ \lim_{x\to $a^+} g(x) = -\infty  \quad
+\lim_{x\to $a^-} g(x) = -\infty  \]
+$BR
+
+Determine the horizontal asymptote of \(g\). $BR
+
+\(y=\) \{ ans_rule(10) \}
+$BR$BR
+Determine the vertical asymptote of \(g\). $BR
+ \(x=\) \{ ans_rule(10) \}
+
+END_TEXT
+
+ANS(Compute($b)->cmp);
+ANS(Compute($a)->cmp);
+
+BEGIN_PGML
+
+---
+
+Summarizing, which goes with which?
+
+END_PGML
+
+@options = ["?", "vertical", "slant", "horizontal", "the absence of"];
+
+$popup1 = PopUp(@options, "horizontal");
+$popup2 = PopUp(@options, "vertical");
+
+BEGIN_TEXT
+
+Finite values of limits at infinity go with \{ $popup1->menu() \} asymptotes, while $BR
+limits at finite points with value infinity go with \{ $popup2->menu() \} asymptotes.
+
+END_TEXT
+
+ANS( $popup1->cmp() );
+ANS( $popup2->cmp() );
+
 
 ENDDOCUMENT();

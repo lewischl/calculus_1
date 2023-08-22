@@ -52,7 +52,7 @@ loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
   "AnswerFormatHelp.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
 );
 
 TEXT(beginproblem());
@@ -66,8 +66,34 @@ $n1 = random(3,7,1);
 $x = random(2,5,1);
 $x2 = $x**2;
 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+Sometimes functions don't look familiar.  But follow my advice:
+
+>>Simplifying before differentation is often wise<<
+
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+
+Simplify the expression:
+* re-write the square root to use a fractional power
+* deal with the denominator by distributing across the numerator using a negative power
+
+
+Then take the derivative.
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
 BEGIN_TEXT
-Let \( f(x) = \displaystyle  \frac { $a1 x^2 + $b1 x + $c1 } {\sqrt{x} } \).  Find the following:
+Let \( f(x) = \displaystyle  \frac { $a1 x^2 + $b1 x + $c1 } {\sqrt{x} } \). 
 $PAR
 \( f'( x ) =\) \{ans_rule(48) \}
 $PAR
@@ -91,5 +117,9 @@ $ans2 = Compute("$ansnum/$ansdenom");
 
 ANS($ans1->cmp());
 ANS($ans2->cmp());
+
+BEGIN_HINT
+Split the fraction up, then rewrite the square root as an exponent.
+END_HINT
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

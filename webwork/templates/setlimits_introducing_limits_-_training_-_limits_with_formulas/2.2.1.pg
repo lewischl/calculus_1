@@ -32,7 +32,8 @@ loadMacros(
   "PGchoicemacros.pl",
   "PGgraphmacros.pl",
   "freemanMacros.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 ## DBsubject(Calculus - single variable)
@@ -75,11 +76,26 @@ $aax0001=($ax0001**3-$a3)/($ax0001**2-$a2);
 $limi=3*$a/2;
 
 TEXT(beginproblem());
+
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem offers a table method for numerically estimating the value of a limit.
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+To use a table to estimate the value of a limit, 
+* for each side we're interested in, make a column of [`x`] and [`f(x)`] values.  
+* Observe the trend and guess.
+
+Remember, a two-sided limit only exists if both one-sided limits exist, and they're equal.
+[@ closeDiv() @]*
+
+END_PGML
 BEGIN_TEXT
 \{ textbook_ref_exact("Rogawski ET 2e", "2.2","1") \}$BR
-Fill in the table and guess the value of the limit:
+Fill in the table and guess the value of the limit \( \lim\limits_{x \to $a} f(x)\), where 
 $BR
-\( \lim\limits_{x \to $a} f(x)\), where \(f(x)= \frac {x^3 - $a3} {x^2 - $a2} \)
+\(f(x)= \displaystyle\frac {x^3 - $a3} {x^2 - $a2} \)
 $PAR
 
 \{begintable(4)\}
@@ -92,8 +108,6 @@ $PAR
 $PAR
 The limit as \(x \to $a\) is  \{ ans_rule(5) \}
 END_TEXT
-
-
 
 SOLUTION(EV3(<<'END_SOLUTION'));
 $BR$BBOLD Solution:$EBOLD 

@@ -1,0 +1,163 @@
+###############################
+#  Initialization
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+"unionTables.pl",
+"contextInequalities.pl",
+"PGcourse.pl",
+"customCSS.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+
+################################
+#  Desmos setup
+#
+#  In html mode, load the Desmos api script and create the <div> to attach the Desmos graph to.
+#  In tex mode, print a message to direct the student to the html version.
+#  Desmos API reference: https://www.desmos.com/api/v1.8/docs/index.html
+
+$unique_div_id = "desmos_calculator";
+$width = 800;
+$height = 400;
+
+HEADER_TEXT(MODES(
+    HTML=>'<script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3plus/1.7.3/d3plus.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>',
+    
+    TeX=>''
+));
+
+$desmos_div = MODES(
+    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
+    TeX=>'Interactive graph best viewed online'
+);
+
+
+################################
+#  Setup
+
+Context("Inequalities")->variables->are(h=>'Real', x=>'Real');
+
+$ans1 = Compute("h < 1");
+$ans2 = Compute("ln(x)");
+
+
+################################
+#  Main text
+
+Context()->texStrings;
+
+
+$column1 = PGML::Format(<<END_PGML);
+To the right is a Desmos graph embedded by URL.
+
+Using this method is nice because there are many things you can't currently construct using the API, like folders and text notes. See this link for more about this limitations of the API: 
+* https://groups.google.com/g/desmos-api-discuss/c/7e3tlYaytEo/m/s-E3y7EIBgAJ
+
+This particular example 
+1. loads the state from URL using JSON, then 
+2. modifies the state using webwork stuff (sets the equation -- requires us to know which expression to modify!), then 
+3. sets the state.  
+
+Notably, 
+* the function in the already-constructed graph at the URL is [`f(x) = x^4 - 5x^2 + 3`], 
+* while in this webwork problem it's [`\sin(x)`]
+
+
+
+The URL of the raw graph before modifying is
+
+https://www.desmos.com/calculator/qy245qav8c
+
+END_PGML
+
+BEGIN_TEXT
+\{
+ColumnTable(
+$column1
+,
+$desmos_div.
+$BR.
+$BCENTER.
+"An interactive rootfinder using Newton's method, implemented by Briar Weston
+".
+$ECENTER
+,
+indent => 0, separation => 30, valign => "TOP"
+)
+\}
+END_TEXT
+
+BEGIN_PGML
+[@ openDiv({ "class" => "warning" }) @]* 
+⚠️ Note that it's possible to create invalid state by doing this.  See 'Saving and loading' in https://www.desmos.com/api/v1.9/docs/index.html , which includes this warning:
+
+>>
+"Warning: Calculator states should be treated as opaque values. Manipulating states directly may produce a result that cannot be loaded by GraphingCalculator.setState."
+<<
+
+[@ closeDiv() @]*
+END_PGML
+Context()->normalStrings;
+
+
+
+##################################
+#  Desmos graph (via the API)
+#  Execute this only after the $desmos_div object has been put on the html page.
+
+# derived heavily from https://groups.google.com/g/desmos-api-discuss/c/kkQDgkeucVo
+
+
+$DOLLAR = '$'; # this is so stupid.  i needed dollar sign in the script below for jquery.  
+$d = "$DOLLAR"; # make a single dollar sign.  yes, this is stupid, but necessary cuz i couldn't figure out how to just put a dollar sign in the script code below.
+
+$graphUrl = "https://www.desmos.com/calculator/qy245qav8c"; # the URL of the graph to embed.
+
+# for an explantion of what << does, see https://stackoverflow.com/questions/11948338/what-is-print-eof-and-how-is-it-working
+TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );  
+<script>
+<!-- //
+    
+    var elt = document.getElementById("$unique_div_id");
+
+    var calc = Desmos.Calculator(elt, {
+        keypad: false, 
+        expressions: true,
+        settingsMenu: false, 
+        expressionsTopbar: false
+    });
+    
+    
+    
+    function modifyExistingState(json)
+    {
+    var state = json.state;
+     state.expressions.list[1].latex = "f(x) = \\sin(x)";
+     
+     calc.setState(state);
+    }
+
+    $d.getJSON("$graphUrl", modifyExistingState);
+
+
+  
+// -->
+</script>
+END_SCRIPT
+
+
+      
+COMMENT('example of: embedding a pre-constructed Desmos graph by its URL.  this was tricky AF, btw.');
+
+ENDDOCUMENT();

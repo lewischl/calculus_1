@@ -66,8 +66,11 @@ loadMacros(
   "PGstandard.pl",
   "PGchoicemacros.pl",
   "PGgraphmacros.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "PGML.pl",
+  "customCSS.pl",
 );
+
 
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
@@ -95,30 +98,50 @@ $graph = init_graph(-3,-6,5,6,'axes'=>[0,0],'grid'=>[8,12]);
 
 ($f1Ref,$f2Ref,$f3Ref,$f4Ref,$f5Ref) = plot_functions($graph,$f1,$f2,$f3,$f4,$f5);
 
-TEXT(EV2(<<EOT));
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem is very similar to the previous one, offering an opportunity to use what you learned about determining the values of one- and two-sided limits from graphs, and how limits relate (and don't relate) to function values.
+[@ closeDiv() @]*
+
+END_PGML
+
+BEGIN_TEXT
+
 Let \(F\) be the piecewise linear function depicted below.$PAR
-If you are having a hard time seeing the picture clearly, click on the picture.  It will expand to a larger picture on its own page so that you can inspect it more clearly.$PAR
-EOT
+
+
+END_TEXT
 
 TEXT(image( insertGraph($graph) ,width=>300,height=>300));
 
-TEXT(EV2(<<EOT));
+
+
+BEGIN_TEXT
+
+\{ openDiv({ "class" => "inProblemHint" }) \}
+Click on the picture to expand.
+\{ closeDiv() \}
+
 $BR
 $BR
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
 Evaluate each of the following expressions.  $PAR
-Note:  Enter 'DNE' if the limit does not exist or is not defined. $PAR
+Enter 'DNE' if the limit does not exist or the value is not defined. 
+\{ closeDiv() \}
+$PAR
 $HR$PAR
 a) First, limits at \(-1\).$PAR
 
-\( \displaystyle \lim_{x \to -1^-} F(x) \) = \<ans_rule(7)\>
+\( \displaystyle \lim_{x \to -1^-} F(x) \) = \{ans_rule(7)\}
 $BR
- \( \displaystyle \lim_{x \to -1^+} F(x) \) = \<ans_rule(7)\>
-$BR
-
- \( \displaystyle \lim_{x \to -1} F(x) \) = \<ans_rule(7)\>
+ \( \displaystyle \lim_{x \to -1^+} F(x) \) = \{ans_rule(7)\}
 $BR
 
- \( F(-1) \) = \<ans_rule(7)\>
+ \( \displaystyle \lim_{x \to -1} F(x) \) = \{ans_rule(7)\}
+$BR
+
+ \( F(-1) \) = \{ans_rule(8)\}
 $BR
 
 $PAR
@@ -126,35 +149,38 @@ $HR$PAR
 
 b) Second, around \(x=1\).$PAR
 
-\( \displaystyle \lim_{x \to 1^-} F(x) \) = \<ans_rule(8)\>$BR
+\( \displaystyle \lim_{x \to 1^-} F(x) \) = \{ans_rule(8)\}$BR
 
 
- \( \displaystyle \lim_{x \to 1^+} F(x) \) = \<ans_rule(8)\>$BR
+ \( \displaystyle \lim_{x \to 1^+} F(x) \) = \{ans_rule(8)\}$BR
 
 
- \( \displaystyle \lim_{x \to 1} F(x) \) = \<ans_rule(8)\>$BR
+ \( \displaystyle \lim_{x \to 1} F(x) \) = \{ans_rule(8)\}$BR
 
 
- \( F(1) \) = \<ans_rule(8)\>$BR
+ \( F(1) \) = \{ans_rule(8)\}$BR
 
 $PAR
 $HR$PAR
 
 c) Finally, at \(x=3\).$PAR
 
-\( \displaystyle \lim_{x \to 3^-} F(x) \) = \<ans_rule(8)\>
+\( \displaystyle \lim_{x \to 3^-} F(x) \) = \{ans_rule(8)\}
 $BR
 
- \( \displaystyle \lim_{x \to 3^+} F(x) \) = \<ans_rule(8)\>
+ \( \displaystyle \lim_{x \to 3^+} F(x) \) = \{ans_rule(8)\}
 $BR
 
-\( \displaystyle \lim_{x \to 3} F(x) \) = \<ans_rule(8)\>
+\( \displaystyle \lim_{x \to 3} F(x) \) = \{ans_rule(8)\}
 $BR
 
- \( F(3) \) = \<ans_rule(8)\>
+ \( F(3) \) = \{ans_rule(8)\}
 $PAR
 
-EOT
+
+
+
+END_TEXT
 
 $ap1 = 1 + $a;
 $bp1 = 1 + $b;

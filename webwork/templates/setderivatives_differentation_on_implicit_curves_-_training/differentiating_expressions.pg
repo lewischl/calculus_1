@@ -77,18 +77,37 @@ $ans3 = Compute("28x^3 + 2(2x y^2 + 2 x^2 y dy/dx)");
 #
 
 BEGIN_PGML
-Assume that [`y`] is an implicit function of [`x`].  General advice for implicit differentiation is to "chain out" the derivative of a variable, if the variable of differentiation is different from the variable being differentiated.  For example,
 
-[`` \begin{aligned} \frac{d}{dx} x^2 &= 2x  \\  \frac{d}{dx} y^2 &= 2y  \frac{dy}{dx}  \end{aligned} ``]
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem gives training on differentating expressions where:
+* two variables are present
+* one of the variables is an "implicit function" of the other.
+[@ closeDiv() @]*
 
+[@ openDiv({ "class" => "importantFormula" }) @]*
+General advice for implicit differentiation is to "chain out" the derivative of a variable, if the variable of differentiation is different from the variable being differentiated.  
+[@ closeDiv() @]*
+
+Assume that [`y`] is an implicit function of [`x`].  That is, we're taking [`y = y(x)`].  So when we differentiate [`y`], we have to use the chain rule.  
+
+Observe how we differentiate [`y^2`] with respect to [`x`]:
+
+[`` \begin{aligned} \frac{d}{dx} y^2 &= \frac{d}{dx}(y(x))^2 \\ &= 2y  \frac{dy}{dx} \end{aligned} ``]
+
+
+We can similarly differentiate [`\sqrt{y}`] *with respect to x*:
+
+[`` \begin{aligned} \frac{d}{dx} \sqrt{y} &= \frac{d}{dx}\sqrt{y(x)} \\ &= \frac{1}{2 \sqrt{y(x)}} \frac{dy}{dx}  \\ &= \frac{1}{2 \sqrt y} \frac{dy}{dx} \end{aligned} ``]
+
+The trailing [`\frac{dy}{dx}`] *has to be there*.  We don't have a formula for it, but the chain rule demands it be there.
 ---
 
-Use implicit differentiation to compute the derivatives.  Use the symbols [`dy`] and [`dx`] to express the derivative of [`y`] with respect to [`x`].
+Use implicit differentiation to compute the derivatives.  When you enter your answers, use the symbols [`dy/dx`] to express the derivative of [`y`] with respect to [`x`].  (Webwork cannot accept prime notation)
 
 [`` \frac{d}{dx} \left( 3x^2 + 5y^3  \right) = ``] [_____]{$ans1}
 
 
-[`` \frac{d}{dx} \left( xy  \right) = ``] [_____]{$ans2}
+[`` \frac{d}{dx} \left( xy  \right) = ``] [_____]{$ans2}   (use the product rule)
 
 [`` \frac{d}{dx} \left( 7x^4 + 2 x^2 y^2  \right) = ``] [_____]{$ans3}
 

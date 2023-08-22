@@ -57,6 +57,30 @@ $as = random(-1,1,2);
 $a  = $an * $as;
 $c = random(2,15,1);
 
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+This problem trains you to focus on one term at a time when differentiating a sum or difference.
+
+[@ closeDiv() @]*
+
+This problem mixes power functions and exponentials.  But the sum rule makes this a snap.  Deal with each term independently.
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+* [` \frac{d}{dx} e^x = e^x `]
+
+
+* [` \frac{d}{dx} x^n = n x^{n-1} `]
+
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
 BEGIN_TEXT
 Let \( f(x) =  $a e^{x} + $c x \). Determine \( f'( x ). \)
 $BR$BR \(f'(x) = \) \{ans_rule(20) \}

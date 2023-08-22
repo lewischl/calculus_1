@@ -49,8 +49,11 @@ loadMacros(
    "PGcourse.pl",      # Customization file for the course
    "PGbasicmacros.pl",
     "PGchoicemacros.pl",
-    "extraAnswerEvaluators.pl" # needed for the set comparisons
+    "extraAnswerEvaluators.pl", # needed for the set comparisons
+    "customCSS.pl",
 );
+
+COMMENT("todo: remove extra legend entries");
 
 # Print problem number and point value (weight) for the problem
 TEXT(beginproblem());
@@ -213,20 +216,47 @@ Context()->normalStrings;
 
 # 
 BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+This problem explores the connection between continuity and differentiability.  Namely, 
+* differentiability implies continuity
+
+and conversely, 
+
+* discontinuity implies non-differentiability.
+
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+Not every function is differentiable everywhere. Jumps, holes, and vertical asymptotes all make a function not-differentiable at those points.  So, continuity is required for differentiability.
+
+Relatedly, a differentiable function must be continuous.  Otherwise the tangent line wouldn't be defined!
+
+[@ closeDiv() @]*
+
+
 We have the derivative [`f'`] of an unknown function [`f`] graphed below:
 
->>[@ image(insertGraph($graph1), width => 400, height => 400) @]*<<
+>>[@ image(insertGraph($graph1), width => 500, height => 300) @]*<<
 
 ---
 
 
 
-On what intervals must [`f`] be continuous?  
+On what intervals must [`f`] be continuous?   Use interval notation.  If there are none, enter "none".
 
 [_____]{interval_cmp("(-inf,$x_infinite)U($x_infinite,$x_jump)U($x_jump, $x_removable)U($x_removable,inf)", strings=>["none"])}
 
+---
 
-Use interval notation, with "U" being union.  If there are none, enter "none".
+
+At which points must [`f`] be discontinuous?  Use a comma-separated list of points.
+
+
+[____]{List(@discontinuities)}
 
 
 END_PGML

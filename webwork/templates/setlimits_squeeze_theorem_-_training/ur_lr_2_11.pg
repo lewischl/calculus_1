@@ -50,7 +50,8 @@ loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
   "contextArbitraryString.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -74,17 +75,39 @@ $pol = nicestring([1, $a1, $a2]);
 $lhs = nicestring([$b1, $b2]);
 $showPartialCorrectAnswers=1;
 
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+A problem where we have a squeeze, but no function definitions.  The squeeze theorem can be used even without formulas!
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The squeeze theorem:
+
+---
+
+If on an open interval containing [`x = a`] we have two functions [`\ell`] and [`u`] such that 
+
+* [`\ell(x) \leq f(x) \leq u(x) `]
+* [`\displaystyle \lim_{x \to a} \ell(x) =  \lim_{x \to a} u(x) = L `]
+
+Then it must be that [`` \lim_{x \to a} f(x) = L``].
+
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
 BEGIN_TEXT
 Suppose that we have a function \(f\) such that \[ $lhs  \le f(x) \le $pol \] $BR 
 
-Use this to compute the following limit. $BR
+Use this to compute the limit. $PAR
 
-\[ \lim_{x\to $a} f(x) \]
+\( \displaystyle \lim_{x\to $a} f(x) = \) \{ans_rule(25)\} 
 
-Answer: \{ans_rule(25)\} $BR$BR
-
-
-                  	                  
 END_TEXT
 
 Context('Numeric');

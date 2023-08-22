@@ -52,18 +52,56 @@ DOCUMENT();        # This should be the first executable line in the problem.
 
 loadMacros(
   "PGstandard.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
 );
 
 TEXT(beginproblem());
+
+Context("Numeric");
+
 $c=random(1,8,1);
 $x1=$c**2;
 $y1=$x1 +$c;
 
 $showHint=-1;
 
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+Square roots are really common in math and applications, because they occur in things like distances and velocities.  This problem trains you on dealing with basic square roots using the power rule.
+
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+[` \frac{d}{dx} x^n = n x^{n-1}`]
+
+[` \sqrt{x} = x^{1/2} `]
+[@ closeDiv() @]*
+
+
+Rewrite the square root using a fractional power, then use the power rule.
+
+---
+
+END_PGML
+
+
 BEGIN_TEXT
 Let \(f(x) = x + \sqrt{x}\) . 
+
+
+$PAR
+
+What is the formula for the function that tells us the slope of \(f\)? $BR
+\( f'(x) = \) \{ans_rule(20)\}
+
 
 $PAR
 
@@ -72,13 +110,13 @@ $PAR
 Find the value of \(m\).
 $BR$BR
 \(m = \)  \{ ans_rule(5) \}
-$BR$BR
-\{theresahint\}
+
+
 END_TEXT
+
+ANS(Formula("1 + 1/(2*x^(1/2))" )->cmp);
 ANS(num_cmp("1 + 0.5/$c", relTol=>.1));
 
 
-BEGIN_HINT
-The symbol \(m\) is the slope of the line.  The tangent line.  How do we find the slope of the tangent line again?  Ah, the derivative \(f'(x)\) tells is the slope at a point \(x\).  Try using the power rule on both terms, \( \frac{d}{dx} x^n = n x^{n-1} \).
-END_HINT
+
 ENDDOCUMENT();        # This should be the last executable line in the problem.

@@ -55,20 +55,108 @@ TEXT(beginproblem());
 Context("Numeric");
 $showPartialCorrectAnswers = 1;
 
-$a1 = random(2,7,1);
+
+
+
+Context()->texStrings ;
+Context()->noreduce('(-x)-y','(-x)+y');
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+The trigonometric functions model cyclic or periodic phenomena, like waves, day lengths, sound, and light.
+
+Using the trig functions is important especially to the worlds of biology and physics.
+
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The two basic trig functions are differentiated:
+
+* [`\frac{d}{dx} \sin x = \cos x`]
+
+* [`\frac{d}{dx} \cos x = -\sin x`]
+
+⚠️ This ignores what happens if a function is inside the trig.  We must use the chain rule to differentiate functions-inside-of-functions.
+[@ closeDiv() @]*
+
+
+
+END_PGML
+
+
+$a1 = non_zero_random(2,7,1);
 $b1 = random(2,12,1);
 $x1 = random(1,5,1);
-$deriv = Compute("$a1*cos(x) - $b1*sin(x)");
-
-
+$deriv = Compute("$a1*cos(x) - $b1*sin(x)")->reduce;
 BEGIN_TEXT
+
+$PAR $HR $PAR
+
 If \( f(x) = $a1 \sin x + $b1 \cos x \), then 
 $BR
 \(f'(x) = \)
 \{ans_rule(35) \}
 END_TEXT
 
+ANS($deriv->cmp);
+
+
+
+$a1 = non_zero_random(-10,7,1);
+$b1 = non_zero_random(-10,12,1);
+$x1 = non_zero_random(-10,5,1);
+$deriv = Compute("$a1*cos(x) - $b1*sin(x)")->reduce;
+BEGIN_TEXT
+
+$PAR $HR $PAR
+
+If \( f(x) = $a1 \sin x + $b1 \cos x \), then 
+$BR
+\(f'(x) = \)
+\{ans_rule(35) \}
+END_TEXT
 
 ANS($deriv->cmp);
+
+
+$a1 = non_zero_random(-10,7,1);
+$b1 = non_zero_random(-10,12,1);
+$x1 = non_zero_random(-10,5,1);
+$deriv = Compute("$a1*cos(x) - $b1*sin(x)")->reduce;
+BEGIN_TEXT
+
+$PAR $HR $PAR
+
+If \( f(x) = $a1 \sin x + $b1 \cos x \), then 
+$BR
+\(f'(x) = \)
+\{ans_rule(35) \}
+END_TEXT
+
+ANS($deriv->cmp);
+
+
+
+
+
+$a1 = non_zero_random(-100,10,11);
+$b1 = non_zero_random(-100,110,1);
+$x1 = non_zero_random(-100,10,1);
+$f = Compute("$a1*cos(x) - $b1*sin(x) + x^2")->reduce;
+BEGIN_TEXT
+
+$PAR $HR $PAR
+
+If \( f(x) = $f \), then 
+$BR
+\(f'(x) = \)
+\{ans_rule(35) \}
+END_TEXT
+
+ANS($f->D->cmp);
+
+
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

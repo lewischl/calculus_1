@@ -1,5 +1,4 @@
 
-
 ########################################
 # this file automatically moved
 #	from local/chapter3/chain-rule-v2.pg 
@@ -28,6 +27,7 @@ loadMacros(
 "PGstandard.pl",
 "MathObjects.pl",
 "AnswerFormatHelp.pl",
+"PGcourse.pl",
 );
 
 TEXT(beginproblem());
@@ -36,23 +36,89 @@ Context("Numeric");
 Parser::Number::NoDecimals();
 $showPartialCorrectAnswers = 1;
 
+
+
+Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Powers of trig functions are a common source of mistakes.  This problem offers training on functions like [`\textnormal{trig}^n(x)`].
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+To take a derivative of a function that looks like [`\textnormal{trig}^n(x)`], follow these steps:
+
+1. rewrite in a pattern which helps more readily recognize as a composition with a power function.  [`\textnormal{trig}^n(x) = (\textnormal{trig}(x))^n`]
+2. Use the chain rule version of the power rule, [` (\Box^n)'  = n \Box^{n-1}\cdot  \Box'`].
+[@ closeDiv() @]*
+
+---
+
+Find the derivative of the functions.
+END_PGML
+
+
 $a = non_zero_random(2,5,1);
 $aminus1 = $a-1;
 
 $f = Formula("( sin(x)) ^$a");
-
-$ans = Formula("$a*cos(x)*sin(x)^($aminus1)");
-
-Context()->texStrings;
 BEGIN_TEXT
-Find the derivative of the function \( \displaystyle f(x)= $f\).
 
-$PAR
-\( f'(x)= \) \{ ans_rule(50) \}$BR
-$BITALIC(Give an exact answer.)$EITALIC
+$PAR $BR
+
+\( \displaystyle f(x)= $f\).
+$BR
+\( f'(x)= \) \{ ans_rule(50) \}
 END_TEXT
-Context()->normalStrings;
+ANS($f->D->cmp);
 
-ANS($ans->cmp);
+
+
+
+$a = non_zero_random(3,7,1);
+$b = non_zero_random(3,7,1);
+$aminus1 = $a-1;
+
+$f = Formula("$b (  cos(x)) ^$a");
+
+BEGIN_TEXT
+
+$PAR $BR
+
+\( \displaystyle f(x)= $f\).
+$BR
+\( f'(x)= \) \{ ans_rule(50) \}
+END_TEXT
+ANS($f->D->cmp);
+
+
+
+$a = non_zero_random(3,7,1);
+$b = non_zero_random(3,7,1);
+$aminus1 = $a-1;
+
+$f = Formula("$b (  cos(x)) ^$a sin(x)");
+
+BEGIN_TEXT
+
+$PAR $BR
+
+Use the product rule carefully as the outermost rule as you navigate through this next one.
+$PAR
+\( \displaystyle f(x)= $f\).
+$BR
+\( f'(x)= \) \{ ans_rule(50) \}
+END_TEXT
+ANS($f->D->cmp);
+
+
+
+
+
+
+Context()->normalStrings;
 
 ENDDOCUMENT();

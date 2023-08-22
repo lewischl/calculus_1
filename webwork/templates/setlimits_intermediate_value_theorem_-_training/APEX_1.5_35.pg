@@ -51,18 +51,22 @@ $ans1 = PopUp(["?",
 TEXT(beginproblem());
 
 BEGIN_TEXT
+
+The IVT says that a continuous function on an interval must take on all function values between those at the endpoints of the interval.  Is the function value in question between the values at the endpoints?
+
+$PAR $HR $PAR
+
 Let \(f\) be continuous on \( [$a, $b] \), where 
-\( f($a) = $ya \) and \( f($b) = $yb \).  Can we conclude that a value
+\( f($a) = $ya \) and \( f($b) = $yb \).  
+
+$PAR
+
+Can we conclude that a value
 \( $a < c < $b \) exists such that \( f(c) = $L \) ?
 $PAR \{ $ans1->menu() \}
-$BR$BR
 
-\{ theresahint \}
 END_TEXT
 
-BEGIN_HINT
-The IVT says that a continuous function on an interval must take on all function values between those at the endpoints of the interval.  Is the function value in question between the values at the endpoints?
-END_HINT
 
 #SOLUTION(EV3(<<'END_SOLUTION'));
 #$BR$BBOLD Solution:$EBOLD 

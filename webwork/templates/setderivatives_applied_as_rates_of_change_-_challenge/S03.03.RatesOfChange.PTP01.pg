@@ -15,7 +15,7 @@
 ## DBchapter('Differentiation')
 ## DBsection('Rates of Change in the Natural and Social Sciences')
 ## Date('06/29/2008')
-## Author('Paul Pearson')
+## Author('Paul Pearson') # modified by silviana amethyst
 ## Institution('University of Rochester')
 ## TitleText1('Calculus: Early Transcendentals')
 ## EditionText1('5')
@@ -75,48 +75,39 @@ $c1 = 2*($a1+$b1);
 $d1 = 3*($a1+$b1);
 $e1 = 6*$a1*$b1;
 
-TEXT(EV2(<<EOT));
+BEGIN_TEXT
 A particle moves along a straight line and its position at time \(t\)
 is given by \[ s(t)= 2t^3 - $d1 t^2 + $e1 t, \quad t \geq 0 \] where \( s \) is measured in feet and
 \( t \) in seconds.  
-$BR
-$BR 
-EOT
+$PAR $HR $PAR
 
-
-TEXT(EV2(<<EOT));
-A. Use \{ helpLink('interval notation')\} to indicate the time interval or union of time intervals when the particle is moving forward and backward.
-$BR
+A. Use interval notation to indicate the time interval or union of time intervals when the particle is moving forward and backward.
+$PAR
 Forward: \{ans_rule(35)\}
 $BR
 Backward: \{ans_rule(35)\}
 $BR
 $BR
-EOT
+END_TEXT
 
 $forward="[0,$a1)U($b1,inf)";
 $backward="($a1,$b1)";
 ANS(interval_cmp($forward, strings=>["none"]),interval_cmp($backward, strings=>["none"] ));
 
-TEXT(EV2(<<EOT));
-B. Use \{ helpLink('interval notation')\} to indicate the time interval(s) when the particle is speeding up and slowing down.
+BEGIN_TEXT
+
+B. Use interval notation to indicate the time interval(s) when the particle is speeding up and slowing down.
 $PAR
 Speeding up: \{ans_rule(35)\}
 $BR
 Slowing down: \{ans_rule(35)\}
 $PAR
-$BITALIC Instructor's note: Should t=0 be included or excluded? $EITALIC
 
-$PAR
-\{ theresahint \}
-EOT
+END_TEXT
 
-BEGIN_HINT
-In the Rogawski 4th edition textbook, see Section 3.4, Example 5, page 156.
 
-\{amethystHint("$PAR$HR$PAR See this 24-minute video for a thorough explanation of 'speeding up' and 'slowing down', from Prof. Amethyst: $PAR")\}
-\{ youtubeAmethyst("ZuoCGPMQFyU") \}
-END_HINT
+
+
 $AverageOfa1b1=($a1+$b1)/2;
 $speedup="($a1,$AverageOfa1b1)U($b1,inf)";
 $slowdown="[0,$a1)U($AverageOfa1b1,$b1)";

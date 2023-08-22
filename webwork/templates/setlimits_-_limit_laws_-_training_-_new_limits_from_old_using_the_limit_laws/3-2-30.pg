@@ -1,5 +1,4 @@
 
-
 ########################################
 # this file automatically moved
 #	from local/Library/ASU-topics/setLimitConcepts/3-2-30.pg 
@@ -29,6 +28,7 @@ loadMacros(
   "PGchoicemacros.pl",
   "PGcourse.pl",
   "uwecAhrendt.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -44,13 +44,37 @@ $d = random(3,8,1);
 $f = random(2,3,1);
 $g = random(3,8,1);
 
-TEXT(EV3(<<'EOT'));
-Evaluate the limit
-\(\displaystyle\lim_{ x \rightarrow $a } \sqrt{$b - $c x}\).
-If the limit does not exist, enter DNE.
-$PAR Limit = \{ans_rule(25) \}$BR
-${BITALIC}(Give an exact answer.)$EITALIC
-EOT
+
+
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This sequence of problems teaches methods for finding limits when we're given a formula.
+
+
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+If we want to know a limit of a function, we should 
+1. find out the limits of its pieces
+2. combine using the limit laws, if possible
+
+👀 Watch out for domain problems!!!
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+BEGIN_TEXT
+
+Evaluate the limit.  If the limit does not exist, enter "DNE". $PAR
+
+\(\displaystyle\lim_{ x \rightarrow $a } \sqrt{$b - $c x} = \) \{ans_rule(25) \}
+
+END_TEXT
 
 ANS(Compute("DNE")->cmp);
 

@@ -60,6 +60,9 @@ loadMacros(
   "PGcourse.pl"
 );
 
+COMMENT("todo: rewrite this problem to align the columns.");
+COMMENT("todo: derive from this problem.  this is a good template (after fixing formatting)");
+
 TEXT(beginproblem());
 
 Context("Numeric");
@@ -72,7 +75,7 @@ $m = random(2,8,2);
 $b = random(3,9,2);
 
 $checkbox_mc = new_checkbox_multiple_choice();
-$checkbox_mc -> qa("Which of the following decompositions of \( f(x) = p (q(x) ) \) into a pair of functions \( p(x) \) (the outside function)  and \( q(x) \) (the inside function) are correct?  $BR Select all that apply.",
+$checkbox_mc -> qa("Select all that apply.", #prompt, but i made it into PGML
                "\( p(x) = \sqrt{x}, \qquad  q(x) = $b - $m x \)",
                "\( p(x) = \sqrt{$b - x} \qquad q(x) = $m x \)",
                "\( p(x) = \sqrt{-x}, \qquad q(x) = $m x - $b \)");
@@ -84,9 +87,26 @@ $checkbox_mc -> extra("\( p(x) = $b - $m x, \qquad q(x) = \sqrt{x} \)",
 #$checkbox_mc -> makeLast("All of the above", "None of the above");
 
 Context()->texStrings;
+
+
+BEGIN_PGML
+
+Select all valid decompositions of [`f(x)`] into a pair of functions 
+* [` p(x)`]  --- the outside function
+* [` q(x) `]  --- the inside function
+
+where 
+
+[`p (q(x) ) = f(x)`].  
+
+---
+
+[``f(x) = \sqrt{ [$b] - [$m] x }``]
+
+END_PGML
+
 BEGIN_TEXT
 
-Let \( f(x) = \sqrt{ $b - $m x } \) .
 $PAR
 \{ $checkbox_mc -> print_q \}
 $BR

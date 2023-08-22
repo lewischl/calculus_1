@@ -1,0 +1,110 @@
+## DESCRIPTION
+## Calculus: Limits and Derivatives
+## ENDDESCRIPTION
+
+## Tagged by LD
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Evaluating limits - rationalizing)
+## Date(5/26/2005)
+## Institution(UCSB)
+## Author(Jeff Holt)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('2.3')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('2.3')
+## Problem2('')
+## KEYWORDS('limits', 'derivatives','Product','Quotient','Differentiation')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/UVA-Stew5e/setUVA-Stew5e-C02S03-CalcLimits/2-3-23.pg 
+#	to setlimits_indeterminate_forms/2-3-23.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setlimits_indeterminate_forms/2-3-23.pg 
+#	to setlimits_indeterminate_forms_-_training/2-3-23.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGauxiliaryFunctions.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+"PGcourse.pl",
+"customCSS.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a = random(1,7,1);
+$b=$a**2;
+
+
+
+$ans = Compute(2*$a);
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+An alternate perspective on multiply by the conjugate.
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+There's a way to factor a linear function that may surprise you: 
+
+[`` (x - a) = (\sqrt{x} - \sqrt{a}) (\sqrt{x} + \sqrt{a})  ``]
+
+You can use this as an alternative to "multiply by the conjugate".  Instead, "factor the part without a [`\sqrt{}`]", then cancel.
+[@ closeDiv() @]*
+
+---
+
+
+
+END_PGML
+
+
+BEGIN_TEXT
+Evaluate the limit.  Use the alternative method.  Factor the numerator using square roots.  
+$BR
+If the limit does not exist, enter ${BBOLD}DNE${EBOLD}.
+
+$PAR
+
+\( \displaystyle \lim_{ x \rightarrow $b } \frac{x - $b}{\sqrt{x} - $a} = \)  \{ans_rule(25) \}
+END_TEXT
+
+Context("Numeric");
+
+ANS($ans->cmp());
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

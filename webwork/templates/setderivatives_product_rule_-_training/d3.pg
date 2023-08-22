@@ -67,36 +67,69 @@ $showPartialCorrectAnswers = 1;
 
 Context('Numeric');
 
-$a = random(2,5,1);
-$b = 3+$a;
-$n = random(5,12,1);
+$h = non_zero_random(2,5,1);
+$hp = non_zero_random(-5,5,1);
 
-$c = (-1)**(-1+$n);
-$d = (-1)**($n);
-$deriv1 = Compute("$a*$n*$c + $b*$d");
+$g = non_zero_random(-10,5,1);
+$gp = non_zero_random(-5,30,1);
+
+$x = random(-4,4,1);
+
+$c = non_zero_random(-12,12,1);
+$d = non_zero_random(-12,12,1);
+
+$p = random(2,5,1);
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Even though we don't have a formula for the function [`g`], if we have its value at a point of interest, as well as the value of [`g^\prime`] there, too, we can still compute derivatives of functions involving [`g`].  
+
+The product rule holds even if we only know the names of the functions.
+[@ closeDiv() @]*
+
+END_PGML
+
 
 BEGIN_TEXT
+
 Given that
-\[ \begin{array}{rcl}
-f(x) &=& x^{$n} g(x) \\
-g(-1)&=& $a \\
-g'(-1)&=& $b,
-\end{array} \]
-calculate \( f'( -1 ) \). \{ans_rule(30) \}
-$BR
-$BR
 
-HINT: $BR
+\[
+\begin{aligned}
+g($x)&= $g \\
+g'($x)&= $gp \\
+h($x)&= $h \\
+h'($x)&= $hp 
+\end{aligned} 
+\]
 
-Use the product rule and the power rule by the books.  Write it out, and evaluate it at \(-1\).  The derivative of the product is the derivative of the first times the second, plus the first times the derivative of the second.
+We can use the product rule to formally differentate a bunch of combinations of \(g\) and \(h\) and find their derivatives at \(x = $x\). 
+$PAR$BR
+\(f(x) = g(x) \cdot h(x) \) $PAR
+\( f'( $x ) =  \) \{ans_rule(30) \}
 
-$BR$BR
+$PAR$BR
+\(f(x) = $c g(x)  h(x) \) $PAR
+\( f'( $x ) =  \) \{ans_rule(30) \}
 
-Even though we don't have a formula for \(g\), we do have its value at the point of interest, as well as the value of \(g^\prime\) there, too.
+$PAR$BR
+\(f(x) = $c g(x) h(x) + $d \) $PAR
+\( f'( $x ) =  \) \{ans_rule(30) \}
+
+$PAR$BR
+\(f(x) = $c g(x) h(x) + x^{$p} + $d \) $PAR
+\( f'( $x ) =  \) \{ans_rule(30) \}
+
 
 
 END_TEXT
 
-ANS($deriv1->cmp);
+
+ANS(Compute($g * $hp + $gp * $h)->cmp);
+ANS(Compute($c*($g * $hp + $gp * $h))->cmp);
+ANS(Compute($c*($g * $hp + $gp * $h))->cmp);
+ANS(Compute($c*($g * $hp + $gp * $h + $p*$x**($p-1)))->cmp);
+
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

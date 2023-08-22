@@ -43,7 +43,9 @@ DOCUMENT();
 loadMacros(
   "PGstandard.pl",
   "PGgraphmacros.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "parserPopUp.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -62,42 +64,63 @@ $graph = init_graph(-1,-1,5,5,'axes'=>[0,0],'grid'=>[6,6]);
 add_functions($graph,$f1,$f2,$f3,$f4,$f5);
 
 
+
+$popup1 = PopUp(['?','Yes', 'No', 'Maybe'],'No');
+$popup2 = PopUp(['?','Yes', 'No', 'Maybe'],'No');
+$popup3 = PopUp(['?','Yes', 'No', 'Maybe'],'No');
+
+
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+A problem connecting continuity with a graph of a function.
+[@ closeDiv() @]*
+
+END_PGML
+
 BEGIN_TEXT
-Let F be the function below
+Let \(F\) be the function below
 $PAR
 \{ image( insertGraph($graph), 
-width=>200,height=>200,tex_size=>800 ) \}
+width=>300,height=>300,tex_size=>800 ) \}
+
+
+$PAR
+
+Evaluate the following expressions.  Enter 'DNE' if the limit does not exist or is not defined. $PAR
+
+
+\( \displaystyle \lim_{x \to 1} F(x) \) = \{ans_rule(7)\}
 $BR
-(Click on graph to enlarge)
+Is \(F(x)\) continuous at \(x=1\) \{$popup1->menu\}
+
+$PAR
+\( \displaystyle \lim_{x \to 2} F(x) \) = \{ans_rule(7)\}
+$BR 
+Is \(F(x)\) continuous at \(x=2\) \{$popup2->menu\}
+$PAR
+
+\( \displaystyle \lim_{x \to 3} F(x) \) = \{ans_rule(7)\}
+$BR 
+Is \(F(x)\) continuous at \(x=3\) \{$popup3->menu\}
 END_TEXT
 
-TEXT(EV2(<<EOT));
-$BR
-$BR
-Evaluate the following expressions.  $PAR
-Note:  Enter 'DNE' if the limit does not exist or is not defined. 
-$BR You can just write 'yes' or 'no' for the yes/no questions. $PAR
 
-a) \( \displaystyle \lim_{x \to 1} F(x) \) = \{ans_rule(7)\}
-$SPACE
-b) Is \(F(x)\) continuous at \(x=1\) \{ans_rule(7)\}
-$PAR
-c) \( \displaystyle \lim_{x \to 2} F(x) \) = \{ans_rule(7)\}
-$SPACE 
-d) Is \(F(x)\) continuous at \(x=2\) \{ans_rule(7)\}
-$PAR
-e) \( \displaystyle \lim_{x \to 3} F(x) \) = \{ans_rule(7)\}
-$SPACE f) Is \(F(x)\) continuous at \(x=3\) \{ans_rule(7)\}
-EOT
+
+
+
 
 ANS(num_cmp(2, strings=>['DNE']))  ;
-ANS(str_cmp("no"));
-ANS(num_cmp('DNE', strings=>['DNE']))  ;
-ANS(str_cmp("no"));
-ANS(num_cmp(3, strings=>['DNE']))  ;
-ANS(str_cmp("no"));
+ANS($popup1->cmp);
 
-SOLUTION(EV3(<<'END_SOLUTION'));
+ANS(num_cmp('DNE', strings=>['DNE']))  ;
+ANS($popup2->cmp);
+
+ANS(num_cmp(3, strings=>['DNE']))  ;
+
+ANS($popup3->cmp);
+
+
+BEGIN_SOLUTION
 $PAR SOLUTION $PAR
 The correct answer are: $BR
 a) 2 $BR

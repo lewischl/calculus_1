@@ -59,12 +59,12 @@ starting position after \(t\) seconds is given by
 \( s(t) = $s. \)
 $PAR
 (a) Find the instantaneous velocity (in feet per second) at \(t = $time1\) seconds.
-$PAR
-Instantaneous velocity at \(t = $time1\) is \{ans_rule(20) \} ft/s.
+$BR
+Instantaneous velocity at \(t = $time1\) is \{ans_rule(20) \} \( \text{ft/s} \).
 $PAR
 (b) Find the instantaneous velocity in (feet per second) at \(t = $time2\) seconds.
-$PAR
-Instantaneous velocity at \(t = $time2\) is \{ans_rule(20) \} ft/s.
+$BR
+Instantaneous velocity at \(t = $time2\) is \{ans_rule(20) \} \( \text{ft/s} \).
 END_TEXT
 Context()->normalStrings;
 

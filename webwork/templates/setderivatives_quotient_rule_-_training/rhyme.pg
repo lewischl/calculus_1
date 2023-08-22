@@ -1,0 +1,151 @@
+##DESCRIPTION
+##Calculus: Differentiation
+##ENDDESCRIPTION
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Quotient rule (without trigonometric functions))
+## Date(6/3/2002)
+## Institution()
+## Author()
+## MLT(expoverlinear)
+## MLTleader(1)
+## Level(3)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('3.2')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('3.2')
+## Problem2('')
+## TitleText3('Calculus: Concepts and Contexts')
+## AuthorText3('Stewart')
+## EditionText3('4 Custom UMTYMP Ed.')
+## Section3('3.2')
+## Problem3('6')
+## TitleText4('Mathematical Applications')
+## AuthorText4('Ronal J. Harshbarger and James J. Reynolds')
+## EditionText4('8')
+## Section4('.')
+## Problem4('')
+## TitleText5('Calculus: Early Transcendentals')
+## AuthorText5('Rogawski')
+## EditionText5('1')
+## Section5('3.3')
+## Problem5('')
+## KEYWORDS('calculus', 'differentiation','derivative', 'quotient rule', 'derivative', 'exponential function','Product','Quotient','Differentiation','derivaitve', exponential, 'Quotient', 'Exponential', 'Product')
+## updated 12/2014
+## MO(1)
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/UVA-Stew5e/setUVA-Stew5e-C03S02-ProdQuotRules/3-2-20.pg 
+#	to setderivatives_quotient_rule/3-2-20.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_quotient_rule/3-2-20.pg 
+#	to setderivatives_quotient_rule_-_training/3-2-20.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "PGcourse.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+Context('Numeric');
+Context()->texStrings;
+
+
+$high = "\textnormal{high}";
+$low = "\textnormal{low}";
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+There's a nice rhyme for doing the quotient rule.  
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Let 
+* [``f = \frac{[$high]}{[$low]}``], and 
+* use the symbol [`d`] to mean *d*ifferentation.
+
+Then
+
+>>[``
+\frac{d}{dx} f = \frac{[$low] \cdot [$high]' - [$high]\cdot [$low]'}{([$low])^2}
+``] <<
+
+and the form that gives a nice square-dancing rhyme:
+
+>>[``
+\frac{d}{dx} f = \frac{[$low] \cdot d[$high] - [$high]\cdot d[$low]}{([$low])^2}
+``] <<
+
+"Low dee high, minus high dee low, draw a line, and square below".
+[@ closeDiv() @]*
+
+Let [`[$high]`] and [`[$low]`] be the numerator and denominator of the fraction you're differentiating.  This makes is so that even if the function we're differentiating is named [`f`], we still have nice memorable names for the piece of the quotient rule.
+
+---
+
+END_PGML
+
+
+$a = random(2,5,1);
+$b = non_zero_random(-5,5,1);
+$c = non_zero_random(-6,6,1);
+
+$g_prime = Formula( "exp(x)/($a*x+$b)-$a*exp(x)/($a*x+$b)**2");
+
+$num = Formula("exp(x) + $c")->reduce;
+$den = Formula("$a x^2 + $b")->reduce;
+
+$g = $num / $den;
+$g_prime = $g->D;
+
+BEGIN_TEXT
+Find the derivative of the function, and then evaluate that derivative.
+$PAR
+
+\( \displaystyle F(x) = \frac{$num}{$den}  \)
+
+$PAR
+
+\( F'(x) = \) \{ ans_rule(50) \}
+
+$PAR 
+\( F'(1) = \) \{ ans_rule(50) \}
+END_TEXT
+
+
+ANS($g_prime->cmp);
+ANS($g_prime->eval(x=>1)->cmp);
+#ANS(fun_cmp($g_prime));
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

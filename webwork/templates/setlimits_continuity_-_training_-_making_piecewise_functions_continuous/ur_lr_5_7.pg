@@ -58,6 +58,7 @@ loadMacros(
   "MathObjects.pl",
   "contextPiecewiseFunction.pl",
   "PGcourse.pl",           # Customization file for the course
+  "customCSS.pl",
 );
 
 $showHint=-1;
@@ -83,32 +84,62 @@ Context("Numeric");
 ###################################
 # Main text
 
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+In this problem, we have a piecewise function [`f`] that has a parameter [`b`] in it.  
+
+If the parameter has a special value, then [`f`] will be continuous.  For all other values of [`b`], the function [`f`] is discontinuous. 
+
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+To make a piecewise function continuous at a point, the two branches must have equal limits at that point.  
+
+1. Plug in the transition point to each branch
+2. Set the two pieces equal
+3. Solve
+
+Conclude by checking your work.
+
+[@ closeDiv() @]*
+
+END_PGML
+
+
 BEGIN_TEXT
-In this problem, we have a piecewise function \(f\) that has a parameter \(b\) in it.  If the parameter has a special value, then \(f\) will be continuous.  For all other values of \(b\), the function \(f\) is discontinuous.  
+
+
+
+$PAR$HR$PAR 
+
+Like Desmos?  So do I!  \{htmlLink("https://www.desmos.com/calculator/corm2o11nw", "This Desmos graph")\} demonstrates finding \(b\) so that \(f\) is continuous.  You'll have to change the numbers to match your functions.
+
+
+$PAR$HR$PAR 
+
+I suggest checking out this conceptual video from Prof. Amethyst for an explanation of problems of this type, where we're finding how to make a piecewise function continuous:
+
+$PAR
+
+\{ youtube(DdKDfIuSN30) \}
+
+
 
 $PAR$HR$PAR
 
 Let \[ f(x) = \{$f->with(final_period=>1)->TeX\} \]
-Find all values of the constant \(b\) for which \(f\) is
-a continuous function at \( $x \).   If no such value exists, type DNE.
+Find all values of the constant \(b\) for which \(f\) is a continuous function at \(x = $x \).  $BR
+If no such value exists, type DNE.  List your answers separated by commas.
 $PAR
-\( b= \) \{ans_rule(25)\}$BR
-${BITALIC}(List your answers separated by commas.)${EITALIC}
+\( b= \) \{ans_rule(25)\}
+
 END_TEXT
 
-BEGIN_HINT
 
-In this problem, the unknown constant we can adjust to make the function constant is in the formulas for evaluating.  The function is constant if the two branches meet at the transition point -- that is, if they have the same value there.  Thus, we can find the value of the constant by evaluating the both branches of the function at the transition point, in this problem \( x = $x \), setting them equal to each other, and solving for \(b\).
-
-\{ amethystHint("$PAR$HR$PAR Like Desmos?  So do I!  This graph demonstrates finding b so that f is continuous.  You'll have to change the numbers to match your functions.  https://www.desmos.com/calculator/corm2o11nw") \}
-
-\{amethystHint("$PAR$HR$PAR I suggest checking out this video from Prof. Amethyst for an explanation of problems of this type, where we're finding how to make a piecewise function continuous:$BR$BR")\}
-
-\{ youtubeAmethyst(DdKDfIuSN30) \}
-
-\{ amethystHint("$PAR$HR$PAR For a more computational video on how-to, check out this one:$PAR") \}
-\{ youtubeAmethyst("MILVFzVe_Zo") \}
-END_HINT
 ###################################
 # Answers
 

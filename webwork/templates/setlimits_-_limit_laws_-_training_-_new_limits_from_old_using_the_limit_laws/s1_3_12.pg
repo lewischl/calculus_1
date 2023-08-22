@@ -1,5 +1,4 @@
 
-
 ########################################
 # this file automatically moved
 #	from local/Library/ASU-topics/setLimitConcepts/s1_3_12.pg 
@@ -29,6 +28,7 @@ loadMacros(
   "PGchoicemacros.pl",
   "PGcourse.pl",
   "uwecAhrendt.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -41,18 +41,23 @@ $a1 = random(3,8,1);
 $b1 = random(3,8,1);
 $e1 = random(2,4,1);
 
-TEXT(EV3(<<'EOT'));
-Evaluate the limit
-\[\displaystyle\lim_{ y \rightarrow $e1 } \frac {$a1 (y^2-1) }{ $b1 y^2 (y -1)^3 }\]
-If the limit does not exist, enter DNE.
-$PAR Limit =  \{ans_rule(25) \}$BR
-${BITALIC}(Give an exact answer.)$EITALIC
 
-$PAR
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This sequence of problems teaches methods for finding limits when we're given a formula
+[@ closeDiv() @]*
 
-\{ theresahint \}
 
-EOT
+END_PGML
+
+BEGIN_TEXT
+Evaluate the limit.  If the limit does not exist, enter DNE.
+
+$PAR 
+
+\( \displaystyle\lim_{ y \rightarrow $e1 } \frac {$a1 (y^2-1) }{ $b1 y^2 (y -1)^3 } = \) \{ans_rule(25) \}
+
+END_TEXT
 
 #$ans = ($a1* ($e1*$e1-1))/ ($b1* $e1*$e1* ($e1 -1)**3 );
 
@@ -63,9 +68,7 @@ ANS(Compute("$num/$denom")->cmp);
 
 
 
-BEGIN_HINT
-Just evaluate the function at the point...  Type in a rational number.
-END_HINT
+
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.
 

@@ -50,19 +50,30 @@
 # if not, look in the source directory for images that didn't make it.
 ########################################
 
-
 DOCUMENT();        # This should be the first executable line in the problem.
 
+
 loadMacros(
-  "PGstandard.pl",
-  "MathObjects.pl",
-  "PGcourse.pl"
+    "PGstandard.pl",
+    "MathObjects.pl",        # the new parser
+    "contextFraction.pl",
+    "parserMultiAnswer.pl",
+    "answerHints.pl",
+    "PGML.pl",
+    "scaffold.pl",
+    "customCSS.pl",
+    "PGcourse.pl",           # Customization file for the course
 );
+
+loadMacros("niceTables.pl");
+
 
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
 Context('Numeric');
+
+Context()->variables->add(u=>"Real");
 
 $a1 = random(2,5,1);
 $b1 = random(2,8,1);
@@ -71,8 +82,52 @@ $x1 = random(1,5,1);
 $deriv1 = "$a1*(tan($b1*$x1)/cos($b1*$x1))*$b1";
 $funct1 = "$a1*(tan($b1*x)/cos($b1*x))*$b1";
 
+
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Chain Rule:
+
+If [`f_1`] and [`g_1`] are differentiable functions, then
+
+[```\frac d{dx}[f_1(g_1(x))]=f_1'(g_1(x)) \cdot g_1'(x)```]
+[@ closeDiv() @]*
+
+END_PGML
 BEGIN_TEXT
-Let \( f(x) =  $a1 \sec ($b1 x) \). Determine the following. $BR$BR
+
+Let \( f(x) =  $a1 \sec ($b1 x) \). $PAR
+
+Since the original function is called \(f\), I recommend using \(f_1\) and \(g_1\) for the Chain Rule:
+
+END_TEXT
+
+BEGIN_PGML
+Let's begin by decomposing the function as [`f(x)=f_1(g_1(x))`]:
+
+[@
+DataTable(
+[
+    ['\( f_1(u) = \) ' . ans_rule(10),'\(f_1\'(u)=\)' . ans_rule(10) ],
+    ['\( g_1(x) = \) ' . ans_rule(10),'\(g_1\'(x)=\)' . ans_rule(100) ]
+],
+align => 'l l',
+tablecss => "border:solid 1px; border-spacing:50px 5px; border-radius: 5px; border-collapse:separate;"
+);
+@]***
+
+END_PGML
+
+ANS(Formula("$a1/cos(u)")->reduce->cmp());
+ANS(Formula("$a1*sin(u)/(cos(u)*cos(u))")->reduce->cmp());
+ANS(Formula("$b1*x")->reduce->cmp());
+ANS(Formula("$b1")->reduce->cmp());
+
+BEGIN_TEXT
+Determine the following. $BR$BR
 
 \(f'(x)=\) \{ans_rule(50) \} $BR$BR
 \( f'($x1)=\) \{ans_rule(50) \}

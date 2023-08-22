@@ -16,6 +16,8 @@
 # [``` y(t) = [$y] ```]
 # [@ closeDiv() @]*
 
+$standardtablecss='border:solid 1px;     border-collapse: separate; border-radius: 5px; padding: 10px; border-spacing: 10px 0px';
+
 TEXT( MODES(
   HTML=>"
     <style>
@@ -23,6 +25,24 @@ TEXT( MODES(
         border: 2px solid #fdebd0;
         border-radius: 5px;
         background-color: #fef9e7 ;
+        border-style: inset;
+        padding: 5px;
+        width: 75%;
+        margin: auto;
+      }
+    </style>
+  ",
+  TeX=>""
+));
+
+
+TEXT( MODES(
+  HTML=>"
+    <style>
+      .warning {
+        border: 2px solid #ff372d;
+        border-radius: 5px;
+        background-color: #ffce90 ;
         border-style: inset;
         padding: 5px;
         width: 75%;

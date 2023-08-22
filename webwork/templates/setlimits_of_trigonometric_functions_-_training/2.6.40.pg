@@ -32,7 +32,8 @@ loadMacros(
   "PGchoicemacros.pl",
   "PGgraphmacros.pl",
   "freemanMacros.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 ## DBsubject(Calculus - single variable)
@@ -56,36 +57,57 @@ TEXT(beginproblem());
 $n=random(3,5,2);
 $a=random(4,8,2);
 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+A limit where unpacking [`\tan \Box`] into [`\sin \Box / \cos \Box`] is useful, plus the new trig identities we're learning.
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A useful limit identity for indeterminate form trig limits:
+
+* [`` 
+\lim_{x \to 0} \frac{\sin x}{x} = 1
+``]
+
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+
 BEGIN_TEXT
+
+Start by substituting sine and cosine for both of the tangents: \( \tan \Box = \frac{\sin \Box}{\cos \Box} \).
+
+$PAR
+
+After that, you have two sine's, two cosine's.  Put the sines over each other in one fraction, and the cosines over each other into a fraction.  Split using the limit law that says the limit of the product is the product of the limits.  Then you should have a 0/0 indeterminate form times a regular old limit of a continuous function (remember, \(\cos(0) = 1\)).
+
+$PAR
+
+To conclude the problem, practice as you've been doing on the problems that just have \( \lim_{x \to 0} \frac{\sin m x}{\sin n x} \).  The cosines just contribute a multiplicative factor of 1.
+
+
+$PAR $HR $PAR
 \{ textbook_ref_exact("Rogawski ET 2e", "2.6","40") \}$BR
-Evaluate the limit:$BR
-\( \lim\limits_{x \to 0} \frac {\tan $n x} {\tan $a x} = \)  \{ ans_rule(6) \}
 
-$BR$BR
+Evaluate the limit:$PAR
 
-\{ theresahint \}
+\( \displaystyle \lim\limits_{x \to 0} \frac {\tan $n x} {\tan $a x} = \)  \{ ans_rule(6) \}
+
 
 END_TEXT
 
 $b=($n/$a);
 
-BEGIN_HINT
-Start by substituting sine and cosine for both of the tangents: \( \tan \Box = \frac{\sin \Box}{\cos \Box} \).
 
-$BR$BR
 
-After that, you have two sine's, two cosine's.  Put the sines over each other in one fraction, and the cosines over each other into a fraction.  Split using the limit law that says the limit of the product is the product of the limits.  Then you should have a 0/0 indeterminate form times a regular old limit of a continuous function (remember, \(\cos(0) = 1\)).
+BEGIN_SOLUTION
 
-$BR$BR
-
-To conclude the problem, practice as you've been doing on the problems that just have \( \lim_{x \to 0} \frac{\sin m x}{\sin n x} \).  The cosines just contribute a multiplicative factor of 1.
-
-$BR$BR
-
-Might I also suggest plotting the original function around \(x = 0\)?
-END_HINT
-
-SOLUTION(EV3(<<'END_SOLUTION'));
 $BR$BBOLD Solution:$EBOLD 
 $BR
 \( \lim\limits_{x \to 0} \frac {\tan $n x} {\tan $a x} = \lim\limits_{x \to 0} \frac {\cos $a x} {\cos $n x} \cdot \frac {\sin $n x} {$n x} \cdot \frac {$n} {$a} \cdot  \frac {$a x} {\sin $a x}  = \frac {$n} {$a}\).

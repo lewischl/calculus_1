@@ -46,7 +46,8 @@ DOCUMENT();        # This should be the first executable line in the problem.
 
 loadMacros(
   "PGstandard.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -58,18 +59,21 @@ $t1 = -$a1+$b1;
 $n1 = $a1*$b1;
 
 BEGIN_TEXT
-Evaluate the limit using either graphical or numerical techniques.
-\[ \lim_{ x \rightarrow $a1 } \frac { x - $a1 } {x^2 + $t1 x - $n1 } \]
-Answer: \{ans_rule(25) \}
+Evaluate the limit using either graphical or numerical techniques. $PAR
+
+\( \displaystyle \lim_{ x \rightarrow $a1 } \frac { x - $a1 } {x^2 + $t1 x - $n1 } =  \)\{ans_rule(25) \}
+
 
 $PAR
-\{ theresahint \}
+
+
+\{ openDiv({ "class" => "inProblemHint" })  \}
+Try evaluating the function really near to the point of interest.  Use many decimal places.
+\{ closeDiv() \}
 END_TEXT
 
 
-BEGIN_HINT
-Try evaluating the function really near to the point of interest.  Use many decimal places.
-END_HINT
+
 $ans = "1/($a1 + $b1)";
 ANS(num_cmp($ans));
 

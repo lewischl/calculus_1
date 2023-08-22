@@ -48,9 +48,11 @@ $c = $x1 * $x2;
 Context('Numeric');
 
 BEGIN_PGML
-A particle moves according to the law of motion
-    [``` s=t^3 ? {[$b]} t^2 + [$c] t, \quad t\ge 0, ```]
-[`t\ge 0`], where [`t`] is measured in seconds and [`s`] in feet.
+A particle moves according to the modeling function
+    [``` s(t) =t^3 ? {[$b]} t^2 + [$c] t, \quad t\ge 0, ```]
+where [`t`] is measured in seconds and [`s`] in feet.
+
+---
 
 A. Find the velocity at time [`t`].
 
@@ -74,7 +76,6 @@ D. When is the particle moving in the positive direction?
 END_PGML
 
 
-COMMENT('MathObject version');
 ENDDOCUMENT();
 
 ##TYPE('word problem')

@@ -47,8 +47,15 @@ DOCUMENT();
 
 loadMacros(
   "PGstandard.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl"
 );
+
+loadMacros("niceTables.pl");
+
+Context("Numeric");
+
+Context()->variables->add(u=>"Real");
 
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
@@ -60,60 +67,111 @@ $b4 = random(2,15,1);
 $b3 = random(2,15,1);
 $a1 = $a-1;
 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem is one of a family of functions in which we explore and train on what we can know about derivatives, if we don't know the formulas of the functions.
+
+The point is that, even without function definition, the derivative rules hold true.
+[@ closeDiv() @]*
+
+
+In this problem, you use the chain rule to calculate the value of the derivative at a point of a composite function, even though we're missing the definition of [`f`] and the particular value of [`a`].
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+To find the value of a combination of functions, follow these general steps:
+
+1. Write down the formula
+2. Differentiate.    
+    * If you have to differentiate a function but don't have its formula, just put a prime on it.
+    * If you know the formula, actually differentiate
+3. Look up values from given information.  You may also have to evaluate an actual formula.
+4. Do arithmetic and simplify.
+
+[@ closeDiv() @]*
+
+---
+
+We're going to build a new function [`F`] from an old one [`f`] using function compostition.   Specifically, we're going to composose [`x^[$a]`] into [`f`].
+
+END_PGML
+
+
+
 BEGIN_TEXT
 
-In this problem, you use the chain rule to calculate the value of the derivative at a point of a composite function, even though we're missing the definition of \(f\) and the particular value of \(a\).  
+So our function is  
+$BR
+
+\( F(x)= f(x^{$a}) \)  
+
+$PAR
+and we're evaluating at \(x = a\).
 
 $BR
-$BR
-Let \( F(x)= f(x^{$a}) \) and \( G(x)=(f(x))^{$a} \) and suppose that $BR$BR
-\[ a^{$a1}=$b1, \quad f(a)=$b2, \quad f'(a)=$b3, \quad f'(a^{$a})=$b4 \] 
-$BR
-Find \( F'(a) \) and \( G'(a) \). $BR$BR
-\(F'(a)=\) \{ans_rule(10) \}  $BR
-\(G'(a)=\) \{ans_rule(10) \}
+We're going to find the value of \( F'(a) \). 
+
+Suppose we know the information about function values:$BR
+\[ \begin{aligned} 
+a^{$a1} & = $b1 \\
+f(a) & = $b2
+\end{aligned}
+\]
+
+$PAR
+and about derivative values: $BR
+
+\[ \begin{aligned} 
+f'(a) & = $b3 \\
+f'(a^{$a}) & = $b4 
+\end{aligned}
+\]
 
 END_TEXT
 
-$ans1 = "$a*$b1*$b4";
-$ans2 = "$a*($b2^$a1)*$b3";
-ANS(num_cmp($ans1));
-ANS(num_cmp($ans2));
+BEGIN_PGML
+We start by formally differentiating [`F = f(x^[$a])`] using the chain rule:
 
-$showHint=-1;
-BEGIN_HINT
-Sure, we don't know what \(f\) is, but we won't let that stop us.  
-$BR $BR 
-Write down the chain rule for these functions (F and G), with generic \(x\)'s.  Then, substitute in \(a\) for \(x\).  Yes, we don't know the value of \(a\) either.  I know.  But after you have the chain rule written down, you should be able to see that the things we need are given, even though we know neither \(a\) nor \(f\). 
-$BR $BR 
-The pieces of the puzzle you need, they are given as function and derivative values.  Put them together by multiplying.
-$BR $BR 
-Another way of phrasing my help:
-$BR 
-To do this problem, apply the chain rule, and just let \(f'\) be \(f'\).  Don't worry that we don't know the formula for the function itself.  Write down what the derivatives should be at any point \(x\), and then, when you're ready to evaluate at \(a\), write down what it should be, and grab the relevant values from what you were given.
+[`F'(x)=f'\big(`] [_]{Formula("x^$a")}[`\big)`] [_]{Formula("$a*x^($a-1)")->reduce}
 
-$BR$BR
-$HR
-$BR$BR
+and then by evaluating at [`x = a`], using the known values, and doing arithmetic we have 
 
-Still not there?  Here's an example of a related problem.  Suppose we don't know \(f\), but we know that $BR
-\(K(x) = \sin(f(x))\)$BR
-Then $BR
-\(K'(x) = \cos(f(x)) \cdot f'(x)\)$BR
-Thus, 
-$BR\(K'(a) = \cos(f(a)) \cdot f'(a)\)$BR
-If we just know \(\cos(f(a))\) and \(f'(a)\), we can know \(K'(a)\).  Just plug in the known values, and do the arithmetic.
+[`F'(a)=`] [_]{Formula("$a*$b1*$b4")->reduce}
 
-$BR$BR 
+END_PGML
 
-Want another example?  Suppose we want to know the derivative of $BR
-\(H(x) = 3\sqrt{f(x)}\)$BR
-\(H(x) = 3(f(x))^{1/2}\)$BR
-Then, using the chain rule, $BR
-\(H'(x) = 3 \frac{1}{2}(f(x))^{-1/2} f'(x)\)  $BR
-\(H'(x) = 3 \frac{f'(x)}{2 \sqrt{f(x)}} \)$BR
-We can evaluate at \(x=a\), and the necessary ingredients will be \(f(a)\) and \(f'(a)\).
-END_HINT
+BEGIN_TEXT
+
+$PAR $HR $PAR
+
+
+
+I'll restate our values:
+\[ \begin{aligned} 
+a^{$a1} & = $b1 \\
+f(a) & = $b2 \\
+f'(a) & = $b3 \\
+f'(a^{$a}) & = $b4 
+\end{aligned}
+\] 
+
+Now take \( G(x)=(f(x))^{$a} \), so by formally differentiating we have 
+
+END_TEXT
+
+BEGIN_PGML
+
+[`G'(x)=[$a](f(x))^[$a-1]f'(x)`]
+
+and by using values from the table and doing arithmetic, 
+
+[`G'(a)=`] [_]{Formula("$a*($b2^$a1)*$b3")->reduce}
+
+END_PGML
+
+
 ENDDOCUMENT();        
 # This should be the last executable line in the problem.
 

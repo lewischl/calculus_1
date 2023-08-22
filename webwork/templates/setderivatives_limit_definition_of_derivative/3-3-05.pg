@@ -45,7 +45,8 @@ DOCUMENT();        # This should be the first executable line in the problem.
 loadMacros(
   "PGstandard.pl",
   "PGchoicemacros.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+    "customCSS.pl",
 );
 
 $a = non_zero_random(-8,8,1);
@@ -58,9 +59,32 @@ TEXT(beginproblem());
 
 $showPartialCorrectAnswers = 1;
 
-TEXT(EV2(<<EOT));
-Recall
-\[ f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \]
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+In this problem we give you the numerator of the difference quotient and have you work out the rest of the derivative by definition.
+
+This will help build skill in working with the algebraic steps needed to compute a derivative of a moderately complicated function by definiton.
+
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+The derivative is defined by the limit of the difference quotient:
+
+[```f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}```]
+
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+BEGIN_TEXT
+
+
 
 Suppose that we know the numerator of the difference quotient for a function \(f\):
 \[
@@ -70,9 +94,8 @@ Find \(f'(x)\).
 $BR
 $BR
 \(f'(x) = \) \{ans_rule(25)\}
-$PAR
-\{theresahint\}
-EOT
+
+END_TEXT
 
 BEGIN_HINT
 You're given the numerator of the difference quotient.  Divide it by \(h\), and take the limit as \(h \to 0\).

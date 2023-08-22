@@ -1,0 +1,223 @@
+##DESCRIPTION
+##  Algebra problem: true or false for inequality 
+##ENDDESCRIPTION
+
+##KEYWORDS('algebra', 'inequality', 'fraction')
+
+## DBsubject('Algebra')
+## DBchapter('Fundamentals')
+## DBsection('Real Numbers')
+## Date('6/3/2002')
+## Author('')
+## Institution('')
+## TitleText1('Precalculus')
+## EditionText1('3')
+## AuthorText1('Stewart, Redlin, Watson')
+## Section1('1.1')
+## Problem1('22')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set3.9_exp_derivatives/exp_with_trig.pl.pg 
+#	to setderivatives_of_exponential_functions/exp_with_trig.pl.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setderivatives_of_exponential_functions/exp_with_trig.pl.pg 
+#	to setderivatives_of_exponential_functions_-_training/exp_with_trig.pl.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();      
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "PGcourse.pl",
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+
+
+
+
+##############################################################
+#
+#  Text
+#
+#
+Context("Numeric");
+
+
+# problem 20, page 196 rogawski, randomized
+
+
+Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on composition of functions into [`\exp`].
+[@ closeDiv() @]*
+
+---
+
+Check out this video from Prof. Amethyst about derivatives of exponential functions.  This video includes more than just the topic of this problem.
+
+>>[@ youtube("EpxyT34-OXM") @]*<<
+
+
+---
+
+When we put a function inside an exponential function, we just apply the chain rule.  ⛓️ Chain it out 
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The general derivative for base [`e`] exponentials:
+
+[```
+\frac{d}{dx} e^{f(x)} = e^{f(x)} \cdot f'(x) 
+```]
+
+If you've been enjoying "box notation", here's the exponential rule with boxes:
+
+[```
+\frac{d}{dx} e^{\Box} = e^{\Box} \cdot \Box'
+```]
+
+⚠️ This only works if the base is [`e`]!!!  With other bases, there's one more factor.
+[@ closeDiv() @]*
+
+For example, 
+
+[`` \left(e^{x^2}\right)' = e^{x^2} \, 2x ``]
+---
+
+Find the derivatives using the general exponential rule.
+END_PGML
+
+
+Context()->noreduce('(-x)-y','(-x)+y');
+
+
+
+$a = random(10,20,1);
+$f = Compute("e^(sin(x))")->reduce;
+
+Context()->texStrings;
+
+BEGIN_TEXT
+
+$BR$PAR
+\(f(x) = $f\)
+
+$BR
+\( f'(x) = \) \{ ans_rule(50) \}
+END_TEXT
+ANS($f->D->cmp);
+
+
+
+
+
+
+$a = non_zero_random(-20,20,1);
+$b = non_zero_random(-20,20,1);
+$c = random(-20,20,1);
+$d = non_zero_random(-20,20,1);
+$f = Compute("e^($a x^3 + $b x^2 + $cx + $d)")->reduce;
+
+Context()->texStrings;
+
+BEGIN_TEXT
+
+$BR$PAR
+\(f(x) = $f\)
+
+$BR
+\( f'(x) = \) \{ ans_rule(50) \}
+END_TEXT
+ANS($f->D->cmp);
+
+
+
+
+$a = non_zero_random(-20,20,1);
+$b = non_zero_random(-20,20,1);
+$c = random(-20,20,1);
+$d = non_zero_random(-20,20,1);
+$f = Compute("e^(x sin(x) )")->reduce;
+
+Context()->texStrings;
+
+BEGIN_TEXT
+
+$BR$PAR
+
+This one requires the product rule when you chain out the derivative of the inside:
+$PAR
+\(f(x) = $f\)
+
+$BR
+\( f'(x) = \) \{ ans_rule(50) \}
+END_TEXT
+ANS($f->D->cmp);
+
+
+
+$a1 = non_zero_random(-20,20,1);
+$a2 = non_zero_random(-20,20,1);
+$a3 = non_zero_random(-20,20,1);
+
+$b1 = non_zero_random(-20,20,1);
+$b2 = non_zero_random(-20,20,1);
+$b3 = non_zero_random(-20,20,1);
+
+$f = Compute("e^($a1 x + $b1)+e^($a2 x + $b2)+e^($a3 x + $b3)")->reduce;
+
+Context()->texStrings;
+
+BEGIN_TEXT
+
+$BR$PAR
+
+There's a nice pattern when the inside function is linear:
+$PAR
+\(f(x) = $f\)
+
+$BR
+\( f'(x) = \) \{ ans_rule(50) \}
+END_TEXT
+ANS($f->D->cmp);
+
+
+
+
+
+#Context()->normalStrings;
+
+ENDDOCUMENT();        

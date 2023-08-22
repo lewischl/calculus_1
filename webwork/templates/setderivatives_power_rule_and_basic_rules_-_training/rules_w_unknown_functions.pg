@@ -55,7 +55,9 @@ loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
   "AnswerFormatHelp.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
+  "niceTables.pl",
 );
 
 TEXT(beginproblem());
@@ -86,49 +88,101 @@ $ans3 = Compute($c3 * $a + $c4 * $b);
 $ans4 = Compute($c5 * $b - $c6 * $a);
 $ans5 = Compute($c7 * $a + $c8 * $b);
 $ans6 = Compute($c9 * $b - $c10 * $a + $c12);
+
+
+
+$tab = LayoutTable([
+[
+"\(h_1(x) = $c1 f(x)\)
+$PAR
+\( h_1'($x1) \) = " . ans_rule(10)
+,
+"
+\(h_2(x) = $c2 g(x)\)
+$PAR
+\( h_2'($x1) \) = 
+" . ans_rule(10)
+,
+"
+\(h_3(x) = $c3 f(x) + $c4 g(x)\)
+$PAR
+\( h_3'($x1) \) =
+" . ans_rule(10)
+],
+[
+"
+\(h_4(x) = $c5 g(x) - $c6 f(x)\)
+$PAR
+\( h_4'($x1) \) = 
+" . ans_rule(10)
+,
+"
+\(h_5(x) = $c7 f(x) + $c8 g(x) ? {$c11}\)
+$PAR
+\( h_5'($x1) \) =
+" . ans_rule(10)
+,
+"
+\(h_6(x) = $c9 g(x) - $c10 f(x) ? {$c12} x\)
+$PAR
+\( h_6'($x1) \) =
+" . ans_rule(10)
+]
+
+],
+align=>"l l l",
+tablecss=>$standardtablecss);
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+Just because we don't know the formulas for [`f`] and [`g`] doesn't mean we can't know what the various derivatives of combinations of them would be.  
+
+This problem offers training on using known values of functions and derivatives in combination with the sum, difference, and constant product rules
+
+[@ closeDiv() @]*
+
+END_PGML
+
+
+
 BEGIN_TEXT
 
-Just because we don't know the formulas for \(f\) and \(g\) doesn't mean we can't know what the various derivatives of combinations of them would be.
-$BR$BR
-Let \(f\) and \(g\) be functions that satisfy
-\( f'($x1) = $a \) and \( g'($x1) = $b\).  Find \(h'($x1)\)
-for each function \(h\) given below:
-$BR$BR
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
+
+Write down the functions \(h\), and carefully use the rules for differentiation, to get the derivatives.  They will involve the symbols \(f'\) and \(g'\).  Then, plug in the known values you have at \(x = $x1\).  
+
+$PAR Two hints:
 $BR
-(A) \(h(x) = $c1 f(x)\).
+- The derivative of a constant is 0, always.
 $BR
-$BR
-\( h'($x1) \) = \{ans_rule(10) \}
-$BR$BR
-$BR
-(B) \(h(x) = $c2 g(x)\).
+- The derivative of \(x\) with respect to \(x\) is just 1.
+
+\{ closeDiv() \}
+
 $PAR
-\( h'($x1) \) = \{ans_rule(10) \}
-$BR$BR
+
+For example, if \(k(x) = 15f(x) + 7\), then \(k'(x) = 15 f'(x)\), and \(k'($x1) = 15 f'($x1)\).
+$PAR
+$HR
+$PAR
+Let \(f\) and \(g\) be functions that satisfy 
 $BR
-(C) \(h(x) = $c3 f(x) + $c4 g(x)\).
-$BR$BR
-\( h'($x1) \) = \{ans_rule(10) \}
-$BR
-$BR$BR
-(D) \(h(x) = $c5 g(x) - $c6 f(x)\).
-$BR
-$BR
-\( h'($x1) \) = \{ans_rule(10) \}
-$BR
-$BR
-(E) \(h(x) = $c7 f(x) + $c8 g(x) ? {$c11}\).
-$BR
-$BR
-\( h'($x1) \) = \{ans_rule(10) \}
-$BR
-$BR$BR
-(F) \(h(x) = $c9 g(x) - $c10 f(x) ? {$c12} x\).
-$BR
-$BR
-\( h'($x1) \) = \{ans_rule(10) \}
-$BR$BR
-\{ theresahint \}
+\( f'($x1) = $a \) $BR
+\( g'($x1) = $b\)
+
+$PAR
+
+Find \(h_n'($x1)\)
+for each function given below:
+$PAR
+
+\{ $tab \}
+
+
 END_TEXT
 
 ANS($ans1->cmp);
@@ -138,13 +192,6 @@ ANS($ans4->cmp);
 ANS($ans5->cmp);
 ANS($ans6->cmp);
 
-$showHint=-1;
-BEGIN_HINT  
-Write down the functions \(h\), and carefully use the rules for differentiation, to get the derivatives.  They will involve the symbols \(f'\) and \(g'\).  Then, plug in the known values you have at \(x = $x1\).
-$BR$BR
-(E) -- the derivative of a constant is 0, always.
-$BR$BR
-(F) -- if the \(x\) is tripping you up -- the derivative of \(x\) with respect to \(x\) is just 1.
-END_HINT
+
 
 ENDDOCUMENT();

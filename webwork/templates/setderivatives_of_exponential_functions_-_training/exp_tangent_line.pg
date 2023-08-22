@@ -72,49 +72,87 @@ $showPartialCorrectAnswers = 1;
 #
 #
 Context("Numeric");
+
+
+# relax tolerances a bit
+Context('Numeric')->flags->set(
+    tolerance => 0.0001,
+    tolType   => 'absolute',
+);
+
 Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+We're still learning about tangent lines.  The derivative is the slope of the tangent line, and the tangent line is the best possible linear approximation to the function.
+[@ closeDiv() @]*
+
+END_PGML
 
 # problem 9, page 196 rogawski, randomized
 
-$a = random(2,5,1);
-$x = 1;
 
+
+$a = random(2,5,1);
 $f = Compute("$a**(x**2 - 2*x)")->reduce;
-$tangent_line = Formula("1/$a");
+
+
 
 BEGIN_TEXT
-Find the equation of the tangent line to the function
+Find the equations of the tangent lines to the function at the given points.$BR
+Use exact coefficients, don't use floating point numbers.  Enter it in slope-intercept form.
 $BR$BR
 \(f(x) = $f\)
 $BR$BR
-at the point \( ($x,f($x)) \).  
 
-$BR$BR
-Use exact coefficients, don't use floating point numbers.  Enter it in slope-intercept form.
-
-$BR$BR
-\( y = \) \{ ans_rule(50) \}
-
-$BR$BR
-\{ theresahint \}
 END_TEXT
 
-BEGIN_HINT
+
+
+# first, at a point where the slope is NOT 0.
+
+$x = 2; # at x=1, the tangent line is horizontal.
+
+$y = $f->eval(x=>2);
+$m = $f->D->eval(x=>2);
+$tangent_line = Formula("$m (x-$x) + $y");
+
+BEGIN_TEXT
+
+At the point \( ($x,f($x)) \), the tangent line is  
+
+$BR$BR
+
+\( y = \) \{ ans_rule(50) \}
+
+
+$PAR $BR
+
+END_TEXT
+ANS($tangent_line->cmp);
+
+
+
+
+$x = 1; # at x=1, the tangent line is horizontal.
+$tangent_line = Formula("1/$a");
+
+BEGIN_TEXT
+
+At the point \( ($x,f($x)) \), the tangent line is  
+
+$BR$BR
+
+\( y = \) \{ ans_rule(50) \}
+
+\{ openDiv({ "class" => "inProblemHint" }) \}
 Consider using a graph to help you identify what the slope should be, if you're doubting yourself.
+\{ closeDiv() \}
 
-$BR$BR
+END_TEXT
+ANS($tangent_line->cmp);
 
-$HR
-
-$BR$BR
-
-When taking this derivative, remember the formula \( (b^\Box)' = \ln b \, b^\Box \, \Box' \). 
-
-$BR$BR
-
-What's the slope of a horizontal line?
-
-END_HINT
 
 ##############################################################
 #
@@ -122,7 +160,7 @@ END_HINT
 #
 #
 
-ANS($tangent_line->cmp);
+
 #Context()->normalStrings;
 
 ENDDOCUMENT();        

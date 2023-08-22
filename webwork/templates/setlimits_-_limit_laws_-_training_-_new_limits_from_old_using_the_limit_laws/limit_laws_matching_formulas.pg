@@ -46,6 +46,7 @@ loadMacros(
    "PGML.pl",
    #"source.pl",        # allows code to be displayed on certain sites.
    "PGcourse.pl",      # Customization file for the course
+   "customCSS.pl",
    
    # added for matching
    "PG.pl",
@@ -93,9 +94,17 @@ $ml = new_match_list();
     $ml->ans_rule_len(10);
 
 
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+The "limit laws" let us use knowledge about limits, and combine them to know new limits.  This problem develops connections between names and formulas.
+[@ closeDiv() @]*
+
+END_PGML
+
+
 BEGIN_TEXT
 
-Match the law's name to the verbal description.  Not all verbal descriptions are true statements -- some are lies!
+Match the law's name to the formula version.  Not all verbal descriptions are true statements -- some are lies!
 
 $PAR $HR $PAR
 

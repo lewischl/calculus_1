@@ -4,7 +4,8 @@ loadMacros("uwecAmethyst.pl");
 loadMacros("myAnswerHints.pl");
 loadMacros("uwecyoutube.pl");
 loadMacros("PGML.pl");
-
+loadMacros("customCSS.pl");
+loadMacros("niceTables.pl");
 
 ## sp23
 $team_exam1_seed = 3298987;

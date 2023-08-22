@@ -68,20 +68,115 @@ $showPartialCorrectAnswers = 1;
 
 Context('Numeric');
 
+
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Derivatives of the non-basic trig functions have more complicated structure than they start with.  This problem offers training on correctly computing them.
+[@ closeDiv() @]*
+
+
+The trig function derivatives:
+
+* [`\frac{d}{dx} \sin x = \cos x`]
+
+* [`\frac{d}{dx} \cos x = -\sin x \hspace{1cm}`]   --- 👀 fn starts with letter [`c`], get a [`-`].
+
+* [`\frac{d}{dx} \tan x = \sec^2 x`]
+
+* [`\frac{d}{dx} \sec x = \sec x \tan x`]
+
+* [`\frac{d}{dx} \csc x = -\csc x \cot x \hspace{1cm}`]   ---  👀 fn starts with letter [`c`], get a [`-`].
+
+* [`\frac{d}{dx} \cot x = -\csc^2 x \hspace{1cm}`]   ---  👀 fn starts with letter [`c`], get a [`-`].
+
+
+⚠️ These phrasings neglect what happens when the inside is more complicated than just [`x`] (or whatever the variable is named).
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The trig function derivatives with the chain rule:
+
+* [`\frac{d}{dx} \sin \Box = \cos (\Box)   \, \Box'`]
+
+* [`\frac{d}{dx} \cos \Box = -\sin (\Box)  \,  \Box'`]  
+
+* [`\frac{d}{dx} \tan \Box = \sec^2 (\Box)   \, \Box'`]
+
+* [`\frac{d}{dx} \sec \Box = \sec (\Box) \tan (\Box)  \,  \Box'`]
+
+* [`\frac{d}{dx} \csc \Box = -\csc (\Box) \cot (\Box)   \, \Box'`]   
+
+* [`\frac{d}{dx} \cot \Box = -\csc^2 (\Box)  \,  \Box'`]   
+
+🧠 Whatever is in [`\Box`] goes in all instances of [`\Box`].  Just "chain out" the derivative of the inside!
+[@ closeDiv() @]*
+
+---
+
+Determine the following derivatives.
+
+END_PGML
+
+Context()->texStrings;
+
+
 $a1 = random(2,5,1);
-$b1 = random(2,8,1);
-$c1 = random(-4,-1,1);
-$x1 = random(1,5,1);
-$deriv1 = "$a1*(tan($b1*$x1)/cos($b1*$x1))*$b1";
-$funct1 = "$a1*(tan($b1*x)/cos($b1*x))*$b1";
+$f = Formula(" tan (x^$a1 + x)");
 
 BEGIN_TEXT
-Let \( f(x) =  $a1 \sec ($b1 x) \). Determine the following. $BR$BR
+$PAR$BR
+Here's some advice for the first part.$PAR
+
+Tangent's derivative has only once piece, so the argument \(\Box = (x^$a1+x) \) goes inside the resulting \(\sec^2 \Box\), and then the derivative \(\Box' = ($a1 x^{$a1-1} + 1)\) is multiplied on the outside.$PAR
+
+\( f(x) =  $f \)$BR
 
 \(f'(x)=\) \{ans_rule(50) \} $BR$BR
 
 END_TEXT
-ANS(Compute($funct1)->cmp);
+ANS($f->D->cmp);
+
+
+
+
+$a1 = random(2,5,1);
+$b1 = random(2,8,1);
+$f = Formula("$a1 sec ($b1 x)");
+
+
+BEGIN_TEXT
+
+$PAR$BR
+
+Ok, now you do!  $PAR
+
+ \( f(x) =  $f \) $BR
+
+\(f'(x)=\) \{ans_rule(50) \} 
+
+END_TEXT
+ANS($f->D->cmp);
+
+
+
+$a1 = random(2,5,1);
+$b1 = random(2,8,1);
+$f = Formula(" csc ($a1 x^2 + $b1 x)");
+
+BEGIN_TEXT
+$PAR$BR
+
+\( f(x) =  $f \)$BR
+
+\(f'(x)=\) \{ans_rule(50) \} $BR$BR
+
+END_TEXT
+ANS($f->D->cmp);
+
+
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.
 

@@ -78,6 +78,7 @@ loadMacros(
   "MathObjects.pl",
   "contextPiecewiseFunction.pl",
   "PGcourse.pl",           # Customization file for the course
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -105,7 +106,16 @@ Context("Numeric");
 ###################################
 # Main text
 
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+An opportunity for you to show what you've learned on a problem with infinite attempts
+
+[@ closeDiv() @]*
+END_PGML
+
 BEGIN_TEXT
+$PAR
 Find the value of the constant \(c\) that makes the following
 function continuous on \((-\infty,\infty)\). If no such value exists, type DNE.
 \[ f($x1) = \{$f->TeX\} \]

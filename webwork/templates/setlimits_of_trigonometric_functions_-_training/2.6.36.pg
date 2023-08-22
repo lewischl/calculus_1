@@ -31,6 +31,7 @@ loadMacros(
   "MathObjects.pl",
   "PGgraphmacros.pl",
   "PGcourse.pl", 
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -40,12 +41,24 @@ Parser::Number::NoDecimals();
 
 $n=random(2,9,1);
 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+A problem where it's useful to re-write from more complicated trig functions back to the basics: sine and cosine.
+
+[@ closeDiv() @]*
+
+Continue to use the identity  [`` \lim_{x \to \Box} \frac{\sin \Box}{\Box} = 1 ``], as well as skill in manipulating the pieces of fractions to put useful things together --- pulling things out, multiplying by [`1`], turning one fraction into two fractions, ... .
+
+---
+
+END_PGML
 BEGIN_TEXT
-Evaluate the limit, if it exists:
+Evaluate the limit, if it exists.  Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE$EBOLD.
 $PAR
 \(\displaystyle\lim_{t \to 0} \frac {\tan($n t)}{t \sec(t)}=\) \{ans_rule(25) \}
-$PAR
-$BITALIC(Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE$EBOLD.)$EITALIC
 
 
 END_TEXT
@@ -56,7 +69,7 @@ END_TEXT
 #\( \lim\limits_{t \to 0} \frac {\tan $n t} {t \sec t} = \lim\limits_{t \to 0} \frac {$n \sin ($n t)}{$n t \cos ($n t) \sec (t)} = \lim\limits_{t \to 0} \frac {$n \cos(t)}{\cos ($n t)} \cdot  \frac {\sin($n t)}{$n t} = $n \). 
 #END_SOLUTION
 
-ANS( Compute("$n")->cmp() );
+ANS( Compute($n)->cmp() );
 
 ENDDOCUMENT();
 

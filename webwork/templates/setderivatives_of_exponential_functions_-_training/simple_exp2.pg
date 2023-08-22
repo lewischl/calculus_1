@@ -74,32 +74,88 @@ $showPartialCorrectAnswers = 1;
 Context("Numeric");
 Context()->texStrings;
 
-# problem 3, page 196 rogawski, randomized
 
-$a = random(2,5,1);
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on derivatives of [`b^{f(x)}`].
+[@ closeDiv() @]*
+
+
+We know the following two rules for derivatives:
+
+* [`` \left(e^{\Box}\right)' = e^{\Box} \cdot \Box' ``]
+* [`` \left(b^x \right)' = \ln(b) \cdot b^x ``]
+
+Now we combine them!
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The general exponential derivative formula for any (positive) constant base
+
+[``` \left(b^{\Box}\right)' = \ln(b) \cdot b^{\Box} \cdot \Box' ```]
+
+[@ closeDiv() @]*
+
+⚠️ This only works if the base is constant!!!  With non-constant base, we need another technique not taught in this set.
+
+---
+
+Find the derivatives using the general base-[`b`] exponential rule.
+END_PGML
+
+
+
+
+
+
+
+
+
+
+
+
+$a = random(2,4,1);
 $b = random(3,7,1);
 
-
 $f = Compute("$a**(x**$b)")->reduce;
-$f_prime = Formula( "$b*x**($b-1) * ln($a)* $a**(x**$b)");
-
 BEGIN_TEXT
-Find the derivative of 
-$BR$BR
-\(f(x) = $f\)
-
-$BR$BR
+$PAR$BR
+\(f(x) = $f\) $BR
 \( f'(x) = \) \{ ans_rule(50) \}
-
-
-$PAR
-\{theresahint\}
 END_TEXT
+ANS($f->D->cmp);
 
-BEGIN_HINT
-When taking this derivative, remember the formula \( (b^\Box)' = \ln b \cdot b^\Box \, \Box' \). 
 
-END_HINT
+
+$a = random(5,7,1);
+$b = random(3,7,1);
+
+$f = Compute("$a**($b sin(x))")->reduce;
+BEGIN_TEXT
+$PAR$BR
+\(f(x) = $f\) $BR
+\( f'(x) = \) \{ ans_rule(50) \}
+END_TEXT
+ANS($f->D->cmp);
+
+
+
+$a = 10;
+$b = random(3,7,1);
+$c = random(10,99,1);
+$f = Compute("$a**(x^$b + 7x + 1) + $c")->reduce;
+BEGIN_TEXT
+$PAR$BR
+\(f(x) = $f\) $BR
+\( f'(x) = \) \{ ans_rule(50) \}
+END_TEXT
+ANS($f->D->cmp);
+
+
+
 
 ##############################################################
 #
@@ -107,7 +163,7 @@ END_HINT
 #
 #
 
-ANS($f_prime->cmp);
+
 #Context()->normalStrings;
 
 ENDDOCUMENT();        

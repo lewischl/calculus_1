@@ -61,6 +61,7 @@ loadMacros(
   "PGgraphmacros.pl",
   "PGcourse.pl",
   "PGML.pl",
+  "customCSS.pl",
 );
 #####################################################################
 
@@ -82,12 +83,49 @@ $ans = Compute("$c");
 Context()->texStrings;
 
 $showHint=-1;
+
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+In this problem, we're given a piecewise function, and the transition point [`c`] is as-of-yet undetermined.  
+
+The function will be continuous if the two pieces meet at the transition point with no jump.  We want to find this special transition point.
+[@  closeDiv() @]*
+END_PGML
+
 BEGIN_TEXT
-In this problem, we're given a piecewise function, and the transition point \(c\) is as-of-yet undetermined.  The function will be continuous if the two pieces meet at the transition point with no jump.  We want to find this special transition point.
+$PAR
+
+This is a conceptual video from Prof. Amethyst on continuity of piecewise functions.
+$PAR
+
+\{ youtube("DdKDfIuSN30")\}
+
+
+
+$PAR
+$HR
+$PAR
+
+Like Desmos?  So do I!  Check out \{htmlLink( "https://www.desmos.com/calculator/5ipcr9hiec", "this Desmos graph" )\}, where you can change the left and right functions, and the transition point, and play with the graph.
+
+
+$PAR
+$HR
+$PAR
+
+\{ openDiv({ "class" => "importantFormula" })  \}
+To find a transition point that would make a piecewise function continuous, 
+$PAR
+1. plug in the name for the transition point to both pieces $BR
+2. set them equal to each other $BR
+3. solve $PAR
+
+and conclude by checking your work.
+\{ closeDiv() \}
 
 $PAR
 
-For what value of the constant \(c\) is the function \(f\) continuous on the interval \((-\infty, \infty).\)
+For what value of the constant \(c\) is the function \(f\) continuous?
 \[
 f(x) = \begin{cases}
 x^2-$a, &x \le c\\
@@ -96,8 +134,7 @@ $b x - $d, &x > c\\
 \]
 \(c = \) \{ans_rule(20)\}
 
-$PAR
-\{ theresahint \}
+
 END_TEXT
 
 Context()->normalStrings;
@@ -106,18 +143,6 @@ Context()->normalStrings;
 
 ANS($ans->cmp());
 
-BEGIN_HINT
-We want the two pieces to meet.  This means they need to be equal at \(c\).
 
-$PAR
- 
-Like Desmos?  So do I!  Check out this Desmos graph, where you can change the left and right functions, and the transition point, and play with the graph:  https://www.desmos.com/calculator/5ipcr9hiec
-
-\{ amethystHint("$PAR$BR$PARThis is a conceptual video from Prof. Amethyst on continuity of piecewise functions.") \}
-\{ youtubeAmethyst("DdKDfIuSN30")\}
-
-\{ amethystHint("$PAR For a more computational video on how-to, check out this one:$PAR") \}
-\{ youtubeAmethyst("MILVFzVe_Zo") \}
-END_HINT
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

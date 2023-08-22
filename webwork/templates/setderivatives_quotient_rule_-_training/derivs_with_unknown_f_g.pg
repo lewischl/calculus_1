@@ -71,15 +71,34 @@ $fog = Compute("$fognum/$fogdenom");
 
 $a = non_zero_random(-5,5,1);
 
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+The quotient rule works even when we don't have formulas for the functions. 
+[@ closeDiv() @]*
+
+
+END_PGML
+
 BEGIN_TEXT
-The various rules for derivatives tell us how to compute derivatives of various combinations of functions.  The basic arithmetic operations are +,-,*, and /.  The sum, difference, product, and quotient rules give us recipes for how to concoct the derivatives of functions thusly built.
-
-$BR$BR
-
-The rules work when you have formulas for \(f\) and \(g\).  They also work when you don't, but you only have the values for \(f\), \(g\), \(f^\prime\), and \(g^\prime\) at a point of interest \(x=a=$a\).  This problem has you evaluate derivatives in this case.
 
 
-$BR$BR
+The rules work when you have formulas for \(f\) and \(g\).  They also work when you don't, but you only have the values for \(f\), \(g\), \(f^\prime\), and \(g^\prime\) at a point of interest.  This problem has you evaluate derivatives in this case.
+
+
+END_TEXT
+
+BEGIN_PGML
+
+---
+
+Use the various diffentiation rules to diffentiate the various combinations of [`f`] and [`g`] below.  Then evaluate those expressions at the point [`x = [$a]`] using the given function and derivative values.
+
+END_PGML
+
+BEGIN_TEXT
 
 Given that
 $BR$BR

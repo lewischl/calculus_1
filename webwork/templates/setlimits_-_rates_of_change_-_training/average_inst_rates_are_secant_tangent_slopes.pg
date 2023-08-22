@@ -42,7 +42,6 @@ $showPartialCorrectAnswers = 1;
 #  In tex mode, print a message to direct the student to the html version.
 #  Desmos API reference: https://www.desmos.com/api/v1.7/docs/index.html
 
-
 $unique_div_id = "secant_line_graph";
 $width = 700;
 $height = 400;
@@ -90,27 +89,30 @@ $t0 = non_zero_random(0.2, $t_max, 0.1);
 
 
 
-$f0 = $f->eval(t=>$t0);
 
+
+$f0 = $f->eval(t=>$t0);
 
 $dt1 = random(0.1, 0.5, 0.1);
 $t1 = $t0 + $dt1;
 $f1 = $f->eval(t=>$t1);
 $a1 = ($f1-$f0) / $dt1;
-$aroc1 = "$a1";
+$aroc1 = $a1;
 
 
 $dt2 = non_zero_random(0, 0.1, 0.01);
 $t2 = $t0 + $dt2;
 $f2 = $f->eval(t=>$t2);
 $a2 = ($f2-$f0) / $dt2;
-$aroc2 = "$a2";
+$aroc2 = $a2;
 
 $dt3 = non_zero_random(0, 0.001, 0.0001);
 $t3 = $t0 + $dt3;
 $f3 = $f->eval(t=>$t3);
 $a3 = ($f3-$f0) / $dt3;
-$aroc3 = "$a3";
+$aroc3 = $a3;
+
+
 
 ##############################################################
 #
@@ -187,6 +189,8 @@ Use the above Desmos graph to answer the following questions:
     
 * What is the average velocity of the cannon ball over the interval [` t \in [ [$t0], [$t0+$dt3] ]`]?   
     The AROC is [_____]{$aroc3} meters per second 
+    
+[%* [`aroc3=[$aroc3]`], [`a3=[$a3]`], [`dt3=[$dt3]`], [`t3=[$t3]`], [`f3=[$f3]`], [`f0=[$f0]`]%]
 
 ---
 
@@ -195,16 +199,14 @@ The important takeaway:
 The average rate of change is the slope of a secant line.  The slope of a secant line is an average rate of change.
 [@ closeDiv() @]*
 
-
 END_PGML
 Section::End();
-
 
 Section::Begin("Instantaneous rate of change is slope of tangent line");
 
 BEGIN_PGML
 
-In this next graph, I want you to think about __instantaneous rates of change__.  How fast is the cannon ball moving __right now__?  Not over a macroscopic interval of time but an __infinitesimal__  duration of time.  An instant.  
+In this next graph, I want you to think about __instantaneous rates of change__.  How fast is the cannon ball moving __right now__?  Not over a macroscopic interval of time but an __infinitesimal__ duration of time.  An instant.  
 
 This graph displays:
 * The height function [`f(t)`]

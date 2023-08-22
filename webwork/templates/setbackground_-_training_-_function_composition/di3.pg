@@ -53,8 +53,9 @@ $b = random(2,9,1);
 $c = random(1,10,1);
 #$bstr = ($b==1) ? "" : "$b";
 
-TEXT(EV2(<<EOT));
-Evaluate the function \( f(x)=$a x^2 - $b x + $c\) at the indicated values:
+BEGIN_TEXT
+
+Evaluate or compose the function \( f(x)=$a x^2 - $b x + $c\) at the indicated values:
 $PAR$BR
 \(f(0)= \) \{ans_rule(20) \}
 $BR$BR 
@@ -68,7 +69,9 @@ $BR$BR
 $BR$BR
 \(f(x^2)= \) \{ans_rule(40) \}
 $BR
-EOT
+
+
+END_TEXT
 
 $ans1 = $c;
 $ans2 = $a - $b + $c;

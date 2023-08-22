@@ -1,5 +1,3 @@
-
-
 ########################################
 # this file automatically moved
 #	from local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/3_Differentiation/3.5_Higher_Derivatives/3.5.9.pg 
@@ -46,31 +44,41 @@ $b=random(1,9,1);
 $b2 = -2*$b;
 $b6 = 6 *$b;
 
-$f2="$b2*x**(-3)";
-$f3="$b6*x**(-4)";
 
-TEXT(EV2(<<EOT));
-Calculate the second and the third derivative of \(y=$a x - \frac{$b}{x}\)
+$f = Formula("$a x^3 - $b*1/x");
+
+$fd1 = $f->D;
+$fd2 = $fd1->D;
+$fd3 = $fd2->D;
+$fd4 = $fd3->D;
+$fd5 = $fd3->D;
+
+Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+There's a nice pattern that emerges when multiply differentating functions like [``\frac{1}{x^n}``].  This problem will help you see it.
+
+Also, if you differentate a polynomial enough times, the derivative will be [`0`].
+[@ closeDiv() @]*
+
+END_PGML
+BEGIN_TEXT
+
+Calculate the derivatives of \(y= $f\)
 $PAR
-\(y''=\) \{ ans_rule() \} $BR
-\(y'''=\) \{ ans_rule() \}
-EOT
-$b2=$b*(-2);
-$b3=$b2*(-3);
+\(y'=\) \{ ans_rule() \} $BR
+\(y''=\) \{ ans_rule() \}  $BR
+\(y'''=\) \{ ans_rule() \} $BR
+\(y^{(4)}=\) \{ ans_rule() \} $BR
+\(y^{(5)}=\) \{ ans_rule() \}
+END_TEXT
 
-#SOLUTION(EV3(<<'END_SOLUTION'));
-#$BR$BBOLD Solution:$EBOLD $PAR
-#Let $BR
 
-#\(y=$a x - $b x^{-1}\) $BR
-#Then, $BR
-#\(y'=$a + $b x^{-2}\) $BR
-#\(y''= $b2 x^{-3}\) $BR
-#\(y'''= $b3 x^{-4}\) $BR
-
-#END_SOLUTION
-
-ANS(Compute("$f2")->cmp());
-ANS(Compute("$f3")->cmp());
-
+ANS($fd1->cmp());
+ANS($fd2->cmp());
+ANS($fd3->cmp());
+ANS($fd4->cmp());
+ANS($fd5->cmp());
 ENDDOCUMENT();

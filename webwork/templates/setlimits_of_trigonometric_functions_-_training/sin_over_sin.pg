@@ -61,7 +61,8 @@ loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
   "PGgraphmacros.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 #####################################################################
 
@@ -81,10 +82,71 @@ $ans = Compute("$a/$b");
 
 #####################################################################
 Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on limits of trig functions where an identity is useful.
+[@ closeDiv() @]*
+
+---
+
+This video from Prof. Amethyst describes these kinds of limits and how to use the identities.
+
+[@ youtubeAmethyst("gqXDEZiuNJU") @]*
+
+---
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A useful limit identity for indeterminate form trig limits:
+
+* [`` 
+\lim_{x \to 0} \frac{\sin x}{x} = 1
+``]
+
+Since "the limit of the recipocal is the reciprocal of the limit", it's also true that 
+
+* [`` 
+\lim_{x \to 0} \frac{x}{\sin x} = 1
+``]
+
+And it works for any expression that's going to [`0`]:
+
+* [`` 
+\lim_{\Box \to 0} \frac{\Box}{\sin \Box}  = \lim_{\Box \to 0} \frac{\sin \Box}{\Box}= 1
+``]
+
+[@ closeDiv() @]*
+
+
+
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+For the following problem, use the steps to algebraically find the value of the limit:
+
+1. Split the numerator and denominator into separate fractions.  [``\frac{a}{a} = \frac{a}{1} \frac{1}{a} ``].
+2. Multiply by [`t/t`]
+3. Multiply by [`[$a]/[$a]`], and [`[$b]/[$b]`].  
+4. Massage so that you can use the special limit identities
+5. Take the limit
+
+End by checking your work.
+
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+
+
 BEGIN_TEXT
-Evaluate \(\displaystyle \lim_{t \to 0} \frac{\sin $a t}{\sin $b t}.\)
+Evaluate the limit.
+
 $PAR
-Limit: \{ans_rule(20)\} $PAR
+
+\(\displaystyle \lim_{t \to 0} \frac{\sin $a t}{\sin $b t} = \) \{ans_rule(20)\}
 END_TEXT
 Context()->normalStrings;
 
@@ -92,11 +154,6 @@ Context()->normalStrings;
 
 ANS($ans->cmp());
 
-BEGIN_HINT
-Try multiplying by \( t/t \), \($a/$a\), and \($b/$b\).  
 
-\{ amethystHint("$PAR$HR$PAR") \}
-\{ youtubeAmethyst("gqXDEZiuNJU") \}
-END_HINT
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

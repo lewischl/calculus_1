@@ -32,6 +32,7 @@ loadMacros(
   "MathObjects.pl",
   "PGgraphmacros.pl",
   "PGcourse.pl", 
+  "customCSS.pl",
 );
 
 $showPartialCorrectAnswers = 0;
@@ -44,6 +45,14 @@ Parser::Number::NoDecimals();
 
 $a = random(2,7,1);
 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+A problem similar to other training problems in this set.  Show what you know!
+[@ closeDiv() @]*
+
+END_PGML
 BEGIN_TEXT
 Evaluate the limit, if it exists:
 $PAR

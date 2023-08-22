@@ -63,10 +63,44 @@ $d1 = random(2,6,1);
 
 $funct1 = "($a1*$d1 - $c1*$b1)/($c1*x +$d1)^2";
 
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem offers training on the quotient rule with a rational function of linears.
+
+I'll also offer a square-box version of the quotient rule.
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The quotient rule, in two forms:
+
+[```
+\left(\frac{f}{g}\right)' = \frac{g f' - f g'}{g^2}
+```]
+
+And with square-box notation
+
+[```
+\left(\frac{\Box}{\Delta}\right)' = \frac{\Delta \Box' - \Box \Delta'}{\Delta^2}
+```]
+
+[@ closeDiv() @]*
+
+Whatever goes inside [`\Box`] goes in all instance of it.  Same with [`\Delta`].
+
+---
+
+END_PGML
+
+
 BEGIN_TEXT
-If 
-\( f(x) =  \dfrac { $a1 x +  $b1 } { $c1 x + $d1 } \),  find \( f'( x ) .\)
-$BR $BR \( f'( x ) \) = \{ans_rule(50) \}
+Differentate using the quotient rule.  $PAR
+
+\( f(x) =  \dfrac { $a1 x +  $b1 } { $c1 x + $d1 } \)
+$PAR
+\( f'( x ) \) = \{ans_rule(50) \}
 
 END_TEXT
 

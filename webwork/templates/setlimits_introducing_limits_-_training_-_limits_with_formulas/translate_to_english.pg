@@ -45,6 +45,7 @@ loadMacros(
 "PGstandard.pl",
 "PGcourse.pl",
 "draggableProof.pl",
+"customCSS.pl",
 );
 
 $a = random(2,13,1);
@@ -77,15 +78,28 @@ TargetLabel =>  "Write out the limit statement"
 
 
 BEGIN_TEXT
-Translate to english:
+
+\{ openDiv({ "class" => "problemPurpose" }) \}
+Translation between math symbols and plain language is a critical skill.  Good math notation can be read aloud. 
+\{closeDiv() \}
+
+$PAR
+
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
+Translate the string of math symbols to english by dragging the boxes to the right and putting then in the correct order.
+\{closeDiv() \}
+
+$PAR
 
 \[ \lim_{x \to $a}f(x) = $limit \]
 
-$PAR  $BCENTER $BITALIC
+$PAR  
 
-
+$BCENTER $BITALIC
 
 \{ $CorrectProof->Print \}
+
+$ECENTER $EITALIC
 
 END_TEXT
 

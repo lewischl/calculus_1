@@ -77,6 +77,19 @@ $gof = Compute("$gofnum/$gofdenom");
 
 $a = non_zero_random(-5,5,1);
 
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Even though we don't have formulas for [`f`] and [`g`], we can still compute derivatives of combinations them, if we have the right data.  We've given you enough data to compute the values of the derivatives below.  
+[@ closeDiv() @]*
+
+
+END_PGML
+
+
+
 BEGIN_TEXT
 Given that: $BR$BR\( f($a) = $f,\ f'($a) = $df\),$BR
 \(g($a) = $g,\ g'($a) = $dg \),$BR$BR

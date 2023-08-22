@@ -52,7 +52,9 @@ loadMacros(
   "PGgraphmacros.pl",
   "AnswerFormatHelp.pl",
   "MathObjects.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
+  "PGML.pl",
 );
 Context('Numeric');
 
@@ -88,13 +90,13 @@ $w = 500;  # graph size
 $h = 300;
 $tw = 400; # graph size in TeX
 
-$graph1 = init_graph(-10,-6,10,6,'axes'=>[0,0],'ticks'=>[20,12],'grid'=>[20,12],'size'=>[667,400]);
+$graph1 = init_graph(-15,-6,10,6,'axes'=>[0,0],'ticks'=>[20,12],'grid'=>[20,12],'size'=>[667,400]);
 
 $p1 = FEQ("1/(x-$a)^2+$b for x in <$a3,$a4> using color:blue weight:2");
 $p2 = FEQ("1/(x-$a)^2+$b for x in <$a4,10> using color:blue weight:2");
 $p3 = FEQ("tan(pi*(x-$a+1)/2) for x in <$a2,$a1> using color:blue weight:2");
 $p4 = FEQ("(-1/(x-$a+2))sin((3*pi/2)*(x-$a+1))+$c for x in <$a6,$a5> using color:blue weight:2");
-$p5 = FEQ("(-1/(x-$a+2))sin((3*pi/2)*(x-$a+1))+$c for x in <-10,$a6> using color:blue weight:2");
+$p5 = FEQ("(-1/(x-$a+2)^2)sin((3*pi/2)*(x-$a+1))+$c for x in <-15,$a6> using color:blue weight:2");
 
 plot_functions($graph1,$p1,$p2,$p3,$p4,$p5);
 
@@ -103,8 +105,38 @@ plot_functions($graph1,$p1,$p2,$p3,$p4,$p5);
 ###############################################################
 Context()->texStrings;
 
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+We incoporate these elements into the limits lexicon:
+* limits with value infinity
+* limits at infinity
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Some limits have value infinity:
+* for one-sided limits, 
+    * if the branch of the function goes up and up and up as you approach the point of interest, the limit is [`+\infty`].  
+    * if the branch goes down down down, the limit is [`-\infty`].
+* for two-sided limits, if both branches go either up or down, the limit exists and is either [`\pm \infty`].
+
+---
+
+This problem also asks you about limits *at* infinity.  Look all the way 
+* to the left ([`x \to -\infty`]) or 
+* to the right ([`x \to \infty`]) 
+
+and observe the function.  Does the height of the function approach a single value in that direction?  That's the value of the limit.  This problem also shows that oscillatory behaviour can still have a limit, if the amplitude of the oscillation goes to [`0`].
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+For the function [`f`] graphed below, find the limits
+[@ closeDiv() @]*
+
+END_PGML
+
 BEGIN_TEXT
-For the function \(f\) graphed below, find the following limits: 
 $PAR
 $BCENTER
 \{image(insertGraph($graph1),width=>$w,height=>$h,tex_size=>$tw)\}
@@ -118,9 +150,9 @@ $BBOLD 2. $EBOLD  \(\displaystyle \lim_{x \to $a7^{+}}f(x) = \) \{ans_rule(20)\}
 $PAR
 $BBOLD 3. $EBOLD  \(\displaystyle \lim_{x \to $a} f(x) = \) \{ans_rule(20)\}
 $PAR
-$BBOLD 4. $EBOLD  \(\displaystyle \lim_{x \to \infty}f(x) = \) \{ans_rule(20)\}
+$BBOLD 4. $EBOLD  \(\displaystyle \lim_{x \to \infty}f(x) = \) \{ans_rule(20)\}   (look right!)
 $PAR
-$BBOLD 5. $EBOLD  \(\displaystyle \lim_{x \to -\infty}f(x) = \) \{ans_rule(20)\}
+$BBOLD 5. $EBOLD  \(\displaystyle \lim_{x \to -\infty}f(x) = \) \{ans_rule(20)\}  (look left!)
 $HR
 $BBOLD Note: $EBOLD $BITALIC You can click on the graph to enlarge the image.$EITALIC
 $HR

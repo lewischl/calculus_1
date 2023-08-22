@@ -88,6 +88,15 @@ END_TEXT
 ANS($ans->cmp);
 
 Context()->texStrings;
+
+$showHint=-1;
+BEGIN_HINT
+
+Try writing \(f\) as a composition \(f_1(g_1(x))\). After that, write \(g_1\) as a product \(f_2\cdot g_2\).
+
+END_HINT
+
+
 BEGIN_SOLUTION
 $PAR SOLUTION $PAR
 \[ f'(x) = $a e^{x $trig1  x} \frac{d}{dx} (x $trig1 x)

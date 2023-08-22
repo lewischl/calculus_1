@@ -32,7 +32,8 @@ loadMacros(
   "PGchoicemacros.pl",
   "PGgraphmacros.pl",
   "parserPopUp.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 ## DBsubject(Calculus - single variable)
@@ -71,32 +72,40 @@ $p2 = FEQ("1/(x - $c)^2 for x in [$c_r,$xmax] using color:blue weight:2");
 
 plot_functions($graph1,$p1,$p2);
 
-$ans = "INF";
+Context("Numeric");
+$ans = Infinity;
 
 ###############################################################
 Context()->texStrings;
 
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Vertical asymptotes are associated with limits with value [`\pm \infty`], which are associated with dividing by [`0`] without also having a root in the numerator.
+[@ closeDiv() @]*
+END_PGML
+
 BEGIN_TEXT
+$PAR
 $BCENTER
-\{image(insertGraph($graph1),width=>$w,height=>$w,tex_size=>$tw)\}
+\{image(insertGraph($graph1),width=>$w,height=>$w,tex_size=>$tw)\} 
+$PAR
+A graph of \( f(x) = \displaystyle \frac{1}{(x - $c)^2}\).
+
 $ECENTER $PAR
 $HR
-Evaluate the given limits using the graph of 
-the function \( f(x) = \displaystyle \frac{1}{(x - $c)^2}\) shown above.
-$BR
-Enter $BBOLD INF $EBOLD for \(\infty\), $BBOLD -INF $EBOLD 
-for \(-\infty\), or $BBOLD DNE $EBOLD if the limit does not exist,
-but is neither \(\infty\) nor \(-\infty\).
+
+Evaluate the given limits using the above graph. Enter $BBOLD DNE $EBOLD if the limit does not exist.
+
+
+
 $PAR 
-If you are having a hard time seeing the picture clearly, click
-on the picture.  It will expand to a larger picture on its own page so
-that you can inspect it more clearly.
+
 $PAR
-a) \(\displaystyle \lim_{x \to $c^-} f(x)\) = \{ ans_rule{8} \}
-$BR
-b) \(\displaystyle \lim_{x \to $c^+} f(x)\) = \{ ans_rule{8} \}
-$BR
-c) \(\displaystyle \lim_{x \to $c} f(x)\) = \{ ans_rule{8} \}
+\(\displaystyle \lim_{x \to $c^-} f(x)\) = \{ ans_rule{8} \}
+$PAR
+\(\displaystyle \lim_{x \to $c^+} f(x)\) = \{ ans_rule{8} \}
+$PAR
+\(\displaystyle \lim_{x \to $c} f(x)\) = \{ ans_rule{8} \}
 END_TEXT
 
 Context()->normalStrings;
@@ -111,9 +120,9 @@ There is a vertical asymptote at \(x = $c\), and the limits from either
 side are \( \infty\). 
 END_SOLUTION
 
-ANS( num_cmp( $ans, strings=>["INF", "-INF", "DNE"] ) );
-ANS( num_cmp( $ans, strings=>["INF", "-INF", "DNE"] ) );
-ANS( num_cmp( $ans, strings=>["INF", "-INF", "DNE"] ) );
+ANS( $ans->cmp );
+ANS( $ans->cmp );
+ANS( $ans->cmp );
 
 
 ENDDOCUMENT();    

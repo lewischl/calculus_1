@@ -47,7 +47,8 @@ DOCUMENT();        # This should be the first executable line in the problem.
 
 loadMacros(
   "PGstandard.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -58,23 +59,38 @@ $b1 = random(1,10,1);
 $t1 = $a1+$b1;
 $n1 = $a1*$b1;
 
-BEGIN_TEXT
-Evaluate the limit
-\[ \lim_{ x \rightarrow -$a1 } \frac {x^2 + $t1 x + $n1 }{ x + $a1 } \]
-Answer: \{ans_rule(25) \}
 
-$BR$BR
-\{ theresahint \}
+BEGIN_PGML
+
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Another training problem for factor and cancel
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Factor-and-cancel to find a limit:
+
+
+1. First, verify the method is a good candidate:    
+    * Try to plug in point of interest.  Get an indeterminate form
+    * Function is a rational function of things like polynomials
+2. Factor the numerator and denominator
+3. Cancel common factors
+4. Try to plug in point of interest again.
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+BEGIN_TEXT
+Evaluate the limit.  $PAR
+
+\( \displaystyle \lim_{ x \rightarrow -$a1 } \frac {x^2 + $t1 x + $n1 }{ x + $a1 }  = \)  \{ans_rule(25) \}
+
 END_TEXT
 
-BEGIN_HINT
-This problem is solvable by using the technique of factor-and-cancel.  The numerator and denominator have a common root.  Your goal is to factor out the root in both the top and the bottom, cancel that expression, and then plug in the point of interest to reveal the exact value of the limit.
 
-\{ amethystHint("$BR$BRHere's a video from Prof. Amethyst on the topic:$BR$BR")\}
-\{ youtubeAmethyst(IIZFqSDwWGM) \} 
-END_HINT
-
-$ans = "-$a1 + $b1";
+$ans = -$a1 + $b1;
 ANS(num_cmp($ans));
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

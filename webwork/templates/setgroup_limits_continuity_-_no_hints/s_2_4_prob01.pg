@@ -50,7 +50,8 @@ loadMacros(
   "parserPopUp.pl",
   "MathObjects.pl",
   "PGgraphmacros.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "niceTables.pl",
 );
 
 COMMENT('It is best to give no more than two scored attempts for this problem.');
@@ -65,13 +66,14 @@ $showPartialCorrectAnswers = 0;
 
 Context("Numeric");
 
-$a = random(1,2,1);
+$a = 2;#random(1,2,1);
 
 if ($a==1){
 $popup1 = PopUp(['?','removable', 'jump', 'infinite', 'no discontinuity'],'infinite');
 $popup2 = PopUp(['?','removable', 'jump', 'infinite', 'no discontinuity'],'removable');
-$popup3 = PopUp(['?','removable', 'jump', 'infinite', 'no discontinuity'],'removable');
-$popup4 = PopUp(['?','removable', 'jump', 'infinite', 'no discontinuity'],'jump');
+$popup3 = PopUp(['?','removable', 'jump', 'infinite', 'no discontinuity'],'no discontinuity');
+$popup4 = PopUp(['?','removable', 'jump', 'infinite', 'no discontinuity'],'removable');
+$popup5 = PopUp(['?','removable', 'jump', 'infinite', 'no discontinuity'],'jump');
 
 $w = 400;  # graph size
 $tw = 500; # graph size in TeX
@@ -92,8 +94,9 @@ $p7 = FEQ("(x-4)^2-2 for x in (4,8] using color:blue weight:2");
 if ($a==2){
 $popup1 = PopUp(['?','removable', 'jump', 'infinite', 'no discontinuity'],'jump');
 $popup2 = PopUp(['?','removable', 'jump', 'infinite', 'no discontinuity'],'removable');
-$popup3 = PopUp(['?','removable', 'jump', 'infinite', 'no discontinuity'],'removable');
-$popup4 = PopUp(['?','removable', 'jump', 'infinite', 'no discontinuity'],'infinite');
+$popup3 = PopUp(['?','removable', 'jump', 'infinite', 'no discontinuity'],'no discontinuity');
+$popup4 = PopUp(['?','removable', 'jump', 'infinite', 'no discontinuity'],'removable');
+$popup5 = PopUp(['?','removable', 'jump', 'infinite', 'no discontinuity'],'infinite');
 
 $w = 400;  # graph size
 $tw = 500; # graph size in TeX
@@ -120,29 +123,21 @@ $PAR
 $BCENTER
 \{image(insertGraph($graph1),width=>$w,height=>$w,tex_size=>$tw)\}
 $ECENTER 
-$HR
-\{$popup1->menu\} $BBOLD 1. $EBOLD  What type of discontinuity does \(f\) have at \(x=-4\)? 
-$PAR
-\{$popup2->menu\} $BBOLD 2. $EBOLD  What type of discontinuity does \(f\) have at \(x=-2\)? 
-$PAR
-\{$popup3->menu\} $BBOLD 3. $EBOLD  What type of discontinuity does \(f\) have at \(x=2\)?
-$PAR
-\{$popup4->menu\} $BBOLD 4. $EBOLD  What type of discontinuity does \(f\) have at \(x=4\)? 
 
-$HR
-$BBOLD Note: $EBOLD $BITALIC You can click on the graph to enlarge the image.$EITALIC
-$HR
+\{ 
+LayoutTable([
+["What type of discontinuity does \(f\) have at \(x=-4\)?", $popup1->menu ],
+["What type of discontinuity does \(f\) have at \(x=-2\)?", $popup2->menu ],
+["What type of discontinuity does \(f\) have at \(x=0\)?", $popup3->menu ],
+["What type of discontinuity does \(f\) have at \(x=2\)?", $popup4->menu ],
+["What type of discontinuity does \(f\) have at \(x=4\)?", $popup5->menu ],
+], align=>'l c')
+\} 
+
+
 END_TEXT
 
 
-BEGIN_HINT
-
-Check out the section on Continuity in your textbook for a description and examples of the kinds of discontinuities.  
-
-\{amethystHint("$PAR$HR$PARCheck out this video from Prof. Amethyst on the kinds of discontinuities:$BR" )\}
-
-\{youtubeAmethyst("nFUuNt07G1s")\}
-END_HINT
 
 Context()->normalStrings;
 
@@ -152,5 +147,6 @@ ANS($popup1->cmp);
 ANS($popup2->cmp);
 ANS($popup3->cmp);
 ANS($popup4->cmp);
+ANS($popup5->cmp);
 
 ENDDOCUMENT();

@@ -84,10 +84,10 @@ $f[2] = Formula("x^2");
 add_functions($gr[2], "$f[2] for x in <$xmin,$xmax> using color:blue and weight:3");
 $f[3] = Formula("abs(x)");
 add_functions($gr[3], "$f[3] for x in <$xmin,$xmax> using color:blue and weight:3");
-$f[4] = Formula("1/x");
+$f[4] = Formula("x^{-1}");
 add_functions($gr[4], "$f[4] for x in <$xmin,-0.1> using color:blue and weight:3");
 add_functions($gr[4], "$f[4] for x in <0.1,$xmax> using color:blue and weight:2");
-$f[5] = Formula("1/x^2");
+$f[5] = Formula("x^{-2}");
 add_functions($gr[5], "$f[5] for x in <$xmin,$xmax> using color:blue and weight:3");
 
 

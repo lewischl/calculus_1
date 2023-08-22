@@ -1,5 +1,3 @@
-
-
 ########################################
 # this file automatically moved
 #	from local/chapter3/trig-derivs-v2.pg 
@@ -28,6 +26,7 @@ loadMacros(
 "PGstandard.pl",
 "MathObjects.pl",
 "AnswerFormatHelp.pl",
+"PGcourse.pl",
 );
 
 TEXT(beginproblem());
@@ -36,19 +35,110 @@ Context("Numeric");
 Parser::Number::NoDecimals();
 $showPartialCorrectAnswers = 1;
 
-$a = random(2,11,1);
-$ans = Formula("csc(x)*($a-csc(x)^2)-csc(x)*cot(x)*($a*x+cot(x))");
+
 
 Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+There are four common non-basic trig functions.  This problem offers training on their derivatives.
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+The trig function derivatives:
+
+* [`\frac{d}{dx} \sin x = \cos x`]
+
+* [`\frac{d}{dx} \cos x = -\sin x \hspace{1cm}`]   --- 👀 fn starts with letter [`c`], get a [`-`].
+
+* [`\frac{d}{dx} \tan x = \sec^2 x`]
+
+* [`\frac{d}{dx} \sec x = \sec x \tan x`]
+
+* [`\frac{d}{dx} \csc x = -\csc x \cot x \hspace{1cm}`]   ---  👀 fn starts with letter [`c`], get a [`-`].
+
+* [`\frac{d}{dx} \cot x = -\csc^2 x \hspace{1cm}`]   ---  👀 fn starts with letter [`c`], get a [`-`].
+
+
+⚠️ This ignores what happens if a function is inside the trig.  We must use the chain rule to differentiate functions-inside-of-functions.
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+
+
 BEGIN_TEXT
-Find the derivative of the function \( \displaystyle f(x)= \csc(x)\big($a x+\cot(x)\big)\).
+Find the derivatives of the functions.
+
+END_TEXT
+
+
+
+
+$a = random(2,11,1);
+$f = Formula("csc(x) ($a x+ cot(x) )");
+
+BEGIN_TEXT
+
+$PAR$BR
+
+\( \displaystyle f(x)= $f\)
 
 $PAR
 \( f'(x)= \) \{ ans_rule() \} $BR
-$BITALIC(Give an exact answer.)$EITALIC
 END_TEXT
+
+ANS($f->D->cmp);
+
+
+
+
+
+$a = random(2,11,1);
+$b = random(2,11,1);
+$f = Formula("$a sec(x) +  $b tan(x)");
+
+BEGIN_TEXT
+
+$PAR$BR
+
+\( \displaystyle f(x)= $f\)
+
+$PAR
+\( f'(x)= \) \{ ans_rule() \} $BR
+END_TEXT
+
+ANS($f->D->cmp);
+
+
+
+
+
+$a = random(2,11,1);
+$b = random(2,11,1);
+$f = Formula("cot(x) / ($a x)  + $b sin(x)");
+
+BEGIN_TEXT
+
+$PAR$BR
+
+\( \displaystyle f(x)= $f\)
+
+$PAR
+\( f'(x)= \) \{ ans_rule() \} $BR
+END_TEXT
+
+ANS($f->D->cmp);
+
+
 Context()->normalStrings;
 
-ANS($ans->cmp);
+
 
 ENDDOCUMENT();

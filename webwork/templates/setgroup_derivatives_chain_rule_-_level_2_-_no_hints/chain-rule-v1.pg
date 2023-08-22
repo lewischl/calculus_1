@@ -1,5 +1,4 @@
 
-
 ########################################
 # this file automatically moved
 #	from myproblems/chap_3_review/chain-rule-v1.pg 
@@ -47,8 +46,8 @@ BEGIN_TEXT
 Find the derivative of the function \( \displaystyle f(x)= \cos( \sin( x^$j ))\).
 
 $PAR
-\( f'(x)= \) \{ ans_rule(50) \}$BR
-$BITALIC(Give an exact answer.)$EITALIC
+\( f'(x)= \) \{ ans_rule(50) \}
+
 END_TEXT
 Context()->normalStrings;
 

@@ -61,7 +61,8 @@ loadMacros(
   "PGunion.pl",
   "MathObjects.pl",
   "contextPiecewiseFunction.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -97,7 +98,32 @@ Context("Numeric");
 ###################################
 # Main text
 
+
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Just setting pieces equal to each other and solving isn't a perfect method.  This problem presents a scenario that requires you to incorporate limits back into the discussion of continuity of piecewise functions.
+[@ closeDiv() @]*
+
+
+This problem is still in the family of "make the piecewise function continuous", but one of the branches doesn't have a function value at the transition point.  We have to do something more than just set the functions equal and solve.
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+A better approach for making piecewise functions continuous:
+
+1. Find the limit on each side of the transition point.  This limit may involve a parameter, if the function contains a parameter.
+2. Set the two limits equal to each other.
+3. Solve.
+[@ closeDiv() @]*
+
+
+Use any available technique to find the one-sided limits.
+END_PGML
+
+
 BEGIN_TEXT
+
+$PAR$HR$PAR
+
 Find the value of the constant \(a\) that makes the following
 function continuous on \((-\infty,\infty)\).
 \[ f(x) = \{$f->TeX\} \]

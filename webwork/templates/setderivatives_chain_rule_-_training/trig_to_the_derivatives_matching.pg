@@ -53,6 +53,7 @@ loadMacros(
 "PGchoicemacros.pl",
 "PGanswermacros.pl",
 "unionTables.pl",
+"customCSS.pl",
 );
 
 # Print problem number and point value (weight) for the problem
@@ -67,10 +68,10 @@ $ml = new_match_list();
 
 
 	$ml->qa(
-		'\( \frac{d}{dx} \sin^{$p}(x) \) $BR',          '\( $p \sin^{$p_1} (x) \cos(x)  \)',
-		'\( \frac{d}{dx} \sin(x^{$p}) \) $BR',           '\( $p x^{$p_1} \cos(x^{$p}) \)',
-		'\( \frac{d}{dx}  \sin($p x) \) $BR',           '\( $p \cos($p x) \)',
-		'\( \frac{d}{dx} $p\sin(x) \) $BR',           '\( $p \cos (x) \)'
+		"\( \frac{d}{dx} \sin^{$p}(x) \) ",          "\( $p \sin^{$p_1} (x) \cos(x)  \)",
+		"\( \frac{d}{dx} \sin(x^{$p}) \) ",           "\( $p x^{$p_1} \cos(x^{$p}) \)",
+		"\( \frac{d}{dx}  \sin($p x) \) ",           "\( $p \cos($p x) \)",
+		"\( \frac{d}{dx} $p\sin(x) \) ",           "\( $p \cos (x) \)"
         
 	);
     
@@ -92,23 +93,27 @@ $ml = new_match_list();
     
     $ml->ans_rule_len(10);
 
+BEGIN_PGML
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Chain Rule:
+
+If [`f`] and [`g`] are differentiable functions, then
+
+[```\frac d{dx}[f(g(x))]=f'(g(x)) \cdot g'(x)```]
+[@ closeDiv() @]*
+
+END_PGML
 
 BEGIN_TEXT
 
-
-Match each derivative of a function above with its equivalent below
-
-
-$PAR $HR $PAR
-
-
-
-$PAR
-\{ $ml->print_q() \}
-$PAR
-\{ $ml->print_a() \}
+Match each derivative.
 
 END_TEXT
+
+TEXT( ColumnTable( $ml->print_q() , $ml->print_a() ) );
+
+
 
 
 ANS(str_cmp($ml->ra_correct_ans));

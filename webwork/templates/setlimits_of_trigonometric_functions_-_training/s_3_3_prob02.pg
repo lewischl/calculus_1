@@ -30,6 +30,7 @@ loadMacros(
   "MathObjects.pl",
   "PGgraphmacros.pl",
   "PGcourse.pl", 
+  "customCSS.pl",
 );
 #####################################################################
 
@@ -51,6 +52,32 @@ $ans = Compute("$ab");
 
 #####################################################################
 Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+A problem using a new special trig limit identity
+[@ closeDiv() @]*
+
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+* [`` 
+\lim_{x \to 0} \frac{\sin x}{x} = 1
+``]
+
+[@ closeDiv() @]*
+
+Begin the problem by separating the fraction into two fractions.  Keep one [`\sin`] and one [`\theta`] per fraction.  Then multiply by two versions of [`1 = \frac{a}{a}`].  Finally, use the identity.
+
+
+---
+
+END_PGML
+
+
 BEGIN_TEXT
 Evaluate the limit, if it exists:
 $PAR

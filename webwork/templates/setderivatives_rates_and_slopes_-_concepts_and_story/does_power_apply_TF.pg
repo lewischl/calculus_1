@@ -48,7 +48,8 @@ loadMacros(
    "PGuwecTikZutils.pl", #Custom TikZ code
    "PGcourse.pl",      # Customization file for the course
    "PGbasicmacros.pl",
-    "PGchoicemacros.pl"
+    "PGchoicemacros.pl",
+    "customCSS.pl",
 );
 
 # Print problem number and point value (weight) for the problem
@@ -97,18 +98,22 @@ $tf -> qa (
 "No",
 "\( x^x \)",
 "No",
+"\( \frac{1}{x^3} \)",
+"Yes",
 "\( x^{-1/3} \)",
 "Yes",
 "\( x^{e} \)",
 "Yes",
 "\( x^{\pi+1} \)",
 "Yes",
+"\( \frac{1}{x} \)",
+"Yes",
 );
 
 Context()->normalStrings;
 
 # How many questions to use
-$tf->choose(8);
+$tf->choose(10);
 
 
 ##############################################################
@@ -122,6 +127,23 @@ $tf->choose(8);
 
 
 
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+The ability to recognize quickly which differentiation rule applies is important to computing reliable and speedy derivatives without the use of a computer.
+
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+The power rule only applies to a variable in the base, and a constant number in the exponent.
+
+[@ closeDiv() @]*
+
+END_PGML
+
+
 BEGIN_TEXT
 Does the power rule apply?
 
@@ -131,8 +153,14 @@ Does the power rule apply?
 
 $PAR
 
-This problem does not show partially correct answer, so that you have to think critically and be confident about each answer.
 END_TEXT
+
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem does not show partially correct answers so that you have to think critically and be confident about each answer.
+[@ closeDiv() @]*
+
+END_PGML
 
 
 Context()->normalStrings;

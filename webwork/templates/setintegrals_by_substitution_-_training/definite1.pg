@@ -64,7 +64,11 @@ END_TEXT
 BEGIN_HINT
 Remember, pay attention to the bounds of integration when you substitute. 
 
-\{amethystHint("$PAR$HR$PAR Here's an example (not with trig, but hey) of a definite integration problem from Prof. Amethyst: $PAR")\}
+\{amethystHint("$PAR$HR$PAR Here are two examples of definite integration problems. The first one is a trig problem: $PAR")\}
+
+\{kalturaShull("1_jqhbkbwi")\}
+
+
 \{ youtubeAmethyst("dYbSuMZQRzc") \}
 END_HINT
 

@@ -44,7 +44,8 @@ loadMacros(
   "PGchoicemacros.pl",
   "PGgraphmacros.pl",
   "PGasu.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -88,18 +89,39 @@ image(insertGraph($graph2)),
 image(insertGraph($graph3)), image(insertGraph($gr)) );
 
 
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Calculus is the language of change.  This problem describes a scenario of change in plain language.  We ask you to translate it into a graph by matching.
+[@ closeDiv() @]*
+
+
+You place a frozen turkey pot pie in an oven and bake it for 45 minutes. Then you take it out and place it on a table where it cools for an hour.    
+
+* We're measuring the temperature in the center of the pie.
+* The horizontal axis is time, starting at the time you put it in the oven. 
+* The vertical axis is temperature.  
+
+END_PGML
+
+
+
 BEGIN_TEXT
-You place a frozen turkey pot pie in an oven and bake it for 45 minutes. Then you take it out and place it on a table where it cools for an hour.  Which graph best represents the temperature of the pie as a function of time?  (Assume the temperature of the pie is uniform throughout).
 $PAR
-$BBOLD Note: $EBOLD Click on any graph to view a larger graph.
+
 $PAR
 \{ $m->print_a() \}
 
 $PAR
-(The horizontal axis is time, and vertical axis is temperature.)
+(Click on any graph to view a larger graph.)
 
 END_TEXT
 
+BEGIN_PGML
+[@ openDiv({ "class" => "inProblemHint" }) @]*
+Does an object cool at the same speed for the entire time it cools?  Or does an object cool more rapidly if it's hotter?
+[@ closeDiv() @]*
+
+END_PGML
 ANS(radio_cmp( $m->correct_ans )   ) ;
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

@@ -54,45 +54,69 @@ $tw = 500; # graph size in TeX
 
 $graph1 = init_graph(-3,-3,7,7,'axes'=>[0,0],'ticks'=>[10,10],'grid'=>[10,10],'size'=>[500,500]);
 
-$p1 = FEQ("((x-1)^2)+$a for x in [-3,0] using color:blue weight:2");
-$p2 = FEQ("-2*cos(pi*x/2)+$b for x in (0,2) using color:blue weight:2");
-$p3 = FEQ("((x-2)^2)/8+$c for x in (2,7] using color:blue weight:2");
-$p4 = FEQ("$b+1 for x in [2,2] using color:blue weight:2");
+$g1 = Formula("((x-1)^2)+$a");
+$g2 = Formula("-2*cos(pi*x/2)+$b");
+$g3 = Formula("((x-2)^2)/8+$c");
+$g4 = Formula("$b+1");
+
+
+$p1 = FEQ("$g1 for x in [-3,0] using color:blue weight:2");
+$p2 = FEQ("$g2 for x in (0,2) using color:blue weight:2");
+$p3 = FEQ("$g3 for x in (2,7] using color:blue weight:2");
+$p4 = FEQ("$g4 for x in [2,2] using color:blue weight:2");
 
 plot_functions($graph1,$p1,$p2,$p3,$p4);
 
-$ans1 = Compute("2+$b");
-$ans2 = Compute("$c");
-$ans3 = Compute("DNE");
-$ans4 = Compute("DNE");
-$ans5 = Compute("$b+1");
+$ans1a = $g1->eval(x=>0);
+$ans1b = $g2->eval(x=>0);
+$ans1c = Compute("DNE");
+$ans1d = $g1->eval(x=>0);
+
+$ans2a = $g2->eval(x=>2);
+$ans2b = $g3->eval(x=>2);
+$ans2c = Compute("DNE");
+$ans2d = $g4->eval(x=>2);
+
 
 ###############################################################
 Context()->texStrings;
 
 BEGIN_TEXT
-Use the given graph of the function \(g\) to determine the following limits:
-$PAR
+
 $BCENTER
 \{image(insertGraph($graph1),width=>$w,height=>$w,tex_size=>$tw)\}
 $ECENTER
 
 $PAR
-(1) \(\displaystyle \lim_{x \to 2^{-}}g(x) = \) \{ans_rule(20)\}$BR
-(2) \(\displaystyle \lim_{x \to 2^{+}}g(x) = \) \{ans_rule(20)\}$BR
-(3) \(\displaystyle \lim_{x \to 2}g(x) = \) \{ans_rule(20)\}$BR
-(4) \(\displaystyle \lim_{x \to 0}g(x) = \) \{ans_rule(20)\}$BR
-(5) \(\displaystyle g(2) = \) \{ans_rule(20)\}
+
+Use the given graph of the function \(g\) to determine the following limits:
+$PAR
+\(\displaystyle \lim_{x \to 0^{-}}g(x) = \) \{ans_rule(20)\}$PAR
+\(\displaystyle \lim_{x \to 0^{+}}g(x) = \) \{ans_rule(20)\}$PAR
+\(\displaystyle \lim_{x \to 0}g(x) = \) \{ans_rule(20)\}$PAR
+\(\displaystyle g(0) = \) \{ans_rule(20)\} $PAR
+$HR$PAR
+\(\displaystyle \lim_{x \to 2^{-}}g(x) = \) \{ans_rule(20)\}$PAR
+\(\displaystyle \lim_{x \to 2^{+}}g(x) = \) \{ans_rule(20)\}$PAR
+\(\displaystyle \lim_{x \to 2}g(x) = \) \{ans_rule(20)\}$PAR
+\(\displaystyle g(2) = \) \{ans_rule(20)\} $PAR
+
+
+
 END_TEXT
 
 Context()->normalStrings;
 
 #####################################################################
+ANS( $ans1a->cmp );
+ANS( $ans1b->cmp );
+ANS( $ans1c->cmp );
+ANS( $ans1d->cmp );
 
-ANS( $ans1->cmp );
-ANS( $ans2->cmp );
-ANS( $ans3->cmp );
-ANS( $ans4->cmp );
-ANS( $ans5->cmp );
+
+ANS( $ans2a->cmp );
+ANS( $ans2b->cmp );
+ANS( $ans2c->cmp );
+ANS( $ans2d->cmp );
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

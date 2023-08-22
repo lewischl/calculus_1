@@ -68,17 +68,43 @@ $x1 = random(2,8,1);
 
 $funct1 = Compute("sqrt($a1)/(2*sqrt(x))");
 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+Square roots are really common in math and applications, because they occur in things like distances and velocities.  This problem trains you on dealing with basic square roots using the power rule.
+
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+[` \frac{d}{dx} x^n = n x^{n-1}`]
+
+[` \sqrt{x} = x^{1/2} `]
+[@ closeDiv() @]*
+
+
+The square root encompasses the constant [`[$a1]`], so it looks like we can't use the power rule.  The power rule says that just [`x`] is under the power, not another thing with it!!!
+
+Worry not, we can still deal with it using a bit of algebra first:
+1. Split the square root across the product of things inside it using [`\sqrt{ab} = \sqrt{a} \sqrt{b}`].
+2. Use the power rule and constant product rule to take the derivative.
+
+---
+
+END_PGML
+
+
+
 BEGIN_TEXT
 If \( f(x) =  \sqrt{ $a1 x } \), find \( f'( x ) \).
 $BR$BR \(f'(x) = \) \{ans_rule(25) \}
-$BR
+
 END_TEXT
 
 ANS($funct1->cmp);
-
-$showHint=-1;
-BEGIN_HINT
-Use the power rule.  Rewrite the function using powers instead of square root symbols. Also remember that \(\frac{1}{2} - 1 = \frac{-1}{2}\).
-END_HINT
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

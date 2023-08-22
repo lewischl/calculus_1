@@ -32,14 +32,15 @@ DOCUMENT();        # This should be the first executable line in the problem.
 
 
 loadMacros(
-  "PGstandard.pl",
-  "MathObjects.pl",        # the new parser
-  "contextFraction.pl",
-  "parserMultiAnswer.pl",
-"answerHints.pl",
-"PGML.pl",
-   "scaffold.pl",
-  "PGcourse.pl",           # Customization file for the course
+    "PGstandard.pl",
+    "MathObjects.pl",        # the new parser
+    "contextFraction.pl",
+    "parserMultiAnswer.pl",
+    "answerHints.pl",
+    "PGML.pl",
+    "scaffold.pl",
+    "customCSS.pl",
+    "PGcourse.pl",           # Customization file for the course
 );
 
 loadMacros("niceTables.pl");
@@ -125,8 +126,6 @@ Section::Begin("Part 2: Chain Rule");
 
 BEGIN_PGML
 
-
-
 We know we can write it as a composition [`f(g(x))`]. In this case, [`u=g(x)=x^2+[$b7]`] and [`f(g(x))=f(u)=\sqrt u=u^{1/2}`].
 
 Here are a couple videos introducing the Chain Rule! I recommend watching all of the first one...
@@ -139,9 +138,13 @@ kalturaShull("1_ro5sw2il")
 
 [@ youtube("YG15m2VwSjA?start=521"); @]*
 
+[@ openDiv({ "class" => "importantFormula" }) @]*
 Chain Rule:
 
+If [`f`] and [`g`] are differentiable functions, then
+
 [```\frac d{dx}[f(g(x))]=f'(g(x))*g'(x)```]
+[@ closeDiv() @]*
 
 Or, if [`u=g(x)`], then
 
@@ -279,7 +282,7 @@ END_PGML
 
 Section::End();
 
-Section::Begin("Part 4: Does the Chain Rule agree with other methods?");
+Section::Begin("Part 4a: Does the Chain Rule agree with other methods?");
 
 BEGIN_PGML
 
@@ -319,7 +322,7 @@ BEGIN_PGML
 END_PGML
 Section::End();
 
-Section::Begin("Part 5");
+Section::Begin("Part 4b");
 
 BEGIN_PGML
 

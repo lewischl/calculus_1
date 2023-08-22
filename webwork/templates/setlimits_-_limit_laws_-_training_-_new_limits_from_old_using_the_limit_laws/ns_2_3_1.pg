@@ -59,7 +59,8 @@ DOCUMENT();        # This should be the first executable line in the problem.
 
 loadMacros("PG.pl", "PGbasicmacros.pl", "PGchoicemacros.pl",
 "PGanswermacros.pl",
-"PGauxiliaryFunctions.pl");
+"PGauxiliaryFunctions.pl",
+"PGcourse.pl", "customCSS.pl");
 
 TEXT(beginproblem());
 $showPartialCorrectAnswers=1;
@@ -126,7 +127,25 @@ qa(~~@expressions, ~~@answers,
 "\( \displaystyle \lim_{ x \rightarrow a}\ \frac{1}{$f[1]-$f[2]} \)", $fraction1_2
 );
 
-TEXT(EV3(<<'EOT'));
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem has you work on using the limit laws when all we have are the values of limits.  No graph, no formula, just values of limits.  
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+* The limit of the sum/difference is the sum/difference of the limits
+* The limit of the product is the product of the limits
+* The limit of the quotient is the quotient of the limits, unless the denominator goes to [`0`] (in which case the answer could be anything, we require more information)
+* The limit of the power is the power of the limit
+* Constants factor out of limits
+[@ closeDiv() @]*
+
+END_PGML
+
+
+
+
+BEGIN_TEXT
 Let \( \displaystyle \lim_{x\rightarrow a} $f[0] = $values[0]\) ,
     \( \displaystyle  \lim_{x\rightarrow a}$f[1]= $values[1]\),
     \( \displaystyle  \lim_{x\rightarrow a}$f[2] = $values[2]\). 
@@ -135,7 +154,8 @@ $BR
 Find following limits if they exist.  If not, enter
 ${BBOLD}DNE$EBOLD.
 $BR
-EOT
+END_TEXT
+
 
 TEXT(EV2(match_questions_list(@expressions)));
 

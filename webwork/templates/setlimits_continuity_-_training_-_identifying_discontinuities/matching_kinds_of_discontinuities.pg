@@ -46,6 +46,7 @@ loadMacros(
    "PGML.pl",
    #"source.pl",        # allows code to be displayed on certain sites.
    "PGcourse.pl",      # Customization file for the course
+   "customCSS.pl",
    
    # added for matching
    "PG.pl",
@@ -95,20 +96,32 @@ $ml = new_match_list();
     $ml->ans_rule_len(10);
 
 
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+Connecting between formulas and qualities of graphs is one of the main takeaways from Calculus 1.  This problem asks you to connect information about the function's continuity status to its formula.
+
+[@ closeDiv() @]*
+
+END_PGML
+
 BEGIN_TEXT
 
-For each match the describing statement.
+For each match the describing statement.  There's an extra!
 
 $PAR $HR $PAR
 
-
-
-$PAR
-\{ $ml->print_q() \}
-$PAR
-\{ $ml->print_a() \}
+\{
+ColumnTable($ml->print_q(), $ml->print_a() )
+\}
 
 END_TEXT
+
+
+
+
+
+
 
 
 ANS(str_cmp($ml->ra_correct_ans));

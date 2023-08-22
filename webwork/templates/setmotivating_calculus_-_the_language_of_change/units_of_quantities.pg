@@ -21,6 +21,14 @@ loadMacros(
    "PGML.pl",
    #"source.pl",        # allows code to be displayed on certain sites.
    "PGcourse.pl",      # Customization file for the course
+   "customCSS.pl",
+   
+      # added for matching
+   "PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"unionTables.pl",
 );
 
 # Print problem number and point value (weight) for the problem
@@ -36,7 +44,60 @@ $showPartialCorrectAnswers = 1;
 #
 Context("Numeric");
 
-$pi = Real("pi");
+
+
+$ml = new_match_list();
+
+
+
+	$ml->qa(
+		'the velocity of an airplane',
+		' kilometers per hour ',
+        
+		'the distance an airplane has traveled',
+		'kilometers',
+        
+		'the rate at which an airplane is decelerating when it lands',
+		'kilometers per hour per second',
+        
+		'the amount of water in a bathtub',
+		'cubic meters',
+        
+		'the rate at which water flows into a bathtub',
+		'cubic meters per second',
+        
+        'the density of a forest',
+        'trees per square kilometer',
+        
+        'the time rate of change in the density of a forest',
+        'trees per square kilometer per year',
+        
+	);
+    
+    
+    	$ml->extra(
+		'trees per cubic meter',
+		'meter seconds',
+		'cubic meters per meter',
+        'kilometers per gram',
+        'trees',
+	);
+    
+    $ml->choose(7); # would show the first question and a random question while
+    
+    # After calling choose, use choose_extra to select which of the extra 'answers' will be given to each student. 
+    #Note that unused answers are dumped into the list of extra 'answers' so the indexing may be difficult to grasp at first. 
+    #(This can be stopped by doing the following: $ml->dumpExtra = "";)
+    $ml->choose_extra([0], 4);
+    
+    #$ml->makeLast(
+	#	'All of the above',
+	#	'None of the above'
+	#);
+    
+    $ml->ans_rule_len(10);
+    
+    
 
 ##############################################################
 #
@@ -45,9 +106,37 @@ $pi = Real("pi");
 #
 
 BEGIN_PGML
-Enter a value for [`\pi`].
 
-[_____]{$pi}
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem gets you thinking about notation and language for describing rates of change and accumulation of change.
+[@ closeDiv() @]*
+
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Calculus is the language of change.
+
+* State quantities have whatever unit they have.
+* Rate of change quantities add a "per" relating to the independent variable.
+* The accumulation of a rate of change removes the "per" of the independent variable.
+[@ closeDiv() @]*
+
+
+
+Match the units with the quantities they model or describe.
+
+
+[@ $ml->print_q() @]*
+
+[@ $ml->print_a() @]*
+
+
+
+
 END_PGML
+
+
+ANS(str_cmp($ml->ra_correct_ans));
 
 ENDDOCUMENT();
