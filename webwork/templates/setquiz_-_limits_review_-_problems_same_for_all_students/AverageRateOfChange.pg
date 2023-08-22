@@ -100,7 +100,7 @@ where [`f`] is measured in meters and [`t`] is in seconds.
 What is the object's average velocity for the time interval of length [`\Delta t=[$deltaT]`] with a
 starting point of [`t_0=[$t0]`].
 
-Average Velocity = [____]{$ans[0]} [`m/s`]
+Average Velocity = [____]{$ans[0]} [`\text{m}/\text{s}`]
 
 END_PGML
 

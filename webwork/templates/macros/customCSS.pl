@@ -253,3 +253,68 @@ TEXT( MODES(
    </style>",
     TeX=>""
 ));
+
+
+
+
+# you have to open a div and close a div around things before and after this to avoid newlines.
+sub ans_fraction{
+
+if ($displayMode eq 'TeX') {
+   $frac_text = join("", (
+      '\( \frac{', ans_rule(14), '}{', ans_rule(14), '} \)' ));
+  } else {
+   $frac_text = join("", (
+
+        openDiv( { "class" => "gridForFrac" } ),
+          openDiv( { "class" => "ansInNumer" }),
+              ans_rule(),
+          closeDiv(),
+          
+          openDiv( { "class" => "line" }),closeDiv(), # the horizontal line for division is CSS-generated so it resizes!
+          
+          openDiv( { "class" => "ansInDenom" }),
+              ans_rule(),
+          closeDiv(),
+        closeDiv(),
+   ) # the list of things we're joining
+   ); # the join function call
+}
+
+}  # ans_fraction
+
+
+
+# you have to open a div and close a div around things before and after this to avoid newlines.
+# i have found hspace{-4mm} brings the math after the answer boxes horizontally better aligned.
+sub integral_ans_both_bounds{
+
+Context()->texStrings;
+if ($displayMode eq 'TeX') {
+   return join("", (
+      '\( \displaystyle \int_{ ',
+      ans_rule(5),
+      ' }^{ ',
+      ans_rule(5),
+      '}'));
+  } else {
+   return join("", (
+        openDiv( { "class" => "divOnLineWithIntegrationLimits" } ),
+          '\( \displaystyle \int \)',
+        closeDiv(),
+
+        openDiv( {  "class" => "gridForPairOfIntegrationBounds" } ),
+          openDiv( {  "class" => "lowerIntegrationBoundOfPair" } ),
+            ans_rule(5),
+          closeDiv(),
+          openDiv( {  "class" => "upperIntegrationBoundOfPair" } ),
+            ans_rule(5),
+          closeDiv(),
+        closeDiv(),
+   ) );
+}
+Context()->normalStrings;
+
+} # subroutine
+
+

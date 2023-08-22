@@ -53,6 +53,7 @@ loadMacros(
 "PGchoicemacros.pl",
 "PGanswermacros.pl",
 "unionTables.pl",
+"scaffold.pl",
 );
 
 # Print problem number and point value (weight) for the problem
@@ -99,7 +100,30 @@ BEGIN_PGML
 The "limit laws" let us use knowledge about limits, and combine them to know new limits.  This problem develops connections between names and and plain language descriptions.
 [@ closeDiv() @]*
 
+Here is a video discussing most of the Limit Laws. Two that it leaves out are:
+
+[``\lim_{x\rightarrow a}x=a``] (the identity law for limits)
+
+[``\lim_{x\rightarrow a}c=c``] (the constant law for limits)
+
 END_PGML
+
+Scaffold::Begin(can_open => "always", is_open => "never");
+Section::Begin("Limit Laws introduction (16:03)");
+
+BEGIN_PGML
+
+[@
+kalturaShull("1_0vzsxvog")
+@]*
+
+END_PGML
+
+#Context()->texStrings;
+
+Section::End();
+Scaffold::End();
+
 BEGIN_TEXT
 
 Match the law's name to the verbal description.  Not all verbal descriptions are true statements -- some are lies!

@@ -68,12 +68,38 @@ Context("Numeric");
 #
 #
 
+$tab = DataTable([
+[["Precedence",headerrow=>1], "name", "symbols"],
+["first","Parentheses", "\(()\)"],
+["","Powers", "\(\hat{}\)"],
+["","Multiplication / division", "\(\times \div\)"],
+["","SUMMATION 🆕", "\(\Sigma\)"],
+["last","Addition / subtraction", "\(\pm\)"],
+]);
 
 
 
 Context()->texStrings;
-BEGIN_TEXT
+BEGIN_PGML
+[@ openDiv({ "class" => "problemPurpose" }) @]*
 In this problem, I want to drive home the necessity of using parentheses carefully when using summation notation.
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+PPMDAS --- order of operations matters!
+
+[@ $tab @]***
+
+
+[@ closeDiv() @]*
+
+ℹ️ Summation notation is HIGHER in precedence than regular addition.
+
+END_PGML
+
+BEGIN_TEXT
+
 $HR
 $PAR
 

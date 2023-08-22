@@ -48,11 +48,15 @@ DOCUMENT();        # This should be the first executable line in the problem.
 loadMacros(
   "PGstandard.pl",
   "PGchoicemacros.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "parserFormulaUpToConstant.pl",
+  "contextFraction.pl",
 );
 
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
+
+Context("Fraction-NoDecimals");
 
 $a1 = random(2,10,1);
 $b1 = random(2,10,1);
@@ -62,25 +66,69 @@ $n1 = random(8,10,1);
 $m1 = random(5,7,1);
 $p1 = random(2,4,1);
 
+$f = Formula("$a1 x^ {$n1} + $b1 x^{$m1} - $c1 x^{$p1} - $d1");
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem is an infinite-attempts opportunity to integrate a polynomial.
+[@ closeDiv() @]*
+
+Polynomials are the easiest class of functions to integrate.  Integer powers keep the "power rule for integration" simple.
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*The power rule for integration*
+
+[```
+\int x^n \, dx =  \frac{1}{n+1} x^{n+1}
+```]
+
+⚠️ This is not true if [`n = -1`], because then we'd have to divide by [`0`].
+[@ closeDiv() @]*
+
+---
+
+
+END_PGML
 BEGIN_TEXT
 
-Consider the function \( f(x) = $a1 x^ {$n1} + $b1 x^{$m1} - $c1 x^{$p1} - $d1 \).
-$BR Find an antiderivative of \( f(x) \)
-$BR \{ans_rule(40) \}\(+C\)
+Consider the polynomial function \( f(x) = $f \). $PAR
 
+🎯 Find the general antiderivative of \( f(x) \).  Include the constant of integration \(C\) in your answer.  
+$PAR
+\( \displaystyle \int ($f) \, dx = \) \{ans_rule(40) \}
 
 END_TEXT
 
-$a2=$a1/($n1+1);
-$n2=$n1+1;
-$b2=$b1/($m1+1);
-$m2=$m1+1;
-$c2=$c1/($p1+1);
-$p2=$p1+1;
+BEGIN_PGML
 
-$antideriv="$a2*x^$n2+$b2*x^$m2-$c2*x^$p2-$d1*x";
+---
 
-ANS(fun_cmp($antideriv, mode=>"antider"));
+[@ openDiv({ "class" => "inProblemHint" }) @]*
+When entering "the general antiderivative, always add [`+C`] to the antiderivative.  
+
+This accounts for the fact that derivatives of constants are [`0`].
+[@ closeDiv() @]*
+
+END_PGML
+
+Context()->normalStrings;
+
+
+$a2=Fraction("$a1/($n1+1)");
+$n2=Fraction("$n1+1");
+$b2=Fraction("$b1/($m1+1)");
+$m2=Fraction("$m1+1");
+$c2=Fraction("$c1/($p1+1)");
+$p2=Fraction("$p1+1");
+
+$F = Fraction("$a2*x^$n2+$b2*x^$m2-$c2*x^$p2-$d1*x")->reduce;
+
+$antideriv=FormulaUpToConstant($F);
+
+ANS($antideriv->cmp);
 
 BEGIN_SOLUTION
 

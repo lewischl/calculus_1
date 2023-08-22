@@ -47,14 +47,12 @@ loadMacros(
   "PGchoicemacros.pl",
   "PGcourse.pl",
   "customCSS.pl",
+  "scaffold.pl",
 );
 
 COMMENT("issue: this problem has hardcoded numbers");
 
 TEXT(beginproblem());
-
-
-
 
 TEXT(EV2(<<EOT));
 
@@ -132,6 +130,53 @@ ANS(num_cmp(22));
 
 
 
+BEGIN_PGML
+Here are some videos with examples similar to this question:
 
+END_PGML
+
+Scaffold::Begin(can_open => "always", is_open => "never");
+###########################################
+Section::Begin("Multiplying Fractions (1:56)");
+
+BEGIN_PGML
+
+[@
+kalturaShull("1_1v03mt06")
+@]*
+
+END_PGML
+
+#Context()->texStrings;
+
+Section::End();
+
+Section::Begin("Adding fractions (1:38)");
+
+BEGIN_PGML
+
+[@
+kalturaShull("1_l8prly4e")
+@]*
+
+END_PGML
+Section::End();
+
+Section::Begin("Fractions inside fractions (3:04)");
+
+BEGIN_PGML
+
+[@
+kalturaShull("1_2mred6wm")
+@]*
+
+END_PGML
+Section::End();
+
+Context()->normalStrings;
+
+$showPartialCorrectAnswers = 1;
+
+  Scaffold::End();
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

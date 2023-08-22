@@ -1,0 +1,297 @@
+########################################################################
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   "contextFraction.pl",
+   "parserPopUp.pl",
+);
+
+COMMENT("uses a modified desmos graph via external URL");
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+
+
+
+HEADER_TEXT(MODES(
+    HTML=>'<script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3plus/1.7.3/d3plus.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>',
+    
+    TeX=>''
+));
+
+
+
+$desmos_width= 800;
+$desmos_height=400;
+
+
+$unique_div_id = "desmos_graph";
+$desmos_graph = MODES(
+    HTML=>qq(<div id="$unique_div_id" style="width: ${desmos_width}px; height: ${desmos_height}px;"></div>), 
+    TeX=>'Interactive graph best viewed online'
+);
+
+$unique_div_id2 = "desmos_graph2";
+$desmos_graph2 = MODES(
+    HTML=>qq(<div id="$unique_div_id2" style="width: ${desmos_width}px; height: ${desmos_height}px;"></div>), 
+    TeX=>'Interactive graph best viewed online'
+);
+
+
+
+Context("Fraction");
+
+$ans_under = "Underestimate";
+$ans_over= "Overestimate";
+$ans_unknown = "Not knowable w/o more info";
+
+sub pops{
+    my $ans = shift(@_);
+    return PopUp(["?", $ans_over,$ans_under,$ans_unknown],$ans);
+}
+
+$under = pops($ans_under);
+$over = pops($ans_over);
+$unknown = pops($ans_unknown);
+
+$f = Formula("1/(sqrt(2 pi)) e^(-1/2 * x^2)");
+##############################################################
+#
+#  Text
+#
+#
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Trains on predicting whether an approximation of a definite integral by a Riemann Sum is an over- or under-estimate, based on the increasing/decreasing nature of the integrand.
+[@ closeDiv() @]*
+
+Consider the integrand corresponding to the probablity density function normal distribution: 
+
+[```f(x) = [$f]```]
+
+This function has no symbolic antiderivative.  No alien or human will ever find the formula [`F`] such that [`\frac{dF}{dx} = f`].  But the area under [`f`] is really important.  The area under [`f`] represents the probability of observing outcomes of a normally-distributed process.  And the normal distribution is __everywhere__.  
+
+I'm using this function because:
+* it cannot be symbolically integrated.  it *must* be numerically integrated.
+* it has both increasing and decreasing parts.
+
+
+---
+
+I want to discuss over-and under-estimates.
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+An approximation [`A`] for a definite integral [`q = \int_a^b f(x) \, dx`]
+* is an overestimate if [`A > q`] 
+* is an underestimate if [`A < q`] 
+[@ closeDiv() @]*
+
+This problem trains you to recognize what property of [`f`] makes Riemann predictably be an over- or under-estimate.
+
+---
+
+##### Positive functions
+
+This is an interactive graph showing approximation of [`` \int_{a}^b [$f] \, dx ``], where you can control:
+* [`n`]: the variable number of rectangles x
+* [`c`]: the left- or right-handedness of the Riemann Sum.
+    * [`c=0`] is left
+    * [`c=1`] is right
+    * between [`0`] and [`1`] interpolates between left and right.
+* [`a`] and [`b`]: the bounds of integration
+
+[@ $desmos_graph @]*
+
+🎯 Use the Desmos graph to answer the questions.
+
+Use the sliders to:
+1. restrict the domain of integration to one where [`f`] is *increasing*.
+2. switch between left- and right-endpoints
+
+* Is [`L_n`] an over- or under-estimate over an interval on which [`f`] is increasing? [_]{$under}
+* Is [`R_n`] an over- or under-estimate over an interval on which [`f`] is increasing? [_]{$over}
+
+Now move the sliders to inspect a region on which [`f`] is *decreasing*.
+
+* Is [`L_n`] an over- or under-estimate over an interval on which [`f`] is decreasing? [_]{$over}
+* Is [`R_n`] an over- or under-estimate over an interval on which [`f`] is decreasing? [_]{$under}
+
+
+---
+
+##### Negative functions
+
+🤔 Hmm.  Does the outcome change if the function is negative???  Let's inspect.
+
+Here's the same graph, flipped upside down with a minus sign.  It's entirely negative.  
+
+[@ $desmos_graph2 @]*
+
+
+🎯 Use the Desmos graph to answer the questions.
+
+Use the sliders to:
+1. restrict the domain of integration to one where [`f`] is *increasing*.
+2. switch between left- and right-endpoints
+
+* Is [`L_n`] an over- or under-estimate over an interval on which [`f`] is increasing? [_]{$under}
+* Is [`R_n`] an over- or under-estimate over an interval on which [`f`] is increasing? [_]{$over}
+
+Now move the sliders to inspect a region on which [`f`] is *decreasing*.
+
+* Is [`L_n`] an over- or under-estimate over an interval on which [`f`] is decreasing? [_]{$over}
+* Is [`R_n`] an over- or under-estimate over an interval on which [`f`] is decreasing? [_]{$under}
+
+To help, I'll remind you of what it means to be an over- or under-estimate:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+An approximation [`A`] for a definite integral [`q = \int_a^b f(x) \, dx`]
+* is an overestimate if [`A > q`] 
+* is an underestimate if [`A < q`] 
+[@ closeDiv() @]*
+
+---
+
+Explanation!  For a negative decreasing function, [`L_n`] is an [_]{$over}.  But, it's missing area!!!  How can that be?!?
+
+It's because the "missing area" was negative.  It's like forgetting to write down expenses when accounting -- leads to thinking you have more money than you actually have.
+
+Similarly, "extra area" for a negative function counts as negative.
+
+---
+
+##### Increasing/decreasing determines if [`L_n`] and [`R_n`] is over/under estimate
+
+🎯 Complete the boxes to fully characterize:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+If [`f`] is *increasing*,
+* [`L_n`] is an [_]{$under}
+* [`R_n`] is an [_]{$over}
+
+If [`f`] is *decreasing*,
+* [`L_n`] is an [_]{$over}
+* [`R_n`] is an [_]{$under}
+[@ closeDiv() @]*
+
+
+---
+
+##### Mixed increasing/decreasing makes it hard to tell
+
+Go back and play with the sliders for the two graphs above. If the interval of integration contains both increasing and decreasing regions, it's hard to tell if a Riemann sum will reliably be an over- or under-estimate. 
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+If [`f`] has regions of *both increasing and decreasing*,
+* [`L_n`] is an [_]{$unknown}
+* [`R_n`] is an [_]{$unknown}
+[@ closeDiv() @]*
+
+
+END_PGML
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#################
+#
+# DESMOS
+#
+
+
+$d = '$'; # make a single dollar sign.  yes, this is stupid, but necessary cuz i couldn't figure out how to just put a dollar sign in the script code below.
+
+$graphUrl = "https://www.desmos.com/calculator/ltmodyvrz3"; # the URL of the graph to embed.
+$graphUrl2 = "https://www.desmos.com/calculator/v9vi5sta2x"; # the URL of the graph to embed.
+
+# for an explantion of what << does, see https://stackoverflow.com/questions/11948338/what-is-print-eof-and-how-is-it-working
+TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );  
+<script>
+<!-- //
+    
+    
+    
+    function make_graph(url, divid){
+        var elt = document.getElementById(divid);
+        
+        var calc = Desmos.Calculator(elt, {
+            keypad: false, 
+            expressions: true,
+            settingsMenu: false, 
+            expressionsTopbar: false,
+            zoomButtons: false,
+        });
+
+
+        function modifyExistingState(json)
+        {
+        var state = json.state;
+            var exprlist = state.expressions.list;
+
+            for (let ii = 4; ii < exprlist.length; ii++) {
+              state.expressions.list[ii].secret = true;
+            } 
+
+         calc.setState(state);
+
+
+        }
+
+        $d.getJSON(url, modifyExistingState);
+    }   
+    
+    make_graph("$graphUrl", "$unique_div_id");
+    make_graph("$graphUrl2", "$unique_div_id2");
+    
+// -->
+</script>
+END_SCRIPT
+
+#     calc.setMathBounds({
+#       left: $left,
+#       right: $right,
+#       bottom: $bottom,
+#       top: $top
+#     });
+
+
+
+ENDDOCUMENT();

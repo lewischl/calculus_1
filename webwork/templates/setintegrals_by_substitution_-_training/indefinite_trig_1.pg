@@ -7,8 +7,9 @@
 ## DBsubject(Calculus - single variable)
 ## DBchapter(Techniques of integration)
 ## DBsection(Substitution (with trigonometric functions))
-## Date(6/3/2002)
-## Institution(OSU)
+## Date(6/3/2002, Summer 2023)
+## Author(Unknown, then silviana amethyst)
+## Institution(OSU, UWEC 2023)
 ## MLT(lnasinb)
 ## Level(2)
 ## TitleText1('Calculus: Early Transcendentals')
@@ -52,38 +53,100 @@ DOCUMENT();        # This should be the first executable line in the problem.
 loadMacros(
   "PGstandard.pl",
   "PGchoicemacros.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "contextFraction.pl",
 );
+loadMacros("parserFormulaUpToConstant.pl");
+
+Context("Fraction-NoDecimals");
+Context()->variables->add(u=>"Real");
+Context()->variables->add(du=>"Real");
 
 $showPartialCorrectAnswers = 1;
 
 $a = random(2,6,1);
 $b = random(2,8,1);
 $c = $a * $b;
-$coeff = 1 / $b;
-$ans = "$coeff * ln(sin(x) + $a)";
+
+$power = 3; # actually, -3
+$u = Formula("$b sin x + $c");
+$u_prime = $u->D;
+$dx = Formula($u_prime * "du");
+$integral_after_subbing = Formula("1/$b * (u)^(-$power) * du");
+$ans = FormulaUpToConstant("1/($b*(-($power-1)) )*($u)^(-($power-1)) ");
 
 TEXT(beginproblem());
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on 
+* choosing [`u`] for integration by substitution
+* an alternative method for dealing with differentials
+[@ closeDiv() @]*
+
+This video from Prof. Amethyst discusses how to choose [`u`]
+
+[@ youtube("8olYBx2E17E") @]*
+
+---
+
+I also want to talk in this problem about a way to deal with differentials in substitution.
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*A process for integration by substitution*
+
+1. Choose or try a [`u`].  Substitute.
+2. Compute [`dx = \frac{du}{u'(x)}`].  (This is just [`\frac{du}{dx} = u'`] re-written.)
+3. Substitute the differential [`dx = \frac{du}{u'}`] into the integral for [`dx`]
+4. Cancel and simplify.
+5. Integrate.
+
+[@ closeDiv() @]*
+
+For example, let's solve [`\int x e^{x^2} dx`] using this technique.
+
+1. [`u(x)`] = [`x^2`] (the inside thing!)
+2. [``dx = \frac{du}{u'} = \frac{du}{2x}``]
+3. [``\int x e^{x^2} dx = \int x e^u \, \frac{du}{2x}``], after substituting [`u`] and [`dx`] away
+4. [``\int x e^u \, \frac{du}{2x} = \int \frac{1}{2} e^u \, du``] after simplifying.  ℹ️ All the [`x`]'s *will* cancel
+5. [``\int \frac{1}{2} e^u \, du = \frac{e^{u}}{2}  + C = \frac{e^{x^2}}{2}  + C``] after integrating.
+
+---
+
+END_PGML
+
+
 BEGIN_TEXT
-Evaluate the indefinite integral.
-\[ \int \frac{\cos x}{$b \sin x + $c} \, dx \]
-\(\displaystyle \int \frac{\cos x}{$b \sin x + $c} \, dx = \) \{ans_rule( 30) \} \(+C\)
+Evaluate the indefinite integral using the above technique.  
+\[ \int \frac{\cos x}{($u)^3} \, dx \]
+
+$PAR
+\( u(x) = \) \{ ans_rule \}
+
 $PAR
 
-\{ theresahint \}
+\( u'(x) = \) \{ ans_rule \}  $SPACE (take the derivative) $PAR
+
+\( dx = \) \{ ans_rule \}  $SPACE (a fraction involving \(du\) and \(u'\)) $PAR
+
+After substituting \(u\) and \(dx\) into the integral, the integral is just in terms of \(u\) and \(du\): $BR
+\(\displaystyle \int \) \{ans_rule( 30) \} 
+$PAR
+Concluding, $BR
+\(\displaystyle \int \frac{\cos x}{($u)^3} \, dx = \) \{ans_rule( 30) \}
+
 
 END_TEXT
 
-BEGIN_HINT
-Be willing to experiment with choosing \(u\).  $PAR
+Context()->normalStrings;
 
-This problem is similar to Example 6, page 342 in Rogawski 4th Edition.
-
-\{ amethystHint("$PAR$HR$PAR If you're still working on how to identify \(u\), which we expect at this point, here's a video I hope you find helpful: $PAR ") \}
-\{ youtubeAmethyst("8olYBx2E17E") \}
-END_HINT
-
-ANS(fun_cmp($ans, mode=>"antider"));
+ANS($u->cmp);
+ANS($u->D->cmp);
+ANS($dx->cmp);
+ANS($integral_after_subbing->cmp);
+ANS($ans->cmp);
 
 ##set $PG_environment{'textbook'} in webworkCourse.ph
 if (defined($textbook)) {

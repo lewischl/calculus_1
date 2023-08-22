@@ -7,7 +7,8 @@
 ## DBsubject(Calculus - single variable)
 ## DBchapter(Techniques of integration)
 ## DBsection(Substitution (without trigonometric functions))
-## Institution(ASU)
+## Institution(ASU, UWEC 2023)
+## Author(unknown, then silviana amethyst)
 ## MLT(affine_definite)
 ## MO(1)
 ## Level(2)
@@ -78,8 +79,40 @@ $D = Formula("(1/$aa)*(e^($ar) - e^($al))")->with(
 );
 
 Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on using the fundamental theorem of Calculus with an exponential of the form [`e^{kx}`]
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*Integration of exponential functions with linear function in exponent*
+
+[```
+\int e^{kx+b} \, dx = \frac{1}{k} e^{kx+b} + C
+```]
+[@ closeDiv() @]*
+
+We'll study more generally how to "undo the chain rule" in the section on "integration by substitution".
+
+
+[@ openDiv({ "class" => "inProblemHint" }) @]*
+To integrate a definite integral using FTOC1:
+
+1. Find an antiderivative
+2. Evaluate that antiderivative
+3. Subtract
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+
 BEGIN_TEXT
-Evaluate the definite integral:
+Evaluate the definite integral using the FTOC1 and the exponential-of-a-linear rule:
 $BR $BR
 \( \displaystyle \int_{$l}^{$r} $f \, dx
 = \) \{ ans_rule() \}

@@ -44,6 +44,7 @@ loadMacros(
    #"source.pl",        # allows code to be displayed on certain sites.
    "PGcourse.pl",      # Customization file for the course
 );
+COMMENT("todo: stop using hardcoded data");
 
 # Print problem number and point value (weight) for the problem
 TEXT(beginproblem());
@@ -69,10 +70,35 @@ Context("Numeric");
 #
 
 Context()->texStrings;
-BEGIN_TEXT
-Given the data:$BR
 
-\(
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on summation notation for data given in a table
+[@ closeDiv() @]*
+
+Sometimes we have data in a table, and we need a way to refer to it.  Summation notation together with a subscripted variable gives us this power.
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*Summation notation, table lookups*
+
+[```
+\sum_{i=m}^n a_i
+```]
+
+* [`i`] is the "index".  
+* [`m`] is the "lower bound".  The lowest value of [`i`]
+* [`n`] is the "upper bound".  The heighest value of [`i`].
+* [`a_i`] a reference to external data.  Get the [`i`]th entry of column [`a`].
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
+
+$col1 = "\(
 \displaystyle
 \begin{array}{c|c}
 j & a_j \\ \hline
@@ -84,10 +110,10 @@ j & a_j \\ \hline
 5 & -8 \\
 6 & -10
 \end{array}
-\)
+\)";
 
-$PAR
-compute the following sums, please:
+$col2 = EV2(<<EOT);
+Compute the sums using the data in the table.
 
 $PAR
 
@@ -114,7 +140,10 @@ $PAR
 \( \displaystyle
 \sum_{j=0}^6 a_j - \sum_{j=2}^6 a_j
 \) = \{ans_rule(40) \} $PAR
-END_TEXT
+
+EOT
+
+TEXT(ColumnTable($col1, $col2));
 
 
 $S1 = 12+9+7+3;

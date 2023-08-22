@@ -7,8 +7,8 @@
 ## DBsubject('Calculus')
 ## DBchapter('Applications of the Derivative')
 ## DBsection('Newtons's Method')
-## Date('8/2/2022')
-## Author('Erich Jauch')
+## Date('8/2/2022, summer 2023')
+## Author('Erich Jauch, silviana amethyst')
 ## Institution('')
 ## TitleText1('')
 ## EditionText1('')
@@ -65,45 +65,61 @@ Context("Numeric");
 
 $source = random(1,4,1);
 
-@choices = ();
-$choices[0] = " ";
-$choices[1] = -1*$source;
-$choices[2] = $source;
-$choices[3] = $source + 2;
+
 
 $a = 1;
 $b = Compute("-1*(2+$source)");
 $c = Compute("-1*$source^2");
 $d = Compute("($source^3 + 2*$source^2+1)");
 
+
 $f = Formula("$a*x^3 + $b*x^2 + $c*x + $d")->reduce;
 $fprime = $f->D('x');
 
-@f = ();
+@f_vals = ();
 @fprime = ();
-@x = ();
+@x_vals = ();
 
-$x[0]=0;
-$dim = $choices[3]+2;
-$f[0] = $f->eval(x=>0);
-$ymax = $f[0]+10;
 
-if ($ymax<20) {
-$tick = 2;
+# do newton's method starting at x=0
+$x_vals[0]=0;
+foreach my $i (0..3) {
+$j = $i+1;
+$f_vals[$i] = $f->eval(x=>$x_vals[$i]);
+$fprime[$i] = $fprime->eval(x=>$x_vals[$i]);
+$x_vals[$j] = $x_vals[$i] - $f_vals[$i]/$fprime[$i];
 }
-elsif ($ymax<30) {
-$tick = 3;
-}
-elsif ($ymax<60) {
-$tick = 6;
-}
-else {
-$tick = 10;
-}
+
+
+@ints_near_roots = (-1*$source, $source, $source + 2);
+
+
+@choices = ();
+$choices[0] = "?";
+$choices[1] = "x = " . Real($ints_near_roots[0]);
+$choices[2] = "x = " . Real($ints_near_roots[1]);
+$choices[3] = "x = " . Real($ints_near_roots[2]); 
 
 $pop = PopUp( [@choices], $choices[3] );
 
-$graph1 = GraphWithTikZ(function => [$f],xmin => -$dim,xmax => $dim,ymax =>$ymax,dmin => -$dim,dmax => $dim,smooth=>'smooth',ytick => $tick);
+
+$dim = $ints_near_roots[2]+2;
+$f_vals[0] = $f->eval(x=>0);
+$ymax = $f_vals[0]+10;
+
+if ($ymax<20) { $tick = 2; }
+elsif ($ymax<30) { $tick = 3; }
+elsif ($ymax<60) { $tick = 6; }
+else { $tick = 10; }
+
+
+
+
+
+$graph1 = GraphWithTikZ(function => [[$f,dmin => -$dim,dmax => $dim]],
+  xmin => -$dim,xmax => $dim,
+  ymax =>$ymax, smooth=>'smooth',ytick => $tick
+  );
 ##############################################################
 #
 #  Text
@@ -114,12 +130,27 @@ $graph1 = GraphWithTikZ(function => [$f],xmin => -$dim,xmax => $dim,ymax =>$ymax
 TEXT(beginproblem());
 BEGIN_PGML
 
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem trains you that the choice of [`x_0`] matters in Newton's Method.
+[@ closeDiv() @]*
+
+Newton's method generates fractals if we do it over the complex numbers.  We won't do that in this class because we're doing Calculus over the real numbers, not the complex numbers.  But I still want to share this video with you!
+
+[@ youtube("-RdOwhmqP5s") @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Newton's method is sensitive to the start point [`x_0`].  Different start points lead to different roots.  
+[@ closeDiv() @]*
+---
+
 We have a function [`[$f]`] graphed below:
->>[@ image(insertGraph($graph1), width => 400, height => 400) @]*<<
+>>[@ image(insertGraph($graph1), width => 300, height => 300) @]*<<
 
 If we apply Newton's Method using [`x_0=0`], it approximates the root closest to 
  [____]{$pop}
 
+The value of the first Newton iteration is [`x_1`] = [_]{Compute($x[1])}
 
 END_PGML
 
@@ -132,14 +163,7 @@ Context()->variables->add(xn => ['Real',TeX=>"x_n"]);
 $fn = $f->substitute(x => "xn");
 $fprimen = $fprime->substitute(x => "xn");
 
-$fprime[0] = $fprime->eval(x=>0);
 
-foreach my $i (0..3) {
-$j = $i+1;
-$f[$i] = $f->eval(x=>$x[$i]);
-$fprime[$i] = $fprime->eval(x=>$x[$i]);
-$x[$j] = $x[$i] - $f[$i]/$fprime[$i];
-}
 
 
 BEGIN_PGML_SOLUTION

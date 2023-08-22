@@ -73,15 +73,15 @@ $c3 = $c2 + $sep;
 
 
 $classification1 = PopUp(
-  ["local minimum","local maximum","neither (saddle point)"],
+  ["Choose one","local minimum","local maximum","neither (saddle point)"],
   "local maximum");
 
 $classification2 = PopUp(
-  ["local minimum","local maximum","neither (saddle point)"],
+  ["Choose one","local minimum","local maximum","neither (saddle point)"],
   "local minimum");
   
 $classification3 = PopUp(
-  ["local minimum","local maximum","neither (saddle point)"],
+  ["Choose one","local minimum","local maximum","neither (saddle point)"],
   "neither (saddle point)");
 
 # set the x limits for plotting

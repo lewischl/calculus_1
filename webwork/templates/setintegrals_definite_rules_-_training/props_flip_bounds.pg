@@ -55,18 +55,43 @@ $a= random(1, 5, 1);
 $b= random(6, 10, 1);
 $c= non_zero_random(-70, 70, 1);
 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem is about the properties of the definite integral:
+
+* Flipping bounds of integration
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*Flip bounds of integration by paying the minus price*
+
+[```
+\int_a^b f(x) \, dx  = - \int_b^a f(x) \, dx
+```]
+
+ℹ️ This works regardless of whether [`a < b`].
+[@ closeDiv() @]*
+
+🧠 I think of this as "reversing the direction of time", if we push the minus sign inside the integral:
+
+[```
+\int_a^b f(x) \, dx  = \int_b^a -f(x) \, dx
+```]
+
+---
+
+END_PGML
+
 BEGIN_TEXT
-If \( \displaystyle \int_{$a}^{$b} f(x) dx = $c \), then 
-\(\displaystyle \int_{$b}^{$a} f(t) dt = \) \{ans_rule(10)\}
+If \( \displaystyle \int_{$a}^{$b} f(x) \, dx = $c \), then 
+\(\displaystyle \int_{$b}^{$a} f(x) \, dx = \) \{ans_rule(10)\}
 
-$PAR
 
-\{theresahint\}
 END_TEXT
 
-BEGIN_HINT
-Pay the minus price!
-END_HINT
 ANS(num_cmp(-$c));
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

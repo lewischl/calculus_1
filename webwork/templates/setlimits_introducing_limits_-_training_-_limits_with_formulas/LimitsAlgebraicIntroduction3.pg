@@ -76,6 +76,26 @@ $no = PopUp(
 
 $dne = String("DNE");
 
+$width = 200;
+$height = 350;
+
+HEADER_TEXT(MODES(
+    HTML=>'<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
+    TeX=>''
+));
+
+$unique_div_id = "evaluating_f";
+$desmos_div = MODES(
+    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
+    TeX=>'Interactive graph best viewed online'
+);
+
+$unique_div_id2 = "evaluating_h";
+$desmos_div2 = MODES(
+    HTML=>qq(<div id="$unique_div_id2" style="width: ${width}px; height: ${height}px;"></div>), 
+    TeX=>'Interactive graph best viewed online'
+);
+
 #$contin = String('continuous');
 
 $p1=-1;
@@ -194,6 +214,8 @@ $hj4=$h3->eval(x=>$j4);
 $hj5=$h3->eval(x=>$j5);
 $hj6=$h3->eval(x=>$j6);
 
+SRAND($psvn);
+
 $passcode1 = random(1000,9999);
 $passcode2 = random(1000,9999);
 $passcode3 = random(1000,9999);
@@ -217,7 +239,7 @@ Context()->texStrings;
 
 Scaffold::Begin();
 ###########################################
-Section::Begin("Part 1");
+Section::Begin("Passcode");
 
 BEGIN_PGML
 
@@ -231,7 +253,7 @@ END_PGML
 
 Section::End();
 
-Section::Begin("Part 2");
+Section::Begin("Previous table");
 
 BEGIN_PGML
 
@@ -270,7 +292,7 @@ ANS($gp6->cmp());
 
 BEGIN_PGML
 
-As we established in the previous problem, [``\lim_{x\rightarrow0}g(x)``] does not exist. However, if you look *only* at [`x`]-values *less than* 0, [`g(x)`] is approaching (or in this case _equal_ to) what number? [_]{$gp1}
+As we established in the previous problem, [``\lim_{x\rightarrow0}g(x)``] does not exist. However, if you look *only* at [`x`]-values *less than* 0, [`g(x)`] is approaching what number? [_]{$gp1}
 
 Similarly, for [`x`]-values *greater than* 0, what number is [`g(x)`] approaching? [_]{$gp4}
 
@@ -290,19 +312,39 @@ and for [`x`]-values greater than [`c`], we write
 
 [```\lim_{x\rightarrow c^+}g(x)```]
 
-So, in this example, [``\lim_{x\rightarrow0^-}g(x)=``] [_]{$gp1} and [``\lim_{x\rightarrow0^+}g(x)=``] [_]{$gp4}
+So, in this example,
 
-One-sided limits will be especially common in _piecewise functions_. We will look at one next!
+[``\lim_{x\rightarrow0^-}g(x)=``][_]{$gp1}
 
-[%[@ $desmos_div @]*%]
+and
+
+[``\lim_{x\rightarrow0^+}g(x)=``] [_]{$gp4}
+
+One-sided limits will be especially common in _piecewise functions_. We will look at one next! If you would like a refresher on what piecewise functions are, the next scaffold bar (which should appear green instead of yellow) has a video about it from Prof. Shull. (Feel free to skip if you remember piecewise functions well.)
 
 END_PGML
 
 Section::End();
 
-Section::Begin("Piecewise function");
+Section::Begin("Piecewise function review video (20:45)");
 
 BEGIN_PGML
+
+[@
+kalturaShull("1_4ver89yh")
+@]*
+
+END_PGML
+Section::End();
+
+
+Section::Begin("Piecewise function limits");
+
+BEGIN_PGML
+
+Let's find some limits for this piecewise function!
+
+You can use the window on the right as a calculator, but you need to type the function yourself! Don't try to type the whole piecewise function; just type the piece you need for each value of [`x`].
 
 [```f(x)=
 \begin{cases}
@@ -311,8 +353,9 @@ x^2&[$b]\leq x\leq[$c]\\
 [$d]-x&x>[$c]\\
 \end{cases}```]
 
-[@
-DataTable(
+END_PGML
+
+$table=DataTable(
 [
     ['\(x\)','\(f(x)\)'],
     ['\('.$b1.'\)',ans_rule(10)],
@@ -332,9 +375,8 @@ align => '|l | l|l|',
 midrules => 1,
 tablecss => " border-spacing:0px 0px; border-radius: 5px; border-collapse:separate;"
 );
-@]*
 
-END_PGML
+TEXT(ColumnTable($table,$desmos_div));
 
 #Context()->{format}{number} = "%.2f";
 #ANS(Real(sprintf("%.2f",$fb1))->cmp());
@@ -369,7 +411,13 @@ ANS($fc4->cmp());
 ANS($fc5->cmp());
 ANS($fc6->cmp());
 
+BEGIN_TEXT
+$PAR $PAR $PAR
+END_TEXT
+
 BEGIN_PGML
+
+Use your answers in the table to evaluate these four one-sided limits, then evaluate [`f`] at the two numbers listed.
 
 [``\lim_{x\rightarrow[$b]^-}f(x)=``] [_]{$fb_left}
 
@@ -389,9 +437,9 @@ Section::End();
 
 Section::Begin("Another piecewise function");
 
-#THIS FUNCTION WILL HAVE A PIECE IN THE MIDDLE WHERE y GOES TO INFINITY
-
 BEGIN_PGML
+
+Here's another piecewise function:
 
 [```h(x)=
 \begin{cases}
@@ -401,8 +449,11 @@ BEGIN_PGML
 [$h3]&x>[$j-2]\\
 \end{cases}```]
 
-[@
-DataTable(
+Fill in the table, rounding as indicated.
+
+END_PGML
+
+$table=DataTable(
 [
     ['\(x\)',"rounding",'\(h(x)\)'],
     ['\('.$i1.'\)',2,ans_rule(10)],
@@ -418,13 +469,12 @@ DataTable(
     ['\('.$j5.'\)',3,ans_rule(10)],
     ['\('.$j6.'\)',4,ans_rule(10)],
 ],
-align => '|l | l|l|',
+align => '|l | c|l|',
 midrules => 1,
 tablecss => " border-spacing:0px 0px; border-radius: 5px; border-collapse:separate;"
 );
-@]*
 
-END_PGML
+TEXT(ColumnTable($table,$desmos_div2));
 
 Context()->{format}{number} = "%.2f";
 ANS(Real(sprintf("%.2f",$hi1))->cmp());
@@ -461,7 +511,6 @@ ANS(Real(sprintf("%.3f",$hj5))->cmp());
 
 Context()->{format}{number} = "%.4f";
 ANS(Real(sprintf("%.4f",$hj6))->cmp());
-
 
 Context()->{format}{number} = "%g";
 
@@ -513,26 +562,6 @@ Section::End();
 
   Scaffold::End();
 
-Context()->normalStrings;
-
-ENDDOCUMENT();
-
-# DESMOS CODE
-
-$width = 300;
-$height = 600;
-
-HEADER_TEXT(MODES(
-    HTML=>'<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
-    TeX=>''
-));
-
-$unique_div_id = "evaluating_f";
-$desmos_div = MODES(
-    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
-
 TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 <script>
 
@@ -542,13 +571,11 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         keypad: false, 
         //expressions: false, 
         expressions: true,
-        settingsMenu: true, 
+        settingsMenu: true,
+        graphpaper: false,
         expressionsTopbar: true
     });
 
-    my_calculator.setExpressions([
-        { id: 'function', latex: 'f(x)=\\cos(\\pi/x)'},
-    ]);
     
     my_calculator.setMathBounds({
       left: -101,
@@ -562,3 +589,36 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
     var state = my_calculator.getState();
 </script>
 END_SCRIPT
+
+TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
+<script>
+
+    var arstarst = document.getElementById("$unique_div_id2");
+
+    var my_calculator = Desmos.Calculator(arstarst, {
+        keypad: false, 
+        //expressions: false, 
+        expressions: true,
+        settingsMenu: true,
+        graphpaper: false,
+        expressionsTopbar: true
+    });
+
+    
+    my_calculator.setMathBounds({
+      left: -101,
+      right: -99,
+      bottom: -1,
+      top: 1
+    });
+    
+    my_calculator.updateSettings({ fontSize: Desmos.FontSizes.SMALL, expressions: true });
+    
+    var state = my_calculator.getState();
+</script>
+END_SCRIPT
+
+Context()->normalStrings;
+
+ENDDOCUMENT();
+

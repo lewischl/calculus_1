@@ -111,17 +111,23 @@ Context()->texStrings;
 
 
 
+BEGIN_PGML
 
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+An infinite-attempts opportunity to use what you've learned about integral functions.
+[@ closeDiv() @]*
+
+END_PGML
 
 
 BEGIN_TEXT
 Let \(\displaystyle F(x)=\int^{x}_{$a} $f\;dt\). Find
 $PAR
-(a) \( F($a) \) \(=\) \{ans_rule(20) \} 
+\( F($a) \) \(=\) \{ans_rule(20) \} 
 $PAR
-(b) \( F'($a) \) \(=\) \{ans_rule(20) \} 
+\( F'($a) \) \(=\) \{ans_rule(20) \} 
 $PAR
-(c) \( F''($a) \) \(=\) \{ans_rule(20) \} 
+\( F''($a) \) \(=\) \{ans_rule(20) \} 
 
 
 $PAR $HR $PAR

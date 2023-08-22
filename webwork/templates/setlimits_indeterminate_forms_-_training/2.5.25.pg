@@ -11,9 +11,6 @@
 # if not, look in the source directory for images that didn't make it.
 ########################################
 
-
-
-
 ########################################
 # this file automatically moved
 #	from setlimits_indeterminate_forms/2.5.25.pg 
@@ -32,6 +29,7 @@ loadMacros(
   "MathObjects.pl",
   "PGcourse.pl",           # Customization file for the course
   "customCSS.pl",
+  "scaffold.pl",
 );
 
 TEXT(beginproblem());
@@ -50,15 +48,11 @@ $c1=$a-$c;
 $an=2*$a;
 TEXT(beginproblem());
 
-
 BEGIN_PGML
 
 [@ openDiv({ "class" => "problemPurpose" }) @]*
 An indeterminate form limit problem with [`\sqrt{}`], but a difference is in the way.
 [@ closeDiv() @]*
-
-
-
 
 END_PGML
 
@@ -79,7 +73,6 @@ $PAR
 
 \( \displaystyle \lim\limits_{x \to $b} \displaystyle  \left( \frac {1} {\sqrt {x} -  $a} - \frac {$c} {x - $b} \right) = \) \{ans_rule(25) \}
 
-
 END_TEXT
 
 #BEGIN_SOLUTION
@@ -88,5 +81,31 @@ END_TEXT
 #\(\displaystyle \lim\limits_{x \to $b}  \left( \frac {1} {\sqrt x - $a} - \frac {$c} {x - $b} \right) =  \lim\limits_{x \to $b} \frac { \sqrt{x} + $a - $c}{(\sqrt{x}-$a)(\sqrt{x}+$a)} = \lim\limits_{x \to $b} \frac { \sqrt{x} + $c1}{(\sqrt{x}-$a)(\sqrt{x}+$a)} = \frac {1}{$an}\).
 #END_SOLUTION
 ANS( Compute( "1/$an" )->cmp() );
+
+BEGIN_PGML
+
+Here is an example (in 2 parts) of another problem requiring a common denominator:
+END_PGML
+
+Scaffold::Begin();
+Section::Begin("Part 1 (3:22)");
+
+BEGIN_PGML
+
+[@ kalturaShull("1_dwlctl2y") @]*
+
+END_PGML
+
+Section::End();
+Section::Begin("Part 2 (3:33)");
+
+BEGIN_PGML
+
+[@ kalturaShull("1_0j64u3ay") @]*
+
+END_PGML
+
+Section::End();
+Scaffold::End();
 
 ENDDOCUMENT();

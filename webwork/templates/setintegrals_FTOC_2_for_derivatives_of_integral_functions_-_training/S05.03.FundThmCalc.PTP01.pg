@@ -178,15 +178,47 @@ $graph->im->setThickness(1);
 
 # Text of the problem ==================================
 
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on 
+* Area functions and integral functions
+* The derivative of an Area function is the integrand.
+[@ closeDiv() @]*
+
+END_PGML
+
+BEGIN_PGML
+Integral functions are functions defined by an integral where the bounds depend on a variable.  The general form  of an integral functions is 
+
+[```
+F(x) = \int_{a(x)}^{b(x)} f(t)\, dt
+```]
+
+We give these a special name when:
+* the lower bound is fixed
+* the upper bound is simply [`x`]
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+An "Area function" is defined by:
+
+[```
+A(x) = \int_{a}^{x} f(t)\, dt
+```]
+
+[`A`] measures the signed area bounded by [`f`], from [`a`] to [`x`].
+[@ closeDiv() @]*
+
+ℹ️ To compute the value of an area function at a point, integrate.
+
+---
+
+END_PGML
+
 BEGIN_TEXT
 
-Let \( f(t) \) be the piecewise linear function with domain \( 0 \leq t \leq 8 \) shown in the graph below (which is determined by connecting the dots).  Define a function \( A(x) \) with domain \( 0 \leq x \leq 8 \) by
-$BR 
-$BR
-\[ A(x) = \int_0^x f(t) \, dt. \]
-$BR
-Notice that \( A(x) \) is the net area under the function \( f(t) \) for \( 0 \leq t \leq x \).  If you click on the graph below, a full-size picture of the graph will open in another window.
-$PAR
+
 
 $BCENTER
 \{ begintable(1) \}
@@ -194,11 +226,18 @@ $BCENTER
 \{ row("Graph of ~~\(y = f(t)~~\)")\}
 \{endtable() \}
 $ECENTER
+$PAR
+Let \( f(t) \) be the piecewise linear function with domain \( 0 \leq t \leq 8 \) shown in the graph.  Define the $BBOLD area function $EBOLD \( A(x) \) with domain \( 0 \leq x \leq 8 \) by
+\[ A(x) = \int_0^x f(t) \, dt. \]
 
-$BR
-$BR
-(A) Find the following values of the function \( A(x) \).
-$BR
+$PAR $HR $PAR
+
+END_TEXT
+
+BEGIN_TEXT
+
+🎯 Find the following values of the function \( A(x) \) by integrating (use geometry!).$PAR
+
 \( A(0) = \) \{ans_rule(10)\}
 $BR
 \( A(1) = \) \{ans_rule(10)\}
@@ -216,18 +255,46 @@ $BR
 \( A(7) = \) \{ans_rule(10)\}
 $BR
 \( A(8) = \) \{ans_rule(10)\}
-$BR
-$BR
 
-(B) Use \{ helpLink('interval notation')\} to indicate the interval or union of intervals where  \( A(x) \) is increasing and decreasing.
-$BR
-\( A(x) \) is increasing for \( x \) in the interval \{ans_rule(15)\}
-$BR
-\( A(x) \) is decreasing for \( x \) in the interval  \{ans_rule(15)\}
-$BR
-$BR
+$PAR
 
-(C) Find where \( A(x) \) has its maximum and minimum values.
+END_TEXT
+
+BEGIN_PGML
+
+---
+
+The fundamental theorem of Calculus Part 2 tells us that "The rate of area accumulation is exactly the height of the function bounding the area":
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*Fundamental Theorem of Calculus, Part 2* (FTOC2)
+
+[```
+\frac{d}{dx} A(x) = \frac{d}{dx} \left( \int_a^x f(t) \, dt \right)= f(x)
+```]
+[@ closeDiv() @]*
+
+🧠 Recall the connection between increasing/decreasing and positive/negative derivative!
+
+END_PGML
+
+BEGIN_TEXT
+
+🎯 Use interval notation to indicate the interval or union of intervals where  \( A(x) \) is increasing and decreasing.
+$BR
+\( A(x) \) is increasing for \( x \) in the intervals \{ans_rule(15)\}
+$BR
+\( A(x) \) is decreasing for \( x \) in the intervals  \{ans_rule(15)\}
+
+$PAR$HR$PAR
+
+Finally, I want you to connect the pictured piecewise function to the amazing property of derivatives:
+
+\{ openDiv({ "class" => "importantFormula" }) \}
+Critical points of \(\Box\) are coincident with roots of \(\Box'\).
+\{ closeDiv() \}
+
+🎯 Find where \( A(x) \) has its maximum and minimum values.
 $BR
 \( A(x) \) has its maximum value when \( x = \) \{ans_rule(10)\}
 $BR

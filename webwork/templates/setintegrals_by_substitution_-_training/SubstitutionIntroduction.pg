@@ -116,9 +116,18 @@ $ans7 = Formula("$b14/([$b16]*x+[$b13])")->reduce;
 # Main text
 ###########################################
 #  The scaffold
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem teaches a technique for "undoing the chain rule" -- integration of functions that are derivatives of compositions.
+[@ closeDiv() @]*
+
+END_PGML
+
 Scaffold::Begin();
 ###########################################
-Section::Begin("Part 1: Chain Rule example");
+Section::Begin("Part 1: Recall the chain rule for derivatives");
 
 Context()->texStrings;
 BEGIN_PGML
@@ -127,7 +136,7 @@ Use the Chain Rule to differentiate:
 
 [`h(x)=e^{x^2}`]
 
-As before, let's write [`h(x)=f(g(x))`]:
+Write [`h(x)=f(g(x))`], with [`f = f(u)`] and [`u = g(x)`]:
 
 [@
 DataTable(
@@ -148,22 +157,27 @@ ANS( Compute("2x")->reduce->cmp() );
 
 BEGIN_PGML
 
-Now let's solve it with the Chain Rule:
+Now compute the derivatives with the Chain Rule:
 
-[`f'(u)*g'(x)=`] [_]{Formula("2x*e^u")->reduce}
+[`f'(u)\cdot g'(x)=`] [_]{Formula("2x*e^u")->reduce}
 
 [`h'(x)=f'(g(x))\cdot g'(x)=`] [_]{Formula("2xe^{x^2}")->reduce}
 
 END_PGML
 Section::End();
 
-Section::Begin("Part 2: Undoing the Chain Rule example");
+
+
+
+Section::Begin("Part 2: Complete example of 'undoing the Chain Rule': \(\exp(\textnormal{polynomial})\)");
 
 BEGIN_PGML
 
 Suppose you are asked to evaluate
 
 [```\int 2xe^{x^2}\,dx```]
+
+This seems kinda complicated, so we're going to re-write the integral to make it simpler, in a more familiar form.
 
 Let's try using the letter [`u`] for [`x^2`], just like before! If we set [`u=x^2`], we can replace [`x^2`] with [`u`]:
 
@@ -195,19 +209,18 @@ du&=&2x\,dx\\
 Now we have what we need to rewrite the integral *only* in terms of [`u`]:
 
 [```
-\begin{eqnarray*}
-&&\int 2xe^{x^2}\,dx\\
-&=&\int 2xe^{u}\,dx\\
-&=&\int e^{u}2x\,dx\\
-&=&\int e^{u}\,du\\
-\end{eqnarray*}
+\begin{aligned}
+\int 2xe^{x^2}\,dx &=\int 2xe^{u}\,dx & \quad & \textnormal{substitute } u = x^2\\
+&=\int e^{u}2x\,dx & & \textnormal{re-order }\\
+&=\int e^{u}\,du & & \textnormal{substitute } 2x \, dx = du\\
+\end{aligned}
 ```]
 
 Now that the integral contains just one variable, we can evaluate it!
 
 [```\int 2xe^{x^2}\,dx=\cdots=\int e^{u}\,du=e^u+C```]
 
-Since the problem was given with only [`x`], we can't leave [`u`] in our final answer. So we continue...
+Since the problem was given with only [`x`], we can't leave [`u`] in our final answer. So we un-substitute [`u = x^2`]:
 
 [```\int 2xe^{x^2}\,dx=\cdots=e^u+C=e^{x^2}+C```]
 
@@ -219,32 +232,34 @@ Here is a video demonstrating this example in handwritten form:
 kalturaShull("1_g908rb6q")
 @]*
 
-Retype the final answer here:
+🎯 Retype the final answer here:
 
 [``\int2xe^{x^2}\,dx=``][_]{FormulaUpToConstant("e^(x^2)")->reduce}
 
 END_PGML
 Section::End();
 
-Section::Begin("Part 3a: Practice undoing the Chain Rule");
+Section::Begin("Part 3a: Change variable to \(u\)");
 
 BEGIN_PGML
 
-Let's see if we can solve
+Let's solve this integral:
 
 [```\int\frac x{\sqrt{x^2+[$b7]}}\,dx```]
 
+[@ openDiv({ "class" => "importantFormula" }) @]*
 If one function looks like it's "inside" another, that inside function is often a good choice for [`u`].
+[@ closeDiv() @]*
 
-In this case, let's choose [`u=x^2+[$b7]`]. Try replacing [`x^2+[$b7]`] with [`u`] in the integral:
+In this case, let's choose [`u=x^2+[$b7]`]. 🎯 Replace [`x^2+[$b7]`] with [`u`] in the integral:
 
 >>[``\int\frac x{\sqrt{x^2+[$b7]}}\,dx=\int``][_]{Formula("x/sqrt(u)")->reduce}[``dx``]<<
 
-Find the derivative of [`u`]:
+🎯 Find the derivative of [`u`]:
 
 >>[``\frac{du}{dx}=``][_]{Formula("2x")->reduce}<<
 
-Multiply both sides by [`dx`]:
+🎯 Multiply both sides by [`dx`]:
 
 >>[``du=``][_]{Formula("2x*dx")->reduce}<<
 
@@ -252,7 +267,7 @@ END_PGML
 Section::End();
 
 
-Section::Begin("Part 3b");
+Section::Begin("Part 3b: Integrate simpler function");
 
 BEGIN_PGML
 
@@ -288,7 +303,7 @@ Now we find the antiderivative in terms of [`u`]:
 END_PGML
 Section::End();
 
-Section::Begin("Part 3c");
+Section::Begin("Part 3c: Un-substitute back to \(x\)");
 
 BEGIN_PGML
 
@@ -306,7 +321,7 @@ We are finished! Notice that the derivative of your answer is the integrand we s
 END_PGML
 Section::End();
 
-Section::Begin("Part 4a: Another problem");
+Section::Begin("Part 4a: Practice problem: \( \sin(\textnormal{polynomial})\)");
 
 #$g3=Formula("$b11*x^$b8+$b10*x^$b9")->reduce;
 #$g3d=Formula("($b11*$b8)*x^($b8-1)+($b10*$b9)*x^($b9-1)")->reduce;
@@ -329,7 +344,7 @@ Rewrite the integral in terms of [`u`]:
 END_PGML
 Section::End();
 
-Section::Begin("Part 4b");
+Section::Begin("Part 4b: antidifferentiate and un-substitute");
 
 BEGIN_PGML
 
@@ -344,7 +359,7 @@ And rewrite it in terms of [`x`]:
 END_PGML
 Section::End();
 
-Section::Begin("Part 5: more practice");
+Section::Begin("Part 5: Two more practice problems");
 
 BEGIN_PGML
 
@@ -370,6 +385,8 @@ Let's solve
 
 [`du=`] [_]{Formula("[$b17]*dx")->reduce}
 
+The next steps: 🎯 transform into [`u`]; integrate in terms of [`u`]; un-substitute and get final answer:
+
 >>[``\int\frac{[$b17*$b14*-1]}{([$b17]x+[$b13])^2}\,dx=\int``] [_]{Formula("[$b14*-1]/(u^2)*du")->reduce} [`=`] [_]{FormulaUpToConstant("[$b14]/u")->reduce} [`=`] [_]{FormulaUpToConstant("[$b14]/([$b17]*x+[$b13])")->reduce}<<
 
 END_PGML
@@ -381,6 +398,5 @@ $showPartialCorrectAnswers = 1;
 
   Scaffold::End();
 
-COMMENT('MathObject version');
-COMMENT('Complicated chain rule problem in the code');
+
 ENDDOCUMENT();

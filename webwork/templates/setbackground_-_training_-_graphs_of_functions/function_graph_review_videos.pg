@@ -51,7 +51,7 @@ $showPartialCorrectAnswers = 1;
 
 BEGIN_PGML
 
-Here are some review videos that may help for this homework set, as well as future ones.
+Here are some review videos about asymptotes (how they look graphically and how to find them algebraically), as well as absolute values.
 
 END_PGML
 
@@ -61,49 +61,6 @@ END_PGML
 # Main text
 ###########################################
 #  The scaffold
-Scaffold::Begin(can_open => "always", is_open => "never");
-###########################################
-Section::Begin("Asymptotes Desmos (11:45)");
-
-BEGIN_PGML
-
-[@
-kalturaShull("1_3jjcpkwv")
-@]*
-
-END_PGML
-
-#Context()->texStrings;
-
-Section::End();
-
-Section::Begin("Determining asymptotes and “holes” algebraically (25:57)");
-
-BEGIN_PGML
-
-[@
-kalturaShull("1_l3dycis4")
-@]*
-
-END_PGML
-Section::End();
-
-Section::Begin("What are absolute values? (0:51)");
-
-BEGIN_PGML
-
-[@
-kalturaShull("1_9y2pywmv")
-@]*
-
-END_PGML
-Section::End();
-
-Context()->normalStrings;
-
-$showPartialCorrectAnswers = 1;
-
-  Scaffold::End();
 
 #COMMENT('MathObject version');
 ENDDOCUMENT();

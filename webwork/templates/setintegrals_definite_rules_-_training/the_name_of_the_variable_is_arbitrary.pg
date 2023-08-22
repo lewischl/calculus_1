@@ -46,6 +46,18 @@ $a= random(1, 5, 1);
 $b= random(6, 10, 1);
 $c= non_zero_random(-70, 70, 1);
 
+$scale = random(2,5,1);
+
+Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+The name of the variable and the differential should match -- the differential indicates the variable of integration.
+[@ closeDiv() @]*
+
+END_PGML
+
 BEGIN_TEXT
 Suppose \( \displaystyle \int_{$a}^{$b} f(x)\,  dx = $c \). Then:
 
@@ -62,18 +74,25 @@ $PAR
 
 \(\displaystyle \int_{$a}^{$b} f(z) \, dz = \) \{ans_rule(10)\}
 
+$PAR
+
+\(\displaystyle \int_{$a}^{$b} $scale f(u) \, du = \) \{ans_rule(10)\}
+
 
 $PAR$HR 
 $PAR
 
-This problem demonstrates that, so long as we change it in both the function and the differential, the name of the variable is \{pop_up_list(['?','arbitrary','of great importance','stupid','intrinsic','extrinsic']) \}.
+This problem demonstrates that, so long as we change it in both the function and the differential, the name of the variable is \{pop_up_list(['?','unchangable','arbitrary','of great importance','stupid','intrinsic','extrinsic']) \}.
 END_TEXT
 
+Context()->normalStrings;
 ANS(num_cmp($c));
 ANS(num_cmp($c));
 ANS(num_cmp($c));
+ANS(num_cmp($scale*$c));
 
 ANS(str_cmp('arbitrary'));
+
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.
 

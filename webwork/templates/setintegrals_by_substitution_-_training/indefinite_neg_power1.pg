@@ -106,8 +106,32 @@ $F = Formula(
 );
 
 Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on 
+* integration by substitution
+* linear function inside a rational power function
+[@ closeDiv() @]*
+
+
+Here's a video from Prof. Amethyst on the topic of substitution:
+
+[@ youtube("cRDr3w-pZuI") @]*
+
+The method of substitution "undoes" the chain rule.  This practice problem is meant to highlight:
+* Choose [`u`] to be the "inside" term
+* Remind, helpful to re-write fractions using negative powers when integrating
+
+---
+
+Evaluate the following indefinite integral using integration by substitution.   
+* Hint: The "inside" thing is [`([$l])`].  Use that for [`u`].
+
+END_PGML
+
 BEGIN_TEXT
-Evaluate the following indefinite integral:
 
 $PAR
 
@@ -122,8 +146,7 @@ END_TEXT
 BEGIN_HINT
 Use the substitution \( u = $l \), and then the power rule with a negative power.  
 
-\{amethystHint("$PAR$HR$PAR Here's a video from Prof. Amethyst on the topic of substitution: $PAR")\}
-\{ youtubeAmethyst("cRDr3w-pZuI") \}
+
 END_HINT
 
 Context()->normalStrings;

@@ -7,8 +7,8 @@
 ## DBsubject('Calculus')
 ## DBchapter('Applications of the Derivative')
 ## DBsection('Newtons's Method')
-## Date('8/1/2022')
-## Author('Erich Jauch')
+## Date('8/1/2022, summer 2023')
+## Author('Erich Jauch, silviana amethyst')
 ## Institution('')
 ## TitleText1('')
 ## EditionText1('')
@@ -71,7 +71,26 @@ $fprime = $f->D('x');
 # Selects the smaller positive root to check against as it is the closest to $a
 $root = Compute("sqrt($a^2-1/2*sqrt(4*$a^2+4*$a+5)+$a+1/2)");
 
-$ans = sprintf("%0.7f",$root);
+# the real solution using algebra
+$ans = Real(sprintf("%0.7f",$root));
+
+
+# the computed sequence using newton's method
+@x = ();
+@f = ();
+@fprime = ();
+
+$x[0] = $a;
+
+# Constructs 4 approximations
+foreach my $i (0..3) {
+$j = $i+1;
+$f[$i] = $f->eval(x=>$x[$i]);
+$fprime[$i] = $fprime->eval(x=>$x[$i]);
+$x[$j] = $x[$i] - $f[$i]/$fprime[$i];
+}
+
+
 
 
 ##############################################################
@@ -82,11 +101,50 @@ $ans = sprintf("%0.7f",$root);
 
 # Print problem number and point value (weight) for the problem
 TEXT(beginproblem());
+
+
 BEGIN_PGML
 
-Use Newton's Method to approximate a real root [`x_*`] of [`f(x)=[$f]`] with an initial guess of [`x_0 =[$a]`]. Find an approximation accurate to 5 decimal places.
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Newton's method for solving [`f(x_\ast) = 0`]
+
+1. Get initial value [`x_0`].  
+2. Iterate using [``x_{n+1} =  x_n - \frac{f(x_n)}{f'(x_n)} ``]
+
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+*The "ans trick" for Newton's Methed on a TI calculator*
+
+
+At the normal calculator screen on a TI-84 calculator:
+
+1. Type the value of [`x_0`].
+2. Press [|enter|]*.  Now [|ans|]* is [`x_0`].
+3. Type the iterative formula for Newton's method with your [`f`], but instead of [`x`] use [|ans|]*.
+    * So, type [|ans - (f(ans)) / (f'(ans)) |]*, with your [`f`] and [`f'`].
+4. Press [|enter|]* to compute [`x_1`].
+5. Recall the formula for Newton's method using [|entry|]*  ([|2nd-enter|]*).  
+6. Press [|enter|]* to compute [`x_2`].
+7. Goto step 5 🔁
+
+[@ closeDiv() @]*
+
+---
+
+We'll use Newton's Method to approximate a real root [`x_*`] of [`f(x)=[$f]`] with an initial guess of [`x_0 =[$a]`]. 
+
+🎯 Find the value of the first newton iteration, [`x_1`].
+
+[`x_1 = `] [___]{Real($x[1])}
+
+
+
+🎯 Find an approximation accurate to at least 5 decimal places by iterating until two consecutive iterations match to 5 decimal places.
 
 [`x_*\approx`] [____]{$ans}
+
 
 
 END_PGML
@@ -97,20 +155,6 @@ END_PGML
 #
 #
 
-@x = ();
-@f = ();
-@fprime = ();
-
-$x[0] = $a;
-$fprime[0] = $fprime->eval(x=>0);
-
-# Constructs 4 approximations
-foreach my $i (0..3) {
-$j = $i+1;
-$f[$i] = $f->eval(x=>$x[$i]);
-$fprime[$i] = $fprime->eval(x=>$x[$i]);
-$x[$j] = $x[$i] - $f[$i]/$fprime[$i];
-}
 
 Context()->variables->add(xn => ['Real',TeX=>"x_n"]);
 $fn = $f->substitute(x => "xn");

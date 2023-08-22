@@ -44,7 +44,7 @@ loadMacros(
   "PGcourse.pl",
   "PGuwecTikZutils.pl", #Custom TikZ code
 );
-loadMacros("customCSS.pl");
+loadMacros("customCSS.pl", "scaffold.pl");
 
 COMMENT("todo: this problem needs the order of the graphs to be randomized");
 COMMENT("todo: this problem needs the locations of the asymptotes to be randomized");
@@ -98,9 +98,43 @@ Try to answer the problem without using a graphing calculator -- use knowledge o
 * [`\dfrac{x}{x^2+1}`] : [___]{"3"}
 
 
+
+If you get stuck, here are some videos you may find helpful:
+
 END_PGML
 
+Scaffold::Begin(can_open => "always", is_open => "never");
+###########################################
+Section::Begin("Asymptotes Desmos (11:45)");
 
+BEGIN_PGML
+
+[@
+kalturaShull("1_3jjcpkwv")
+@]*
+
+END_PGML
+
+#Context()->texStrings;
+
+Section::End();
+
+Section::Begin("Determining asymptotes and “holes” algebraically (25:57)");
+
+BEGIN_PGML
+
+[@
+kalturaShull("1_l3dycis4")
+@]*
+
+END_PGML
+Section::End();
+
+Context()->normalStrings;
+
+$showPartialCorrectAnswers = 1;
+
+  Scaffold::End();
 
 
 # solution commented out as my institution doesn't have maple.  Also, maple is expensive and Desmos is free.  Just use Desmos.

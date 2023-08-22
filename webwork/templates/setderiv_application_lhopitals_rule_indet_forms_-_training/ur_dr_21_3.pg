@@ -50,42 +50,167 @@ loadMacros(
   "PGchoicemacros.pl",
   "PGgraphmacros.pl",
   "PGnumericalmacros.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "parserPopUp.pl",
 );
 
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
-$a = non_zero_random(-1,3,1);
-$b = random(2,9,1);
-if ($a == -1) { 
+$A = non_zero_random(-1,3,1);
+$B = random(2,9,1);
+if ($A == -1) { 
 	$num="e^x - x - 1";
-        $den = "$b x^2";
-	$ans = 1/(2*$b);     
+        $den = "$B x^2";
+	$ans = 1/(2*$B);     
 }
-if ($a == 1) { 
+if ($A == 1) { 
 	$num="e^x + x - 1";
-        $den = "$b x";
-	$ans = 2/$b;
+        $den = "$B x";
+	$ans = 2/$B;
         
 }
-if ($a > 1) { 
-	$num="e^x + $a x - 1";
-        $den = "$b x";
-        $ans = ($a+1)/($b);
+if ($A > 1) { 
+	$num="e^x + $A x - 1";
+        $den = "$B x";
+        $ans = ($A+1)/($B);
 }
+
+$num = Formula($num);
+$den = Formula($den);
+
+$f = $num;
+$g = $den;
+
+$fp = $f->D;
+$gp = $g->D;
+
+$a = 0; # the point of interest
+
+$pops = PopUp(['?','0/0', 'inf/inf', 'inf-inf','1^inf'], '0/0');
+
+
+$ans = Real($fp->D->eval(x=>$a) / $gp->D->eval(x=>$a));
+
+Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Sometimes a limit requires multiple applications of L'Hopital's rule to peel away the mask behind which lies the true value of the limit.  This problem offers training.
+
+[@ closeDiv() @]*
+
+In this problem, we have a limit of a rational function which is *twice* an indeterminate form.  We'll just keep applying L'Hopital's rule until we get a non-indeterminate form.  It ain't so bad.
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+If you get an indeterminate form [`0/0`] or [`\infty/\infty`] after applying L'Hopital's rule, try again, until you finally reveal the true value (which could be literally anything, including DNE)
+[@ closeDiv() @]*
+
+I'll again guide you through the steps.
+
+---
+
+Here's the problem statement:
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Evaluate the limit using L'Hospital's rule 
+
+[``\lim_{x\to [$a]} \frac{[$num]}{[$den]} ``]
+[@ closeDiv() @]*
+
+END_PGML
+
+
+
+BEGIN_TEXT
+First, we verify the limit is an indeterminate form.  🎯 Evaluate at \(x = $a\).$PAR
+
+\{ openDiv({"class" => "nothing"}) \}
+\( \displaystyle 
+\lim_{x \to $a} \frac{$f}{$g} = 
+\)
+\{ ans_fraction() \}
+
+\{ closeDiv() \}which is a \{ $pops->menu() \} indeterminate form.  $PAR
+
+
+END_TEXT
+ANS(Compute(0)->cmp);
+ANS(Compute(0)->cmp);
+ANS($pops->cmp());
+
+
+
 
 BEGIN_TEXT
 
-Evaluate the limit using L'Hospital's rule 
+Having verified that we have one of the forms that allow us to apply L'Hopital's rule, we consider the limit of the rates at which \($f\) and \($g\) go to their limits.  I'll set up the sequence of computations, you 🎯 fill in the computations.
+$PAR
+1. Compute \(f'\) and \(g'\) $BR
+2. Evaluate at the point of interest
+$PAR
 
-\[\lim_{x\to 0} \frac{$num}{$den} \]
+\{ openDiv({"class" => "nothing"}) \}
+\( \displaystyle 
+\lim_{x \to $a} \frac{$f}{$g} = 
+\)
+\{ ans_fraction() \} \( = \) \{ ans_fraction() \}
+\{ closeDiv() \}
 
-\{ans_rule(20)\}
+$PAR $BR
+END_TEXT
+
+ANS($f->D->cmp);
+ANS($g->D->cmp);
+
+ANS(Compute($f->D->eval(x=>$a))->cmp);
+ANS(Compute($g->D->eval(x=>$a))->cmp);
+
+BEGIN_TEXT
+We found another indeterminate form!!! Let's apply L'Hopital's rule again.  🎯 Fill in the computations.
+$PAR
+1. Compute \(f''\) and \(g''\) $BR
+2. Evaluate at the point of interest
+
+$PAR
+
+\{ openDiv({"class" => "nothing"}) \}
+\( \displaystyle 
+\lim_{x \to $a} \frac{f'}{g'} = 
+\)
+\{ ans_fraction() \} \( = \) \{ ans_fraction() \}
+\{ closeDiv() \}
+
+$PAR $BR
 
 END_TEXT
 
-ANS(num_cmp($ans));
+ANS($fp->D->cmp);
+ANS($gp->D->cmp);
+ANS(($fp->D->eval(x=>$a))->cmp);
+ANS(($gp->D->eval(x=>$a))->cmp);
+
+
+
+
+
+
+
+
+BEGIN_TEXT
+
+
+
+Having finally found a not-indeterminate-form after two applications of the rule, we know the value of the original limit.  🎯 Complete the sequence by entering the value of the limit:
+$PAR
+\( \displaystyle 
+\lim_{x \to $a} \frac{$f}{$g} = 
+\) \{ans_rule(20)\} 
+END_TEXT
+
+ANS($ans->cmp);
 
 ENDDOCUMENT();       # This should be the last executable line in the problem.
 

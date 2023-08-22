@@ -16,14 +16,6 @@
 ## Section1('')
 ## Problem1('')
 
-########################################
-# this file automatically moved
-#	from setproving_grounds/ProductRuleIntroduction.pg 
-#	to setderivatives_product_rule_-_training/ProductRuleIntroduction.pg 
-#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
-# if this problem uses static images, they should also have been moved from that location to here.
-# if not, look in the source directory for images that didn't make it.
-########################################
 
 
 DOCUMENT();        # This should be the first executable line in the problem.
@@ -117,9 +109,9 @@ In fact there are infinitely many possibilities! Any function of the form [`f(x)
 
 The full family of antiderivatives, [`[$f3]`], is often called the *general antiderivative*. You can write it by taking any antiderivative and simply adding [`+C`] to the end.
 
-Knowing that, find the general antiderivative of [`[$f1d]`]: [_]{FormulaUpToConstant("$f1")->reduce}
+Find the general antiderivative of [`[$f1d]`]: [_]{FormulaUpToConstant("$f1")->reduce}
 
-Knowing that, find the general antiderivative of [`[$f2d]`]: [_]{FormulaUpToConstant("$f2")->reduce}
+What's general antiderivative of [`[$f2d]`]: [_]{FormulaUpToConstant("$f2")->reduce}
 
 END_PGML
 Section::End();
@@ -135,14 +127,14 @@ Power Rule:
 
 For any constant exponent [`n\ne-1`]:
 
->>[``\intx^ndx=\frac{x^{n+1}}{n+1}+C``]<<
+>>[``\int x^n dx=\frac{x^{n+1}}{n+1}+C``]<<
 
 [@ closeDiv() @]*
 
 [@ openDiv({ "class" => "importantFormula" }) @]*
 Sum and Difference Rules:
 
->>[``\int\big(f(x)+g(x)big)dx=\int f(x)dx+\int g(x)dx``]<<
+>>[``\int\big(f(x)+g(x)\big)dx=\int f(x)dx+\int g(x)dx``]<<
 
 >>[``\int\big(f(x)-g(x)\big)dx=\int f(x)dx-\int g(x)dx``]<<
 
@@ -171,6 +163,5 @@ Context()->normalStrings;
 
 $showPartialCorrectAnswers = 1;
 
-COMMENT('MathObject version');
-COMMENT('Complicated chain rule problem in the code');
+
 ENDDOCUMENT();

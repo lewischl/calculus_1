@@ -86,11 +86,26 @@ $ans2 = Compute("$ans1 * $ratecost + $basecost")->reduce;
 #
 #
 
-BEGIN_PGML
-Oil is leaking from a large drum, which has been improperly disposed of in the woods, contaminating the soil.  The rate of leakage is [`r(t) = [$rate]`] mL / day.
 
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on an application of integration: measuring accumulation of change
+[@  closeDiv() @]*
+
+In Calculus, we integrate rates of change to find accumulated change.  The integrand is a rate of change.
+
+A general process for applications of integration:
+
+1. Identify the rate function, and the duration over which to integrate
+2. Integrate
+3. Contextualize and conclude
 
 ---
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Oil is leaking from a large drum, which has been improperly disposed of in the woods, contaminating the soil.  The rate of leakage is [`r(t) = [$rate]`] mL / day.
+[@  closeDiv() @]*
 
 
 A. How many mL of oil leaks in the first [$end] days?  [_____]{num_cmp($ans1)}

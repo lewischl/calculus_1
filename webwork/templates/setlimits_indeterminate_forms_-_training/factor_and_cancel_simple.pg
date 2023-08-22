@@ -57,9 +57,11 @@ A first training problem on the method of "factor-and-cancel"
 [@ closeDiv() @]*
 
 
-Here's a video from Prof. Amethyst on factor-and-cancel.
+Here are two videos with examples of factor-and-cancel.
 
 [@ youtubeAmethyst("IIZFqSDwWGM") @]*
+
+[@ kalturaShull("1_dr3rh5tm") @]*
 
 
 [@ openDiv({ "class" => "importantFormula" }) @]*

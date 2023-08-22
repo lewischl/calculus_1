@@ -61,14 +61,36 @@ $showPartialCorrectAnswers = 1;
 $a1= random(1, 6, 1);
 $b1= random(2, 5, 1);
 
-TEXT(EV2(<<EOT));
-Use part II of the Fundamental Theorem of Calculus, Theorem 1 on page 326, to
-find the derivative of
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on derivatives of integral functions, with "out of order" bounds of integration, leading to putting arbitrary functions in the bounds.
+[@ closeDiv() @]*
+
+
+The FTOC goes well with the other "properties of the integral".  Linearity, adjacent intervals, etc.  But for this problem, the important one is the "flipped bounds" property.
+END_PGML
+
+
+BEGIN_TEXT
+Use the Fundamental Theorem of Calculus Part 2 and the bound-flipping property of integration to find the derivative:
+
 \[ F(x) = \int_{x}^{$a1} \sin(t^{$b1}) dt \]
 
-$BR \(F'(x) \) = \{ans_rule( 30)\} $BR
-$BR $BR [NOTE:  Enter a function as your answer.]
-EOT
+$BR \(F'(x) \) = \{ans_rule( 30)\} $PAR
+END_TEXT
+
+
+BEGIN_PGML
+
+---
+
+Coda
+
+In this problem we are able to flip the bounds and then use the FTOC.  Next we'll train on how to take derivative of integral functions with arbitrary functions in the bounds, instead of just [`x`].
+
+END_PGML
 
 BEGIN_HINT
 In this type of problem, we're defining a new function in terms of an integral of an old function.  See Section 5.5 in our text book.  Particularly, Theorem 1 on page 326, or Example 5 on page 329.

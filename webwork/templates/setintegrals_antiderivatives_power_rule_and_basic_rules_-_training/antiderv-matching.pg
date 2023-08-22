@@ -80,29 +80,66 @@ $ml->choose(4);
 
 ##################################################
 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem help train you to recognize a technique of integration:
+
+If you know the derivative of [`f`], then you know the integral of [`f'`].
+[@ closeDiv() @]*
+
+
+Recall the definition of an antiderivative: 
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+[`F`] is an *antiderivative* for [`f`] if [`\frac{dF}{dx} = f`]. 
+[@ closeDiv() @]*
+
+
+END_PGML
+
 BEGIN_TEXT
-Recall the definition of an antiderivative: a function \(F\) is an antiderivative for \(f\) if \(dF/dx = f\).  Thus, we can check if a function \(F\) is an antiderivative of an integrand \(f\), by differentiating \(F\) and checking if we get \(f\).
+
+Thus, we can check if a function \(F\) is an antiderivative of an integrand \(f\), by differentiating \(F\) and checking if we get \(f\).
 
 $PAR
 $HR
 $PAR
 
-Match each indefinite integral on the left with the corresponding
-functions on the right.  
-
-$PAR
-A symbolic technique: For each of the anti-derivatives (lettered functions, on the right), take their derivative and simplify.  Match with the integrands in the integrals on the left.
-$PAR
-A graphical technique: Determine which of the anti-derivatives qualitatively matches with each integrand.  Graph the first integrand.  Graph the four antiderivatives.  Which of the four antiderivatives is increasing where the integrand is positive?  Which of the four antiderivatives is decreasing where the integrand is negative?  Find the function-derivative relationship.
+🎯 Match each indefinite integral on the left with the corresponding functions on the right.  
 
 $PAR
 
 \{ColumnMatchTable($ml)\}
 
-$PAR$PAR
-
-Hint: To verify \( \displaystyle\int f(x)dx = F(x) + C \), show that \(F(x)\) is an antiderivative of \(f(x)\).
 END_TEXT
+
+BEGIN_PGML
+
+---
+
+[@ openDiv({ "class" => "inProblemHint" }) @]*
+
+*symbolic technique*
+
+For each of the anti-derivatives, 
+1. take their derivative and simplify.  
+2. Match with the integrands in the integrals on the left.
+
+---
+
+*graphical technique*
+
+Determine which of the anti-derivatives qualitatively matches with each integrand.  
+1. Graph the first integrand.  
+2. Graph the four antiderivatives.  
+
+Which of the four antiderivatives is increasing where the integrand is positive?  Which of the four antiderivatives is decreasing where the integrand is negative?  Find the function-derivative relationship.
+[@ closeDiv() @]*
+
+END_PGML
 
 $showPartialCorrectAnswers = 0;
 install_problem_grader(~~&std_problem_grader);

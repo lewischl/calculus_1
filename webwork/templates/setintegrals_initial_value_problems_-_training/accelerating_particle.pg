@@ -9,7 +9,7 @@
 ## DBsection(Distance, velocity, acceleration)
 ## Date(6/3/2002)
 ## Institution(Univeristy of Utah)
-## Author(Utah ww group)
+## Author(Utah ww group.  Heavily modified by silviana amethyst 2023)
 ## Level(5)
 ## TitleText1('Calculus: Early Transcendentals')
 ## AuthorText1('Rogawski')
@@ -57,110 +57,137 @@ DOCUMENT();        # This should be the first executable line in the problem.
 loadMacros(
   "PGstandard.pl",
   "PGchoicemacros.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "contextFraction.pl",
+  "parserFormulaUpToConstant.pl",
 );
+
+
 
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 $showHint=-1;
 
+Context("Fraction-NoDecimals");
+   Context()->noreduce('(-x)-y');
+   Context()->noreduce('(-x)-y','(-x)+y');
+Context()->variables->add(t => "Real");
+
+#params for accel function
 $a1 = random(6,36,6);
 $b1 = random(2,18,2);
-$c1 = random(1,17,1);
-$d1 = random(1,17,1);
-$t1 = random(3,15,1);
-TEXT(EV2(<<EOT));
-A particle is moving with acceleration \( a(t) = $a1 t + $b1 \).
-$BR
-Its position at time \( t =0 \) is \( s(0) = $d1 \), and
-its velocity at time \( t =0 \) is \( v(0) = $c1 \).
-$BR$BR
-What is its position at time \( t = $t1 \)? $BR
-$BR\(s($t1) = \) \{ans_rule(30) \}
 
-$PAR 
+# intial velocity and position
+$v0 = random(1,17,1);
+$s0 = random(1,17,1);
 
-\{ theresahint \}
-EOT
+$t0 = 0; # initial time.  this problem was coded against this, and will break if this is changed.
 
-BEGIN_HINT
+$t_later = $t0 + random(3,10,1);
+
+$accel = Fraction("$a1 t + $b1")->reduce;
+
+$vel_gen = FormulaUpToConstant("$a1/2 * t^2 + $b1 t");
+$vel = Formula("$a1/2 * t^2 + $b1 t + $v0");
+
+
+$pos_gen = FormulaUpToConstant("$a1/6 * t^3 + $b1/2*t^2 + $v0*t");
+$pos= Formula("$a1/6 * t^3 + $b1/2*t^2 + $v0*t + $s0");
+
+
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem makes IVP's really mean something.  Initial value problems are a way to tell the future, using the laws of motion:
+* The first derivative is velocity
+* The second derivative is acceleration
+
+If we integrate acceleration twice, we should be able to predict position!
+
+This problem also trains that the constants of integration for acceleration and velocity when using polynomials have a very special meaning.
+[@ closeDiv() @]*
+
+
+END_PGML
+
+
+BEGIN_TEXT
+
+
 In this problem, we're given the acceleration function \(a(t)\), and we want the position function \(s(t)\).  As a first step, recognize that:$BR
-• \(v(t) = s'(t)\), and $BR
-• \(a(t) = v'(t)\).$BR
-That is, to find \(s(t)\), we need to integrate *twice*, at each step finding the value of the constant of integration.
+• \(v(t) = \frac{ds}{dt}\)$BR
+• \(a(t) = \frac{dv}{dt}\)$PAR
+
+That is, to find position function \(s(t)\), we need to integrate twice, and at each step find the value of the constant of integration.
 
 $PAR
 
 To find \(s(t)\), I suggest a two-step process:$BR
-1. Symbolically integrate \(a(t)\) once and find the constant of integration for \(v(t)\) using the initial condition \( v(0) = $c1 \).  $BR
-2. Then, integrate \(v(t)\) and find the constant of integration for \(s(t)\) using initial condition \(s(0) = $d1\).  
-
-$PAR
-
-Finally, evaluate \(s(t)\) at \(t = 3\).
-END_HINT
+1. Symbolically integrate \(a(t)\) once and find the constant of integration for \(v(t)\) using the initial condition for velocity.  $BR
+2. Then, integrate \(v(t)\) and find the constant of integration for \(s(t)\) using initial condition for position.  
 
 
-$ans = $a1*$t1**3/6 + $b1*$t1**2/2 + $c1*$t1 + $d1;
-ANS(num_cmp($ans));
 
-SOLUTION(EV3(<<'EOF'));
-$SOL $BR
-To solve this problem, one must remember the relationship between 
-position at time \( t \) (\( s(t) \)), instantaneous velocity 
-at time \( t \) (\( v(t) \)), and acceleration at time \( t\) (\(a(t)\)).
-This relationship is given by:
+$PAR $HR $PAR
+
+END_TEXT
+
+
+
+BEGIN_TEXT
+
+
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
+A particle is moving with acceleration \( a(t) = $accel \) \({\rm m} / {\rm s}^2\)
 $PAR
-\[
-  \begin{aligned}
-    v(t) & = s'(t) \\
-    a(t) & = v'(t) = s''(t) \\
-  \end{aligned}
-\]
-$PAR
-With this in mind, this problem becomes an exercise in finding 
-antideriviatives.  We are told that the acceleration is given
-by \( a(t) = {$a1}t + $b1 \).  The antiderivative (velocity) of
-this is therefore given by \( v(t) = \frac{$a1}{2}t^2+{$b1}t+C_1 \).
-To find out what the constant \( C_1 \) is, we use the fact that the 
-velocity of the partical at time \( t = 0 \) is given by \( v(0) = $c1 \).
-Plugging this into our general antiderivative and solving for \( C_1 \) 
-yeilds the following.
-$PAR
-\[
-  \begin{aligned}
-    v(0) & = $c1 \\
-    \frac{$a1}{2}(0)^2 + {$b1}(0) + C_1 & = $c1 \\
-    C_1 & = $c1 \\
-  \end{aligned}
-\]
-$PAR
-So, the expression for the velocity of the partical at time \( t \) is
-given by \( v(t) = \{$a1/2\}t^2 + {$b1}t + $c1 \).  Now, we need to find
-the formula for the partical's position, which is just the antiderivative
-of this.  The general antiderivative of this is \( s(t) = \frac{ 
-\{$a1/2\} }{3}t^3 + \frac{$b1}{2}t^2 + {$c1}t + C_2 \) where \( C_2 \) is 
-again an unknown constant.  However, as before, we can make use of the 
-inforamation given, namely that the position of the partical at time \( t 
-= 0 \) is \( s(0) = $d1 \), to find the value of \( C_2 \).
-$PAR
-\[
-  \begin{aligned}
-    s(0) & = $d1 \\
-    \{$a1/6\}(0)^3 + \{$b1/2\}(0)^2 + {$c1}(0) + C_2 & = $d1 \\
-    C_2 & = $d1 \\
-  \end{aligned}
-\]
-Therefore, the formula for the partical's position is:
-$PAR
-\[ 
-  s(t) = \{$a1/6\}t^3 + \{$b1/2\}t^2+{$c1}t+$d1
-\]
-$PAR
-So, the partical's position at time \( t = $t1 \) is found by simply 
-plugging $t1 into the function \( s(t) \).  This is \( s($t1) = $ans \).
+velocity at time \( t =$t0 \) is \( v($t0) = $v0 \) \({\rm m}/ {\rm s}\) $BR
+position at time \( t =$t0 \) is \( s($t0) = $s0 \) \({\rm m} \) $BR
+\{ closeDiv() \}
 $PAR
 
-EOF
+First, 🎯 find the general solution for the velocity function, with unknown constant of integration:
+$BR
+\( v_\textnormal{gen} = \) \{ans_rule(30) \}
+$PAR
+Next, 🎯 use the given known-velocity at a known-time to find the particular velocity function. $BR
+\( v(t) = \) \{ans_rule(30) \} \({\rm m}/ {\rm s}\)
+
+
+$BR$PAR
+
+Now do the same steps, integrating and finding the constant of integration, to 🎯 find the general and particular position functions. $BR
+\( s_\textnormal{gen}(t) = \) \{ans_rule(30) \} $BR
+\( s(t) = \) \{ans_rule(30) \} \({\rm m} \)
+$PAR
+
+🔮 We can predict the future now!  What will be the particle's position when \( t = $t_later\)? $BR
+\(s($t_later) = \) \{ans_rule(30) \} \({\rm m} \)
+
+
+END_TEXT
+
+
+BEGIN_PGML
+
+---
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+
+This problem shows that if 
+* we know position and velocity at time [`t = 0`], and 
+* the acceleration function is a polynomial, 
+
+then the values of the constants of integration are simply the initial velocity and position.
+[@ closeDiv() @]*
+
+END_PGML
+
+ANS($vel_gen->cmp);
+ANS($vel->cmp);
+ANS($pos_gen->cmp);
+ANS($pos->cmp);
+ANS(num_cmp($pos->eval(t=>$t_later)));
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

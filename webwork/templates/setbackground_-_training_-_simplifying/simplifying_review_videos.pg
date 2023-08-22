@@ -61,49 +61,7 @@ END_PGML
 # Main text
 ###########################################
 #  The scaffold
-Scaffold::Begin(can_open => "always", is_open => "never");
-###########################################
-Section::Begin("Multiplying Fractions (1:56)");
 
-BEGIN_PGML
-
-[@
-kalturaShull("1_1v03mt06")
-@]*
-
-END_PGML
-
-#Context()->texStrings;
-
-Section::End();
-
-Section::Begin("Adding fractions (1:38)");
-
-BEGIN_PGML
-
-[@
-kalturaShull("1_l8prly4e")
-@]*
-
-END_PGML
-Section::End();
-
-Section::Begin("Fractions inside fractions (3:04)");
-
-BEGIN_PGML
-
-[@
-kalturaShull("1_2mred6wm")
-@]*
-
-END_PGML
-Section::End();
-
-Context()->normalStrings;
-
-$showPartialCorrectAnswers = 1;
-
-  Scaffold::End();
 
 #COMMENT('MathObject version');
 ENDDOCUMENT();

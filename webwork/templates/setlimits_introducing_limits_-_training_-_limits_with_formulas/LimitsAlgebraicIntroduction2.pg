@@ -144,8 +144,6 @@ $d=$j+2;
 $i=$j+random(1,10-$j,2);
 #while($i==$j){$i=non_zero_random(-10,10);}
 
-$p=non_zero_random(-5,5);
-$g=Formula("$p*x/|x|");
 
 $p1=-1;
 $p2=-.2;
@@ -154,6 +152,14 @@ $p4=1;
 $p5=.2;
 $p6=.05;
 
+SRAND($psvn);
+$passcode1 = random(1000,9999);
+$passcode2 = random(1000,9999);
+$passcode3 = random(1000,9999);
+
+$p=non_zero_random(-5,5);
+$g=Formula("$p*x/|x|");
+
 $gp1 = $g->eval(x=>$p1);
 $gp2 = $g->eval(x=>$p2);
 $gp3 = $g->eval(x=>$p3);
@@ -161,9 +167,8 @@ $gp4 = $g->eval(x=>$p4);
 $gp5 = $g->eval(x=>$p5);
 $gp6 = $g->eval(x=>$p6);
 
-
-$width = 300;
-$height = 600;
+$width = 200;
+$height = 200;
 
 HEADER_TEXT(MODES(
     HTML=>'<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
@@ -176,16 +181,13 @@ $desmos_div = MODES(
     TeX=>'Interactive graph best viewed online'
 );
 
-SRAND($psvn);
-$passcode1 = random(1000,9999);
-$passcode2 = random(1000,9999);
 
 TEXT(beginproblem());
 Context()->texStrings;
 
 Scaffold::Begin();
 ###########################################
-Section::Begin("Part 1");
+Section::Begin("New function!");
 
 BEGIN_PGML
 
@@ -197,16 +199,15 @@ END_PGML
 
 Section::End();
 
-Section::Begin("Part 2");
+Section::Begin('x approaching ' . $a);
 
 BEGIN_PGML
 
 First, let's find [``\lim_{x\rightarrow[$a]}\cos\left(\frac\pi x\right)``]:
 
-[@ $desmos_div @]*
+END_PGML
 
-[@
-DataTable(
+$table=DataTable(
 [
     ['\(x\)',"rounding",'\(f(x)\)'],
     ['\('.$a1.'\)',2,ans_rule(10)],
@@ -216,13 +217,13 @@ DataTable(
     ['\('.$a5.'\)',4,ans_rule(10)],
     ['\('.$a6.'\)',6,ans_rule(10)],
 ],
-align => '|l | l|l|',
+align => '|l | c|l|',
 midrules => 1,
 tablecss => " border-spacing:0px 0px; border-radius: 5px; border-collapse:separate;"
 );
-@]*
 
-END_PGML
+TEXT(ColumnTable($table,$desmos_div));
+
 
 Context()->{format}{number} = "%.2f";
 ANS(Real(sprintf("%.2f",$fa1))->cmp());
@@ -263,7 +264,7 @@ END_PGML
 
 Section::End();
 
-Section::Begin("Part 3: Continuity");
+Section::Begin("Continuity");
 
 # DESMOS NEXT TO TABLE OF VALUES (hopefully):
 #   $column1 = $desmos_div ."$PAR $PAR $PAR $PAR ". $desmos_div2;
@@ -283,7 +284,7 @@ END_PGML
 
 Section::End();
 
-Section::Begin("Part 4");
+Section::Begin("x approaching 0");
 
 BEGIN_PGML
 
@@ -327,7 +328,7 @@ What number does [`f(x)`] seem to be approaching? [_]{0}
 END_PGML
 Section::End();
 
-Section::Begin("Part 5");
+Section::Begin("Trying other numbers");
 
 BEGIN_PGML
 
@@ -372,7 +373,7 @@ END_PGML
 
 Section::End();
 
-Section::Begin("Part 6");
+Section::Begin("More numbers!");
 
 BEGIN_PGML
 
@@ -418,7 +419,7 @@ What are these approaching? [_]{1}
 END_PGML
 Section::End();
 
-Section::Begin("Part 7");
+Section::Begin("Another function");
 BEGIN_PGML
 
 This function is very strange! It seems to be approaching a bunch of different numbers all at once!
@@ -470,7 +471,7 @@ ANS($gp6->cmp());
 
 Section::End();
 
-Section::Begin("Part 8");
+Section::Begin("Limit existence?");
 
 BEGIN_PGML
 
@@ -509,6 +510,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         keypad: false, 
         //expressions: false, 
         expressions: true,
+        graphpaper: false,
         settingsMenu: true, 
         expressionsTopbar: true
     });

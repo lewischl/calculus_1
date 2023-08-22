@@ -53,7 +53,8 @@ DOCUMENT();        # This should be the first executable line in the problem.
 loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "contextFraction.pl"
 );
 
 #####################################################################
@@ -64,31 +65,97 @@ TEXT(beginproblem());
 
 #####################################################################
 
+Context("Numeric");
 Context("Numeric")->flags->set(
  tolerance=>0.0001,
  tolType=>"relative"
 );
 
-$a = random(1,5,1);
+$left = 0;
+$right = random(1,5,1);
+
+
 $b = random(2,4,1);
 $c = random(5,8,1);
 
-$an = Compute("$b*e^($a)+$c*sin($a)-$b");
 
-$ans = Compute("$an");
+$f = Formula("$b e^x+$c cos(x)");
+$F = Formula("$b e^x + $c sin(x)");
+
+
+$ans = $F->eval(x=>$right) - $F->eval(x=>$left);
+
+
+
+
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on using the fundamental theorem of Calculus with an exponential and a trig function.
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+[```
+\int_a^b f(x)\, dx = F(b)-F(a)
+```]
+
+[@ closeDiv() @]*
+
+
+A general process for finding values of definite integrals / signed areas / net change is:
+
+1. Find an antiderivative [`F`]
+2. Evaluate that antiderivative at [`a`] and [`b`]. 
+3. Subtract.
+
+---
+
+END_PGML
+
 
 #####################################################################
 
 Context()->texStrings;
 BEGIN_TEXT
-Evaluate the integral \(\displaystyle \int_{0}^{$a} \!\left( $b e^x+$c\cos x\right)  \, dx.\)
+
+
+
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
+Evaluate the integral. $PAR
+
+\(\displaystyle \int_{$left}^{$right} \left( $f \right)  \, dx. \)
+\{ closeDiv() \}
+
 $PAR
-Answer: \{ans_rule(20) \}
+
+
+1. Antidifferentiate. $BR
+$SPACE \( F(x) = \int($f)\, dx = \) \{ans_rule(30)\} \( + C\)
+
+$PAR
+2. Evaluate the antiderivative. ℹ️ Since \(C\) will subtractively cancel in step 3, choose \(C=0\) to make your life easier. $BR
+$SPACE \( F($left) = \) \{ ans_rule(10) \} $BR
+$SPACE \( F($right) = \) \{ ans_rule(10) \}
+
+$PAR
+3. Subtract and conclude.  ⚠️ Beware double negatives! $BR
+$SPACE \(\displaystyle \int_{$left}^{$right}{($f)}\,dx = \) \{ans_rule(30)\}
+$PAR$HR$PAR
+
+
+
+
 END_TEXT
 Context()->normalStrings;
 
 #####################################################################
 
-ANS( $ans->cmp() );
+ANS($F->cmp);
+ANS(num_cmp($F->eval(x=>$left)));
+ANS(num_cmp($F->eval(x=>$right)));
+ANS(num_cmp($F->eval(x=>$right)-$F->eval(x=>$left)));
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

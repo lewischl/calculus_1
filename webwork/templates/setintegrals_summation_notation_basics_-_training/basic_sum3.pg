@@ -77,6 +77,10 @@ $deltax = 0.5;
 $a = -2;
 $b = $a+$N*$deltax;
 
+@x = ();
+for my $ii(0..$N){
+$x[$ii] = $a + $ii*$deltax;
+}
 
 
 $x0 = $a;
@@ -92,73 +96,104 @@ $s2 = ($a+  $deltax)**2+($a+2*$deltax)**2+($a+3*$deltax)**2
 $f = Formula("x^2")->reduce;
 
 Context()->texStrings;
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on summation notation with both [`x`] values and a function
+[@ closeDiv() @]*
+
+Riemann Sums let us approximate a definite integral by a sum of rectangles, and they're useful when we cannot symbolically integrate the integrand.  
+* [`L_n`] is the left-sum with [`n`] rectangles
+* [`R_n`] is the right-sum with [`n`] rectangles
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*Summation notation, with both [`x`] and [`f`]*
+
+[```
+\sum_{i=m}^n f(x_i)
+```]
+
+* [`i`] is the "index".  
+* [`m`] is the "lower bound".  The lowest value of [`i`]
+* [`n`] is the "upper bound".  The heighest value of [`i`].
+* [`x_i`] is the [`i`]th value of [`x`], from cutting up [`[a,b]`] into [`n`] equal pieces.
+* [`f`] the integrand.
+[@ closeDiv() @]*
+
+END_PGML
+
+
 BEGIN_TEXT
 In this problem, we'll work on summation notation for a formula \(f\) applied to some \(x\)-values.  $PAR
 $HR
 $PAR
 
-Consider the interval \([$a,$b]\).  Let's break it into \(N = $N\) sub-intervals.
+
+END_TEXT
+Context()->normalStrings;
+
+
+
+
+
+Context()->texStrings;
+
+BEGIN_TEXT
+
 
 $PAR
 
-On a piece of paper, sketch the interval, and the \($N\) sub-intervals.  Label the points for the intervals, with the left-most point being \(x_0\), and the right-most point being \(x_{N}\).
+0. On a piece of paper, sketch the interval \([$a,$b]\), and the \($N\) sub-intervals.  Label the points for the intervals, with the left-most point being \(x_0\), and the right-most point being \(x_{n}\).
 
 $PAR$HR$PAR
 
 1.  Compute some properties of this "discretization" of the interval \([$a,$b]\).  $PAR
 
-a. How many total points define the \($N\) intervals, including both left and right boundaries? $BR 
-There are \{ans_rule(40) \} total points.  $PAR
-
-b. What's the width of one sub-interval?  Call it \(\Delta x\). $BR
+How many total points define the \($N\) intervals, including both left and right boundaries? $BR 
+There are \{ans_rule(40) \} total points.  
+$PAR
+What are the values of the points?  Use a comma separated list.$BR
+\(x = \) \{ ans_rule\}
+$PAR
+What's the width of one sub-interval?  Call it \(\Delta x\). $BR
 \(\Delta x\) = \{ans_rule(40) \} $PAR
 
-b. What's the value of \(x_1\), the first point from the left? $BR
+What's the value of \(x_1\), the first point from the left? $BR
 \(x_1\) = \{ans_rule(40) \} $PAR
 
 $PAR$HR$PAR
 
-2. Compute the following sums, please:  $PAR
+2. Let \(f(x) = x^2\) $PAR
+Compute the following sums, please:  $PAR
 
-\(\displaystyle \sum_{j=0}^{$Nm1} x_j^2 \) = \{ans_rule(40) \}
+\(\displaystyle \sum_{j=0}^{$Nm1} f(x_j) \) = \{ans_rule(40) \}
 
 $PAR
 
-\(\displaystyle \sum_{j=1}^{$N} x_j^2 \) = \{ans_rule(40) \}
+\(\displaystyle \sum_{j=1}^{$N} f(x_j) \) = \{ans_rule(40) \}
 
 
-$PAR$HR$PAR
-
-3.  In part 2, we were working on summation notation of the form \(\displaystyle \sum_{j=m}^n f(x_j) \).  What's the function \(f\) we were working with, in the form \(f(x)\)? $BR
-
-\(f(x) = \) \{ans_rule(40) \}  (the answer is a function of \(x\)).
-
-$PAR$HR$PAR
-\{ theresahint\}
 END_TEXT
 
+BEGIN_PGML
 
-BEGIN_HINT
-2. Make a table like this: $PAR
+---
 
-\(
-\begin{array}{c | c | c}
-j & x_j & x_j^2 \\ \hline 
-0 & $a & ($a)^2 \\ 
-\vdots && \\
-$N & $b & ($b)^2
-\end{array}
-\)
+Coda
 
-$PAR$PAR
 
-I'm asking you in Part 2 to add up that third column, for a certain range of values of \(j\). 
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Summation notation lets us compactly represent a sum with
+*  [`x_i`] coming from discretizing an interval
+* [`f`] a function use to evaluate
+[@ closeDiv() @]*
+The main connection right now is Riemann Sums used to approximate definite integrals.
 
-$PAR$HR$PAR
 
-3. What's happening to \(x_j\) in Part 2? If we removed the subscript, what's happening to \(x\)?
+END_PGML
 
-END_HINT
 
 Context()->normalStrings;
 
@@ -169,11 +204,13 @@ Context()->normalStrings;
 #
 
 ANS(num_cmp($N1));
+ANS(List(@x)->cmp);
+
 ANS(num_cmp($deltax));
 ANS(num_cmp($x1));
 
 ANS(num_cmp($s1));
 ANS(num_cmp($s2));
 
-ANS($f->cmp());
+
 ENDDOCUMENT();        

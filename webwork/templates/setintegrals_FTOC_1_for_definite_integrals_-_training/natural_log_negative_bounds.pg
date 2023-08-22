@@ -1,0 +1,168 @@
+## DESCRIPTION
+## Definite Integral via the Fundamental Theorem
+## ENDDESCRIPTION
+
+## Tagged by YL
+
+## Author(Unknown, then silviana amethyst)
+## Date(Unknown, then 2023)
+## DBsubject(Calculus - single variable)
+## DBchapter(Integrals)
+## DBsection(Definite integrals (without trigonometric functions))
+## Institution(ASU, then UWEC)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('5.3')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('5.3')
+## Problem2('')
+## TitleText3('Calculus: Early Transcendentals')
+## AuthorText3('Rogawski')
+## EditionText3('1')
+## Section3('5.3')
+## Problem3('21')
+## KEYWORDS('calculus', 'Integration', 'definite', 'ftc', 'fundamental theorem')
+
+
+
+########################################
+# this file automatically moved
+#	from Library/ASU-topics/setCalculusFundamentalTheorem/6-5-20.pg 
+#	to setintegrals_FTOC_1_for_definite_integrals/6-5-20.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_FTOC_1_for_definite_integrals/6-5-20.pg 
+#	to setintegrals_FTOC_1_for_definite_integrals_-_training/6-5-20.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl"
+);
+COMMENT("todo: add a graph showing the domain mis-match");
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+
+
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on:
+* definite integrals of [`\frac{1}{x}`]
+* negative bounds of integration and why [`\int \frac{1}{x} \, dx = \ln |x| `] has absolute value in it
+[@ closeDiv() @]*
+
+The integration formula for [`1/x`] has an absolute value in it:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+[```
+\int \frac{1}{x} \, dx = \ln |x| + c
+```]
+[@ closeDiv() @]*
+
+This is why:
+* The domain of [`1/x`] is all real numbers except [`0`]
+* The domain of [`\ln x`] __without absolute values__ is all positive numbers.
+
+So [`\ln x`] cannot be the antiderivative of [`1/x`].  But if we use [`\ln |x|`] __with absolute values__, then the domains match.  
+
+---
+
+
+END_PGML
+
+BEGIN_TEXT
+
+Evaluate the definite integrals:
+
+END_TEXT
+
+$left = random(2,6,1);
+$right = $left + random(2,5,1);
+$s = 1;
+BEGIN_TEXT
+$BR
+$PAR
+   \( \displaystyle{ \int_{$left}^{$right} \frac{$s}{x} \,dx} = \)
+   \{ans_rule(35) \} 
+END_TEXT
+$ans = $s*(ln(abs($right)) - ln(abs($left)));
+ANS(num_cmp($ans));
+
+
+
+$left = random(2,6,1);
+$right = $left + random(2,5,1);
+$s = random(2,9,1);
+BEGIN_TEXT
+$BR
+$PAR
+   \( \displaystyle{ \int_{$left}^{$right} \frac{$s}{x} \,dx} = \)
+   \{ans_rule(35) \} 
+END_TEXT
+$ans = $s*(ln(abs($right)) - ln(abs($left)));
+ANS(num_cmp($ans));
+
+
+$left = random(-9,-5,1);
+$right = random($left+1,-2,1);
+$s = 1;
+BEGIN_TEXT
+$BR
+$PAR
+Now with negative bounds:$PAR
+   \( \displaystyle{ \int_{$left}^{$right} \frac{$s}{x} \,dx} = \)
+   \{ans_rule(35) \} 
+END_TEXT
+$ans = $s*(ln(abs($right)) - ln(abs($left)));
+ANS(num_cmp($ans));
+
+
+
+$left = random(-9,-5,1);
+$right = random($left+1,-2,1);
+$s = 5;
+$t = 7;
+BEGIN_TEXT
+$BR
+$PAR
+   \( \displaystyle{ \int_{$left}^{$right} \frac{$s}{$t x} \,dx} = \)
+   \{ans_rule(35) \} 
+END_TEXT
+$ans = $s/$t*(ln(abs($right)) - ln(abs($left)));
+ANS(num_cmp($ans));
+
+
+BEGIN_PGML
+
+---
+
+⚠️ The sign of the bounds must match, or else we integrate across an infinite discontinuity.  Dealing with infinite discontiuities is part of Calculus 2.
+
+END_PGML
+
+ENDDOCUMENT();

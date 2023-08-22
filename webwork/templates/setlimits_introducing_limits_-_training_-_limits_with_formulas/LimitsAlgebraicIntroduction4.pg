@@ -91,6 +91,21 @@ $dne = String("DNE");
 
 #a,b,c,d available
 
+$width = 200;
+$height = 200;
+
+HEADER_TEXT(MODES(
+    HTML=>'<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
+    TeX=>''
+));
+
+$unique_div_id = "evaluating_f";
+$desmos_div = MODES(
+    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
+    TeX=>'Interactive graph best viewed online'
+);
+
+
 $p1=-1;
 $p2=-.2;
 $p3=-.05;
@@ -158,6 +173,8 @@ $hj4=$h3->eval(x=>$j4);
 $hj5=$h3->eval(x=>$j5);
 $hj6=$h3->eval(x=>$j6);
 
+SRAND($psvn);
+
 $passcode1 = random(1000,9999);
 $passcode2 = random(1000,9999);
 $passcode3 = random(1000,9999);
@@ -221,11 +238,9 @@ Context()->texStrings;
 
 Scaffold::Begin();
 ###########################################
-Section::Begin("Part 1");
+Section::Begin("Passcode");
 
 BEGIN_PGML
-
-[%[@ $desmos_div @]*%]
 
 In the previous problem, we looked at
 
@@ -249,8 +264,9 @@ BEGIN_PGML
 
 Let's see what happens when [`x`] is close to [`[$j]`]. We will start with [`x`] values slightly _less_ than [`[$j]`]:
 
-[@
-DataTable(
+END_PGML
+
+$table=DataTable(
 [
     ['\(x\)','\(h(x)\)'],
     ['\('.$ja0.'\)',ans_rule(10)],
@@ -263,9 +279,8 @@ align => '|l | l|l|',
 midrules => 1,
 tablecss => " border-spacing:0px 0px; border-radius: 5px; border-collapse:separate;"
 );
-@]*
 
-END_PGML
+TEXT(ColumnTable($table,$desmos_div));
 
 #Context()->{format}{number} = "%.2f";
 #ANS(Real(sprintf("%.2f",$hja0))->cmp());
@@ -313,6 +328,7 @@ midrules => 1,
 tablecss => " border-spacing:0px 0px; border-radius: 5px; border-collapse:separate;"
 );
 @]*
+
 
 END_PGML
 
@@ -414,15 +430,19 @@ tablecss => " border-spacing:0px 0px; border-radius: 5px; border-collapse:separa
 
 END_PGML
 
+Context()->normalStrings;
+
 ANS($hjb4->cmp());
 
 Context()->{format}{number} = "%.5f";
-ANS(Real(sprintf("%.5f",$hjb5))->cmp());
+ANS(num_cmp($hjb5,tol=>5e-6, tolType=>"absolute"));
 
 Context()->{format}{number} = "%.6f";
-ANS(Real(sprintf("%.6f",$hjb6))->cmp());
+ANS(num_cmp($hjb6,tol=>5e-7, tolType=>"absolute"));
 
 Context()->{format}{number} = "%g";
+
+Context()->texStrings;
 
 BEGIN_PGML
 
@@ -434,6 +454,114 @@ END_PGML
 
 Section::End();
   Scaffold::End();
+
+TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
+<script>
+
+    var arstarst = document.getElementById("$unique_div_id");
+
+    var my_calculator = Desmos.Calculator(arstarst, {
+        keypad: false, 
+        //expressions: false, 
+        expressions: true,
+        settingsMenu: true,
+        graphpaper: false,
+        expressionsTopbar: true
+    });
+    
+    my_calculator.setMathBounds({
+      left: -101,
+      right: -99,
+      bottom: -1,
+      top: 1
+    });
+    
+    my_calculator.updateSettings({ fontSize: Desmos.FontSizes.SMALL, expressions: true });
+    
+    var state = my_calculator.getState();
+</script>
+END_SCRIPT
+
+TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
+<script>
+
+    var arstarst = document.getElementById("$unique_div_id2");
+
+    var my_calculator = Desmos.Calculator(arstarst, {
+        keypad: false, 
+        //expressions: false, 
+        expressions: true,
+        settingsMenu: true,
+        graphpaper: false,
+        expressionsTopbar: true
+    });
+    
+    my_calculator.setMathBounds({
+      left: -101,
+      right: -99,
+      bottom: -1,
+      top: 1
+    });
+    
+    my_calculator.updateSettings({ fontSize: Desmos.FontSizes.SMALL, expressions: true });
+    
+    var state = my_calculator.getState();
+</script>
+END_SCRIPT
+
+TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
+<script>
+
+    var arstarst = document.getElementById("$unique_div_id3");
+
+    var my_calculator = Desmos.Calculator(arstarst, {
+        keypad: false, 
+        //expressions: false, 
+        expressions: true,
+        settingsMenu: true,
+        graphpaper: false,
+        expressionsTopbar: true
+    });
+    
+    my_calculator.setMathBounds({
+      left: -101,
+      right: -99,
+      bottom: -1,
+      top: 1
+    });
+    
+    my_calculator.updateSettings({ fontSize: Desmos.FontSizes.SMALL, expressions: true });
+    
+    var state = my_calculator.getState();
+</script>
+END_SCRIPT
+
+TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
+<script>
+
+    var arstarst = document.getElementById("$unique_div_id4");
+
+    var my_calculator = Desmos.Calculator(arstarst, {
+        keypad: false, 
+        //expressions: false, 
+        expressions: true,
+        settingsMenu: true,
+        graphpaper: false,
+        expressionsTopbar: true
+    });
+    
+    my_calculator.setMathBounds({
+      left: -101,
+      right: -99,
+      bottom: -1,
+      top: 1
+    });
+    
+    my_calculator.updateSettings({ fontSize: Desmos.FontSizes.SMALL, expressions: true });
+    
+    var state = my_calculator.getState();
+</script>
+END_SCRIPT
 
 Context()->normalStrings;
 
@@ -449,48 +577,3 @@ ENDDOCUMENT();
 # SIDE BY SIDE CODE:
 #   $column1 = $desmos_div ."$PAR $PAR $PAR $PAR ". $desmos_div2;
 
-# DESMOS CODE
-
-$width = 300;
-$height = 600;
-
-HEADER_TEXT(MODES(
-    HTML=>'<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
-    TeX=>''
-));
-
-$unique_div_id = "evaluating_f";
-$desmos_div = MODES(
-    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
-
-TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
-<script>
-
-    var arstarst = document.getElementById("$unique_div_id");
-
-    var my_calculator = Desmos.Calculator(arstarst, {
-        keypad: false, 
-        //expressions: false, 
-        expressions: true,
-        settingsMenu: true, 
-        expressionsTopbar: true
-    });
-
-    my_calculator.setExpressions([
-        { id: 'function', latex: 'f(x)=\\cos(\\pi/x)'},
-    ]);
-    
-    my_calculator.setMathBounds({
-      left: -101,
-      right: -99,
-      bottom: -1,
-      top: 1
-    });
-    
-    my_calculator.updateSettings({ fontSize: Desmos.FontSizes.SMALL, expressions: true });
-    
-    var state = my_calculator.getState();
-</script>
-END_SCRIPT

@@ -64,8 +64,6 @@ $dne = String("DNE");
 $a3=random(30,40,1);
 $a=random(1,3,1);
 
-#$a=2; $a3=31;
-
 $a2=Formula(".5+$a");
 $aa1=Formula("$a+.01");
 $aa2=Formula("$a+.001");
@@ -83,6 +81,7 @@ $av6=Real("($a3*$a-4.9*(($a)^2)-($a3 *$aa6 -4.9* (($aa6)^2)))/0.0001");
 $answ=Real("$a3-9.8*$a");
 
 $b=non_zero_random(-5,5);
+$b_example=$b+2.5;
 $c=non_zero_random(-5,5);
 
 $f_top=Formula("x^2-([$b+$c])x+$b*$c")->reduce;
@@ -154,8 +153,8 @@ $hp4 = $h->eval(x=>$p4);
 $hp5 = $h->eval(x=>$p5);
 $hp6 = $h->eval(x=>$p6);
 
-$width = 300;
-$height = 600;
+$width = 200;
+$height = 200;
 
 HEADER_TEXT(MODES(
     HTML=>'<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
@@ -188,7 +187,7 @@ Context()->texStrings;
 
 Scaffold::Begin(can_open => "when_previous_correct", is_open  => "first_incorrect");
 ###########################################
-Section::Begin("Part 1");
+Section::Begin("Close, but not exact");
 
 BEGIN_PGML
 Throughout the previous section, we looked at average rates of change (such as average velocities) between a "base point" and another point. We wanted the other point to be _close_ to the first one, but *not the exact same point*. (If it were the exact same point, finding the slope would involve dividing by zero.)
@@ -237,8 +236,13 @@ END_PGML
 
 Section::End();
 
-Section::Begin("Part 2");
+Section::Begin("Filling in a table");
 
+BEGIN_PGML
+
+Fill in the table below. You can use the window on the right as a calculator; simply backspace out the [`[$b_example]`] and replace it with any other value of [`x`].
+
+END_PGML
 
 $table=DataTable(
 [
@@ -258,13 +262,6 @@ tablecss => " border-spacing:0px 0px; border-radius: 5px; border-collapse:separa
 TEXT(ColumnTable($table,$desmos_div));
 
 #[@ $desmos_div @]*
-
-BEGIN_PGML
-
-
-
-
-END_PGML
 
 #ANS($fb1->cmp(tolType   => 'absolute',tolerance => .5));
 
@@ -290,7 +287,7 @@ END_PGML
 
 Section::End();
 
-Section::Begin("Part 3");
+Section::Begin("Introducing Limits!");
 
 BEGIN_PGML
 
@@ -310,16 +307,17 @@ END_PGML
 
 Section::End();
 
-Section::Begin("Part 4: More examples");
+Section::Begin("More examples");
 
 BEGIN_PGML
 
-Let [`g(x)=[$g]`]. Let's try to find [``\lim_{x\rightarrow[$d]}g(x)``]:
+Let [`g(x)=[$g]`]. Let's try to find [``\lim_{x\rightarrow[$d]}g(x)``]. Round each answer to as many decimal places as the number in the "rounding" column. (You can still type [`g(`]any number[`)`] in line 2 of the window on the right as a calculator.)
 
-[@ $desmos_div2 @]*
+END_PGML
+#[@ $desmos_div2 @]*
 
-[@
-DataTable(
+
+$table=DataTable(
 [
     ['\(x\)',"rounding",'\(g(x)\)'],
     ['\('.$d1.'\)',2,ans_rule(10)],
@@ -329,14 +327,12 @@ DataTable(
     ['\('.$d5.'\)',3,ans_rule(10)],
     ['\('.$d6.'\)',4,ans_rule(10)],
 ],
-align => '|l | l|l|',
+align => '|l | c|l|',
 midrules => 1,
 tablecss => " border-spacing:0px 0px; border-radius: 5px; border-collapse:separate;"
 );
-@]*
 
-
-END_PGML
+TEXT(ColumnTable($table,$desmos_div2));
 
 #Context()->{format}{number} = "%18.15f";
 Context()->{format}{number} = "%.2f";
@@ -375,13 +371,11 @@ BEGIN_PGML
 
 --------
 
+Let [`h(x)=[$h]`]. Let's try to find [``\lim_{x\rightarrow0}h(x)``]. Again, round to as many decimal places as the number in the "rounding" column.
 
-Let [`h(x)=[$h]`]. Let's try to find [``\lim_{x\rightarrow0}h(x)``]:
+END_PGML
 
-[@ $desmos_div3 @]*
-
-[@
-DataTable(
+$table=DataTable(
 [
     ['\(x\)',"rounding",'\(h(x)\)'],
     ['\('.$p1.'\)',4,ans_rule(10)],
@@ -391,13 +385,12 @@ DataTable(
     ['\('.$p5.'\)',5,ans_rule(10)],
     ['\('.$p6.'\)',6,ans_rule(10)],
 ],
-align => '|l | l|l|',
+align => '|l | c|l|',
 midrules => 1,
 tablecss => " border-spacing:0px 0px; border-radius: 5px; border-collapse:separate;"
 );
-@]*
 
-END_PGML
+TEXT(ColumnTable($table,$desmos_div3));
 
 Context()->{format}{number} = "%.4f";
 ANS(Real(sprintf("%.4f",$hp1))->cmp());
@@ -465,6 +458,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 
     my_calculator.setExpressions([
         { id: 'function', latex: 'f(x)=\\frac{$f_top}{$f_bottom}'},
+        { id: 'plugin', latex: 'f($b_example)'},
     ]);
     
     my_calculator.setMathBounds({
@@ -489,6 +483,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         keypad: false, 
         //expressions: false, 
         expressions: true,
+        graphpaper: false,
         settingsMenu: true, 
         expressionsTopbar: true
     });
@@ -519,6 +514,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         keypad: false, 
         //expressions: false, 
         expressions: true,
+        graphpaper: false,
         settingsMenu: true, 
         expressionsTopbar: true
     });

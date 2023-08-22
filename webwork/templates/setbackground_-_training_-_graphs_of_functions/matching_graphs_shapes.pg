@@ -51,7 +51,7 @@ loadMacros(
   "PGunion.pl",
   "imageChoice.pl",
   "PGcourse.pl",
-
+  "scaffold.pl",
 );
 
 
@@ -137,6 +137,7 @@ $ECENTER # no period!
 indent => 0, separation => 30, valign => "TOP"
 )
 \}
+$BR
 END_TEXT
 
 
@@ -149,6 +150,24 @@ ANS(str_cmp($ml->ra_correct_ans));
 foreach my $i (0..5) {
   $a[$i] = $ml->ra_correct_ans->[$i];
 }
+
+BEGIN_PGML
+In case you have forgotten what [`|x|`] refers to, here is a video about that:
+END_PGML
+
+Scaffold::Begin();
+Section::Begin("What are absolute values? (0:51)");
+
+BEGIN_PGML
+
+[@
+kalturaShull("1_9y2pywmv")
+@]*
+
+END_PGML
+Section::End();
+Scaffold::End();
+
 
 BEGIN_SOLUTION
 The formulas match as follows: 

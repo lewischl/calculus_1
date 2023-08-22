@@ -47,6 +47,7 @@ loadMacros(
   "PGstandard.pl",
   "PGcourse.pl",
   "customCSS.pl",
+  "scaffold.pl",
 );
 
 TEXT(beginproblem());
@@ -55,20 +56,33 @@ $a = random(-4,6,1);
 $c1 = $a-1;
 $c2 = $a+5;
 
-
 BEGIN_PGML
 [@ openDiv({ "class" => "problemPurpose" }) @]*
 This problem gets you to think about piecewise functions and what it means for them to be continuous at their transition points.
 [@ closeDiv() @]*
 
+If you would like a refresher on what piecewise functions are, check out this video from Prof. Shull:
 
+END_PGML
 
+Scaffold::Begin();
+Section::Begin("Piecewise function review video (20:45)");
+
+BEGIN_PGML
+
+[@
+kalturaShull("1_4ver89yh")
+@]*
+
+END_PGML
+Section::End();
+Scaffold::End();
+
+BEGIN_PGML
 
 Check out this video from Prof. Amethyst about determining if a piecewise function is continuous:
 
 END_PGML
-
-
 
 BEGIN_TEXT
 $BCENTER

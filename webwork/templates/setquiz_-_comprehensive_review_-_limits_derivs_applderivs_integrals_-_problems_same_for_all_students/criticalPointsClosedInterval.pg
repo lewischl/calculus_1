@@ -112,13 +112,13 @@ BEGIN_PGML
 Consider the function [`f(x)=[$f]`] on the interval [`[[$a],[$b]]`].
 
 1) Find the critical point(s) for [`f(x)`]
-[_____]{$crits} (seperate multiple answers with a comma)
+[_____]{$crits} (Use a comma-separated list)
 
 2) Find the [`x`]-values of the location(s) of the absolute maximum(s) [`f(x)`]
-[_____]{$maxX} (seperate multiple answers with a comma)
+[_____]{$maxX} (Use a comma-separated list)
 
 3) Find the [`x`]-values of the location(s) of the absolute minimum(s) [`f(x)`]
-[_____]{$minX} (seperate multiple answers with a comma)
+[_____]{$minX} (Use a comma-separated list)
 END_PGML
 
 ENDDOCUMENT();

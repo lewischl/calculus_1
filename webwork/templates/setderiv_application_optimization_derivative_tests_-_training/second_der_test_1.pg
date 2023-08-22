@@ -80,19 +80,19 @@ $c[2] = $r2;
 $c[3] = $r2+1;
 
 $classification0 = PopUp(
-  ["local minimum","local maximum","fail to classify"],
+  ["Choose one","local minimum","local maximum","fail to classify"],
   "fail to classify");
   
 $classification1 = PopUp(
-  ["local minimum","local maximum","fail to classify"],
+  ["Choose one","local minimum","local maximum","fail to classify"],
   "local minimum");
 
 $classification2 = PopUp(
-  ["local minimum","local maximum","fail to classify"],
+  ["Choose one","local minimum","local maximum","fail to classify"],
   "fail to classify");
   
 $classification3 = PopUp(
-  ["local minimum","local maximum","fail to classify"],
+  ["Choose one","local minimum","local maximum","fail to classify"],
   "local maximum");
 
 # set the x limits for plotting

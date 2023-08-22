@@ -74,16 +74,16 @@ Context("Numeric");
 
 $mc = new_checkbox_multiple_choice();
 $mc -> qa (
-" Let \( \displaystyle G(x) = \int_4^{x^3} \sin t \, dt \).  $PAR Which of the following statements are correct?  Select correct options. $HR ", 
-"\(G\) is the composite function \(A(x^3) \), where \( \displaystyle A(x) = \int_4^x \sin t \, dt \) $PAR",
-"\(G'(x) = 3x^2 \sin(x^3) \) $PAR ",
-"The Chain Rule is used to differentiate \(G\) $PAR",
-"The Fundamental Theorem of Calculus Part 2 is used to differentiate \(G\) $PAR",
+" Let \( \displaystyle G(x) = \int_4^{x^3} \sin t \, dt \).  $PAR Which of the following statements are correct?  Select correct options.", 
+"\(G\) is the composite function \(A(x^3) \), where \( \displaystyle A(x) = \int_4^x \sin t \, dt \) $BR",
+"\(G'(x) = 3x^2 \sin(x^3) \) $BR ",
+"The Chain Rule is used to differentiate \(G\) $BR",
+"The Fundamental Theorem of Calculus Part 2 is used to differentiate \(G\) $BR",
 );
 $mc -> extra(
-"\(G\) is too complicated to differentiate $PAR",
-"The product rule is used to differentiate \(G\) $PAR",
-"\(G\) is the composite function \(\sin(x^3)\)$PAR",
+"\(G\) is too complicated to differentiate $BR",
+"The product rule is used to differentiate \(G\) $BR",
+"\(G\) is the composite function \(\sin(x^3)\)$BR",
 );
 
     
@@ -96,6 +96,18 @@ Context()->texStrings;
 
 
 
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This training problem is a wrap-up on what we've done with integral functions:
+* how to differentiate a general integral function with complicated bounds
+* how to evaluate them
+* how to take second derivatives
+[@ closeDiv() @]*
+
+END_PGML
 
 
 BEGIN_TEXT

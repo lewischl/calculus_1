@@ -42,7 +42,8 @@ loadMacros(
   "PGstandard.pl",
   "PGchoicemacros.pl",
   "PGcourse.pl",
-  "customCSS.pl"
+  "customCSS.pl",
+  "scaffold.pl",
 );
 
 #install_problem_grader(~~&std_problem_grader);
@@ -110,6 +111,35 @@ BEGIN_TEXT
 $PAR
 \{theresahint\}
 END_TEXT
+
+BEGIN_PGML
+
+To refresh your memory, here is a video on function operations like [`f+g`] (there were composition videos in Problem 1 of this homework set).
+
+END_PGML
+
+Scaffold::Begin(can_open => "always", is_open => "never");
+###########################################
+Section::Begin("Function operations + - * / (8:41)");
+
+BEGIN_PGML
+
+[@
+kalturaShull("1_u7ng1q3v")
+@]*
+
+END_PGML
+
+#Context()->texStrings;
+
+Section::End();
+
+Context()->normalStrings;
+
+$showPartialCorrectAnswers = 1;
+
+  Scaffold::End();
+
 
 BEGIN_HINT
 Still working on function composition?  \((f \circ g)\) is an example of composition.  

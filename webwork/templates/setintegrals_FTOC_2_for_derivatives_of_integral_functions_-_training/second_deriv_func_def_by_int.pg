@@ -56,28 +56,96 @@ loadMacros(
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
+Context("Numeric");
+Context()->variables->add(t=>"Real");
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on 
+* Second derivatives of integral functions
+[@ closeDiv() @]*
+
+An integral function is a function defined by an integral, with variables in the bounds of integration:
+
+[```
+F(x) = \int_{a(x)}^{b(x)} f(t)\, dt
+```]
+
+We're studing area functions at the moment: simple version with one bound constant and the other just equal to [`x`] to keep it simple.
+
+The FTOC2 tells us how to take derivatives of area functions:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*Fundamental Theorem of Calculus, Part 2* (FTOC2)
+
+[``` \begin{aligned}
+\frac{d}{dx} A(x) &= \frac{d}{dx} \left( \int_a^x f(t) \, dt \right) \\ &= f(x)
+\end{aligned}
+```]
+
+
+ℹ️ The derivative of the integral, is the integrand.
+[@ closeDiv() @]*
+
+After the first derivative, we're back to just a regular function, so a second derivative is plain old differentiation.
+
+
+---
+
+Use the FTOC2 and differentiation to compute the first and second derivatives:
+
+END_PGML
+
+
 $b = random(2,7,1);
 $c = random(1,7,1);
+$ft = Formula("t^3 +$b t^2 + $c");
+$fx = Formula("x^3 +$b x^2 + $c");
+$fxp = $fx->D;
+Context()->texStrings;
+BEGIN_TEXT
+\( \displaystyle F(x) =  \int_0^x ($ft)\, dt \) $PAR
+\( F'(x) = \) \{ans_rule(20)\} $PAR
+\( F''(x) = \) \{ans_rule(20)\} $BR$PAR
 
-TEXT(EV2(<<EOT));
-If \( \displaystyle F(x) =  \int_0^x (t^3 +$b t^2 + $c)\, dt \) $BR
-then
-$BR
-\( F''(x) = \) \{ans_rule(20)\} $BR
+END_TEXT
 
-EOT
-$ans1="3*x^2 + 2*$b*x";
+Context()->normalStrings;
 
-ANS(fun_cmp($ans1));
+ANS($fx->cmp);
+ANS($fxp->cmp);
+
+
+
+
+$b = random(2,7,1);
+$c = random(1,7,1);
+$ft = Formula("5*t*sin(t)");
+$fx = Formula("5sin(x)*x");
+$fxp = $fx->D;
+Context()->texStrings;
+BEGIN_TEXT
+$PAR$BR
+\( \displaystyle F(x) =  \int_3^x ($ft)\, dt \) $PAR
+\( F'(x) = \) \{ans_rule(20)\} $PAR
+\( F''(x) = \) \{ans_rule(20)\} $BR$PAR
+
+END_TEXT
+
+Context()->normalStrings;
+
+ANS($fx->cmp);
+ANS($fxp->cmp);
+
+
+
 
 BEGIN_HINT
-In this type of problem, we're defining a new function in terms of an integral of an old function.  See Section 5.5 in our text book.  Particularly, Theorem 1 on page 326, or Example 5 on page 329.
 
-$PAR
 
-Take the first derivative of \(F(x)\) -- it's really not that bad, it's literally a direct application of FTOC Part 2.  Then take the derivative again to get \(F''(x)\).
-
-\{amethystHint("$PAR$HR$PAR See also these two videos from Prof. Amethyst:$PAR")\}
+\{amethystHint("See these two videos from Prof. Amethyst:$PAR")\}
 
 \{ youtubeAmethyst("1darfMH79B8") \}
 

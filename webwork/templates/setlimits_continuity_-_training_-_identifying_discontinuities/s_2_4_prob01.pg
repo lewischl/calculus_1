@@ -30,9 +30,6 @@
 # if not, look in the source directory for images that didn't make it.
 ########################################
 
-
-
-
 ########################################
 # this file automatically moved
 #	from setlimits_continuity/s_2_4_prob01.pg 
@@ -41,7 +38,6 @@
 # if this problem uses static images, they should also have been moved from that location to here.
 # if not, look in the source directory for images that didn't make it.
 ########################################
-
 
 DOCUMENT();
 
@@ -53,6 +49,7 @@ loadMacros(
   "PGcourse.pl",
   "niceTables.pl",
   "customCSS.pl",
+  "scaffold.pl"
 );
 
 COMMENT('It is best to give no more than two scored attempts for this problem.');
@@ -117,13 +114,30 @@ plot_functions($graph1,$p1,$p2,$p3,$p4,$p5,$p6,$p7);
 ###############################################################
 Context()->texStrings;
 
-
 BEGIN_PGML
 [@ openDiv({ "class" => "problemPurpose" }) @]*
 This problem aims to connect between the graph of a function, and the words describing its discontinuities.
 [@ closeDiv() @]*
 
+Here is a video introducing continuity, defining it in terms of limits:
+
 END_PGML
+
+Scaffold::Begin();
+Section::Begin("Continuity introduction/example 2 (13:01)");
+
+BEGIN_PGML
+
+[@
+kalturaShull("1_e7ws98ys")
+@]*
+
+END_PGML
+
+#Context()->texStrings;
+
+Section::End();
+Scaffold::End();
 
 BEGIN_TEXT
 Use the given graph of the function \(f\) to determine the type of discontinuity at each \(x\)-value.
@@ -148,19 +162,21 @@ $PAR
 $HR
 $PAR
 
-• Check out the section on Continuity in your textbook for a description and examples of the kinds of discontinuities.  
+• Check out the section on Continuity in your textbook for a description and examples of the kinds of discontinuities.
 
-
-\{amethystHint("$PAR • Here's a video from Prof. Amethyst on the kinds of discontinuities:$BR" )\}
-
-$BCENTER
-
-\{youtubeAmethyst("nFUuNt07G1s")\}
-$ECENTER
+\{amethystHint("$PAR • Here are two videos on the kinds of discontinuities:$BR" )\}
 
 END_TEXT
 
 
+BEGIN_TEXT
+$BCENTER
+\{youtubeAmethyst("nFUuNt07G1s")\}
+
+\{kalturaShull("1_wllc0osf")\}
+$ECENTER
+
+END_TEXT
 
 Context()->normalStrings;
 

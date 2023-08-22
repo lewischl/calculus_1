@@ -4,7 +4,7 @@
 ## DBsubject(Calculus - single variable)
 ## DBchapter(Integrals)
 ## DBsection(Antiderivatives (without trigonometric functions))
-## Date(6/3/2002)
+## Date(6/3/2002, again in 2023)
 ## MLT(antideriv_most_general_antideriv_higher_order)
 ## Level(3)
 ## TitleText1('Calculus: Early Transcendentals')
@@ -12,6 +12,7 @@
 ## EditionText1('6')
 ## Section1('4.9')
 ## Problem1('23')
+## Author('unknown, and then silviana amethyst')
 ## KEYWORDS('derivatives', 'antiderivatives')
 ##  Find an antiderivative of the function
 ##ENDDESCRIPTION
@@ -48,6 +49,7 @@ loadMacros(
   "MathObjects.pl",
   "PGcourse.pl"
 );
+ loadMacros("parserFormulaUpToConstant.pl");
 
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
@@ -55,55 +57,30 @@ $showPartialCorrectAnswers = 1;
 $a1 = random(2,10,1);
 $b1 = random(2,10,1);
 
-TEXT(EV2(<<EOT));
-Suppose \( f'''(x) = e^x  \) with \( f''(0)=$a1, f'(0)=$b1 \).  $BR Find a function \(f\) that satisfies these conditions.  
-$BR$BR
-\( f(x) =\) \{ans_rule(15) \} + \( C \).
-$BR$BR
-Note: your answer should not contain a general constant.
+BEGIN_TEXT
 
-$PAR
-\{ theresahint \}
-EOT
+Suppose \( f'''(x) = e^x  \) with $BR
+\( f''(0)=$a1\) $BR
+\( f'(0)=$b1 \).  
+
+$PAR Find the general function \(f\) that satisfies these conditions.  
+$BR$BR
+\( f(x) =\) \{ans_rule(15) \}
+$BR$BR
+Note: your answer should contain a general constant, since we didn't give you \(f(0)\).
+
+END_TEXT
 
 
 $antideriv="exp(x)+($a1-1)*x**2/2+($b1-1)*x";
 
-ANS(fun_cmp($antideriv, mode=>"antider"));
+ANS(FormulaUpToConstant($antideriv)->cmp);
 
 $a11 = $a1-1;
 $D = $b1-1;
 Context("Numeric");
 $p=Compute("$a11/2 *x^2 + $D x ")->reduce;
 Context()->texStrings;
-
-BEGIN_HINT
-Since we are given a third derivative \(f'''\) and want the function \(f\), we have to integrate three times.  The first two times, we need to use an initial condition to find the value of a constant of integration.  The third time we integrate, we'll leave the constant of integration as \(+C\) (since we're not given an initial condition that would allow us to find its value).
-
-$PAR
-
-I'll do the first round of integration for you, as a model, and you have to do the other two integrations.  Start by noting that \[ \int f'''(x) \, dx = f''(x)\]
-$BR$BR
-The general antiderivative of \( f'''(x) = e^x \) is 
-\[ \int f''' \, dx = \int e^x \, dx =  f''(x)  =  e^x + C \]
-Since \(f''(0) = $a1\), we have
-\[ f''(0) = e^0 + C = $a1 \]
-So \(C = $a1 - 1 = $a11 \) and
-\[  f''(x)  =  e^x + $a11 \]
-
-Now we have \(f''\).  But we want \(f\).  There are two steps left: find \(f'\), then find \(f\).  You'll find the value of the constant of integration for \(f'\), but not for \(f\).
-
-$PAR
-$HR
-$PAR
-
-As a last note in this hint, you can find \(f'\) by integrating \(f''\):
-\[ \int f''(x) \, dx  = f'(x)+D.\]
-Find \(D\) using the initial condition for \(f'(0)\).
-
-$PAR
-Finally, \[\int f'(x) \, dx = f(x) + C.\]
-END_HINT
 
 
 

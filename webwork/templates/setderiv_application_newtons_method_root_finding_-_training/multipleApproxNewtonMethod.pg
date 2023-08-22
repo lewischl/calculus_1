@@ -8,7 +8,7 @@
 ## DBchapter('Applications of the Derivative')
 ## DBsection('Newtons's Method')
 ## Date('8/1/2022')
-## Author('Erich Jauch')
+## Author('Erich Jauch, silviana amethyst')
 ## Institution('')
 ## TitleText1('')
 ## EditionText1('')
@@ -111,12 +111,38 @@ $graph1 = GraphWithTikZ(function => [$f],xmin => -3,xmax => 3,ymin => -3,ymax =>
 
 # Print problem number and point value (weight) for the problem
 TEXT(beginproblem());
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem offers training on a root-finding algorithm using the first derivative as a proxy for the function in an iterative process.
+[@ closeDiv() @]*
+
+"Newton's Method" is a root-finding algorithm.  It finds the [`x`] such that [`f(x) = 0`].  The single-variable method we study here is the first step towards its application in multi-variable situations, where the "roots" might represent robot designs, steady states of chemical systems, and fixed points of changing systems such as coupled oscillators.
+
+Here's a super short version of the method, omitting many details and pitfalls.  It's a starting point.
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Newton's method for solving [`f(x_\ast) = 0`]
+
+1. Get initial value [`x_0`].  
+
+2. Iterate using [``x_{n+1} =  x_n - \frac{f(x_n)}{f'(x_n)} ``]
+
+[@ closeDiv() @]*
+
+The "iterate" step computes through a sequence of approximations [`x_0, x_1, x_2, \ldots`] __hopefully__ converging to a solution [`x_\ast`] with [`f(x_\ast) \approx 0`].  
+
+---
+
+END_PGML
+
 BEGIN_PGML
 The graph below is the function [`f(x)=[$f]`]
 
->>[@ image(insertGraph($graph1), width => 400, height => 400) @]*<<
+>>[@ image(insertGraph($graph1), width => 300, height => 300) @]*<<
 
-Use Newton's Method to find 4 approximations the real root of [`f`] with an intial value of [`x_0 =[$x[0]]`]. (Use lots of decimal places, or exact numbers)
+🎯 Use Newton's Method to find the first [`4`] approximations the real root of [`f(x) = [$f]`] with an initial value of [`x_0 =[$x[0]]`]. (Use lots of decimal places, or exact numbers)
 
 [`x_1=`] [____]{$x[1]}
 
@@ -125,6 +151,30 @@ Use Newton's Method to find 4 approximations the real root of [`f`] with an inti
 [`x_3=`] [____]{$x[3]}
 
 [`x_4=`] [____]{$x[4]}
+
+---
+
+I do have some suggestions on doing the computations.  In this problem, I offer the "ans trick" on a TI calculator.
+
+
+[@ openDiv({ "class" => "inProblemHint" }) @]*
+*The "ans trick" for Newton's Methed on a TI calculator*
+
+
+At the normal calculator screen on a TI-84 calculator:
+
+1. Type the value of [`x_0`].
+2. Press [|enter|]*.  Now [|ans|]* is [`x_0`].
+3. Type the iterative formula for Newton's method with your [`f`], but instead of [`x`] use [|ans|]*.
+    * So, type [|ans - (f(ans)) / (f'(ans)) |]*, with your [`f`] and [`f'`].
+4. Press [|enter|]* to compute [`x_1`].
+5. Recall the formula for Newton's method using [|entry|]*  ([|2nd-enter|]*).  
+6. Press [|enter|]* to compute [`x_2`].
+7. Goto step 5 🔁
+
+[@ closeDiv() @]*
+
+
 END_PGML
 
 ##############################################################

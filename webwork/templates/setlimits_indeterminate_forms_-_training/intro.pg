@@ -76,7 +76,7 @@ $val = Real("1");
 Context()->texStrings;
 BEGIN_PGML
 
-In this section's webwork content, you'll train to use algebraic techniques to find exact values for indeterminate form limits.  
+In this section's webwork content, you'll train to use algebraic techniques to find exact values for indeterminate form limits. An "indeterminate form" happens when two parts of an expressions (for example, a numerator and a denominator) try to "pull" a function in different directions.
 
 The two main techniques in this assignment are: 
 1. Factor-and-cancel 

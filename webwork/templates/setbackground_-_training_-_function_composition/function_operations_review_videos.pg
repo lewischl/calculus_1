@@ -61,38 +61,6 @@ END_PGML
 # Main text
 ###########################################
 #  The scaffold
-Scaffold::Begin(can_open => "always", is_open => "never");
-###########################################
-Section::Begin("Function operations + - * / (8:41)");
-
-BEGIN_PGML
-
-[@
-kalturaShull("1_u7ng1q3v")
-@]*
-
-END_PGML
-
-#Context()->texStrings;
-
-Section::End();
-
-Section::Begin("Function composition (7:41)");
-
-BEGIN_PGML
-
-[@
-kalturaShull("1_3fssli1q")
-@]*
-
-END_PGML
-Section::End();
-
-Context()->normalStrings;
-
-$showPartialCorrectAnswers = 1;
-
-  Scaffold::End();
 
 #COMMENT('MathObject version');
 ENDDOCUMENT();

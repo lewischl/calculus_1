@@ -2,7 +2,6 @@
 ##  Calculus: Limit laws
 ##ENDDESCRIPTION
 
-
 ## DBsubject(Calculus - single variable)
 ## DBchapter(Limits and continuity)
 ## DBsection(Finding limits using graphs)
@@ -52,6 +51,7 @@ loadMacros(
   "MathObjects.pl",
   "PGcourse.pl",
   "customCSS.pl",
+  "scaffold.pl",
 );
 Context('Numeric');
 
@@ -65,7 +65,8 @@ $showPartialCorrectAnswers = 1;
 #####################################################################
 
 $a = random(-1,2,1);
-$b = random(1,2,1);
+while($a==0){$a = random(-1,2,1);}
+$b = 2;
 $c = random(-2,0,1);
 
 ###############################################################
@@ -79,7 +80,6 @@ $p1a = FEQ("$b*x for x in [-1,1) using color:blue weight:2");
 $p2a = FEQ("$c for x in [1,1] using color:blue weight:2");
 $p3a = FEQ("-$b-1-x for x in [-3,-1] using color:blue weight:2");
 $p4a = FEQ("-sin(pi(x-1)/2)+$b for x in (1,3] using color:blue weight:2");
-
 
 plot_functions($graph1,$p1a,$p2a,$p3a,$p4a);
 
@@ -116,7 +116,6 @@ For example, if we want to know [``\lim_{x \to -1}[f+g]``], we would
 2. then add those two values together since "the limit of the sum is the sum of the limits".
 [@ closeDiv() @]*
 
-
 END_PGML
 
 BEGIN_TEXT
@@ -140,6 +139,26 @@ $HR
 $BBOLD Note: $EBOLD $BITALIC You can click on the graphs to enlarge the images.$EITALIC
 $HR
 END_TEXT
+
+BEGIN_PGML
+
+Here is an example of a similar question, with somewhat different graphs:
+
+END_PGML
+
+Scaffold::Begin();
+Section::Begin("Limit Laws graph example (8:09)");
+
+BEGIN_PGML
+
+[@
+kalturaShull("1_nir9s81o")
+@]*
+
+END_PGML
+Section::End();
+Scaffold::End();
+
 
 Context()->normalStrings;
 

@@ -85,11 +85,9 @@ $ans = $F;
 
 BEGIN_PGML
 
-Evaluate the following indefinite integral:
+Evaluate the following indefinite integral.   Include the constant of integration in your answer.
 
 [``\int [$f]~dx=``] [_____]{$ans} 
-
-Include the constant of integration as [`+C`] inside your answer.
 END_PGML
 
 ENDDOCUMENT();

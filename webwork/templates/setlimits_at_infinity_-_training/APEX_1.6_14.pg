@@ -101,6 +101,14 @@ $BCENTER
 \{image(insertGraph($graph1),width=>$w,height=>$w,tex_size=>$tw)\}
 $ECENTER $PAR
 $HR
+END_TEXT
+BEGIN_PGML
+Back in 2.2, we briefly touched on *limits at infinity*. Here is an introduction to what those are with a couple examples:
+
+[@ kalturaShull("1_gavhsox7") @]*
+
+END_PGML
+BEGIN_TEXT
 Evaluate the given limits using the graph of the function \( f(x) = \displaystyle $a^x + $b \) shown above.
 $BR
 Enter $BBOLD DNE $EBOLD if the limit does not exist.

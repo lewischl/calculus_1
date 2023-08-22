@@ -54,109 +54,89 @@ loadMacros(
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
-$a1 = random(2,10,1);
-$b1 = random(2,10,1);
-$c1 = random(2,10,1);
-$d1 = random(1,10,1);
+Context("Numeric");
+
+# coefficients
+$a1 = non_zero_random(-10,10,1);
+$b1 = non_zero_random(-10,10,1);
+$c1 = non_zero_random(-10,10,1);
+$d1 = non_zero_random(-10,10,1);
+
+# powers
 $n1 = random(8,10,1);
 $m1 = random(5,7,1);
 $p1 = random(2,4,1);
+$q1 = 0;
 
-TEXT(EV2(<<EOT));
-Consider the function \( f(x) = $a1 x^ {$m1} + $b1 x^{$n1} - $c1 x^{$p1} - $d1 \).
-$BR
-An antiderivative of \( f(x) \) is \( F(x) = A x ^m +B x^n +C x^p +D x^q \)
-where $BR
-\( A = \) \{ans_rule(10) \}
-EOT
-$ans1 = $a1/($m1+1);
-ANS(num_cmp($ans1));
-TEXT(EV2(<<EOT));
- \( m = \) \{ans_rule(10) \} $BR
-EOT
-$ans2 = $m1+1;
-ANS(num_cmp($ans2));
-TEXT(EV2(<<EOT));
-\( B = \) \{ans_rule(10) \}
-EOT
-$ans3 = $b1/($n1+1);
-ANS(num_cmp($ans3));
-TEXT(EV2(<<EOT));
-  \( n = \)  \{ans_rule(10) \} $BR
-EOT
-$ans4 = $n1+1;
-ANS(num_cmp($ans4));
-TEXT(EV2(<<EOT));
-\( C = \) \{ans_rule(10) \}
-EOT
-$ans5 = -$c1/($p1+1);
-ANS(num_cmp($ans5));
-TEXT(EV2(<<EOT));
-\( p = \) \{ans_rule(10) \} $BR
-EOT
-$ans6 = $p1+1;
-ANS(num_cmp($ans6));
-TEXT(EV2(<<EOT));
-\( D = \)  \{ans_rule(10) \}
-EOT
-$ans7 = -$d1;
-ANS(num_cmp($ans7));
-TEXT(EV2(<<EOT));
-\( q = \) \{ans_rule(10) \}
-EOT
-$ans8 = 1;
-ANS(num_cmp($ans8));
+   Context()->noreduce('(-x)-y');
+   Context()->noreduce('(-x)-y','(-x)+y');
 
-BEGIN_HINT
-Use the power rule for integration. $BR
-Be sure to include the sign of the coefficients.
-END_HINT
+$f = Formula("$a1 x^ {$m1} + $b1 x^{$n1} - $c1 x^{$p1} + $d1 x^{$q1}")->reduce;
 
-SOLUTION(EV3(<<'EOF'));
-$SOL $BR
-This is just an exercise in the rules of finding derivatives of 
-polynomials.  It is, however, somewhat more difficult since we are 
-working in terms of antiderivatives.  First, recall that the reason we 
-call \( F(x) \) the antiderivative of \( f(x) \) is that the derivative 
-of \(F(x)\) is \( f(x) \).  So in this case, let's find the derivative of 
-\( F(x) \) with the constants A,B,C, and D in place.
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem is about using the power rule on a polynomial -- a function with integer powers of [`x`].
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*The power rule for integration*
+
+[```
+\int x^n \, dx =  \frac{1}{n+1} x^{n+1}
+```]
+
+⚠️ This is not true if [`n=-1`], because then we’d have to divide by [`0`]. 
+[@ closeDiv() @]*
+
+Combined with the sum/difference rule, we can integrate each term in a polynomial separately.
+
+---
+
+END_PGML
+
+BEGIN_TEXT
+Consider the function \( f(x) =  $f\). 
 $PAR
-\[
-   F'(x) = nAx^{n-1} + mBx^{m-1} + pCx^{p-1} + qDx^{q-1}
-\]
+An antiderivative is \( F(x) = A x ^m +B x^n +C x^p +D x^q + \textnormal{constant of integration}\). $PAR
+
+🎯 Use the power rule and constant-multiple rules to find the coefficients and powers of \(F\) after integrating \(f\).
 $PAR
-Now, matching this up with \( f(x) \), we see that we must have
-the following equalities if \( f(x) \) is to be the derivative of \( F(x) \).
-$PAR
-\[
-  \begin{aligned}
-    n-1  & = $n1 \\ \\
-    $a1  & = nA \\ \\
-    m-1  & = $m1 \\ \\ 
-    $b1  & = mB \\ \\
-    p-1  &= $p1 \\ \\
-    -$c1 & = pC \\ \\
-    q-1  &= 0 \\ \\ 
-    -$d1 & = qD \\ 
-  \end{aligned}
-\]
-$PAR
-So solving, we get:
-$PAR
-\[
-  \begin{aligned}
-    n &= $n1+1 = $ans2 \\ \\
-    A & = \frac{$a1}{n} = \frac{$a1}{$ans2} = !{$ans1:%5.3f} \\ \\
-    m &= $m1+1 = $ans4 \\ \\
-    B & = \frac{$b1}{m} = \frac{$b1}{$ans4} = !{$ans3:%5.3f} \\ \\
-    p &= $p1+1 = $ans6 \\ \\
-    C & = -\frac{$c1}{p} = -\frac{$c1}{$ans6} = !{$ans5:%5.3f} \\ \\
-    q &= $ans8 \\ \\
-    D & = -\frac{$d1}{q} = -\frac{$d1}{$ans8} = !{$ans7:%5.3f} \\
-  \end{aligned}
-\]
+
+\( A = \) \{ans_rule(10) \} $SPACE
+\( m = \) \{ans_rule(10) \} $BR
+END_TEXT
+ANS(num_cmp($a1/($m1+1)));
+ANS(num_cmp($m1+1));
 
 
-EOF
+
+BEGIN_TEXT
+\( B = \) \{ans_rule(10) \} $SPACE
+\( n = \)  \{ans_rule(10) \} $BR
+END_TEXT
+ANS(num_cmp($b1/($n1+1)));
+ANS(num_cmp($n1+1));
+
+
+BEGIN_TEXT
+\( C = \) \{ans_rule(10) \} $SPACE
+\( p = \)  \{ans_rule(10) \} $BR
+END_TEXT
+ANS(num_cmp($c1/($p1+1)));
+ANS(num_cmp($p1+1));
+
+
+BEGIN_TEXT
+\( D = \) \{ans_rule(10) \} $SPACE
+\( q = \)  \{ans_rule(10) \} $BR
+END_TEXT
+ANS(num_cmp($d1/($q1+1)));
+ANS(num_cmp($q1+1));
+
+
+
+
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

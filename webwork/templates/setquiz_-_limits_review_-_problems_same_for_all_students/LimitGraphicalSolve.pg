@@ -119,7 +119,7 @@ points => [[Point(($xlim[0],$ylim[0])),color=>"white",label=>" "],
 BEGIN_PGML
 We have a function [`f(x)`] graphed below:
 
->>[@ image(insertGraph($graph1), width => 400, height => 400) @]*<<
+>>[@ image(insertGraph($graph1), width => 400, height => 250) @]*<<
 
 Find the following limits (Enter DNE if the limit does not exist):
 

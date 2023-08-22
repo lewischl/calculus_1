@@ -65,7 +65,8 @@ loadMacros(
   "PGstandard.pl",
   "PGunion.pl",
   "MathObjects.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "parserPopUp.pl",
 );
 #####################################################################
 
@@ -77,28 +78,174 @@ $showPartialCorrectAnswers = 1;
 
 Context("Numeric");
 
-$a = random(2,8,2);
-$b = random(3,9,2);
 
-$ans = Compute("$a/$b");
+
+
+
+
+
+
+$a = 0; # the point of interest
+
+
+$m = random(2,8,2); # parameters for the function
+$n = random(3,9,2);
+
+$f = Formula("sin( $m x)"); # the functions
+$g = Formula("sin( $n x)");
+
+$ans = Real($f->D->eval(x=>$a) / $g->D->eval(x=>$a));
+
+
 
 #Title("$BITALIC Look Ahead: $EITALIC 4.5 Indeterminate Forms and L'Hospital's Rule");
 
 #####################################################################
 Context()->texStrings;
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem offers training on using a technique called "L'Hopital's Rule" for computing some indeterminate form limits.  
+
+This technique has applications:
+* in Calculus 2 when computing improper integrals
+* in Computer Science when analyzing asymptotic runtimes of algorithms
+* in biology, when reasoning about long term behaviour of dynamical systems
+
+[@ closeDiv() @]*
+
+I'd like to first remind you of "indeterminate forms".  They came up in our quest to be able to compute the limits for any function at any point of interest.
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*Indeterminate forms*
+
+A limit [``\lim_{x \to a} f(x)``] is an __indeterminate form__ if when we try to plug in or simply evaluate a limit we get one of the following forms:
+
+* [`\frac{\infty}{\infty}`]
+* [`\frac{0}{0}`]
+* [`\infty - \infty`]
+* [`0^0`]
+* [`1^\infty`]
+[@ closeDiv() @]*
+
+ℹ️ An indeterminate form reveals nothing about the limit.  Just that the function is discontinuous at [`x=a`].  It's a sign for "do more analysis".
+
+Two of these forms have a nice technique we call "L'Hopital's rule", which is based on comparing __how fast__ the functions in a ratio go towards their limits.
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*L'Hopital's rule for [`\frac{0}{0}`] and [`\frac{\infty}{\infty}`]*
+
+Consider a limit [``\lim_{x \to a} \frac{f(x)}{g(x)}``].
+
+The limit *must* satisfy a few conditions in order to apply the rule:
+1. The limit must be indeterminate form of one of these two: [`\frac{0}{0}`] or [`\frac{\infty}{\infty}`]*
+2. The functions in the numerator and denominator must be differentiable at [`x=a`].
+
+*IF* [``\lim_{x \to a} \frac{f'(x)}{g'(x)} = L``] (we get a non-indeterminate form), 
+
+*THEN* [``\lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)} ``]
+
+[@ closeDiv() @]*
+
+The sequence to use the rule goes something like this:
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+1. Try plugging in [`x=a`].  
+2. If get [`0/0`] or [`\infty/\infty`], keep going.  Otherwise, reformulate or do something else.
+3. Try computing [``\lim_{x \to a} \frac{f'}{g'}``], comparing the rate at which [`f`] and [`g`] go to their limits.
+4. If you get a determinate value ([`0`], another number, [`\infty`], or DNE you're done.
+5. If you get [`0/0`] or [`\infty/\infty`] again, goto 3 and try with the next order of derivative.
+[@ closeDiv() @]*
+
+
+I'll guide you through this application to help you get started.  I hope you enjoy this guided training problem.
+
+---
+
+END_PGML
+
+
+
+$pops = PopUp(['?','0/0', 'inf/inf', 'inf-inf','1^inf'], '0/0');
+
 BEGIN_TEXT
-Use l'Hospital's Rule to evaluate the limit.
-\[
-\lim_{x \to 0} \frac{\sin $a x}{\sin $b x}
-\]
-$PAR
-Limit: \{ans_rule(20)\} $PAR
+I'll start with stating the limit problem: $PAR
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
+Use l'Hospital's Rule to evaluate the limit. $PAR
+\( \displaystyle 
+\lim_{x \to 0} \frac{$f}{$g}
+\)
+
+\{ closeDiv() \}
+
+$PAR $BR
+
+First, we need to try to 🎯 evaluate at the point of interest.  $BR
+
+\{ openDiv({"class" => "nothing"}) \}
+\( \displaystyle 
+\lim_{x \to 0} \frac{$f}{$g} = 
+\)
+\{ ans_fraction() \}
+
+\{ closeDiv() \}which is a \{ $pops->menu() \} intederminate form.
+
 END_TEXT
+
+ANS(Compute(0)->cmp);
+ANS(Compute(0)->cmp);
+ANS($pops->cmp());
+
+
+BEGIN_TEXT
+$PAR $BR
+
+Having verified that we have one of the forms that allow us to apply L'Hopital's rule, we consider the limit of the rates at which \($f\) and \($g\) go to their limits.  I'll set up the sequence of computations, you 🎯 fill in the computations.
+$PAR
+1. Compute \(f'\) and \(g'\) $BR
+2. Evaluate at the point of interest
+$PAR
+
+\{ openDiv({"class" => "nothing"}) \}
+\( \displaystyle 
+\lim_{x \to 0} \frac{$f}{$g} = 
+\)
+\{ ans_fraction() \} \( = \) \{ ans_fraction() \}
+\{ closeDiv() \}
+
+$PAR $BR
+
+
+END_TEXT
+
+ANS($f->D->cmp);
+ANS($g->D->cmp);
+
+ANS(Compute($f->D->eval(x=>$a))->cmp);
+ANS(Compute($g->D->eval(x=>$a))->cmp);
+
+
+
+BEGIN_TEXT
+
+Having found a not-indeterminate-form, we know the value of the original limit.  🎯 Complete the sequence by entering the value of the limit:
+$PAR
+\( \displaystyle 
+\lim_{x \to $a} \frac{$f}{$g} = 
+\) \{ans_rule(20)\} 
+END_TEXT
+
+ANS($ans->cmp());
+
+
+
 Context()->normalStrings;
 
 #####################################################################
 
-ANS($ans->cmp());
+
 
 ENDDOCUMENT(); 
 

@@ -49,94 +49,12 @@ Context("Numeric");
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
-BEGIN_PGML
-
-Here are some background videos about various steps for simplifying fractions.
-
-END_PGML
-
 #SRAND($psvn);
 
 ###################################
 # Main text
 ###########################################
 #  The scaffold
-Scaffold::Begin(can_open => "always", is_open => "never");
-###########################################
-Section::Begin("Limit Laws introduction (16:03)");
-
-BEGIN_PGML
-
-[@
-kalturaShull("1_0vzsxvog")
-@]*
-
-END_PGML
-
-#Context()->texStrings;
-
-Section::End();
-
-Section::Begin("2.3 Example 1 (8:11)");
-
-BEGIN_PGML
-
-[@
-kalturaShull("1_ebmpjmhz")
-@]*
-
-END_PGML
-Section::End();
-
-Section::Begin("2.3 Example 2 (6:37)");
-
-BEGIN_PGML
-
-[@
-kalturaShull("1_2pbwrzio")
-@]*
-
-END_PGML
-Section::End();
-
-Section::Begin("2.3 Example 3 (4:14)");
-
-BEGIN_PGML
-
-[@
-kalturaShull("1_o2itvmui")
-@]*
-
-END_PGML
-Section::End();
-
-Section::Begin("Limit Laws given numbers (6:16)");
-
-BEGIN_PGML
-
-[@
-kalturaShull("1_yyts6eg0")
-@]*
-
-END_PGML
-Section::End();
-
-Section::Begin("Limit Laws graph example (8:09)");
-
-BEGIN_PGML
-
-[@
-kalturaShull("1_nir9s81o")
-@]*
-
-END_PGML
-Section::End();
-
-Context()->normalStrings;
-
-$showPartialCorrectAnswers = 1;
-
-  Scaffold::End();
 
 #COMMENT('MathObject version');
 ENDDOCUMENT();

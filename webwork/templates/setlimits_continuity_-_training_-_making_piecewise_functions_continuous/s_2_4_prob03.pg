@@ -51,6 +51,8 @@
 # if not, look in the source directory for images that didn't make it.
 ########################################
 
+#one video added by Warren Shull 2023-08-14
+
 
 DOCUMENT();        # This should be the first executable line in the problem.
 
@@ -95,14 +97,26 @@ END_PGML
 BEGIN_TEXT
 $PAR
 
-This is a conceptual video from Prof. Amethyst on continuity of piecewise functions.
+Here are two videos. The first, from Prof. Amethyst, is a conceptual video illustrating how "making a piecewise function continuous" might look on a graph. The second, from Prof. Shull, contains a couple examples of algebraically finding the unknown constant that makes the function continuous.
+
 $PAR
 
 \{ youtube("DdKDfIuSN30")\}
 
-
-
 $PAR
+
+END_TEXT
+
+BEGIN_PGML
+
+[@
+kalturaShull("1_bs5h774b")
+@]*
+
+END_PGML
+
+BEGIN_TEXT
+
 $HR
 $PAR
 

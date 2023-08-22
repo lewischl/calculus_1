@@ -10,7 +10,7 @@
 ## DBsection(Antiderivatives (without trigonometric functions))
 ## Date(5/26/2005)
 ## Institution(UVA)
-## Author(Jeff Holt)
+## Author(Jeff Holt, heavily modified by silviana amethyst)
 ## MLT(antideriv_poly_find_AN_antideriv)
 ## Level(2)
 ## TitleText1('Calculus: Early Transcendentals')
@@ -54,30 +54,137 @@ DOCUMENT();
 loadMacros(
   "PGstandard.pl",
   "PGchoicemacros.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "contextFraction.pl",
+  "parserFormulaUpToConstant.pl",
 );
+
+
+
 
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
-$a = random(20,50,4);
-$b = random(3,7,1);
+Context("Fraction-NoDecimals");
+   Context()->noreduce('(-x)-y');
+   Context()->noreduce('(-x)-y','(-x)+y');
 
-TEXT(EV2(<<EOT));
+$b = random(20,50,1);
+$m = random(-7,-3,1);
 
-Find the general solution for
-$BR
-\[
-\frac{dP}{dx} = -$b x + $a.
-\]
-$BR
-\(P = \) \{ans_rule(35) \} + \( C\).
-$BR
-$BR
+$f = Fraction("$m x + $b")->reduce;
 
-EOT
+$a = random(2,6,1);# x-coord
+$Fofa = random(20,30,1); # y-coord of given point
 
-$ans = "$a*x - ($b/2)*(x**2)";
-ANS(fun_cmp($ans, mode=>"antider", vars=>"x"));
+
+$F_str = "$m/2 * x^2 + $b x";
+$F_for_eval = Formula($F_str); # no constant added
+
+$C = $Fofa - $F_for_eval->eval(x=>$a); 
+
+$F_general = FormulaUpToConstant($F_str)->reduce;
+$F_particular = Formula($F_str)+$C;
+
+if ($F_particular->eval(x=>$a) != $Fofa){
+TEXT("❌❌❌❌❌❌ BAD CONSTANT OF INTEGRATION" . $BR);
+TEXT($F_particular->eval(x=>$a) . " should equal " . $Fofa . $BR);
+}
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem trains on "Initial Value Problems" (IVP's):
+[@ closeDiv() @]*
+
+In Calculus we study change.  When we integrate in applied scenarios (mathematical modeling), the function we're antidifferentiating represents a rate of change.  The antiderivative of a rate of change is an accumulant of change.  
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Since [`\frac{d}{dx} C = 0`] for all constants, we can never know the values of constants in an antiderivative without extra knowledge.
+[@ closeDiv() @]*
+
+The world of *Initial Value Problems* gives you not only the rate of change, but also information about the initial state.  This can be used to find the value of [`C`], the constant of integration.  
+
+This problem will guide you through the notation and general process for solving an initial value problem.
+
+---
+
+An initial value problem will include two ingredients:
+1. A "differential equation", like [`\frac{dF}{dx} = f(x)`], and you'll have the formula for [`f`].
+2. A point on the solution curve [`(a, F(a))`].
+    * This might look like [`F(2) = 5`], to say that the point [`(2,5)`] is on the graph of [`y = F(x)`].
+
+The solution pattern is about like these steps:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*Steps to solve an initial value problem*
+
+1. Write down the differential equation, [`\frac{dF}{dx} = f(x)`]
+2. Integrate.
+    1. Move the [`dx`] to the other side to get [`dF = f(x) \, dx`]
+    2. Integrate both sides.  You'll have [`F = \int f(x) \, dx`]
+    3. Integrate [`f(x)`], and include the constant of integration [`C`].  
+    The result to this point: [`F(x) = \textnormal{a function} + C`].
+3. Use the given point on the curve [`F`] to find the value of [`C`]
+    1. Substitute [`x=a`] into [`F`], and set equal to [`F(a)`].
+    2. Solve
+4. Conclude
+[@ closeDiv() @]*
+
+I'll guide you through all the steps on this problem.  Look for 🎯 where I ask you to do something in the narrative.
+
+---
+
+
+We start with the problem pose:
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Find the function [`F`] such that
+[```
+\frac{dF}{dx} = [$f]
+```]
+and
+[``F([$a]) = [$Fofa]``]
+[@ closeDiv() @]*
+
+Our goal: find [`F`].  We have to integrate and then substitute-and-solve to find it.
+
+##### 1. Write down the differential equation
+
+On your paper,  🎯 write down the given differential equation, [`\frac{dF}{dx} = [$f]`].
+
+##### 2. Integrate
+
+Multiply both sides by [`dx`].  You should have [`dF = ([$f]) \, dx`]
+
+Integate both sides.  Get [`F = \int ([$f]) \, dx`]
+
+Now actually 🎯 do the integration of [`f`] and find the most general antiderivative.
+
+[`F_\textnormal{gen}(x) = `] [_]{$F_general}
+
+##### 3. Find the value of the constant of integration
+
+We were given [`F([$a]) = [$Fofa]`].  This is a point on the curve.  
+
+🎯 Plug [`x = [$a]`] into the general [`F_\textnormal{gen}(x)`], set it equal to [`F([$a]) = [$Fofa]`], and solve to find [`C`].
+
+[`C = `] [_]{$C}
+
+
+##### 4. Conclude
+
+We've found the general solution and the constant of integration.  We just need to package them together, and find the specific function [`F`] going through the given point.  
+
+🎯 Use the value of [`C`] with your general [`F_\textnormal{gen}`], to form the final [`F`].
+
+[`F(x) = `] [_]{$F_particular}
+END_PGML
+
+Context()->normalStrings;
+
+
 
 ENDDOCUMENT();

@@ -137,8 +137,8 @@ BEGIN_PGML
 #### Graphs
 
 [@ LayoutTable(
-  [ [ image(insertGraph($graph1), width => 300, height => 300, tex_size=>300), image(insertGraph($graph2), width => 300, height => 300, tex_size=>300) ],
-    [ image(insertGraph($graph3), width => 300, height => 300, tex_size=>300), image(insertGraph($graph4), width => 300, height => 300, tex_size=>300) ] ] ) @]*
+  [ [ image(insertGraph($graph1), width => 300, height => 200, tex_size=>300), image(insertGraph($graph2), width => 300, height => 200, tex_size=>300) ],
+    [ image(insertGraph($graph3), width => 300, height => 200, tex_size=>300), image(insertGraph($graph4), width => 300, height => 200, tex_size=>300) ] ] ) @]*
 
 ---
 

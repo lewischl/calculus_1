@@ -7,9 +7,9 @@
 ## DBsubject(Calculus - single variable)
 ## DBchapter(Integrals)
 ## DBsection(Definite integrals (without trigonometric functions))
-## Date(6/3/2002)
+## Date(6/3/2002, summer 2023)
 ## Institution(Univeristy of Utah)
-## Author(Utah ww group)
+## Author(Utah ww group, modified by silviana amethyst)
 ## MLT(DefIntQuadraticOverSqrtX)
 ## MLTleader(1)
 ## Level(3)
@@ -66,60 +66,94 @@ loadMacros(
   "PGchoicemacros.pl",
   "PGcourse.pl"
 );
+loadMacros("parserFormulaUpToConstant.pl");
 
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
 $a1 = random(2,10,2);
 $b1 = random(2,10,1);
-$c1 = random(5,9,1);
-$d1 = random(1,4,1);
 
-TEXT(EV2(<<EOT));
-Evaluate the definite integral
-\[ \int_{ $d1 } ^ { $c1 } \frac {$a1 x^2 + $b1 } { \sqrt x } dx \]
-\{ans_rule(40) \}
-EOT
-$p1 = (2*$a1*$c1**2.5/5 + 2*$b1*$c1**.5);
-$p2 =  (2*$a1*$d1**2.5/5 + 2*$b1*$d1**.5 );
-$ans = $p1 - $p2;
+
+$right = random(5,9,1);
+$left = random(1,4,1);
+
+
+$f = Formula(" ($a1 x^2 + $b1) / (sqrt (x) )");
+$F = Formula("2/5 * $a1 x^(5/2) + 2* $b1 * x^(1/2)");
+$F_general = FormulaUpToConstant($F);
+
+$F_left = $F->eval(x=>$left);
+$F_right = $F->eval(x=>$right);
+
+$ans = $F_right - $F_left;
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on using the fundamental theorem of Calculus with a rational power function, and vertical bar notation.
+[@ closeDiv() @]*
+
+
+One of my favorite ways to write the FTOC1 is with "vertical bar notation", which compresses the subtraction into one step.  The "vertical bar" is shorthand for "evaluate and subtract":
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+[```
+F(b) - F(a) = F(x)\Big|_a^b
+```]
+[@ closeDiv() @]*
+
+I also really like making the action a bit more explicit by noting the variable of evaluation, and the FTOC1 looks like this:
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*FTOC1 with explicit vertical bar notation*
+
+[```
+\int_a^b f(x)\, dx = F(x)\Big|_{x=a}^{x=b}
+```]
+[@ closeDiv() @]*
+
+Using explicit vertical bar notation helps remind me of what [`a`] and [`b`] __do__ once I have the antiderivative [`F`].  Evaluate!
+
+---
+
+This problem uses an integrand of a flavor not directly integratrate-able without a bit of work.  This problem teaches:
+
+[@ openDiv({ "class" => "inProblemHint" }) @]*
+Simplify the integrand before integrating.  In this problem, you can use the power rule term-by-term after simplification.  
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Compute the integral using FTOC1.
+
+[``  \int_{ [$left] } ^ { [$right] } [$f] dx ``]
+[@ closeDiv() @]*
+
+
+END_PGML
+
+BEGIN_TEXT
+
+
+$BR$PAR
+
+
+
+The general antiderivative is: (include the \(+C\))$BR
+\( F_\textnormal{general} = \) \{ans_rule(40) \} 
+
+$PAR
+
+Using the FTOC, we find$BR
+\( \displaystyle \int_{ $left } ^ { $right } $f dx =  F_\textnormal{general} \Big|_{x=$left}^{x=$right} = \) \{ans_rule(40) \}
+
+END_TEXT
+
+ANS($F_general->cmp);
 ANS(num_cmp($ans));
 
-$showHint=-1;
-BEGIN_HINT
-We'll do algebra on the integrand so that we can use the power rule on it.
-$BR$BR
-Rewrite the division by square root as multiplication by a negative power.  Then distribute.
-END_HINT
-&SOLUTION(EV3(<<'EOT'));
-To evaluate the definite integral, we need to determine the 
-antiderivative of the formula to be integrated.  This can be
-done term-by-term by rewriting the integral as:
-\[
-  \int_{$d1}^{$c1} \frac{{$a1}x^2 + $b1}{\sqrt{x}} dx = 
-    \int_{$d1}^{$c1} \left( \frac{{$a1}x^2}{\sqrt{x}} + \frac{$b1}{\sqrt{x}}  \right) dx
-\]
-  
-\]
-Then, we can find the derivative, which is:
-\[
-  F(x) =  \frac{2}{5}\left(\frac{{$a1}x^3}{\sqrt{x}}\right)
-        - 2($b1)\sqrt{x}
-\]
-Now, applying the second part of the Fundamental Theorem of Calculus,
-we get the value of the definite integral as:
-\[
-  \begin{aligned}
-    F($c1) - F($d1) &=
-      \frac{2}{5}\left(\frac{{$a1}($c1)^3}{\sqrt{$c1}}\right)
-        + 2($b1)\sqrt{$c1}
-      -\frac{2}{5}\left(\frac{{$a1}($c1)^3}{\sqrt{$c1}}\right)
-        - 2($b1)\sqrt{$d1} \\ \\
-     &= !{$p1:%5.4f} - !{$p2:%5.4f} \\ \\
-     &= !{$ans:%5.4f} 
-  \end{aligned}
-\]
-
-EOT
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

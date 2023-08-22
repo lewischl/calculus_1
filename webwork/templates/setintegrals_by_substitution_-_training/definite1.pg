@@ -48,6 +48,28 @@ TEXT(&beginproblem);
 $showPartialCorrectAnswers = 1;
 $a=1/2;
 
+
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on 
+* definite integration by substitution
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Using the method of integration by substitution,
+
+[`` \int_{x=a}^{x=b} u'(x) \cdot f(u(x)) \, dx = \int_{u=u(a)}^{u=u(b)} f(u) \, du  ``]
+
+"The bounds of integration also go through the substitution"
+[@ closeDiv() @]*
+
+---
+
+END_PGML
+
 BEGIN_TEXT
 
 $PAR

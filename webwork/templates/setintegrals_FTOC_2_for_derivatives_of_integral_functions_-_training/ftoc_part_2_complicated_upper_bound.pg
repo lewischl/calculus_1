@@ -77,27 +77,118 @@ loadMacros(
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
-my ($a, $b, $answer);
+
+
+
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Training on 
+* Integral functions with arbitrary functions in the bounds
+[@ closeDiv() @]*
+
+A general integral function looks like:
+
+[```
+F(x) = \int_{a(x)}^{b(x)} f(t)\, dt
+```]
+
+We want to take the derivative of [`F`], no matter how complicated the bound functions [`a`] and [`b`].  (I'm just sure you do, you're an unstoppable derivative-taking machine ⚙️)  The ⛓️ chain rule is the main tool we use to get there.  
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*The formula for the derivative of a general integral function*
+
+The general integral function
+[```
+F(x) = \int_{a(x)}^{b(x)} f(t)\, dt
+```]
+
+has derivative
+
+[```
+\frac{d}{dx}F(x) = b'(x) f(b) - a'(x) f(a)
+```]
+[@ closeDiv() @]*
+
+For example,
+
+[```
+\frac{d}{dx} \int_{3}^{x^2+1} (\sin(2t+5))\, dt
+```]
+
+has bound functions:
+* [`b(x) = x^2+1`]
+* [`a(x) = 3`]
+
+
+so we find the derivative via this chain of computation:
+[```
+\begin{aligned}
+\frac{d}{dx} \int_{3}^{x^2+1} (\sin(2t+5))\, dt &= (x^2+1)' \sin(2(x^2+1)+5) - (3)' \sin(2\cdot 3 + 5) \\
+&= (2x) \sin(2(x^2+1)+5) - 0 \sin(2\cdot 3 + 5) \\
+&= 2x \sin(2x^2+7)
+\end{aligned}
+```]
+
+
+
+---
+
+END_PGML
+
+
+
+BEGIN_TEXT
+Use Part II of the Fundamental Theorem of Calculus to
+find the derivatives.
+END_TEXT
+
+
+
 $a= random(1, 5, 1);
 $b= random(2, 5, 1);
+Context()->texStrings;
+BEGIN_TEXT
+$BR$PAR
+\( \displaystyle F(x) = \int_{$a}^{x^2+1} (\sqrt{t}) \, dt \) $PAR
+\(F'(x) = \)\{ans_rule(30)\} 
+END_TEXT
+Context()->normalStrings;
+ANS(Formula("2x sqrt(x^2+1)")->cmp);
 
-TEXT(EV2(<<EOT));
-Use Part II of the Fundamental Theorem of Calculus to
-find the derivative of
 
+$a= random(-5, 5, 1);
+$b= random(2, 5, 1);
+Context()->texStrings;
+BEGIN_TEXT
+$BR$PAR
+\( \displaystyle G(x) = \int_{$a}^{\tan(x)} (t^2) \, dt \) $PAR
+\(G'(x) = \)\{ans_rule(30)\} 
+END_TEXT
+Context()->normalStrings;
+
+ANS(Formula("sec^2(x)*(tan^2(x))")->cmp);
+
+
+
+
+
+$a= random(1, 5, 1);
+$b= random(2, 5, 1);
+Context()->texStrings;
+BEGIN_TEXT
+$BR$PAR
+Be sure to compose the bounds into both summands, and subtract the part for the lower bound
 $PAR
+\( \displaystyle F(x) = \int_{\sin(x)}^{x^2} (t^2+t) \, dt \) $PAR
+\(F'(x) = \)\{ans_rule(30)\} 
+END_TEXT
+Context()->normalStrings;
+ANS(Formula("2x (x^4+x^2) - cos(x) (sin^2(x) + sin(x))")->cmp);
 
-\( \displaystyle h(x) = \int_{-$a}^{\sin(x)} (\cos(t^$b)+t) dt \)
-
-$PAR
-
-\(h'(x) = \)\{ANS_RULE(1, 35)\} 
-
-EOT
-
-$answer="cos(x)*(cos((sin(x))^$b)+sin(x))" ;
-
-ANS(fun_cmp($answer));
 
 
 

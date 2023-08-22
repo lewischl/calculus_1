@@ -54,12 +54,44 @@ $showPartialCorrectAnswers = 1;
 
 $a = random(2,15,1);
 
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem gives some students a bit of trouble because of the fraction on top after differentiating, so here's a bit of training on it
+
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+*Steps for L'Hopital's rule*
+
+1. Try plugging in [`x=a`].  
+2. If get [`0/0`] or [`\infty/\infty`], keep going.  Otherwise, reformulate or do something else.
+3. Try computing [``\lim_{x \to a} \frac{f'}{g'}``], comparing the rate at which [`f`] and [`g`] go to their limits.
+4. If you get a determinate value ([`0`], another number, [`\infty`], or DNE you're done.
+5. If you get [`0/0`] or [`\infty/\infty`] again, goto 3 and try with the next order of derivative.
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*Simplification rule*
+
+[```
+\frac{\frac{a}{b}}{c} = \frac{a}{b} \cdot \frac{1}{c} = \frac{a}{b\cdot c}
+```]
+
+[@ closeDiv() @]*
+
+---
+END_PGML
 BEGIN_TEXT
 $BR
-Evaluate the limit using L'Hospital's rule if necessary
-\[ \lim_{ x \rightarrow +\infty } \frac{$a \ln x}{x} \]
-$BR Answer: \{ans_rule(15) \}
-$BR
+Evaluate the limit using L'Hospital's rule if necessary $PAR
+
+\( \displaystyle \lim_{ x \rightarrow +\infty } \frac{$a \ln x}{x} =  \) \{ans_rule(15) \}
+
+
 END_TEXT
 
 ANS(num_cmp(0));

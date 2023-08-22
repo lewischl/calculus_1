@@ -1,0 +1,274 @@
+##DESCRIPTION
+##  Evaluate an integral by interpreting it in terms of areas
+##ENDDESCRIPTION
+
+## Shotwell cleaned
+## lcao , PAID on 11-24-2003
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Integrals)
+## DBsection(Conceptual understanding of integration)
+## Date(6/3/2002)
+## MLT(integral_concept_areainterp)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('5.2')
+## Problem1('31')
+## KEYWORDS('integrals', 'theory')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/ma122DB/set11/s5_2_31.pg 
+#	to setintegrals_definite_by_geometry/s5_2_31.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+
+
+########################################
+# this file automatically moved
+#	from setintegrals_definite_by_geometry/s5_2_31.pg 
+#	to setintegrals_definite_by_geometry_-_training/s5_2_31.pg 
+#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGcourse.pl"
+);
+
+COMMENT("this problem modifies an existing desmos graph via URL");
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a= random(1, 3, 1); # left bound
+$b= $a + random(2, 5, 1);# right bound
+
+# random constant function
+$c = random(3.5,7.5,1);
+$f = Formula("$c")->reduce; # a constant function
+$F = Formula("$c x");
+
+$width = $b - $a;
+$height = $f->eval(x=>$a);
+$area = $width*$height;
+
+$integral = $F->eval(x=>$b) - $F->eval(x=>$a);
+
+$unique_div_id = "desmos_graph";
+HEADER_TEXT(MODES(
+    HTML=>'<script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3plus/1.7.3/d3plus.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>',
+    
+    TeX=>''
+));
+$desmos_width= 300;
+$desmos_height=200;
+$desmos_div = MODES(
+    HTML=>qq(<div id="$unique_div_id" style="width: ${desmos_width}px; height: ${desmos_height}px;"></div>), 
+    TeX=>'Interactive graph best viewed online'
+);
+
+
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem offers training on finding definite integrals (signed areas) for constant functions using geometry.
+[@ closeDiv() @]*
+
+The "definite integral" is the formal name we give to the "area" between
+* a curve
+* the [`x`]-axis
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+
+To find the value of a definite integral using geometry
+
+1. Draw a picture, 
+    * horizontal bounds are the numbers with the [`\int`] sign, left on bottom, right on top
+    * vertical bounds is the function.  
+2. Shade the area *between* the function and the [`x`]-axis
+3. Identify geometric shapes useful to compute the area
+4. Compute the area
+
+[@ closeDiv() @]*
+
+---
+
+The problem prompt:
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Evaluate the integral by interpreting it in terms of areas.
+
+[``` \int_{[$a]}^{[$b]} ([$f]) \, dx ```]
+[@ closeDiv() @]*
+
+Definite integrals from constant functions correspond to rectangles.
+
+Check out the Desmos graph below, and see the shaded area.  That's the definite integral we'd like to compute:
+
+[@ $desmos_div @]*
+
+To compute [` \int_{[$a]}^{[$b]} ([$f]) \, dx `], we just need to compute the area of the rectangle.
+
+🎯 Compute the dimensions and __signed__ area:
+
+* [`\textnormal{width} = `] [_]{$width} 
+* [`\textnormal{height} = `] [_]{$height} 
+* [`\textnormal{area} = `] [_]{$area} 
+
+We're ready to 🎯 answer the question: 
+
+[`` \int_{[$a]}^{[$b]} ([$f]) \, dx = ``] [_]{$area}
+
+END_PGML
+
+
+
+
+
+
+
+# random constant function
+$c2 = random(-8.25,3.25,1);
+$f2 = Formula("$c2")->reduce; # a constant function, negative
+$a2= random(1, 3, 1); # left bound
+$b2= $a2 + random(2, 5, 1);# right bound
+
+$w2 = $b2-$a2;
+$h2 = $c2;
+$area2 = $w2*$h2;
+
+BEGIN_PGML
+---
+
+What if the constant function is *below* the [`x`]-axis?  
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Definite integrals are *net* area.  
+* Area below the horizontal axis counts as negative
+* Area above counts as positive
+[@ closeDiv() @]*
+
+
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Evaluate the integral by interpreting it in terms of areas.
+
+[``` \int_{[$a2]}^{[$b2]} ([$f2]) \, dx ```]
+[@ closeDiv() @]*
+
+
+
+🎯 Do the same process for the *negative* constant function, with different bounds of integration.  
+
+* [`\textnormal{width} = `] [_]{$w2} 
+* [`\textnormal{height} = `] [_]{$h2} 
+* [`\textnormal{area} = `] [_]{$area2} 
+
+Thus, 
+
+
+[`` \int_{[$a2]}^{[$b2]} ([$f2]) \, dx = ``] [_]{$area2}
+
+---
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+Definite integrals are *net* area, because they correspond to *net* change.
+[@ closeDiv() @]*
+
+END_PGML
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Context()->normalStrings;
+
+
+$left = min($a  - 2, -2);
+$right = max($b + 2, 2);
+$bottom = min($f->eval(x=>$left) - 1, -4);
+$top = max($f->eval(x=>$right) + 1, 4);
+
+
+$d = '$'; # make a single dollar sign.  yes, this is stupid, but necessary cuz i couldn't figure out how to just put a dollar sign in the script code below.
+
+$graphUrl = "https://www.desmos.com/calculator/dd1hybgewx"; # the URL of the graph to embed.
+
+# for an explantion of what << does, see https://stackoverflow.com/questions/11948338/what-is-print-eof-and-how-is-it-working
+TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );  
+<script>
+<!-- //
+    
+    var elt = document.getElementById("$unique_div_id");
+
+    var calc = Desmos.Calculator(elt, {
+        keypad: false, 
+        expressions: false,
+        settingsMenu: false, 
+        expressionsTopbar: false
+    });
+    
+    
+    function modifyExistingState(json)
+    {
+    var state = json.state;
+     state.expressions.list[1].latex = "f(x) = $f";
+     state.expressions.list[1].color = Desmos.Colors.BLUE;
+     state.expressions.list[2].latex = "a = $a";
+     state.expressions.list[3].latex = "b = $b";
+     calc.setState(state);
+     
+    calc.setMathBounds({
+      left: $left,
+      right: $right,
+      bottom: $bottom,
+      top: $top
+    });
+    
+    }
+
+    $d.getJSON("$graphUrl", modifyExistingState);
+
+
+// -->
+</script>
+END_SCRIPT
+
+
+
+
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.
+

@@ -8,7 +8,7 @@
 ## DBchapter('Integrals')
 ## DBsection('Indefininte Integral')
 ## Date('11/22/22')
-## Author('Erich Jauch')
+## Author('Erich Jauch, silviana amethyst')
 ## Institution('UWEC')
 
 ########################################################################
@@ -46,8 +46,9 @@ loadMacros(
    "contextFraction.pl",
    #"source.pl",        # allows code to be displayed on certain sites.
    "PGcourse.pl",      # Customization file for the course
+   
 );
-
+loadMacros("parserFormulaUpToConstant.pl");
 # Print problem number and point value (weight) for the problem
 TEXT(beginproblem());
 
@@ -58,10 +59,11 @@ $showPartialCorrectAnswers = 1;
 #
 #  Setup
 #
-#
-Context("Numeric");
+
 
 ### Exponents
+
+Context("Fraction-NoDecimals");
 
 @p = ();
 $p[0] = random(5,9,1);
@@ -76,7 +78,6 @@ $a[1] = non_zero_random(-5,7,1);
 $a[2] = non_zero_random(-5,7,1);
 
 ### antiderivative coefficients
-Context("Fraction");
 @b = ();
 $b[0] = Compute("$a[0]/($p[0]-$p[3]+1)");
 $b[2] = Compute("2*$a[2]/($p[2]-2*$p[3]+2)");
@@ -84,11 +85,11 @@ $b[2] = Compute("2*$a[2]/($p[2]-2*$p[3]+2)");
 ### Check if you have a natural log for one term
 if ($p[1]==$p[3]-1) {
 $b[1] = $a[1];
-$ans = Formula("$b[0]*x^($p[0]-$p[3]+1)+$b[1]*ln(|x|)+$b[2]*x^(($p[2]/2-$p[3]+1) )")->reduce;
+$ans = FormulaUpToConstant("$b[0]*x^($p[0]-$p[3]+1)+$b[1]*ln(|x|)+$b[2]*x^(($p[2]/2-$p[3]+1) )")->reduce;
 }
 else {
 $b[1] = Compute("$a[1]/($p[1]-$p[3]+1)");;
-$ans = Formula("$b[0]*x^($p[0]-$p[3]+1)+$b[1]*x^($p[1]-$p[3]+1)+$b[2]*x^(($p[2]/2-$p[3]+1) )")->reduce;
+$ans = FormulaUpToConstant("$b[0]*x^($p[0]-$p[3]+1)+$b[1]*x^($p[1]-$p[3]+1)+$b[2]*x^(($p[2]/2-$p[3]+1) )")->reduce;
 }
 
 $num = Formula("$a[0]*x^$p[0]+$a[1]*x^($p[1])+$a[2]*sqrt(x^$p[2])")->reduce;
@@ -100,16 +101,38 @@ $den = Formula("x^$p[3]")->reduce;
 #
 #
 
+
+Context()->texStrings;
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem offers tactics for when a function looks complicated and we're trying to integrate.
+[@ closeDiv() @]*
+
+Some functions don't look like power functions, but they totally are.  
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+*Tactics*
+
+* Rewrite powers from denominators using negative powers in the numerator
+* Rewrite roots to use explicit fractional powers
+* Distribute terms across quantities
+[@ closeDiv() @]*
+
+---
+
+
+END_PGML
+
+
 BEGIN_PGML
 
 Evaluate the following indefinite integral:
 
-[``\int\frac{[$num]}{[$den]}~dx=``] [_____]{$ans} [`+C`]
+[``\int\frac{[$num]}{[$den]}~dx=``] [_____]{$ans} 
 END_PGML
 
-BEGIN_PGML_HINT
-Recall that if you have a fraction [``\frac{x^a+x^b}{x^c}``], you can rewrite it
-as [``\frac{x^a}{x^c}+\frac{x^b}{x^c}``] which might be more useful.
-END_PGML_HINT
+
 
 ENDDOCUMENT();
