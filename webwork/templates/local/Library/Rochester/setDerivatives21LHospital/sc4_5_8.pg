@@ -1,0 +1,34 @@
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl",
+  "MathObjects.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$a = random(2,15,1);
+$b= random(2, 15,1);
+if ($b==$a) {
+   $b=$b+1;
+}
+
+TEXT(EV2(<<EOT));
+$BR
+Compute the following limit, using l'Hopital's rule if appropriate.
+$BR
+\(\displaystyle \lim_{ x \to 0 } \frac{$a^{x}-$b^{x}}{x} = \)
+\{ans_rule(25) \}$BR
+${BITALIC}(Give an exact answer.)$EITALIC
+EOT
+
+ANS(Compute("ln($a/$b)")->cmp);
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.
+

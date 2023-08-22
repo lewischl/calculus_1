@@ -1,0 +1,34 @@
+DOCUMENT();  
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+$showPartialCorrectAnswers = 1;
+
+$a = random(2,8,1);
+
+$f = Formula("e^($a x)-x^2*arctan($a x)");
+
+$ans=Formula("$a*e^($a x)-2x*arctan($a x)-$a*x^2/(1+($a*x)^2)");
+
+Context()->texStrings;
+BEGIN_TEXT
+Find the derivative of the function \( \displaystyle f(x)= $f\).
+
+$BR$BR
+
+\( f'(x)= \) \{ ans_rule(50) \} $BR
+$BITALIC(Give an exact answer.)$EITALIC
+END_TEXT
+Context()->normalStrings;
+
+ANS($ans->cmp() );
+
+ENDDOCUMENT();

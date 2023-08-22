@@ -1,0 +1,35 @@
+DOCUMENT();  
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$showPartialCorrectAnswers = 1;
+
+$a=non_zero_random(2,10,1);
+$a1 = $a-1;
+
+$f = Compute("($a)^x+x^($a)+$a*e^x")->reduce;
+$ans = Compute("ln($a)*($a)^x+$a*x^($a1)+$a*e^x");
+
+Context()->texStrings;
+BEGIN_TEXT
+Find the derivative of the function \( \displaystyle f(x)= $f\).
+
+$BR$BR
+
+\( f'(x)= \) \{ ans_rule() \}$BR
+$BITALIC (Give an exact answer.)$EITALIC
+END_TEXT
+Context()->normalStrings;
+
+ANS($ans->cmp);
+
+ENDDOCUMENT();

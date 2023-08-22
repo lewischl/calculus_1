@@ -1,0 +1,57 @@
+DOCUMENT();
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGanswermacros.pl",
+"PGauxiliaryFunctions.pl",
+"MathObjects.pl",
+"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+###################################
+# Setup
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$a = random(1,8,1);
+$b = random(2,9,1);
+$a2 = $a**2;
+
+BEGIN_TEXT
+Evaluate the limit
+\[\displaystyle \lim_{x \to 0} \frac{x}{\sqrt{$a2+$b x}-$a}.\]
+$PAR
+Limit =  \{ans_rule(25) \}$BR
+${BITALIC}(Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE${EBOLD}.)${EITALIC}
+$BR$BR
+\{ theresahint \}
+END_TEXT
+
+BEGIN_HINT
+Here's a video from Prof. Amethyst on the topic of "multiply by the conjugate":
+
+$BR$BR
+
+\{ youtube(FLN8c8X6i7Y) \}
+END_HINT
+
+$twoa = 2*$a;
+$g = gcd($twoa,$b);
+$num = $twoa/$g;
+$denom = $b/$g;
+if($denom==1)
+{
+$ans = Compute($num);
+}
+else
+{
+$ans = Compute("$num/$denom");
+}
+
+ANS($ans->cmp());
+
+ENDDOCUMENT();

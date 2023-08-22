@@ -1,0 +1,64 @@
+assignmentType      = default
+openDate          = 04/11/2022 at 12:08am CDT
+reducedScoringDate = 05/03/2022 at 09:59pm CDT
+dueDate           = 05/13/2022 at 09:52pm CDT
+answerDate        = 05/13/2022 at 10:00pm CDT
+enableReducedScoring = Y
+paperHeaderFile   = defaultHeader
+screenHeaderFile  = defaultHeader
+description       = 
+restrictProbProgression = 0
+emailInstructor   = 0
+
+problemListV2 
+problem_start
+problem_id = 1
+source_file = myproblems/5.4_5.5_FTC/integrate_linear.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 2
+source_file = myproblems/5.4_5.5_FTC/def_integral_exp_and_sine.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 3
+source_file = myproblems/5.4_5.5_FTC/integrate_with_sqrt_in_denom.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 4
+source_file = myproblems/5.4_5.5_FTC/integrate_sqrt_over_poly.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 5
+source_file = myproblems/5.4_5.5_FTC/integrate_infinite_discontinuity.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+

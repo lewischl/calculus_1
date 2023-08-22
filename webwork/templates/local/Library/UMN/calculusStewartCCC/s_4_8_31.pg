@@ -1,0 +1,45 @@
+#################################################################
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "parserFormulaUpToConstant.pl",
+  "PGcourse.pl"
+);
+
+#####################################################################
+
+$showPartialCorrectAnswers = 1;
+
+TEXT(beginproblem());
+
+#####################################################################
+
+Context("Numeric");
+
+$a = random(2,10,1);
+$b = random(2,10,1);
+
+$c = Compute("$a+1");
+$d = Compute("$b+1");
+
+$ans = Compute("-sin(x)-cos(x)+$c*x+$d");
+
+#####################################################################
+
+Context()->texStrings;
+BEGIN_TEXT
+Find \(f(x)\) if \(\displaystyle f''(x) = \sin(x) + \cos(x),\) \(f'(0)=$a,\) and \(f(0)=$b.\)
+
+$PAR
+\(f(x) =\) \{ans_rule(40) \}
+END_TEXT
+Context()->normalStrings;
+
+#####################################################################
+
+ANS( $ans->cmp() );
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

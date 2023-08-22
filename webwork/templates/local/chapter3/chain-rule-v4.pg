@@ -1,0 +1,41 @@
+DOCUMENT();  
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+$showPartialCorrectAnswers = 1;
+
+
+$a=random(2,5,1);
+$b=random(2,6,1);
+$c=random(2,7,1);
+
+$aminus1 = $a-1;
+$bminus1 = $b-1;
+$cminus1 = $c-1;
+$ab = $a*$b;
+
+$ans = Compute("[{sin^($a)(x^($b))+x*($a*sin^($aminus1)(x^($b)))*(cos(x^($b)))*($b*x^($bminus1))}*sqrt(1+x^($c))-{(1/2*(1+x^($c))^(-1/2)*($c*x^($cminus1)))}*x*sin^($a)(x^($b))]/(1+x^($c))");
+
+#$ans = Formula("-[$c*x^($c)*sin^($b)(x^($a))]/[2*(1+x^($c))^(3/2)]+[sin^($b)(x^($a))]/sqrt(x^($c)+1)+[$ab*x^($a)*cos(x^($a))*sin^($bminus1)(x^($a))]/sqrt(x^($c)+1)")->reduce;
+
+
+Context()->texStrings;
+BEGIN_TEXT
+Find the derivative of the function \( \displaystyle f(x)= \frac { x\sin^{$a}(x^{$b}) }{ \sqrt{1+x^{$c}} }\).
+
+$BR$BR
+
+\( f'(x)= \) \{ ans_rule(50) \} 
+END_TEXT
+Context()->normalStrings;
+
+ANS($ans->cmp);
+
+ENDDOCUMENT();

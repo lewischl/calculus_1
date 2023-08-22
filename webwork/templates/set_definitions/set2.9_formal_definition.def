@@ -1,0 +1,64 @@
+assignmentType      = default
+openDate          = 01/31/2022 at 12:13am CST
+reducedScoringDate = 02/21/2022 at 09:59pm CST
+dueDate           = 05/13/2022 at 09:19pm CDT
+answerDate        = 05/13/2022 at 10:00pm CDT
+enableReducedScoring = Y
+paperHeaderFile   = defaultHeader
+screenHeaderFile  = defaultHeader
+description       = 
+restrictProbProgression = 0
+emailInstructor   = 0
+
+problemListV2 
+problem_start
+problem_id = 1
+source_file = local/Library/Berkeley/StewCalcET7e/2.4/2-4-03.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 2
+source_file = math114/stewart-7E-Ch2-Sec4-epsilon-delta-to-limit.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 3
+source_file = Library/Berkeley/StewCalcET7e/2.4/2-4-03.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 4
+source_file = math114/stewart-7E-Ch2-Sec4-limit-to-epsilon-delta.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 5
+source_file = math114/stewart-7E-Ch2-Sec4-Prob13.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+

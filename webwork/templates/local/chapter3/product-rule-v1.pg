@@ -1,0 +1,45 @@
+DOCUMENT();  
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+$showPartialCorrectAnswers = 1;
+
+Context()->variables->set(x=>{limits=>[0.01,6]});
+
+$a = random(2,15,1);
+$halfa = $a;
+
+$f = Compute("$a*e^x*sqrt(x)");
+$ans = Compute("$a/(2sqrt(x))*e^x+$a*e^x*sqrt(x)")->reduce;
+$noprodrule=Compute("$a/(2sqrt(x))*e^x")->reduce;
+
+Context()->texStrings;
+BEGIN_TEXT
+Find the derivative of the function \( \displaystyle f(x)= $f\).
+
+$BR$BR
+
+\( f'(x)= \) \{ ans_rule() \}$BR
+$BITALIC (Give an exact answer.)$EITALIC
+END_TEXT
+
+
+
+Context()->normalStrings;
+
+
+
+ANS($ans->cmp->withPostFilter(AnswerHints(
+  &$HintNoPreview($noprodrule)=>["I can tell that you didn't use the product rule, but this function is a product.  Remember, the derivative of the product is NOT the product of the derivatives!",replaceMessage=>1])));
+
+
+ENDDOCUMENT();

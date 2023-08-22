@@ -1,0 +1,39 @@
+## DBsubject(Calculus - single variable)
+## DBchapter(Techniques of integration)
+## DBsection(Substitution (with trigonometric functions))
+## Institution(UCSB)
+## MLT(trigpower)
+## MLTleader(1)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('5.5')
+## Problem1('59')
+## KEYWORDS('integration', 'substitution')
+
+DOCUMENT();
+
+loadMacros(
+"PGcourse.pl",
+);
+
+Context("Numeric");
+
+TEXT(&beginproblem);
+$showPartialCorrectAnswers = 1;
+$a=-(2*log(2))/3;
+
+BEGIN_TEXT
+
+$PAR
+Evaluate the integral:
+
+$PAR
+\(\displaystyle \int_{12}^{2} \frac{dx}{3x+4} =\) \{ ans_rule(10) \}
+
+END_TEXT
+
+ANS(Compute("$a")->cmp);
+
+ENDDOCUMENT();

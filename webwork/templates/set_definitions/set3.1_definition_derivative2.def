@@ -1,0 +1,54 @@
+assignmentType      = default
+openDate          = 01/31/2022 at 12:15am CST
+reducedScoringDate = 02/21/2022 at 09:59pm CST
+dueDate           = 05/13/2022 at 09:21pm CDT
+answerDate        = 05/13/2022 at 10:00pm CDT
+enableReducedScoring = Y
+paperHeaderFile   = defaultHeader
+screenHeaderFile  = defaultHeader
+description       = 
+restrictProbProgression = 0
+emailInstructor   = 0
+
+problemListV2 
+problem_start
+problem_id = 1
+source_file = local/Library/ma122DB/set3/s2_8_7.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 2
+source_file = Library/ma122DB/set3/s2_8_9.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 3
+source_file = local/Library/ma122DB/set2/s2_7_7.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 4
+source_file = Library/ASU-topics/setDerivativeFunction/s2_1_19.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+

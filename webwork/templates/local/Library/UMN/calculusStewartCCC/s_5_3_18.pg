@@ -1,0 +1,42 @@
+#####################################################################
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+#####################################################################
+
+$showPartialCorrectAnswers = 1;
+
+TEXT(beginproblem());
+
+#####################################################################
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$a = random(1,5,1);
+$b = random(2,4,1);
+$c = random(5,8,1);
+
+$an = Compute("$b*e^($a)+$c*sin($a)-$b");
+
+
+#####################################################################
+
+Context()->texStrings;
+BEGIN_TEXT
+Evaluate the integral:$BR
+\(\displaystyle \int_{0}^{$a} \!\left( $b e^x+$c\cos(x)\right)  \, dx=\) \{ans_rule(20) \}$BR
+${BITALIC}(Give an exact answer.)$EITALIC
+END_TEXT
+Context()->normalStrings;
+
+#####################################################################
+
+ANS( $an->cmp() );
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

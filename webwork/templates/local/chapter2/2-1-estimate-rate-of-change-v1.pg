@@ -1,0 +1,42 @@
+DOCUMENT();
+loadMacros("uwecAhrendt.pl",
+           );
+
+$showPartialCorrectAnswers = 0;
+
+
+TEXT(beginproblem());
+Context("Numeric");
+
+
+$check_up=1;
+
+$sampleUniform1=random(1,10,1);
+
+$a=3+abs(5*$check_up*$sampleUniform1);
+$t=1+abs(5*$check_up*$sampleUniform1);
+
+$answ=Real("$a/(2*sqrt($a*$t+1))");
+$f=sqrt($a*$t+1);
+
+
+
+BEGIN_TEXT
+Estimate the slope of the tangent line of the function \(y(t)=\sqrt{$a t+1}  \) at the point \(t=$t\).
+
+$PAR
+The slope of the tangent line at \( t=$t\) is approximately \{ ans_rule(10) \}.$BR
+${BITALIC}(Give your answer correct to at least three or four decimal places.)$EITALIC
+
+
+END_TEXT
+
+ANS( $answ->cmp(
+  tolType => 'absolute',
+  tolerance => .001,
+));
+
+
+
+
+ENDDOCUMENT();

@@ -1,0 +1,33 @@
+DOCUMENT();  
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+$showPartialCorrectAnswers = 1;
+
+$a = random(2,5);
+$am = $a-1;
+
+$ans = Formula("$a*x^($am)*ln(x) + x^($am)")->reduce;  
+
+
+Context()->texStrings;
+BEGIN_TEXT
+Find the derivative of the function \( \displaystyle f(x)= x^$a \ln(x)\).
+
+$PAR
+\( f'(x)= \) \{ ans_rule(50) \}$BR
+$BITALIC(Give an exact answer.)$EITALIC
+END_TEXT
+Context()->normalStrings;
+
+ANS($ans->cmp(limits => [0.5,6]) );
+
+ENDDOCUMENT();

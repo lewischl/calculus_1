@@ -1,0 +1,35 @@
+DOCUMENT();  
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+$showPartialCorrectAnswers = 1;
+
+$a = random(2,5,1);
+$b = random(2,6,1);
+
+$aminus1 = $a-1;
+
+$ans = Compute("$a((x^2+$b)/(x^2-$b))^($aminus1)*(-4x*$b)/(x^2-$b)^2");
+
+
+Context()->texStrings;
+BEGIN_TEXT
+Find the derivative of the function \( \displaystyle f(x)=  \left(\frac{x^2+$b}{x^2-$b}\right)^{$a}\).
+
+$PAR
+\( f'(x)= \) \{ ans_rule(50) \}$BR
+$BITALIC(Give an exact answer.)$EITALIC
+END_TEXT
+Context()->normalStrings;
+
+ANS($ans->cmp);
+
+ENDDOCUMENT();

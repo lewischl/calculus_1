@@ -1,0 +1,37 @@
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+Context("Numeric");
+
+$showPartialCorrectAnswers = 1;
+
+$a = random(7,9,2);
+$b = random(2,6,2);
+$c = random(3,5,2);
+
+$ab2 = 2*$a*$b;
+$ac = $a*$c;
+
+$deriv1f="(($ab2)* x -$ac*x^2)/(($b-$c*x)^2)";
+
+$num2 = 2*$a*$b**2;
+$deriv2f="($num2)/($b-$c x)^3";
+
+
+BEGIN_TEXT
+Let \( f(x) = \dfrac{$a x^2}{$b-$c x}\), and compute the following derivatives:
+$PAR
+\( f'(x) \) = \{ans_rule(50) \}$BR
+\( f''( x ) \) = \{ans_rule(50) \}
+END_TEXT
+
+ANS(Compute($deriv1f)->cmp);
+ANS(Compute($deriv2f)->cmp);
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

@@ -1,0 +1,1 @@
+<!-- [coursesDirectory]/courseName/templates/course_info.txt -->

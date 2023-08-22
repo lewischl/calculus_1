@@ -1,0 +1,31 @@
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGauxiliaryFunctions.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$a1= random(1, 6, 1);
+$b1= random(2, 5, 1);
+
+TEXT(EV2(<<EOT));
+Compute the derivative of
+\(\displaystyle f(x) = \int_{x}^{$a1} \sin(t^{$b1}) dt. \)
+
+$BR
+$BR
+\(f'(x) =  \) \{ans_rule( 30)\}
+EOT
+
+$answer="-sin(x^$b1)" ;
+
+ANS(fun_cmp($answer));
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.
+
