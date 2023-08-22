@@ -40,43 +40,30 @@ loadMacros(
   "PGcourse.pl"
 );
 
-COMMENT("todo: change to not use $a, it's silly");
+
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 Context('Numeric');
-Context()->variables->are('a'=>"Real");
 
 $a = random(2,7,1);
 $b = random(2,8,1);
 $c = random(2,7,1);
 
-$funct = Formula("-$a*$b/($b*a +$c)^2");
+$funct = Formula("-$a*$b/($b*x +$c)^2");
 
 BEGIN_TEXT
-Let \( f(x) =  \dfrac { $a } { $b x + $c } \). Compute \( f'( a ) \), where \(a\) is just some number.  
-$BR$BR \( f'( a ) \) = \{ans_rule(30) \}
+Let \( f(x) =  \dfrac { $a } { $b x + $c } \). Compute \( f'( x ) \).  
+$PAR
 
-$BR$BR
-(your answer should be an expression involving the symbol \(a\), not a number).
+\( f'( x ) \) = \{ans_rule(30) \}
+
+
 
 END_TEXT
 
-#$ans = $funct;
-#ANS(fun_cmp($ans,vars=>['a']));
+
 ANS($funct->cmp);
 
-
-BEGIN_HINT
-First, I really like re-writing the difference quotient as \(\frac{1}{h}\left(f(x+h)-f(x) \right) \).  
-
-$BR$BR
- 
-Second, \(a\) is just a number.  Don't get hung up on "what it is".  Just leave it as \(a\), and do algebra with it. 
-
-\{amethystHint("$PAR$HR$PAR I think you'll totally appreciate this video from Prof. Amethyst:$PAR")\}
-\{ youtubeAmethyst(O4RRMLPWbaU) \}
-
-END_HINT
 
 
 

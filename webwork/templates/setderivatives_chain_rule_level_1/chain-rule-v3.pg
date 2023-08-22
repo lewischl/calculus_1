@@ -1,5 +1,3 @@
-
-
 ########################################
 # this file automatically moved
 #	from local/chapter3/chain-rule-v3.pg 
@@ -30,7 +28,7 @@ $b_numb = random(2,9,1);
 $b_sign = random(-1,1,2);
 $b      = $b_numb * $b_sign;
 
-$f = Formula("sqrt($a + $b *tan(x))");
+$f = Formula("sqrt($a + $b *tan(x))")->reduce;
 
 $ans = Formula("$b/2*(sec(x))^2/sqrt($a+$b*tan(x))");
 
@@ -39,8 +37,8 @@ BEGIN_TEXT
 Find the derivative of the function \( \displaystyle f(x)= $f\).
 
 $PAR
-\( f'(x)= \) \{ ans_rule(50) \}$BR
-$BITALIC(Give an exact answer.)$EITALIC
+\( f'(x)= \) \{ ans_rule(50) \}
+
 END_TEXT
 Context()->normalStrings;
 

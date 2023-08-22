@@ -161,4 +161,14 @@ prPeriod = -1
 counts_parent_grade = 0
 att_to_open_children = 0 
 problem_end
+problem_start
+problem_id = 16
+source_file = setderivatives_chain_rule_level_2/trig_w_product.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
 
