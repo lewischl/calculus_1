@@ -1,0 +1,48 @@
+
+
+########################################
+# this file automatically moved
+#	from local/chapter3/power-rule-v3.pg 
+#	to setgroup_derivatives_power_rule_-_no_hints/power-rule-v3.pg 
+#	on 2023-06-08 15:17:56.142406 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();  
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$showPartialCorrectAnswers = 1;
+$a=non_zero_random(2,6,1);
+$b=random(3,7,1);
+$bplus1 = $b+1;
+
+$ftex = "\sqrt[$bplus1]{x^{$b}}-$a\sqrt{x^3}";
+$aminus1 = $a-1;
+$a3 = 3*$a;
+$ans = Compute("$b/($bplus1)*x^(-1/($bplus1))-($a3)/2*sqrt(x)");
+
+Context()->texStrings;
+BEGIN_TEXT
+Find the derivative of the function \( \displaystyle f(x)= $ftex\).
+
+$PAR
+\( f'(x)= \) \{ ans_rule() \}$BR
+$BITALIC (Give an exact answer.)$EITALIC
+END_TEXT
+Context()->normalStrings;
+
+ANS($ans->cmp);
+
+ENDDOCUMENT();

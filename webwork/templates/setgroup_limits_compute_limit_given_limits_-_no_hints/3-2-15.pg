@@ -1,0 +1,100 @@
+## DESCRIPTION
+##   Evaluate a Limit
+## ENDDESCRIPTION
+
+## Tagged by nhamblet
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Rules of limits - basic)
+## Date(5/26/2005)
+## Institution(UVA)
+## Author(Jeff Holt)
+## Level(2)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5e')
+## Section1('2.3')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('2.3')
+## Problem2('')
+## TitleText3('Calculus: Early Transcendentals')
+## AuthorText3('Rogawski')
+## EditionText3('1')
+## Section3('2.3')
+## Problem3('25')
+## TitleText4('Calculus: Early Transcendentals')
+## AuthorText4('Stewart')
+## EditionText4('5')
+## Section4('2.3')
+## Problem4('')
+## KEYWORDS('Limit','calculus','limits', 'derivatives')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Union/setLimitConcepts/3-2-15.pg 
+#	to setgroup_limits_compute_limit_given_limits_-_no_hints/3-2-15.pg 
+#	on 2023-06-08 15:17:56.142406 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGunion.pl",            # Union College utilities
+  "MathObjects.pl",
+  "PGcourse.pl",           # Customization file for the course
+);
+
+TEXT(beginproblem());
+
+###################################
+# Setup
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$a = random(3,10,1);
+do {$b = random(3,8,1);} until ($b!=$a);
+$c = random(3,8,1);
+$d = random(3,8,1);
+
+# The limits in the problem are
+#\lim_{x \to $a} f(x) = $d
+#\lim_{x \to $a} g(x) = $c
+# Find \lim_{x \to $a} of $newfcn
+
+$newfcn="$b g(x)";
+
+###################################
+# Main text
+
+BEGIN_TEXT
+Given \( \displaystyle \lim_{x \to $a} f(x) = $d\) and
+\(\displaystyle \lim_{x \to $a} g(x) = $c\), evaluate
+\[\lim_{x \to $a} $newfcn.\]
+${BITALIC}(Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE${EBOLD}.)${EITALIC}
+$PAR
+Limit =  \{ans_rule(25) \}
+END_TEXT
+
+###################################
+# Answers
+
+$ans = ($b*$c);
+
+ANS(Compute($ans)->cmp);
+#ANS(Real($ans)->cmp(showTypeWarnings=>0  ));
+
+
+;
+ENDDOCUMENT();

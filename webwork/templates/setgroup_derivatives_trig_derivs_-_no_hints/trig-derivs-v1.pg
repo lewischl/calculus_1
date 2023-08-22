@@ -1,0 +1,42 @@
+
+
+########################################
+# this file automatically moved
+#	from local/chapter3/trig-derivs-v1.pg 
+#	to setgroup_derivatives_trig_derivs_-_no_hints/trig-derivs-v1.pg 
+#	on 2023-06-08 15:17:56.142406 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();  
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+$showPartialCorrectAnswers = 1;
+
+$a = random(2,11,1);
+$ans = Compute("ln($a)*($a)^(x)*sin(x) + ($a)^(x)*cos(x)");
+
+Context()->texStrings;
+BEGIN_TEXT
+Find the derivative of the function \( \displaystyle f(x)= $a^{x}\sin(x)\).
+
+$PAR
+\( f'(x)= \) \{ ans_rule() \}$BR
+$BITALIC(Give an exact answer.)$EITALIC
+END_TEXT
+Context()->normalStrings;
+
+ANS($ans->cmp);
+
+ENDDOCUMENT();

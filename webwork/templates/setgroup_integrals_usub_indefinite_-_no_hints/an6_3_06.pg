@@ -1,0 +1,78 @@
+## DESCRIPTION
+##   Use Substitution to Evaluate an Indefinite Integral
+## ENDDESCRIPTION
+
+## Tagged by nhamblet
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Techniques of integration)
+## DBsection(Substitution (with trigonometric functions))
+## Date(8/23/07)
+## Institution(Union)
+## Author(K. Lesh)
+## Level(2)
+## MO(1)
+## TitleText1('Calculus')
+## AuthorText1('Anton')
+## EditionText1('7')
+## Section1('6.3')
+## Problem1('06')
+## KEYWORDS('Indefinite', 'Integral', 'Substitution')
+
+
+
+########################################
+# this file automatically moved
+#	from Library/Union/setIntSubstitution/an6_3_06.pg 
+#	to setgroup_integrals_usub_indefinite_-_no_hints/an6_3_06.pg 
+#	on 2023-06-08 15:17:56.142406 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGunion.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+###################################
+# Setup
+
+$a = non_zero_random(2,9,1);
+
+$integrand=Formula("{sin($a/x)}/{x^2}");
+
+###################################
+# Main text
+
+Context()->texStrings;
+BEGIN_TEXT
+Evaluate the indefinite integral.
+$PAR
+\( \displaystyle\int $integrand \, dx \)
+             = \{ans_rule(50)\} \( + C\).
+END_TEXT
+Context()->normalStrings;
+
+###################################
+# Answers
+
+$showPartialCorrectAnswers = 1;
+Context()->flags->set(reduceConstants=>0);
+
+$antideriv = Formula("(1/$a)cos($a/x)")->with(limits =>[.5,2]);;
+
+ANS($antideriv->cmp(upToConstant=>1));
+
+###################################
+
+
+;
+ENDDOCUMENT();

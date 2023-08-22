@@ -91,7 +91,7 @@ $passcode1 = random(1000,9999);
 #  The scaffold
 Scaffold::Begin();
 ###########################################
-Section::Begin("Part 1: Basic function inputs");
+Section::Begin("Part 1: Basic compositions");
 
 Context()->texStrings;
 BEGIN_PGML
@@ -106,8 +106,6 @@ while
 -----
 
 Let [` f(x)=[$b2]x+[$b3] `] and [` g(x)=[$b4]x+[$b5] `].
-
-What is [` f(3) `]? [____]{$b2*3+$b3}
 
 What is [` f(g(x)) `] ? [____]{$ans3}
 
@@ -132,7 +130,7 @@ What is [`g(f(x))`]? [_]{$ans1}
 END_PGML
 Section::End();
 
-Section::Begin("Part 2: Rewrite the equation");
+Section::Begin("Part 2: Different variable names");
 
 BEGIN_PGML
 
@@ -176,7 +174,7 @@ END_PGML
 
 Section::End();
 
-Section::Begin("Part 3: Solve the equation");
+Section::Begin("Part 3: Separating a composition into 2 parts");
 
 BEGIN_PGML
 

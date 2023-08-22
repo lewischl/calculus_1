@@ -61,8 +61,7 @@ $a1=$b4*$b2;
 $a2=$b4*$b3+$b5;
 $a3=$b2*$b5+$b3;
 
-SRAND($psvn);
-$passcode1 = random(1000,9999);
+#SRAND($psvn);
 
 Context("Numeric");
 
@@ -98,33 +97,135 @@ $g3d=Formula("($b11*$b8)*x^($b8-1)+($b10*$b9)*x^($b9-1)")->reduce;
 #  The scaffold
 Scaffold::Begin();
 ###########################################
-Section::Begin("Part 1: Passcode");
+Section::Begin("Part 1: Chain Rule example");
 
 Context()->texStrings;
 BEGIN_PGML
 
-How do we take a derivative of something like [`[$ans5]`] ? None of the rules we know so far are enough to find this derivative.
+Use the Chain Rule to differentiate:
 
-Enter the passcode from the previous question: [_]{$passcode1}
+[`h(x)=e^{x^2}`]
+
+As before, let's write [`h(x)=f(g(x))`]:a
+
+
+[`u=g(x)=`][_]{Formula("x^2")->reduce}
+
+[`f(u)=`][_]{Formula("e^u")->reduce}
+
+[`f'(u)`][_]{Formula("e^u")->reduce}
+
+[`u=g(x)=`][_]{Formula("2x")->reduce}
+
+Now let's solve it with the Chain Rule:
+
+[`f'(u)*g'(x)=`][_]{Formula("2x*e^u")->reduce}
+
+[`h'(x)=f'(g(x))\cdot g'(x)=`][_]{Formula("2xe^{x^2}")->reduce}
 
 END_PGML
 Section::End();
 
-Section::Begin("Part 2: Chain Rule");
+Section::Begin("Part 2: Undoing the Chain Rule example");
 
 BEGIN_PGML
 
+Suppose you are asked to evaluate
 
+[```\int 2xe^{x^2}dx```]
+
+Let's try using the letter [`u`] for [`x^2`], just like before! If we set [`u=x^2`], we can replace [`x^2`] with [`u`]:
+
+[```
+\int 2xe^{x^2}dx
+=\int 2xe^{u}dx
+```]
+
+We CANNOT evaluate this integral in its current form. It mixes two variables, [`x`] and [`u`], and this course is SINGLE variable calculus.
+
+However, since we wrote [`u`] as a function of [`x`], we can find its derivative:
+
+[```
+\begin{eqnarray*}
+u&=&x^2\\
+\frac{du}{dx}&=&2x\\
+\end{eqnarray*}
+```]
+
+Then we can _multiply both sides by_ [`dx`]:
+
+[```
+\begin{eqnarray*}
+\frac{du}{dx}&=&2x\\
+du&=&2xdx\\
+\end{eqnarray*}
+```]
+
+Now we have what we need to rewrite the integral *only* in terms of [`u`]:
+
+[```
+\begin{eqnarray*}
+&&\int 2xe^{x^2}dx\\
+&=&\int 2xe^{u}dx\\
+&=&\int e^{u}2xdx\\
+&=&\int e^{u}du\\
+\end{eqnarray*}
+```]
+
+Now that the integral contains just one variable, we can evaluate it!
+
+[```\int 2xe^{x^2}dx=\cdots=\int e^{u}du=e^u+C```]
+
+Since the problem was given with only [`x`], we can't leave [`u`] in our final answer. So we continue...
+
+[```\int 2xe^{x^2}dx=\cdots=e^u+C=e^{x^2}+C```]
+
+And as we showed in Part 1 of this problem, the derivative of our answer is the integrand we were given, just as it should be!
+
+Here is a video demonstrating this example in handwritten form:
+
+[@
+kalturaShull("1_g908rb6q")
+@]*
+
+END_PGML
+Section::End();
+
+Section::Begin("Part 3: Practice undoing the Chain Rule");
+
+BEGIN_PGML
+
+Let's see if we can solve
+
+[```\int\frac x{\sqrt{x^2+[$b7]}}dx```]
+
+If one function looks like it's "inside" another, that inside function is often a good choice for [`u`].
+
+In this case, let's choose [`u=x^2+[$b7]`]. Try replacing [`x^2+[$b7]`] with [`u`] in the integral:
+
+>>[``\int\frac x{\sqrt{x^2+[$b7]}}dx=\int``][_]{Formula("x/sqrt(u)")->reduce}[``dx``]<<
+
+Find its derivative:
+
+[```\frac{du}{dx}=```][_]{Formula("2x")->reduce}
+
+END_PGML
+Section::End();
+
+Section::Begin("Part 4");
+
+BEGIN_PGML
+
+Let's see if we can 
+
+
+EDIT BELOW HERE
 
 We know we can write it as a composition [`f(g(x))`]. In this case, [`u=g(x)=x^2+[$b7]`] and [`f(g(x))=f(u)=\sqrt u=u^{1/2}`].
 
-Here are a couple videos introducing the Chain Rule!
 
-[@
-kalturaShull("1_ro5sw2il")
-@]*
 
-[@ youtube("YG15m2VwSjA?start=521"); @]*
+
 
 Chain Rule:
 
