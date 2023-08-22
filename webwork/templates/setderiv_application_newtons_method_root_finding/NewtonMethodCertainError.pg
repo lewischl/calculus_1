@@ -1,0 +1,164 @@
+##DESCRIPTION
+## Calculus problem: Newton's Method problem requesting an approximation within a certain error
+##ENDDESCRIPTION
+
+##KEYWORDS('calculus', 'approximation', 'derivative')
+
+## DBsubject('Calculus')
+## DBchapter('Applications of the Derivative')
+## DBsection('Newtons's Method')
+## Date('8/1/2022')
+## Author('Erich Jauch')
+## Institution('')
+## TitleText1('')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('2')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set4.8_newtons_method/NewtonMethodCertainError.pg 
+#	to setderiv_application_newtons_method_root_finding/NewtonMethodCertainError.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();      
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   "PGuwecTikZutils.pl", #Custom TikZ code
+);
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$a = random(1,5,1);
+
+# Defines the expanded version of (x-$a)(x-$a-1)(x+a)(x+a+1)-1 and its derivative
+$f = Formula("x^4 -1*(2*$a^2+2*$a+1)x^2 + ($a^4 + 2*$a^3 + $a^2 - 1)")->reduce;
+$fprime = $f->D('x');
+
+# Selects the smaller positive root to check against as it is the closest to $a
+$root = Compute("sqrt($a^2-1/2*sqrt(4*$a^2+4*$a+5)+$a+1/2)");
+
+$ans = sprintf("%0.7f",$root);
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+BEGIN_PGML
+
+Use Newton's Method to approximate a real root [`x_*`] of [`f(x)=[$f]`] with an initial guess of [`x_0 =[$a]`]. Find an approximation accurate to 5 decimal places.
+
+[`x_*\approx`] [____]{$ans}
+
+
+END_PGML
+
+##############################################################
+#
+#  Solutions
+#
+#
+
+@x = ();
+@f = ();
+@fprime = ();
+
+$x[0] = $a;
+$fprime[0] = $fprime->eval(x=>0);
+
+# Constructs 4 approximations
+foreach my $i (0..3) {
+$j = $i+1;
+$f[$i] = $f->eval(x=>$x[$i]);
+$fprime[$i] = $fprime->eval(x=>$x[$i]);
+$x[$j] = $x[$i] - $f[$i]/$fprime[$i];
+}
+
+Context()->variables->add(xn => ['Real',TeX=>"x_n"]);
+$fn = $f->substitute(x => "xn");
+$fprimen = $fprime->substitute(x => "xn");
+
+
+#Deterime how many approximations where needed and display the correct number in solution
+@test = ();
+
+foreach my $i (0..3) {
+$j = $i + 1;
+$test[$i] = Compute("abs($x[$j] - $x[$i])");
+}
+
+if ($test[1]<0.0001) {
+$solution_text =<<EOS
+So if we input [`x_0=0`], we get
+
+[`\displaystyle x_1=0 - \frac{$f[0]}{$fprime[0]}=$x[1]`]
+
+[`\displaystyle x_2=$x[1] - \frac{$f[1]}{$fprime[1]}=$x[2]`]
+
+Notice that [`x_1=x_2`], so we say that [`x_*\approx=$x[2]`] up to 5 decimal places.
+EOS
+}
+elsif ($test[2]<0.0001) {
+$solution_text =<<EOS
+So if we input [`x_0=0`], we get
+
+[`\displaystyle x_1=0 - \frac{$f[0]}{$fprime[0]}=$x[1]`]
+
+[`\displaystyle x_2=$x[1] - \frac{$f[1]}{$fprime[1]}=$x[2]`]
+
+[`\displaystyle x_3=$x[2] - \frac{$f[2]}{$fprime[2]}=$x[3]`]
+
+Notice that [`x_2=x_3`], so we say that [`x_*\approx=$x[3]`] up to 5 decimal places.
+EOS
+}
+else {
+$solution_text =<<EOS
+So if we input [`x_0=0`], we get
+
+[`\displaystyle x_1=0 - \frac{$f[0]}{$fprime[0]}=$x[1]`]
+
+[`\displaystyle x_2=$x[1] - \frac{$f[1]}{$fprime[1]}=$x[2]`]
+
+[`\displaystyle x_3=$x[2] - \frac{$f[2]}{$fprime[2]}=$x[3]`]
+
+[`\displaystyle x_4=$x[3] - \frac{$f[3]}{$fprime[3]}=$x[4]`]
+
+Notice that [`x_3=x_4`], so we say that [`x_*\approx=$x[4]`] up to 5 decimal places.
+EOS
+}
+
+BEGIN_PGML_SOLUTION
+We begin that recalling that the Newton's Method says that
+
+[`\displaystyle x_{n+1}=x_n-\frac{f(x_n)}{f^\prime(x_n)}=x_n - \frac{[$fn]}{[$fprimen]}`]
+
+[$solution_text]**
+END_PGML_SOLUTION
+
+ENDDOCUMENT();        

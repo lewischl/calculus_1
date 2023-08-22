@@ -1,0 +1,47 @@
+
+
+########################################
+# this file automatically moved
+#	from local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/4_Applications_of_the_Derivative/4.1_Linear_Approximation_and_Applications/4.1.54.pg 
+#	to setderiv_application_linear_approximation/4.1.54.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "Parser.pl",
+  "freemanMacros.pl",
+  "PGgraphmacros.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+#$showPartialCorrectAnswers=1;
+
+$const1=random(3,10);
+$ans1=Compute("e^($const1)*(x-1)");
+Context()->texStrings;
+
+BEGIN_TEXT
+Find the linearization \(L(x)\) of \(y=e^{$const1 x}\ln(x)\) at \(a=1\).
+$PAR \(L(x)\) =  \{ans_rule()\}
+END_TEXT
+Context()->normalStrings;
+
+ANS($ans1->cmp);
+
+#Context()->texStrings;
+#SOLUTION(EV3(<<'END_SOLUTION'));
+#$PAR
+#$SOL
+#First notice that \(y(a)=y(1)=0\). Next, compute \(y'\) using the product rule:
+#\[ y'=e^{$const1 x}\cdot \frac{1}{x}+$const1 e^{$const1 x}\ln(x), \]
+#and with this determine \(y'(a)=y'(1)=e^{$const1}\). Thus, the linearization \(L(x)\) of \(y\) at \(a=1\) is given by the formula \[L(x)=y(1)+y'(1)(x-1)=0 + (e^{$const1})(x-1)=e^{$const1}x-e^{$const1}.\]
+#END_SOLUTION
+
+ENDDOCUMENT();

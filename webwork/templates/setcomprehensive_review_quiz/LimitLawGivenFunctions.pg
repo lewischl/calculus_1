@@ -1,0 +1,90 @@
+##DESCRIPTION
+##  Limit Laws: Compute limits given functions with known limit values.
+##ENDDESCRIPTION
+
+##KEYWORDS('limit laws', 'limit')
+
+## DBsubject('Calculus')
+## DBchapter('Limits')
+## DBsection('Limit laws')
+## Date('')
+## Author('Silviana Amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from setFinal_Exam-Team/LimitLawGivenFunctions.pg 
+#	to setcomprehensive_review_quiz/LimitLawGivenFunctions.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "parserPopUp.pl",
+   "PGuwecTikZutils.pl", #Custom TikZ code
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$parameter = random(-7,7,2);
+$c = $parameter;
+
+$lim_f = random(11,11+4*6,4)/4;
+$lim_g = random(3,9,2);
+
+@ans = ();
+$ans[0] = 2*$lim_f + 7*$lim_g;
+$ans[1] = 4*$lim_f / (3*$lim_g);
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+I give you the two following limits for functions [``f(x)``] and [``g(x)``]:
+
+[``\lim_{x \rightarrow [$c]} f(x) = [$lim_f]``]  
+
+[``\lim_{x \rightarrow [$c]} g(x) = [$lim_g]``]
+
+---
+
+Please compute the following limits:
+
+[``\lim_{x \rightarrow [$c]} (2f(x) + 7g(x)) = ``] [____]{$ans[0]}
+
+[``\lim_{x \rightarrow [$c]} \frac{4f(x)}{3g(x)} = ``] [____]{$ans[1]}
+
+(Enter DNE if the limit does not exist)
+END_PGML
+
+ENDDOCUMENT();

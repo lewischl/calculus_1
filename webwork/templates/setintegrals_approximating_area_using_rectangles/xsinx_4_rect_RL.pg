@@ -1,0 +1,95 @@
+## DESCRIPTION
+## Left and Right Small Sums for an Integral
+## ENDDESCRIPTION
+
+## Tagged by YL
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Techniques of integration)
+## DBsection(Approximation)
+## Institution(ASU)
+## MLT(approx_02)
+## Level(2)
+## Static(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5')
+## Section1('5.1')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('5.1')
+## Problem2('')
+## KEYWORDS('calculus', 'integration', 'riemann', 'partition')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/set5.2_definite_integral_with_partition/xsinx_4_rect_RL.pg 
+#	to setintegrals_approximating_area_using_rectangles/xsinx_4_rect_RL.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl"
+);
+
+$showPartialCorrectAnswers = 1;
+
+TEXT(beginproblem());
+BEGIN_TEXT
+Approximate \( \displaystyle \int_0^{\pi/2} x\,\sin(x)\, dx\) by computing 
+the left and right Riemann sums, using four rectangles.
+
+$PAR
+Your answers should be accurate to at least 6 decimal places.  Just put a lot of places in, and don't round before the very last step.
+$BR
+
+\(L_4 = \) \{ ans_rule()\}
+$PAR
+
+\(R_4 = \)   \{ ans_rule()\}
+$PAR
+
+\{theresahint\}
+END_TEXT
+
+BEGIN_HINT
+This problem uses a more complicated function, and an interval with non-integer bounds.  But the method remains the same:$PAR
+
+1. Discretize the interval into \(4\) equal pieces, with \(5\) points separating them. $BR
+2. Note which points form the right or left endpoints of the rectangles $BR
+3. Evaluate the function \(x\,\sin(x)\) at the evaluation points $BR
+4. Multiply each height (function value) by the width of a rectangle.  In this case, \(\Delta x = \frac{b-a}{N} = \frac{\pi/2-0}{4}\). $BR
+5. Add up the areas of the rectangles.  $BR
+Done! $PAR
+
+I like using a table to record my information, with a column of:$BR
+• \(x\) values -- evaluation points $BR
+• \(f(x)\) values -- heights of rectangles $BR
+• \(f(x) \cdot \Delta x\) -- areas of rectangles $BR
+The last step is adding up the last column of the table.  (It would be neat to do this in Excel!!!)
+
+
+
+\{amethystHint("$PAR$HR$PAR For an example of such a process, check out this video from Prof. Amethyst.  In it, she uses the midpoint method, whereas in this problem, we're doing left- and right-endpoints.  The technique is the same: discretize, evaluate, compute areas, add 'em up.  $PAR")\}
+\{ youtubeAmethyst("stqJrOOvwzY") \}
+
+END_HINT
+ANS(num_cmp(0.7045256091878));
+ANS(num_cmp(1.321375884255));
+
+
+
+
+ENDDOCUMENT();

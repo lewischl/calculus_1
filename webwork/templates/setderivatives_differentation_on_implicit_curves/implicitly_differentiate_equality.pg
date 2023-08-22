@@ -1,0 +1,89 @@
+##DESCRIPTION
+##  Differentiate expressions using implicit differentation
+##ENDDESCRIPTION
+
+##KEYWORDS('implicit differentiation')
+
+## DBsubject('Calculus')
+## DBchapter('Derivatives')
+## DBsection('Implicit differentiation')
+## Date('')
+## Author('silviana amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set3.8_implicit_diff/implicitly_differentiate_equality.pg 
+#	to setderivatives_differentation_on_implicit_curves/implicitly_differentiate_equality.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+
+
+Context()->variables->add(
+dx=>"Real", dy=>"Real", y=>"Real"
+);
+
+$lhs = Compute(" 17(2x y^2 + 2x^2 y dy/dx)");
+$rhs = Compute("1/(2 x^(0.5) ) + dy/dx");
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+When two quantities are equal, their derivatives must also be equal.  Otherwise they're changing at different rates, and how can they possibly be the same?!?!
+
+For example,
+
+[`` \begin{aligned} x + 3xy^2 &= \sin y \\ \Rightarrow \qquad 1 + 3 \left(y^2 + 2x y \frac{dy}{dx} \right) &= \cos (y) \frac{dy}{dx}   \end{aligned} ``]
+
+---
+
+Given 
+
+[`` 17 x^2 y^2 =  \sqrt{x} + y``] 
+
+
+implicitly differentiate the equality with respect to [`x`].  Use the symbols [`dy`] and [`dx`] to express the derivative of [`y`] with respect to [`x`].  Keep left on left, right on right.
+
+[_____]{$lhs} [`  = `] [_____]{$rhs}
+
+
+
+
+END_PGML
+
+ENDDOCUMENT();

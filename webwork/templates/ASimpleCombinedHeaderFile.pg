@@ -22,6 +22,8 @@ TEXT($BEGIN_ONE_COLUMN);
 
 TEXT(MODES(TeX =>EV3(<<'EOT'),HTML=>""));
 
+\DeclareUnicodeCharacter{2212}{{-}}
+
 \noindent {\large \bf $studentName}
 \hfill
 {\large \bf {\{protect_underbar($courseName)\}}}

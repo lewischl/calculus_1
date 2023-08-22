@@ -1,0 +1,76 @@
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Utah/AP_Calculus_I/set6_The_Integral/z3.pg 
+#	to setintegrals_applied_as_net_change/z3.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGcourse.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGauxiliaryFunctions.pl"
+);
+
+TEXT(beginproblem());
+
+$v = random(60,85,5);
+$g = random(8,20);
+
+TEXT(EV2(<<EOT));
+
+Assume that you are driving a car at $v miles per hour.
+
+$PAR$HR$PAR 
+
+A.$PAR
+
+If the car decelerates at a constant rate of $g feet per second squared, how many seconds will it take for the car to stop?$BR
+It will take \{ans_rule( 25)\} seconds to stop.$BR
+
+
+$PAR$HR$PAR 
+
+B. $PAR
+
+In that time, how many total feet will the car travel?$BR
+The car will travel \{ans_rule( 25) \} feet.
+
+$PAR$HR$PAR
+
+C. $PAR
+
+Assuming that it takes you 1 second to react to an emergency
+before you start braking, at the same initial speed, and the same
+constant deceleration, what is the total distance the car will travel before coming to a stop?$BR
+Including travel during the reaction time, the car will travel \{ans_rule( 25) \} feet before stopping.
+
+$PAR
+\{ theresahint \}
+EOT
+
+
+BEGIN_HINT
+Note the units in this problem.  Recall that there are 5280 feet in a mile, and 3600 seconds in an hour.
+
+$PAR
+
+Beware premature rounding!
+END_HINT
+
+$vfs = $v*5280/3600;
+$tstop = $vfs/$g;
+ANS(num_cmp($tstop));
+ANS(num_cmp($vfs/2*$tstop));
+ANS(num_cmp($vfs/2*$tstop+$vfs));
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

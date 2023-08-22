@@ -1,0 +1,45 @@
+
+
+########################################
+# this file automatically moved
+#	from local/Library/ASU-topics/setLimitConcepts/3-2-30.pg 
+#	to setlimits_the_limit_laws/3-2-30.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl",
+  "uwecAhrendt.pl",
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$a = random(3,9,1);
+$b = random(3,8,1);
+$c = random(3,8,1);
+$d = random(3,8,1);
+$f = random(2,3,1);
+$g = random(3,8,1);
+
+TEXT(EV3(<<'EOT'));
+Evaluate the limit
+\(\displaystyle\lim_{ x \rightarrow $a } \sqrt{$b - $c x}\).
+If the limit does not exist, enter DNE.
+$PAR Limit = \{ans_rule(25) \}$BR
+${BITALIC}(Give an exact answer.)$EITALIC
+EOT
+
+ANS(Compute("DNE")->cmp);
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

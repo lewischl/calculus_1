@@ -1,0 +1,51 @@
+
+
+########################################
+# this file automatically moved
+#	from local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_15.pg 
+#	to setlimits_extra_practice/Stewart5_2_3_15.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGunion.pl",            # Union College utilities
+  "MathObjects.pl",
+  "PGcourse.pl",           # Customization file for the course
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$a=non_zero_random(-10,10,1);
+do {
+  $b=non_zero_random(-3,3,1);
+  $c=non_zero_random(-10,10,1);
+} while (-$c == $b*$a);
+
+
+$num = nicestring([1, 0, -$a*$a], ['t^2', 't', '']);
+$den = nicestring([$b, -$a*$b+$c, -$a*$c], ['t^2', 't', '']);
+
+BEGIN_TEXT
+Evaluate the limit
+\[ \lim_{t\to $a} \frac{$num}{$den}.\]
+
+Limit = \{ans_rule(25)\}$BR
+${BITALIC}(Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE${EBOLD}.)${EITALIC}
+
+END_TEXT
+
+$num = 2*$a;
+$denom = $a*$b+$c;
+
+ANS(Compute("$num/$denom")->cmp());
+
+ENDDOCUMENT();

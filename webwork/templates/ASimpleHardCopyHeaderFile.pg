@@ -13,6 +13,9 @@ loadMacros(
 
 
 BEGIN_TEXT
+
+\DeclareUnicodeCharacter{2212}{{-}}
+
 $BEGIN_ONE_COLUMN
 \noindent {\large \bf $studentName}
 \hfill

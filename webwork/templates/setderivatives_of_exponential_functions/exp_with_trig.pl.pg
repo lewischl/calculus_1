@@ -1,0 +1,93 @@
+##DESCRIPTION
+##  Algebra problem: true or false for inequality 
+##ENDDESCRIPTION
+
+##KEYWORDS('algebra', 'inequality', 'fraction')
+
+## DBsubject('Algebra')
+## DBchapter('Fundamentals')
+## DBsection('Real Numbers')
+## Date('6/3/2002')
+## Author('')
+## Institution('')
+## TitleText1('Precalculus')
+## EditionText1('3')
+## AuthorText1('Stewart, Redlin, Watson')
+## Section1('1.1')
+## Problem1('22')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set3.9_exp_derivatives/exp_with_trig.pl.pg 
+#	to setderivatives_of_exponential_functions/exp_with_trig.pl.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();      
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "PGcourse.pl",
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+
+
+
+
+##############################################################
+#
+#  Text
+#
+#
+Context("Numeric");
+Context()->texStrings;
+
+# problem 20, page 196 rogawski, randomized
+
+$a = random(10,20,1);
+
+
+$f = Compute("$a**(sin(x))")->reduce;
+$f_prime = Formula( "cos(x) * ln($a)* $a**(sin(x))");
+
+BEGIN_TEXT
+Find the derivative of 
+$BR$BR
+\(f(x) = $f\)
+
+$BR$BR
+\( f'(x) = \) \{ ans_rule(50) \}
+END_TEXT
+
+
+
+##############################################################
+#
+#  Answers
+#
+#
+
+ANS($f_prime->cmp);
+#Context()->normalStrings;
+
+ENDDOCUMENT();        

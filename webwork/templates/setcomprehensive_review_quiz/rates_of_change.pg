@@ -1,0 +1,108 @@
+##DESCRIPTION
+##  find intervals where object is moving forward/backward, plus times at which it's stationary.
+##ENDDESCRIPTION
+
+##KEYWORDS('rates of change', 'derivatives')
+
+## DBsubject('Calculus')
+## DBchapter('Derivatives')
+## DBsection('Rates of Change')
+## Date('')
+## Author('silviana amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from setFinal_Exam-Team/rates_of_change.pg 
+#	to setcomprehensive_review_quiz/rates_of_change.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   "PGcourse.pl",      # Customization file for the course
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGauxiliaryFunctions.pl",
+"extraAnswerEvaluators.pl"
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
+
+Context()->variables->add(t => 'Real');
+
+
+$stationary1 = random(2,5,1);
+$stationary2 = random(2,5,1);
+
+if ($stationary1==$stationary2){
+$stationary2 = $stationary2+random(2,5,1);
+}
+
+$scale = random(2,5,1);
+$shift = random(2,5,1);
+
+$a = $stationary1;
+$b = $stationary2;
+
+$s = Formula("($scale*2*t^3 - $scale*3*($a+$b)*t^2 + $scale*6*$a*$b*t+$shift)")->reduce;
+
+$forward="[0,$stationary1)U($stationary2,inf)";
+$backward="($stationary1,$stationary2)";
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+A rabbit is running down a rabbit hole.  Its position is well-modeled by a function of time, called [`s`], for times [`t \geq 0`].  Let [``` s(t) = [$s]```]
+
+---
+
+Answer these questions about the rabbit's instantaneous rate of change:
+
+* Time intervals moving forward : [_____]{interval_cmp($forward, strings=>["none"])}.  
+* Time intervals moving backward:  [_____]{interval_cmp($backward, strings=>["none"])}.  
+* Times stationary: [_____]{Compute("$stationary1, $stationary2")->cmp}   
+
+
+---
+Instructions:
+* For the intervals, use interval notation.  Enter _none_ if it never goes forward after [`t=0`].
+* For the time points, enter your answer as a comma separated list, with lower values first.  Enter _none_ if the rabbit is never at rest.
+
+Hints: 
+* time starts at [`t=0`]
+* pay particular attention to the type of braces you use!
+END_PGML
+
+ENDDOCUMENT();

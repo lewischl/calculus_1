@@ -1,0 +1,78 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by cmd6a 4/26/06
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Integrals)
+## DBsection(Fundamental theorem of calculus)
+## Date(6/3/2002)
+## Level(3)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('1')
+## Section1('5.4')
+## Problem1('19')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('5.3')
+## Problem2('5 6 7 8 9 10 11 12 13 14 15 16 51')
+## KEYWORDS('Calculus', 'Riemann Integral','integrals', 'fundamental theorem of calculus')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/5.4_5.5_FTC/second_deriv_func_def_by_int.pg 
+#	to setintegrals_FTOC_2_for_derivatives_of_integral_functions/second_deriv_func_def_by_int.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$b = random(2,7,1);
+$c = random(1,7,1);
+
+TEXT(EV2(<<EOT));
+If \( \displaystyle F(x) =  \int_0^x (t^3 +$b t^2 + $c)\, dt \) $BR
+then
+$BR
+\( F''(x) = \) \{ans_rule(20)\} $BR
+
+EOT
+$ans1="3*x^2 + 2*$b*x";
+
+ANS(fun_cmp($ans1));
+
+BEGIN_HINT
+In this type of problem, we're defining a new function in terms of an integral of an old function.  See Section 5.5 in our text book.  Particularly, Theorem 1 on page 326, or Example 5 on page 329.
+
+$PAR
+
+Take the first derivative of \(F(x)\) -- it's really not that bad, it's literally a direct application of FTOC Part 2.  Then take the derivative again to get \(F''(x)\).
+
+\{amethystHint("$PAR$HR$PAR See also these two videos from Prof. Amethyst:$PAR")\}
+
+\{ youtubeAmethyst("1darfMH79B8") \}
+
+
+\{amethystHint("$PAR$HR$PAR")\}
+
+\{ youtubeAmethyst("Bej-78QbUs8") \}
+
+END_HINT
+ENDDOCUMENT();        # This should be the last executable line in the problem.

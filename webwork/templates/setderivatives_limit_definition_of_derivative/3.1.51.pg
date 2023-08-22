@@ -1,0 +1,83 @@
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Definition of the derivative)
+## Institution(W.H.Freeman)
+## Author(Sam Hathaway)
+## MLT(defDerFormulaGivenRepresent)
+## MLTleader(1)
+## Level(2)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('2')
+## Section1('3.1')
+## Problem1('51')
+## KEYWORDS('calculus', 'derivatives', 'limits', 'definition of derivative')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/3_Differentiation/3.1_Definition_of_the_Derivative/3.1.51.pg 
+#	to setderivatives_limit_definition_of_derivative/3.1.51.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+loadMacros("PG.pl","PGbasicmacros.pl","PGanswermacros.pl","PGcourse.pl");
+loadMacros("Parser.pl");
+loadMacros("freemanMacros.pl");
+
+#$f = Formula("x^3");
+#$a = Real(5);
+$f = Formula("x^".random(2,4,1));
+$a = Real(random(2,6,1));
+Context()->variables->add(h=>'Real');
+$f_a_plus_h = $f->substitute(x=>Formula("$a+h"));
+$f_a = $f->substitute(x=>$a);
+$form = Formula("($f_a_plus_h-$f_a)/(h)");
+
+Context()->texStrings;
+BEGIN_TEXT
+\{ beginproblem() \}
+The definition of the derivative has been applied to a function \(f(x)\) at the point \(x=a\).  Determine the function \(f(x)\) and the value of the point of interest \(a\).
+\[ f'(a)=\lim_{h\to 0}$form \]
+
+\( f(x) = \) \{ans_rule()\}
+$BR
+\( a = \) \{ans_rule()\}
+
+$BR$BR
+\{ theresahint \}
+
+END_TEXT
+Context()->normalStrings;
+
+BEGIN_HINT
+Yo!  You want a hint, I got a hint.$BR$BR
+
+Focus on the numerator.  There's a difference going on.  Since this is a derivative, \(f(a+h)\) is the first term, and we're subtracting \(f(a)\).  $BR
+* I suggest first identifying the value of the point of interest, \(x = a\).  $BR
+* Then, identify the action \(f\) is performing on \(a\) to get \(f(a)\), which is being subtracted.  $BR
+* Finally, verify that the same action is happening to \(a+h\) in the first term in the numerator.  That should confirm \(f(x)\).
+END_HINT
+
+ANS($f->cmp);
+ANS($a->cmp);
+
+Context()->texStrings;
+#SOLUTION(EV3(<<'END_SOLUTION'));
+#$PAR
+#$SOL
+#The difference quotient
+#\[ $form \]
+#has the form
+#\[ \frac{f(a+h)-f(a)}{h} \]
+#where \( f(x)=$f \)
+#and \( a=$a \).
+#END_SOLUTION
+
+ENDDOCUMENT();

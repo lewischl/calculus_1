@@ -1,0 +1,134 @@
+## DESCRIPTION
+##  Calculus: Optimization Problems
+## ENDDESCRIPTION
+
+## Tagged by YL
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Optimization - general)
+## Date(5/29/2005)
+## Institution(UVA, Fort Lewis College)
+## Author(Jeff Holt, Paul Pearson)
+## MLT(Optimization_Margins)
+## MLTleader(1)
+## Level(5)
+## MO(1)
+## TitleText1('Calculus')
+## AuthorText1('Stewart')
+## EditionText1('5e')
+## Section1('4.7')
+## Problem1('29')
+## KEYWORDS('Optimization Problems')
+
+## Original: /Library/UVA-Stew5e/setUVA-Stew5e-C04S07-Optimization/4-7-29.pg
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Rochester/setDerivatives10_5Optim/S04.07.Optimization.PTP04.pg 
+#	to setderiv_application_applied_optimization_level_2/S04.07.Optimization.PTP04.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+#"PGbasicmacros.pl",
+#"PGchoicemacros.pl",
+#"PGanswermacros.pl",
+#"PGauxiliaryFunctions.pl",
+"PGstandard.pl",
+"MathObjects.pl",
+"parserNumberWithUnits.pl",
+"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+
+$a = random(2,8,2);
+$b = random(2,8,2);
+if ($a == $b) {$b++;}
+$c = random(380,390,2); 
+
+$showHint=-1;
+
+Context()->texStrings;
+BEGIN_TEXT
+The top and bottom margins of a poster are $a cm and the side margins
+are each $b cm.  If the area of printed material on the poster is
+fixed at $c square centimeters, find the dimensions of the poster with
+the smallest area.
+$BR
+$BR
+\[
+\begin{array}{|c|c|c|}
+\hline
+~~ & ~~ & ~~ \\
+\hline
+~~ & printed & ~~ \\
+~~ & material & ~~ \\
+\hline
+~~ & ~~ & ~~ \\
+\hline
+\end{array}
+\]
+$BR
+$BR
+Width = \{ ans_rule(25) \} cm
+$BR
+Height = \{ ans_rule(25) \} cm
+
+$PAR
+
+\{ theresahint \}
+END_TEXT
+
+
+
+BEGIN_HINT
+The problem is similar to these other "maximize the rectangular area" problems.  Once we get to the objective function and the constraint, I'm sure you'll be able to get there.
+
+$PAR
+
+I think the best way to solve this problem is to let \(x\) and \(y\) be the dimensions of the printed area.  This means that we have a constraint directly on this area -- it's the specified area \($c\).  Our objective function thus must be a different function.  
+
+$PAR
+
+What are we maximizing? The dimensions of the poster with the smallest area.  This includes the margins.  Our objective is the area of the printed area, plus the area of the margins.  Express the two total side lengths as functions of \(x\) and \(y\), and take their product.  That's your objective function \(\Omega(x,y) = \textrm{total paper area}(x,y)\).  I'll do one of the total side lengths for you: the total horizontal length is \((x + 2*$b)\).
+
+$PAR
+
+Again, we have too many variables.  Eliminate one (I suggest eliminating \(y\)) using the constraint on the printed area.  Solve for \(y\), and sub into \(\Omega\), obtaining the single-variable objective function \(\Omega(x)\).
+
+$PAR
+
+At this point, the problem is *very* similar to ones you've already solved.  To find the critical points, I suggest distributing and collecting the terms in \(\Omega\) *prior* to differentiating.  The algebra is much simpler in this path, I promise.  
+
+$PAR
+
+One subtlety in this solution path is that you get a critical \(x\) value.  But that's not the full side length -- it's just a side of the printed area.  You have to add the two margins to it, to obtain the total side length.  Similarly for \(y\)'s corresponding total side length.
+END_HINT
+
+
+Context()->normalStrings;
+
+
+$x = Compute("((($b*$c)/$a)**(1/2)) + 2*$b");
+$y = Compute("($c/((($b*$c)/$a)**(1/2))) + 2*$a");
+
+$showPartialCorrectAnswers = 1;
+
+ANS( $x->cmp() );
+ANS( $y->cmp() );
+
+#ANS(num_cmp([$x,$y], format=>"%0.5f", relTol=>1, units => 'cm'));
+
+;
+ENDDOCUMENT(); 

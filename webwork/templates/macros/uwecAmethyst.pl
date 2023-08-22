@@ -1,9 +1,11 @@
 # derived from uwecAhrendt.pl
 
-$someoneelse = 128737;
-$amethyst = 42;
+$instructor_someoneelse = 128737;
+$instructor_amethyst = 42;
+$instructor_anyone = 187412;
 
-$whosTeaching = $amethyst;
+
+@wantVideosFrom = ($instructor_amethyst, $instructor_anyone); 
 
 sub _uwecAmethyst_init {}; #don't reload this file
 

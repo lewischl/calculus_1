@@ -1,0 +1,45 @@
+
+
+########################################
+# this file automatically moved
+#	from local/chapter3/log-and-exp-v1.pg 
+#	to setderivatives_of_logarithmic_functions/log-and-exp-v1.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();  
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"AnswerFormatHelp.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+$showPartialCorrectAnswers = 1;
+
+$a = random(2,5);
+$am = $a-1;
+
+$ans = Formula("$a*x^($am)*ln(x) + x^($am)")->reduce;  
+
+
+Context()->texStrings;
+BEGIN_TEXT
+Find the derivative of the function \( \displaystyle f(x)= x^$a \ln(x)\).
+
+$PAR
+\( f'(x)= \) \{ ans_rule(50) \}$BR
+$BITALIC(Give an exact answer.)$EITALIC
+END_TEXT
+Context()->normalStrings;
+
+ANS($ans->cmp(limits => [0.5,6]) );
+
+ENDDOCUMENT();

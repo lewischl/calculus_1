@@ -1,0 +1,50 @@
+
+
+########################################
+# this file automatically moved
+#	from local/Library/ASU-topics/setLimitConcepts/s1_3_6.pg 
+#	to setlimits_the_limit_laws/s1_3_6.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "PGcourse.pl",
+    "uwecAhrendt.pl",
+);
+
+TEXT(beginproblem());
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$showPartialCorrectAnswers = 1;
+
+$a1 = random(3,8,1);
+$b1 = random(3,8,1);
+$c1 = random(3,8,1);
+$d1 = random(3,8,1);
+$e1 = random(-3,-1,1);
+
+TEXT(EV3(<<'EOT'));
+Evaluate the limit
+\(\displaystyle\lim_{ x \to $e1 } \frac { $b1 x^2 -$c1 x +$d1 } {x - $a1 } \).
+If the limit does not exist enter DNE.
+$PAR Limit =  \{ans_rule(25) \}$BR
+${BITALIC}(Give an exact answer.)$EITALIC
+EOT
+
+$numer = $b1*$e1*$e1 -$c1*$e1 +$d1;
+$denom = $e1 - $a1;
+$ans = Compute("$numer / $denom");
+
+ANS(Compute("$numer / $denom")->cmp());
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

@@ -1,0 +1,116 @@
+##DESCRIPTION
+##  Algebra problem: true or false for inequality 
+##ENDDESCRIPTION
+
+##KEYWORDS('algebra', 'inequality', 'fraction')
+
+## DBsubject('Algebra')
+## DBchapter('Fundamentals')
+## DBsection('Real Numbers')
+## Date('6/3/2002')
+## Author('')
+## Institution('')
+## TitleText1('Precalculus')
+## EditionText1('3')
+## AuthorText1('Stewart, Redlin, Watson')
+## Section1('1.1')
+## Problem1('22')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set3.9_exp_derivatives/exp_tangent_line.pg 
+#	to setderivatives_of_exponential_functions/exp_tangent_line.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();      
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "PGcourse.pl",
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+
+
+
+
+##############################################################
+#
+#  Text
+#
+#
+Context("Numeric");
+Context()->texStrings;
+
+# problem 9, page 196 rogawski, randomized
+
+$a = random(2,5,1);
+$x = 1;
+
+$f = Compute("$a**(x**2 - 2*x)")->reduce;
+$tangent_line = Formula("1/$a");
+
+BEGIN_TEXT
+Find the equation of the tangent line to the function
+$BR$BR
+\(f(x) = $f\)
+$BR$BR
+at the point \( ($x,f($x)) \).  
+
+$BR$BR
+Use exact coefficients, don't use floating point numbers.  Enter it in slope-intercept form.
+
+$BR$BR
+\( y = \) \{ ans_rule(50) \}
+
+$BR$BR
+\{ theresahint \}
+END_TEXT
+
+BEGIN_HINT
+Consider using a graph to help you identify what the slope should be, if you're doubting yourself.
+
+$BR$BR
+
+$HR
+
+$BR$BR
+
+When taking this derivative, remember the formula \( (b^\Box)' = \ln b \, b^\Box \, \Box' \). 
+
+$BR$BR
+
+What's the slope of a horizontal line?
+
+END_HINT
+
+##############################################################
+#
+#  Answers
+#
+#
+
+ANS($tangent_line->cmp);
+#Context()->normalStrings;
+
+ENDDOCUMENT();        

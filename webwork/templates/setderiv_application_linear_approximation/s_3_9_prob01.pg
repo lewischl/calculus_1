@@ -1,0 +1,90 @@
+#DESCRIPTION
+##  Calculus: Linear approximation
+##ENDDESCRIPTION
+
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Linear approximation and differentials)
+## Date(11/17/2010)
+## Institution(University of Minnesota)
+## Author(Justin Sukiennik)
+## MLT(Linearization_ExpAndLog)
+## MLTleader(1)
+## Level(2)
+## MO(1)
+## TitleText1('Calculus: Concepts and Contexts')
+## AuthorText1('Stewart')
+## EditionText1('4 Custom UMTYMP Ed.')
+## Section1('3.9')
+## Problem1('')
+## KEYWORDS('calculus', 'derivative', 'linear approximations', 'tangent line')
+
+#####################################################################
+
+
+########################################
+# this file automatically moved
+#	from local/Library/UMN/calculusStewartCCC/s_3_9_prob01.pg 
+#	to setderiv_application_linear_approximation/s_3_9_prob01.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGgraphmacros.pl",
+  "PGcourse.pl"
+);
+#####################################################################
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+
+#####################################################################
+
+Context("Numeric");
+
+$a = list_random(-5,-4,-3,-2,2,3,4,5,6);
+
+$m = Compute("$a");
+
+$ans = Formula("$m*x+1");
+
+#####################################################################
+Context()->texStrings;
+BEGIN_TEXT
+Find the linearization \(L(x)\) of the function \(f(x) = e^{$a x} \) at \(x=0.\)  
+$PAR
+Answer: \( L(x) = \) \{ans_rule(40)\}
+
+$BR$BR
+
+\{ theresahint \}
+END_TEXT
+
+BEGIN_HINT
+
+Remember, the linearization of a function is just the tangent line, with a different name.  The shortcut formula is \( L(x) = f(a) + f'(a) (x-a) \).  The point \(x=a\) is the \(x\)-coordinate of the point of tangency.  In this problem, \(a = 0\).
+$BR$BR
+
+$HR
+
+$BR$BR
+Here's a video from Krista King, explaining how to perform a linearization:
+$BR
+\{youtube(l8PFsYI3bzw)\}
+END_HINT
+Context()->normalStrings;
+
+#####################################################################
+
+ANS($ans->cmp());
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

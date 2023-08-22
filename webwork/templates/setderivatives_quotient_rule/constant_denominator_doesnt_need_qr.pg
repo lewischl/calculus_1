@@ -1,0 +1,83 @@
+##DESCRIPTION
+##  A function with constant denominator doesn't need the quotient rule
+##ENDDESCRIPTION
+
+##KEYWORDS('calculus', 'quotient rule')
+
+## DBsubject('Calculus')
+## DBchapter('Derivatives')
+## DBsection('Quotient rule')
+## Date('')
+## Author('silviana amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set3.3_quotient_rule/constant_denominator_doesnt_need_qr.pg 
+#	to setderivatives_quotient_rule/constant_denominator_doesnt_need_qr.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"PGcourse.pl",
+"draggableProof.pl",
+);
+
+
+
+TEXT(beginproblem());
+
+$CorrectProof = DraggableProof([
+
+   "\(\displaystyle f = \frac{3x^3}{4}\)",
+   "\(\displaystyle \frac{df}{dx} = \frac{d}{dx} \left( \frac{3x^3}{4} \right) \)",
+   "\(\displaystyle \frac{df}{dx} = \frac{d}{dx} \left( \frac{3}{4}x^3 \right) \)",
+   "\(\displaystyle \frac{df}{dx} = \frac{3}{4} \frac{d}{dx} \left( x^3 \right) \)",
+   "\(\displaystyle \frac{df}{dx} = \frac{3}{4} 3x^{3-1} \)",
+   "\(\displaystyle \frac{df}{dx} = \frac{9}{4} x^2 \)",
+],
+
+#  The lines below are extras and will be listed as options but not
+#  needed for the correct answer in $Proof.
+
+[ ],
+     
+SourceLabel => "Your given blocks.  You will use all of them.",
+TargetLabel =>  "Create a sequence of steps leading to the derivative, without using the quotient rule"
+);
+
+#########################################
+
+###
+###  The proposition to prove is posted here
+###
+
+
+
+BEGIN_TEXT
+
+This problem drives home a technique for computing derivatives of rational functions with constant denominators.  The point is that when you have constant denominator, the quotient rule is not necessary.  Instead, factor out the constant, and just use whatever rules you need to on the numerator.
+
+$PAR
+
+
+
+\{ $CorrectProof->Print \}
+
+END_TEXT
+
+ANS($CorrectProof->cmp);
+
+
+
+ENDDOCUMENT();

@@ -1,0 +1,78 @@
+#####################################################################
+
+
+########################################
+# this file automatically moved
+#	from local/Library/UVA-Stew5e/setUVA-Stew5e-C03S04-DerivsTrig/3-4-39.pg 
+#	to setlimits_of_trigonometric_functions/3-4-39.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGgraphmacros.pl",
+  "PGcourse.pl", 
+);
+#####################################################################
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+
+#####################################################################
+
+Context("Numeric");
+Parser::Number::NoDecimals();
+
+$a = random(2,9,1);
+$b = random(2,6,1);
+
+BEGIN_TEXT
+Evaluate the limit, if it exists:
+$PAR
+\(\displaystyle\lim_{ \theta \to 0 } \frac{ \sin^{2}($a \theta)}{ $b \theta }=\) \{ans_rule(25) \}
+$PAR
+$BITALIC(Give an exact answer. If the limit does not exist, enter ${BBOLD}DNE$EBOLD.)$EITALIC
+
+$BR$BR
+
+\{ theresahint \}
+END_TEXT
+
+BEGIN_HINT
+We have two \( \sin \)'s up top, and we should split them.  Then, the pattern for these is that we need a \(\theta\) downstairs for each sine.  Or do I, for this one?  ;)
+
+$BR$BR
+
+Once you have \( \frac{\sin($a\theta)}{$b \theta} \cdot \sin($a\theta)\), multiply by \( 1 = $a/$a\), and move the \(1/$b\) out front.  All this should be inside limit symbols, of course.
+
+$BR$BR
+
+Now, use the limit laws to split the limit across the product, so you have a constant on the outside, and two limits multiplied together:  
+
+$BR$BR
+-Limit one, involving the function: \( \frac{\sin($a)}{$a \theta}\)   $BR
+-Limit two, with function: \(\sin($a \theta) \).  
+
+$BR$BR
+The first requires the special identity we've been using.  The second, isn't that a continuous function?  
+
+$BR$BR
+
+Wrap the problem up by multiplying together both the constant, and the values of the two limits you found.  
+
+$BR$BR
+
+Remember, you can use your calculator to verify and guide you.  That graphical feedback can be really valuable!
+END_HINT
+Context()->normalStrings;
+
+ANS(Compute("0")->cmp);
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

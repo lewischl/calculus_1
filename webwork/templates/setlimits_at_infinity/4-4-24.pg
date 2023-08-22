@@ -1,0 +1,97 @@
+## DESCRIPTION
+##   Evaluate Limits to Infinity
+## ENDDESCRIPTION
+
+## Tagged by nhamblet
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Limits at infinity, horizontal and oblique asymptotes)
+## Date(12/29/08)
+## Institution(ASU)
+## Author(N. Srivastava)
+## MLT(liminfpoly)
+## MLTleader(1)
+## Level(1)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('5e')
+## Section1('2.6')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('2.6')
+## Problem2('')
+## KEYWORDS('Limit', 'Infinity', 'Horizontal Asymptote','calculus','limits','infinity')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Union/setLimitInfinity/4-4-24.pg 
+#	to setlimits_at_infinity/4-4-24.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGunion.pl",            # Union College utilities
+  "MathObjects.pl",
+  "PGcourse.pl",           # Customization file for the course
+);
+
+TEXT(beginproblem());
+
+###################################
+# Setup
+
+Context("Numeric");
+
+$c = random(-5, -2, 1);
+$p = random(5, 9, 1);
+
+$f = Formula("$c x**$p + 7x**3 - 5")->reduce('(-x)-y'=>0,'(-x)+y'=>0);
+
+###################################
+# Main text
+
+Context()->texStrings;
+BEGIN_TEXT
+Evaluate the limit 
+\[\lim_{x\to\infty} ($f).\]
+
+${BITALIC}(If the limit approaches \(\infty\), enter ${BBOLD}INF${EBOLD}; if it approaches \(-\infty\), enter ${BBOLD}-INF${EBOLD}; otherwise, if it does not exist, enter ${BBOLD}DNE${EBOLD}.)${EITALIC}$BR
+
+Limit = \{ ans_rule(20) \}
+
+$BR$BR
+
+\{ theresahint \}
+END_TEXT
+
+BEGIN_HINT
+It's a non-constant polynomial at infinity, so it can only be one of two things...
+
+\{amethystHint("$PAR$HR$PAR See below for a video from Prof. Amethyst on how to do this: $PAR")\}
+\{ youtubeAmethyst(efXRbWQh6zk) \}
+END_HINT
+Context()->normalStrings;
+
+###################################
+# Answers
+
+$showPartialCorrectAnswers = 1;
+ANS(Compute("-inf")->cmp);
+
+###################################
+
+
+;
+ENDDOCUMENT();

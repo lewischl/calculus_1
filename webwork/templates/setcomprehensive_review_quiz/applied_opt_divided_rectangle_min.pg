@@ -1,0 +1,102 @@
+## DESCRIPTION
+## Calculus
+## ENDDESCRIPTION
+
+## Tagged by tda2d
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Applications of differentiation)
+## DBsection(Optimization - general)
+## Date(6/3/2002)
+## Institution(UCSB)
+## Author(Utah ww group)
+## MLT(Optimization_Fence)
+## MLTleader(1)
+## Level(5)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('1')
+## Section1('4.6')
+## Problem1('')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('4.7')
+## Problem2('')
+## TitleText3('Mathematical Applications')
+## AuthorText3('Ronal J. Harshbarger and James J. Reynolds')
+## EditionText3('8')
+## Section3('.')
+## Problem3('')
+## TitleText4('Calculus I')
+## AuthorText4('Jerrold Marsden and Alan Weinstein')
+## EditionText4('2')
+## Section4('.')
+## Problem4('')
+## TitleText5('Calculus')
+## AuthorText5('Dale Varberg, Edwin J. Purcell, and Steven E. Rigdon')
+## EditionText5('9')
+## Section5('.')
+## Problem5('')
+## TitleText6('Calculus: Early Transcendentals')
+## AuthorText6('Stewart')
+## EditionText6('5')
+## Section6('4.7')
+## Problem6('9')
+## KEYWORDS('derivative' 'extrema' 'optimization','calculus','Derivatives','maximization' 'minimization' 'derivatives' 'optimization','Optimization', 'Fence','Differentiation')
+
+
+
+########################################
+# this file automatically moved
+#	from setFinal_Exam-Team/applied_opt_divided_rectangle_min.pg 
+#	to setcomprehensive_review_quiz/applied_opt_divided_rectangle_min.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "PGunion.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+###################################
+# Setup
+
+$a=random(5000,15000,500);
+
+###################################
+# Main text
+
+BEGIN_TEXT
+
+A rancher wants to fence in a rectangular area of $a square meters, and divide it in half with a fence down the middle parallel
+to one side.  What is the shortest total length of fence that the rancher can use?
+$PAR
+The shortest total length of fence which can enclose this rectangular area is \{ans_rule(20)\} meters.
+
+END_TEXT
+
+
+###################################
+# Answers
+
+$showPartialCorrectAnswers = 1;
+
+$ans = 2*sqrt(6*$a);
+ANS(Real($ans)->cmp);
+
+###################################
+
+
+;
+ENDDOCUMENT();

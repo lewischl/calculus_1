@@ -1,0 +1,82 @@
+##DESCRIPTION
+## Find a derivative of a fraction of linear polynomials, evaluate it at a    ## point
+##ENDDESCRIPTION
+
+## Shotwell cleaned 
+## tcao , PAID on 11-24-2003
+## updated 12/2014
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Quotient rule (without trigonometric functions))
+## Date(6/3/2002)
+## MLT(quotRuleNoTrigConstantoverLinear)
+## Level(2)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Stewart')
+## EditionText1('6')
+## Section1('2.7')
+## Problem1('15')
+## KEYWORDS('derivatives')
+## MO(1)
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/ma122DB/set3/s2_8_15.pg 
+#	to setderivatives_chain_rule_level_1/s2_8_15.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+Context('Numeric');
+Context()->variables->are('a'=>"Real");
+
+$a = random(2,7,1);
+$b = random(2,8,1);
+$c = random(2,7,1);
+
+$funct = Formula("-$a*$b/($b*a +$c)^2");
+
+BEGIN_TEXT
+Let \( f(x) =  \dfrac { $a } { $b x + $c } \). Compute \( f'( a ) \), where \(a\) is just some number.  
+$BR$BR \( f'( a ) \) = \{ans_rule(30) \}
+
+$BR$BR
+(your answer should be an expression involving the symbol \(a\), not a number).
+
+END_TEXT
+
+#$ans = $funct;
+#ANS(fun_cmp($ans,vars=>['a']));
+ANS($funct->cmp);
+
+
+BEGIN_HINT
+First, I really like re-writing the difference quotient as \(\frac{1}{h}\left(f(x+h)-f(x) \right) \).  
+
+$BR$BR
+ 
+Second, \(a\) is just a number.  Don't get hung up on "what it is".  Just leave it as \(a\), and do algebra with it. 
+
+\{amethystHint("$PAR$HR$PAR I think you'll totally appreciate this video from Prof. Amethyst:$PAR")\}
+\{ youtubeAmethyst(O4RRMLPWbaU) \}
+
+END_HINT
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

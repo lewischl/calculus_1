@@ -1,0 +1,125 @@
+## this file copied from Chris Hlas's Math114 content, Summer 2022, by permission of Chris Hlas
+## this automatic process executed by silviana amethyst
+## original filename local/Library/Rochester/setDerivatives5ChainRule/s2_5_8_mo.pg
+
+## DESCRIPTION
+##   The Chain Rule
+## ENDDESCRIPTION
+
+## Tagged by nhamblet
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Chain rule (without trigonometric functions))
+## Institution(Rochester)
+## MLT(Chain-SqrtOfPoly2)
+## MLTleader(1)
+## Level(2)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('1')
+## Section1('3.7')
+## Problem1('11')
+## TitleText2('Calculus I')
+## AuthorText2('Jerrold Marsden and Alan Weinstein')
+## EditionText2('2')
+## Section2('.')
+## Problem2('')
+## TitleText3('Calculus')
+## AuthorText3('Dale Varberg, Edwin J. Purcell, and Steven E. Rigdon')
+## EditionText3('9')
+## Section3('.')
+## Problem3('')
+## TitleText4('Calculus: Early Transcendentals')
+## AuthorText4('Stewart')
+## EditionText4('6')
+## Section4('3.4')
+## Problem4('9')
+## KEYWORDS('Derivative', 'Chain Rule','Chain Rule', 'Derivative','calculus','derivatives')
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Rochester/setDerivatives5ChainRule/s2_5_8_mo.pg 
+#	to setderivatives_chain_rule_level_1/s2_5_8_mo.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$a1 = Real(  random(2,5,1) );
+$b1 = Real( random(2,5,1) );
+$c1 = Real( random(2,8,1) );
+$x1 = Real( random(1,5,1) );
+
+
+$deriv1 = (0.5*($a1*$x1*$x1+$b1*$x1+$c1)**(-0.5))*(2*$a1*$x1+$b1);
+$funct1 = "(0.5*($a1*x*x+$b1*x+$c1)**(-0.5))*(2*$a1*x+$b1)";
+
+$f = Compute("sqrt( $a1 x^2 + $b1 x + $c1 )");
+$fp = $f->D;
+$fpatx1 = $fp->eval(x=>$x1);
+
+##############################################################
+#
+#  Text
+#
+#
+
+Context()->texStrings;
+BEGIN_TEXT
+Let \[ f(x) = $f\]
+$PAR
+\( f'( x ) = \) \{ans_rule(40) \}
+
+END_TEXT
+Context()->normalStrings;
+
+
+##############################################################
+#
+#  Answers
+#
+#
+ANS(
+$fp->cmp
+);
+
+$a12 = 2 * $a1;
+$A=$a1*$x1*$x1+$b1*$x1+$c1;
+$B=$a12*$x1+$b1;
+$B2=$B/2;
+BEGIN_SOLUTION
+$PAR SOLUTION $PAR 
+Using the chain rule gives:
+\[ \begin{array}{rcl} f'(x) &=& \displaystyle  \frac{1}{2} ($a1 x^2 + $b1 x + $c1 )^{-1/2} \frac{d}{dx}
+($a1 x^2 + $b1 x + $c1 )
+\\ &=& \frac{1}{2} ($a1 x^2 + $b1 x + $c1 )^{-1/2} 
+($a12 x + $b1 )
+\end{array}  \]
+END_SOLUTION
+
+;
+
+ENDDOCUMENT();

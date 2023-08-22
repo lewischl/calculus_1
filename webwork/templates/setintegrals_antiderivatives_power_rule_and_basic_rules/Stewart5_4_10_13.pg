@@ -1,0 +1,45 @@
+
+
+########################################
+# this file automatically moved
+#	from local/Library/UCSB/Stewart5_4_10/Stewart5_4_10_13.pg 
+#	to setintegrals_antiderivatives_power_rule_and_basic_rules/Stewart5_4_10_13.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl",
+   "MathObjects.pl",
+  "parserFormulaUpToConstant.pl",
+);
+
+Context("Numeric");
+Context()->variables->add(t => "Real");
+
+TEXT(&beginproblem);
+$showPartialCorrectAnswers = 1;
+$a=random(1,10,1)*random(-1,1,2);
+$b=random(1,10,1)*random(-1,1,2);
+$c=random(1,10,1)*random(-1,1,2);
+
+BEGIN_TEXT
+
+Calculate the indefinite integral:
+
+$PAR
+\(\displaystyle \int\big($a \cos(t) + $b \sin(t)\big)dt=\) \{ ans_rule(10) \}$BR
+${BITALIC}(Use a capital $BBOLD C$EBOLD for an arbitrary constant.)$EITALIC
+END_TEXT
+
+$answer=FormulaUpToConstant("$a*sin(t)+$b*(-1)*cos(t)");
+
+ANS($answer->cmp());
+
+ENDDOCUMENT();

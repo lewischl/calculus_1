@@ -1,0 +1,187 @@
+## DESCRIPTION
+##   Implicit Differentiation
+## ENDDESCRIPTION
+
+## Tagged by nhamblet
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Differentiation)
+## DBsection(Implicit differentiation)
+## Date(6/3/2002)
+## Institution(Rochester)
+## Author(Utah ww group)
+## MLT(xy_powers_eval)
+## Level(2)
+## MO(1)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('1')
+## Section1('3.8')
+## Problem1('')
+## TitleText2('Calculus I')
+## AuthorText2('Jerrold Marsden and Alan Weinstein')
+## EditionText2('2')
+## Section2('.')
+## Problem2('')
+## TitleText3('Calculus')
+## AuthorText3('Dale Varberg, Edwin J. Purcell, and Steven E. Rigdon')
+## EditionText3('9')
+## Section3('.')
+## Problem3('')
+## TitleText4('Calculus: Early Transcendentals')
+## AuthorText4('Stewart')
+## EditionText4('6')
+## Section4('3.5')
+## Problem4('2')
+## TitleText5('Calculus: Early Transcendentals')
+## AuthorText5('Stewart')
+## EditionText5('5')
+## Section5('3.6')
+## Problem5('')
+## KEYWORDS('Implicit', 'Derivative','calculus','derivatives', 'implicit','Implicit Derivative', 'differentiation')
+
+
+
+########################################
+# this file automatically moved
+#	from myproblems/set3.8_implicit_diff/implicit_ellipse.pg 
+#	to setderivatives_differentation_on_implicit_curves/implicit_ellipse.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "contextFraction.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+do {
+	$a1 = random(4, 8);
+	$b1 = random(4, 8);
+} until (
+	$a1 != $b1
+);
+$a2 = $a1*$a1;
+$b2 = $b1*$b1;
+$x1 = random(2, $a1 - 1);
+$x2 = $x1*$x1;
+
+foreach $i ( 1 .. int(sqrt($a2 - $x2)) ) {
+	$d = $i if ( ($a2 - $x2) % $i**2 == 0 )
+}
+
+Context('Fraction');
+($c, $r) = (
+	Fraction($b1 * $d, $a1)->reduce,
+	($a2 - $x2) / $d**2
+);
+$y1_string = ( $r == 1
+	? $c
+	: ( $c == 1
+		? "sqrt($r)"
+		: "$c sqrt($r)"
+	)
+);
+
+$e = Fraction($b2*$x1, $a2*$c*$r)->reduce;
+$deriv_string = ( $r == 1
+	? $e
+	: ( $e == 1
+		? "sqrt($r)"
+		: "$e sqrt($r)"
+	)
+);
+
+Context('Numeric')->flags->set(
+	reduceConstants => 0,
+	reduceConstantFunctions => 0
+);
+$y1 = Formula("$y1_string");
+
+$deriv = Compute('-' . $deriv_string);
+
+
+##############################################################
+#
+#  Text
+#
+#
+
+Context()->texStrings;
+BEGIN_TEXT
+If
+\[ \frac{x^2}{$a2} + \frac{y^2}{$b2} = 1 \]
+and \( y($x1) = $y1 \), find
+\( y'( $x1 ) \) by implicit differentiation.
+$BR $BR
+\( y'($x1)  = \) \{ans_rule(30) \}
+$PAR
+
+$BR$BR
+
+
+
+END_TEXT
+
+$showHint=-1;
+BEGIN_HINT
+
+We want the slope at a particular point.  We have "encoded" the point in functional form by saying \( y($x1) = $y1 \).  That means when \(x = $x1\), \(y = $y1\).  That is, we have a point on our implicit curve (which is an ellipse), and its coordinates are \( ($x1, $y1) \).  We want to find the slope there.
+$PAR
+$HR
+$PAR
+
+Do not use the quotient rule to take the derivative of \(\frac{x^2}{$a2}\).  Not that it would be wrong to do so, but that it would be a bunch of extra work.  Rewrite \( \frac{x^2}{$a2} = \frac{1}{$a2} x^2\), and use the regular old power rule.  Similarly for the term containing \(y\).
+
+$PAR
+$HR
+$PAR
+
+We're thinking of \(y\) as a function of \(x\).  So the equation looks like
+
+\[ \frac{x^2}{$a2} + \frac{[y(x)]^2}{$b2} = 1 \]
+
+Taking the derivative of *each side* leads the way.  The derivative of any part with an \(x\) in it just uses the normal derivative rules.
+
+$BR$BR
+
+Taking the derivative of any part with a \(y\) in it requires the chain rule, and you have to multiply the derivative by \(y'\).  For example, 
+
+$BR \( \displaystyle \frac{d}{dx} \sin \left(2y(x)\right) = \cos (2y(x)) \cdot (2) \cdot (y'(x)) \)
+
+
+
+
+
+\{amethystHint("$PAR$HR$PAR Looking for a video to help you take some steps?  Check out this one from Prof. Amethyst:$PAR ") \}
+\{ youtubeAmethyst("k1f3YVRHxb4")\}
+END_HINT
+
+Context()->normalStrings;
+##############################################################
+#
+#  Answers
+#
+#
+
+
+ANS($deriv->cmp);
+
+;
+
+ENDDOCUMENT();

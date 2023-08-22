@@ -1,0 +1,83 @@
+##DESCRIPTION
+##  Summation notation
+##ENDDESCRIPTION
+
+##KEYWORDS('summation notation')
+
+## DBsubject('Calculus')
+## DBchapter('Integration')
+## DBsection('Approximating areas')
+## Date('November 30, 2022')
+## Author('silviana amethyst')
+## Institution('UWEC')
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from setFinal_Exam-Team/summation_notation.pg 
+#	to setcomprehensive_review_quiz/summation_notation.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+SRAND($team_exam3_seed);
+$setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
+
+$scale = random(2,4,1);
+$power = 2;
+
+$a = random(-4,-2,1);
+$b = random(2,4,1);
+
+@indices = ($a..$b);
+
+
+
+$ans = 0;
+
+for(@indices){
+    $ans = $ans + $scale*($_)**$power;
+}
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+Compute the sum:
+
+[`` \sum_{i=[$a]}^{[$b]} [$scale] \, i^{[$power]}  ``]
+
+Answer: [_____]{$ans}
+END_PGML
+
+ENDDOCUMENT();

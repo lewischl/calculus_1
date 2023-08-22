@@ -1,0 +1,115 @@
+
+##DESCRIPTION
+##  match properties of derivative / tangent lines
+##ENDDESCRIPTION
+
+##KEYWORDS('matching','tutorial')
+
+## DBsubject('Calculus')
+## DBchapter('Limits and Derivatives')
+## DBsection('Definition of derivative')
+## Date('spring 2023')
+## Author('silviana amethest')
+## Institution('uwec')
+
+# this derived from https://webwork.maa.org/pod/pg/lib/Match.html
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from set3.1_definition_of_derivative/vert_horiz_fill_in_blanks_dropdown.pg 
+#	to setderivatives_limit_definition_of_derivative/vert_horiz_fill_in_blanks_dropdown.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+   
+   # added for matching
+   "PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"unionTables.pl",
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+
+
+
+$tan_vert = "the tangent line at that point is vertical";
+$tan_horiz = "the tangent line at that point is horizontal";
+$tan_pos = "the tangent line at that point has positive slope";
+$tan_neg = "the tangent line at that point has negative slope";
+
+$ml = new_match_list();
+
+
+
+	$ml->qa(
+		'the derivative of \(f\) at \(x=c\) is positive',
+		$tan_pos,
+		'the derivative of \(f\) at \(x=c\) is negative',
+		$tan_neg,
+		'the derivative of \(f\) at \(x=c\) is zero',
+		$tan_horiz,
+		'the derivative of \(f\) at \(x=c\) does not exist',
+        $tan_vert,
+        'the function \(f\) is increasing at \(x=c\)',
+		$tan_pos,
+        'the function \(f\) is decreasing at \(x=c\)',
+		$tan_neg,
+	);
+    
+    
+    	$ml->extra(
+	);
+    
+    $ml->choose(6); # would show the first question and a random question while
+    
+    # After calling choose, use choose_extra to select which of the extra 'answers' will be given to each student. 
+    #Note that unused answers are dumped into the list of extra 'answers' so the indexing may be difficult to grasp at first. 
+    #(This can be stopped by doing the following: $ml->dumpExtra = "";)
+    $ml->choose_extra(0);
+    
+    #$ml->makeLast(
+	#	'All of the above',
+	#	'None of the above'
+	#);
+    
+    $ml->ans_rule_len(10);
+
+
+BEGIN_TEXT
+For each statement, match the descriptor.
+
+$PAR $HR $PAR
+
+
+
+$PAR
+\{ $ml->print_q() \}
+$PAR
+\{ $ml->print_a() \}
+
+END_TEXT
+
+
+ANS(str_cmp($ml->ra_correct_ans));
+
+
+ENDDOCUMENT();
+

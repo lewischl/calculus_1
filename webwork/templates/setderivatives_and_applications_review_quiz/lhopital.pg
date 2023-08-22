@@ -1,0 +1,100 @@
+##DESCRIPTION
+##  Use L'Hopital's rule
+##ENDDESCRIPTION
+
+##KEYWORDS('applications of derivatives', 'LHopital's rule')
+
+## DBsubject('Calculus')
+## DBchapter('Applications of derivatives')
+## DBsection('LHopitals rule')
+## Date('')
+## Author('silviana amethyst')
+## Institution('uwec')
+
+
+########################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from setExam_2-Team/lhopital.pg 
+#	to setderivatives_and_applications_review_quiz/lhopital.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "PGML.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+SRAND($team_exam2_seed);
+$setseed = "set.seed($team_exam2_seed); $team_exam2_seed";
+
+$a = random(7,9,1);
+$b = random(2,4,1);
+
+@f = ();
+@locations = ();
+@limits = ();
+
+$f[0] = Formula("(x^2-$a^2) / ( ($a*$b) -($a+$b)*x + x^2)")->reduce;
+$locations[0] = $a;
+$limits[0] = 2*$a / (-($a+$b)+ 2*$a);
+$num_after_diff = Formula("2x")->reduce;
+$denom_after_diff = Formula("-($a+$b)+2x")->reduce;
+
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_PGML
+
+The following limit problem is solvable using L'Hopital's rule:
+
+[`` \lim_{x \to [$a]} \left( [$f[0]] \right) ``]
+
+---
+
+After verifying that the limit is indeterminate form and applying L'Hopital's rule, we find that 
+
+[`` \lim_{x \to [$a]} \left( [$f[0]] \right) = \lim_{x \to [$a]} \left( \frac{N}{D}\right)``], where 
+
+[`N = `] [______]{"[$num_after_diff]"} (enter a function)
+
+[`D = `] [______]{"[$denom_after_diff]"} (enter a function)
+
+---
+
+Thus, we find that the value of the limit is 
+
+[`` \lim_{x \to [$a]} \left( [$f[0]] \right) =``] [______]{$limits[0]} (enter a number)
+
+
+
+END_PGML
+
+ENDDOCUMENT();

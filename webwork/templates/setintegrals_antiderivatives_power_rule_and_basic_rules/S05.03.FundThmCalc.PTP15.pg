@@ -1,0 +1,53 @@
+
+
+########################################
+# this file automatically moved
+#	from local/Library/Rochester/setIntegrals4FTC/S05.03.FundThmCalc.PTP15.pg 
+#	to setintegrals_antiderivatives_power_rule_and_basic_rules/S05.03.FundThmCalc.PTP15.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl",
+  "MathObjects.pl",
+  "parserFormulaUpToConstant.pl",
+);
+
+Context("Numeric");
+#Context()->variables->add(C => "Real");
+
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$c=random(1,9,1);
+$n=random(2,7,1); 
+$k=random(1, 4, 1);
+$a=2**$k; 
+$b=random(3, 15, 2);
+
+BEGIN_TEXT
+Calculate the indefinite integral:
+
+$PAR
+\(\displaystyle \int \left( \frac{$c}{x^$n}+ \frac{$a}{$b x} \right) dx=\) 
+\{ans_rule(30)\}$BR
+${BITALIC}(Use a capital $BBOLD C$EBOLD for an arbitrary constant.)$EITALIC
+
+END_TEXT
+
+$answer=FormulaUpToConstant("$c/(-$n+1) * x**(-$n+1) + $a/$b * ln(abs(x))");
+
+ANS($answer->cmp());
+
+ENDDOCUMENT();
+
+
+
