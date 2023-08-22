@@ -7,7 +7,9 @@ DOCUMENT();
 loadMacros(
 	"PG.pl",
 	"PGbasicmacros.pl",
-
+	#"source.pl", #uncommenting this will display "show source" button if that is permitted
+	"PGcourse.pl",
+	"PGML.pl"
 );
 
 TEXT($BEGIN_ONE_COLUMN);
@@ -22,8 +24,6 @@ TEXT($BEGIN_ONE_COLUMN);
 
 TEXT(MODES(TeX =>EV3(<<'EOT'),HTML=>""));
 
-\DeclareUnicodeCharacter{2212}{{-}}
-
 \noindent {\large \bf $studentName}
 \hfill
 {\large \bf {\{protect_underbar($courseName)\}}}
@@ -31,7 +31,7 @@ TEXT(MODES(TeX =>EV3(<<'EOT'),HTML=>""));
 %   {\large \bf { Section: \{protect_underbar($sectionName)\} } }
 \par
 \noindent{\large \bf {Assignment \{protect_underbar($setNumber)\}  due $formatedDueDate}}
-\par\noindent \bigskip
+%\par\noindent
 % Uncomment and edit the line below if this course has a web page. Note that this is a comment in TeX mode.
 %See the course web page for information http://yoururl/yourcourse
 
@@ -47,21 +47,19 @@ EOT
 ####################################################
 #
 # The items below are printed out only when set is displayed on screen
-# 
+#
 ####################################################
 TEXT(MODES(TeX =>"",HTML=>EV3(<<'EOT')));
 
-$BBOLD WeBWorK  Assignment \{ protect_underbar($setNumber) \}  is due :  $formattedDueDate. $EBOLD
+This assignment is due :  $formattedDueDate.
+
 $PAR
-Here's the list of 
-\{ htmlLink(qq!http://webwork.maa.org/wiki/Available_Functions!,"functions and symbols") \}
- which WeBWorK understands.
-$BR
+
 EOT
 
 ####################################################
-# Uncomment and edit the lines below if this course has a web page. Note that this is comment in Perl mode. 
-# IMPORTANT: Make sure the EOT at the bottom is at the beginning of a line with no spaces preceeding it.
+# Uncomment and edit the lines below if this course has a web page. Note that this is comment in Perl mode.
+# IMPORTANT: Make sure the EOT at the bottom is at the beginning of a line with no spaces preceding it.
 #TEXT(MODES(TeX =>"",HTML=>EV3(<<'EOT')));
 #See the course web page for information \{ htmlLink(qq!http://yoururl/yourcourse!,"your course name") \}
 #EOT
@@ -80,9 +78,19 @@ EOT
 #
 ####################################################
 
-BEGIN_TEXT
+BEGIN_PGML
 
-END_TEXT
+This is a "Team Test".  
+
+1. Work in self-assembled groups on the problems on paper (your instructor will hand out paper copies).  
+2. Enter your answers into Webwork
+3. Double check.  Sometimes you've gotta go slow to go fast.
+4. Submit
+5. Discuss with your group members and instructor about ways to improve, or to share insight and tips with others.
+
+⚠️ The deadline is hard and fast.  Webwork will not notify you if the deadline passes while you're entering; it will just reject your submission.  Don't submit late.  Consider this training for a wide variety of tasks for which deadlines are real and have consequences: buying a house, voting, dealing with the court system, paying bills, making travel plans, ...
+
+END_PGML
 
 
 TEXT($END_ONE_COLUMN);

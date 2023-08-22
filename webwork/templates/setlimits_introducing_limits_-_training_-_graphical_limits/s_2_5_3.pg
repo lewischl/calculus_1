@@ -141,9 +141,6 @@ $PAR
 $BCENTER
 \{image(insertGraph($graph1),width=>$w,height=>$h,tex_size=>$tw)\}
 $ECENTER $PAR
-\{ AnswerFormatHelp("limits") \}
-$PAR
-$HR
 $BBOLD 1. $EBOLD \(\displaystyle \lim_{x \to $a7^{-}}f(x) = \) \{ans_rule(20)\}
 $PAR
 $BBOLD 2. $EBOLD  \(\displaystyle \lim_{x \to $a7^{+}}f(x) = \) \{ans_rule(20)\}
@@ -153,11 +150,7 @@ $PAR
 $BBOLD 4. $EBOLD  \(\displaystyle \lim_{x \to \infty}f(x) = \) \{ans_rule(20)\}   (look right!)
 $PAR
 $BBOLD 5. $EBOLD  \(\displaystyle \lim_{x \to -\infty}f(x) = \) \{ans_rule(20)\}  (look left!)
-$HR
-$BBOLD Note: $EBOLD $BITALIC You can click on the graph to enlarge the image.$EITALIC
-$HR
 
-\{theresahint\}
 END_TEXT
 
 Context()->normalStrings;

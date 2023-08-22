@@ -50,13 +50,9 @@ EOT
 #
 ####################################################
 TEXT(MODES(TeX =>"",HTML=>EV3(<<'EOT')));
+This assignment is due  $formattedDueDate.
 
-$BBOLD WeBWorK  Assignment \{ protect_underbar($setNumber) \}  is due :  $formattedDueDate. $EBOLD
 $PAR
-Here's the list of
-\{ htmlLink(qq!http://webwork.maa.org/wiki/Available_Functions!,"functions and symbols") \}
- which WeBWorK understands.
-$BR
 EOT
 
 ####################################################
@@ -82,7 +78,15 @@ EOT
 
 BEGIN_PGML
 
-These example problems are not by mathematical topic, but by technique or style of question.  This problem set is *not* a place for experimentation, but a place to showcase functional content that demonstrates different techniques of content creation in Webwork.
+This is a __challenge set__.  It may have problems you've never seen before, and this is deliberate.  This is part of "mastery based teaching", where you are encouraged to engage with content as much as you need or want.  
+
+* You'll submit the problems all-at-once, so you need to be correct on the first time within each attempt.  
+* You may attempt this challenge set as many times as you need.  You may see different problems, and they may be in a different order.
+* The highest score you earn is kept, even if you get a lower score on a later attempt.
+
+Note also this is an __untimed__ set -- you may take as long as you wish on each attempt, until it closes. 
+
+⚠️ Beware letting your browser time out.  WEBWORK WILL NOT SAVE WORK BETWEEN BROWSER SESSIONS.  Do your work on paper, and transcribe your answers once you've completed all problems to avoid loss of work if there's a browser issue.  
 
 END_PGML
 

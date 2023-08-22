@@ -150,7 +150,7 @@ We have a function [`[$f]`] graphed below:
 If we apply Newton's Method using [`x_0=0`], it approximates the root closest to 
  [____]{$pop}
 
-The value of the first Newton iteration is [`x_1`] = [_]{Compute($x[1])}
+The value of the first Newton iteration is [`x_1`] = [_]{Compute($x_vals[1])}
 
 END_PGML
 

@@ -117,13 +117,13 @@ $PAR
 Click on the picture to expand to a larger picture.
 
 $PAR
-\(\displaystyle \lim_{x \to -\infty} f(x)\) = \{ ans_rule{8} \}
+\(\displaystyle \lim_{x \to -\infty} f(x)\) = \{ ans_rule(8) \}
 
 $PAR
- \(\displaystyle \lim_{x \to \infty} f(x)\) = \{ ans_rule{8} \}
+ \(\displaystyle \lim_{x \to \infty} f(x)\) = \{ ans_rule(8) \}
  
 $PAR
-\(\displaystyle \lim_{x \to 0} f(x)\) = \{ ans_rule{8} \}
+\(\displaystyle \lim_{x \to 0} f(x)\) = \{ ans_rule(8) \}
 END_TEXT
 
 Context()->normalStrings;

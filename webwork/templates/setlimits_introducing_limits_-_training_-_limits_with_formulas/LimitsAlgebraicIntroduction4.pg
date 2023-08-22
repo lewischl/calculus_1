@@ -105,6 +105,23 @@ $desmos_div = MODES(
     TeX=>'Interactive graph best viewed online'
 );
 
+$unique_div_id2 = "evaluating_f";
+$desmos_div2 = MODES(
+    HTML=>qq(<div id="$unique_div_id2" style="width: ${width}px; height: ${height}px;"></div>), 
+    TeX=>'Interactive graph best viewed online'
+);
+
+$unique_div_id3 = "evaluating_f";
+$desmos_div3 = MODES(
+    HTML=>qq(<div id="$unique_div_id3" style="width: ${width}px; height: ${height}px;"></div>), 
+    TeX=>'Interactive graph best viewed online'
+);
+
+$unique_div_id4 = "evaluating_f";
+$desmos_div4 = MODES(
+    HTML=>qq(<div id="$unique_div_id4" style="width: ${width}px; height: ${height}px;"></div>), 
+    TeX=>'Interactive graph best viewed online'
+);
 
 $p1=-1;
 $p2=-.2;
@@ -311,26 +328,21 @@ Section::End();
 
 Section::Begin("Other side");
 
-BEGIN_PGML
-
-[@
-DataTable(
+$table2=DataTable(
 [
-    ['\(x\)',"rounding",'\(h(x)\)'],
-    ['\('.$ja5.'\)',4,ans_rule(10)],
-    ['\('.$ja6.'\)',5,ans_rule(10)],
-    ['\('.$ja7.'\)',2,ans_rule(10)],
-    ['\('.$ja8.'\)',3,ans_rule(10)],
-    ['\('.$ja9.'\)',3,ans_rule(10)],
+    ['\(x\)','\(h(x)\)'],
+    ['\('.$ja5.'\)',ans_rule(10)],
+    ['\('.$ja6.'\)',ans_rule(10)],
+    ['\('.$ja7.'\)',ans_rule(10)],
+    ['\('.$ja8.'\)',ans_rule(10)],
+    ['\('.$ja9.'\)',ans_rule(10)],
 ],
 align => '|l | l|l|',
 midrules => 1,
 tablecss => " border-spacing:0px 0px; border-radius: 5px; border-collapse:separate;"
 );
-@]*
 
-
-END_PGML
+TEXT(ColumnTable($table2,$desmos_div2));
 
 ANS($hja5->cmp());
 ANS($hja6->cmp());
@@ -374,8 +386,9 @@ BEGIN_PGML
 
 We just saw an example of _output_ numbers approaching [`\infty`] or [`-\infty`]. But what about _input_ numbers?
 
-[@
-DataTable(
+END_PGML
+
+$table3=DataTable(
 [
     ['\(x\)','\(h(x)\)'],
     ['\('.$jb1.'\)',ans_rule(10)],
@@ -386,9 +399,8 @@ align => '|l | l|l|',
 midrules => 1,
 tablecss => " border-spacing:0px 0px; border-radius: 5px; border-collapse:separate;"
 );
-@]*
 
-END_PGML
+TEXT(ColumnTable($table3,$desmos_div3));
 
 #Context()->{format}{number} = "%.2f";
 #ANS(Real(sprintf("%.2f",$hja0))->cmp());
@@ -414,8 +426,9 @@ BEGIN_PGML
 
 Let's see what happens when [`x`] keeps going down.
 
-[@
-DataTable(
+END_PGML
+
+$table4=DataTable(
 [
     ['\(x\)','\(h(x)\)'],
     ['\('.$jb4.'\)',ans_rule(10)],
@@ -426,9 +439,8 @@ align => '|l | l|l|',
 midrules => 1,
 tablecss => " border-spacing:0px 0px; border-radius: 5px; border-collapse:separate;"
 );
-@]*
 
-END_PGML
+TEXT(ColumnTable($table4,$desmos_div4));
 
 Context()->normalStrings;
 

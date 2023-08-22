@@ -61,8 +61,8 @@ $xmax = $c + 6;
 $c_l = $c - 0.1;
 $c_r = $c + 0.1;
 
-$w = 400;  # graph size
-$tw = 500; # graph size in TeX
+$w = 300;  # graph size
+$tw = 300; # graph size in TeX
 
 $graph1 = init_graph($xmin,-2,$xmax,6,'axes'=>[0,0],
   'ticks'=>[12,8],'grid'=>[12,8],'size'=>[500,500]);
@@ -101,11 +101,11 @@ Evaluate the given limits using the above graph. Enter $BBOLD DNE $EBOLD if the 
 $PAR 
 
 $PAR
-\(\displaystyle \lim_{x \to $c^-} f(x)\) = \{ ans_rule{8} \}
+\(\displaystyle \lim_{x \to $c^-} f(x)\) = \{ ans_rule(8) \}
 $PAR
-\(\displaystyle \lim_{x \to $c^+} f(x)\) = \{ ans_rule{8} \}
+\(\displaystyle \lim_{x \to $c^+} f(x)\) = \{ ans_rule(8) \}
 $PAR
-\(\displaystyle \lim_{x \to $c} f(x)\) = \{ ans_rule{8} \}
+\(\displaystyle \lim_{x \to $c} f(x)\) = \{ ans_rule(8) \}
 END_TEXT
 
 Context()->normalStrings;

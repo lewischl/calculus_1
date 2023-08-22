@@ -104,40 +104,10 @@ function continuous on \((-\infty,\infty)\).
 $PAR
 \(a=\) \{ans_rule(25) \}
 
-$BR$BR
-\{ theresahint \}
 END_TEXT
 
 
-BEGIN_HINT
-Need a bit of help?  
 
-$BR$BR
-
-First, this is a "find the value that makes it continuous" problem, so we'll be doing the typical method: evaluating both branches at the transition point, setting equal, and solving for the unknown.
-
-$BR$BR
-
-Division by 0 got you down, cuz of that \((x - $d)\) factor in the denominator (and the fact that the numerator is also 0)?  I have two options for you for how to deal with this "removable discontinuity".
-
-$BR$BR
-
-Option 1.  Since we can't evaluate the left branch at \(x = $d\), we need another approach.  What about using your calculator to find the limit at that point?  Plot that branch around the transition point, and you should be able to find the value of the limit.  Or, evaluate the function \($left\) very near the transition point, say at \( x = $d - 0.0001\).
-
-$BR$BR
-Option 2. Try polynomial long division to get rid of the common factor; this is a more exact route than using a calculator, and Prof. Amethyst thinks it's fun.  Divide the numerator \(($A x^3 + $B x^2 + $C x + $D)\) by \((x - $d)\).  Here's a video explaining how to do polynomial long division:
-
-$BR$BR
-
-\{ youtube(_FSXJmESFmQ) \}
-
-
-
-
-\{ amethystHint("$BR$BR For help on the concept of making piecewise functions continuous, check out this YouTube video from Prof. Amethyst:$BR$BR")\}
-\{ youtubeAmethyst(DdKDfIuSN30) \}
-
-END_HINT
 ###################################
 # Answers
 

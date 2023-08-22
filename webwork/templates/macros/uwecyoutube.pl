@@ -3,6 +3,10 @@
 
 sub _youtube_init {}; #don't reload this file
 
+
+$video_width = 300;
+$video_height = 225;
+
 # these integers are arbitrary but distinct numbers.  there's probably a bit operation that's much more clever, but nuts to that.  integers in an array with tests for membership
 $instructor_someoneelse = "someone else";
 $instructor_amethyst = "silviana amethyst";
@@ -58,7 +62,7 @@ sub kaltura {
 # construct a string with the video embedding
   my $embed_link = "<iframe id='kaltura_player' src='https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=" . $video_id . "&flashvars[streamerType]=auto&amp;" .
 "flashvars[mediaProxy.mediaPlayFrom]=" . $start_time . "&amp;" .
-"flashvars[localizationCode]=en&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[hotspots.plugin]=1&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_v8ek257i' width='608' height='342' allowfullscreen webkitallowfullscreen mozAllowFullScreen allow='autoplay *; fullscreen *; encrypted-media *' sandbox='allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation' frameborder='0' title='Estimating instantaneous rates of change via limits'></iframe>";
+"flashvars[localizationCode]=en&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[hotspots.plugin]=1&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_v8ek257i' width='$video_width' height='$video_height' allowfullscreen webkitallowfullscreen mozAllowFullScreen allow='autoplay *; fullscreen *; encrypted-media *' sandbox='allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation' frameborder='0' title='Estimating instantaneous rates of change via limits'></iframe>";
 
   HTML($embed_link,"\\href{$video_id}{link to video}");
 }
@@ -123,7 +127,7 @@ sub youtube {
 
   # construct two helpful strings.  
       # remember, the . operator below is string concatenation!!!
-  my $embed_link = "<iframe src='//www.youtube.com/embed/" . $video_id . "' width='560' height='315' allowfullscreen='allowfullscreen' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'></iframe>";
+  my $embed_link = "<iframe src='//www.youtube.com/embed/" . $video_id . "' width='$video_width' height='$video_height' allowfullscreen='allowfullscreen' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'></iframe>";
   my $inline_link = "https://www.youtube.com/watch?v=" . $video_id;
 
   # conditional on mode of output (which is NOT controlled here, but is part of "ambient webwork magic")

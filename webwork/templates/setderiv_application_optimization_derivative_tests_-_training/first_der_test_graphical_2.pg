@@ -120,7 +120,7 @@ $graph1 = GraphWithTikZ(function => [[$f_prime,dmin => $xlim[0],dmax => $xlim[1]
 BEGIN_PGML
 The first derivative test is a way to classify critical points of a function.  The below graph depicts [`f'(x)`], the first derivative of a function [`f`].
 
->>[@ image(insertGraph($graph1), width => 500, height => 500) @]*<<
+>>[@ image(insertGraph($graph1), width => 350) @]*<<
 
 
 

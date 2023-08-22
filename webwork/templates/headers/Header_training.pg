@@ -51,7 +51,7 @@ EOT
 ####################################################
 TEXT(MODES(TeX =>"",HTML=>EV3(<<'EOT')));
 
-WeBWorK  Assignment \{ protect_underbar($setNumber) \}  is due :  $formattedDueDate.
+This assignment is due :  $formattedDueDate.
 
 $PAR
 
@@ -80,9 +80,9 @@ EOT
 
 BEGIN_PGML
 
-This is a "training set".  The problems have context and guidance along with the problems.  The problems may be individually attempted an infinite number of times, to help you have space to learn the material.
+This is a "training set".  The problems have context and guidance along with the problems.  The problems may be individually attempted an infinite number of times, to help you have space to learn the material.  If a problem has videos, the video is directly related to the problem.  
 
-The training sets are intended to lead to challenge problems, speedruns, and other quizzes activities.  They're not evaluative.  They're instructional in nature, developmental.
+The training sets are intended to lead to challenge problems, speedruns, and other quizzes and activities.  They're not evaluative.  They're instructional in nature, developmental.
 
 END_PGML
 
