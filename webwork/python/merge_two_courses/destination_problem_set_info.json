@@ -1,0 +1,2094 @@
+{
+    "set0.0_webwork_intro.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 01/30/2022 at 12:01am CST\nreducedScoringDate = 02/04/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:00pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "Library/ma122DB/set0/prob2.pg",
+            "local/Library/ASU-topics/setIntroduction_to_WeBWorK/mat106prob1a.pg",
+            "Library/Rochester/set0/prob1b.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = Library/ma122DB/set0/prob2.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = local/Library/ASU-topics/setIntroduction_to_WeBWorK/mat106prob1a.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = Library/Rochester/set0/prob1b.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/ma122DB/set0/prob2.pg"
+        ],
+        "local_problems": [
+            "local/Library/ASU-topics/setIntroduction_to_WeBWorK/mat106prob1a.pg",
+            "Library/Rochester/set0/prob1b.pg"
+        ],
+        "problems_in_opl": [
+            "Library/ma122DB/set0/prob2.pg"
+        ],
+        "missing_problems": []
+    },
+    "set0.1_simplifying.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 01/30/2022 at 12:02am CST\nreducedScoringDate = 02/04/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:01pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = algebra pre-calc problems.  you must <n>* be able to do all these problems without a calculator.<n>* get 100% of the points.\nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "Library/maCalcDB/setAlgebra15Functions/srw2_1_1.pg",
+            "Library/Utah/Intermediate_Algebra/set14_Review/s14p1.pg",
+            "Library/Utah/Intermediate_Algebra/set2_Fundamentals_of_Algebra/e1.pg",
+            "local/Library/Utah/Intermediate_Algebra/set2_Fundamentals_of_Algebra/s2p14.pg",
+            "Library/PCC/BasicMath/OrderOfOperations_More/orderOfOperations285.pg",
+            "Library/PCC/BasicAlgebra/FractionArithmetic/SubtractFractions100.pg",
+            "Library/PCC/BasicAlgebra/OrderOfOperations/orderOfOperations290.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = Library/maCalcDB/setAlgebra15Functions/srw2_1_1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = Library/Utah/Intermediate_Algebra/set14_Review/s14p1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = Library/Utah/Intermediate_Algebra/set2_Fundamentals_of_Algebra/e1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/Library/Utah/Intermediate_Algebra/set2_Fundamentals_of_Algebra/s2p14.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = Library/PCC/BasicMath/OrderOfOperations_More/orderOfOperations285.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = Library/PCC/BasicAlgebra/FractionArithmetic/SubtractFractions100.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 7\nsource_file = Library/PCC/BasicAlgebra/OrderOfOperations/orderOfOperations290.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/maCalcDB/setAlgebra15Functions/srw2_1_1.pg",
+            "Library/Utah/Intermediate_Algebra/set14_Review/s14p1.pg",
+            "Library/Utah/Intermediate_Algebra/set2_Fundamentals_of_Algebra/e1.pg",
+            "Library/PCC/BasicMath/OrderOfOperations_More/orderOfOperations285.pg",
+            "Library/PCC/BasicAlgebra/FractionArithmetic/SubtractFractions100.pg",
+            "Library/PCC/BasicAlgebra/OrderOfOperations/orderOfOperations290.pg"
+        ],
+        "local_problems": [
+            "local/Library/Utah/Intermediate_Algebra/set2_Fundamentals_of_Algebra/s2p14.pg"
+        ],
+        "problems_in_opl": [
+            "Library/maCalcDB/setAlgebra15Functions/srw2_1_1.pg",
+            "Library/Utah/Intermediate_Algebra/set14_Review/s14p1.pg",
+            "Library/Utah/Intermediate_Algebra/set2_Fundamentals_of_Algebra/e1.pg",
+            "Library/PCC/BasicMath/OrderOfOperations_More/orderOfOperations285.pg",
+            "Library/PCC/BasicAlgebra/FractionArithmetic/SubtractFractions100.pg",
+            "Library/PCC/BasicAlgebra/OrderOfOperations/orderOfOperations290.pg"
+        ],
+        "missing_problems": []
+    },
+    "set0.2_solving.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 01/30/2022 at 12:03am CST\nreducedScoringDate = 02/04/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:02pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = algebra pre-calc problems.  you must <n>* be able to do all these problems without a calculator.<n>* get 100% of the points.\nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/Mizzou/College_Algebra/Equations_Linear/Var4.pg",
+            "local/Library/Utah/Intermediate_Algebra/set14_Review/s14p21.pg",
+            "local/Library/UMN/algebraKaufmannSchwitters/ks_4_6_6.pg",
+            "Library/FortLewis/Algebra/5-3-Linear-equations/MCH1-5-3-03-Linear-equations.pg",
+            "local/Library/PCC/BasicAlgebra/FunctionBasics/FunctionEquation20.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/Mizzou/College_Algebra/Equations_Linear/Var4.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = local/Library/Utah/Intermediate_Algebra/set14_Review/s14p21.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = local/Library/UMN/algebraKaufmannSchwitters/ks_4_6_6.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = Library/FortLewis/Algebra/5-3-Linear-equations/MCH1-5-3-03-Linear-equations.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = local/Library/PCC/BasicAlgebra/FunctionBasics/FunctionEquation20.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/FortLewis/Algebra/5-3-Linear-equations/MCH1-5-3-03-Linear-equations.pg"
+        ],
+        "local_problems": [
+            "local/Library/Mizzou/College_Algebra/Equations_Linear/Var4.pg",
+            "local/Library/Utah/Intermediate_Algebra/set14_Review/s14p21.pg",
+            "local/Library/UMN/algebraKaufmannSchwitters/ks_4_6_6.pg",
+            "local/Library/PCC/BasicAlgebra/FunctionBasics/FunctionEquation20.pg"
+        ],
+        "problems_in_opl": [
+            "Library/FortLewis/Algebra/5-3-Linear-equations/MCH1-5-3-03-Linear-equations.pg"
+        ],
+        "missing_problems": []
+    },
+    "set0.3_graphs.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 01/30/2022 at 12:04am CST\nreducedScoringDate = 02/04/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:03pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = algebra pre-calc problems.  you must <n>* be able to do all these problems without a calculator.<n>* get 100% of the points.\nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/Utah/College_Algebra/set7_Polynomial_and_Rational_Functions/1050s7p28/1050s7p28.pg",
+            "Library/UBC/setLimits/matching.pg",
+            "Library/PCC/BasicAlgebra/RationalFunctions/rationalFunctionGraph10.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/Utah/College_Algebra/set7_Polynomial_and_Rational_Functions/1050s7p28/1050s7p28.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = Library/UBC/setLimits/matching.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = Library/PCC/BasicAlgebra/RationalFunctions/rationalFunctionGraph10.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/UBC/setLimits/matching.pg",
+            "Library/PCC/BasicAlgebra/RationalFunctions/rationalFunctionGraph10.pg"
+        ],
+        "local_problems": [
+            "local/Library/Utah/College_Algebra/set7_Polynomial_and_Rational_Functions/1050s7p28/1050s7p28.pg"
+        ],
+        "problems_in_opl": [
+            "Library/UBC/setLimits/matching.pg",
+            "Library/PCC/BasicAlgebra/RationalFunctions/rationalFunctionGraph10.pg"
+        ],
+        "missing_problems": []
+    },
+    "set0.4_simplifying_more.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 01/30/2022 at 12:05am CST\nreducedScoringDate = 02/04/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:04pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = algebra pre-calc problems.  you must <n>* be able to do all these problems without a calculator.<n>* get 100% of the points.\nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/Utah/College_Algebra/set5_Functions_and_Their_Graphs/1050s5p17.pg",
+            "local/Library/Wiley/setAnton_Section_0.2/Question52.pg",
+            "Library/ASU-topics/setFunctions/di3.pg",
+            "local/Library/Mizzou/College_Algebra/Functions_Difference_Quotient/Fraction2.pg",
+            "Library/Mizzou/Algebra/functions_piecewise/evaluate_at_a_point_01.pg",
+            "local/Library/FortLewis/Algebra/4-1-What-is-a-function/MCH1-4-1-16-What-is-a-function.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/Utah/College_Algebra/set5_Functions_and_Their_Graphs/1050s5p17.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = local/Library/Wiley/setAnton_Section_0.2/Question52.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = Library/ASU-topics/setFunctions/di3.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/Library/Mizzou/College_Algebra/Functions_Difference_Quotient/Fraction2.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = Library/Mizzou/Algebra/functions_piecewise/evaluate_at_a_point_01.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/Library/FortLewis/Algebra/4-1-What-is-a-function/MCH1-4-1-16-What-is-a-function.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/ASU-topics/setFunctions/di3.pg",
+            "Library/Mizzou/Algebra/functions_piecewise/evaluate_at_a_point_01.pg"
+        ],
+        "local_problems": [
+            "local/Library/Utah/College_Algebra/set5_Functions_and_Their_Graphs/1050s5p17.pg",
+            "local/Library/Wiley/setAnton_Section_0.2/Question52.pg",
+            "local/Library/Mizzou/College_Algebra/Functions_Difference_Quotient/Fraction2.pg",
+            "local/Library/FortLewis/Algebra/4-1-What-is-a-function/MCH1-4-1-16-What-is-a-function.pg"
+        ],
+        "problems_in_opl": [
+            "Library/ASU-topics/setFunctions/di3.pg",
+            "Library/Mizzou/Algebra/functions_piecewise/evaluate_at_a_point_01.pg"
+        ],
+        "missing_problems": []
+    },
+    "set0.5_working_with_functions.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 01/30/2022 at 12:06am CST\nreducedScoringDate = 02/04/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:05pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = algebra pre-calc problems.  you must <n>* be able to do all these problems without a calculator.<n>* get 100% of the points.\nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/Utah/Business_Algebra/set4_Quadratic_and_Other_Special_Functions/p16.pg",
+            "Library/UMass-Amherst/Abstract-Algebra/PS-Functions/Functions7.pg",
+            "local/Library/LoyolaChicago/Precalc/Chap8Sec1/Q52.pg",
+            "Library/LoyolaChicago/Precalc/Chap2Sec1/Q15.pg",
+            "Library/Westmont/ActiveCalculus/Preview_2_5/preview_2_5_d.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/Utah/Business_Algebra/set4_Quadratic_and_Other_Special_Functions/p16.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = Library/UMass-Amherst/Abstract-Algebra/PS-Functions/Functions7.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = local/Library/LoyolaChicago/Precalc/Chap8Sec1/Q52.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = Library/LoyolaChicago/Precalc/Chap2Sec1/Q15.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = Library/Westmont/ActiveCalculus/Preview_2_5/preview_2_5_d.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/UMass-Amherst/Abstract-Algebra/PS-Functions/Functions7.pg",
+            "Library/LoyolaChicago/Precalc/Chap2Sec1/Q15.pg",
+            "Library/Westmont/ActiveCalculus/Preview_2_5/preview_2_5_d.pg"
+        ],
+        "local_problems": [
+            "local/Library/Utah/Business_Algebra/set4_Quadratic_and_Other_Special_Functions/p16.pg",
+            "local/Library/LoyolaChicago/Precalc/Chap8Sec1/Q52.pg"
+        ],
+        "problems_in_opl": [
+            "Library/UMass-Amherst/Abstract-Algebra/PS-Functions/Functions7.pg",
+            "Library/LoyolaChicago/Precalc/Chap2Sec1/Q15.pg",
+            "Library/Westmont/ActiveCalculus/Preview_2_5/preview_2_5_d.pg"
+        ],
+        "missing_problems": []
+    },
+    "set0.6_odds_and_ends.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 01/30/2022 at 12:07am CST\nreducedScoringDate = 02/04/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:06pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = algebra pre-calc problems.  you must <n>* be able to do all these problems without a calculator.<n>* get 100% of the points.\nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "Library/UMN/algebraKaufmannSchwitters/ks_2_7_72.pg",
+            "Library/ASU-topics/setFunctions/rich1.pg",
+            "Library/NewHampshire/NECAP/grade5/gr5-2008/n5-2008-11.pg",
+            "Library/NewHampshire/NECAP/grade7/gr7-2008/n7-2008-11s.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = Library/UMN/algebraKaufmannSchwitters/ks_2_7_72.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = Library/ASU-topics/setFunctions/rich1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = Library/NewHampshire/NECAP/grade5/gr5-2008/n5-2008-11.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = Library/NewHampshire/NECAP/grade7/gr7-2008/n7-2008-11s.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/UMN/algebraKaufmannSchwitters/ks_2_7_72.pg",
+            "Library/ASU-topics/setFunctions/rich1.pg",
+            "Library/NewHampshire/NECAP/grade5/gr5-2008/n5-2008-11.pg",
+            "Library/NewHampshire/NECAP/grade7/gr7-2008/n7-2008-11s.pg"
+        ],
+        "local_problems": [],
+        "problems_in_opl": [
+            "Library/UMN/algebraKaufmannSchwitters/ks_2_7_72.pg",
+            "Library/ASU-topics/setFunctions/rich1.pg",
+            "Library/NewHampshire/NECAP/grade5/gr5-2008/n5-2008-11.pg",
+            "Library/NewHampshire/NECAP/grade7/gr7-2008/n7-2008-11s.pg"
+        ],
+        "missing_problems": []
+    },
+    "set2.1_average-rates.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 01/31/2022 at 12:02am CST\nreducedScoringDate = 02/09/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:07pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/ma122DB/set1/ns_2_1_5.pg",
+            "local/Library/ma122DB/set1/s1_1_4.pg",
+            "local/Library/ma122DB/set1/s1_1_5.pg",
+            "local/Library/ASU-topics/setRateChange/xs2_1_8.pg",
+            "local/Library-Rogawski/2_Limits/2.1_Limits_Rates_of_Change_and_Tangent_Lines/2.1.6.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/ma122DB/set1/ns_2_1_5.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = local/Library/ma122DB/set1/s1_1_4.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = local/Library/ma122DB/set1/s1_1_5.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/Library/ASU-topics/setRateChange/xs2_1_8.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = local/Library-Rogawski/2_Limits/2.1_Limits_Rates_of_Change_and_Tangent_Lines/2.1.6.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [],
+        "local_problems": [
+            "local/Library/ma122DB/set1/ns_2_1_5.pg",
+            "local/Library/ma122DB/set1/s1_1_4.pg",
+            "local/Library/ma122DB/set1/s1_1_5.pg",
+            "local/Library/ASU-topics/setRateChange/xs2_1_8.pg",
+            "local/Library-Rogawski/2_Limits/2.1_Limits_Rates_of_Change_and_Tangent_Lines/2.1.6.pg"
+        ],
+        "problems_in_opl": [],
+        "missing_problems": []
+    },
+    "set2.2_limits.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 01/31/2022 at 12:03am CST\nreducedScoringDate = 02/09/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:08pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/Rochester/setLimitsRates1_5Graphs/ur_lr_1-5_1_mo.pg",
+            "Library/Union/setLimitConcepts/ns2_2_xx.pg",
+            "local/my_problems/ASU-topics/setLimitConcepts/3-2-36.pg",
+            "local/Library/UMN/calculusStewartCCC/s_2_5_3.pg",
+            "local/Library/maCalcDB/setLimitsRates3Infinite/ur_lr_3_16_mo.pg",
+            "Library/ASU-topics/setCalculus/stef/stef2_3p3.pg",
+            "local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_45.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/Rochester/setLimitsRates1_5Graphs/ur_lr_1-5_1_mo.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = Library/Union/setLimitConcepts/ns2_2_xx.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = local/my_problems/ASU-topics/setLimitConcepts/3-2-36.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/Library/UMN/calculusStewartCCC/s_2_5_3.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = local/Library/maCalcDB/setLimitsRates3Infinite/ur_lr_3_16_mo.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = Library/ASU-topics/setCalculus/stef/stef2_3p3.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 7\nsource_file = local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_45.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/Union/setLimitConcepts/ns2_2_xx.pg",
+            "Library/ASU-topics/setCalculus/stef/stef2_3p3.pg"
+        ],
+        "local_problems": [
+            "local/Library/Rochester/setLimitsRates1_5Graphs/ur_lr_1-5_1_mo.pg",
+            "local/my_problems/ASU-topics/setLimitConcepts/3-2-36.pg",
+            "local/Library/UMN/calculusStewartCCC/s_2_5_3.pg",
+            "local/Library/maCalcDB/setLimitsRates3Infinite/ur_lr_3_16_mo.pg",
+            "local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_45.pg"
+        ],
+        "problems_in_opl": [
+            "Library/Union/setLimitConcepts/ns2_2_xx.pg",
+            "Library/ASU-topics/setCalculus/stef/stef2_3p3.pg"
+        ],
+        "missing_problems": []
+    },
+    "set2.3_limit-laws1.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 01/31/2022 at 12:04am CST\nreducedScoringDate = 02/10/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:09pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/UMN/calculusStewartCCC/s_2_3_2.pg",
+            "local/Library/UMN/calculusStewartCCC/s_2_3_1.pg",
+            "local/Library/ASU-topics/setLimitConcepts/ns_2_3_1.pg",
+            "local/Library/Rochester/setLimitsRates1_5Graphs/ur_lr_1-5_3.pg",
+            "local/Library/ASU-topics/setLimitConcepts/3-2-30a.pg",
+            "local/Library/ASU-topics/setLimitConcepts/s1_3_6.pg",
+            "local/Library/ASU-topics/setLimitConcepts/3-2-51.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/UMN/calculusStewartCCC/s_2_3_2.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = local/Library/UMN/calculusStewartCCC/s_2_3_1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = local/Library/ASU-topics/setLimitConcepts/ns_2_3_1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/Library/Rochester/setLimitsRates1_5Graphs/ur_lr_1-5_3.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = local/Library/ASU-topics/setLimitConcepts/3-2-30a.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/Library/ASU-topics/setLimitConcepts/s1_3_6.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 7\nsource_file = local/Library/ASU-topics/setLimitConcepts/3-2-51.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [],
+        "local_problems": [
+            "local/Library/UMN/calculusStewartCCC/s_2_3_2.pg",
+            "local/Library/UMN/calculusStewartCCC/s_2_3_1.pg",
+            "local/Library/ASU-topics/setLimitConcepts/ns_2_3_1.pg",
+            "local/Library/Rochester/setLimitsRates1_5Graphs/ur_lr_1-5_3.pg",
+            "local/Library/ASU-topics/setLimitConcepts/3-2-30a.pg",
+            "local/Library/ASU-topics/setLimitConcepts/s1_3_6.pg",
+            "local/Library/ASU-topics/setLimitConcepts/3-2-51.pg"
+        ],
+        "problems_in_opl": [],
+        "missing_problems": []
+    },
+    "set2.3_limit-laws2.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 01/31/2022 at 12:05am CST\nreducedScoringDate = 02/10/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:10pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "Library/ASU-topics/setLimitConcepts/ns_2_3_1.pg",
+            "local/Library/ASU-topics/setLimitConcepts/3-2-25.pg",
+            "local/Library/ASU-topics/setLimitConcepts/3-2-30.pg",
+            "Library/ma122DB/set1/s1_3_4.pg",
+            "Library/Rochester/setLimitsRates2Limits/s1_3_3_mo.pg",
+            "Library/Union/setLimitConcepts/3-2-26.pg",
+            "local/Library/ASU-topics/setLimitConcepts/s1_3_12.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = Library/ASU-topics/setLimitConcepts/ns_2_3_1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = local/Library/ASU-topics/setLimitConcepts/3-2-25.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = local/Library/ASU-topics/setLimitConcepts/3-2-30.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = Library/ma122DB/set1/s1_3_4.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = Library/Rochester/setLimitsRates2Limits/s1_3_3_mo.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = Library/Union/setLimitConcepts/3-2-26.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 7\nsource_file = local/Library/ASU-topics/setLimitConcepts/s1_3_12.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/ma122DB/set1/s1_3_4.pg",
+            "Library/Rochester/setLimitsRates2Limits/s1_3_3_mo.pg",
+            "Library/Union/setLimitConcepts/3-2-26.pg"
+        ],
+        "local_problems": [
+            "Library/ASU-topics/setLimitConcepts/ns_2_3_1.pg",
+            "local/Library/ASU-topics/setLimitConcepts/3-2-25.pg",
+            "local/Library/ASU-topics/setLimitConcepts/3-2-30.pg",
+            "local/Library/ASU-topics/setLimitConcepts/s1_3_12.pg"
+        ],
+        "problems_in_opl": [
+            "Library/ma122DB/set1/s1_3_4.pg",
+            "Library/Rochester/setLimitsRates2Limits/s1_3_3_mo.pg",
+            "Library/Union/setLimitConcepts/3-2-26.pg"
+        ],
+        "missing_problems": []
+    },
+    "set2.4_continuity1.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 01/31/2022 at 12:07am CST\nreducedScoringDate = 02/10/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:12pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/UMN/calculusStewartCCC/s_2_4_prob03.pg",
+            "local/Library/ma122DB/set2/s2_5_15.pg",
+            "Library/ma122DB/set2/s2_5_20.pg",
+            "local/Library/Union/setLimitContinuity/ur_lr_5_7.pg",
+            "local/Library/Union/setLimitContinuity/s1_5_37.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/UMN/calculusStewartCCC/s_2_4_prob03.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = local/Library/ma122DB/set2/s2_5_15.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = Library/ma122DB/set2/s2_5_20.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/Library/Union/setLimitContinuity/ur_lr_5_7.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = local/Library/Union/setLimitContinuity/s1_5_37.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/ma122DB/set2/s2_5_20.pg"
+        ],
+        "local_problems": [
+            "local/Library/UMN/calculusStewartCCC/s_2_4_prob03.pg",
+            "local/Library/ma122DB/set2/s2_5_15.pg",
+            "local/Library/Union/setLimitContinuity/ur_lr_5_7.pg",
+            "local/Library/Union/setLimitContinuity/s1_5_37.pg"
+        ],
+        "problems_in_opl": [
+            "Library/ma122DB/set2/s2_5_20.pg"
+        ],
+        "missing_problems": []
+    },
+    "set2.4_continuity2.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 01/31/2022 at 12:08am CST\nreducedScoringDate = 02/10/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:13pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/ma122DB/set2/s2_5_35.pg",
+            "local/Library/ASU-topics/setCalculus/stef2_5p2.pg",
+            "local/Library/Union/setLimitContinuity/c1s5p5.pg",
+            "Library/OSU/high_school_apcalc/dcrev1/prob5.pg",
+            "local/Library/UMN/calculusStewartCCC/s_2_4_prob01.pg",
+            "local/Library/UMN/calculusStewartCCC/s_2_4_prob02.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/ma122DB/set2/s2_5_35.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = local/Library/ASU-topics/setCalculus/stef2_5p2.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = local/Library/Union/setLimitContinuity/c1s5p5.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = Library/OSU/high_school_apcalc/dcrev1/prob5.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = local/Library/UMN/calculusStewartCCC/s_2_4_prob01.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/Library/UMN/calculusStewartCCC/s_2_4_prob02.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/OSU/high_school_apcalc/dcrev1/prob5.pg"
+        ],
+        "local_problems": [
+            "local/Library/ma122DB/set2/s2_5_35.pg",
+            "local/Library/ASU-topics/setCalculus/stef2_5p2.pg",
+            "local/Library/Union/setLimitContinuity/c1s5p5.pg",
+            "local/Library/UMN/calculusStewartCCC/s_2_4_prob01.pg",
+            "local/Library/UMN/calculusStewartCCC/s_2_4_prob02.pg"
+        ],
+        "problems_in_opl": [
+            "Library/OSU/high_school_apcalc/dcrev1/prob5.pg"
+        ],
+        "missing_problems": []
+    },
+    "set2.5_indeterminate_forms.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 01/31/2022 at 12:09am CST\nreducedScoringDate = 02/16/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:14pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/ma122DB/set1/s1_3_19.pg",
+            "local/Library/ma122DB/set1/s1_3_16.pg",
+            "Library/ma122DB/set1/s1_3_18.pg",
+            "Library/Union/setLimitConcepts/s1_3_5.pg",
+            "Library/ASU-topics/setLimitConcepts/s1_3_6.pg",
+            "local/Library/Union/setLimitConcepts/s1_3_19.pg",
+            "local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_15.pg",
+            "local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.5_Evaluating_Limits_Algebraically/2.5.25.pg",
+            "local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_31.pg",
+            "Library/Union/setLimitConcepts/s1_3_5.pg",
+            "local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_31.pg",
+            "local/Library/UVA-Stew5e/setUVA-Stew5e-C02S03-CalcLimits/2-3-12.pg",
+            "local/Library/Union/setLimitConcepts/s1_3_19.pg",
+            "local/Library/UVA-Stew5e/setUVA-Stew5e-C02S03-CalcLimits/2-3-23.pg",
+            "local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_23.pg",
+            "local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_31.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/ma122DB/set1/s1_3_19.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = local/Library/ma122DB/set1/s1_3_16.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = Library/ma122DB/set1/s1_3_18.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = Library/Union/setLimitConcepts/s1_3_5.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = Library/ASU-topics/setLimitConcepts/s1_3_6.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/Library/Union/setLimitConcepts/s1_3_19.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 7\nsource_file = local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_15.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 8\nsource_file = local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.5_Evaluating_Limits_Algebraically/2.5.25.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 9\nsource_file = local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_31.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 10\nsource_file = Library/Union/setLimitConcepts/s1_3_5.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 11\nsource_file = local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_31.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 12\nsource_file = local/Library/UVA-Stew5e/setUVA-Stew5e-C02S03-CalcLimits/2-3-12.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 13\nsource_file = local/Library/Union/setLimitConcepts/s1_3_19.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 14\nsource_file = local/Library/UVA-Stew5e/setUVA-Stew5e-C02S03-CalcLimits/2-3-23.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 15\nsource_file = local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_23.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 16\nsource_file = local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_31.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/ma122DB/set1/s1_3_18.pg",
+            "Library/Union/setLimitConcepts/s1_3_5.pg",
+            "Library/Union/setLimitConcepts/s1_3_5.pg"
+        ],
+        "local_problems": [
+            "local/Library/ma122DB/set1/s1_3_19.pg",
+            "local/Library/ma122DB/set1/s1_3_16.pg",
+            "Library/ASU-topics/setLimitConcepts/s1_3_6.pg",
+            "local/Library/Union/setLimitConcepts/s1_3_19.pg",
+            "local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_15.pg",
+            "local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.5_Evaluating_Limits_Algebraically/2.5.25.pg",
+            "local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_31.pg",
+            "local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_31.pg",
+            "local/Library/UVA-Stew5e/setUVA-Stew5e-C02S03-CalcLimits/2-3-12.pg",
+            "local/Library/Union/setLimitConcepts/s1_3_19.pg",
+            "local/Library/UVA-Stew5e/setUVA-Stew5e-C02S03-CalcLimits/2-3-23.pg",
+            "local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_23.pg",
+            "local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_31.pg"
+        ],
+        "problems_in_opl": [
+            "Library/ma122DB/set1/s1_3_18.pg",
+            "Library/Union/setLimitConcepts/s1_3_5.pg",
+            "Library/Union/setLimitConcepts/s1_3_5.pg"
+        ],
+        "missing_problems": []
+    },
+    "set2.6_squeeze.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 01/31/2022 at 12:10am CST\nreducedScoringDate = 02/16/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:15pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/ma122DB/set1/ur_lr_2_11.pg",
+            "local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_37.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/ma122DB/set1/ur_lr_2_11.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_37.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [],
+        "local_problems": [
+            "local/Library/ma122DB/set1/ur_lr_2_11.pg",
+            "local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_37.pg"
+        ],
+        "problems_in_opl": [],
+        "missing_problems": []
+    },
+    "set2.6_trig_limits.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 01/31/2022 at 12:10am CST\nreducedScoringDate = 02/16/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:16pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "Library/UMN/calculusStewartCCC/s_3_3_prob01.pg",
+            "Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.25.pg",
+            "local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.40.pg",
+            "local/Library/UMN/calculusStewartCCC/s_3_3_prob02.pg",
+            "local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.21.pg",
+            "local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.48.pg",
+            "local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.36.pg",
+            "local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.46.pg",
+            "local/Library/UVA-Stew5e/setUVA-Stew5e-C03S04-DerivsTrig/3-4-39.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = Library/UMN/calculusStewartCCC/s_3_3_prob01.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.25.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.40.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/Library/UMN/calculusStewartCCC/s_3_3_prob02.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.21.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.48.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 7\nsource_file = local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.36.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 8\nsource_file = local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.46.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 9\nsource_file = local/Library/UVA-Stew5e/setUVA-Stew5e-C03S04-DerivsTrig/3-4-39.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.25.pg"
+        ],
+        "local_problems": [
+            "Library/UMN/calculusStewartCCC/s_3_3_prob01.pg",
+            "local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.40.pg",
+            "local/Library/UMN/calculusStewartCCC/s_3_3_prob02.pg",
+            "local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.21.pg",
+            "local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.48.pg",
+            "local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.36.pg",
+            "local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.46.pg",
+            "local/Library/UVA-Stew5e/setUVA-Stew5e-C03S04-DerivsTrig/3-4-39.pg"
+        ],
+        "problems_in_opl": [
+            "Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.25.pg"
+        ],
+        "missing_problems": []
+    },
+    "set2.7_limits_at_infinity.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 01/31/2022 at 12:11am CST\nreducedScoringDate = 02/17/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:17pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/./Rochester/instructiveProblems/AnotherConditionalQuestion.pg",
+            "local/Library/Union/setLimitInfinity/4-4-24.pg",
+            "local/Library/UMN/calculusStewartET/s_2_6_18.pg",
+            "local/Library/ma122DB/set2/s2_6_15_arst.pg",
+            "Library/ma122DB/set2/s2_6_7.pg",
+            "local/Library/Rochester/setLimitsRates3Infinite/ur_lr_3_6_mo.pg",
+            "local/Library/270/setLimitsRates3Infinite/ur_lr_3_18.pg",
+            "local/Library/maCalcDB/setLimitsRates3Infinite/s3_5_5_mo.pg",
+            "local/Library/Rochester/setLimitsRates3Infinite/ur_lr_3_1.pg",
+            "local/Library/UCSB/Stewart5_2_6/Stewart5_2_6_26.pg",
+            "local/Library/UCSB/Stewart5_2_6/Stewart5_2_6_33.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/./Rochester/instructiveProblems/AnotherConditionalQuestion.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = local/Library/Union/setLimitInfinity/4-4-24.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = local/Library/UMN/calculusStewartET/s_2_6_18.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/Library/ma122DB/set2/s2_6_15_arst.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = Library/ma122DB/set2/s2_6_7.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/Library/Rochester/setLimitsRates3Infinite/ur_lr_3_6_mo.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 7\nsource_file = local/Library/270/setLimitsRates3Infinite/ur_lr_3_18.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 8\nsource_file = local/Library/maCalcDB/setLimitsRates3Infinite/s3_5_5_mo.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 9\nsource_file = local/Library/Rochester/setLimitsRates3Infinite/ur_lr_3_1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 10\nsource_file = local/Library/UCSB/Stewart5_2_6/Stewart5_2_6_26.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 11\nsource_file = local/Library/UCSB/Stewart5_2_6/Stewart5_2_6_33.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/ma122DB/set2/s2_6_7.pg"
+        ],
+        "local_problems": [
+            "local/Library/./Rochester/instructiveProblems/AnotherConditionalQuestion.pg",
+            "local/Library/Union/setLimitInfinity/4-4-24.pg",
+            "local/Library/UMN/calculusStewartET/s_2_6_18.pg",
+            "local/Library/ma122DB/set2/s2_6_15_arst.pg",
+            "local/Library/Rochester/setLimitsRates3Infinite/ur_lr_3_6_mo.pg",
+            "local/Library/270/setLimitsRates3Infinite/ur_lr_3_18.pg",
+            "local/Library/maCalcDB/setLimitsRates3Infinite/s3_5_5_mo.pg",
+            "local/Library/Rochester/setLimitsRates3Infinite/ur_lr_3_1.pg",
+            "local/Library/UCSB/Stewart5_2_6/Stewart5_2_6_26.pg",
+            "local/Library/UCSB/Stewart5_2_6/Stewart5_2_6_33.pg"
+        ],
+        "problems_in_opl": [
+            "Library/ma122DB/set2/s2_6_7.pg"
+        ],
+        "missing_problems": []
+    },
+    "set2.8_IVT.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 01/31/2022 at 12:12am CST\nreducedScoringDate = 02/18/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:18pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "Library/Rochester/setLimitsRates5Continuity/S02.05.IntermediateValueThm.PTP02.pg",
+            "local/Library/UMN/calculusStewartCCC/s_2_4_prob04.pg",
+            "local/Library/UMN/calculusStewartCCC/s_2_4_prob04.pg",
+            "local/Library/Valdosta/APEX_Calculus/1.5/APEX_1.5_35.pg",
+            "local/chapter2/2-8-ivthrm.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = Library/Rochester/setLimitsRates5Continuity/S02.05.IntermediateValueThm.PTP02.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = local/Library/UMN/calculusStewartCCC/s_2_4_prob04.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = local/Library/UMN/calculusStewartCCC/s_2_4_prob04.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/Library/Valdosta/APEX_Calculus/1.5/APEX_1.5_35.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = local/chapter2/2-8-ivthrm.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/Rochester/setLimitsRates5Continuity/S02.05.IntermediateValueThm.PTP02.pg"
+        ],
+        "local_problems": [
+            "local/Library/UMN/calculusStewartCCC/s_2_4_prob04.pg",
+            "local/Library/UMN/calculusStewartCCC/s_2_4_prob04.pg",
+            "local/Library/Valdosta/APEX_Calculus/1.5/APEX_1.5_35.pg",
+            "local/chapter2/2-8-ivthrm.pg"
+        ],
+        "problems_in_opl": [
+            "Library/Rochester/setLimitsRates5Continuity/S02.05.IntermediateValueThm.PTP02.pg"
+        ],
+        "missing_problems": []
+    },
+    "set2.9_formal_definition.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 01/31/2022 at 12:13am CST\nreducedScoringDate = 02/21/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:19pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/Berkeley/StewCalcET7e/2.4/2-4-03.pg",
+            "math114/stewart-7E-Ch2-Sec4-epsilon-delta-to-limit.pg",
+            "Library/Berkeley/StewCalcET7e/2.4/2-4-03.pg",
+            "math114/stewart-7E-Ch2-Sec4-limit-to-epsilon-delta.pg",
+            "math114/stewart-7E-Ch2-Sec4-Prob13.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/Berkeley/StewCalcET7e/2.4/2-4-03.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = math114/stewart-7E-Ch2-Sec4-epsilon-delta-to-limit.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = Library/Berkeley/StewCalcET7e/2.4/2-4-03.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = math114/stewart-7E-Ch2-Sec4-limit-to-epsilon-delta.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = math114/stewart-7E-Ch2-Sec4-Prob13.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [],
+        "local_problems": [
+            "local/Library/Berkeley/StewCalcET7e/2.4/2-4-03.pg",
+            "math114/stewart-7E-Ch2-Sec4-epsilon-delta-to-limit.pg",
+            "Library/Berkeley/StewCalcET7e/2.4/2-4-03.pg",
+            "math114/stewart-7E-Ch2-Sec4-limit-to-epsilon-delta.pg",
+            "math114/stewart-7E-Ch2-Sec4-Prob13.pg"
+        ],
+        "problems_in_opl": [],
+        "missing_problems": []
+    },
+    "set3.10_related_rates.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 02/21/2022 at 12:11am CST\nreducedScoringDate = 03/17/2022 at 09:59pm CDT\ndueDate           = 05/13/2022 at 09:34pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "myproblems/set3.10_related_rates/implicit-time-xy.pg",
+            "Library/ASU-topics/setImplicitDerivatives/5-5-03.pg",
+            "local/Library/UMN/calculusStewartCCC/s_4_1_4.pg",
+            "set3.10_related_rates1/rectangular_fishtank.pg",
+            "set3.10_related_rates1/cube1.pg",
+            "set3.10_related_rates1/cube2.pg",
+            "set3.10_related_rates1/ball_of_wax.pg",
+            "myproblems/set3.10_related_rates/rolling_snowball.pg",
+            "myproblems/set3.10_related_rates/gravel_cone.pg",
+            "set3.10_related_rates1/ladder1.pg",
+            "set3.10_related_rates1/ladder2.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = myproblems/set3.10_related_rates/implicit-time-xy.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = Library/ASU-topics/setImplicitDerivatives/5-5-03.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/Library/UMN/calculusStewartCCC/s_4_1_4.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = set3.10_related_rates1/rectangular_fishtank.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = set3.10_related_rates1/cube1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 7\nsource_file = set3.10_related_rates1/cube2.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 8\nsource_file = set3.10_related_rates1/ball_of_wax.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 9\nsource_file = myproblems/set3.10_related_rates/rolling_snowball.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 10\nsource_file = myproblems/set3.10_related_rates/gravel_cone.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 11\nsource_file = set3.10_related_rates1/ladder1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 12\nsource_file = set3.10_related_rates1/ladder2.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/ASU-topics/setImplicitDerivatives/5-5-03.pg"
+        ],
+        "local_problems": [
+            "myproblems/set3.10_related_rates/implicit-time-xy.pg",
+            "local/Library/UMN/calculusStewartCCC/s_4_1_4.pg",
+            "set3.10_related_rates1/rectangular_fishtank.pg",
+            "set3.10_related_rates1/cube1.pg",
+            "set3.10_related_rates1/cube2.pg",
+            "set3.10_related_rates1/ball_of_wax.pg",
+            "myproblems/set3.10_related_rates/rolling_snowball.pg",
+            "myproblems/set3.10_related_rates/gravel_cone.pg",
+            "set3.10_related_rates1/ladder1.pg",
+            "set3.10_related_rates1/ladder2.pg"
+        ],
+        "problems_in_opl": [
+            "Library/ASU-topics/setImplicitDerivatives/5-5-03.pg"
+        ],
+        "missing_problems": []
+    },
+    "set3.1_definition_derivative1.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 01/31/2022 at 12:14am CST\nreducedScoringDate = 02/21/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:20pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/OSU/high_school_apcalc/dcfrev/prob5.pg",
+            "local/Library/ASU-topics/setDerivativeFunction/s2_1_19.pg",
+            "local/Library/ma122DB/set3/s2_8_13.pg",
+            "local/Library/ma122DB/set3/s2_8_15.pg",
+            "local/Library/ASU-topics/setDerivativeFunction/3-3-05.pg",
+            "local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/3_Differentiation/3.1_Definition_of_the_Derivative/3.1.51.pg",
+            "local/Library/UCSB/Stewart5_2_9/Stewart5_2_9_24.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/OSU/high_school_apcalc/dcfrev/prob5.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = local/Library/ASU-topics/setDerivativeFunction/s2_1_19.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = local/Library/ma122DB/set3/s2_8_13.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/Library/ma122DB/set3/s2_8_15.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = local/Library/ASU-topics/setDerivativeFunction/3-3-05.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/3_Differentiation/3.1_Definition_of_the_Derivative/3.1.51.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 7\nsource_file = local/Library/UCSB/Stewart5_2_9/Stewart5_2_9_24.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [],
+        "local_problems": [
+            "local/Library/OSU/high_school_apcalc/dcfrev/prob5.pg",
+            "local/Library/ASU-topics/setDerivativeFunction/s2_1_19.pg",
+            "local/Library/ma122DB/set3/s2_8_13.pg",
+            "local/Library/ma122DB/set3/s2_8_15.pg",
+            "local/Library/ASU-topics/setDerivativeFunction/3-3-05.pg",
+            "local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/3_Differentiation/3.1_Definition_of_the_Derivative/3.1.51.pg",
+            "local/Library/UCSB/Stewart5_2_9/Stewart5_2_9_24.pg"
+        ],
+        "problems_in_opl": [],
+        "missing_problems": []
+    },
+    "set3.1_definition_derivative2.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 01/31/2022 at 12:15am CST\nreducedScoringDate = 02/21/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:21pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/ma122DB/set3/s2_8_7.pg",
+            "Library/ma122DB/set3/s2_8_9.pg",
+            "local/Library/ma122DB/set2/s2_7_7.pg",
+            "Library/ASU-topics/setDerivativeFunction/s2_1_19.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/ma122DB/set3/s2_8_7.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = Library/ma122DB/set3/s2_8_9.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = local/Library/ma122DB/set2/s2_7_7.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = Library/ASU-topics/setDerivativeFunction/s2_1_19.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/ma122DB/set3/s2_8_9.pg"
+        ],
+        "local_problems": [
+            "local/Library/ma122DB/set3/s2_8_7.pg",
+            "local/Library/ma122DB/set2/s2_7_7.pg",
+            "Library/ASU-topics/setDerivativeFunction/s2_1_19.pg"
+        ],
+        "problems_in_opl": [
+            "Library/ma122DB/set3/s2_8_9.pg"
+        ],
+        "missing_problems": []
+    },
+    "set3.2_deriv_rules1.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 02/21/2022 at 12:01am CST\nreducedScoringDate = 02/28/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:23pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "myproblems/set3.2_deriv_rules1/x_to_the_minus_n.pg",
+            "myproblems/set3.2_deriv_rules1/sqrt_x.pg",
+            "myproblems/set3.2_deriv_rules1/power_rule_polynomial.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = myproblems/set3.2_deriv_rules1/x_to_the_minus_n.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = myproblems/set3.2_deriv_rules1/sqrt_x.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = myproblems/set3.2_deriv_rules1/power_rule_polynomial.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [],
+        "local_problems": [
+            "myproblems/set3.2_deriv_rules1/x_to_the_minus_n.pg",
+            "myproblems/set3.2_deriv_rules1/sqrt_x.pg",
+            "myproblems/set3.2_deriv_rules1/power_rule_polynomial.pg"
+        ],
+        "problems_in_opl": [],
+        "missing_problems": []
+    },
+    "set3.2_deriv_rules2.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 02/21/2022 at 12:02am CST\nreducedScoringDate = 02/28/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:24pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "myproblems/set3.2_deriv_rules2/x_plus_sqrt_x.pg",
+            "myproblems/set3.2_deriv_rules2/slopes_equations_parabola.pg",
+            "Library/Union/setDervBasic/3-4-11.pg",
+            "myproblems/set3.2_deriv_rules2/rules_w_unknown_functions.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = myproblems/set3.2_deriv_rules2/x_plus_sqrt_x.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = myproblems/set3.2_deriv_rules2/slopes_equations_parabola.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = Library/Union/setDervBasic/3-4-11.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = myproblems/set3.2_deriv_rules2/rules_w_unknown_functions.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/Union/setDervBasic/3-4-11.pg"
+        ],
+        "local_problems": [
+            "myproblems/set3.2_deriv_rules2/x_plus_sqrt_x.pg",
+            "myproblems/set3.2_deriv_rules2/slopes_equations_parabola.pg",
+            "myproblems/set3.2_deriv_rules2/rules_w_unknown_functions.pg"
+        ],
+        "problems_in_opl": [
+            "Library/Union/setDervBasic/3-4-11.pg"
+        ],
+        "missing_problems": []
+    },
+    "set3.3_more_product_quotient.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 02/21/2022 at 12:03am CST\nreducedScoringDate = 03/07/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:25pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/chapter3/product-rule-v1.pg",
+            "local/chapter3/product-rule-v2.pg",
+            "local/chapter3/product-rule-v3.pg",
+            "local/chapter3/quotient-rule-v1.pg",
+            "local/chapter3/quotient-rule-v2.pg",
+            "local/chapter3/quotient-rule-v3.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/chapter3/product-rule-v1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = local/chapter3/product-rule-v2.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = local/chapter3/product-rule-v3.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/chapter3/quotient-rule-v1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = local/chapter3/quotient-rule-v2.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/chapter3/quotient-rule-v3.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [],
+        "local_problems": [
+            "local/chapter3/product-rule-v1.pg",
+            "local/chapter3/product-rule-v2.pg",
+            "local/chapter3/product-rule-v3.pg",
+            "local/chapter3/quotient-rule-v1.pg",
+            "local/chapter3/quotient-rule-v2.pg",
+            "local/chapter3/quotient-rule-v3.pg"
+        ],
+        "problems_in_opl": [],
+        "missing_problems": []
+    },
+    "set3.3_product_rule.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 02/21/2022 at 12:03am CST\nreducedScoringDate = 03/02/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:25pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "myproblems/set3.3_product_rule/poly_exp.pg",
+            "Library/ASU-topics/setProductQuotientRule/ns3_2_4.pg",
+            "Library/ma122DB/set4/s3_2_25.pg",
+            "myproblems/set3.3_product_rule/poly_times_unknown_g.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = myproblems/set3.3_product_rule/poly_exp.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = Library/ASU-topics/setProductQuotientRule/ns3_2_4.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = Library/ma122DB/set4/s3_2_25.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = myproblems/set3.3_product_rule/poly_times_unknown_g.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/ASU-topics/setProductQuotientRule/ns3_2_4.pg",
+            "Library/ma122DB/set4/s3_2_25.pg"
+        ],
+        "local_problems": [
+            "myproblems/set3.3_product_rule/poly_exp.pg",
+            "myproblems/set3.3_product_rule/poly_times_unknown_g.pg"
+        ],
+        "problems_in_opl": [
+            "Library/ASU-topics/setProductQuotientRule/ns3_2_4.pg",
+            "Library/ma122DB/set4/s3_2_25.pg"
+        ],
+        "missing_problems": []
+    },
+    "set3.3_quotient_rule.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 02/21/2022 at 12:04am CST\nreducedScoringDate = 03/02/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:26pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/UVA-Stew5e/setUVA-Stew5e-C03S02-ProdQuotRules/3-2-20.pg",
+            "set3.3_quotient_rule/quot-rule_poly1.pg",
+            "Library/ma122DB/set4/s3_2_7.pg",
+            "myproblems/set3.3_quotient_rule/derivs_with_unknown_f_g.pg",
+            "Library/ma122DB/set4/s3_2_31.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/UVA-Stew5e/setUVA-Stew5e-C03S02-ProdQuotRules/3-2-20.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = set3.3_quotient_rule/quot-rule_poly1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = Library/ma122DB/set4/s3_2_7.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = myproblems/set3.3_quotient_rule/derivs_with_unknown_f_g.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = Library/ma122DB/set4/s3_2_31.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/ma122DB/set4/s3_2_7.pg",
+            "Library/ma122DB/set4/s3_2_31.pg"
+        ],
+        "local_problems": [
+            "local/Library/UVA-Stew5e/setUVA-Stew5e-C03S02-ProdQuotRules/3-2-20.pg",
+            "set3.3_quotient_rule/quot-rule_poly1.pg",
+            "myproblems/set3.3_quotient_rule/derivs_with_unknown_f_g.pg"
+        ],
+        "problems_in_opl": [
+            "Library/ma122DB/set4/s3_2_7.pg",
+            "Library/ma122DB/set4/s3_2_31.pg"
+        ],
+        "missing_problems": []
+    },
+    "set3.4_rates_of_change.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 02/21/2022 at 12:05am CST\nreducedScoringDate = 03/03/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:27pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "Library/ma122DB/set4/s3_3_7_mo.pg",
+            "local/Library/Rochester/setDerivatives3WordProblems/S03.03.RatesOfChange.PTP01.pg",
+            "local/Library/ma122DB/set4/s3_3_3_mo.pg",
+            "local/Library/ma122DB/set4/s3_3_11.pg",
+            "local/Library/ma122DB/set4/s3_3_13.pg",
+            "local/Library/Union/setDervVelocity/3-2-66.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = Library/ma122DB/set4/s3_3_7_mo.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = local/Library/Rochester/setDerivatives3WordProblems/S03.03.RatesOfChange.PTP01.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = local/Library/ma122DB/set4/s3_3_3_mo.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/Library/ma122DB/set4/s3_3_11.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = local/Library/ma122DB/set4/s3_3_13.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/Library/Union/setDervVelocity/3-2-66.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/ma122DB/set4/s3_3_7_mo.pg"
+        ],
+        "local_problems": [
+            "local/Library/Rochester/setDerivatives3WordProblems/S03.03.RatesOfChange.PTP01.pg",
+            "local/Library/ma122DB/set4/s3_3_3_mo.pg",
+            "local/Library/ma122DB/set4/s3_3_11.pg",
+            "local/Library/ma122DB/set4/s3_3_13.pg",
+            "local/Library/Union/setDervVelocity/3-2-66.pg"
+        ],
+        "problems_in_opl": [
+            "Library/ma122DB/set4/s3_3_7_mo.pg"
+        ],
+        "missing_problems": []
+    },
+    "set3.5_Higher_order_derivatives.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 02/21/2022 at 12:06am CST\nreducedScoringDate = 03/03/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:28pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "Library/Rochester/setDerivatives13Higher/ur_dr_13_6_mo.pg",
+            "Library/ASU-topics/setSecondDerivative/4-3-28.pg",
+            "local/Library/UMN/calculusStewartCCC/s_3_1_42.pg",
+            "local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/3_Differentiation/3.5_Higher_Derivatives/3.5.9.pg",
+            "local/Library/UVA-Stew5e/setUVA-Stew5e-C03S07-HigherDerivs/3-7-16.pg",
+            "local/Library/UMN/calculusStewartCCC/s_3_1_45.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = Library/Rochester/setDerivatives13Higher/ur_dr_13_6_mo.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = Library/ASU-topics/setSecondDerivative/4-3-28.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = local/Library/UMN/calculusStewartCCC/s_3_1_42.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/3_Differentiation/3.5_Higher_Derivatives/3.5.9.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = local/Library/UVA-Stew5e/setUVA-Stew5e-C03S07-HigherDerivs/3-7-16.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/Library/UMN/calculusStewartCCC/s_3_1_45.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/Rochester/setDerivatives13Higher/ur_dr_13_6_mo.pg",
+            "Library/ASU-topics/setSecondDerivative/4-3-28.pg"
+        ],
+        "local_problems": [
+            "local/Library/UMN/calculusStewartCCC/s_3_1_42.pg",
+            "local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/3_Differentiation/3.5_Higher_Derivatives/3.5.9.pg",
+            "local/Library/UVA-Stew5e/setUVA-Stew5e-C03S07-HigherDerivs/3-7-16.pg",
+            "local/Library/UMN/calculusStewartCCC/s_3_1_45.pg"
+        ],
+        "problems_in_opl": [
+            "Library/Rochester/setDerivatives13Higher/ur_dr_13_6_mo.pg",
+            "Library/ASU-topics/setSecondDerivative/4-3-28.pg"
+        ],
+        "missing_problems": []
+    },
+    "set3.6_Trig_derivatives.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 02/21/2022 at 12:07am CST\nreducedScoringDate = 03/04/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:29pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "Library/Utah/Calculus_I/set4_The_Derivative/1210s4p3.pg",
+            "Library/Wiley/setAnton_Section_2.5/Anton2_5Q24.pg",
+            "Library/UCSB/Stewart5_3_4/Stewart5_3_4_23.pg",
+            "Library/Rochester/setDerivatives4Trig/s2_4_21a.pg",
+            "local/Library/Rochester/setDerivatives4Trig/s2_4_32.pg",
+            "local/chapter3/trig-derivs-v2.pg",
+            "local/chapter3/trig-derivs-v3.pg",
+            "local/chapter3/trig-derivs-v4.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = Library/Utah/Calculus_I/set4_The_Derivative/1210s4p3.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = Library/Wiley/setAnton_Section_2.5/Anton2_5Q24.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = Library/UCSB/Stewart5_3_4/Stewart5_3_4_23.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = Library/Rochester/setDerivatives4Trig/s2_4_21a.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = local/Library/Rochester/setDerivatives4Trig/s2_4_32.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/chapter3/trig-derivs-v2.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 7\nsource_file = local/chapter3/trig-derivs-v3.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 8\nsource_file = local/chapter3/trig-derivs-v4.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/Utah/Calculus_I/set4_The_Derivative/1210s4p3.pg",
+            "Library/Wiley/setAnton_Section_2.5/Anton2_5Q24.pg",
+            "Library/UCSB/Stewart5_3_4/Stewart5_3_4_23.pg",
+            "Library/Rochester/setDerivatives4Trig/s2_4_21a.pg"
+        ],
+        "local_problems": [
+            "local/Library/Rochester/setDerivatives4Trig/s2_4_32.pg",
+            "local/chapter3/trig-derivs-v2.pg",
+            "local/chapter3/trig-derivs-v3.pg",
+            "local/chapter3/trig-derivs-v4.pg"
+        ],
+        "problems_in_opl": [
+            "Library/Utah/Calculus_I/set4_The_Derivative/1210s4p3.pg",
+            "Library/Wiley/setAnton_Section_2.5/Anton2_5Q24.pg",
+            "Library/UCSB/Stewart5_3_4/Stewart5_3_4_23.pg",
+            "Library/Rochester/setDerivatives4Trig/s2_4_21a.pg"
+        ],
+        "missing_problems": []
+    },
+    "set3.7_chain_rule1.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 02/21/2022 at 12:08am CST\nreducedScoringDate = 03/08/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:30pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "Library/ma122DB/set5/s3_5_16.pg",
+            "Library/Rochester/setDerivatives5ChainRule/s2_5_8_mo.pg",
+            "Library/ma122DB/set5/s3_5_7.pg",
+            "myproblems/set3.7_chain_rule/der_unknown_func_at_point.pg",
+            "local/chapter3/chain-rule-v2.pg",
+            "local/chapter3/chain-rule-v3.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = Library/ma122DB/set5/s3_5_16.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = Library/Rochester/setDerivatives5ChainRule/s2_5_8_mo.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = Library/ma122DB/set5/s3_5_7.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = myproblems/set3.7_chain_rule/der_unknown_func_at_point.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = local/chapter3/chain-rule-v2.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/chapter3/chain-rule-v3.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/ma122DB/set5/s3_5_16.pg",
+            "Library/Rochester/setDerivatives5ChainRule/s2_5_8_mo.pg",
+            "Library/ma122DB/set5/s3_5_7.pg"
+        ],
+        "local_problems": [
+            "myproblems/set3.7_chain_rule/der_unknown_func_at_point.pg",
+            "local/chapter3/chain-rule-v2.pg",
+            "local/chapter3/chain-rule-v3.pg"
+        ],
+        "problems_in_opl": [
+            "Library/ma122DB/set5/s3_5_16.pg",
+            "Library/Rochester/setDerivatives5ChainRule/s2_5_8_mo.pg",
+            "Library/ma122DB/set5/s3_5_7.pg"
+        ],
+        "missing_problems": []
+    },
+    "set3.7_chain_rule2.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 02/21/2022 at 12:09am CST\nreducedScoringDate = 03/08/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:31pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "Library/ma122DB/set5/s3_5_38b.pg",
+            "Library/OSU/high_school_apcalc/dchmwk4/prob11.pg",
+            "myproblems/set3.7_chain_rule/high_power_poly.pg",
+            "local/chapter3/chain-rule-v1.pg",
+            "local/chapter3/chain-rule-v5.pg",
+            "local/chapter3/chain-rule-v6.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = Library/ma122DB/set5/s3_5_38b.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = Library/OSU/high_school_apcalc/dchmwk4/prob11.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = myproblems/set3.7_chain_rule/high_power_poly.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/chapter3/chain-rule-v1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = local/chapter3/chain-rule-v5.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/chapter3/chain-rule-v6.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/ma122DB/set5/s3_5_38b.pg",
+            "Library/OSU/high_school_apcalc/dchmwk4/prob11.pg"
+        ],
+        "local_problems": [
+            "myproblems/set3.7_chain_rule/high_power_poly.pg",
+            "local/chapter3/chain-rule-v1.pg",
+            "local/chapter3/chain-rule-v5.pg",
+            "local/chapter3/chain-rule-v6.pg"
+        ],
+        "problems_in_opl": [
+            "Library/ma122DB/set5/s3_5_38b.pg",
+            "Library/OSU/high_school_apcalc/dchmwk4/prob11.pg"
+        ],
+        "missing_problems": []
+    },
+    "set3.8_implicit_diff.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 02/21/2022 at 12:09am CST\nreducedScoringDate = 03/13/2022 at 09:59pm CDT\ndueDate           = 05/13/2022 at 09:32pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "myproblems/set3.8_implicit_diff/implicit_ellipse.pg",
+            "Library/Rochester/setDerivatives2_5Implicit/s2_6_1_mo.pg",
+            "Library/Rochester/setDerivatives2_5Implicit/s2_6_4_mo.pg",
+            "local/Library/Rochester/setDerivatives2_5Implicit/c2s6p1.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = myproblems/set3.8_implicit_diff/implicit_ellipse.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = Library/Rochester/setDerivatives2_5Implicit/s2_6_1_mo.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = Library/Rochester/setDerivatives2_5Implicit/s2_6_4_mo.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/Library/Rochester/setDerivatives2_5Implicit/c2s6p1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/Rochester/setDerivatives2_5Implicit/s2_6_1_mo.pg",
+            "Library/Rochester/setDerivatives2_5Implicit/s2_6_4_mo.pg"
+        ],
+        "local_problems": [
+            "myproblems/set3.8_implicit_diff/implicit_ellipse.pg",
+            "local/Library/Rochester/setDerivatives2_5Implicit/c2s6p1.pg"
+        ],
+        "problems_in_opl": [
+            "Library/Rochester/setDerivatives2_5Implicit/s2_6_1_mo.pg",
+            "Library/Rochester/setDerivatives2_5Implicit/s2_6_4_mo.pg"
+        ],
+        "missing_problems": []
+    },
+    "set3.9_exp_derivatives.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 02/21/2022 at 12:10am CST\nreducedScoringDate = 03/13/2022 at 09:59pm CDT\ndueDate           = 05/13/2022 at 09:33pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "set3.9_exp_derivatives/exp_1.pg",
+            "set3.9_exp_derivatives/simple_exp2.pg",
+            "set3.9_exp_derivatives/exp_with_trig.pl.pg",
+            "set3.9_exp_derivatives/exp_tangent_line.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = set3.9_exp_derivatives/exp_1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = set3.9_exp_derivatives/simple_exp2.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = set3.9_exp_derivatives/exp_with_trig.pl.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = set3.9_exp_derivatives/exp_tangent_line.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [],
+        "local_problems": [
+            "set3.9_exp_derivatives/exp_1.pg",
+            "set3.9_exp_derivatives/simple_exp2.pg",
+            "set3.9_exp_derivatives/exp_with_trig.pl.pg",
+            "set3.9_exp_derivatives/exp_tangent_line.pg"
+        ],
+        "problems_in_opl": [],
+        "missing_problems": []
+    },
+    "set3.9_log_derivatives.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 02/21/2022 at 12:10am CST\nreducedScoringDate = 03/13/2022 at 09:59pm CDT\ndueDate           = 05/13/2022 at 09:33pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "myproblems/3.9_log_derivatives/deriv_of_log_x_to_the_n.pg",
+            "Library/Rochester/setDerivatives7Log/sc3_7_2_mo.pg",
+            "myproblems/set3.9_log_derivatives/sum_with_constant.pg",
+            "local/chapter3/log-and-exp-v1.pg",
+            "myproblems/set3.7_chain_rule/product_x_log_to_power.pg",
+            "local/chapter3/log-and-exp-v2.pg",
+            "Library/Rochester/setDerivatives13Higher/ur_dr_13_11.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = myproblems/3.9_log_derivatives/deriv_of_log_x_to_the_n.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = Library/Rochester/setDerivatives7Log/sc3_7_2_mo.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = myproblems/set3.9_log_derivatives/sum_with_constant.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/chapter3/log-and-exp-v1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = myproblems/set3.7_chain_rule/product_x_log_to_power.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/chapter3/log-and-exp-v2.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 7\nsource_file = Library/Rochester/setDerivatives13Higher/ur_dr_13_11.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/Rochester/setDerivatives7Log/sc3_7_2_mo.pg",
+            "Library/Rochester/setDerivatives13Higher/ur_dr_13_11.pg"
+        ],
+        "local_problems": [
+            "myproblems/3.9_log_derivatives/deriv_of_log_x_to_the_n.pg",
+            "myproblems/set3.9_log_derivatives/sum_with_constant.pg",
+            "local/chapter3/log-and-exp-v1.pg",
+            "myproblems/set3.7_chain_rule/product_x_log_to_power.pg",
+            "local/chapter3/log-and-exp-v2.pg"
+        ],
+        "problems_in_opl": [
+            "Library/Rochester/setDerivatives7Log/sc3_7_2_mo.pg",
+            "Library/Rochester/setDerivatives13Higher/ur_dr_13_11.pg"
+        ],
+        "missing_problems": []
+    },
+    "set4.1_linear_approx.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 03/01/2022 at 12:22am CST\nreducedScoringDate = 04/01/2022 at 09:59pm CDT\ndueDate           = 05/13/2022 at 09:36pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/UMN/calculusStewartCCC/s_3_9_prob01.pg",
+            "Library/UMN/calculusStewartCCC/s_3_9_8.pg",
+            "Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/4_Applications_of_the_Derivative/4.1_Linear_Approximation_and_Applications/4.1.54.pg",
+            "Library/UMN/calculusStewartCCC/s_3_9_5.pg",
+            "my_problems/4.1/ur_dr_9_1_mo.pg",
+            "local/Library/UVA-Stew5e/setUVA-Stew5e-C03S11-LinApprox/3-11-08.pg",
+            "local/4.1_linear_approx/differential1.pg",
+            "Library/Rochester/setDerivatives9Approximations/s2_9_7.pg",
+            "Library/UVA-Stew5e/setUVA-Stew5e-C03S11-LinApprox/3-11-22.pg",
+            "Library/UVA-Stew5e/setUVA-Stew5e-C03S11-LinApprox/3-11-23.pg",
+            "local/Library/Rochester/setDerivatives9Approximations/c2s9p7_mo.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/UMN/calculusStewartCCC/s_3_9_prob01.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = Library/UMN/calculusStewartCCC/s_3_9_8.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/4_Applications_of_the_Derivative/4.1_Linear_Approximation_and_Applications/4.1.54.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = Library/UMN/calculusStewartCCC/s_3_9_5.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = my_problems/4.1/ur_dr_9_1_mo.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/Library/UVA-Stew5e/setUVA-Stew5e-C03S11-LinApprox/3-11-08.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 7\nsource_file = local/4.1_linear_approx/differential1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 8\nsource_file = Library/Rochester/setDerivatives9Approximations/s2_9_7.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 9\nsource_file = Library/UVA-Stew5e/setUVA-Stew5e-C03S11-LinApprox/3-11-22.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 10\nsource_file = Library/UVA-Stew5e/setUVA-Stew5e-C03S11-LinApprox/3-11-23.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 11\nsource_file = local/Library/Rochester/setDerivatives9Approximations/c2s9p7_mo.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/UMN/calculusStewartCCC/s_3_9_8.pg",
+            "Library/UMN/calculusStewartCCC/s_3_9_5.pg",
+            "Library/Rochester/setDerivatives9Approximations/s2_9_7.pg",
+            "Library/UVA-Stew5e/setUVA-Stew5e-C03S11-LinApprox/3-11-22.pg",
+            "Library/UVA-Stew5e/setUVA-Stew5e-C03S11-LinApprox/3-11-23.pg"
+        ],
+        "local_problems": [
+            "local/Library/UMN/calculusStewartCCC/s_3_9_prob01.pg",
+            "Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/4_Applications_of_the_Derivative/4.1_Linear_Approximation_and_Applications/4.1.54.pg",
+            "my_problems/4.1/ur_dr_9_1_mo.pg",
+            "local/Library/UVA-Stew5e/setUVA-Stew5e-C03S11-LinApprox/3-11-08.pg",
+            "local/4.1_linear_approx/differential1.pg",
+            "local/Library/Rochester/setDerivatives9Approximations/c2s9p7_mo.pg"
+        ],
+        "problems_in_opl": [
+            "Library/UMN/calculusStewartCCC/s_3_9_8.pg",
+            "Library/UMN/calculusStewartCCC/s_3_9_5.pg",
+            "Library/Rochester/setDerivatives9Approximations/s2_9_7.pg",
+            "Library/UVA-Stew5e/setUVA-Stew5e-C03S11-LinApprox/3-11-22.pg",
+            "Library/UVA-Stew5e/setUVA-Stew5e-C03S11-LinApprox/3-11-23.pg"
+        ],
+        "missing_problems": []
+    },
+    "set4.2_extrema.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 03/01/2022 at 12:23am CST\nreducedScoringDate = 04/03/2022 at 09:59pm CDT\ndueDate           = 05/13/2022 at 09:37pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "myproblems/set4.2_extreme_values/from_graph.pg",
+            "my_problems/4.2/S04.01.MaxMinValues.PTP01.pg",
+            "local/Library/Rochester/setDerivatives10MaxMin/S04.01.MaxMinValues.PTP01.pg",
+            "local/Library/Union/setDervOptimization/4-5-23.pg",
+            "Library/ma122DB/set7/s4_1_57.pg",
+            "local/Library/ma122DB/set7/s4_1_61.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = myproblems/set4.2_extreme_values/from_graph.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = my_problems/4.2/S04.01.MaxMinValues.PTP01.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = local/Library/Rochester/setDerivatives10MaxMin/S04.01.MaxMinValues.PTP01.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/Library/Union/setDervOptimization/4-5-23.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = Library/ma122DB/set7/s4_1_57.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/Library/ma122DB/set7/s4_1_61.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/ma122DB/set7/s4_1_57.pg"
+        ],
+        "local_problems": [
+            "myproblems/set4.2_extreme_values/from_graph.pg",
+            "my_problems/4.2/S04.01.MaxMinValues.PTP01.pg",
+            "local/Library/Rochester/setDerivatives10MaxMin/S04.01.MaxMinValues.PTP01.pg",
+            "local/Library/Union/setDervOptimization/4-5-23.pg",
+            "local/Library/ma122DB/set7/s4_1_61.pg"
+        ],
+        "problems_in_opl": [
+            "Library/ma122DB/set7/s4_1_57.pg"
+        ],
+        "missing_problems": []
+    },
+    "set4.3_MVT.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 03/01/2022 at 12:24am CST\nreducedScoringDate = 04/08/2022 at 09:59pm CDT\ndueDate           = 05/13/2022 at 09:38pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/UVA-Stew5e/setUVA-Stew5e-C04S02-MeanValThm/4-2-11.pg",
+            "local/Library/maCalcDB/setDerivatives12MVT/s3_2_1_mo.pg",
+            "Library/UVA-Stew5e/setUVA-Stew5e-C04S02-MeanValThm/4-2-13a.pg",
+            "Library/UVA-Stew5e/setUVA-Stew5e-C04S02-MeanValThm/4-2-14.pg",
+            "local/Library/ma122DB/set7/s4_2_1_mo.pg",
+            "local/Library/Rochester/setDerivatives12MVT/S04.02.MeanValueTheorem.PTP02.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/UVA-Stew5e/setUVA-Stew5e-C04S02-MeanValThm/4-2-11.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = local/Library/maCalcDB/setDerivatives12MVT/s3_2_1_mo.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = Library/UVA-Stew5e/setUVA-Stew5e-C04S02-MeanValThm/4-2-13a.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = Library/UVA-Stew5e/setUVA-Stew5e-C04S02-MeanValThm/4-2-14.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = local/Library/ma122DB/set7/s4_2_1_mo.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/Library/Rochester/setDerivatives12MVT/S04.02.MeanValueTheorem.PTP02.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/UVA-Stew5e/setUVA-Stew5e-C04S02-MeanValThm/4-2-13a.pg",
+            "Library/UVA-Stew5e/setUVA-Stew5e-C04S02-MeanValThm/4-2-14.pg"
+        ],
+        "local_problems": [
+            "local/Library/UVA-Stew5e/setUVA-Stew5e-C04S02-MeanValThm/4-2-11.pg",
+            "local/Library/maCalcDB/setDerivatives12MVT/s3_2_1_mo.pg",
+            "local/Library/ma122DB/set7/s4_2_1_mo.pg",
+            "local/Library/Rochester/setDerivatives12MVT/S04.02.MeanValueTheorem.PTP02.pg"
+        ],
+        "problems_in_opl": [
+            "Library/UVA-Stew5e/setUVA-Stew5e-C04S02-MeanValThm/4-2-13a.pg",
+            "Library/UVA-Stew5e/setUVA-Stew5e-C04S02-MeanValThm/4-2-14.pg"
+        ],
+        "missing_problems": []
+    },
+    "set4.4_deriv_tests1.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 03/01/2022 at 12:25am CST\nreducedScoringDate = 04/10/2022 at 09:59pm CDT\ndueDate           = 05/13/2022 at 09:39pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "Library/ma122DB/set8/s4_3_26.pg",
+            "Library/Rochester/setDerivatives22Graphing/S04.03.DerivativesShapeGraph.PTP07.pg",
+            "Library/ma122DB/set8/s4_3_27.pg",
+            "local/Library/Rochester/setDerivatives10MaxMin/sc4_3_10_mo.pg",
+            "local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/4_Applications_of_the_Derivative/4.3_The_Mean_Value_Theorem_and_Monotonicity/4.3.12.pg",
+            "local/Library/Union/setDervIncreaseDecrease/4-2-31.pg",
+            "local/Library/Union/setDervIncreaseDecrease/4-2-29.pg",
+            "local/Library/Union/setDervIncreaseDecrease/4-2-71.pg",
+            "local/Library/Union/setDervIncreaseDecrease/4-2-27.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = Library/ma122DB/set8/s4_3_26.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = Library/Rochester/setDerivatives22Graphing/S04.03.DerivativesShapeGraph.PTP07.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = Library/ma122DB/set8/s4_3_27.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/Library/Rochester/setDerivatives10MaxMin/sc4_3_10_mo.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/4_Applications_of_the_Derivative/4.3_The_Mean_Value_Theorem_and_Monotonicity/4.3.12.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/Library/Union/setDervIncreaseDecrease/4-2-31.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 7\nsource_file = local/Library/Union/setDervIncreaseDecrease/4-2-29.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 8\nsource_file = local/Library/Union/setDervIncreaseDecrease/4-2-71.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 9\nsource_file = local/Library/Union/setDervIncreaseDecrease/4-2-27.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/ma122DB/set8/s4_3_26.pg",
+            "Library/Rochester/setDerivatives22Graphing/S04.03.DerivativesShapeGraph.PTP07.pg",
+            "Library/ma122DB/set8/s4_3_27.pg"
+        ],
+        "local_problems": [
+            "local/Library/Rochester/setDerivatives10MaxMin/sc4_3_10_mo.pg",
+            "local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/4_Applications_of_the_Derivative/4.3_The_Mean_Value_Theorem_and_Monotonicity/4.3.12.pg",
+            "local/Library/Union/setDervIncreaseDecrease/4-2-31.pg",
+            "local/Library/Union/setDervIncreaseDecrease/4-2-29.pg",
+            "local/Library/Union/setDervIncreaseDecrease/4-2-71.pg",
+            "local/Library/Union/setDervIncreaseDecrease/4-2-27.pg"
+        ],
+        "problems_in_opl": [
+            "Library/ma122DB/set8/s4_3_26.pg",
+            "Library/Rochester/setDerivatives22Graphing/S04.03.DerivativesShapeGraph.PTP07.pg",
+            "Library/ma122DB/set8/s4_3_27.pg"
+        ],
+        "missing_problems": []
+    },
+    "set4.5_LHopitals_rule.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 03/01/2022 at 12:27am CST\nreducedScoringDate = 04/10/2022 at 09:59pm CDT\ndueDate           = 05/13/2022 at 09:41pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "Library/Rochester/setDerivatives21LHospital/ur_dr_21_3.pg",
+            "Library/UMN/calculusStewartCCC/s_4_5_prob01.pg",
+            "Library/Rochester/setDerivatives21LHospital/ur_dr_21_1.pg",
+            "local/Library/ma122DB/set8/s4_4_8.pg",
+            "Library/ma122DB/set8/s4_4_15.pg",
+            "local/Library/Rochester/setDerivatives21LHospital/sc4_5_8.pg",
+            "local/Library/Rochester/setDerivatives21LHospital/osu_dr_21_2_mo.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = Library/Rochester/setDerivatives21LHospital/ur_dr_21_3.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = Library/UMN/calculusStewartCCC/s_4_5_prob01.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = Library/Rochester/setDerivatives21LHospital/ur_dr_21_1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/Library/ma122DB/set8/s4_4_8.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = Library/ma122DB/set8/s4_4_15.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/Library/Rochester/setDerivatives21LHospital/sc4_5_8.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 7\nsource_file = local/Library/Rochester/setDerivatives21LHospital/osu_dr_21_2_mo.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/Rochester/setDerivatives21LHospital/ur_dr_21_3.pg",
+            "Library/UMN/calculusStewartCCC/s_4_5_prob01.pg",
+            "Library/ma122DB/set8/s4_4_15.pg"
+        ],
+        "local_problems": [
+            "Library/Rochester/setDerivatives21LHospital/ur_dr_21_1.pg",
+            "local/Library/ma122DB/set8/s4_4_8.pg",
+            "local/Library/Rochester/setDerivatives21LHospital/sc4_5_8.pg",
+            "local/Library/Rochester/setDerivatives21LHospital/osu_dr_21_2_mo.pg"
+        ],
+        "problems_in_opl": [
+            "Library/Rochester/setDerivatives21LHospital/ur_dr_21_3.pg",
+            "Library/UMN/calculusStewartCCC/s_4_5_prob01.pg",
+            "Library/ma122DB/set8/s4_4_15.pg"
+        ],
+        "missing_problems": []
+    },
+    "set4.6_sketching_graphs.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 03/01/2022 at 12:27am CST\nreducedScoringDate = 04/10/2022 at 09:59pm CDT\ndueDate           = 05/13/2022 at 09:41pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/Rochester/setDerivatives22Graphing/S04.03.DerivativesShapeGraph.PTP01.pg",
+            "local/Library/ASU-topics/setSecondDerivative/4-4-50.pg",
+            "local/Library/ASU-topics/setSecondDerivative/5-2-53.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/Rochester/setDerivatives22Graphing/S04.03.DerivativesShapeGraph.PTP01.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = local/Library/ASU-topics/setSecondDerivative/4-4-50.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = local/Library/ASU-topics/setSecondDerivative/5-2-53.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [],
+        "local_problems": [
+            "local/Library/Rochester/setDerivatives22Graphing/S04.03.DerivativesShapeGraph.PTP01.pg",
+            "local/Library/ASU-topics/setSecondDerivative/4-4-50.pg",
+            "local/Library/ASU-topics/setSecondDerivative/5-2-53.pg"
+        ],
+        "problems_in_opl": [],
+        "missing_problems": []
+    },
+    "set4.7_optimization-adv.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 03/01/2022 at 12:29am CST\nreducedScoringDate = 04/14/2022 at 09:59pm CDT\ndueDate           = 05/13/2022 at 09:43pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/Wiley/setAnton_Section_4.5/Question31.pg",
+            "local/Library/Union/setDervOptimization/4-5-45.pg",
+            "local/Library/Rochester/setDerivatives10_5Optim/S04.07.Optimization.PTP06.pg",
+            "local/Library/Rochester/setDerivatives10_5Optim/S04.07.Optimization.PTP04.pg",
+            "myproblems/set4.7_appl_opt/distance_to_origin.pg",
+            "local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/4_Applications_of_the_Derivative/4.7_Applied_Optimization/4.7.12.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/Wiley/setAnton_Section_4.5/Question31.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = local/Library/Union/setDervOptimization/4-5-45.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = local/Library/Rochester/setDerivatives10_5Optim/S04.07.Optimization.PTP06.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/Library/Rochester/setDerivatives10_5Optim/S04.07.Optimization.PTP04.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = myproblems/set4.7_appl_opt/distance_to_origin.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/4_Applications_of_the_Derivative/4.7_Applied_Optimization/4.7.12.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [],
+        "local_problems": [
+            "local/Library/Wiley/setAnton_Section_4.5/Question31.pg",
+            "local/Library/Union/setDervOptimization/4-5-45.pg",
+            "local/Library/Rochester/setDerivatives10_5Optim/S04.07.Optimization.PTP06.pg",
+            "local/Library/Rochester/setDerivatives10_5Optim/S04.07.Optimization.PTP04.pg",
+            "myproblems/set4.7_appl_opt/distance_to_origin.pg",
+            "local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/4_Applications_of_the_Derivative/4.7_Applied_Optimization/4.7.12.pg"
+        ],
+        "problems_in_opl": [],
+        "missing_problems": []
+    },
+    "set4.7_optimization.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 03/01/2022 at 12:28am CST\nreducedScoringDate = 04/14/2022 at 09:59pm CDT\ndueDate           = 05/13/2022 at 09:42pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "myproblems/set4.7_appl_opt/fenced_area.pg",
+            "my_problems/4.7/min_perimeter_rectangle.pg",
+            "local/Library/Union/setDervOptimization/4-5-47.pg",
+            "local/Library/ma122DB/set9/s4_7_3.pg",
+            "set4.7_optimization/abstract1.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = myproblems/set4.7_appl_opt/fenced_area.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = my_problems/4.7/min_perimeter_rectangle.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = local/Library/Union/setDervOptimization/4-5-47.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/Library/ma122DB/set9/s4_7_3.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = set4.7_optimization/abstract1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [],
+        "local_problems": [
+            "myproblems/set4.7_appl_opt/fenced_area.pg",
+            "my_problems/4.7/min_perimeter_rectangle.pg",
+            "local/Library/Union/setDervOptimization/4-5-47.pg",
+            "local/Library/ma122DB/set9/s4_7_3.pg",
+            "set4.7_optimization/abstract1.pg"
+        ],
+        "problems_in_opl": [],
+        "missing_problems": []
+    },
+    "set5.1_area.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 04/11/2022 at 12:01am CDT\nreducedScoringDate = 04/26/2022 at 09:59pm CDT\ndueDate           = 05/13/2022 at 09:45pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/Rochester/setIntegrals0Theory/sc5_2_3_mo.pg",
+            "myproblems/set5.2_definite_integral_with_partition/xsinx_4_rect_RL.pg",
+            "myproblems/set5.1_area/left_and_right_w_comparison.pg",
+            "myproblems/set5.1_area/left_right_w_compare_2.pg",
+            "myproblems/5.1_approx/S05.01.AreaDistance.PTP00.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/Rochester/setIntegrals0Theory/sc5_2_3_mo.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = myproblems/set5.2_definite_integral_with_partition/xsinx_4_rect_RL.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = myproblems/set5.1_area/left_and_right_w_comparison.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = myproblems/set5.1_area/left_right_w_compare_2.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = myproblems/5.1_approx/S05.01.AreaDistance.PTP00.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [],
+        "local_problems": [
+            "local/Library/Rochester/setIntegrals0Theory/sc5_2_3_mo.pg",
+            "myproblems/set5.2_definite_integral_with_partition/xsinx_4_rect_RL.pg",
+            "myproblems/set5.1_area/left_and_right_w_comparison.pg",
+            "myproblems/set5.1_area/left_right_w_compare_2.pg",
+            "myproblems/5.1_approx/S05.01.AreaDistance.PTP00.pg"
+        ],
+        "problems_in_opl": [],
+        "missing_problems": []
+    },
+    "set5.1_summation_notation.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 04/11/2022 at 12:01am CDT\nreducedScoringDate = 04/26/2022 at 09:59pm CDT\ndueDate           = 05/13/2022 at 09:45pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = Problems training you on how to use the basics of summation notation.\nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "myproblems/5.1_summation/basic_sum1.pg",
+            "myproblems/5.1_summation/basic_sum2.pg",
+            "myproblems/5.1_summation/basic_sum3.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = myproblems/5.1_summation/basic_sum1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = myproblems/5.1_summation/basic_sum2.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = myproblems/5.1_summation/basic_sum3.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [],
+        "local_problems": [
+            "myproblems/5.1_summation/basic_sum1.pg",
+            "myproblems/5.1_summation/basic_sum2.pg",
+            "myproblems/5.1_summation/basic_sum3.pg"
+        ],
+        "problems_in_opl": [],
+        "missing_problems": []
+    },
+    "set5.2_definite-integral.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 04/11/2022 at 12:02am CDT\nreducedScoringDate = 04/26/2022 at 10:59pm CDT\ndueDate           = 05/13/2022 at 09:46pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/UMN/calculusStewartCCC/s_5_2_31.pg",
+            "local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/5_The_Integral/5.2_The_Definite_Integral/5.2.13.pg",
+            "myproblems/set5.2_definite-integral/calc_by_geometry_linear.pg",
+            "myproblems/5.2/props_adjacent_interval.pg",
+            "myproblems/5.2/props_flip_bounds.pg",
+            "local/Library/UMN/calculusStewartCCC/s_5_2_42.pg",
+            "local/Library/UMN/calculusStewartCCC/s_5_2_43.pg",
+            "myproblems/set5.2_def-integrals-properties/puzzle_of_given_values.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/UMN/calculusStewartCCC/s_5_2_31.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/5_The_Integral/5.2_The_Definite_Integral/5.2.13.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = myproblems/set5.2_definite-integral/calc_by_geometry_linear.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = myproblems/5.2/props_adjacent_interval.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = myproblems/5.2/props_flip_bounds.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/Library/UMN/calculusStewartCCC/s_5_2_42.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 7\nsource_file = local/Library/UMN/calculusStewartCCC/s_5_2_43.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 8\nsource_file = myproblems/set5.2_def-integrals-properties/puzzle_of_given_values.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [],
+        "local_problems": [
+            "local/Library/UMN/calculusStewartCCC/s_5_2_31.pg",
+            "local/Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/5_The_Integral/5.2_The_Definite_Integral/5.2.13.pg",
+            "myproblems/set5.2_definite-integral/calc_by_geometry_linear.pg",
+            "myproblems/5.2/props_adjacent_interval.pg",
+            "myproblems/5.2/props_flip_bounds.pg",
+            "local/Library/UMN/calculusStewartCCC/s_5_2_42.pg",
+            "local/Library/UMN/calculusStewartCCC/s_5_2_43.pg",
+            "myproblems/set5.2_def-integrals-properties/puzzle_of_given_values.pg"
+        ],
+        "problems_in_opl": [],
+        "missing_problems": []
+    },
+    "set5.3_antiderivatives.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 04/11/2022 at 12:05am CDT\nreducedScoringDate = 05/03/2022 at 09:59pm CDT\ndueDate           = 05/13/2022 at 09:49pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "myproblems/5.3/antideriv_polynomial.pg",
+            "my_problems/5.3_antiderivatives/antidifferentiation_polynomial_coeffs_powers.pg",
+            "local/Library/UCSB/Stewart5_4_10/Stewart5_4_10_13.pg",
+            "Library/ma122DB/set12/s5_4_7.pg",
+            "myproblems/5.3_indefinite_integrals/integrate_polynomial.pg",
+            "local/Library/Union/setIntBasic/antiderv-matching.pg",
+            "myproblems/5.3_indefinite_integrals/trig_sub_sin.pg",
+            "local/Library/Rochester/setIntegrals4FTC/S05.03.FundThmCalc.PTP15.pg",
+            "myproblems/5.3_indefinite_integrals/integrate_variable_m_power_rule.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = myproblems/5.3/antideriv_polynomial.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = my_problems/5.3_antiderivatives/antidifferentiation_polynomial_coeffs_powers.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = local/Library/UCSB/Stewart5_4_10/Stewart5_4_10_13.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = Library/ma122DB/set12/s5_4_7.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = myproblems/5.3_indefinite_integrals/integrate_polynomial.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/Library/Union/setIntBasic/antiderv-matching.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 7\nsource_file = myproblems/5.3_indefinite_integrals/trig_sub_sin.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 8\nsource_file = local/Library/Rochester/setIntegrals4FTC/S05.03.FundThmCalc.PTP15.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 9\nsource_file = myproblems/5.3_indefinite_integrals/integrate_variable_m_power_rule.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/ma122DB/set12/s5_4_7.pg"
+        ],
+        "local_problems": [
+            "myproblems/5.3/antideriv_polynomial.pg",
+            "my_problems/5.3_antiderivatives/antidifferentiation_polynomial_coeffs_powers.pg",
+            "local/Library/UCSB/Stewart5_4_10/Stewart5_4_10_13.pg",
+            "myproblems/5.3_indefinite_integrals/integrate_polynomial.pg",
+            "local/Library/Union/setIntBasic/antiderv-matching.pg",
+            "myproblems/5.3_indefinite_integrals/trig_sub_sin.pg",
+            "local/Library/Rochester/setIntegrals4FTC/S05.03.FundThmCalc.PTP15.pg",
+            "myproblems/5.3_indefinite_integrals/integrate_variable_m_power_rule.pg"
+        ],
+        "problems_in_opl": [
+            "Library/ma122DB/set12/s5_4_7.pg"
+        ],
+        "missing_problems": []
+    },
+    "set5.3_initial_value_problems.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 04/11/2022 at 12:06am CDT\nreducedScoringDate = 05/03/2022 at 09:59pm CDT\ndueDate           = 05/13/2022 at 09:50pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "Library/ASU-topics/setAntiderivatives/6-1-25.pg",
+            "local/Library/ma122DB/set10/s4_10_12.pg",
+            "myproblems/5.3_initial_value_problems/accelerating_particle.pg",
+            "myproblems/5.3_initial_value_problems/thrice_antidiff_exponential.pg",
+            "myproblems/5.3_initial_value_problems/double_antidifferentiation.pg",
+            "local/Library/UMN/calculusStewartCCC/s_4_8_31.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = Library/ASU-topics/setAntiderivatives/6-1-25.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = local/Library/ma122DB/set10/s4_10_12.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = myproblems/5.3_initial_value_problems/accelerating_particle.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = myproblems/5.3_initial_value_problems/thrice_antidiff_exponential.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = myproblems/5.3_initial_value_problems/double_antidifferentiation.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/Library/UMN/calculusStewartCCC/s_4_8_31.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/ASU-topics/setAntiderivatives/6-1-25.pg"
+        ],
+        "local_problems": [
+            "local/Library/ma122DB/set10/s4_10_12.pg",
+            "myproblems/5.3_initial_value_problems/accelerating_particle.pg",
+            "myproblems/5.3_initial_value_problems/thrice_antidiff_exponential.pg",
+            "myproblems/5.3_initial_value_problems/double_antidifferentiation.pg",
+            "local/Library/UMN/calculusStewartCCC/s_4_8_31.pg"
+        ],
+        "problems_in_opl": [
+            "Library/ASU-topics/setAntiderivatives/6-1-25.pg"
+        ],
+        "missing_problems": []
+    },
+    "set5.4_ftoc_1.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 04/11/2022 at 12:08am CDT\nreducedScoringDate = 05/03/2022 at 09:59pm CDT\ndueDate           = 05/13/2022 at 09:52pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "myproblems/5.4_5.5_FTC/integrate_linear.pg",
+            "myproblems/5.4_5.5_FTC/def_integral_exp_and_sine.pg",
+            "myproblems/5.4_5.5_FTC/integrate_with_sqrt_in_denom.pg",
+            "myproblems/5.4_5.5_FTC/integrate_sqrt_over_poly.pg",
+            "myproblems/5.4_5.5_FTC/integrate_infinite_discontinuity.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = myproblems/5.4_5.5_FTC/integrate_linear.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = myproblems/5.4_5.5_FTC/def_integral_exp_and_sine.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = myproblems/5.4_5.5_FTC/integrate_with_sqrt_in_denom.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = myproblems/5.4_5.5_FTC/integrate_sqrt_over_poly.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = myproblems/5.4_5.5_FTC/integrate_infinite_discontinuity.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [],
+        "local_problems": [
+            "myproblems/5.4_5.5_FTC/integrate_linear.pg",
+            "myproblems/5.4_5.5_FTC/def_integral_exp_and_sine.pg",
+            "myproblems/5.4_5.5_FTC/integrate_with_sqrt_in_denom.pg",
+            "myproblems/5.4_5.5_FTC/integrate_sqrt_over_poly.pg",
+            "myproblems/5.4_5.5_FTC/integrate_infinite_discontinuity.pg"
+        ],
+        "problems_in_opl": [],
+        "missing_problems": []
+    },
+    "set5.5_ftoc_2.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 04/11/2022 at 12:09am CDT\nreducedScoringDate = 05/05/2022 at 09:59pm CDT\ndueDate           = 05/13/2022 at 09:53pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "myproblems/ 5.4_5.5_FTC/der_func_def_int_x_lower_limit.pg",
+            "myproblems/5.4_5.5_FTC/area_function_and_two_derivatives.pg",
+            "myproblems/5.4_5.5_FTC/second_deriv_func_def_by_int.pg",
+            "local/Library/Rochester/setIntegrals4FTC/sc5_4_14.pg",
+            "myproblems/5.4_5.5_FTC/ftoc_part_2_complicated_upper_bound.pg",
+            "local/Library/Rochester/setIntegrals4FTC/sc5_4_18a.pg",
+            "local/Library/Rochester/setIntegrals4FTC/c4s4p4B.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = myproblems/ 5.4_5.5_FTC/der_func_def_int_x_lower_limit.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = myproblems/5.4_5.5_FTC/area_function_and_two_derivatives.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = myproblems/5.4_5.5_FTC/second_deriv_func_def_by_int.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/Library/Rochester/setIntegrals4FTC/sc5_4_14.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = myproblems/5.4_5.5_FTC/ftoc_part_2_complicated_upper_bound.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = local/Library/Rochester/setIntegrals4FTC/sc5_4_18a.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 7\nsource_file = local/Library/Rochester/setIntegrals4FTC/c4s4p4B.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [],
+        "local_problems": [
+            "myproblems/ 5.4_5.5_FTC/der_func_def_int_x_lower_limit.pg",
+            "myproblems/5.4_5.5_FTC/area_function_and_two_derivatives.pg",
+            "myproblems/5.4_5.5_FTC/second_deriv_func_def_by_int.pg",
+            "local/Library/Rochester/setIntegrals4FTC/sc5_4_14.pg",
+            "myproblems/5.4_5.5_FTC/ftoc_part_2_complicated_upper_bound.pg",
+            "local/Library/Rochester/setIntegrals4FTC/sc5_4_18a.pg",
+            "local/Library/Rochester/setIntegrals4FTC/c4s4p4B.pg"
+        ],
+        "problems_in_opl": [],
+        "missing_problems": []
+    },
+    "set5.6_net-change.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = gateway\nopenDate          = 04/11/2022 at 12:10am CDT\nreducedScoringDate = 05/06/2022 at 09:59pm CDT\ndueDate           = 05/13/2022 at 09:54pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = \nattemptsPerVersion  = 3\ntimeInterval        = 0\nversionsPerInterval = 0\nversionTimeLimit    = 900000\nproblemRandOrder    = 1\nproblemsPerPage     = 0\nhideScore           = N\nhideScoreByProblem  = N\nhideWork            = N\ncapTimeLimit        = 1\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "local/Library/Utah/AP_Calculus_I/set6_The_Integral/z3.pg",
+            "local/Library/Indiana/Indiana_setIntegrals3Definite/ur_in_3_1.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = local/Library/Utah/AP_Calculus_I/set6_The_Integral/z3.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = local/Library/Indiana/Indiana_setIntegrals3Definite/ur_in_3_1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [],
+        "local_problems": [
+            "local/Library/Utah/AP_Calculus_I/set6_The_Integral/z3.pg",
+            "local/Library/Indiana/Indiana_setIntegrals3Definite/ur_in_3_1.pg"
+        ],
+        "problems_in_opl": [],
+        "missing_problems": []
+    },
+    "set5.7_substitution.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 04/11/2022 at 12:11am CDT\nreducedScoringDate = 05/11/2022 at 09:59pm CDT\ndueDate           = 05/13/2022 at 09:55pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "myproblems/5.7/indefinite_neg_power1.pg",
+            "myproblems/5.7_substitution/usub_exp_of_polynomial.pg",
+            "myproblems/5.7/indefinite_trig_1.pg",
+            "local/Library/Utah/Calculus_II/set15_Practice/sc5_5_8.pg",
+            "local/Library/UMN/calculusStewartCCC/s_5_5_24.pg",
+            "myproblems/5.7_substitution/explicit_u_sub.pg",
+            "local/Library/UCSB/Stewart5_5_5/Stewart5_5_5_59.pg",
+            "myproblems/5.7/definite1.pg",
+            "myproblems/5.7/definite2.pg",
+            "myproblems/5.7/definite3.pg",
+            "myproblems/5.7/definite4.pg",
+            "myproblems/5.7/definite5.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = myproblems/5.7/indefinite_neg_power1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = myproblems/5.7_substitution/usub_exp_of_polynomial.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = myproblems/5.7/indefinite_trig_1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = local/Library/Utah/Calculus_II/set15_Practice/sc5_5_8.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = local/Library/UMN/calculusStewartCCC/s_5_5_24.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = myproblems/5.7_substitution/explicit_u_sub.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 7\nsource_file = local/Library/UCSB/Stewart5_5_5/Stewart5_5_5_59.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 8\nsource_file = myproblems/5.7/definite1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 9\nsource_file = myproblems/5.7/definite2.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 10\nsource_file = myproblems/5.7/definite3.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 11\nsource_file = myproblems/5.7/definite4.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 12\nsource_file = myproblems/5.7/definite5.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -2\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 1 \n"
+        ],
+        "nonlocal_problems": [],
+        "local_problems": [
+            "myproblems/5.7/indefinite_neg_power1.pg",
+            "myproblems/5.7_substitution/usub_exp_of_polynomial.pg",
+            "myproblems/5.7/indefinite_trig_1.pg",
+            "local/Library/Utah/Calculus_II/set15_Practice/sc5_5_8.pg",
+            "local/Library/UMN/calculusStewartCCC/s_5_5_24.pg",
+            "myproblems/5.7_substitution/explicit_u_sub.pg",
+            "local/Library/UCSB/Stewart5_5_5/Stewart5_5_5_59.pg",
+            "myproblems/5.7/definite1.pg",
+            "myproblems/5.7/definite2.pg",
+            "myproblems/5.7/definite3.pg",
+            "myproblems/5.7/definite4.pg",
+            "myproblems/5.7/definite5.pg"
+        ],
+        "problems_in_opl": [],
+        "missing_problems": []
+    },
+    "set5.8_further_integral_formulas.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 04/11/2022 at 12:12am CDT\nreducedScoringDate = 05/11/2022 at 09:59pm CDT\ndueDate           = 05/13/2022 at 09:56pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "Library/UCSB/Stewart5_5_3/Stewart5_5_3_38.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = Library/UCSB/Stewart5_5_3/Stewart5_5_3_38.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/UCSB/Stewart5_5_3/Stewart5_5_3_38.pg"
+        ],
+        "local_problems": [],
+        "problems_in_opl": [
+            "Library/UCSB/Stewart5_5_3/Stewart5_5_3_38.pg"
+        ],
+        "missing_problems": []
+    },
+    "setchapter_4_optional.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 03/01/2022 at 11:59pm CST\nreducedScoringDate = 04/15/2022 at 11:59pm CDT\ndueDate           = 05/13/2022 at 09:44pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "myproblems/set4.3_MVT/rolles_theorem.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = myproblems/set4.3_MVT/rolles_theorem.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [],
+        "local_problems": [
+            "myproblems/set4.3_MVT/rolles_theorem.pg"
+        ],
+        "problems_in_opl": [],
+        "missing_problems": []
+    },
+    "setderivatives_extra_practice.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 02/21/2022 at 12:12am CST\nreducedScoringDate = 03/18/2022 at 09:59pm CDT\ndueDate           = 05/13/2022 at 09:35pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = \nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "myproblems/chap_3_review/x_to_the_minus_n.pg",
+            "myproblems/chap_3_review/power_rule_polynomial.pg",
+            "myproblems/chap_3_review/x_plus_sqrt_x.pg",
+            "myproblems/chap_3_review/3-4-11.pg",
+            "myproblems/chap_3_review/poly_exp.pg",
+            "myproblems/chap_3_review/s3_2_25.pg",
+            "myproblems/chap_3_review/product-rule-v1.pg",
+            "myproblems/chap_3_review/product-rule-v2.pg",
+            "myproblems/chap_3_review/quotient-rule-v2.pg",
+            "myproblems/chap_3_review/quotient-rule-v3.pg",
+            "myproblems/chap_3_review/ur_dr_13_6_mo.pg",
+            "myproblems/chap_3_review/3.5.9.pg",
+            "myproblems/chap_3_review/s_3_1_45.pg",
+            "myproblems/chap_3_review/1210s4p3.pg",
+            "myproblems/chap_3_review/Stewart5_3_4_23.pg",
+            "myproblems/chap_3_review/trig-derivs-v4.pg",
+            "myproblems/chap_3_review/prob11.pg",
+            "myproblems/chap_3_review/high_power_poly.pg",
+            "myproblems/chap_3_review/chain-rule-v1.pg",
+            "myproblems/chap_3_review/s2_6_1_mo.pg",
+            "myproblems/chap_3_review/c2s6p1.pg",
+            "myproblems/chap_3_review/log-and-exp-v2.pg",
+            "myproblems/chap_3_review/ur_dr_13_11.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = myproblems/chap_3_review/x_to_the_minus_n.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = myproblems/chap_3_review/power_rule_polynomial.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = myproblems/chap_3_review/x_plus_sqrt_x.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = myproblems/chap_3_review/3-4-11.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = myproblems/chap_3_review/poly_exp.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = myproblems/chap_3_review/s3_2_25.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 7\nsource_file = myproblems/chap_3_review/product-rule-v1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 8\nsource_file = myproblems/chap_3_review/product-rule-v2.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 9\nsource_file = myproblems/chap_3_review/quotient-rule-v2.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 10\nsource_file = myproblems/chap_3_review/quotient-rule-v3.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 11\nsource_file = myproblems/chap_3_review/ur_dr_13_6_mo.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 12\nsource_file = myproblems/chap_3_review/3.5.9.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 13\nsource_file = myproblems/chap_3_review/s_3_1_45.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 14\nsource_file = myproblems/chap_3_review/1210s4p3.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 15\nsource_file = myproblems/chap_3_review/Stewart5_3_4_23.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 16\nsource_file = myproblems/chap_3_review/trig-derivs-v4.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 17\nsource_file = myproblems/chap_3_review/prob11.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 18\nsource_file = myproblems/chap_3_review/high_power_poly.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 19\nsource_file = myproblems/chap_3_review/chain-rule-v1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 20\nsource_file = myproblems/chap_3_review/s2_6_1_mo.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 21\nsource_file = myproblems/chap_3_review/c2s6p1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 22\nsource_file = myproblems/chap_3_review/log-and-exp-v2.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 23\nsource_file = myproblems/chap_3_review/ur_dr_13_11.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [],
+        "local_problems": [
+            "myproblems/chap_3_review/x_to_the_minus_n.pg",
+            "myproblems/chap_3_review/power_rule_polynomial.pg",
+            "myproblems/chap_3_review/x_plus_sqrt_x.pg",
+            "myproblems/chap_3_review/3-4-11.pg",
+            "myproblems/chap_3_review/poly_exp.pg",
+            "myproblems/chap_3_review/s3_2_25.pg",
+            "myproblems/chap_3_review/product-rule-v1.pg",
+            "myproblems/chap_3_review/product-rule-v2.pg",
+            "myproblems/chap_3_review/quotient-rule-v2.pg",
+            "myproblems/chap_3_review/quotient-rule-v3.pg",
+            "myproblems/chap_3_review/ur_dr_13_6_mo.pg",
+            "myproblems/chap_3_review/3.5.9.pg",
+            "myproblems/chap_3_review/s_3_1_45.pg",
+            "myproblems/chap_3_review/1210s4p3.pg",
+            "myproblems/chap_3_review/Stewart5_3_4_23.pg",
+            "myproblems/chap_3_review/trig-derivs-v4.pg",
+            "myproblems/chap_3_review/prob11.pg",
+            "myproblems/chap_3_review/high_power_poly.pg",
+            "myproblems/chap_3_review/chain-rule-v1.pg",
+            "myproblems/chap_3_review/s2_6_1_mo.pg",
+            "myproblems/chap_3_review/c2s6p1.pg",
+            "myproblems/chap_3_review/log-and-exp-v2.pg",
+            "myproblems/chap_3_review/ur_dr_13_11.pg"
+        ],
+        "problems_in_opl": [],
+        "missing_problems": []
+    },
+    "setlimits_practice_unrecorded.def": {
+        "def_version": 2,
+        "settings": "assignmentType      = default\nopenDate          = 01/31/2022 at 01:01am CST\nreducedScoringDate = 02/23/2022 at 09:59pm CST\ndueDate           = 05/13/2022 at 09:22pm CDT\nanswerDate        = 05/13/2022 at 10:00pm CDT\nenableReducedScoring = Y\npaperHeaderFile   = defaultHeader\nscreenHeaderFile  = defaultHeader\ndescription       = tons of practice problems for limits.  though the system will \"grade\" them, they will not be used in any score calculation.  the answers will be available before the first quiz, and then they'll be hidden again til before the test on limits.\nrestrictProbProgression = 0\nemailInstructor   = 0\n\n",
+        "problem_paths": [
+            "Library/UCSB/Stewart5_2_1/Stewart5_2_1_6.pg",
+            "Library/UCSB/Stewart5_2_1/Stewart5_2_1_7.pg",
+            "Library/UMN/calculusStewartCCC/s_2_2_5.pg",
+            "Library/UBC/setContinuity/graphs.pg",
+            "Library/Valdosta/APEX_Calculus/1.6/APEX_1.6_12.pg",
+            "Library/UCSB/Stewart5_2_6/Stewart5_2_6_9.pg",
+            "Library/Westmont/ActiveCalculus/Preview_1_2/preview_1_2_b/preview_1_2_b.pg",
+            "Library/Westmont/ActiveCalculus/Preview_1_2/preview_1_2_c/preview_1_2_c.pg",
+            "Library/UMN/calculusStewartCCC/s_2_3_12.pg",
+            "Library/Union/setLimitConcepts/3-2-26.pg",
+            "Library/Union/setLimitConcepts/3-2-21.pg",
+            "Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.4_Limits_and_Continuity/2.4.77.pg",
+            "Library/UVA-Stew5e/setUVA-Stew5e-C02S03-CalcLimits/2-3-37.pg",
+            "Library/Union/setLimitConcepts/s1_3_19.pg",
+            "Library/Union/setLimitConcepts/3-2-55.pg",
+            "Library/ASU-topics/setLimitConcepts/3-2-53.pg",
+            "Library/UCSB/Stewart5_2_3/Stewart5_2_3_15.pg",
+            "Library/UMN/calculusStewartCCC/s_2_3_18.pg",
+            "local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_30.pg",
+            "Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.5_Evaluating_Limits_Algebraically/2.5.25.pg",
+            "Library/Union/setLimitConcepts/s1_3_36.pg",
+            "Library/UMN/calculusStewartCCC/s_3_3_prob01.pg",
+            "local/Library/Wiley/setAnton_Section_1.6/Anton1_6_Q32.pg",
+            "Library/maCalcDB/setDerivatives4Trig/s2_4_8a.pg",
+            "Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.2.pg",
+            "Library/ASU-topics/setRateChange/3-2-72.pg",
+            "Library/Valdosta/APEX_Calculus/1.4/APEX_1.4_13.pg",
+            "Library/Valdosta/APEX_Calculus/1.4/APEX_1.4_18.pg",
+            "Library/UMN/calculusStewartCCC/s_2_4_prob03.pg",
+            "Library/UMN/calculusStewartCCC/s_2_4_3.pg",
+            "Library/ASU-topics/setCalculus/stef/stef2_5p4.pg",
+            "Library/UMN/calculusStewartCCC/s_2_4_prob01.pg",
+            "Library/UCSB/Stewart5_2_5/Stewart5_2_5_53.pg",
+            "Library/UMN/calculusStewartCCC/s_2_5_16.pg",
+            "Library/Union/setLimitInfinity/ur_lr_3_5.pg",
+            "Library/AlfredUniv/anton8e/chapter2/2.6/prob4.pg",
+            "Library/AlfredUniv/anton8e/chapter2/2.2/prob7.pg",
+            "Library/Valdosta/APEX_Calculus/1.6/APEX_1.6_9.pg",
+            "Library/Rochester/setLimitsRates3Infinite/ur_lr_3_6_mo.pg",
+            "Library/Wiley/setAnton_Section_1.3/Anton1_3_Q36.pg",
+            "Library/270/setLimitsRates3Infinite/ur_lr_3_18.pg",
+            "Library/ma122DB/set2/s2_6_15.pg",
+            "Library/AlfredUniv/anton8e/chapter2/2.2/prob12.pg",
+            "Library/AlfredUniv/anton8e/chapter2/2.3/prob12.pg",
+            "Library/Valdosta/APEX_Calculus/1.6/APEX_1.6_14.pg",
+            "Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.2_Limits-_A_Numerical_and_Graphical_Approach/2.2.1.pg",
+            "Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.1_Limits_Rates_of_Change_and_Tangent_Lines/2.1.7.pg",
+            "Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.1_Limits_Rates_of_Change_and_Tangent_Lines/2.1.30.pg",
+            "Library/ASU-topics/setRateChange/rich2.pg",
+            "Library/maCalcDB/setLimitsRates1TangentVelocity/ns2_1_5a.pg",
+            "Library/Berkeley/StewCalcET7e/2.4/2-4-03.pg"
+        ],
+        "problem_specs": [
+            "\nproblem_id = 1\nsource_file = Library/UCSB/Stewart5_2_1/Stewart5_2_1_6.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 2\nsource_file = Library/UCSB/Stewart5_2_1/Stewart5_2_1_7.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 3\nsource_file = Library/UMN/calculusStewartCCC/s_2_2_5.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 4\nsource_file = Library/UBC/setContinuity/graphs.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 5\nsource_file = Library/Valdosta/APEX_Calculus/1.6/APEX_1.6_12.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 6\nsource_file = Library/UCSB/Stewart5_2_6/Stewart5_2_6_9.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 7\nsource_file = Library/Westmont/ActiveCalculus/Preview_1_2/preview_1_2_b/preview_1_2_b.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 8\nsource_file = Library/Westmont/ActiveCalculus/Preview_1_2/preview_1_2_c/preview_1_2_c.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 9\nsource_file = Library/UMN/calculusStewartCCC/s_2_3_12.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 10\nsource_file = Library/Union/setLimitConcepts/3-2-26.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 11\nsource_file = Library/Union/setLimitConcepts/3-2-21.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 12\nsource_file = Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.4_Limits_and_Continuity/2.4.77.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 13\nsource_file = Library/UVA-Stew5e/setUVA-Stew5e-C02S03-CalcLimits/2-3-37.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 14\nsource_file = Library/Union/setLimitConcepts/s1_3_19.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 15\nsource_file = Library/Union/setLimitConcepts/3-2-55.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 16\nsource_file = Library/ASU-topics/setLimitConcepts/3-2-53.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 17\nsource_file = Library/UCSB/Stewart5_2_3/Stewart5_2_3_15.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 18\nsource_file = Library/UMN/calculusStewartCCC/s_2_3_18.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 19\nsource_file = local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_30.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 20\nsource_file = Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.5_Evaluating_Limits_Algebraically/2.5.25.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 21\nsource_file = Library/Union/setLimitConcepts/s1_3_36.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 22\nsource_file = Library/UMN/calculusStewartCCC/s_3_3_prob01.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 23\nsource_file = local/Library/Wiley/setAnton_Section_1.6/Anton1_6_Q32.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 24\nsource_file = Library/maCalcDB/setDerivatives4Trig/s2_4_8a.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 25\nsource_file = Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.2.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 26\nsource_file = Library/ASU-topics/setRateChange/3-2-72.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 27\nsource_file = Library/Valdosta/APEX_Calculus/1.4/APEX_1.4_13.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 28\nsource_file = Library/Valdosta/APEX_Calculus/1.4/APEX_1.4_18.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 29\nsource_file = Library/UMN/calculusStewartCCC/s_2_4_prob03.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 30\nsource_file = Library/UMN/calculusStewartCCC/s_2_4_3.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 31\nsource_file = Library/ASU-topics/setCalculus/stef/stef2_5p4.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 32\nsource_file = Library/UMN/calculusStewartCCC/s_2_4_prob01.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 33\nsource_file = Library/UCSB/Stewart5_2_5/Stewart5_2_5_53.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 34\nsource_file = Library/UMN/calculusStewartCCC/s_2_5_16.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 35\nsource_file = Library/Union/setLimitInfinity/ur_lr_3_5.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 36\nsource_file = Library/AlfredUniv/anton8e/chapter2/2.6/prob4.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 37\nsource_file = Library/AlfredUniv/anton8e/chapter2/2.2/prob7.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 38\nsource_file = Library/Valdosta/APEX_Calculus/1.6/APEX_1.6_9.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 39\nsource_file = Library/Rochester/setLimitsRates3Infinite/ur_lr_3_6_mo.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 40\nsource_file = Library/Wiley/setAnton_Section_1.3/Anton1_3_Q36.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 41\nsource_file = Library/270/setLimitsRates3Infinite/ur_lr_3_18.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 42\nsource_file = Library/ma122DB/set2/s2_6_15.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 43\nsource_file = Library/AlfredUniv/anton8e/chapter2/2.2/prob12.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 44\nsource_file = Library/AlfredUniv/anton8e/chapter2/2.3/prob12.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 45\nsource_file = Library/Valdosta/APEX_Calculus/1.6/APEX_1.6_14.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 46\nsource_file = Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.2_Limits-_A_Numerical_and_Graphical_Approach/2.2.1.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 47\nsource_file = Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.1_Limits_Rates_of_Change_and_Tangent_Lines/2.1.7.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 48\nsource_file = Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.1_Limits_Rates_of_Change_and_Tangent_Lines/2.1.30.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 49\nsource_file = Library/ASU-topics/setRateChange/rich2.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 50\nsource_file = Library/maCalcDB/setLimitsRates1TangentVelocity/ns2_1_5a.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n",
+            "\nproblem_id = 51\nsource_file = Library/Berkeley/StewCalcET7e/2.4/2-4-03.pg\nvalue = 1\nmax_attempts = -1\nshowMeAnother = -1\nprPeriod = -1\ncounts_parent_grade = 0\natt_to_open_children = 0 \n"
+        ],
+        "nonlocal_problems": [
+            "Library/UCSB/Stewart5_2_1/Stewart5_2_1_6.pg",
+            "Library/UCSB/Stewart5_2_1/Stewart5_2_1_7.pg",
+            "Library/UBC/setContinuity/graphs.pg",
+            "Library/Valdosta/APEX_Calculus/1.6/APEX_1.6_12.pg",
+            "Library/UCSB/Stewart5_2_6/Stewart5_2_6_9.pg",
+            "Library/Westmont/ActiveCalculus/Preview_1_2/preview_1_2_b/preview_1_2_b.pg",
+            "Library/Westmont/ActiveCalculus/Preview_1_2/preview_1_2_c/preview_1_2_c.pg",
+            "Library/UMN/calculusStewartCCC/s_2_3_12.pg",
+            "Library/Union/setLimitConcepts/3-2-26.pg",
+            "Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.4_Limits_and_Continuity/2.4.77.pg",
+            "Library/UVA-Stew5e/setUVA-Stew5e-C02S03-CalcLimits/2-3-37.pg",
+            "Library/Union/setLimitConcepts/3-2-55.pg",
+            "Library/ASU-topics/setLimitConcepts/3-2-53.pg",
+            "Library/UMN/calculusStewartCCC/s_2_3_18.pg",
+            "Library/Union/setLimitConcepts/s1_3_36.pg",
+            "Library/maCalcDB/setDerivatives4Trig/s2_4_8a.pg",
+            "Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.2.pg",
+            "Library/ASU-topics/setRateChange/3-2-72.pg",
+            "Library/Valdosta/APEX_Calculus/1.4/APEX_1.4_13.pg",
+            "Library/Valdosta/APEX_Calculus/1.4/APEX_1.4_18.pg",
+            "Library/UMN/calculusStewartCCC/s_2_4_3.pg",
+            "Library/ASU-topics/setCalculus/stef/stef2_5p4.pg",
+            "Library/UCSB/Stewart5_2_5/Stewart5_2_5_53.pg",
+            "Library/UMN/calculusStewartCCC/s_2_5_16.pg",
+            "Library/Union/setLimitInfinity/ur_lr_3_5.pg",
+            "Library/AlfredUniv/anton8e/chapter2/2.6/prob4.pg",
+            "Library/AlfredUniv/anton8e/chapter2/2.2/prob7.pg",
+            "Library/Valdosta/APEX_Calculus/1.6/APEX_1.6_9.pg",
+            "Library/Wiley/setAnton_Section_1.3/Anton1_3_Q36.pg",
+            "Library/AlfredUniv/anton8e/chapter2/2.2/prob12.pg",
+            "Library/AlfredUniv/anton8e/chapter2/2.3/prob12.pg",
+            "Library/Valdosta/APEX_Calculus/1.6/APEX_1.6_14.pg",
+            "Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.2_Limits-_A_Numerical_and_Graphical_Approach/2.2.1.pg",
+            "Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.1_Limits_Rates_of_Change_and_Tangent_Lines/2.1.7.pg",
+            "Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.1_Limits_Rates_of_Change_and_Tangent_Lines/2.1.30.pg",
+            "Library/ASU-topics/setRateChange/rich2.pg",
+            "Library/maCalcDB/setLimitsRates1TangentVelocity/ns2_1_5a.pg"
+        ],
+        "local_problems": [
+            "Library/UMN/calculusStewartCCC/s_2_2_5.pg",
+            "Library/Union/setLimitConcepts/3-2-21.pg",
+            "Library/Union/setLimitConcepts/s1_3_19.pg",
+            "Library/UCSB/Stewart5_2_3/Stewart5_2_3_15.pg",
+            "local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_30.pg",
+            "Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.5_Evaluating_Limits_Algebraically/2.5.25.pg",
+            "Library/UMN/calculusStewartCCC/s_3_3_prob01.pg",
+            "local/Library/Wiley/setAnton_Section_1.6/Anton1_6_Q32.pg",
+            "Library/UMN/calculusStewartCCC/s_2_4_prob03.pg",
+            "Library/UMN/calculusStewartCCC/s_2_4_prob01.pg",
+            "Library/Rochester/setLimitsRates3Infinite/ur_lr_3_6_mo.pg",
+            "Library/270/setLimitsRates3Infinite/ur_lr_3_18.pg",
+            "Library/ma122DB/set2/s2_6_15.pg",
+            "Library/Berkeley/StewCalcET7e/2.4/2-4-03.pg"
+        ],
+        "problems_in_opl": [
+            "Library/UCSB/Stewart5_2_1/Stewart5_2_1_6.pg",
+            "Library/UCSB/Stewart5_2_1/Stewart5_2_1_7.pg",
+            "Library/UBC/setContinuity/graphs.pg",
+            "Library/Valdosta/APEX_Calculus/1.6/APEX_1.6_12.pg",
+            "Library/UCSB/Stewart5_2_6/Stewart5_2_6_9.pg",
+            "Library/Westmont/ActiveCalculus/Preview_1_2/preview_1_2_b/preview_1_2_b.pg",
+            "Library/Westmont/ActiveCalculus/Preview_1_2/preview_1_2_c/preview_1_2_c.pg",
+            "Library/UMN/calculusStewartCCC/s_2_3_12.pg",
+            "Library/Union/setLimitConcepts/3-2-26.pg",
+            "Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.4_Limits_and_Continuity/2.4.77.pg",
+            "Library/UVA-Stew5e/setUVA-Stew5e-C02S03-CalcLimits/2-3-37.pg",
+            "Library/Union/setLimitConcepts/3-2-55.pg",
+            "Library/ASU-topics/setLimitConcepts/3-2-53.pg",
+            "Library/UMN/calculusStewartCCC/s_2_3_18.pg",
+            "Library/Union/setLimitConcepts/s1_3_36.pg",
+            "Library/maCalcDB/setDerivatives4Trig/s2_4_8a.pg",
+            "Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.6_Trigonometric_Limits/2.6.2.pg",
+            "Library/ASU-topics/setRateChange/3-2-72.pg",
+            "Library/Valdosta/APEX_Calculus/1.4/APEX_1.4_13.pg",
+            "Library/Valdosta/APEX_Calculus/1.4/APEX_1.4_18.pg",
+            "Library/UMN/calculusStewartCCC/s_2_4_3.pg",
+            "Library/ASU-topics/setCalculus/stef/stef2_5p4.pg",
+            "Library/UCSB/Stewart5_2_5/Stewart5_2_5_53.pg",
+            "Library/UMN/calculusStewartCCC/s_2_5_16.pg",
+            "Library/Union/setLimitInfinity/ur_lr_3_5.pg",
+            "Library/AlfredUniv/anton8e/chapter2/2.6/prob4.pg",
+            "Library/AlfredUniv/anton8e/chapter2/2.2/prob7.pg",
+            "Library/Valdosta/APEX_Calculus/1.6/APEX_1.6_9.pg",
+            "Library/Wiley/setAnton_Section_1.3/Anton1_3_Q36.pg",
+            "Library/AlfredUniv/anton8e/chapter2/2.2/prob12.pg",
+            "Library/AlfredUniv/anton8e/chapter2/2.3/prob12.pg",
+            "Library/Valdosta/APEX_Calculus/1.6/APEX_1.6_14.pg",
+            "Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.2_Limits-_A_Numerical_and_Graphical_Approach/2.2.1.pg",
+            "Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.1_Limits_Rates_of_Change_and_Tangent_Lines/2.1.7.pg",
+            "Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/2_Limits/2.1_Limits_Rates_of_Change_and_Tangent_Lines/2.1.30.pg",
+            "Library/ASU-topics/setRateChange/rich2.pg",
+            "Library/maCalcDB/setLimitsRates1TangentVelocity/ns2_1_5a.pg"
+        ],
+        "missing_problems": []
+    }
+}
