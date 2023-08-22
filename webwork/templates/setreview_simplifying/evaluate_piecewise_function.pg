@@ -42,7 +42,8 @@ loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
   "parserImplicitPlane.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -80,9 +81,50 @@ Context("Numeric");
 #  Main text
 
 BEGIN_TEXT
-This problem is about evaluating a piecewise defined function.
+
+\{ openDiv({ "class" => "problemPurpose" }) \}
+This problem is about evaluating a piecewise defined function using symbolic methods or formulas.
+\{ closeDiv() \}
+
+$PAR
+
+\{ openDiv({ "class" => "importantFormula" }) \}
+To evaluate a piecewise function, first determine which branch of the function the input corresponds to.  $BR
+
+Then evaluate using that branch.
+\{ closeDiv() \}
+
+$PAR
+
+For example, suppose we're given the following 
+
+\[ 
+g(x)  = \left$lcb
+\begin{array}{ccc}
+-1 & & x \leq 2
+\\
+1 & & x > 2
+\end{array}
+\right.
+\]
+
+and we want to evaluate \(g(3)\). 
+
+$PAR
+
+First we have to consider which part of the domain \(x = 3\) lives in.  \(3\) is greater than \(2\), so we use the branch corresponding to condition \( x > 2\).  
+
+$PAR
+
+Then we do the evaluation.  This simple piecewise function \(g\) takes on value \(1\) for all \(x\) inputs right of \(2\), so \(g(3) = 1\).
+
+
 $PAR$HR$PAR
+
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
 Find the following values of the function
+\{ closeDiv() \}
+
 $PAR
 \[ 
 f(x)  = \left$lcb

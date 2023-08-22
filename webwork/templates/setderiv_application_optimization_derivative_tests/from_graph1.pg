@@ -43,6 +43,9 @@ loadMacros(
   "PGcourse.pl"
 );
 
+COMMENT("todo: replace hardcoded image with dynamically generated one");
+COMMENT("this problem is NOT randomized");
+
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 

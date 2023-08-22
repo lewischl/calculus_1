@@ -37,6 +37,7 @@ loadMacros(
   "PGML.pl",
   "PCCmacros.pl",
   "PGcourse.pl",
+  "customCSS.pl"
 );
 
 
@@ -70,9 +71,15 @@ TEXT(beginproblem());
 
 BEGIN_PGML
 
+[@ openDiv({"class"=>"problemPurpose"}) @]*
+This problem aims to remind you that sometimes solving an equation produces no solutions.
+[@ closeDiv() @]*
+
+[@ openDiv({"class"=>"promptOrInstruction"}) @]*
 Solve for [`x`], where [`[$fname](x)=[$func]`].
 
 [@KeyboardInstructions('If there is more than one solution, use commas to separate your answers. If there is no real solution, first type a double-quote ([||"||]), and then type [|no real solution|]*.')@]**
+[@ closeDiv() @]*
 
 a. If [`[$fname](x)=[$y1]`], then [`x=`][____________]{$ans1}.
 b. If [`[$fname](x)=[$y2]`], then [`x=`][____________]{$ans2}. 

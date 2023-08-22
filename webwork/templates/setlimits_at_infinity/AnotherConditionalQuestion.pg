@@ -43,6 +43,8 @@ loadMacros(
   "PGcourse.pl"
 );
 
+COMMENT("todo: fix instructions for what to enter for infinity");
+
 TEXT(beginproblem());
 
 $showPartialCorrectAnswers = 1;

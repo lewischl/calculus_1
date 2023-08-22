@@ -20,6 +20,7 @@ loadMacros(
   "PGcourse.pl", 
 );
 
+COMMENT("outer function is randomly sine or cosine");
 #####################################################################
 
 $showPartialCorrectAnswers = 1;
@@ -35,12 +36,12 @@ $a = random(1,2,1);
 
 if ($a==1) {
 $f = '\sin';
-$ans = FormulaUpToConstant("-cos(ln(x))");
+$ans = Formula("-cos(ln(x))");
 }
 
 if ($a==2) {
 $f = '\cos';
-$ans = FormulaUpToConstant("sin(ln(x))");
+$ans = Formula("sin(ln(x))");
 }
 
 #####################################################################
@@ -49,8 +50,8 @@ Context()->texStrings;
 BEGIN_TEXT
 Calculate the indefinite integral:
 $PAR
-\(\displaystyle \int \frac{$f (\ln x)}{x}  \, dx=\) \{ ans_rule(10) \}$BR
-${BITALIC}(Use a capital $BBOLD C$EBOLD for an arbitrary constant.)$EITALIC
+\(\displaystyle \int \frac{$f (\ln x)}{x}  \, dx=\) \{ ans_rule(10) \} \( + C \) $BR
+
 
 END_TEXT
 Context()->normalStrings;

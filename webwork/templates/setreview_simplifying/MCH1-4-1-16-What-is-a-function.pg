@@ -46,7 +46,8 @@ loadMacros(
   "AnswerFormatHelp.pl",
   "contextLimitedPolynomial.pl",
   "answerHints.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
 TEXT(beginproblem());
@@ -77,12 +78,22 @@ Context()->functions->disable("All");
 Context()->texStrings;
 BEGIN_TEXT
 Let \( \displaystyle h(t) = $h \). $BR
-Evaluate \(h\) at \( t = $c u \) without using a calculator.  
-Simplify your answer as much as possible.
+Evaluate the function \(h\) at \( t = $c u \).   Simplify your answer as much as possible.
 $PAR
 \( h($c u) = \) \{ans_rule(20)\} 
 $PAR
-(Your answer should be a function of \(u\).
+\{ openDiv({ "class" => "inProblemHint" }) \}
+Your answer should be a function of \(u\).  
+
+$PAR
+
+Another way of thinking of this is to let
+$PAR
+• \( h(t) = $h \) $BR
+• \( k(u) = $c u\)
+$PAR
+and compose \( h(t=k(u)) \).  Replace \(t\) by \(k(u)\).
+\{ closeDiv() \}
 END_TEXT
 Context()->normalStrings;
 
@@ -100,5 +111,5 @@ ANS($answer->cmp()
 );
 
 
-;
+
 ENDDOCUMENT();

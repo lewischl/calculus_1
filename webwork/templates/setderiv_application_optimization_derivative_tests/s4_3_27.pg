@@ -44,6 +44,9 @@ loadMacros(
   "PGcourse.pl"
 );
 
+COMMENT("todo: replace hardcoded image.  make graph better -- inflection points difficult to find");
+COMMENT("todo: this problem is not randomized");
+
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
@@ -57,7 +60,10 @@ are true. Input $BITALIC T $EITALIC if the condition is true, otherwise input $B
 (d) \( f''(x)>0 \) if \(1<x<4\).  \{ans_rule(10) \} $BR
 (e) \( f''(x)<0 \) if \(x>4\);  \{ans_rule(10) \} $PAR
 
-(f) $BR
+$PAR
+$HR
+$PAR
+
 There are two inflection points of \(f(x)\). (assume they're integers)$PAR
  The smaller one is \(x=\) \{ans_rule(10) \}$BR
 the larger is  \(x=\) \{ans_rule(10) \} $BR

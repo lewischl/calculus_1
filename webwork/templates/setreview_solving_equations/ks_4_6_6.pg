@@ -37,9 +37,11 @@ DOCUMENT();
 loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl"
 );
 
+COMMENT("solve a rational equation with an unknown number of solutions");
 ########################################################################
 
 TEXT(beginproblem());
@@ -85,22 +87,28 @@ $ans = List("$an1");
 
 Context()->texStrings;
 BEGIN_TEXT
+
+\{ openDiv({"class"=>"promptOrInstruction"}) \}
 Solve the equation
 \[ 
 \frac{$a}{n}+\frac{1}{$b} = \frac{$c}{$f}.
 \]
-$PAR
-What are the numerical values of the solutions?  If there's more than one solution, separate them by commas, ordered smallest to largest.
 
-$BR$BR\(n =\) \{ ans_rule(30) \}
+If there's more than one solution, separate them by commas, ordered smallest to largest.  
+\{ closeDiv() \}
 
 $PAR
-\{theresahint\}
+
+The solutions are \(n =\) \{ ans_rule(30) \}
+
+
+\{ openDiv({"class"=>"inProblemHint"}) \}
+Clear the denominators!
+\{ closeDiv() \}
+
 END_TEXT
 
-BEGIN_HINT
-Clear the denominators!
-END_HINT
+
 Context()->normalStrings;
 
 ########################################################################

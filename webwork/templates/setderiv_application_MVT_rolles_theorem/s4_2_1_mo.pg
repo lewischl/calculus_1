@@ -42,6 +42,8 @@ loadMacros(
 );
 
 TEXT(beginproblem());
+
+COMMENT("todo: change this problem to use dropdowns instead of having them type a word.  then add it to the group for rolles thm");
 $showPartialCorrectAnswers = 1;
 
 ##############################################################

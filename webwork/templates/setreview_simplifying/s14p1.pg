@@ -39,6 +39,7 @@ loadMacros(
   "unionTables.pl",
   "PGcourse.pl"
 );
+loadMacros("customCSS.pl");
 
 TEXT(beginproblem());
 
@@ -57,8 +58,16 @@ $exp = ColumnTable(
 
 BEGIN_TEXT
 
+\{ openDiv({ "class" => "problemPurpose" }) \}
+Working with fractions is a common need in Calculus 1.  This problem asks you to refresh your memory at working with expressions of fractions.
+\{ closeDiv() \}
+
+$PAR
+
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
 Simplify.  Your answer should be a reduced fraction, with no common
 factors in numerator and denominator.
+\{ closeDiv() \}
 
 $BR
 

@@ -49,6 +49,10 @@ Evaluate the indefinite integral.
 $BR \[ \int x^$power e^{x^$a} dx \]
 $BR 
 \(\displaystyle \int x^$power e^{x^$a} \, dx = \) \{ans_rule( 40) \} \(+C\)
+
+$PAR
+
+\{ theresahint \}
 EOT
 
 

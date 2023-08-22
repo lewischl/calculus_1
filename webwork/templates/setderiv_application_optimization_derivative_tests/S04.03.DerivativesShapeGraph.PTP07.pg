@@ -39,6 +39,9 @@ loadMacros(
   "PGcourse.pl"
 );
 
+COMMENT("todo: replace crappy images with tikz generated ones");
+COMMENT("this problem is NOT randomized");
+
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
@@ -66,9 +69,6 @@ BEGIN_TEXT
 
 \{ image(insertGraph($graphfp), width=>200, height=>200) \}
 
-END_TEXT
-
-TEXT(EV2(<<EOT));
 $PAR
 The graphs above are approximate graphs of \( f \) and \( f' \) for the function
 
@@ -78,9 +78,15 @@ $PAR
 
 $PAR
 
-So \( f \) is decreasing (and \( f' \) is negative) on some interval \( (0,a) \).  Compute \(a\).$PAR
+Note that \( f \) is decreasing (and \( f' \) is negative) on the interval \( (0,a) \).  
+
+$PAR $HR $PAR
+
+Compute value of the right endpoint \(a\).
+$PAR
 \( a=\)\{ans_rule(15)\}.  (Give the largest \(a\) that works.)
-EOT
+
+END_TEXT
 
 $ans=2*$a/3;
 ANS(num_cmp($ans));

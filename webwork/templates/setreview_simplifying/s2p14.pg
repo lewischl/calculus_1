@@ -37,34 +37,29 @@ loadMacros(
   "PGcourse.pl"
 );
 
+COMMENT("todo: this problem uses hardcoded numbers.");
 TEXT(beginproblem());
 
-TEXT(EV2(<<EOT));
 
-$BR
-Let \(\frac{x}{y}\) be a fraction (reduced to lowest terms)
-that satisfies
+
+BEGIN_TEXT
+
+Find the fraction \(\frac{x}{y}\) (reduced to lowest terms)
+that satisfies this equation:
+
 \[\frac{1}{2} + \frac{x}{y} = \frac{5}{6}.\]
-Then
-\(x = \)\{ ans_rule(5) \} and
-EOT
+
+\(x = \)\{ ans_rule(5) \} and $BR
+\(y= \)\{ ans_rule(5) \}
+
+
+
+END_TEXT
+
 ANS(num_cmp(1, mode=>"strict"));
-TEXT(EV2(<<EOT));
-\(y=\)\{ ans_rule(5) \}
-$BR
-
-
-
-EOT
 ANS(num_cmp(3, mode=>"strict"));
 
 
-
-$showHint = 2;
-BEGIN_HINT
-$BR Hint:
-Subtract \(\frac{1}{2}\) on both sides of the equation.
-END_HINT
 
 SOLUTION(EV3(<<'EOT'));
 $BR

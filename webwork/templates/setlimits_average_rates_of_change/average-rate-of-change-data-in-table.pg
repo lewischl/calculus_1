@@ -1,0 +1,172 @@
+## this file copied from Chris Hlas's Math114 content, Summer 2022, by permission of Chris Hlas
+## this automatic process executed by silviana amethyst
+## original filename local/average-rate-of-change-2.pg
+
+
+
+########################################
+# this file automatically moved
+#	from local/average-rate-of-change-2.pg 
+#	to setlimits_average_rates_of_change/average-rate-of-change-2.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();
+
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "PGcourse.pl",
+  "niceTables.pl",
+  "PGML.pl",
+  "unionTables.pl",
+);
+
+COMMENT("uses CSS in `customCSS.pl` for styling");
+loadMacros("customCSS.pl");
+
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+
+$y1=random(5, 20, 1);
+$y2=random(21, 50 , 1);
+$y3=random(51, 80 ,1);
+$y4=random(81,100, 1);
+$y5=random(101, 120, 1);
+
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Purpose: 
+
+Sometimes we don't have a function to evaluate to compute average rates of change, but just a set of observations.  This problem guides you to compute average rate of change from data in a table.  But the table data is limited -- so this a strong motivation to use functions to model changing phenomena instead of just capturing instrument data.
+[@ closeDiv() @]*
+
+
+
+---
+
+END_PGML
+
+
+
+
+# comments from problem author:
+#
+# I wanted table side-by-side with the image.  i make string variables for them using PGML::Format.  
+
+
+
+# see https://webwork.maa.org/moodle/mod/forum/discuss.php?d=3670
+$column1 = PGML::Format(<<END_PGML);
+
+We're given this observational data:
+
+[@ openDiv({ "class" => "trainingProblemStatement" }) @]*
+The position of a cat running from a dog down a dark alley is given by the values of the table.
+
+[@
+DataTable(
+[
+    ["`t` seconds", 0, 1,     2,     3,     4,     5],
+    ["`s` feet",    0, [$y1], [$y2], [$y3], [$y4], [$y5]]],
+    midrules => 1,
+    align => "|l|c|c|c|c|c|c|",
+    rowheaders => 1,
+    center => 1
+);
+@]***
+[@ closeDiv() @]*
+END_PGML
+
+
+
+# note: i had to replace double-quotes in the wikipedia-generated embed code with singles.
+$column2 = PGML::Format(<<END_PGML);
+[@
+"
+<a title='Peretz Partensky from San Francisco, USA, CC BY-SA 2.0 &lt;https://creativecommons.org/licenses/by-sa/2.0&gt;, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Cat_and_dog_standoff_(3926784260).jpg'><img width='256' alt='Cat and dog standoff (3926784260)' src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Cat_and_dog_standoff_%283926784260%29.jpg/512px-Cat_and_dog_standoff_%283926784260%29.jpg'></a>
+"
+@]*
+END_PGML
+
+# END MAKING THE STRING VARIABLES FOR THE TWO-COLUMN LAYOUT
+
+TEXT(ColumnTable($column1,$column2));
+
+
+
+BEGIN_PGML
+
+---
+
+
+We start with computing some average velocities.  The formula for average rate of change (average velocity) is always "change in dependent variable divided by change in independent variable", expressed mathematically with our variables as
+
+
+[@ openDiv({ "class" => "importantFormula" }) @]*
+[```
+\textnormal{AROC} = V_{\text{avg}} = \frac{\Delta s}{\Delta t}
+```]
+[@ closeDiv() @]*
+
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Find the average velocity for the time period beginning when [`t=2`] and lasting the given duration.
+[@ closeDiv() @]*
+
+    - For duration three seconds, the time interval is from [`t_0 = `][___]{"2"} to [`t_1 = `][___]{"5"}, and the average velocity is [`V_{\text{avg}} =`] [_]{($y5-$y2)/3} feet per second
+    - two second duration,  [`V_{\text{avg}} =`] [_]{($y4-$y2)/2}  feet per second
+    - one second duration, [`V_{\text{avg}} =`] [_]{($y3-$y2)/1} feet per second
+
+---
+
+Having just data in a table makes it impossible to determine the instantaneous velocity, because we need to be able to compute average velocities over smaller and smaller intervals of time. So the estimate in this part is pretty poor.  But we'll still do it.
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Estimate the instantaneous velocity when [`t=2`] by using the average velocity from [`t=1`] to [`t=3`] as a proxy.
+[@ closeDiv() @]*
+
+
+The instantaneous velocity is about [_]{($y3-$y1)/2} feet per second, but impossible to determine from this data alone.
+
+
+END_PGML
+
+
+BEGIN_HINT
+Use the formula for average velocity (that fraction with deltas).  The numerator should be a difference of positions (a distance travelled), and the denominator should be a difference of times (a duration of time).
+$BR$BR
+We can't use a limit to estimate the instantaneous velocity at \(t=2\), because we don't have a function to evaluate.  We'll settle for the mediocre estimate from this table of data, and the slope of a secant line centered at the time of interest.
+$BR$BR
+When in doubt, use more decimal places.
+END_HINT
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.
+
+## DESCRIPTION
+## Rates of Change
+## ENDDESCRIPTION
+
+## Tagged by tda2d
+
+## DBsubject(Calculus - single variable)
+## DBchapter(Limits and continuity)
+## DBsection(Motivational applications (estimation))
+## Institution(ASU)
+## MLT(catdog)
+## Level(3)
+## TitleText1('Calculus: Early Transcendentals')
+## AuthorText1('Rogawski')
+## EditionText1('1')
+## Section1('2.1')
+## Problem1('1')
+## TitleText2('Calculus: Early Transcendentals')
+## AuthorText2('Stewart')
+## EditionText2('6')
+## Section2('2.1')
+## Problem2('1')
+## KEYWORDS('Differentiation' 'Rates of Change','Calculus','Secant', 'Tangent','Derivatives','tangent line','secant line', 'average,instantaneous velocity','tangent,secant lines')

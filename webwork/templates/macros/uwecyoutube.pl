@@ -61,7 +61,7 @@ sub kaltura {
 "flashvars[mediaProxy.mediaPlayFrom]=" . $start_time . "&amp;" .
 "flashvars[localizationCode]=en&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[hotspots.plugin]=1&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_v8ek257i' width='608' height='342' allowfullscreen webkitallowfullscreen mozAllowFullScreen allow='autoplay *; fullscreen *; encrypted-media *' sandbox='allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation' frameborder='0' title='Estimating instantaneous rates of change via limits'></iframe>";
 
-  HTML($embed_link,"MAKE A QR CODE!!!");
+  HTML($embed_link,"\\href{$video_id}{link to video}");
 }
 
 
@@ -129,7 +129,7 @@ sub youtube {
   my $inline_link = "https://www.youtube.com/watch?v=" . $video_id;
 
   # conditional on mode of output (which is NOT controlled here, but is part of "ambient webwork magic")
-  HTML($thehtml, '\fbox{Podcast video.}');  HTML($embed_link, '\qrcode[height=1in]{$inline_link}');  # conditionally generate text for electronic or hardcopy display (which is NOT controlled here, but is part of "ambient webwork magic").  note: `HTML` is a terrible name for this command.  
+  HTML($thehtml, '\fbox{Podcast video.}');  HTML($embed_link, '\\href{https://www.youtube.com/watch?v=ZD037VSAG2I}{link to video}');  # conditionally generate text for electronic or hardcopy display (which is NOT controlled here, but is part of "ambient webwork magic").  note: `HTML` is a terrible name for this command.  
 } # re: sub youtube
 
 

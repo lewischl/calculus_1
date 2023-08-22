@@ -40,6 +40,8 @@ loadMacros(
   "MathObjects.pl",
   "PGcourse.pl"
 );
+
+COMMENT("not actually indeterminate form.  Modify to train them!");
 #####################################################################
 
 TEXT(beginproblem());

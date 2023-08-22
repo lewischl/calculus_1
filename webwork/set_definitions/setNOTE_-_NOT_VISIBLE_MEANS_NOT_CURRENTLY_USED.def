@@ -1,0 +1,14 @@
+assignmentType      = default
+openDate          = 01/02/2003 at 12:01am CST
+reducedScoringDate = 01/02/2003 at 09:59pm CST
+dueDate           = 01/02/2003 at 10:00pm CST
+answerDate        = 02/03/2003 at 10:00pm CST
+enableReducedScoring = Y
+paperHeaderFile   = defaultHeader
+screenHeaderFile  = defaultHeader
+description       = 
+restrictProbProgression = 0
+emailInstructor   = 0
+
+problemListV2
+

@@ -4,7 +4,7 @@
 sub _uwecAmethyst_init {}; #don't reload this file
 
 
-$showHint = -1;
+$showHint = 1;
 
 #This problem has a hint that will show after $showHint attempt(s).
 
@@ -12,7 +12,7 @@ sub theresahint {
  my $hintafter = $showHint+1;
 
 my $hintReminder = '';
-if ($numOfAttempts<$hintafter){
+if ($numOfAttempts<$hintafter && $displayHintsQ == 1){
     $hintReminder = '(This problem has a hint that shows after ' . $hintafter . ' attempts.)';}
 
 $hintReminder;

@@ -57,7 +57,7 @@ Evaluate the indefinite integral:
 $BR
 $PAR
    \( \displaystyle{ \int \big( $b u + $a \big) \,du} = \)
-   \{ans_rule(25) \} + \( C\).
+   \{ans_rule(25) \}  \( + C\).
 $BR
 $BR
 

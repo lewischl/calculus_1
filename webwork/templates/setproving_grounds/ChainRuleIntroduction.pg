@@ -2,13 +2,13 @@
 ##   ****
 ## ENDDESCRIPTION
 
-## KEYWORDS('Trig')
+## KEYWORDS('Chain Rule')
 
-## DBsubject('Trigonometry')
-## DBchapter('Trigonometric Functions of Angles')
-## DBsection('Trigonometric Functions of Angles')
-## Date('12/31/12')
-## Author('C. Ahrendt')
+## DBsubject('Calculus')
+## DBchapter('Derivatives')
+## DBsection('Chain Rule')
+## Date('06/28/2023')
+## Author('W. Shull')
 ## Institution('UWEC')
 ## TitleText1('')
 ## EditionText1('')
@@ -30,6 +30,8 @@ loadMacros(
   "PGcourse.pl",           # Customization file for the course
 );
 
+loadMacros("niceTables.pl");
+
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
@@ -38,7 +40,6 @@ $b3=non_zero_random(-10,10);
 $b4=non_zero_random(-10,10);
 $b5=non_zero_random(-10,10);
 #$b6=non_zero_random(-10,10);
-$b7=non_zero_random(-10,10);
 $b8=random(2,10);
 
 $b9=random(2,10);
@@ -47,11 +48,11 @@ while ($b9==$b8){
     $b9=random(-10,10);
 }
 
-$b1=non_zero_random(-6,6);
+$b1=non_zero_random(2,8);
 $b0=random(2,6);
 $b10=non_zero_random(-10,10);
 $b11=non_zero_random(-10,10);
-#$b12=non_zero_random(-10,10);
+$b12=non_zero_random(-10,10);
 $b13=non_zero_random(-10,10);
 $b14=non_zero_random(-10,10);
 $b15=random(2,10);
@@ -63,6 +64,8 @@ $a3=$b2*$b5+$b3;
 
 SRAND($psvn);
 $passcode1 = random(1000,9999);
+$b7=non_zero_random(-10,10);
+
 
 Context("Numeric");
 
@@ -73,17 +76,13 @@ $ans4 = Formula("$a1*x+$a2")->reduce;
 $ans5 = Formula("sqrt(x^2+$b7)")->reduce;
 $ans5->{limits}=[4,8]; #Which x values are tested? We only want x values that are guaranteed to be in the domain.
 $ans5d=Formula("x/(sqrt(x^2+[$b7]))")->reduce;
+$ans5d->{limits}=[4,8]; #Which x values are tested? We only want x values that are guaranteed to be in the domain.
 $ans6 = Formula("x+$b7")->reduce;
 $ans1 = Formula("$b11*sin^$b8(x)*cos^$b8(x)+$b10*sin^$b9(x)*cos^$b9(x)")->reduce;
 $ans2 = Formula("sin($b11*x^$b8+$b10*x^$b9)*cos($b11*x^$b8+$b10*x^$b9)")->reduce;
-$ans7 = Formula("$b14/(x+[$b13])")->reduce;
 $ans8 = Formula("sqrt(u)");
 $ans9 = Formula("x^2+[$b7]")->reduce;
 $ans10 = Formula("sin u cos u")->reduce;
-$ans11 = Formula("$b14/u")->reduce;
-$ans11d = Formula("-$b14/u^2")->reduce;
-$ans12 = Formula("x+[$b13]")->reduce;
-$ans12d = Formula("1")->reduce;
 $ans13 = Formula("u^3-4u^2+5")->reduce;
 $ans14 = Formula("tan x")->reduce;
 $ans15 = 2*$b0;
@@ -118,11 +117,13 @@ BEGIN_PGML
 
 We know we can write it as a composition [`f(g(x))`]. In this case, [`u=g(x)=x^2+[$b7]`] and [`f(g(x))=f(u)=\sqrt u=u^{1/2}`].
 
-Here are a couple videos introducing the Chain Rule!
+Here are a couple videos introducing the Chain Rule! I recommend watching all of the first one...
 
 [@
 kalturaShull("1_ro5sw2il")
 @]*
+
+...and I recommend watching this next one from about 8:40 to 14:35.
 
 [@ youtube("YG15m2VwSjA?start=521"); @]*
 
@@ -204,31 +205,66 @@ We are finished! This is the derivative of [`\sin([$g3])`].
 
 Suppose [`f(g(x))=\tan^3(x)-[$b15]\tan^2(x)+[$b16]`].
 
-[`f(u)=`][_]{Formula("u^3-[$b15]u^2+[$b16]")}
+[@
+DataTable(
+[
+    ['\( f(u) = \) ' . ans_rule(10),'\(f\'(u)=\)' . ans_rule(10)],
+    ['\( g(x) = \) ' . ans_rule(10),'\(g\'(x)=\)' . ans_rule(100)]
+],
+align => 'l l',
+tablecss => "border:solid 1px; border-spacing:50px 5px; border-radius: 5px; border-collapse:separate;"
+);
+@]***
 
-[`g(x)=`][_]{Formula("tan(x)")}
 
-[`f'(u)=`][_]{Formula("3u^2-(2*[$b15])u")->reduce}
+END_PGML
 
-[`g'(x)=`][_]{Formula("sec^2(x)")}
+ANS(Formula("u^3-[$b15]u^2+[$b16]")->reduce->cmp());
+ANS( Compute("3u^2-(2*[$b15])u")->cmp() );
+ANS( Compute("tan(x)")->cmp() );
+ANS( Compute("sec^2(x)")->cmp() );
+
+BEGIN_PGML
 
 [`f'(u)g'(x)=`][_]{Formula("(3u^2-(2*[$b15])u)*sec^2(x)")->reduce}
 
-[`f'(g(x))*g'(x)=`][_]{Formula("(3tan^2(x)-(2*[$b15])tan(x))*sec^2(x)")->reduce}
+
+[`f'(g(x))\cdot g'(x)=`][_]{Formula("(3tan^2(x)-(2*[$b15])tan(x))*sec^2(x)")->reduce}
+
 
 -----
 
-Suppose [`f(g(x))=[$ans7]`].
+Suppose [``f(g(x))=\frac{[$b14]}{[$b12]x+[$b13]}``].
 
-[`f(u)=`][_]{$ans11}
 
-[`g(x)=`][_]{$ans12}
+[@
+DataTable(
+[
+    ['\( f(u) = \) ' . ans_rule(10),'\(f\'(u)=\)' . ans_rule(10)],
+    ['\( g(x) = \) ' . ans_rule(10),'\(g\'(x)=\)' . ans_rule(100)]
+],
+align => 'l l',
+tablecss => "border:solid 1px; border-spacing:50px 5px; border-radius: 5px; border-collapse:separate;"
+);
+@]***
 
-[`f'(u)=`][_]{$ans11d}
-
-[`g'(x)=`][_]{$ans12d}
 
 END_PGML
+
+ANS(Formula("$b14/u")->reduce->cmp());
+ANS( Compute("-$b14/u^2")->cmp() );
+ANS( Compute("[$b12]x+[$b13]")->cmp() );
+ANS( Compute("[$b12]")->cmp() );
+
+BEGIN_PGML
+
+[`f'(u)g'(x)=`][_]{Formula("-[$b14]*[$b12]/u^2")->reduce}
+
+[`f'(g(x))g'(x)=`][_]{Formula("-[$b14]*[$b12]/([$b12]x+[$b13])^2")->reduce}
+
+END_PGML
+
+
 Section::End();
 
 Section::Begin("Part 4: Does the Chain Rule agree with other methods?");
@@ -237,19 +273,34 @@ BEGIN_PGML
 
 Suppose we want the derivative of [`([$b0]x+[$b1])^2`]. Let's find this derivative a few different ways:
 
-First, FOIL the expression out: [_]{Formula("([$b0]^2)x^2+(2*[$b0]*[$b1])x+[$b1]^2")->reduce}
+First, FOIL the expression out:
+
+>>[_]{Formula("[$b0]^2")->reduce}[`x^2+`][_]{Formula("2*[$b0]*[$b1]")->reduce}[`x+`][_]{Formula("[$b1]^2")->reduce}<<
 
 Now take the derivative: [_]{Formula("(2*[$b0]^2)x+(2*[$b0]*[$b1])")->reduce}
 
 Let's find the same derivative, but with the Chain Rule!
 
-[`f(u)=`][_]{Formula("u^2")->reduce}
+[@
+DataTable(
+[
+    ['\( f(u) = \) ' . ans_rule(10),'\(f\'(u)=\)' . ans_rule(10)],
+    ['\( g(x) = \) ' . ans_rule(10),'\(g\'(x)=\)' . ans_rule(100)]
+],
+align => 'l l',
+tablecss => "border:solid 1px; border-spacing:50px 5px; border-radius: 5px; border-collapse:separate;"
+);
+@]***
 
-[`g(x)=`][_]{Formula("[$b0]x+[$b1]")->reduce}
+END_PGML
 
-[`f'(u)=`][_]{Formula("2u")->reduce}
+ANS(Formula("u^2")->reduce->cmp());
+ANS( Compute("2u")->cmp() );
+ANS( Compute("[$b0]x+[$b1]")->cmp() );
+ANS( Compute("[$b0]")->cmp() );
 
-[`g'(x)=`][_]{Formula("[$b0]")->reduce}
+BEGIN_PGML
+
 
 [`f'(u)\cdot g'(x)=`][_]{Formula("(2*[$b0])u")->reduce}
 
@@ -265,9 +316,11 @@ BEGIN_PGML
 
 Now simplify this!
 
-[`f'(g(x))\cdot g'(x)=`][_]{Formula("(2*[$b0]^2)x+(2*[$b0]*[$b1])")} [%ACCEPTING UNSIMPLIFIED ANSWER%]
+[`f'(g(x))\cdot g'(x)=`][_]{Formula("2*[$b0]^2")->reduce}[`x+`][_]{Formula("2*[$b0]*[$b1]")->reduce} 
 
 END_PGML
+
+
 Context()->normalStrings;
 
 $showPartialCorrectAnswers = 1;

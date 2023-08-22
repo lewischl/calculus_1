@@ -36,7 +36,9 @@ DOCUMENT();        # This should be the first executable line in the problem.
 loadMacros(
   "PGstandard.pl",
   "PGchoicemacros.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "PGML.pl",
+  "customCSS.pl",
 );
 
 #install_problem_grader(~~&std_problem_grader);
@@ -44,49 +46,78 @@ TEXT(beginproblem());
 #$showPartialCorrectAnswers = 0;
 #$showPartialCredit = 0;
 
-TEXT(EV2(<<EOT));
+BEGIN_PGML
+
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+Function composition, or when we use one function's output as the input to another, is a really common operation in this class.
+
+
 
 This problem asks you to remember about function evaluation and function composition.
-
-$PAR$HR$PAR
-
-Suppose  \[f(x) = \frac{x}{x+1}.\]
-Then
-
-$BR
+[@ closeDiv() @]*
 
 
+[@ openDiv({ "class" => "importantFormula" }) @]*
+There are several ways of denoting function composition:
 
-A. \(f(1)\) =  \{ ans_rule(18) \}, (a number) $BR
+* [` f(g(x)) = (f \circ g) (x)`].  This form explicitly notes the name of the variable is [`x`].
+* [` f(g) = f \circ g`].  This form suppresses the name of the variable.
+* [`f(g(2)) = (f \circ g) (2)`].  This means to compose [`g`] into [`f`], and then evaluate at [`2`].
+[@ closeDiv() @]*
 
-EOT
+
+And I remind you, there's also function evaluation:
+* [`f(3)`] means evaluate [`f`] at input with value [`3`].
+
+For example, if 
+* [`p(x) = 3x^2`] and 
+* [`q(x) = 14-x`], 
+
+then we can compose in two orders: 
+* [`p(q(x)) = p(q) = 3(14-x)^2`]
+* [`q(p(x)) = q(p) = 14-3x^2`]
+
+See how different they are!  So, function composition puts old functions together into new ones.
+
+---
+
+I offer you a video on function composition: 
+
+[@ youtube(ZFPkQkURSxk)@]* 
+
+---
+
+Prefer a webpage reminder of how to work with function composition?  Check out
+[@ htmlLink( "https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:composite/x9e81a4f98389efdf:composing/v/function-composition", "this Khan Academy page about composition." ) @]*
+
+
+---
+
+
+[@ openDiv({ "class" => "trainingProblemStatement" }) @]*
+
+Suppose  [```f(x) = \frac{x}{x+1}.```]
+
+[@ closeDiv() @]*
+
+[@ openDiv({ "class" => "promptOrInstruction" }) @]*
+Evaluate or compose.
+[@ closeDiv() @]*
+
+
+
+* [`f(1) = `]  [@ ans_rule(18) @]*  
+* [`f(t) =  `] [@ ans_rule(18) @]* 
+* [`f(x^2) =  `] [@ ans_rule(18) @]*  
+* [`f(f(x)) =  `] [@ ans_rule(18) @]*
+
+
+END_PGML
+
+
 ANS(num_cmp(1/2));
-
-TEXT(EV2(<<EOT));
-
-B. \(f(t)\) =  \{ ans_rule(18) \}, (an expression in \(t\)) $BR
-
-EOT
 ANS(fun_cmp("t/(t+1)", limits=>[[2,3]], vars=>["t"]));
-
-TEXT(EV2(<<EOT));
-
-C. \(f(x^2)\) =  \{ ans_rule(18) \}, (an expression in \(x\)) $BR
-
-EOT
 ANS(fun_cmp("x^2/(x^2 +1)", vars=>["x"]));
-
-TEXT(EV2(<<EOT));
-
-D. \(f(f(x))\) =  \{ ans_rule(18) \} (an expression in \(x\)).
-$BR
-
-$PAR $HR $PAR
-
-Need a reminder of how to work with function composition?  Check out
-\{ htmlLink( "https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:composite/x9e81a4f98389efdf:composing/v/function-composition", "this Khan Academy page about composition." ) \}
-
-EOT
 ANS(fun_cmp("x/(2*x+1)", limits=>[[1,3]], vars=>["x"]));
 
 

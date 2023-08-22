@@ -29,65 +29,80 @@ DOCUMENT();        # This should be the first executable line in the problem.
 loadMacros(
   "PGstandard.pl",
   "PGchoicemacros.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "PGuwecTikZutils.pl", #Custom TikZ code
 );
+loadMacros("customCSS.pl");
+
+COMMENT("todo: this problem needs the order of the graphs to be randomized");
+COMMENT("todo: this problem needs the locations of the asymptotes to be randomized");
 
 install_problem_grader(~~&std_problem_grader);
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
 $showPartialCredit = 0;
 
+$f = Formula("x/(x-1)")->reduce;
+$g = Formula("x^2/(5*(x+1))")->reduce;
+$h = Formula("x/(x^2+1)")->reduce;
+
+@xlim = (-4, 4);
+@ylim = (-4, 4);
+$xtick = 1;
+$ytick = 1;
+
+$eps = 0.01;
+
+$graph = GraphWithTikZ(function => [[$f,dmin => $xlim[0],dmax => 1-$eps,label=>"1",color=>"red"],
+                                    [$g,dmin => $xlim[0],dmax => -1-$eps,label=>"2",color=>"blue",useLegend=>1],
+                                    [$h,dmin => $xlim[0],dmax => $xlim[1],label=>"3",color=>"black"],
+                                    [$f,dmin => 1+$eps,dmax => $xlim[1],label=>"1",useLegend=>0,color=>"red"],[$g,dmin => -1+$eps,dmax => $xlim[1],label=>"2",useLegend=>0,color=>"blue"]],
+                        xmin => $xlim[0],xmax => $xlim[1],ymin => $ylim[0],ymax =>$ylim[1],smooth=>'smooth',ytick => $ytick,xtick => $xtick,useLegend=>1);
 
 
 
-TEXT(EV2(<<EOT));
-This problem is intended to get you to recall that vertical asymptotes correspond to zeros of the denominator of a rational function.  Here are the graphs of three rational functions:
 
-\{image("1050s7p28.gif", height => 512, width => 512);\} 
-$BR
-Match the graphs shown above with the functions listed below. 
-Enter "r"  for red, "g" for green, and "y" for yellow.
+BEGIN_PGML
 
+[@ openDiv({ "class" => "problemPurpose" }) @]*
+This problem is intended to help you recall that vertical asymptotes correspond to zeros of the denominator of a rational function, because near to the vertical asymptote we're diving by a smaller and smaller number.
+[@ closeDiv() @]*
 
-$BR
+Here are graphs of three rational functions, two with vertical asymptotes and one without.
 
+[@image($graph, height => 320, width => 480);@]*
 
-$BR \{ ans_rule(5) \}: \(f(x) = \frac{x}{x-1}.\)
-EOT
-ANS(str_cmp("r"));
+[@ openDiv({ "class" => "promptOrInstruction" } ) @]*
+Match the graphs shown above with the functions listed below.  Enter the matching number of the function from the lengend.  
 
-TEXT(EV2(<<EOT));
-$BR \{ ans_rule(5) \}: \(f(x) = \frac{x^2}{5(x+1)}. \)
-EOT
-ANS(str_cmp("g"));
+[@ closeDiv() @]*
 
-TEXT(EV2(<<EOT));
-$BR \{ ans_rule(5) \}: \(f(x) = \frac{x}{x^2+1}. \)
-$BR
-EOT
-ANS(str_cmp("y"));
+Try to answer the problem without using a graphing calculator -- use knowledge of where the denominator is [`0`].
 
-TEXT(EV3(<<'EOT'));
-$BR $BBOLD Hint:$EBOLD Look for vertical, horizontal, and slanted asymptotes.
+* [`\dfrac{x}{x-1}`] : [___]{"1"}
 
-$BR $BR 
-I do apologize about the yellow-on-white, and about the red/green graphs (both of these are vision accessibility problems).  This problem is on my list of problems to improve.
+* [`\dfrac{x^2}{5(x+1)}`]: [___]{"2"}
 
-EOT
-
-SOLUTION(EV3(<<'EOT')); 
-$BR $BBOLD Solution:$EBOLD
-The following Maple Statement will create the graphs shown:
-
-$BR
-\(
-plot([x/(x-1),x^2/(5*x+5),x/(x^2+1)],x=-4..4,y=-4..4, thickness=2, discont = true);
-\)
-
-$BR$BR
+* [`\dfrac{x}{x^2+1}`] : [___]{"3"}
 
 
-EOT
+END_PGML
+
+
+
+
+# solution commented out as my institution doesn't have maple.  Also, maple is expensive and Desmos is free.  Just use Desmos.
+
+#BEGIN_SOLUTION
+#$BR $BBOLD Solution:$EBOLD
+#The following Maple Statement will create the graphs shown:
+
+#$BR
+#\(
+#plot([x/(x-1),x^2/(5*x+5),x/(x^2+1)],x=-4..4,y=-4..4, thickness=2, discont = true);
+#\)
+
+#END_SOLUTION
 
 
 

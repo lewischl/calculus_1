@@ -1,5 +1,4 @@
 
-
 ########################################
 # this file automatically moved
 #	from local/Library/UCSB/Stewart5_4_10/Stewart5_4_10_13.pg 
@@ -34,8 +33,11 @@ BEGIN_TEXT
 Calculate the indefinite integral:
 
 $PAR
-\(\displaystyle \int\big($a \cos(t) + $b \sin(t)\big)dt=\) \{ ans_rule(10) \}$BR
-${BITALIC}(Use a capital $BBOLD C$EBOLD for an arbitrary constant.)$EITALIC
+\(\displaystyle \int\big($a \cos(t) + $b \sin(t)\big)dt=\) \{ ans_rule(10) \}
+
+$PAR
+
+Use \(C\) for an arbitrary constant.
 END_TEXT
 
 $answer=FormulaUpToConstant("$a*sin(t)+$b*(-1)*cos(t)");

@@ -2,13 +2,13 @@
 ##   ****
 ## ENDDESCRIPTION
 
-## KEYWORDS('Trig')
+## KEYWORDS('Integration, Substitution')
 
-## DBsubject('Trigonometry')
-## DBchapter('Trigonometric Functions of Angles')
-## DBsection('Trigonometric Functions of Angles')
-## Date('12/31/12')
-## Author('C. Ahrendt')
+## DBsubject('Calculus')
+## DBchapter('Integrals')
+## DBsection('Integration by substitution')
+## Date('6/28/2023')
+## Author('W. Shull')
 ## Institution('UWEC')
 ## TitleText1('')
 ## EditionText1('')
@@ -30,6 +30,12 @@ loadMacros(
   "PGcourse.pl",           # Customization file for the course
 );
 
+loadMacros("niceTables.pl", "parserFormulaUpToConstant.pl");
+
+Context("Numeric");
+
+Context()->variables->add(u=>"Real", dx=>"Real", du=>"Real");
+
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
@@ -38,13 +44,12 @@ $b3=non_zero_random(-10,10);
 $b4=non_zero_random(-10,10);
 $b5=non_zero_random(-10,10);
 #$b6=non_zero_random(-10,10);
-$b7=non_zero_random(-10,10);
 $b8=random(2,10);
-
+$b8down1=$b8-1;
 $b9=random(2,10);
-
+$b9down1=$b9-1;
 while ($b9==$b8){
-    $b9=random(-10,10);
+    $b9=random(2,10);
 }
 
 $b1=non_zero_random(-6,6);
@@ -52,37 +57,22 @@ $b0=random(2,6);
 $b10=non_zero_random(-10,10);
 $b11=non_zero_random(-10,10);
 #$b12=non_zero_random(-10,10);
-$b13=non_zero_random(-10,10);
-$b14=non_zero_random(-10,10);
-$b15=random(2,10);
-$b16=random(2,10);
 
 $a1=$b4*$b2;
 $a2=$b4*$b3+$b5;
 $a3=$b2*$b5+$b3;
 
-#SRAND($psvn);
-
-Context("Numeric");
-
-Context()->variables->add(u=>"Real");
 
 $ans3 = Formula("$a1*x+$a3")->reduce;
 $ans4 = Formula("$a1*x+$a2")->reduce;
-$ans5 = Formula("sqrt(x^2+$b7)")->reduce;
-$ans5->{limits}=[4,8]; #Which x values are tested? We only want x values that are guaranteed to be in the domain.
-$ans5d=Formula("x/(sqrt(x^2+[$b7]))")->reduce;
-$ans6 = Formula("x+$b7")->reduce;
 $ans1 = Formula("$b11*sin^$b8(x)*cos^$b8(x)+$b10*sin^$b9(x)*cos^$b9(x)")->reduce;
 $ans2 = Formula("sin($b11*x^$b8+$b10*x^$b9)*cos($b11*x^$b8+$b10*x^$b9)")->reduce;
-$ans7 = Formula("$b14/(x+[$b13])")->reduce;
 $ans8 = Formula("sqrt(u)");
-$ans9 = Formula("x^2+[$b7]")->reduce;
 $ans10 = Formula("sin u cos u")->reduce;
-$ans11 = Formula("$b14/u")->reduce;
-$ans11d = Formula("-$b14/u^2")->reduce;
-$ans12 = Formula("x+[$b13]")->reduce;
-$ans12d = Formula("1")->reduce;
+#$ans11 = Formula("$b14/u")->reduce;
+#$ans11d = Formula("-$b14/u^2")->reduce;
+#$ans12 = Formula("[$b17]*x+[$b13]")->reduce;
+#$ans12d = Formula("1")->reduce;
 $ans13 = Formula("u^3-4u^2+5")->reduce;
 $ans14 = Formula("tan x")->reduce;
 $ans15 = 2*$b0;
@@ -90,6 +80,25 @@ $ans15 = 2*$b0;
 
 $g3=Formula("$b11*x^$b8+$b10*x^$b9")->reduce;
 $g3d=Formula("($b11*$b8)*x^($b8-1)+($b10*$b9)*x^($b9-1)")->reduce;
+
+SRAND($psvn);
+
+$b7=non_zero_random(-10,10);
+$ans5 = Formula("sqrt(x^2+$b7)")->reduce;
+$ans5a = FormulaUpToConstant("sqrt(x^2+$b7)")->reduce;
+
+
+$ans5->{limits}=[4,8]; #Which x values are tested? We only want x values that are guaranteed to be in the domain.
+$ans5a->{limits}=[4,8]; #Which x values are tested? We only want x values that are guaranteed to be in the domain.
+$ans5d=Formula("x/(sqrt(x^2+[$b7]))")->reduce;
+$ans6 = Formula("x+$b7")->reduce;
+$ans9 = Formula("x^2+[$b7]")->reduce;
+$b13=non_zero_random(-10,10);
+$b14=non_zero_random(-10,10);
+$b16=random(2,10);
+$b15=random(2,10);
+$b17=random(2,10);
+$ans7 = Formula("$b14/([$b16]*x+[$b13])")->reduce;
 
 ###################################
 # Main text
@@ -106,22 +115,32 @@ Use the Chain Rule to differentiate:
 
 [`h(x)=e^{x^2}`]
 
-As before, let's write [`h(x)=f(g(x))`]:a
+As before, let's write [`h(x)=f(g(x))`]:
 
+[@
+DataTable(
+[
+    ['\( f(u) =\)',ans_rule(10),'\(\hspace{1cm}\)','\(f\'(u)=\)' . ans_rule(10)],
+    ['\( u=g(x) =\)',ans_rule(10),'\(\hspace{1cm}\)','\(g\'(x)=\)' . ans_rule(100)]
+],
+align => 'r l l',
+);
+@]***
 
-[`u=g(x)=`][_]{Formula("x^2")->reduce}
+END_PGML
 
-[`f(u)=`][_]{Formula("e^u")->reduce}
+ANS(Formula("e^u")->reduce->cmp());
+ANS( Compute("e^u")->reduce->cmp() );
+ANS( Compute("x^2")->reduce->cmp() );
+ANS( Compute("2x")->reduce->cmp() );
 
-[`f'(u)`][_]{Formula("e^u")->reduce}
-
-[`u=g(x)=`][_]{Formula("2x")->reduce}
+BEGIN_PGML
 
 Now let's solve it with the Chain Rule:
 
-[`f'(u)*g'(x)=`][_]{Formula("2x*e^u")->reduce}
+[`f'(u)*g'(x)=`] [_]{Formula("2x*e^u")->reduce}
 
-[`h'(x)=f'(g(x))\cdot g'(x)=`][_]{Formula("2xe^{x^2}")->reduce}
+[`h'(x)=f'(g(x))\cdot g'(x)=`] [_]{Formula("2xe^{x^2}")->reduce}
 
 END_PGML
 Section::End();
@@ -132,16 +151,16 @@ BEGIN_PGML
 
 Suppose you are asked to evaluate
 
-[```\int 2xe^{x^2}dx```]
+[```\int 2xe^{x^2}\,dx```]
 
 Let's try using the letter [`u`] for [`x^2`], just like before! If we set [`u=x^2`], we can replace [`x^2`] with [`u`]:
 
 [```
-\int 2xe^{x^2}dx
-=\int 2xe^{u}dx
+\int 2xe^{x^2}\,dx
+=\int 2xe^{u}\,dx
 ```]
 
-We CANNOT evaluate this integral in its current form. It mixes two variables, [`x`] and [`u`], and this course is SINGLE variable calculus.
+We *cannot* evaluate this integral in its current form. It mixes two variables, [`x`] and [`u`], and this course is *single* variable calculus.
 
 However, since we wrote [`u`] as a function of [`x`], we can find its derivative:
 
@@ -157,7 +176,7 @@ Then we can _multiply both sides by_ [`dx`]:
 [```
 \begin{eqnarray*}
 \frac{du}{dx}&=&2x\\
-du&=&2xdx\\
+du&=&2x\,dx\\
 \end{eqnarray*}
 ```]
 
@@ -165,20 +184,20 @@ Now we have what we need to rewrite the integral *only* in terms of [`u`]:
 
 [```
 \begin{eqnarray*}
-&&\int 2xe^{x^2}dx\\
-&=&\int 2xe^{u}dx\\
-&=&\int e^{u}2xdx\\
-&=&\int e^{u}du\\
+&&\int 2xe^{x^2}\,dx\\
+&=&\int 2xe^{u}\,dx\\
+&=&\int e^{u}2x\,dx\\
+&=&\int e^{u}\,du\\
 \end{eqnarray*}
 ```]
 
 Now that the integral contains just one variable, we can evaluate it!
 
-[```\int 2xe^{x^2}dx=\cdots=\int e^{u}du=e^u+C```]
+[```\int 2xe^{x^2}\,dx=\cdots=\int e^{u}\,du=e^u+C```]
 
 Since the problem was given with only [`x`], we can't leave [`u`] in our final answer. So we continue...
 
-[```\int 2xe^{x^2}dx=\cdots=e^u+C=e^{x^2}+C```]
+[```\int 2xe^{x^2}\,dx=\cdots=e^u+C=e^{x^2}+C```]
 
 And as we showed in Part 1 of this problem, the derivative of our answer is the integrand we were given, just as it should be!
 
@@ -187,6 +206,10 @@ Here is a video demonstrating this example in handwritten form:
 [@
 kalturaShull("1_g908rb6q")
 @]*
+
+Retype the final answer here:
+
+[``\int2xe^{x^2}\,dx=``][_]{FormulaUpToConstant("e^(x^2)")->reduce}
 
 END_PGML
 Section::End();
@@ -197,162 +220,58 @@ BEGIN_PGML
 
 Let's see if we can solve
 
-[```\int\frac x{\sqrt{x^2+[$b7]}}dx```]
+[```\int\frac x{\sqrt{x^2+[$b7]}}\,dx```]
 
 If one function looks like it's "inside" another, that inside function is often a good choice for [`u`].
 
 In this case, let's choose [`u=x^2+[$b7]`]. Try replacing [`x^2+[$b7]`] with [`u`] in the integral:
 
->>[``\int\frac x{\sqrt{x^2+[$b7]}}dx=\int``][_]{Formula("x/sqrt(u)")->reduce}[``dx``]<<
+>>[``\int\frac x{\sqrt{x^2+[$b7]}}\,dx=\int``][_]{Formula("x/sqrt(u)")->reduce}[``dx``]<<
 
-Find its derivative:
+Find the derivative of [`u`]:
 
-[```\frac{du}{dx}=```][_]{Formula("2x")->reduce}
+>>[``\frac{du}{dx}=``][_]{Formula("2x")->reduce}<<
+
+Multiply both sides by [`dx`]:
+
+>>[``du=``][_]{Formula("2x*dx")->reduce}<<
 
 END_PGML
 Section::End();
+
 
 Section::Begin("Part 4");
 
 BEGIN_PGML
 
-Let's see if we can 
+At the moment, our integral can be written as
 
+[```\int\frac1{\sqrt u}x\,dx```]
 
-EDIT BELOW HERE
+There is no [`2x\,dx`] in the integral. However, we can do one more rearrangement. Previously we had
 
-We know we can write it as a composition [`f(g(x))`]. In this case, [`u=g(x)=x^2+[$b7]`] and [`f(g(x))=f(u)=\sqrt u=u^{1/2}`].
+[```du=2x\,dx```]
 
+Now we will _divide both sides by 2_:
 
+[```\frac12\,du=x\,dx```]
 
+Now we have what we need!
 
-
-Chain Rule:
-
-[```\frac d{dx}[f(g(x))]=f'(g(x))*g'(x)```]
-
-Or, if [`u=g(x)`], then
-
-[```\frac d{dx}[f(g(x))]=f'(u)*g'(x)```]
-
-Let's find the derivative of [`\sqrt{x^2+[$b7]}`] using the Chain Rule!
-
-First we write down the outside and inside function:
-
-[``f(u)=\sqrt u=u^{1/2}``]
-
-[``g(x)=x^2+[$b7]``]
-
-Then we find their derivatives:
-
-[``f'(u)=\frac12 u^{-1/2}``]
-
-[``g'(x)=2x``]
-
-Then we put it all together!
-
-[```
-\begin{eqnarray*}
-\frac d{dx}[f(g(x))]
-&=&f'(u)*g'(x)\\
-&=&\frac12 u^{-1/2}*2x\\
-&=&x*u^{-1/2}\\
-\end{eqnarray*}
+[```\int\frac x{\sqrt{x^2+[$b7]}}\,dx
+=\int\frac x{\sqrt{u}}\,dx
+=\int\frac1{\sqrt{u}}x\,dx
+=\int\frac1{\sqrt{u}}\left(\frac12\,du\right)
+=\frac12\int\frac1{\sqrt{u}}\,du
 ```]
 
-Since the problem was given with only [`x`], we can't leave [`u`] in our final answer. So we continue...
+Now we find the antiderivative in terms of [`u`]:
 
-[```\frac d{dx}[f(g(x))]=\dots=x*u^{-1/2}=x*(x^2+[$b7])^{-1/2}```]
-
-And in case we need to simplify more...
-
-[```\frac d{dx}[f(g(x))]=\dots=x*(x^2+[$b7])^{-1/2}=\frac x{(x^2+[$b7])^{1/2}}=\frac x{\sqrt{x^2+[$b7]}}```]
-
-Retype that final answer here:
-
-[``\frac d{dx}[f(g(x))]=``][_]{$ans5d}
-
-END_PGML
-Section::End();
-
-Section::Begin("Part 3: Chain Rule practice");
-
-BEGIN_PGML
-
-Suppose [`f(g(x))=\sin([$g3])`]. As we did in the previous example, decompose this into [`f(u)`] and [`g(x)`].
-
-[`f(u)=`][_]{Formula("sin(u)")}
-
-[`g(x)=`][_]{$g3}
-
-Then find both their derivatives:
-
-[`f'(u)=`][_]{Formula("cos(u)")}
-
-[`g'(x)=`][_]{$g3d}
-
-Multiply [`f(u)`] by [`g(x)`] (leaving [`u`] in your answer):
-
-[`f'(u)g'(x)=`][_]{Formula("cos(u)*[$g3d]")}
-
-Now replace [`u`] with [`g(x)`]:
-
-[`f'(g(x))*g'(x)=`][_]{Formula("cos([$g3])*[$g3d]")}
-
-We are finished! This is the derivative of [`\sin([$g3])`].
-
------
-
-Suppose [`f(g(x))=\tan^3(x)-[$b15]\tan^2(x)+[$b16]`].
-
-[`f(u)=`][_]{Formula("u^3-[$b15]u^2+[$b16]")}
-
-[`g(x)=`][_]{Formula("tan(x)")}
-
-[`f'(u)=`][_]{Formula("3u^2-(2*[$b15])u")->reduce}
-
-[`g'(x)=`][_]{Formula("sec^2(x)")}
-
-[`f'(u)g'(x)=`][_]{Formula("(3u^2-(2*[$b15])u)*sec^2(x)")->reduce}
-
-[`f'(g(x))*g'(x)=`][_]{Formula("(3tan^2(x)-(2*[$b15])tan(x))*sec^2(x)")->reduce}
-
------
-
-Suppose [`f(g(x))=[$ans7]`].
-
-[`f(u)=`][_]{$ans11}
-
-[`g(x)=`][_]{$ans12}
-
-[`f'(u)=`][_]{$ans11d}
-
-[`g'(x)=`][_]{$ans12d}
-
-END_PGML
-Section::End();
-
-Section::Begin("Part 4: Does the Chain Rule agree with other methods?");
-
-BEGIN_PGML
-
-Suppose we want the derivative of [`([$b0]x+[$b1])^2`]. Let's find this derivative a few different ways:
-
-First, FOIL the expression out: [_]{Formula("([$b0]^2)x^2+(2*[$b0]*[$b1])x+[$b1]^2")->reduce}
-
-Now take the derivative: [_]{Formula("(2*[$b0]^2)x+(2*[$b0]*[$b1])")->reduce}
-
-Let's find the same derivative, but with the Chain Rule!
-
-[`f(u)=`][_]{Formula("u^2")->reduce}
-
-[`g(x)=`][_]{Formula("[$b0]x+[$b1]")->reduce}
-
-[`f'(u)=`][_]{Formula("2u")->reduce}
-
-[`g'(x)=`][_]{Formula("[$b0]")->reduce}
-
-[`f'(u)\cdot g'(x)=`][_]{Formula("(2*[$b0])u")->reduce}
+>>[`\displaystyle\int\frac x{\sqrt{x^2+[$b7]}}\,dx=\dots
+=\frac12\int\frac1{\sqrt{u}}\,du
+=\frac12\int\frac1{u^{\frac12}}\,du
+=\frac12\int u^{-\frac12}\,du
+=`] [_]{FormulaUpToConstant("sqrt(u)")->reduce}<<
 
 END_PGML
 Section::End();
@@ -361,19 +280,93 @@ Section::Begin("Part 5");
 
 BEGIN_PGML
 
+Express your previous answer in terms of [`x`]:
 
-[`f'(g(x))\cdot g'(x)=[$ans15](`][_]{Formula("[$b0]x+[$b1]")->reduce}[`)`]
+>>[`\displaystyle\int\frac x{\sqrt{x^2+[$b7]}}\,dx=\dots
+=u^{\frac12}+C
+=\sqrt u+C
+=`] [_]{$ans5a}<<
 
-Now simplify this!
+[%Can I include a point-testing limit in-line?%]
 
-[`f'(g(x))\cdot g'(x)=`][_]{Formula("(2*[$b0]^2)x+(2*[$b0]*[$b1])")} [%ACCEPTING UNSIMPLIFIED ANSWER%]
+We are finished! Notice that the derivative of your answer is the integrand we started with!
 
 END_PGML
+Section::End();
+
+Section::Begin("Part 6: More practice");
+
+BEGIN_PGML
+
+Using a similar process, find
+
+[```\displaystyle\int([$b11*$b8]x^{[$b8-1]}+[$b10*$b9]x^{[$b9-1]})\cos([$b11]x^{[$b8]}+[$b10]x^{[$b9]})\,dx
+```]
+
+[`u=`] [_]{Formula("[$b11]*x^[$b8]+[$b10]*x^[$b9]")->reduce}
+
+[`du=\Big(`][_]{Formula("[$b11]*[$b8]x^([$b8]-1)+[$b10]*[$b9]x^([$b9]-1)")->reduce}[`\Big)\,dx`]
+
+Rewrite the integral in terms of [`u`]:
+
+>>[`\displaystyle\int([$b11*$b8]x^{[$b8-1]}+[$b10*$b9]x^{[$b9-1]})\cos([$b11]x^{[$b8]}+[$b10]x^{[$b9]})\,dx=\int`][_]{Formula("cos(u)*du")->reduce}<<
+
+END_PGML
+Section::End();
+
+Section::Begin("Part 7");
+
+BEGIN_PGML
+
+Take the antiderivative in terms of [`u`]:
+
+>>[`\displaystyle\int\cos u\,du=`] [_]{FormulaUpToConstant("sin(u)")->reduce}<<
+
+And rewrite it in terms of [`x`]:
+
+>>[`\dots=`] [_]{FormulaUpToConstant("sin([$b11]*x^[$b8]+[$b10]*x^[$b9])")}<<
+
+END_PGML
+Section::End();
+
+Section::Begin("Part 8");
+
+BEGIN_PGML
+
+Let's see if we can solve
+
+[```\int(3\tan^2x-[$b15*2]\tan x)\sec^2x\,dx```] [%WHY DOES ORDER OF 2 AND $b15 MATTER???%]
+
+>>[`u=`] [_]{Formula("tan(x)")->reduce}<<
+
+>>[`du=`] [_]{Formula("sec^2(x)*dx")->reduce}<<
+
+In the next three boxes: first rewrite the integral in terms of [`u`], then take the antiderivative, then rewrite the answer in terms of [`x`].
+
+[``\int(3\tan^2x-[$b15*2]\tan x)\sec^2x\,dx=\int``] [_]{Formula("(3*u^2-2*[$b15]*u)*du")->reduce} [`=`] [_]{FormulaUpToConstant("u^3-[$b15]*u^2")->reduce} [`=`] [_]{FormulaUpToConstant("tan^3(x)-[$b15]*tan^2(x)")->reduce}
+
+
+
+
+-----
+
+
+Let's solve
+
+[```\int\frac{[$b17*$b14*-1]}{([$b17]x+[$b13])^2}\,dx```]
+
+[`u=`] [_]{Formula("[$b17]*x+[$b13]")->reduce}
+
+[`du=`] [_]{Formula("[$b17]*dx")->reduce}
+
+>>[``\int\frac{[$b17*$b14*-1]}{([$b17]x+[$b13])^2}\,dx=\int``] [_]{Formula("[$b14*-1]/(u^2)*du")->reduce} [`=`] [_]{FormulaUpToConstant("[$b14]/u")->reduce} [`=`] [_]{FormulaUpToConstant("[$b14]/([$b17]*x+[$b13])")->reduce}<<
+
+END_PGML
+Section::End();
+
 Context()->normalStrings;
 
 $showPartialCorrectAnswers = 1;
-
-Section::End();
 
   Scaffold::End();
 

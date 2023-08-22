@@ -1,0 +1,14 @@
+assignmentType      = default
+openDate          = 01/30/2023 at 02:09am CST
+reducedScoringDate = 02/13/2023 at 09:59pm CST
+dueDate           = 05/13/2023 at 02:09am CDT
+answerDate        = 12/17/2023 at 02:09am CST
+enableReducedScoring = Y
+paperHeaderFile   = defaultHeader
+screenHeaderFile  = defaultHeader
+description       = 
+restrictProbProgression = 0
+emailInstructor   = 0
+
+problemListV2
+

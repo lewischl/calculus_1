@@ -41,9 +41,11 @@ loadMacros(
   "MathObjects.pl",
   "alignedChoice.pl",
   "littleneck.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl",
 );
 
+COMMENT("Find out how to adjust spacing between items.  Or convert to PGML.");
 # allow the student to change the seed for this problem.
 
 
@@ -63,10 +65,12 @@ Context()->variables->add(h=>'Real',w=>'Real');
 $A = non_zero_random(-9,9,2);
 $Func = Formula("x^2 + $A x")->reduce;
 $Fxh = $Func->substitute(x=>'x+h');
+$Fxh_minus_Fx = $Func - $Fxh;
 $Fw = $Func->substitute(x=>w);
 #*************
 #   Answers
 #*************
+
 $Quot1 = Formula("2 x + $A + h")->reduce;
 $Quot2 = Formula("w + x + $A")->reduce;
 #*******************
@@ -78,12 +82,19 @@ $Step2a = Formula("(2xh + h^2 + $A h)/h")->reduce;
 $Step2b = Formula("(w^2 - x^2 + $A w - $A x)/(w - x)")->reduce;
 $Step3b = Formula("( (w + x)(w - x) + $A(w - x) )/(w - x)")->reduce;
 $Step4b = Formula("( (w - x)(w + x + $A) )/(w - x)")->reduce;
-$Qlist = new_aligned_list(ans_rule_len=>25, numbered=>1, equals=>0, tex_spacing=>"10pt");
-$Qlist->qa("\( \large{$Diffxh}, \small{h \ne 0}: \)", $Quot1->cmp);
+
+
+
+# make the list of prompts using `new_aligned_list`
+$Qlist = new_aligned_list(ans_rule_len=>25, numbered=>0, equals=>1, tex_spacing=>"20pt");
+
+$Qlist->qa("\( f(x+h) \)", $Fxh->cmp);
+$Qlist->qa("\( f(x+h) - f(x) \)", $Fxh_minus_Fx->cmp);
+$Qlist->qa("\( \displaystyle $Diffxh \)", $Quot1->cmp);
 
 # removed the x-w form, spring 2022
 #,
-#           "\( \large{$Diffxw}, \small{x \ne w}: \)", $Quot2->cmp);
+#           "\( $Diffxw, \textnormal{ with } x \ne w: \)", $Quot2->cmp);
 
 
 # *********************
@@ -95,19 +106,47 @@ TEXT(beginproblem());
 #
 Context()->texStrings;
 BEGIN_TEXT
+
+\{ openDiv({ "class" => "problemPurpose" }) \}
+
 This is a kind of problem you probably encountered in precalc.  It's just an algebra problem, when you get down to it.  We're simplifying "the difference quotient" for a simple function.
+\{ closeDiv() \}
+
+
 
 $PAR $HR $PAR
 
-For the function \( \small{f(x) = $Func} \), simplify the expression as much as possible.  
-$PAR
+Define the function \[ f(x) = $Func \]
+
+Assume \( h \ne 0 \).
+
+$PAR $HR $PAR
+
+
+\{ openDiv({ "class" => "promptOrInstruction" }) \}
+Use function composition and algebra to simplify the expressions as much as possible.  
+\{ closeDiv() \}
+
+
+
 \{ $Qlist->print_q \}
+
 $PAR
+
+\{ openDiv({ "class" => "inProblemHint" }) \}
 The \(h\) in the denominator *will* cancel.  Your answer will be an expression in \(h\) and \(x\).
 
 $PAR
+$HR
+$PAR
 
-\{theresahint\}
+Here's a video on the difference quotient, including a few examples:
+$BR
+
+\{ youtube("qQgVomi8lCc") \}
+\{ closeDiv() \}
+
+
 END_TEXT
 #
 # Expect strings in standard form
@@ -124,11 +163,7 @@ ANS($Qlist->correct_ans);
 #  Explanation of solution  
 #***************************
 
-BEGIN_HINT
-Maybe this link to a YouTube video will help? $PAR
 
-\{ youtube("qQgVomi8lCc") \}
-END_HINT
 
 Context()->texStrings;
 SOLUTION(EV3(<<'END_SOLUTION'));

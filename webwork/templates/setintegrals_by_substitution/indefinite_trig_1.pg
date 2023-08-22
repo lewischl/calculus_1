@@ -55,8 +55,11 @@ TEXT(beginproblem());
 BEGIN_TEXT
 Evaluate the indefinite integral.
 \[ \int \frac{\cos x}{$b \sin x + $c} \, dx \]
-\(\int \frac{\cos x}{$b \sin x + $c} \, dx = \) \{ans_rule( 30) \} \(+C\)
+\(\displaystyle \int \frac{\cos x}{$b \sin x + $c} \, dx = \) \{ans_rule( 30) \} \(+C\)
 $PAR
+
+\{ theresahint \}
+
 END_TEXT
 
 BEGIN_HINT

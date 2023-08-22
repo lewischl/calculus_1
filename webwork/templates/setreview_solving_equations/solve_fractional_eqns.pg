@@ -44,7 +44,8 @@ loadMacros(
   "MathObjects.pl",
   "AnswerFormatHelp.pl",
   "contextFraction.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "customCSS.pl"
 );
 
 TEXT(beginproblem());
@@ -77,6 +78,13 @@ $answer2 = Compute("$num2 / $den2");
 
 Context()->texStrings;
 BEGIN_TEXT
+
+\{ openDiv({"class"=>"problemPurpose"}) \}
+This problem aims to remind you of the difference between evaluating a function at a point, and finding the inputs where a function takes on a specific output (we call that solving the equation).
+\{ closeDiv() \}
+
+$PAR
+
 Suppose \( \displaystyle f(t) = \frac{$a t + $b}{$c} \).
 $PAR
 (a) Evaluate \( f($t) \).
@@ -87,8 +95,7 @@ $PAR
 $BR
 \( t \) = \{ ans_rule(20) \}
 
-$PAR
-(Need help entering your answer?  See \{ AnswerFormatHelp("fractions") \}.)
+
 END_TEXT
 Context()->normalStrings;
 

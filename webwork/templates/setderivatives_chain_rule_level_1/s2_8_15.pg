@@ -40,6 +40,7 @@ loadMacros(
   "PGcourse.pl"
 );
 
+COMMENT("todo: change to not use $a, it's silly");
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 Context('Numeric');

@@ -1,0 +1,104 @@
+assignmentType      = gateway
+openDate          = 03/01/2005 at 11:59pm CST
+reducedScoringDate = 01/02/2024 at 11:59pm CST
+dueDate           = 01/02/2024 at 11:59pm CST
+answerDate        = 01/02/2024 at 11:59pm CST
+enableReducedScoring = N
+paperHeaderFile   = defaultHeader
+screenHeaderFile  = defaultHeader
+attemptsPerVersion  = 0
+timeInterval        = 0
+versionsPerInterval = 0
+versionTimeLimit    = 0
+problemRandOrder    = 1
+problemsPerPage     = 0
+hideScore           = N
+hideScoreByProblem  = N
+hideWork            = N
+capTimeLimit        = 0
+description       = DO NOT ASSIGN TO STUDENTS.<n><n>This set is a demo for *instructors* on how to set up a "gateway/quiz" or "test" using problems from problem groups (just a "homework set", really -- I use the "group" word as part of their names to indicate that the set is not intended at all to be assigned to a student).  <n><n>Note that:<n>* `group:` indicates that the problem will be selected from a problem set<n>* the string after the colon is the name of the problem set you're pulling from, but spaces turn into underscores (ah, webwork).  If you don't change the spaces to underscores yourself, webwork will NOT, and you'll get stupid errors.  Here's an example where the problem set doesn't exist because spaces should have been underscores:<n><n>"Error in set version creation: no problems are available in problem group group_derivatives_chain_rule_-_no hints. Set DEMO_-_gateway-quiz-test_using_problem_groups has been created for EAU11618136, but does not contain the right problems. "<n><n>* if a problem doesn't exist in a set (like, the path to the problem source is incorrect / bad / the problem source got moved, etc, then you'll see something like this:<n><n>```<n>ERROR: This problem file was empty! <n>```<n><n>The problem number will be reported, and you can use that to determine which problem group the randomly selected problem came from and fix it.  Though, you'll have to "unassign" that version of the quiz to the student and have them generate a new one for it to work.<n><n>Another note:<n><n>* Don't worry, the problem names / paths only show up for INSTRUCTORS.  The problem names do NOT show up for students, so descriptive names of problems / paths is a non-issue.
+restrictProbProgression = 0
+emailInstructor   = 0
+
+problemListV2
+problem_start
+problem_id = 1
+source_file = group:group_integrals_usub_indefinite_-_no_hints
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 2
+source_file = group:group_integrals_usub_indefinite_-_no_hints
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 3
+source_file = group:group_integrals_usub_definite_-_no_hints
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 4
+source_file = group:group_integrals_usub_definite_-_no_hints
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 5
+source_file = group:group_derivatives_chain_rule_-_no_hints
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 6
+source_file = setDEMO_-_gateway-quiz-test_using_problem_groups/problem_thats_always_used.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 7
+source_file = setexample_problems/text_conditional_on_if_hints_shown.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 8
+source_file = setintegrals_by_substitution/indefinite_neg_power1.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = -1
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+

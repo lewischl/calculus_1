@@ -89,7 +89,7 @@ $f = Formula(
 	"$c / $den"
 );
 
-$F = FormulaUpToConstant(
+$F = Formula(
 	str($coeff) . "($l)^(-$pm1)"
 );
 
@@ -100,12 +100,9 @@ Evaluate the following indefinite integral:
 $PAR
 
 \( \displaystyle \int $f \, dx = \)
-\{ ans_rule() \}
+\{ ans_rule() \} \(+ C\)
 $PAR
 
-Use \(+C\) for the constant of integration.
-
-$PAR
 
 \{ theresahint \}
 END_TEXT

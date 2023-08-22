@@ -45,8 +45,7 @@ $PAR
 Evaluate the definite integral:
 
 $PAR
-\(\displaystyle \int_{0}^{\pi/3} {\frac{$a \sin(x)}{\cos^2(x)}}\, dx=\) \{ ans_rule(10) \}$BR
-${BITALIC}(Use a capital $BBOLD C$EBOLD for an arbitrary constant.)$EITALIC
+\(\displaystyle \int_{0}^{\pi/3} {\frac{$a \sin(x)}{\cos^2(x)}}\, dx=\) \{ ans_rule(10) \}
 
 END_TEXT
 

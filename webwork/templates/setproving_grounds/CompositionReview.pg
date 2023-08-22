@@ -4,11 +4,11 @@
 
 ## KEYWORDS('Trig')
 
-## DBsubject('Trigonometry')
-## DBchapter('Trigonometric Functions of Angles')
-## DBsection('Trigonometric Functions of Angles')
-## Date('12/31/12')
-## Author('C. Ahrendt')
+## DBsubject('Calculus')
+## DBchapter('Derivatives')
+## DBsection('Chain Rule')
+## Date('6/28/2023')
+## Author('W. Shull')
 ## Institution('UWEC')
 ## TitleText1('')
 ## EditionText1('')
@@ -40,7 +40,7 @@ $b3=non_zero_random(-10,10);
 $b4=non_zero_random(-10,10);
 $b5=non_zero_random(-10,10);
 #$b6=non_zero_random(-10,10);
-$b7=non_zero_random(-10,10);
+
 $b8=random(2,10);
 
 $b9=random(2,10);
@@ -53,8 +53,6 @@ $b1=non_zero_random(-10,10);
 $b10=non_zero_random(-10,10);
 $b11=non_zero_random(-10,10);
 #$b12=non_zero_random(-10,10);
-$b13=non_zero_random(-10,10);
-$b14=non_zero_random(-10,10);
 
 $a1=$b4*$b2;
 $a2=$b4*$b3+$b5;
@@ -66,24 +64,31 @@ Context()->variables->add(u=>"Real");
 
 $ans3 = Formula("$a1*x+$a3")->reduce;
 $ans4 = Formula("$a1*x+$a2")->reduce;
-$ans5 = Formula("sqrt(x^2+$b7)")->reduce;
-$ans5->{limits}=[4,8]; #Which x values are tested? We only want x values that are guaranteed to be in the domain.
-$ans6 = Formula("x+$b7")->reduce;
 $ans1 = Formula("$b11*sin^$b8(x)*cos^$b8(x)+$b10*sin^$b9(x)*cos^$b9(x)")->reduce;
 $ans2 = Formula("sin($b11*x^$b8+$b10*x^$b9)*cos($b11*x^$b8+$b10*x^$b9)")->reduce;
-$ans7 = Formula("$b14/(x+[$b13])")->reduce;
 $ans8 = Formula("sqrt(u)");
-$ans9 = Formula("x^2+[$b7]")->reduce;
+
 $ans10 = Formula("sin u cos u")->reduce;
-$ans11 = Formula("$b14/u")->reduce;
-$ans12 = Formula("x+[$b13]")->reduce;
 $ans13 = Formula("u^3-4u^2+5")->reduce;
 $ans14 = Formula("tan x")->reduce;
-
+Context()->noreduce('(-x)-y');
 $g3=Formula("$b11*x^$b8+$b10*x^$b9")->reduce;
 
 SRAND($psvn);
 $passcode1 = random(1000,9999);
+$b7=non_zero_random(-10,10);
+
+$ans5 = Formula("sqrt(x^2+$b7)")->reduce;
+$ans5->{limits}=[4,8]; #Which x values are tested? We only want x values that are guaranteed to be in the domain.
+$ans6 = Formula("x+$b7")->reduce;
+$ans9 = Formula("x^2+[$b7]")->reduce;
+$b13=non_zero_random(-10,10);
+$b14=non_zero_random(-10,10);
+$b17=random(2,10);
+$ans11 = Formula("$b14/u")->reduce;
+$ans12 = Formula("[$b17]*x+[$b13]")->reduce;
+$ans7 = Formula("$b14/([$b17]*x+[$b13])")->reduce;
+
 
 ###################################
 # Main text
@@ -123,7 +128,7 @@ What is [` g(f(x)) `] ? [____]{$ans6}
 
 Let [` f(x)=\sin x\cos x `] and [` g(x)=[$g3] `].
 
-What is [` f(g(x))`]? [_]{$ans2}
+What is [` f(g(x))`]? [_]{Formula("sin($g3)cos($g3)")}
 
 What is [`g(f(x))`]? [_]{$ans1}
 
@@ -166,7 +171,7 @@ What is [` f(g(x))`]? [_]{$ans2}
 
 -----
 
-Let [` f(u)=\frac{[$b14]}{u} `] and [` g(x)=x+[$b13]`].
+Let [` f(u)=\frac{[$b14]}{u} `] and [` g(x)=[$b17]*x+[$b13]`].
 
 What is [` f(g(x))`]? [_]{$ans7}
 
@@ -203,7 +208,7 @@ Suppose [`f(g(x))=[$ans5]`].
 
 -----
 
-Suppose [`f(g(x))=[$ans2]`].
+Suppose [`f(g(x))=\sin([$g3])\cos([$g3])`].
 
 [`f(u)=`][_]{$ans10}
 
@@ -225,10 +230,17 @@ Suppose [`f(g(x))=\tan^3(x)-4\tan^2(x)+5`].
 
 [`g(x)=`][_]{$ans14}
 
+END_PGML
+
+Section::End();
+
+Section::Begin("Part 4: Passcode");
+
+BEGIN_PGML
+
 The passcode for this question is [$passcode1].
 
 Enter it here: [_]{$passcode1}
-
 
 END_PGML
 Context()->normalStrings;
