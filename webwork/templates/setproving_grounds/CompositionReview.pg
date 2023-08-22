@@ -33,6 +33,8 @@ loadMacros(
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
+
+
 $b2=non_zero_random(-10,10);
 $b3=non_zero_random(-10,10);
 $b4=non_zero_random(-10,10);
@@ -79,6 +81,9 @@ $ans13 = Formula("u^3-4u^2+5")->reduce;
 $ans14 = Formula("tan x")->reduce;
 
 $g3=Formula("$b11*x^$b8+$b10*x^$b9")->reduce;
+
+SRAND($psvn);
+$passcode1 = random(1000,9999);
 
 ###################################
 # Main text
@@ -221,6 +226,11 @@ Suppose [`f(g(x))=\tan^3(x)-4\tan^2(x)+5`].
 [`f(u)=`][_]{$ans13}
 
 [`g(x)=`][_]{$ans14}
+
+The passcode for this question is [$passcode1].
+
+Enter it here: [_]{$passcode1}
+
 
 END_PGML
 Context()->normalStrings;

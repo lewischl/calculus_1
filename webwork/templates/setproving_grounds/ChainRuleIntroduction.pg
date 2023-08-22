@@ -53,10 +53,15 @@ $b11=non_zero_random(-10,10);
 #$b12=non_zero_random(-10,10);
 $b13=non_zero_random(-10,10);
 $b14=non_zero_random(-10,10);
+$b15=random(2,10);
+$b16=random(2,10);
 
 $a1=$b4*$b2;
 $a2=$b4*$b3+$b5;
 $a3=$b2*$b5+$b3;
+
+SRAND($psvn);
+$passcode1 = random(1000,9999);
 
 Context("Numeric");
 
@@ -66,6 +71,7 @@ $ans3 = Formula("$a1*x+$a3")->reduce;
 $ans4 = Formula("$a1*x+$a2")->reduce;
 $ans5 = Formula("sqrt(x^2+$b7)")->reduce;
 $ans5->{limits}=[4,8]; #Which x values are tested? We only want x values that are guaranteed to be in the domain.
+$ans5d=Formula("x/(sqrt(x^2+[$b7]))")->reduce;
 $ans6 = Formula("x+$b7")->reduce;
 $ans1 = Formula("$b11*sin^$b8(x)*cos^$b8(x)+$b10*sin^$b9(x)*cos^$b9(x)")->reduce;
 $ans2 = Formula("sin($b11*x^$b8+$b10*x^$b9)*cos($b11*x^$b8+$b10*x^$b9)")->reduce;
@@ -78,7 +84,9 @@ $ans12 = Formula("x+[$b13]")->reduce;
 $ans13 = Formula("u^3-4u^2+5")->reduce;
 $ans14 = Formula("tan x")->reduce;
 
+
 $g3=Formula("$b11*x^$b8+$b10*x^$b9")->reduce;
+$g3d=Formula("($b11*$b8)*x^($b8-1)+($b10*$b9)*x^($b9-1)")->reduce;
 
 ###################################
 # Main text
@@ -90,39 +98,10 @@ Section::Begin("Part 1: Basic function inputs");
 
 Context()->texStrings;
 BEGIN_PGML
-Suppose HELLO [` f(x)=x^2 `] and [` g(x)=x + [$b1] `]. Then
 
-[``` f(g(x))=f(x+[$b1])=(x+[$b1])^2 ```]
+How do we take a derivative of something like [`[$ans5]`] ? None of the rules we know so far are enough to find this derivative.
 
-while
-
-[``` g(f(x))=g\left(x^2\right)=x^2+[$b1] ```]
-
------
-
-Let [` f(x)=[$b2]x+[$b3] `] and [` g(x)=[$b4]x+[$b5] `].
-
-What is [` f(3) `]? [____]{$b2*3+$b3}
-
-What is [` f(g(x)) `] ? [____]{$ans3}
-
-What is [` g(f(x)) `] ? [____]{$ans4}
-
------
-
-Let [` f(x)=\sqrt{x} `] and [` g(x)=x^2+[$b7] `]
-
-What is [` f(g(x)) `] ? [____]{$ans5}
-
-What is [` g(f(x)) `] ? [____]{$ans6}
-
------
-
-Let [` f(x)=\sin x\cos x `] and [` g(x)=[$g3] `].
-
-What is [` f(g(x))`]? [_]{$ans2}
-
-What is [`g(f(x))`]? [_]{$ans1}
+Enter the passcode from the previous question: [_]{$passcode1}
 
 END_PGML
 Section::End();
@@ -131,80 +110,106 @@ Section::Begin("Part 2: Rewrite the equation");
 
 BEGIN_PGML
 
-Part of the confusion with these problems is: you have to replace the variable [`x`] with a whole function [`f(x)`] or [`g(x)`]. In the first example, we had [` f(x)=x^2`] and [`g(x)=x+[$b1]`]. To find [`f(g(x))`], we had to replace [`x`] with [`g(x)=x+[$b1]`], even though [`x`] and [`x+[$b1]`] are NEVER the same.
 
-A great way around this problem is to use another letter for the inside function. Let's try using [`u`] to equal [`g(x)`], so that [`f(g(x))`] is really [`f(u)`]. If you are given
 
-[```f(u)=u^2```]
+We know we can write it as a composition [`f(g(x))`]. In this case, [`u=g(x)=x^2+[$b7]`] and [`f(g(x))=f(u)=\sqrt u=u^{1/2}`].
 
-and
+Here are a couple videos introducing the Chain Rule!
 
-[```g(x)=x+[$b1]```]
+[@
+kalturaShull("1_ro5sw2il")
+@]*
 
-then [`u=g(x)=x+[$b1]`], so [`f(g(x))=f(u)=u^2=(x+[$b1])^2`].
+[@ youtubeAmethyst("YG15m2VwSjA?t=521"); @]*
 
------
+Chain Rule:
 
-Let [` f(u)=[$b2]u+[$b3] `] and [` g(x)=[$b4]x+[$b5] `].
+[```\frac d{dx}[f(g(x))]=f'(g(x))*g'(x)```]
 
-What is [` f(g(x)) `] ? [____]{$ans3}
+Or, if [`u=g(x)`], then
 
------
+[```\frac d{dx}[f(g(x))]=f'(u)*g'(x)```]
 
-Let [` f(u)=\sqrt{u} `] and [` g(x)=x^2+[$b7] `]
+Let's find the derivative of [`\sqrt{x^2+[$b7]}`] using the Chain Rule!
 
-What is [` f(g(x)) `] ? [____]{$ans5}
+First we write down the outside and inside function:
 
------
+[``f(u)=\sqrt u=u^{1/2}``]
 
-Let [` f(u)=\sin u\cos u `] and [` g(x)=[$g3] `].
+[``g(x)=x^2+[$b7]``]
 
-What is [` f(g(x))`]? [_]{$ans2}
+Then we find their derivatives:
 
------
+[``f'(u)=\frac12 u^{-1/2}``]
 
-Let [` f(u)=\frac{[$b14]}{u} `] and [` g(x)=x+[$b13]`].
+[``g'(x)=2x``]
 
-What is [` f(g(x))`]? [_]{$ans7}
+Then we put it all together!
+
+[```
+\begin{eqnarray*}
+\frac d{dx}[f(g(x))]
+&=&f'(u)*g'(x)\\
+&=&\frac12 u^{-1/2}*2x\\
+&=&x*u^{-1/2}\\
+\end{eqnarray*}
+```]
+
+Since the problem was given with only [`x`], we can't leave [`u`] in our final answer. So we continue...
+
+[```\frac d{dx}[f(g(x))]=\dots=x*u^{-1/2}=x*(x^2+[$b7])^{-1/2}```]
+
+And in case we need to simplify more...
+
+[```\frac d{dx}[f(g(x))]=\dots=x*(x^2+[$b7])^{-1/2}=\frac x{(x^2+[$b7])^{1/2}}=\frac x{\sqrt{x^2+[$b7]}}```]
+
+Retype that final answer here:
+
+[``\frac d{dx}[f(g(x))]=``][_]{$ans5d}
 
 END_PGML
-
 Section::End();
 
-Section::Begin("Part 3: Solve the equation");
+Section::Begin("Part 3: Rewrite the equation");
 
 BEGIN_PGML
 
-But we often won't be given [`f`] and [`g`] separately. Sometimes we are given the composition as a whole, and we need to separate it. In fact, that will be an essential skill to find derivatives!
 
-Suppose you are given [`(x+[$b1])^2`] and asked to express it as [`f(g(x))`]. I recommend using [`u`] for the inside function. In this case, 
+Suppose [`f(g(x))=\sin([$g3])`].
 
-[```u=g(x)=x+[$b1]```]
+[`f(u)=`][_]{Formula("sin(u)")}
 
-and
+[`f'(u)=`][_]{Formula("cos(u)")}
 
-[```f(g(x))=f(u)=u^2```].
+[`g(x)=`][_]{$g3}
 
-then [`u=g(x)=x+[$b1]`], so [`f(g(x))=f(u)=u^2=(x+[$b1])^2`].
+[`g'(x)=`][_]{$g3d}
 
-For the next few exercises, use [`u=g(x)`], and rewrite [`f(g(x))`] as [`f(u)`].
+Multiply [`f(u)`] by [`g(x)`] (leaving [`u`] in your answer):
 
------
+[`f'(u)g'(x)=`][_]{Formula("cos(u)*[$g3d]")}
 
-Suppose [`f(g(x))=[$ans5]`].
+Now replace [`u`] with [`g(x)`]:
 
-[` f(u)=`][_]{$ans8}
+[`f'(g(x))*g'(x)=`][_]{Formula("cos([$g3])*[$g3d]")}
 
-[` g(x)=`][_]{$ans9}
-
+We are finished! This is the derivative of [`\sin([$g3])`].
 
 -----
 
-Suppose [`f(g(x))=[$ans2]`].
+Suppose [`f(g(x))=\tan^3(x)-[$b15]\tan^2(x)+[$b16]`].
 
-[`f(u)=`][_]{$ans10}
+[`f(u)=`][_]{Formula("u^3-[$b15]u^2+[$b16]")}
 
-[` g(x)=`][_]{$g3}
+[`f'(u)=`][_]{Formula("3u^2-(2*[$b15])u")->reduce}
+
+[`g(x)=`][_]{Formula("tan(x)")}
+
+[`g'(x)=`][_]{Formula("sec^2(x)")}
+
+[`f'(u)g'(x)=`][_]{Formula("(3u^2-(2*[$b15])u)*sec^2(x)")->reduce}
+
+[`f'(g(x))*g'(x)=`][_]{Formula("(3tan^2(x)-(2*[$b15])tan(x))*sec^2(x)")->reduce}
 
 -----
 
@@ -216,11 +221,19 @@ Suppose [`f(g(x))=[$ans7]`].
 
 -----
 
-Suppose [`f(g(x))=\tan^3(x)-4\tan^2(x)+5`].
+[```u=g(x)=x+[$b1]```]
 
-[`f(u)=`][_]{$ans13}
+and
 
-[`g(x)=`][_]{$ans14}
+[```f(g(x))=f(u)=u^2```].
+
+then [`u=g(x)=x+[$b1]`], so [`f(g(x))=f(u)=u^2=(x+[$b1])^2`].
+
+
+[@
+kalturaShull("1_zvrnb2ry");
+@]* [%MOVE TO ANOTHER ASSIGNMENT??%]
+
 
 END_PGML
 Context()->normalStrings;

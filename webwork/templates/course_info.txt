@@ -1,1 +1,16 @@
 <!-- [coursesDirectory]/courseName/templates/course_info.txt -->
+
+<p>
+Calculus 1 
+</p>
+
+<p>
+University of Wisconsin - Eau Claire
+</p>
+
+<p>
+Content created by: 
+<ul>
+<li>many, many mathematicians and teachers who have contributed to the Open Problem Library for Webwork</li>
+<li>many other instructors at UWEC</li>
+</ul>

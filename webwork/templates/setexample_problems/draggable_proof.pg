@@ -22,6 +22,7 @@ loadMacros(
 "draggableProof.pl",
 );
 
+COMMENT("Example of: order the things via drag and drop");
 # TEXT(beginproblem());
 
 $CorrectProof = DraggableProof([
@@ -60,8 +61,6 @@ TargetLabel =>  "Place steps in correct order here:",
 Context()->texStrings;
 
 BEGIN_TEXT
-Instructor's note: This problem is in testing so is not worth any points.
-
 
 Solve \( \int\limits_{0}^{8}(x^2 - 1)\,dx \) using Riemann sums.
 

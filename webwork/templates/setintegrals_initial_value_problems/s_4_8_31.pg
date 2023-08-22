@@ -1,0 +1,57 @@
+#################################################################
+
+
+
+########################################
+# this file automatically moved
+#	from local/Library/UMN/calculusStewartCCC/s_4_8_31.pg 
+#	to setintegrals_initial_value_problems/s_4_8_31.pg 
+#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+# if this problem uses static images, they should also have been moved from that location to here.
+# if not, look in the source directory for images that didn't make it.
+########################################
+
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "parserFormulaUpToConstant.pl",
+  "PGcourse.pl"
+);
+
+#####################################################################
+
+$showPartialCorrectAnswers = 1;
+
+TEXT(beginproblem());
+
+#####################################################################
+
+Context("Numeric");
+
+$a = random(2,10,1);
+$b = random(2,10,1);
+
+$c = Compute("$a+1");
+$d = Compute("$b+1");
+
+$ans = Compute("-sin(x)-cos(x)+$c*x+$d");
+
+#####################################################################
+
+Context()->texStrings;
+BEGIN_TEXT
+Find \(f(x)\) if \(\displaystyle f''(x) = \sin(x) + \cos(x),\) \(f'(0)=$a,\) and \(f(0)=$b.\)
+
+$PAR
+\(f(x) =\) \{ans_rule(40) \}
+END_TEXT
+Context()->normalStrings;
+
+#####################################################################
+
+ANS( $ans->cmp() );
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

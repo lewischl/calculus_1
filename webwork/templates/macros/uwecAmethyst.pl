@@ -1,11 +1,5 @@
-# derived from uwecAhrendt.pl
-
-$instructor_someoneelse = 128737;
-$instructor_amethyst = 42;
-$instructor_anyone = 187412;
-
-
-@wantVideosFrom = ($instructor_amethyst, $instructor_anyone); 
+# this is silviana amethyst's set of global subroutines and variables for Webwork.
+# derived in 2021 from uwecAhrendt.pl
 
 sub _uwecAmethyst_init {}; #don't reload this file
 
@@ -26,16 +20,9 @@ $hintReminder;
 
 
 
-sub amethystHint {
-my $hintText = shift;
-
-if ($whosTeaching==$amethyst){
-$hintText;
-}
-};
 
 
-
+# helpful functions for finding the min or max of an array in perl.
 
 sub array_min{
     my @sorted = num_sort(@_);
@@ -49,4 +36,4 @@ sub array_max{
 
 
 
-
+1; #required at end of file? - a perl thing

@@ -1,0 +1,54 @@
+assignmentType      = default
+openDate          = 03/06/2030 at 11:59pm CST
+reducedScoringDate = 03/06/2030 at 11:59pm CST
+dueDate           = 03/06/2030 at 11:59pm CST
+answerDate        = 03/06/2030 at 11:59pm CST
+enableReducedScoring = N
+paperHeaderFile   = defaultHeader
+screenHeaderFile  = defaultHeader
+description       = 
+restrictProbProgression = 0
+emailInstructor   = 0
+
+problemListV2
+problem_start
+problem_id = 1
+source_file = local/chapter3/trig-derivs-v1.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = 0
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 2
+source_file = local/chapter3/trig-derivs-v2.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = 0
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 3
+source_file = local/chapter3/trig-derivs-v3.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = 0
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+problem_start
+problem_id = 4
+source_file = local/chapter3/trig-derivs-v4.pg
+value = 1
+max_attempts = -1
+showMeAnother = -1
+prPeriod = 0
+counts_parent_grade = 0
+att_to_open_children = 0 
+problem_end
+

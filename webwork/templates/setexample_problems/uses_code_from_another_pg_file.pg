@@ -23,6 +23,8 @@ loadMacros(
    "PGcourse.pl",      # Customization file for the course
 );
 
+COMMENT("example of: using code from another .pl file, thus 'factoring out' some code.  this should enable common state between a set of problems, without code duplication");
+
 # Print problem number and point value (weight) for the problem
 TEXT(beginproblem());
 
