@@ -42,6 +42,8 @@ def ensure_center_in_graph(center, G):
 
 def generate_subgraph(center, destdir='_generated_graphs', dry_run = False, legend = False):
 
+	print(f'generating subgraph for {center}')
+
 	if not os.path.exists(destdir):
 		os.mkdir(destdir)
 
@@ -84,8 +86,13 @@ def generate_subgraph(center, destdir='_generated_graphs', dry_run = False, lege
 
 
 	def trim_long_paths(subgraph, keep_me, node_type, threshold=3):
+
+		# print('\n\ntrimming long paths\n')
+
+
 		no_really_keep_me = [center]
 
+		# print(keep_me)
 		for n in keep_me:
 			
 
@@ -96,10 +103,16 @@ def generate_subgraph(center, destdir='_generated_graphs', dry_run = False, lege
 			elif n == center:
 				continue
 
-			longest_path_length = len(max(paths_to_center, key=lambda x: len(x)))-1
-			print(n, center, longest_path_length)
-			if longest_path_length<=threshold:
-				no_really_keep_me.append(n)
+
+			# print(f'{center} {n}')
+			try:
+				longest_path_length = len(max(paths_to_center, key=lambda x: len(x)))-1
+				# print(n, center, longest_path_length)
+				if longest_path_length<=threshold:
+					no_really_keep_me.append(n)
+
+			except ValueError as e:
+				pass # can't get to it, remove it.
 
 
 		assert center in no_really_keep_me
