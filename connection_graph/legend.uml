@@ -1,0 +1,4 @@
+partition "Legend" {
+"Previous content" --> "📍 You are here" << Current >> 
+"📍 You are here" --> "Later content" << LaterContent >>
+}
