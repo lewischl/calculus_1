@@ -1,8 +1,9 @@
 {
 	"embed_webwork_in_canvas_page":false,
-	"name_map": "name_map_week_and_chapter.json",
 	"course_id": 627671,
+	"name_map": "name_map_chapter.json",
 	"canvas_url": "https://uweau.instructure.com",
 	"dry_run": true,
-	"points_per_set": 100
+	"points_per_set": 100,
+	"graph_name_map":"webwork_name_to_node_name.json"
 }
