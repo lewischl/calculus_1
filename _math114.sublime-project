@@ -1,0 +1,29 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+			"file_exclude_patterns": [
+				"*.aux",
+				"*.toc",
+				"*.ptc",
+				"*.synctex.gz",
+				"*.out",
+				"*.mtc",
+				"*.mtc0",
+				"*.maf",
+				"*.log",
+				"*.pdf",
+				"*.sty",
+				"*.bbl",
+				"*.blg",
+				"*.fdb_latexmk",
+				"*.fls"
+
+									],
+			"folder_exclude_patterns": [
+				"emoji_images"
+			]
+		}
+	]
+}
