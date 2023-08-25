@@ -1,0 +1,31 @@
+skinparam activity {
+  StartColor red
+  BarColor SaddleBrown
+  EndColor Silver
+  
+  BackgroundColor #EFEFEF
+  FontName Nunito
+
+
+ skinparam shadowing<< EarlierContent >> true
+  BackgroundColor<< EarlierContent >> #F0F0F0
+  BorderColor<< EarlierContent >> Black
+  FontSize<< EarlierContent >> 12
+  BorderThickness<< EarlierContent >> 1
+
+
+  skinparam shadowing<< Current >> true
+  BackgroundColor<< Current >> Wheat
+  BorderColor<< Current >> DarkGreen
+  FontSize<< Current >> 16
+  BorderThickness<< Current >> 2
+
+
+  skinparam shadowing<< LaterContent >> true
+  BackgroundColor<< LaterContent >> Lavender
+  BorderColor<< LaterContent >> Black
+  FontSize<< LaterContent >> 12
+  BorderThickness<< LaterContent >> 1
+
+}
+
