@@ -20,9 +20,9 @@
 
 
 
-"Rates of change" --> "Introducing limits -- from graphs"
-"Rates of change" --> "Introducing limits -- from formulas"
-"Rates of change" --> "Slope functions and derivatives"
+"Rates of change are slopes of lines" --> "Introducing limits -- from graphs"
+"Rates of change are slopes of lines" --> "Introducing limits -- from formulas"
+"Rates of change are slopes of lines" --> "Slope functions and derivatives"
 
 
 
@@ -51,7 +51,7 @@
 "Introducing limits" --> "Indeterminate forms"
 
 
-"Rates of change" --> "Indeterminate forms"
+"Rates of change are slopes of lines" --> "Indeterminate forms"
 "Indeterminate forms" --> "Formal definition of the derivative"
 
 "Background: Graphs of functions" --> "Identifying discontinuities"
@@ -60,10 +60,13 @@
 "Identifying discontinuities" --> "Continuity"
 "Continuity" --> "Making piecewise functions continuous"
 
+"Making piecewise functions continuous" --> "🌄 Derivatives of piecewise functions"
 
 "Continuity" --> "Indeterminate forms"
 "Continuity" --> "Intermediate Value Theorem"
 "Continuity" --> "Squeeze theorem"
+
+"The limit laws" --> "Limits of any function at any point"
 
 "Squeeze theorem" --> "Limits of any function at any point"
 
@@ -75,7 +78,7 @@
 
 "Formal definition of the derivative" --> "🌄 Rates of change from scientific instruments"
 
-"Rates of change" --> "Derivatives: Rates and slope functions"
+"Rates of change are slopes of lines" --> "Derivatives: Rates and slope functions"
 "Derivatives: Rates and slope functions" --> "Power rule and basic rules"
 
 "Derivatives: Rates and slope functions" --> "Product rule"
@@ -85,7 +88,7 @@
 "Quotient rule" --> "Product and quotient rule"
 
 "Product and quotient rule" --> "Differentiate any function"
-
+"Power rule and basic rules" --> "Differentiate any function"
 
 
 "Derivatives: Rates and slope functions" --> "Chain rule"
@@ -140,12 +143,17 @@
 "Background: Solving equations" --> "Newton's method"
 "Differentiate any function" --> "Newton's method"
 
+
+"Newton's method" --> "🌄 Mathematical analysis"
+"Newton's method" --> "🌄 Iterated and dynamical systems"
+
 "Limits at infinity" --> "L'Hopital's Rule"
 "L'Hopital's Rule" --> "🌄 Comparing runtimes of algorithms (Computer science"
 
 "Derivative application: Rates of change" --> "Definite integration as exact area"
 "Planar geometry" --> "Definite integration as exact area"
 
+"Planar geometry" --> "Rules for definite integrals"
 "Rules for definite integrals" --> "Definite integration as exact area"
 "Definite integration as exact area" --> "FTOC 1 for definite integrals"
 
@@ -159,6 +167,7 @@
 "Antiderivatives: power rule and basic rules" --> "Initial value problems"
 "Initial value problems" --> "🌄 Computerized symbolic integration"
 "Initial value problems" --> "🌄 Numerical integration"
+"Initial value problems" --> "🌄 Mathematical modeling"
 
 "Integration by substitution" --> "🌄 Computerized symbolic integration"
 "Antiderivatives: power rule and basic rules" --> "🌄 Computerized symbolic integration"
