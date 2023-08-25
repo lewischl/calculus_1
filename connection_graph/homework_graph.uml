@@ -1,0 +1,186 @@
+
+(*) --> (*)
+
+"Background: Simplifying" --> "Indeterminate forms"
+"Background: Simplifying" --> "Formal definition of the derivative"
+
+
+"Background: Function composition" --> "Chain rule for derivatives"
+"Background: Function composition" --> "The limit laws"
+"Background: Function composition" --> "Indeterminate forms"
+
+
+
+"Background: Solving equations" --> "Derivatives: Rates and slope functions"
+"Background: Solving equations" --> "Related rates"
+"Background: Solving equations" --> "Applied optimization"
+
+"Background: Graphs of functions" --> "Derivatives: Rates and slope functions"
+"Background: Graphs of functions" --> "Introducing limits -- from graphs"
+
+
+
+"Rates of change" --> "Introducing limits -- from graphs"
+"Rates of change" --> "Introducing limits -- from formulas"
+"Rates of change" --> "Slope functions and derivatives"
+
+
+
+"Slope functions and derivatives" --> "Derivative application: Rates of change"
+"Slope functions and derivatives" --> "Integral application: Net change"
+
+
+
+"Introducing limits -- from graphs" --> "Introducing limits"
+"Introducing limits -- from formulas" -->  "Introducing limits"
+
+
+
+"Introducing limits" --> "The limit laws"
+"Introducing limits" --> "Continuity"
+"Introducing limits" --> "Limits at infinity"
+"Introducing limits" --> "Limits of trigonometric functions"
+
+
+"Indeterminate forms" --> "Limits of any function at any point"
+"Limits at infinity" --> "Limits of any function at any point"
+"Limits of trigonometric functions" --> "Limits of any function at any point"
+
+"Continuity" --> "Indeterminate forms"
+"Continuity" --> "Formal definition of the limit"
+"Introducing limits" --> "Indeterminate forms"
+
+
+"Rates of change" --> "Indeterminate forms"
+"Indeterminate forms" --> "Formal definition of the derivative"
+
+"Background: Graphs of functions" --> "Identifying discontinuities"
+"Introducing limits" --> "Identifying discontinuities"
+
+"Identifying discontinuities" --> "Continuity"
+"Continuity" --> "Making piecewise functions continuous"
+
+
+"Continuity" --> "Indeterminate forms"
+"Continuity" --> "Intermediate Value Theorem"
+"Continuity" --> "Squeeze theorem"
+
+"Squeeze theorem" --> "Limits of any function at any point"
+
+"Intermediate Value Theorem" --> "🌄 Bisection for rootfinding"
+
+"Limits of any function at any point" --> "🌄 Formal definition of the limit"
+"Limits of any function at any point" --> "Formal definition of the derivative"
+"Limits of any function at any point" --> "🌄 Formal definition of the integral"
+
+"Formal definition of the derivative" --> "🌄 Rates of change from scientific instruments"
+
+"Rates of change" --> "Derivatives: Rates and slope functions"
+"Derivatives: Rates and slope functions" --> "Power rule and basic rules"
+
+"Derivatives: Rates and slope functions" --> "Product rule"
+"Derivatives: Rates and slope functions" --> "Quotient rule"
+
+"Product rule" --> "Product and quotient rule"
+"Quotient rule" --> "Product and quotient rule"
+
+"Product and quotient rule" --> "Differentiate any function"
+
+
+
+"Derivatives: Rates and slope functions" --> "Chain rule"
+"Chain rule" --> "Differentiate any function"
+
+"Derivatives: Rates and slope functions" --> "Higher order derivatives"
+"Higher order derivatives" --> "Differentiate any function"
+
+
+"Derivatives: Rates and slope functions" --> "Derivatives of trigonometric functions"
+"Derivatives of trigonometric functions" --> "Differentiate any function"
+
+"Differentiate any function" --> "Derivative application: Rates of change"
+"Differentiate any function" --> "Implicit differentiation and implicit curves"
+
+"Implicit differentiation and implicit curves" --> "Related rates"
+"Related rates" --> "🌄 Mathematical modeling"
+
+"Chain rule" --> "Derivatives of exponential functions"
+"Chain rule" --> "Derivatives of logarithmic functions"
+
+
+"Derivatives of exponential functions" --> "Derivatives of logs and exps"
+"Derivatives of logarithmic functions" --> "Derivatives of logs and exps"
+
+"Derivatives of logs and exps" --> "Differentiate any function"
+
+
+"Derivatives of logarithmic functions" --> "🌄 Logarithmic differentiation"
+
+
+"Derivatives: Rates and slope functions" --> "Extreme values of functions"
+"Differentiate any function" --> "Extreme values of functions"
+
+"Extreme values of functions" --> "Optimization and derivative tests"
+
+"Optimization and derivative tests" --> "Applied optimization"
+
+"Applied optimization" --> "🌄 Operations research"
+
+"Derivatives: Rates and slope functions" --> "Curve sketching"
+"Optimization and derivative tests" --> "Curve sketching"
+
+
+"Derivatives: Rates and slope functions" --> "Mean Value Theorem and Rolle's Theorem"
+"Differentiate any function" --> "Mean Value Theorem and Rolle's Theorem"
+
+
+"Background: Solving equations" --> "Mean Value Theorem and Rolle's Theorem"
+"Mean Value Theorem and Rolle's Theorem" --> "🌄 Bounding of minumum and maximum rates of change"
+
+"Background: Solving equations" --> "Newton's method"
+"Differentiate any function" --> "Newton's method"
+
+"Limits at infinity" --> "L'Hopital's Rule"
+"L'Hopital's Rule" --> "🌄 Comparing runtimes of algorithms (Computer science"
+
+"Derivative application: Rates of change" --> "Definite integration as exact area"
+"Planar geometry" --> "Definite integration as exact area"
+
+"Rules for definite integrals" --> "Definite integration as exact area"
+"Definite integration as exact area" --> "FTOC 1 for definite integrals"
+
+"Differentiate any function" --> "Antiderivatives: power rule and basic rules"
+
+"FTOC 1 for definite integrals" --> "Estimating area using rectangles"
+"Estimating area using rectangles" --> "🌄 Numerical integration"
+
+"Chain rule" --> "Integration by substitution"
+
+"Antiderivatives: power rule and basic rules" --> "Initial value problems"
+"Initial value problems" --> "🌄 Computerized symbolic integration"
+"Initial value problems" --> "🌄 Numerical integration"
+
+"Integration by substitution" --> "🌄 Computerized symbolic integration"
+"Antiderivatives: power rule and basic rules" --> "🌄 Computerized symbolic integration"
+
+"Summation notation" --> "🌄 Sequences and series"
+"Summation notation" --> "Approximation of curved areas by rectangles"
+"Approximation of curved areas by rectangles" --> "🌄 Numerical integration"
+"Summation notation" --> "🌄 Formal definition of the integral"
+
+"🌄 Formal definition of the limit" --> "🌄 Mathematical analysis"
+"🌄 Formal definition of the integral" --> "🌄 Mathematical analysis"
+
+"FTOC 1 for definite integrals" --> "Integral application: Net change"
+"Integral application: Net change" --> "🌄 Numerical integration"
+"Curve sketching" --> "🌄 Numerical integration"
+
+
+"Derivatives: Rates and slope functions" --> "FTOC2 for derivatives of integral functions"
+
+"FTOC2 for derivatives of integral functions" --> "Differentiate any function"
+
+"FTOC2 for derivatives of integral functions" --> "🌄 Probability density functions and distributions"
+
+
+"Integral application: Net change" --> "🌄 Mathematical modeling"
