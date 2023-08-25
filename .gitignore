@@ -6,3 +6,4 @@ tmp.html
 *.pg.bak*
 *.xml.bak*
 *.bak/
+*.pyc
