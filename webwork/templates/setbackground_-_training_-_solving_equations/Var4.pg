@@ -111,7 +111,7 @@ if ($displayMode eq 'TeX') {
 } else {
   $displayfrac = 
 openDiv({ "class" => "gridForFrac" }). closeDiv() .
-"\(h = \, \)".
+"\($var2 = \, \)".
     openDiv( { "class" => "gridForFrac" } ) .
     
           openDiv( { "class" => "ansInNumer" }) .
