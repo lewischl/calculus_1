@@ -77,7 +77,7 @@ Context()->variables->add(h=>'Real',w=>'Real');
 $A = non_zero_random(-9,9,2);
 $Func = Formula("x^2 + $A x")->reduce;
 $Fxh = $Func->substitute(x=>'x+h');
-$Fxh_minus_Fx = $Func - $Fxh;
+$Fxh_minus_Fx = $Fxh - $Func;
 $Fw = $Func->substitute(x=>w);
 #*************
 #   Answers
