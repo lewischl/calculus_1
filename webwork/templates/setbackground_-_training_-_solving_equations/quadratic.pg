@@ -131,7 +131,7 @@ if ($mode eq "real distinct"){
     my $r2 = $r1 + non_zero_random(1,20,1);
 
     $a = non_zero_random(-5,5,2);
-    $b = $a*($r1 + $r2);
+    $b = -$a*($r1 + $r2);
     $c = $a*$r1*$r2;
 
     $roots = List($r1, $r2);
@@ -141,7 +141,7 @@ elsif ($mode eq "real double"){
     my $r2 = $r1;
 
     $a = non_zero_random(-5,5,2);
-    $b = $a*($r1 + $r2);
+    $b = -$a*($r1 + $r2);
     $c = $a*$r1*$r2;
     
     $roots = List($r1);
@@ -192,16 +192,16 @@ for my $i (@order){
 
 BEGIN_PGML
 
-Compute the determinants:
+Compute the discriminants:
 
 [@
 DataTable(
 [
-    ['\(' . $q[0][0] . '\)','Determinant \(=\)' . ans_rule(10)],
-    ['\(' . $q[1][0] . '\)','Determinant \(=\)' . ans_rule(10)],
-    ['\(' . $q[2][0] . '\)','Determinant \(=\)' . ans_rule(10)],
-    ['\(' . $q[3][0] . '\)','Determinant \(=\)' . ans_rule(10)],
-    ['\(' . $q[4][0] . '\)','Determinant \(=\)' . ans_rule(10)]
+    ['\(' . $q[0][0] . '\)','Discriminant \(=\)' . ans_rule(10)],
+    ['\(' . $q[1][0] . '\)','Discriminant \(=\)' . ans_rule(10)],
+    ['\(' . $q[2][0] . '\)','Discriminant \(=\)' . ans_rule(10)],
+    ['\(' . $q[3][0] . '\)','Discriminant \(=\)' . ans_rule(10)],
+    ['\(' . $q[4][0] . '\)','Discriminant \(=\)' . ans_rule(10)]
 ],
 align => 'l l',
 tablecss => "border:solid 1px; border-spacing:50px 5px; border-radius: 5px; border-collapse:separate;"
