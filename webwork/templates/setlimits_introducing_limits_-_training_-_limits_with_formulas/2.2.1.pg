@@ -93,7 +93,7 @@ Remember, a two-sided limit only exists if both one-sided limits exist, and they
 END_PGML
 BEGIN_TEXT
 \{ textbook_ref_exact("Rogawski ET 2e", "2.2","1") \}$BR
-Fill in the table and guess the value of the limit \( \lim\limits_{x \to $a} f(x)\), where 
+Fill in the table (on paper with a calculator) and guess the value of the limit \( \lim\limits_{x \to $a} f(x)\), where 
 $BR
 \(f(x)= \displaystyle\frac {x^3 - $a3} {x^2 - $a2} \)
 $PAR
