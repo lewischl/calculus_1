@@ -144,7 +144,7 @@ $possible_derivatives[3] = -$f->D - 5;
 
 # get set up to present the graphs in random order
 
-$k = random(0, 3);
+$correct_graph = 0;
 
 @letter = ("A", "B", "C", "D");
 
@@ -155,12 +155,14 @@ $k = random(0, 3);
 @letters_perm = @letter[@perm];
 @letters_invperm = @letter[@inv];
 
+@possible_derivatives_perm = @possible_derivatives[@perm];
+
 
 @graphs = ();
  # loop for graphs
 for my $i (0..3){
     $graphs[$i] = GraphWithTikZ(function => [   # functions are an array of "Formula" objects.  dmin and dmax set the values for evaluation for plotting.  stay away from infinite discontinuities!!!
-                                         [$possible_derivatives[$i],dmin => $xlim[0],dmax => $xlim[1],label=>"$letters_invperm[$i]"],
+                                         [$possible_derivatives_perm[$i],dmin => $xlim[0],dmax => $xlim[1],label=>"$letter[$i]"],
                                         ],
     points => [],
         xmin => $xlim[0],xmax => $xlim[1],ymin =>$ymin,ymax =>$ymax, # axis limits.  these should be computed, as in this example
@@ -169,12 +171,8 @@ for my $i (0..3){
 
 } # loop for graphs
 
-# actually do the shuffle
-@graphs  = @graphs[@perm];
 
-
-
-$popup = PopUp([ "?", "A", "B", "C", "D" ], $letter[ $inv[$k] ]);
+$popup = PopUp([ "?", "A", "B", "C", "D" ], $letter[ $inv[$correct_graph] ]);
 
 
 $medium_h = 300; # used for the cubic
