@@ -67,14 +67,19 @@ If an arrow is shot upward on the moon with a velocity of 58 m/s, its height in 
 (3) [1,1.01] $BR
 (4) [1,1.001] $PAR
  
-(b) Find the instantaneous velocity after one second (to the nearest hundredth).
+(b) Find the instantaneous velocity after one second.
 
 $PAR
 
+
+(Enter answers accurate to at least two decimal places)
+ 
+$PAR
+ 
 (1) \{ans_rule(20)\} m/s $BR
 (2) \{ans_rule(20)\} m/s $BR
 (3) \{ans_rule(20)\} m/s $BR
-(4) \{ans_rule(20)\} m/s $BR
+(4) \{ans_rule(20)\} m/s $PAR
 (b) \{ans_rule(20)\} m/s
 
 END_TEXT
