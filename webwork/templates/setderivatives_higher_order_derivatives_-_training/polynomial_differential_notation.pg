@@ -147,20 +147,20 @@ Context()->normalStrings;
 # Answers
 
 
-ANS($g->cmp);
-ANS($dg->cmp);
-ANS($d2g->cmp);
-ANS($d3g->cmp);
-ANS($d4g->cmp);
-ANS($d5g->cmp);
+ANS($g->cmp);ANS($g0->cmp);
+ANS($dg->cmp);ANS($dg0->cmp);
+ANS($d2g->cmp);ANS($d2g0->cmp);
+ANS($d3g->cmp);ANS($d3g0->cmp);
+ANS($d4g->cmp);ANS($d4g0->cmp);
+ANS($d5g->cmp);ANS($d5g0->cmp);
 
 
-ANS($g0->cmp);
-ANS($dg0->cmp);
-ANS($d2g0->cmp);
-ANS($d3g0->cmp);
-ANS($d4g0->cmp);
-ANS($d5g0->cmp);
+
+
+
+
+
+
 
 ########################################
 
