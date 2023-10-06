@@ -75,7 +75,7 @@ END_PGML
 $b = random(2,4,1);
 $a = non_zero_random(-10,10,1);
 $f = "\log_$b(x)";
-$deriv = Formula("1/ln($b) * x");
+$deriv = Formula("1/(ln($b) * x)");
 BEGIN_TEXT
 $PAR $BR
 \( f(x) = $f \) $BR
@@ -87,7 +87,7 @@ ANS($deriv->cmp);
 $b = random(5,10,1);
 $a = non_zero_random(-10,10,1);
 $f = "\log_$b(x) + x^2 + 3x + 1";
-$deriv = Formula("1/ln($b) * x + 2x + 3");
+$deriv = Formula("1/(ln($b) * x) + 2x + 3");
 BEGIN_TEXT
 $PAR $BR
 \( f(x) = $f \) $BR
