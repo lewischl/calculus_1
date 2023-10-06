@@ -116,15 +116,15 @@ Let [`[$high]`] and [`[$low]`] be the numerator and denominator of the fraction 
 
 END_PGML
 
-
+do{
 $a = random(2,5,1);
 $b = non_zero_random(-5,5,1);
 $c = non_zero_random(-6,6,1);
 
-$g_prime = Formula( "exp(x)/($a*x+$b)-$a*exp(x)/($a*x+$b)**2");
-
 $num = Formula("exp(x) + $c")->reduce;
 $den = Formula("$a x^2 + $b")->reduce;
+}
+while($den->eval(x=>1)==0);
 
 $g = $num / $den;
 $g_prime = $g->D;
@@ -146,6 +146,6 @@ END_TEXT
 
 ANS($g_prime->cmp);
 ANS($g_prime->eval(x=>1)->cmp);
-#ANS(fun_cmp($g_prime));
+
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.
