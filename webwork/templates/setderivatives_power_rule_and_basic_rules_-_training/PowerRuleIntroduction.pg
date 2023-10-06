@@ -165,7 +165,7 @@ BEGIN_PGML
 
 If [`f(x)=[$m1]x+[$b1]`], then based on what you know from algebra, the slope of the line is [`f'(x)=`] [_]{$m1}.
 
-Meanwhile, [`f(x+h)=`] [_]{$f1_nearby}
+Meanwhile, [`f(x+h)=`] [_]{$f1_nearby}  (the answer is an expression of [`x`] and [`h`]).
 
 END_PGML
 Section::End();
