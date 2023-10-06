@@ -55,10 +55,11 @@ $c = $C;
 
 
 $f = Formula( "$a x^2 +  $b x + $c" ) -> reduce ;
-$ans = List( "$r" );
+$ans = List( "-$r" );
 
 Context() -> texStrings ;
 BEGIN_TEXT
+
 For what value(s) of \(x\) does the graph of
 \[ f(x)=$f \]
 have a horizontal tangent?  Use a comma-separated list of numbers.
