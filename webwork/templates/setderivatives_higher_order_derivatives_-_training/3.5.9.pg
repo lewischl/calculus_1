@@ -51,14 +51,14 @@ $fd1 = $f->D;
 $fd2 = $fd1->D;
 $fd3 = $fd2->D;
 $fd4 = $fd3->D;
-$fd5 = $fd3->D;
+$fd5 = $fd4->D;
 
 Context()->texStrings;
 
 BEGIN_PGML
 
 [@ openDiv({ "class" => "problemPurpose" }) @]*
-There's a nice pattern that emerges when multiply differentating functions like [``\frac{1}{x^n}``].  This problem will help you see it.
+There's a nice pattern that emerges when repeatedly differentating functions like [``\frac{1}{x^n}``].  This problem will help you see it.
 
 Also, if you differentate a polynomial enough times, the derivative will be [`0`].
 [@ closeDiv() @]*
