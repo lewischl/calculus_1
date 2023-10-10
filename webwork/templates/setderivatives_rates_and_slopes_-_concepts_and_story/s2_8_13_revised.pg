@@ -112,6 +112,9 @@ The sum rule:
 The constant rule for any constant [`c`]:
 * [` (c)' = 0 `]
 
+The constant-multiple rule for any constant [`c`]:
+* [` (c \, f(x))' = c \, f'(x) `]
+
 Together they make degree-two polynomials a snap!  
 [@ closeDiv() @]*
 
