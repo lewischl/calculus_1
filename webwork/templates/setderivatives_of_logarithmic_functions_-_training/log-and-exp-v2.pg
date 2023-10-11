@@ -74,25 +74,33 @@ END_PGML
 ### ℹ️ i'm using tex strings here since i couldn't figure out how to enter log-base-b into Formula objects (without the change of base formula, which I don't want to use).
 $b = random(2,4,1);
 $a = non_zero_random(-10,10,1);
-$f = "\log_$b(x)";
+$f = "\log_{$b}(x)";
 $deriv = Formula("1/(ln($b) * x)");
+
+Context()->texStrings;
 BEGIN_TEXT
 $PAR $BR
 \( f(x) = $f \) $BR
 \( f'(x) = \) \{ ans_rule(10) \}
 END_TEXT
+
+Context()->normalStrings;
 ANS($deriv->cmp);
 
 
 $b = random(5,10,1);
 $a = non_zero_random(-10,10,1);
-$f = "\log_$b(x) + x^2 + 3x + 1";
+$f = "\log_{$b}(x) + x^2 + 3x + 1";
 $deriv = Formula("1/(ln($b) * x) + 2x + 3");
+
+Context()->texStrings;
 BEGIN_TEXT
 $PAR $BR
 \( f(x) = $f \) $BR
 \( f'(x) = \) \{ ans_rule(10) \}
 END_TEXT
+
+Context()->normalStrings;
 ANS($deriv->cmp);
 
 
@@ -142,12 +150,16 @@ $c = random(2,8,1);
 $f = "\log_{$a}($b x+$c)";
 $ans = Compute("$b/[ln($a)*($b*x+$c)]");
 
+Context()->texStrings;
+
 BEGIN_TEXT
 $PAR $BR
 \( \displaystyle f(x)= $f\) $BR
 \( f'(x)= \) \{ ans_rule(50) \}
 
 END_TEXT
+
+Context()->normalStrings;
 ANS($ans->cmp() );
 
 
@@ -160,12 +172,16 @@ $c = random(2,8,1);
 $f = "\log_{$a}(\sin(x) + 1)";
 $ans = Compute("(cos(x))/[ln($a)*(sin(x) + 1)]");
 
+Context()->texStrings;
+
 BEGIN_TEXT
 $PAR $BR
 \( \displaystyle f(x)= $f\) $BR
 \( f'(x)= \) \{ ans_rule(50) \}
 
 END_TEXT
+Context()->normalStrings;
+
 ANS($ans->cmp() );
 
 
@@ -174,12 +190,17 @@ $a = 10;
 $f = "\log_{$a}(x^3 + 5x + 7)";
 $ans = Compute("(3 x^2 + 5)/[ln($a)*(x^3 + 5x + 7)]");
 
+Context()->texStrings;
+
 BEGIN_TEXT
 $PAR $BR
 \( \displaystyle f(x)= $f\) $BR
 \( f'(x)= \) \{ ans_rule(50) \}
 
 END_TEXT
+
+Context()->normalStrings;
+
 ANS($ans->cmp() );
 
 
@@ -187,8 +208,5 @@ ANS($ans->cmp() );
 
 
 
-
-
-Context()->normalStrings;
 
 ENDDOCUMENT();
