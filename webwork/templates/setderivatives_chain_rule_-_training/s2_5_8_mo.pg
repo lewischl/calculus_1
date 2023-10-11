@@ -81,10 +81,7 @@ $showPartialCorrectAnswers = 1;
 #
 Context("Numeric");
 
-$a1 = Real(  random(2,5,1) );
-$b1 = Real( random(2,5,1) );
-$c1 = Real( random(2,8,1) );
-$x1 = Real( random(1,5,1) );
+
 
 
 
@@ -133,10 +130,15 @@ If we merge the fraction and the chained-out part, we get
 END_TEXT
 
 
+$a1 = Real(  random(2,5,1) );
+$b1 = Real( random(2,5,1) );
+$c1 = Real( random(2,8,1) );
+$x1 = Real( random(1,5,1) );
 
 $f = Compute("sqrt( $a1 x^2 + $b1 x + $c1 )");
 $fp = $f->D;
-$fpatx1 = $fp->eval(x=>$x1);
+$f->{limits} = [1,10];
+
 
 BEGIN_TEXT
 $PAR
@@ -159,8 +161,10 @@ ANS($fp->cmp);
 
 
 $f = Compute("sqrt( sin(x) )");
+$f->{limits} = [0.1,pi-.1];
 $fp = $f->D;
-$fpatx1 = $fp->eval(x=>$x1);
+
+
 
 BEGIN_TEXT
 $PAR
@@ -182,7 +186,6 @@ ANS($fp->cmp);
 
 $f = Compute("sqrt( e^x )");
 $fp = $f->D;
-$fpatx1 = $fp->eval(x=>$x1);
 
 BEGIN_TEXT
 $PAR
