@@ -120,22 +120,21 @@ Relatedly, a differentiable function must be continuous.  Otherwise the tangent 
 
 [@ closeDiv() @]*
 
-
-In this problem, I'm giving you [`f'`], and we're answering questions about the unknown function [`f`].
 ---
 
-Suppose [`\displaystyle f'(x) = [$f] `].
+Suppose [`\displaystyle f(x) = [$f] `].
 
 
-* Where must [`f`] be discontinuous?   Use list notation.    
+* Where is [`f`] discontinuous?   Use list notation: a comma-separated list of numbers.    
     [`f`] is discontinous at [___]{List($a, $b)}
 
 
-* On what intervals must [`f`] be continuous?   Use interval notation.  If there are none, enter "none".    
+* On what intervals is [`f`] continuous?   Use interval notation.  If there are none, enter "none".    
     On the intervals [_____]{interval_cmp("(-inf,$a)U($a,$b)U($b,inf)", strings=>["none"])}.
 
 
-
+* Where does [`f'`] not exist?   Use a comma-separated list of numbers.    
+    [`f'`] doesn't exist at [___]{List($a, $b)}
 
 
 END_PGML
