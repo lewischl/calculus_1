@@ -105,7 +105,7 @@ The equation for a circle:  [`A = \pi r^2`].  Differentiate with respect to radi
 Compute the rate of area increase with respect to radius, at various radii:
 * When [`r = 0.1`] the area changes as [`\frac{dA}{dr}\big|_{r =0.1} = `] [_]{Real(2*pi*0.1)}
 * When [`r = 0.5`] the area changes as [`\frac{dA}{dr}\big|_{r=.5} = `] [_]{Real(2*pi*0.5)} 
-* When [`r = 1`] the area changes as [`\frac{dA}{dr}\big|_{r=.1} = `] [_]{Real(2*pi*1)} 
+* When [`r = 1`] the area changes as [`\frac{dA}{dr}\big|_{r=1} = `] [_]{Real(2*pi*1)} 
 * When [`r = 1.5`] the area changes as [`\frac{dA}{dr}\big|_{r=1.5} = `] [_]{Real(2*pi*1.5)} 
 END_PGML
 
