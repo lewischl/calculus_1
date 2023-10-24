@@ -23,6 +23,7 @@ loadMacros(
    "PGcourse.pl",      # Customization file for the course
    "scaffold.pl",
    "parserPopUp.pl",   # <--------------------------------------NEEDED FOR DROPDOWN MENUS
+   "contextFraction.pl",
 );
 
 loadMacros("customCSS.pl");
@@ -56,7 +57,8 @@ $desmos_div = MODES(
 #  Setup
 
 Context("Point");
-Context("Numeric");
+
+Context("Fraction-NoDecimals");
 Context()->variables->add(t=>'Real',c=>'Real');
 
 $x1 = random(-5,2);
@@ -76,7 +78,9 @@ $g_partial = Formula("x-$c")->reduce;
 $g_partial_c = Formula("c-$c")->reduce;
 $g = Formula("x-3*((x-$c)^2)^(1/3)+$d"); #displays badly; only using to evaluate
 $gp = Formula("1-2*(x-$c)^(-1/3)");
+$gp->{limits} = [$c+1,$c+3];
 $gpc = Formula("1-2*(c-$c)^(-1/3)");
+$gpc->{limits} = [$c+1,$c+3];
 
 $left=$x1-1;
 $right=$x2+2;
