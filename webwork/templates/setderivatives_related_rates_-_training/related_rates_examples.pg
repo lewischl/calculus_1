@@ -53,6 +53,9 @@ BEGIN_PGML
 
 Here are some related rates examples! *This first video explains how related rates use the same rules as implicit differentiation:*
 
+
+To make this problem have an answer spot, what's the slope of a horizontal line?  [__]{Compute(0)}.
+
 [@
 kalturaShull("1_aewjtaot")
 @]*
