@@ -8,7 +8,7 @@
 ## DBchapter('Limits, Derivatives')
 ## DBsection('Curve Sketching')
 ## Date('7/23/2023')
-## Author('Warren Shull')
+## Author('Warren Shull, further modified by silviana amethyst')
 ## Institution('UWEC')
 
 ########################################################################
@@ -31,6 +31,9 @@ loadMacros("customCSS.pl");
 
 # Print problem number and point value (weight) for the problem
 TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
 
 Context("Numeric");
 Context()->variables->add(t=>'Real');
@@ -95,8 +98,7 @@ $decreasing_concave_down = PopUp(
   ["Choose one", "increasing concave up","increasing concave down","decreasing concave up","decreasing concave down"],
   "decreasing concave down");
 
-# Show which answers are correct and which ones are incorrect
-$showPartialCorrectAnswers = 1;
+
 
 ################################
 #  Desmos setup
@@ -218,6 +220,10 @@ $c1left=$i1-$spacing;
 $c1right=$i1+$spacing;
 $y0=non_zero_random(-3,3);
 
+
+$combined_points = List( $c1left, $i1, $c1right );
+$combined_points_cmp = $combined_points->cmp(ordered=>1,showLengthHints => 1);
+
 $f=Formula("x^3-3*$i1*x^2+3*$c1left*$c1right*x+$y0")->reduce;
 $fp=Formula("3*x^2-6*$i1*x+3*$c1left*$c1right")->reduce;
 $fpp=Formula("6*x-6*$i1")->reduce;
@@ -230,6 +236,8 @@ $t2x1=$i1-1;
 $t2d1=$fpp->eval(x=>$t2x1);
 $t2x2=$i1+1;
 $t2d2=$fpp->eval(x=>$t2x2);
+
+
 
 $second_line1->BEGIN_TIKZ
 \tikzset{>={Stealth[scale=2]}}
@@ -467,10 +475,7 @@ Now let's combine the two number lines...
 END_PGML
 
 Context()->normalStrings;
-COMMENT("TODO: this flag of ordered=>0 isn't working, and it's only accepting them in this order.  ");
-$combined_points = List( "$c1left,$i1,$c1right" );
-ANS($combined_points->cmp(ordered=>0,showLengthHints => 1));
-
+ANS($combined_points_cmp);
 Context()->texStrings;
 
 Section::End();
