@@ -71,7 +71,7 @@ $q1 = 0;
    Context()->noreduce('(-x)-y');
    Context()->noreduce('(-x)-y','(-x)+y');
 
-$f = Formula("$a1 x^ {$m1} + $b1 x^{$n1} - $c1 x^{$p1} + $d1 x^{$q1}")->reduce;
+$f = Formula("$a1 x^ {$m1} + $b1 x^{$n1} + $c1 x^{$p1} + $d1 x^{$q1}")->reduce;
 
 Context()->texStrings;
 BEGIN_PGML
