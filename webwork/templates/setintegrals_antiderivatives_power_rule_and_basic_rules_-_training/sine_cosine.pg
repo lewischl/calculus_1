@@ -77,8 +77,8 @@ $a=non_zero_random(-10,10,1);
 $b=non_zero_random(-10,10,1);
 $c=non_zero_random(-10,10,1);
 
-$f = Fraction("$a*sin(t)+$b*cos(t)")->reduce;
-$F = FormulaUpToConstant("$a*-cos(t) - $b*sin(t)")->reduce;
+$f =            Fraction("$a*sin(t)  + $b*cos(t)")->reduce;
+$F = FormulaUpToConstant("$a*-cos(t) + $b*sin(t)")->reduce;
 Context()->texStrings;
 BEGIN_TEXT
 $PAR
@@ -94,8 +94,8 @@ $a=non_zero_random(-10,10,1);
 $b=non_zero_random(-10,10,1);
 $c=non_zero_random(-10,10,1);
 
-$f = Fraction("$a*sin(t)+$b*cos(t)")->reduce;
-$F = FormulaUpToConstant("$a*-cos(t) - $b*sin(t)")->reduce;
+$f =            Fraction("$a*sin(t)  + $b*cos(t)")->reduce;
+$F = FormulaUpToConstant("$a*-cos(t) + $b*sin(t)")->reduce;
 Context()->texStrings;
 BEGIN_TEXT
 $PAR
@@ -114,8 +114,8 @@ $b=non_zero_random(-10,10,1);
 $c=non_zero_random(-10,10,1);
 $d=non_zero_random(-10,10,1);
 
-$f = Fraction("$a*sin(t)+$b*cos(t)+ $d")->reduce;
-$F = FormulaUpToConstant("$a*-cos(t) - $b*sin(t)+ $d*t")->reduce;
+$f =            Fraction("$a*sin(t)  + $b*cos(t)+ $d")->reduce;
+$F = FormulaUpToConstant("$a*-cos(t) + $b*sin(t)+ $d*t")->reduce;
 Context()->texStrings;
 BEGIN_TEXT
 $PAR
