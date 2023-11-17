@@ -191,7 +191,7 @@ $a=2**$k;
 $b=random(3, 15, 2);
 
 $f = Formula("{$a}/{$b x} + x + 1");
-$F = FormulaUpToConstant("$a/$b * ln(abs(x)) + x^2 + x");
+$F = FormulaUpToConstant("$a/$b * ln(abs(x)) + x^2 / 2 + x");
 
 Context()->texStrings;
 BEGIN_TEXT
@@ -205,7 +205,7 @@ ANS($F->cmp(limits=>[1,2]));
 
 
 
-$c=random(1,9,1);
+
 $n=random(2,7,1); 
 $k=random(1, 4, 1);
 $a=2**$k; 
