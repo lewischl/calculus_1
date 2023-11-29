@@ -43,6 +43,7 @@ loadMacros(
 );
 
 COMMENT("todo: add graphs to help explain");
+COMMENT("todo: make power randomized");
 
 TEXT(&beginproblem);
 $showPartialCorrectAnswers = 1;
@@ -50,8 +51,21 @@ $a=random(1,10,1)*random(-1,1,2);
 $b=random(1,10,1)*random(-1,1,2);
 $c=random(1,10,1)*random(-1,1,2);
 
+
+
+
 Context("Numeric");
 Context()->variables->add(t=>"Real");
+
+Context()->flags->set(
+  tolerance => 0.0001,
+  tolType => "relative",
+);
+
+Context()->noreduce('x^(-a)');
+
+$f = Formula("$a t^{-5}")->reduce;
+
 Context()->texStrings;
 BEGIN_PGML
 
@@ -85,16 +99,16 @@ END_PGML
 BEGIN_TEXT
 
 $PAR
-Use the Fundamental Theorem of Calculus to evaluate the integrals.  If the integral is problematic due to an infinite discontinuity, enter "DNE".
+Use the Fundamental Theorem of Calculus to evaluate the integrals.  If the integral is problematic due to an infinite discontinuity, enter "DNE".  Use lots of decimal places, or better yet use exact expressions.
 
 $PAR $BR
-\(\displaystyle \int_{-2}^{3}{$a t^{-5}}\,dt = \) \{ans_rule(30)\}
+\(\displaystyle \int_{-2}^{3}{$f}\,dt = \) \{ans_rule(30)\}
 
 $PAR
-\(\displaystyle \int_{-2}^{-1}{$a t^{-5}}\,dt = \) \{ans_rule(30)\}
+\(\displaystyle \int_{-2}^{-1}{$f}\,dt = \) \{ans_rule(30)\}
 
 $PAR
-\(\displaystyle \int_{4}^{2}{$a t^{-5}}\,dt = \) \{ans_rule(30)\}
+\(\displaystyle \int_{4}^{2}{$f}\,dt = \) \{ans_rule(30)\}
 
 $PAR$HR$PAR
 
@@ -105,12 +119,13 @@ END_TEXT
 
 
 Context()->normalStrings;
+
 ANS(std_num_str_cmp("DNE", ["DNE"]));
 
 $F = Formula("$a/(-4) * t^(-4)");
 $ans = $F->eval(t=>-1) - $F->eval(t=>-2);
-ANS(std_num_str_cmp($ans, ["DNE"]));
+ANS($ans->cmp);
 
 $ans = $F->eval(t=>2) - $F->eval(t=>4);
-ANS(std_num_str_cmp($ans, ["DNE"]));
+ANS($ans->cmp);
 ENDDOCUMENT();
