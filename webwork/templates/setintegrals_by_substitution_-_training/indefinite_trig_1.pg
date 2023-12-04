@@ -71,7 +71,7 @@ $c = $a * $b;
 $power = 3; # actually, -3
 $u = Formula("$b sin x + $c");
 $u_prime = $u->D;
-$dx = Formula($u_prime * "du");
+$dx = Formula("du" / $u_prime);
 $integral_after_subbing = Formula("1/$b * (u)^(-$power) * du");
 $ans = FormulaUpToConstant("1/($b*(-($power-1)) )*($u)^(-($power-1)) ");
 
