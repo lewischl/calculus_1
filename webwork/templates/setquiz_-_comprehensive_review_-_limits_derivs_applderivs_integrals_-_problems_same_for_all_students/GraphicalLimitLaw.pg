@@ -39,6 +39,8 @@
 
 DOCUMENT();
 
+
+
 loadMacros(
    "PGstandard.pl",     # Standard macros for PG language
    "MathObjects.pl",
@@ -52,8 +54,13 @@ loadMacros(
 # Print problem number and point value (weight) for the problem
 TEXT(beginproblem());
 
+# uncomment so everyone gets same problem.  comment if in development and testing random seeds.
+
 SRAND($team_exam3_seed);
 $setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
+
+# take out if not in development mode (working on problem code).  
+# $refreshCachedImages = 1; 
 
 # Show which answers are correct and which ones are incorrect
 $showPartialCorrectAnswers = 1;
@@ -74,72 +81,151 @@ $c = $parameter;
 
 
 
-
-@xlim = ();
+# empty arrays
+@f_discty_x = ();
 @ylim = ();
 @ypointF =();
 @f = ();
 
-$xlim[0] = random(-4,-2,2);
-$xlim[1] = -1*$xlim[0];
-$xlim[2] = $xlim[1]+2;
+@f_open_pt_x = (); 
+@f_open_pt_y = ();
 
-$ylim[0] = random(2,6,2);
+@f_closed_pt_x = (); 
+@f_closed_pt_y = ();
 
-$ypointF[0] = $ylim[0] - 4;
+$f_discty_x[0] = random(-4,-2,2); # randomly choose the lower limit
+$f_discty_x[1] = -$f_discty_x[0]; # make symmetric
+$f_discty_x[2] = $f_discty_x[1]+2; # shift right for infinite
+
+$ylim[0] = random(2,6,2); # random vertical shift
+
+$removable_diff = random(-5,-1,1);
+$ypointF[0] = $ylim[0] + $removable_diff; # for the removable discty
 
 
-$f[0] = Formula("(1/(-1*$xlim[0]*2))*(x-$xlim[0])^2 + $ylim[0]");
-$f[1] = Formula("-1/(-1*$xlim[0]*2)*(x-$xlim[0])^2 + $ylim[0]");
+$f_closed_pt_x[0] = $f_discty_x[0]; 
+$f_closed_pt_y[0] = $ylim[0] + $removable_diff; 
 
-$ypointF[1] = $f[1]->eval(x=>$xlim[1]);
+$f_open_pt_x[0] = $f_discty_x[0]; 
+$f_open_pt_y[0] = $ylim[0]; 
 
-$ypointF[2] = $ypointF[1] - 2;
 
-if ($ypointF[2]==0) {
+
+$f[0] = Formula("(1/(-1*$f_discty_x[0]*2))*(x-$f_discty_x[0])^2 + $ylim[0]"); # an upward opening parabola with vertex at the remvbl discty
+$f[1] = Formula("-1/(-1*$f_discty_x[0]*2)*(x-$f_discty_x[0])^2 + $ylim[0]"); # keep same function but flip about the point of discty
+
+
+$f_open_pt_x[1] = $f_discty_x[1]; 
+$f_open_pt_y[1] = $f[1]->eval(x=>$f_discty_x[1]); 
+
+
+$ypointF[1] = $f[1]->eval(x=>$f_discty_x[1]);
+
+# make a jump w height -2
+$jump_diff = random(-5,-1,1);
+$ypointF[2] = $ypointF[1] + $jump_diff; 
+
+# don't want jump to put the third piece at 0 at the transition point, so that when we scale next, it doesn't collapse the entire function to 0.
+if ($ypointF[2]>0) {
 $ypointF[2] = -2;
 }
 
-$f[2] = Formula("$ypointF[2]*($xlim[1]-$xlim[2])^2/(x-$xlim[2])^2");
+
+# this piece has an infinite discty
+$pow = 2;
+$f[2] = Formula("$ypointF[2]*($f_discty_x[1]-$f_discty_x[2])^$pow/(x-$f_discty_x[2])^$pow");
+#                             ^^    scaled to have value 1 at f_discty_x[1]    ^^
+#                ^ scale to have gap 
 
 
 
 
 
-@ypointg =();
 
 
-$g[0] = Formula("(1/(-1*$xlim[0]*2))*(x-$xlim[0])^2 -1");
-$g[1] = Formula("2/(-1*$xlim[0]*2)*(x-$xlim[0])^2 -1");
-
-$ypointg[1] = $g[1]->eval(x=>$xlim[1]);
 
 
-$g[2] = Formula("x + $ypointg[1]");
 
-$ypointg[2] = $g[2]->eval(x=>$xlim[1]);
 
-$dim = abs($xlim[0]) + 10;
-$ymax = $dim;
+# make the second set of functions
+@g_open_pt_x = (); 
+@g_open_pt_y = ();
+
+#g[0] = Formula("(1/(-1*$f_discty_x[0]*2)) * (x-$f_discty_x[0])^2 -1"); # the min of this function is always -1
+#$g[1] = Formula(" 1/(-1*$f_discty_x[0]*2)  * (x-$f_discty_x[0])^2 -1");
+
+$val_at_discty_0 = -1;
+
+$g[0] = Formula(" 1 * (x-$f_discty_x[0])^2 + $val_at_discty_0"); # the min of this function is always -1
+
+$base_parabola = Formula("(x-$f_discty_x[0])^2 ");
+$a = $base_parabola->eval(x=>$f_discty_x[1]); # will scale down by this factor, then up by h
+
+# randomly generate a scaling factor
+do{
+$h = random(-4,4,1) - $val_at_discty_0; # this needs to be an integer so the student can do the problem
+}
+while($h==0);
+
+# this is a randomized parabola
+$g[1] = Formula("$h/$a*(x-$f_discty_x[0])^2+$val_at_discty_0");
+
+$g_open_pt_x[0] = $f_discty_x[1];
+$g_open_pt_y[0] = $g[1]->eval(x=>$g_open_pt_x[0]);
+
+
+# generate and line of slope 1, shifted up by $s from the previous branch
+do{
+$s = random(3,6,1);
+$g[2] = Formula("(x-$f_discty_x[1]) + $ypointg[1] + $s");
+}
+while ($g[2]->eval(x=>$f_discty_x[1]) == 0);
+
+$g_open_pt_x[1] = $f_discty_x[1];
+$g_open_pt_y[1] = $g[2]->eval(x=>$g_open_pt_x[1]);
+
+
+$g_open_pt_x[2] = $f_discty_x[2];
+$g_open_pt_y[2] = $g[2]->eval(x=>$g_open_pt_x[2]);
+
+
+$xmin = $f_discty_x[0]-4;
+$xmax = $f_discty_x[2]+8;
+
+
+# these are just for this graph
+$ymin = -15; # because has infinite discty
+$ymax = $f[0]->eval(x=>$xmin);
+
 $tick = 2;
 
-$graph1 = GraphWithTikZ(function => [[$f[0],dmin => -$dim,dmax => $xlim[0],rightEnd => 'open',label=>"f(x)"],
-                                     [$f[1],dmin => $xlim[0],dmax => $xlim[1],leftEnd => 'open',rightEnd => 'open',useLegend=>0],
-                                     [$f[2],dmin => $xlim[1], dmax=> $dim, leftEnd =>'open',useLegend=>0]],
-                        points => [[Point(($xlim[0],$ylim[0])),color=>"white",label=>" "],
-                                   [Point(($xlim[0],$ypointF[0])),label=>" "],
-                                   [Point(($xlim[1],$ypointF[1])),color=>"white",label=>" "],
-                                   [Point(($xlim[1],$ypointF[2])),color=>"white",label=>" "]],
-                        xmin => -$dim,xmax => $dim,ymin =>-$ymax,ymax =>$ymax,smooth=>'smooth',ytick => $tick,xtick => $tick,useLegend=>1);
+$graph1 = GraphWithTikZ(function => [[$f[0],dmin => $xmin,dmax => $f_discty_x[0],rightEnd => 'open',label=>"f(x)"],
+                                     [$f[1],dmin => $f_discty_x[0],dmax => $f_discty_x[1],leftEnd => 'open',rightEnd => 'open',useLegend=>0],
+                                     [$f[2],dmin => $f_discty_x[1], dmax=> $f_discty_x[2]-0.5, leftEnd =>'open',useLegend=>0],
+                                     [$f[2],dmin => $f_discty_x[2]+0.5, dmax=> $xmax, leftEnd =>'open',useLegend=>0]
+                                    ],
+                        points => [[Point(($f_discty_x[0],$ylim[0])),color=>"white",label=>" "],
+                                   [Point(($f_discty_x[0],$ypointF[0])),label=>" "],
+                                   [Point(($f_discty_x[1],$ypointF[1])),color=>"white",label=>" "],
+                                   [Point(($f_discty_x[1],$ypointF[2])),color=>"white",label=>" "]],
+                        xmin => $xmin,xmax => $xmax,ymin =>$ymin,ymax =>$ymax,smooth=>'smooth',ytick => $tick,xtick => $tick,useLegend=>1);
 
 
 
-$graph2 = GraphWithTikZ(function => [[$g[0],dmin => -$dim,dmax => $xlim[0],label=>"g(x)"],
-                                     [$g[1],dmin => $xlim[0],dmax => $xlim[1],rightEnd => 'open',useLegend=>0],
-                                     [$g[2],dmin => $xlim[1], dmax=> $dim, leftEnd =>'open',useLegend=>0]],
-                        points => [[Point(($xlim[1],$ypointg[1])),color=>"white",label=>" "],
-                                   [Point(($xlim[1],$ypointg[2])),color=>"white",label=>" "]],
-                        xmin => -$dim,xmax => $dim,ymin =>-$ymax,ymax =>$ymax,smooth=>'smooth',ytick => $tick,xtick => $tick,useLegend=>1,color=>"red");
+# these are just for this graph
+$ymin = min(-5, $g[1]->eval(x=>$f_discty_x[1])-3); 
+$ymax = max($g[0]->eval(x=>$xmin), $g[2]->eval(x=>$xmax))+2;
+
+$graph2 = GraphWithTikZ(function => [[$g[0],dmin => $xmin,dmax => $f_discty_x[0],label=>"g(x)"],
+                                     [$g[1],dmin => $f_discty_x[0],dmax => $f_discty_x[1],rightEnd => 'open',useLegend=>0],
+                                     [$g[2],dmin => $f_discty_x[1], dmax=> $f_discty_x[2], leftEnd=>'open', rightEnd =>'open',useLegend=>0],
+                                     [$g[2],dmin => $f_discty_x[2], dmax=> $xmax, leftEnd =>'open',useLegend=>0]],
+                        points => [
+                                   [Point(($g_open_pt_x[0],$g_open_pt_y[0])),color=>"white",label=>" "],
+                                   [Point(($g_open_pt_x[1],$g_open_pt_y[1])),color=>"white",label=>" "],
+                                   [Point(($g_open_pt_x[2],$g_open_pt_y[2])),color=>"white",label=>" "],
+                                  ],
+                        xmin => $xmin,xmax => $xmax,ymin =>$ymin,ymax =>$ymax,smooth=>'smooth',ytick => $tick,xtick => $tick,useLegend=>1,color=>"red");
 
 
 
@@ -147,15 +233,8 @@ $graph2 = GraphWithTikZ(function => [[$g[0],dmin => -$dim,dmax => $xlim[0],label
 
 
 
-@ans = ();
-$ans[0] = $ypointF[1] + $ypointg[1];
-$ans[1] = $ypointF[1] - $ypointg[1];
-$ans[2] = $ypointF[1] * $ypointg[1];
 
 
-$ans[3] = "-inf";
-$ans[4] = "-inf";
-$ans[5] = "-inf";
 
 
 ##############################################################
@@ -174,20 +253,29 @@ A pair of functions [`f(x)`] and [`g(x)`] are graphed below.
 
 Find the following limits:
 
-[`` \lim_{x \to [$xlim[1]]^-} (f+g) = ``] [_____]{$ans[0]}
 
-[`` \lim_{x \to [$xlim[1]]^-} (f-g) = ``] [_____]{$ans[1]}
+[`` \lim_{x \to [$f_discty_x[0]]^-} (f+g) = ``] [_____]{$f[0]->eval(x=>$f_discty_x[0]) + $g[0]->eval(x=>$f_discty_x[0])}
 
-[`` \lim_{x \to [$xlim[1]]^-} (fg) = ``] [_____]{$ans[2]}
+[`` \lim_{x \to [$f_discty_x[0]]^-} (f-g) = ``] [_____]{$f[0]->eval(x=>$f_discty_x[0]) - $g[0]->eval(x=>$f_discty_x[0])}
+
+[`` \lim_{x \to [$f_discty_x[0]]^-} (fg) = ``] [_____]{$f[0]->eval(x=>$f_discty_x[0]) * $g[0]->eval(x=>$f_discty_x[0])}
+
+---
+
+[`` \lim_{x \to [$f_discty_x[1]]^-} (f+g) = ``] [_____]{$f[1]->eval(x=>$f_discty_x[1]) + $g[1]->eval(x=>$f_discty_x[1])}
+
+[`` \lim_{x \to [$f_discty_x[1]]^-} (f-g) = ``] [_____]{$f[1]->eval(x=>$f_discty_x[1]) - $g[1]->eval(x=>$f_discty_x[1])}
+
+[`` \lim_{x \to [$f_discty_x[1]]^-} (fg) = ``] [_____]{$f[1]->eval(x=>$f_discty_x[1]) * $g[1]->eval(x=>$f_discty_x[1])}
 
 ---
 
 
-[`` \lim_{x \to [$xlim[2]]^+} (f+g) = ``] [_____]{$ans[3]}
+[`` \lim_{x \to [$f_discty_x[2]]^+} (f+g) = ``] [_____]{-Infinity}
 
-[`` \lim_{x \to [$xlim[2]]^+} (f-g) = ``] [_____]{$ans[4]}
+[`` \lim_{x \to [$f_discty_x[2]]^+} (f-g) = ``] [_____]{-Infinity}
 
-[`` \lim_{x \to [$xlim[2]]^+} (fg) = ``] [_____]{$ans[5]}
+[`` \lim_{x \to [$f_discty_x[2]]^+} (fg) = ``] [_____]{-Infinity}
 
 
 
