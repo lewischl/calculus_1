@@ -72,11 +72,8 @@ Context()->variables->add(t => 'Real');
 
 
 $stationary1 = random(2,5,1);
-$stationary2 = random(2,5,1);
+$stationary2 = $stationary1 + random(2,4,1);
 
-if ($stationary1==$stationary2){
-$stationary2 = $stationary2+random(2,5,1);
-}
 
 $scale = random(2,5,1);
 $shift = random(2,5,1);
@@ -86,14 +83,16 @@ $b = $stationary2;
 
 $s = Formula("($scale*2*t^3 - $scale*3*($a+$b)*t^2 + $scale*6*$a*$b*t+$shift)")->reduce;
 
-$forward="[0,$stationary1)U($stationary2,inf)";
-$backward="($stationary1,$stationary2)";
+$forward=Interval("[0,$stationary1)U($stationary2,inf)");
+$backward=Interval("($stationary1,$stationary2)");
 
 ##############################################################
 #
 #  Text
 #
 #
+
+Context()->texStrings();
 
 BEGIN_PGML
 A rabbit is running down a rabbit hole.  Its position is well-modeled by a function of time, called [`s`], for times [`t \geq 0`].  Let [``` s(t) = [$s]```]
