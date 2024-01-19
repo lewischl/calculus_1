@@ -96,8 +96,10 @@ $h = Formula("e^($s*x+1)");
 
 
 $w = random(10,300);
-$x3 = Formula("log($w)");
+$x3 = Formula("ln($w)");
 
+$w2 = random(10,300);
+$x4 = Formula("ln($w2)");
 
 ##############################################################
 #
@@ -130,25 +132,25 @@ When we "solve" an equation, we almost always mean these equivalent things:
 Complete the prompts.
 [@ closeDiv() @]*
 
-First, I'll have you play with a simple trigonometric function:
+First, let's work with a trigonometric function.
 
 [`f(x) = [$f]`]
 * The value of [`f([$x1])`] is [___]{$f->eval(x=>Compute($x1))}.
 * is [`[$x1]`] a root of [`f`]?  [_____]{classification($no)}
 
-Next, a quadratic polynomial (its graph is a parabola -- use your graphing calculator!)
+Next, a quadratic polynomial (its graph is a parabola -- maybe a graphing calculator would be helpful 😉)
 
 [`g(x) = [$g]`]
 * [`g([$x2_near])`] = [___]{$g_x2}
-* For [`g`], is [`x = [$x2_near]`] a solution?  [_____]{classification($no)}
+* For [`g`], is [`x = [$x2_near]`] a solution to [`g(x)=0`]?  [_____]{classification($no)}
 * [`g([$x2])`] = [___]{$g->eval(x=>Compute($x2))}
-* For [`g`], is [`x = [$x2]`] a solution?  [_____]{classification($yes)}
+* For [`g`], is [`x = [$x2]`] a solution to [`g(x)=0`]?  [_____]{classification($yes)}
 
-Now let's play with an exponential
+Now let's work with an exponential.
 
 [`h(x) = [$h]`]
 * Is [`[$x3]`] a zero of [`h`]?  [_____]{classification($no)}
-* What about [`[$x3]`]?  [_____]{classification($no)}
+* What about [`[$x4]`]?  [_____]{classification($no)}
 * Does [`h(x)`] have any zeros?  [_____]{classification($no)} (for that matter, is [`e^{\textnormal{anything}}`] ever [`0`]?)
 
 END_PGML
