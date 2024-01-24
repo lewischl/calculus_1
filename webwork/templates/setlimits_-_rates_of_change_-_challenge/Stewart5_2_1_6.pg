@@ -43,6 +43,12 @@ loadMacros(
   "PGcourse.pl"
 );
 
+Context("Numeric");
+Context('Numeric')->flags->set(
+    tolerance => 0.01,
+    tolType   => 'absolute',
+);
+
 TEXT(&beginproblem);
 $showPartialCorrectAnswers = 1;
 $a=random(1,10,1)*random(-1,1,2);
@@ -61,22 +67,27 @@ If an arrow is shot upward on the moon with a velocity of 58 m/s, its height in 
 (3) [1,1.01] $BR
 (4) [1,1.001] $PAR
  
-(b) Find the instantaneous velocity after one second (to the nearest hundredth).
+(b) Find the instantaneous velocity after one second.
 
 $PAR
 
+
+(Enter answers accurate to at least two decimal places)
+ 
+$PAR
+ 
 (1) \{ans_rule(20)\} m/s $BR
 (2) \{ans_rule(20)\} m/s $BR
 (3) \{ans_rule(20)\} m/s $BR
-(4) \{ans_rule(20)\} m/s $BR
+(4) \{ans_rule(20)\} m/s $PAR
 (b) \{ans_rule(20)\} m/s
 
 END_TEXT
 
-ANS(num_cmp(55.925));
-ANS(num_cmp(56.257));
-ANS(num_cmp(56.3317));
-ANS(num_cmp(56.33917));
-ANS(num_cmp(56.34));
+ANS(Compute(55.925)->cmp());
+ANS(Compute(56.257)->cmp());
+ANS(Compute(56.3317)->cmp());
+ANS(Compute(56.33917)->cmp());
+ANS(Compute(56.34)->cmp());
 
 ENDDOCUMENT();

@@ -124,7 +124,7 @@ Does the same thing work for multiplication? Let's find out!
 
 END_PGML
 
-$f=Formula("$b5*x^$b6+$b7*x^$b8")->reduce;
+$f=Formula("$b5*x^{$b6}+$b7*x^{$b8}")->reduce;
 $fp=Formula("[$b5]*[$b6]*x^([$b6]-1)+$b7*$b8*x^([$b8]-1)")->reduce;
 $g=Formula("[$b9]*x^[$b10]+$b11*x^[$b12]")->reduce;
 $gp=Formula("[$b9]*[$b10]*x^([$b10]-1)+$b11*$b12*x^([$b12]-1)")->reduce;
@@ -182,6 +182,8 @@ Section::End();
 
 Section::Begin("Product Rule");
 
+Context()->texStrings;
+
 BEGIN_PGML
 
 As we just saw, those two answers are NOT the same. So the derivative of a product is NOT found by multiplying the two separate derivatives!
@@ -217,8 +219,12 @@ tablecss => "border:solid 1px; border-spacing:50px 5px; border-radius: 5px; bord
 
 END_PGML
 
+Context()->normalStrings;
+
 ANS($fp->cmp());
 ANS($gp->cmp());
+
+Context()->texStrings;
 
 BEGIN_PGML
 

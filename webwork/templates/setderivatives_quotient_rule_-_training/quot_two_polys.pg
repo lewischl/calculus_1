@@ -120,6 +120,8 @@ $a1 = random(2,5,1);
 $b1 = non_zero_random(-5,5,1);
 $c1 = non_zero_random(-6,6,1);
 
+do{
+
 $a2 = random(2,5,1);
 $b2 = non_zero_random(-5,5,1);
 $c2 = non_zero_random(-6,6,1);
@@ -128,9 +130,12 @@ $x = random(-10,10,1);
 
 $num = Formula("$a1 x^2 + $b1 x + $c1")->reduce;
 $den = Formula("$a2 x^2 + $b2 x + $c2")->reduce;
+}
+while($den->eval(x=>$x) == 0);
 
 $g = $num / $den;
 $g_prime = $g->D;
+
 
 BEGIN_TEXT
 
@@ -154,6 +159,8 @@ $a1 = random(2,5,1);
 $b1 = non_zero_random(-5,5,1);
 $c1 = non_zero_random(-6,6,1);
 
+do{
+
 $a2 = random(2,5,1);
 $b2 = non_zero_random(-5,5,1);
 $c2 = non_zero_random(-6,6,1);
@@ -162,6 +169,8 @@ $x = random(-10,10,1);
 
 $num = Formula("$a1 x^2 + $b1 x + $c1")->reduce;
 $den = Formula("$a2 x^2 + $b2 x + $c2")->reduce;
+}
+while($den->eval(x=>$x) == 0);
 
 $g = $num / $den;
 $g_prime = $g->D;

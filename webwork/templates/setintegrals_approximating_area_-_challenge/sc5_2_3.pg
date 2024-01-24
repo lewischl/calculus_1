@@ -101,8 +101,8 @@ END_TEXT
 Context()->normalStrings;
 
 $middle_terms = $dx*(myfunc($a+$dx) + myfunc($a+2*$dx));
-$ansA = $middle_terms+ $dx*myfunc($b);
-$ansB = $middle_terms+ $dx*myfunc($a);
+$ansA = $middle_terms+ $dx*myfunc($a);
+$ansB = $middle_terms+ $dx*myfunc($b);
 
 ANS(num_cmp($ansA));
 ANS(num_cmp($ansB));

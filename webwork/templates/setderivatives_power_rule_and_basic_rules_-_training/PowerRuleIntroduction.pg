@@ -165,7 +165,7 @@ BEGIN_PGML
 
 If [`f(x)=[$m1]x+[$b1]`], then based on what you know from algebra, the slope of the line is [`f'(x)=`] [_]{$m1}.
 
-Meanwhile, [`f(x+h)=`] [_]{$f1_nearby}
+Meanwhile, [`f(x+h)=`] [_]{$f1_nearby}  (the answer is an expression of [`x`] and [`h`]).
 
 END_PGML
 Section::End();
@@ -406,7 +406,7 @@ Similarly,
 \end{eqnarray*}
 ```]
 
-Fill in the missing pieces of both answers below:
+Fill in the missing pieces of both derivative rules below using prime notation:
 
 [`\frac d{dx}[f(x)+g(x)]=`] [_]{$sum}
 
@@ -450,7 +450,7 @@ BEGIN_PGML
 
 The video below explains what is special about the number [`e`]:
 
-[@ youtube("YG15m2VwSjA?start=252"); @]*
+[@ youtube("m2MIpDrF7Es"); @]*
 
 [`\frac d{dx}\left(e^x\right)=`] [_]{Formula("e^x")->reduce}
 

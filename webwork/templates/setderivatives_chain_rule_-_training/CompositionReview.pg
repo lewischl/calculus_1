@@ -167,7 +167,16 @@ What is [` g(f(x)) `] ? [____]{$ans6}
 
 Let [` f(x)=\sin x\cos x `] and [` g(x)=[$g3] `].
 
-What is [` f(g(x))`]? [_]{Formula("sin($g3)cos($g3)")}
+END_PGML
+
+
+Context()->normalStrings();
+$ans_next_box = Compute("sin($g3)cos($g3)");
+Context()->texStrings();
+
+BEGIN_PGML
+
+What is [` f(g(x))`]? [_]{$ans_next_box}
 
 What is [`g(f(x))`]? [_]{$ans1}
 

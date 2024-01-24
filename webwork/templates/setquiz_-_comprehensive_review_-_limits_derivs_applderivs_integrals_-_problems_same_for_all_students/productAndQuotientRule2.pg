@@ -59,6 +59,7 @@ $showPartialCorrectAnswers = 1;
 #
 #
 Context("Numeric");
+Context()->normalStrings();
 
 SRAND($team_exam3_seed);
 $setseed = "set.seed($team_exam3_seed); $team_exam3_seed";
@@ -78,7 +79,7 @@ $df[1] = random(-7,7,1);
 $df[2] = random(-7,7,1);
 
 $ans_product = Compute("$df[0]*$f[1] + $f[0]*$df[1]");
-$ans_quotient = Compute("($df[0]*$f[1] - $f[0]*$df[1]) / ($f[1]**2)");
+$ans_quotient = Compute("($df[0]*$f[1] - $f[0]*$df[1]) / (($f[1])**2)");
 $ans_complicated = Compute("(($df[0]*$f[1]+$f[0]*$df[1])*$f[2] - $f[0]*$f[1]*$df[2])/($f[2])^2");
 
 
@@ -87,6 +88,8 @@ $ans_complicated = Compute("(($df[0]*$f[1]+$f[0]*$df[1])*$f[2] - $f[0]*$f[1]*$df
 #  Text
 #
 #
+
+Context()->texStrings();
 
 BEGIN_PGML
 

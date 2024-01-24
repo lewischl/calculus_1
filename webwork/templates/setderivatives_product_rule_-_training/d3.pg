@@ -129,7 +129,7 @@ END_TEXT
 ANS(Compute($g * $hp + $gp * $h)->cmp);
 ANS(Compute($c*($g * $hp + $gp * $h))->cmp);
 ANS(Compute($c*($g * $hp + $gp * $h))->cmp);
-ANS(Compute($c*($g * $hp + $gp * $h + $p*$x**($p-1)))->cmp);
+ANS(Compute($c*($g * $hp + $gp * $h) + $p*$x**($p-1))->cmp);
 
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.

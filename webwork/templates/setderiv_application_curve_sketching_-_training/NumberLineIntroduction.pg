@@ -372,7 +372,7 @@ Let [`c`] be a critical point of [`f`].
 
 * If [`f'(x)<0`] when [`x`] is slightly less than [`c`] and [`f'(x)>0`] when [`x`] is slightly greater than [`c`], then [`(c,f(c))`] is a local minimum.
 
-* If [`f'(x)<0`] when [`x`] is slightly less than [`c`] and [`f'(x)>0`] when [`x`] is slightly greater than [`c`], then [`(c,f(c))`] is a local minimum.
+* If [`f'(x)>0`] when [`x`] is slightly less than [`c`] and [`f'(x)<0`] when [`x`] is slightly greater than [`c`], then [`(c,f(c))`] is a local maximum.
 [@ closeDiv() @]*
 
 We can also use the second derivative to classify a critical point as local min or max.  That's the next problem.

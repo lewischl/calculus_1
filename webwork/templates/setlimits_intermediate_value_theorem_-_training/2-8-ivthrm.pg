@@ -52,11 +52,6 @@ $ans1 = PopUp(["?",
       $yes], 
 $yes);
 
-$ans1 = PopUp(["?", 
-      $no,
-      $yes], 
-$no);
-
 TEXT(beginproblem());
 
 

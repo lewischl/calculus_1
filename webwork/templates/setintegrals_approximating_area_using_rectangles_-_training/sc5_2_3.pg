@@ -127,7 +127,7 @@ BEGIN_TEXT
 Consider the integral
 \[ \int_{$a}^{$b} ($c x^2+$d x +$e)\,dx \]
 
-What is the width of the rectangles? $BR
+If we use three rectangles, what is the width of the rectangles? $BR
 \( \Delta x \) = \{ans_rule(30)\} 
 $PAR
 $BR
@@ -161,8 +161,8 @@ END_TEXT
 Context()->normalStrings;
 
 $middle_terms = $dx*(myfunc($a+$dx) + myfunc($a+2*$dx));
-$ansA = $middle_terms+ $dx*myfunc($b);
-$ansB = $middle_terms+ $dx*myfunc($a);
+$ansA = $middle_terms+ $dx*myfunc($a);
+$ansB = $middle_terms+ $dx*myfunc($b);
 
 ANS(num_cmp($dx));
 ANS(List($a+0*$dx, $a+1*$dx, $a+2*$dx)->cmp);

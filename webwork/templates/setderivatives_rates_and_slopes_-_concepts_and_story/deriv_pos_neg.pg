@@ -123,7 +123,7 @@ This problem teaches the profound association between the sign of the derivative
 
 END_PGML
 BEGIN_PGML
-Here's a graph of a function [`f`].  Assume all the interesting behaviour is depicted.
+Here's a graph of a function [`f`].  Assume all the interesting behaviour is depicted, and the domain of the function is [`(-\infty, \infty)`].
 >>[@ image(insertGraph($graph1), width => 500, height => 300) @]*<<
 ---
 

@@ -73,8 +73,8 @@ Context("Numeric");
 Context()->variables->add(t=>'Real');
 
 $v0 = random(50,100, 5);
-$f0 = random(1.5, 3.0, 0.1);
-$f = Formula("-4.9t^2 + $v0*t + $f0");
+$h0 = random(1.5, 3.0, 0.1);
+$f = Formula("-4.9t^2 + $v0*t + $h0");
 
 $t_max = $v0 / 9.8;
 $f_max = $f->eval(t=>$t_max);
@@ -142,7 +142,7 @@ BEGIN_PGML
 Consider the following problem setup.  We use an object falling under gravity on earth because it's familiar and the functions are simple.
 
 [@ openDiv({ "class" => "trainingProblemStatement" }) @]*
-A cannon ball is launched with great initial velocity [`[$v0]`] meters per second, from a height of [`[$f0]`] meters off the ground (the cannon is on a platform).  Thus, the cannon ball's height can be modeled with the function [`f(t)`]:
+A cannon ball is launched with great initial velocity [`[$v0]`] meters per second, from a height of [`[$h0]`] meters off the ground (the cannon is on a platform).  Thus, the cannon ball's height can be modeled with the function [`f(t)`]:
 
 [```
 f(t) = [$f]
@@ -186,7 +186,7 @@ Use the above Desmos graph to answer the following questions:
     The AROC is [_____]{$aroc2} meters per second 
     
 * What is the average velocity of the cannon ball over the interval [` t \in [ [$t0], [$t0+$dt3] ]`]?   
-    The AROC is [_____]{$aroc3} meters per second 
+    The AROC is [_____]{$aroc3->cmp(tolType   => 'absolute',tolerance => .0001,)} meters per second 
     
 [%* [`aroc3=[$aroc3]`], [`a3=[$a3]`], [`dt3=[$dt3]`], [`t3=[$t3]`], [`f3=[$f3]`], [`f0=[$f0]`]%]
 

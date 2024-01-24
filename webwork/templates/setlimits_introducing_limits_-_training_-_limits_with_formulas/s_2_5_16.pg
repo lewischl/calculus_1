@@ -65,7 +65,7 @@ $a = random(4,8,1);
 $b = random(2,3,1); # notably, these random ranges do not overlap!
 
 $ans_left = Compute("Infinity");
-$ans_right = Compute("Infinity");
+$ans_right = -Compute("Infinity");
 $ans_both = Compute("DNE");
 ###############################################################
 Context()->texStrings;
@@ -78,7 +78,7 @@ Many of the limits we're interested in are where the function is not defined at 
 [@ openDiv({ "class" => "importantFormula" }) @]*
 For a rational function that's not defined at a point, a one-sided limit at that point is an infinity if the numerator has a root at that point less times than the denominator.
 
-This function's numerator does not have a root at [`x = [$a]`], but the denominator does.  So, we get one of [`\pm \infty`].  The sign is determined by the combination of signs of the numerator and denominator.
+This function's numerator does not have a root at [`x = -[$a]`], but the denominator does.  So, we get one of [`\pm \infty`].  The sign is determined by the combination of signs of the numerator and denominator.
 
 As usual, a two-sided limit exists only if both one-sided limits exist and match.
 [@ closeDiv() @]*

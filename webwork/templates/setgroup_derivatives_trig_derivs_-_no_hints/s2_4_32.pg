@@ -52,11 +52,12 @@ $showPartialCorrectAnswers = 1;
 
 Context("Numeric");
 
-$a1 = random(2,6,2);
-$x1 = 3.14159265/6;
-$y1 = Compute("$a1/2");
-$m1 = Compute("$a1*sqrt(3)/2");
-$b = Compute("$y1 -$m1*$x1");
+
+$a1 = random(2,6,2); # coefficient of function
+$x1 = pi/6;
+$y1 = Compute($a1/2);
+$m1 = Compute($a1*sqrt(3)/2); # the slope
+$b = Compute($y1 -$m1*$x1);
 
 BEGIN_TEXT
 Find the equation of the tangent line to the curve

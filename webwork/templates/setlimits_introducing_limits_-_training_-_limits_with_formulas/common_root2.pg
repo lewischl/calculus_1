@@ -74,8 +74,9 @@ END_TEXT
 
 
 
-$ans = "1/($a1 + $b1)";
-ANS(num_cmp($ans));
+$ans = Compute(1/($a1 + $b1));
+ANS($ans->cmp(tolerance => 0.0001,
+    tolType   => 'absolute'));
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.
 

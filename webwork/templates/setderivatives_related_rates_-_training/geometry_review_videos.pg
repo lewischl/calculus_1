@@ -53,6 +53,8 @@ BEGIN_PGML
 
 Here are some background geometry videos! They should be useful for both related rates and optimization. *On this page of videos, there is no calculus, only geometry.*
 
+To make this problem have an answer spot, what's the slope of a horizontal line?  [__]{Compute(0)}.
+
 END_PGML
 
 #SRAND($psvn);
