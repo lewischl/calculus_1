@@ -1,0 +1,122 @@
+{
+
+	"background - training - simplifying": {"name":"🌱 Background - Simplifying", "modules":["Week 1"], "assignment_group_name":"🕸️ Webwork"},
+	"background - training - solving equations": {"name":"🌱 Background - Solving Equations", "modules":["Week 1"], "assignment_group_name":"🕸️ Webwork"},
+	"background - training - graphs of functions": {"name":"🌱 Background - Graphs Of Functions", "modules":["Week 1"], "assignment_group_name":"🕸️ Webwork"},
+	"background - training - function composition": {"name":"🌱 Background - Function Composition", "modules":["Week 1"], "assignment_group_name":"🕸️ Webwork"},
+
+	"motivating calculus - the language of change - training": {"name":"🌱 Motivating Calculus - The Language Of Change", "modules":["Week 1"], "assignment_group_name":"🕸️ Webwork"},
+
+	"limits - rates of change - training": {"name":"🌱 Limits - Rates Of Change (Limit.1)", "modules":["Week 1"], "assignment_group_name":"🕸️ Webwork"},
+	"limits - rates of change - challenge": {"name":"⛰️ Limits - Rates Of Change (Limit.1) - Challenge", "modules":["Week 1"], "assignment_group_name":"🕸️ Webwork"},
+	"limits introducing limits - speedrun": {"name":"⏩ Limits Introducing Limits (Limit.2) - Speedrun", "modules":["Week 1"], "assignment_group_name":"🕸️ Webwork"},
+	"limits introducing limits - training - graphical limits": {"name":"🌱 Limits Introducing Limits (Limit.2) - Graphical Limits", "modules":["Week 1"], "assignment_group_name":"🕸️ Webwork"},
+	"limits introducing limits - training - limits with formulas": {"name":"🌱 Limits Introducing Limits (Limit.2) - Limits With Formulas", "modules":["Week 1"], "assignment_group_name":"🕸️ Webwork"},
+	"limits - limit laws - training - new limits from old using the limit laws": {"name":"🌱 Limit Laws (Limit.2) - New Limits From Old Using The Limit Laws", "modules":["Week 1"], "assignment_group_name":"🕸️ Webwork"},
+	"limits - limit laws - challenge": {"name":"⛰️ Limit Laws (Limit.2) - Challenge", "modules":["Week 1"], "assignment_group_name":"🕸️ Webwork"},
+	
+
+
+	"limits continuity - training - identifying discontinuities": {"name":"🌱 Limits Continuity (Limit.3)- Identifying Discontinuities", "modules":["Week 2"], "assignment_group_name":"🕸️ Webwork"},
+	"limits continuity - training - making piecewise functions continuous": {"name":"🌱 Limits Continuity (Limit.3)- Making Piecewise Functions Continuous", "modules":["Week 2"], "assignment_group_name":"🕸️ Webwork"},
+	"limits continuity - challenge": {"name":"⛰️ Limits Continuity (Limit.3)- Challenge", "modules":["Week 2"], "assignment_group_name":"🕸️ Webwork"},
+	"limits indeterminate forms - training": {"name":"🌱 Limits Indeterminate Forms (Limit.2, Limit.3)", "modules":["Week 2"], "assignment_group_name":"🕸️ Webwork"},
+	"limits indeterminate forms - challenge": {"name":"⛰️ Limits Indeterminate Forms  (Limit.2, Limit.3)- Challenge", "modules":["Week 2"], "assignment_group_name":"🕸️ Webwork"},
+	"limits of trigonometric functions - training": {"name":"🌱 Limits Of Trigonometric Functions (Limit.2, Limit.3)", "modules":["Week 2"], "assignment_group_name":"🕸️ Webwork"},
+	"limits of trigonometric functions - speedrun": {"name":"⏩ Limits Of Trigonometric Functions (Limit.2, Limit.3) - Speedrun", "modules":["Week 2"], "assignment_group_name":"🕸️ Webwork"},
+	"limits squeeze theorem - training": {"name":"🌱 Limits Squeeze Theorem (Limit.2)", "modules":["Week 2"], "assignment_group_name":"🕸️ Webwork"},
+	
+
+	"limits at infinity - training": {"name":"🌱 Limits At Infinity (Limit.2, Limit.3)", "modules":["Week 3"], "assignment_group_name":"🕸️ Webwork"},
+	"limits at infinity - speedrun": {"name":"⏩ Limits At Infinity (Limit.2, Limit.3) - Speedrun", "modules":["Week 3"], "assignment_group_name":"🕸️ Webwork"},
+	"limits intermediate value theorem - training": {"name":"🌱 Limits Intermediate Value Theorem (Limit.3)", "modules":["Week 3"], "assignment_group_name":"🕸️ Webwork"},
+	"limits intermediate value theorem - challenge": {"name":"⛰️ Limits Intermediate Value Theorem (Limit.3) - Challenge", "modules":["Week 3"], "assignment_group_name":"🕸️ Webwork"},
+	"derivatives limit definition of derivative - training": {"name":"🌱 Limit Definition Of Derivative (Limit.4, Limit.5)", "modules":["Week 3"], "assignment_group_name":"🕸️ Webwork"},
+	"derivatives limit definition of derivative - challenge": {"name":"⛰️ Limit Definition Of Derivative (Limit.4, Limit.5) - Challenge", "modules":["Week 3"], "assignment_group_name":"🕸️ Webwork"},
+
+
+	"derivatives rates and slopes - training": {"name":"🌱 Derivatives Rates And Slopes (Limit.4, ApplDer.3, ApplDer.4, ApplDer.5, )", "modules":["Week 4"], "assignment_group_name":"🕸️ Webwork"},
+	
+
+	"derivatives power rule and basic rules - training": {"name":"🌱 Derivatives Power Rule And Basic Rules (Deriv.1, Deriv.2)", "modules":["Week 5"], "assignment_group_name":"🕸️ Webwork"},
+	"derivatives power rule and slopes - challenge": {"name":"⛰️ Derivatives Power Rule And Slopes (Deriv.1, Deriv.2) - Challenge", "modules":["Week 5"], "assignment_group_name":"🕸️ Webwork"},
+	"derivatives product rule - training": {"name":"🌱 Derivatives Product Rule (Deriv.3)", "modules":["Week 5"], "assignment_group_name":"🕸️ Webwork"},
+	"derivatives quotient rule - training": {"name":"🌱 Derivatives Quotient Rule (Deriv.3)", "modules":["Week 5"], "assignment_group_name":"🕸️ Webwork"},
+	"derivatives product and quotient rule - speedrun level 1": {"name":"⏩ Derivatives Product And Quotient Rule (Deriv.3,Deriv.4) - Speedrun Level 1", "modules":["Week 5"], "assignment_group_name":"🕸️ Webwork"},
+	"derivatives product and quotient rule - speedrun level 2": {"name":"⏩ Derivatives Product And Quotient Rule (Deriv.3,Deriv.4) - Speedrun Level 2", "modules":["Week 5"], "assignment_group_name":"🕸️ Webwork"},
+	
+
+
+	"derivatives higher order derivatives - training": {"name":"🌱 Derivatives Higher Order Derivatives (Deriv.All)", "modules":["Week 6"], "assignment_group_name":"🕸️ Webwork"},
+	"derivatives of trigonometric functions - training": {"name":"🌱 Derivatives Of Trigonometric Functions (Deriv.2)", "modules":["Week 6"], "assignment_group_name":"🕸️ Webwork"},
+	"derivatives of trigonometric functions - challenge": {"name":"⛰️ Derivatives Of Trigonometric Functions (Deriv.2) - Challenge", "modules":["Week 6"], "assignment_group_name":"🕸️ Webwork"},
+	"derivatives chain rule - training": {"name":"🌱 Derivatives Chain Rule (Deriv.3)", "modules":["Week 6"], "assignment_group_name":"🕸️ Webwork"},
+	"derivatives chain rule - challenge": {"name":"⛰️ Derivatives Chain Rule (Deriv.3,Deriv.4) - Challenge", "modules":["Week 6"], "assignment_group_name":"🕸️ Webwork"},
+	"derivatives chain rule - speedrun": {"name":"⏩ Derivatives Chain Rule (Deriv.3,Deriv.4) - Speedrun", "modules":["Week 6"], "assignment_group_name":"🕸️ Webwork"},
+	"derivatives of exponential functions - training": {"name":"🌱 Derivatives Of Exponential Functions (Deriv.2)", "modules":["Week 6"], "assignment_group_name":"🕸️ Webwork"},
+	"derivatives of logarithmic functions - training": {"name":"🌱 Derivatives Of Logarithmic Functions (Deriv.2)", "modules":["Week 6"], "assignment_group_name":"🕸️ Webwork"},
+	"derivatives of logs and exps - speedrun": {"name":"⏩ Derivatives Of Logs And Exps (Deriv.2,Deriv.4) - Speedrun", "modules":["Week 6"], "assignment_group_name":"🕸️ Webwork"},
+
+
+	"derivatives applied as rates of change - training": {"name":"🌱 Derivatives Applied As Rates Of Change (ApplDer.5)", "modules":["Week 7"], "assignment_group_name":"🕸️ Webwork"},
+	"derivatives applied as rates of change - challenge": {"name":"⛰️ Derivatives Applied As Rates Of Change (ApplDer.5) - Challenge", "modules":["Week 7"], "assignment_group_name":"🕸️ Webwork"},
+	"derivatives differentation on implicit curves - training": {"name":"🌱 Differentation On Implicit Curves (Deriv.5,ApplDer.2)", "modules":["Week 7"], "assignment_group_name":"🕸️ Webwork"},
+	"derivatives differentation on implicit curves - challenge": {"name":"⛰️ Differentation On Implicit Curves (Deriv.5,ApplDer.2) - Challenge", "modules":["Week 7"], "assignment_group_name":"🕸️ Webwork"},
+
+	
+	"derivatives related rates - training": {"name":"🌱 Derivatives Related Rates (ApplDer.2)", "modules":["Week 8"], "assignment_group_name":"🕸️ Webwork"},
+	"derivatives related rates - challenge": {"name":"⛰️ Derivatives Related Rates (ApplDer.2) - Challenge", "modules":["Week 8"], "assignment_group_name":"🕸️ Webwork"},
+	"deriv application MVT rolles theorem - training": {"name":"🌱 MVT and Rolle's Theorem", "modules":["Week 8"], "assignment_group_name":"🕸️ Webwork"},
+	"deriv application MVT rolles theorem - challenge": {"name":"⛰️ MVT and Rolle's Theorem - Challenge", "modules":["Week 8"], "assignment_group_name":"🕸️ Webwork"},
+	
+
+	"deriv application extreme values - training": {"name":"🌱 Extreme Values (ApplDer.3, ApplDer.6)", "modules":["Week 9"], "assignment_group_name":"🕸️ Webwork"},
+	"deriv application extreme values - challenge": {"name":"⛰️ Extreme Values (ApplDer.3, ApplDer.6) - Challenge", "modules":["Week 9"], "assignment_group_name":"🕸️ Webwork"},
+	"deriv application optimization derivative tests - training": {"name":"🌱 Optimization Derivative Tests (ApplDer.4, ApplDer.6)", "modules":["Week 9"], "assignment_group_name":"🕸️ Webwork"},
+	"deriv application optimization derivative tests - challenge": {"name":"⛰️ Optimization Derivative Tests (ApplDer.4, ApplDer.6) - Challenge", "modules":["Week 9"], "assignment_group_name":"🕸️ Webwork"},
+	"deriv application curve sketching - training": {"name":"🌱 Curve Sketching (ApplDer.4)", "modules":["Week 9"], "assignment_group_name":"🕸️ Webwork"},
+	
+
+	"deriv application applied optimization - training": {"name":"🌱 Applied Optimizatio (ApplDer.6)", "modules":["Week 10"], "assignment_group_name":"🕸️ Webwork"},
+	"deriv application applied optimization - challenge level 1": {"name":"⛰️ Applied Optimization (ApplDer.6) - Challenge Level 1", "modules":["Week 10"], "assignment_group_name":"🕸️ Webwork"},
+	"deriv application applied optimization - challenge level 2": {"name":"⛰️ Applied Optimization (ApplDer.6) - Challenge Level 2", "modules":["Week 10"], "assignment_group_name":"🕸️ Webwork"},
+	
+
+	"deriv application newtons method root finding - training": {"name":"🌱 Newton's Method Root Finding (Limit.4)", "modules":[" ⭐️ Extra credit"], "assignment_group_name":"🕸️ Webwork"},
+	"deriv application newtons method root finding - challenge": {"name":"⛰️ Newton's Method Root Finding (Limit.4) - Challenge", "modules":[" ⭐️ Extra credit"], "assignment_group_name":"🕸️ Webwork"},
+	
+	"deriv application lhopitals rule indet forms - training": {"name":"🌱 L'Hopital's Rule Indet Forms (Limit.4, ApplDer.1)", "modules":["Week 7"], "assignment_group_name":"🕸️ Webwork"},
+	"deriv application lhopitals rule indet forms - speedrun": {"name":"⏩ L'Hopital's Rule Indet Forms (Limit.4, ApplDer.1) - Speedrun", "modules":["Week 7"], "assignment_group_name":"🕸️ Webwork"},
+
+
+	"integrals definite by geometry - training": {"name":"🌱 Definite Integration By Geometry (Int.1, Int.2)", "modules":["Week 10"], "assignment_group_name":"🕸️ Webwork"},
+	"integrals definite rules - training": {"name":"🌱 Definite Integration Rules (Int.1, Int.2)", "modules":["Week 10"], "assignment_group_name":"🕸️ Webwork"},
+	"integrals definite - challenge": {"name":"⛰️ Definite Integration (Int.1, Int.2) - Challenge", "modules":["Week 10"], "assignment_group_name":"🕸️ Webwork"},
+
+
+	"integrals antiderivatives power rule and basic rules - training": {"name":"🌱 Antiderivatives Power Rule And Basic Rules (Int.2)", "modules":["Week 11"], "assignment_group_name":"🕸️ Webwork"},
+	"integrals antiderivatives power rule and basic rules - speedrun": {"name":"⏩ Antiderivatives Power Rule And Basic Rules (Int.2) - Speedrun", "modules":["Week 11"], "assignment_group_name":"🕸️ Webwork"},
+	"integrals initial value problems - training": {"name":"🌱 Initial Value Problems (Int.2)", "modules":["Week 11"], "assignment_group_name":"🕸️ Webwork"},
+	"integrals initial value problems - challenge": {"name":"⛰️ Initial Value Problems (Int.2) - Challenge", "modules":["Week 11"], "assignment_group_name":"🕸️ Webwork"},
+	"integrals FTOC 1 for definite integrals - training": {"name":"🌱 FTOC 1 For Definite Integrals (Int.3)", "modules":["Week 11"], "assignment_group_name":"🕸️ Webwork"},
+	"integrals FTOC 1 for definite integrals - speedrun level 1": {"name":"⏩ FTOC 1 For Definite Integrals (Int.3) - Speedrun Level 1", "modules":["Week 11"], "assignment_group_name":"🕸️ Webwork"},
+	"integrals FTOC 1 for definite integrals - speedrun level 2": {"name":"⏩ FTOC 1 For Definite Integrals (Int.3) - Speedrun Level 2", "modules":["Week 11"], "assignment_group_name":"🕸️ Webwork"},
+
+
+	"integrals approximating area using rectangles - training": {"name":"🌱 Approximating Area Using Rectangles (Int.1)", "modules":["Week 12"], "assignment_group_name":"🕸️ Webwork"},
+	"integrals summation notation basics - training": {"name":"🌱 Summation Notation Basics (Int.1)", "modules":["Week 12"], "assignment_group_name":"🕸️ Webwork"},
+	"integrals approximating area - challenge": {"name":"⛰️ Approximating Area - Challenge (Int.1)", "modules":["Week 12"], "assignment_group_name":"🕸️ Webwork"},
+
+
+	"integrals FTOC 2 for derivatives of integral functions - training": {"name":"🌱 FTOC 2 For Derivatives Of Integral Functions (Int.3)", "modules":["Week 13"], "assignment_group_name":"🕸️ Webwork"},
+	"integrals FTOC 2 for derivatives of integral functions - challenge": {"name":"⛰️ FTOC 2 For Derivatives Of Integral Functions (Int.3) - Challenge", "modules":["Week 13"], "assignment_group_name":"🕸️ Webwork"},
+	"integrals by substitution - training": {"name":"🌱 Integration By Substitution (Int.5)", "modules":["Week 13"], "assignment_group_name":"🕸️ Webwork"},
+	"integrals by substitution - speedrun level 1": {"name":"⏩ Integration By Substitution (Int.5) - Speedrun Level 1", "modules":["Week 13"], "assignment_group_name":"🕸️ Webwork"},
+	"integrals by substitution - speedrun level 2": {"name":"⏩ Integration By Substitution (Int.5) - Speedrun Level 2", "modules":["Week 13"], "assignment_group_name":"🕸️ Webwork"},
+	"integrals applied as net change - training": {"name":"🌱 Applied Integration As Net Change (Int.4)", "modules":["Week 13"], "assignment_group_name":"🕸️ Webwork"}
+
+	
+	
+	
+
+}
