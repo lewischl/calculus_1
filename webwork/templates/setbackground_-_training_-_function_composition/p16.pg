@@ -143,7 +143,7 @@ Still working on function composition?  \((f \circ g)\) is an example of composi
 $PAR 
 
 See this Khan Academy page on function composition: $PAR
-\{ htmlLink( "khanacademy.org/math/precalculus/x9e81a4f98389efdf:composite/x9e81a4f98389efdf:composing/v/function-composition", "Link to video" ) \}
+\{ htmlLink( "https://khanacademy.org/math/precalculus/x9e81a4f98389efdf:composite/x9e81a4f98389efdf:composing/v/function-composition", "Link to video" ) \}
 
 END_HINT
 
