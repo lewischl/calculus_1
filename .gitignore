@@ -8,3 +8,6 @@ tmp.html
 *.bak/
 *.pyc
 _math114.sublime-workspace
+*automatically_generated_assignments/
+~$*.xlsx
+inspectme.xlsx

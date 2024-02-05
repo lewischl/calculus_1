@@ -1,0 +1,10 @@
+{
+  "name":"✏️ Written homework 6",
+  "type": "assignment",
+  "points_possible": 20,
+  "allowed_extensions": ["pdf"],
+  "style":"_styles/assignments",
+  "assignment_group_name":"✏️ Written homework",
+  "submission_types": "online_upload",
+  "modules": ["✏️ Written homework"]
+}

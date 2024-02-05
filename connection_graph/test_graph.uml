@@ -1,0 +1,52 @@
+
+
+"Lines in the plane" --> "Tangent lines"
+"Lines in the plane" --> "Secant lines"
+
+"Different kinds of rates of change" --> "Average rates of change are slopes of secant lines"
+"Different kinds of rates of change" --> "Instantaneous rates of change are slopes of tangent lines"
+ 
+"Secant lines" --> "Average rates of change are slopes of secant lines"
+"Tangent lines" --> "Instantaneous rates of change are slopes of tangent lines"
+
+"Average rates of change are slopes of secant lines" --> "Rates of change are slopes of lines"
+"Instantaneous rates of change are slopes of tangent lines" --> "Rates of change are slopes of lines"
+
+"Rates of change are slopes of lines" --> "Slope functions - concept"
+
+"Graphing functions" -->  "Slope functions - concept"
+
+"Limit notation" --> "Formal definition of the limit"
+"Limit notation" --> "Limits with value infinity"
+"Limit notation" --> "Limits at infinity"
+
+"Continuity" --> "Intermediate value theorem"
+"Intermediate value theorem" --> "Bisection for rootfinding"
+
+
+"Formal definition of the limit" --> "Proving limits and theorems"
+"Formal definition of the limit" --> "Mathematical analysis"
+
+
+
+z2 --> a2
+
+a1 --> b1
+a2 --> b1
+
+a3 --> b2
+a4 --> b2
+
+b1 --> "center node"
+b2 --> "center node"
+
+"center node" --> n1 
+"center node" --> n2
+
+n1 --> p1 
+n1 --> p2
+n2 --> q1 
+n2 --> q2
+
+p1 --> s1
+q1 --> t1
