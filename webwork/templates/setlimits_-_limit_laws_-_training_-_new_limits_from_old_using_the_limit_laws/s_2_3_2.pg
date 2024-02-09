@@ -85,7 +85,12 @@ plot_functions($graph1,$p1a,$p2a,$p3a,$p4a);
 
 ###############################################################
 
-$graph2 = init_graph(-3,-3,3,3,'axes'=>[0,0],'ticks'=>[6,6],'grid'=>[6,6],'size'=>[400,400]);
+$x_min = -3;
+$x_max = 3;
+$y_min = floor((-($x_min-1.25)**2)/4+($a+1));
+$y_max = ceil(($x_max-1)**2+$a);
+
+$graph2 = init_graph(-3,$y_min,3,$y_max,'axes'=>[0,0],'ticks'=>[6,$y_max-$y_min],'grid'=>[6,$y_max-$y_min],'size'=>[400,400]);
 
 $p1b = FEQ("[-(x-1.25)^2]/4+($a+1) for x in [-3,1) using color:red weight:2");
 $p2b = FEQ("(x-1)^2+$a for x in [1,3] using color:red weight:2");
@@ -112,8 +117,10 @@ The "limit laws" let us use knowledge about limits, and combine them to know new
 We can use the limit laws to combine old limits into new ones.  Compute the necessary limits by themselves for [`f`] and [`g`] using the graphs, and then combine using the limit laws.
 
 For example, if we want to know [``\lim_{x \to -1}[f+g]``], we would 
-1. compute the limits of [`f`] and [`g`] at [`x=1`], and 
+1. compute the limits of [`f`] and [`g`] at [`x=-1`], and 
 2. then add those two values together since "the limit of the sum is the sum of the limits".
+
+Be cautious, though: the two-sided limit only exists if both one-sided limits exist and they're equal.
 [@ closeDiv() @]*
 
 END_PGML
