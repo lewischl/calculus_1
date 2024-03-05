@@ -83,7 +83,7 @@ Context()->texStrings;
 BEGIN_PGML
 
 [@ openDiv({ "class" => "problemPurpose" }) @]*
-An opportunity to practice the quotient rule for a rational function of polynomials.
+An opportunity to practice the quotient rule for a rational function of exponentials.
 [@ closeDiv() @]*
 
 
