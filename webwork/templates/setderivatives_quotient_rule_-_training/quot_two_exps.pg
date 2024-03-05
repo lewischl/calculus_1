@@ -120,16 +120,19 @@ END_TEXT
 
 
 
+do{
 $a1 = random(2,5,1);
 $b1 = non_zero_random(-5,5,1);
 
 $a2 = random(2,5,1);
 $b2 = non_zero_random(-5,5,1);
 
-$x = non_zero_random(-10,10,1);
+$x = random(-10,10,1);
 
 $num = Formula("$a1 e^x + $b1")->reduce;
 $den = Formula("$a2 e^x + $b2")->reduce;
+}
+while ($den->eval(x=>$x)==0);
 
 $g = $num / $den;
 $g_prime = $g->D;
@@ -153,7 +156,7 @@ ANS($g_prime->eval(x=>$x)->cmp);
 
 
 
-
+do{
 $a1 = random(2,5,1);
 $b1 = non_zero_random(-5,5,1);
 
@@ -164,6 +167,8 @@ $x = random(-10,10,1);
 
 $num = Formula("$a1 e^x + $b1")->reduce;
 $den = Formula("$a2 e^x + $b2")->reduce;
+}
+while ($den->eval(x=>$x)==0);
 
 $g = $num / $den;
 $g_prime = $g->D;
