@@ -349,7 +349,7 @@ BEGIN_PGML
 
 -----
 
-Find [`\frac d{dx}\left(x^[$b14]e^x\right)`]
+Find [`\frac d{dx}\left(x^{[$b14]}e^x\right)`]
 
 [@
 DataTable(
@@ -365,7 +365,7 @@ tablecss => "border:solid 1px; border-spacing:50px 5px; border-radius: 5px; bord
 END_PGML
 
 #$new_gp=Formula("$b14*x^($b14-1)")->cmp();
-ANS(Formula("x^$b14")->cmp());
+ANS(Formula("x^{$b14}")->cmp());
 ANS($new_gp);
 ANS(Formula("e^x")->cmp());
 ANS(Formula("e^x")->cmp());
