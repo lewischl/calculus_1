@@ -261,7 +261,7 @@ Section::Begin("Finishing the job");
 
 BEGIN_PGML
 
-Recall that the interval is [`[[$c-1],[$c+1]]`].
+Recall that the interval is [`[[$c-1],[$c+1]]`], and [`g(x)=x-3([$g_partial])^{\frac23}+[$d]`].
 
 List the four [`x`] values that are either a critical number or an endpoint (separated by commas): [_]{List("$c-1,$c,$c+1,$c+8")}
 
@@ -277,7 +277,7 @@ Now we evaluate [`g`] at each of these [`x`]-values (in increasing order), as be
 
 The absolute maximum is the highest [`y`]-value: [_]{$ymax}
 
-The absolute maximum is the lowest [`y`]-value: [_]{$ymin}
+The absolute minimum is the lowest [`y`]-value: [_]{$ymin}
 
 END_PGML
 Section::End();
