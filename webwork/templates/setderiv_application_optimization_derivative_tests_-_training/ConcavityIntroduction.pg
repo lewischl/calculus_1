@@ -198,10 +198,11 @@ Here is a curve and its tangent line. Move the slider to see how the tangent lin
 
 Using the slider for [`a`], estimate the slope of the tangent line when [`x=a`].
 
-* When [`x=[$x1_min+1.8]`], the slope is [`g'\big([$x1_min+1.8]\big)=`] [____]{$g1->D->eval(x=>$x1_min+1.8)->cmp(tolType   => 'absolute',tolerance => .01)}
-* When [`x=[$x1_min+2.8]`], the slope is [`g'\big([$x1_min+2.8]\big)=`] [____]{$g1->D->eval(x=>$x1_min+2.8)->cmp(tolType   => 'absolute',tolerance => .05)}
-* When [`x=[$x1_min+3.6]`], the slope is [`g'\big([$x1_min+3.6]\big)=`] [____]{$g1->D->eval(x=>$x1_min+3.6)->cmp(tolType   => 'absolute',tolerance => .1)}
+* When [`x=[$x1_min+1.8]`], the slope is [`g'\big([$x1_min+1.8]\big)\approx`] [____]{$g1->D->eval(x=>$x1_min+1.8)->cmp(tolType   => 'absolute',tolerance => .01)}
+* When [`x=[$x1_min+2.8]`], the slope is [`g'\big([$x1_min+2.8]\big)\approx`] [____]{$g1->D->eval(x=>$x1_min+2.8)->cmp(tolType   => 'absolute',tolerance => .05)}
+* When [`x=[$x1_min+3.6]`], the slope is [`g'\big([$x1_min+3.6]\big)\approx`] [____]{$g1->D->eval(x=>$x1_min+3.6)->cmp(tolType   => 'absolute',tolerance => .1)}
 
+Hint: these slopes are nice numbers; use "rise over run" for two points on the tangent line.  The required accuracy is [`0.1`], so you need to be kinda close.  
 ---
 
 [@ openDiv({ "class" => "importantFormula" }) @]*
@@ -240,11 +241,11 @@ BEGIN_PGML
 
 [@ $desmos_div2 @]*
 
-Using the slider for [`a`], estimate the slope of the tangent line when [`x=a`].
+Using the slider for [`a`], estimate the slope of the tangent line when [`x=a`].  Hint: these slopes are nice numbers; use "rise over run" for two points on the tangent line.  The required accuracy is [`0.1`], so you need to be kinda close.  
 
-* When [`x=[$x2_max-3.6]`] the slope is [`g'\big([$x2_max-3.6]\big)=`] [____]{$g2->D->eval(x=>$x2_max-3.6)->cmp(tolType   => 'absolute',tolerance => .1)}
-* When [`x=[$x2_max-2.8]`] the slope is [`g'\big([$x2_max-2.8]\big)=`] [____]{$g2->D->eval(x=>$x2_max-2.8)->cmp(tolType   => 'absolute',tolerance => .05)}
-* When [`x=[$x2_max-1.8]`] the slope is [`g'\big([$x2_max-1.8]\big)=`] [____]{$g2->D->eval(x=>$x2_max-1.8)->cmp(tolType   => 'absolute',tolerance => .01)}
+* When [`x=[$x2_max-3.6]`] the slope is [`g'\big([$x2_max-3.6]\big)\approx`] [____]{$g2->D->eval(x=>$x2_max-3.6)->cmp(tolType   => 'absolute',tolerance => .1)}
+* When [`x=[$x2_max-2.8]`] the slope is [`g'\big([$x2_max-2.8]\big)\approx`] [____]{$g2->D->eval(x=>$x2_max-2.8)->cmp(tolType   => 'absolute',tolerance => .05)}
+* When [`x=[$x2_max-1.8]`] the slope is [`g'\big([$x2_max-1.8]\big)\approx`] [____]{$g2->D->eval(x=>$x2_max-1.8)->cmp(tolType   => 'absolute',tolerance => .01)}
 
 As [`x`] increases (as we move from left to right):
 
@@ -261,11 +262,11 @@ BEGIN_PGML
 
 [@ $desmos_div3 @]*
 
-Using the slider for [`a`], estimate the slope of the tangent line when [`x=a`].
+Using the slider for [`a`], estimate the slope of the tangent line when [`x=a`].  Same hint -- the slopes are nice numbers, and the tolerance is [`0.1`]
 
-* When [`x=[$x3_max-3.6]`] the slope is [`g'\big([$x3_max-3.6]\big)=`] [____]{$g3->D->eval(x=>$x3_max-3.6)->cmp(tolType   => 'absolute',tolerance => .1)}
-* When [`x=[$x3_max-2.8]`] the slope is [`g'\big([$x3_max-2.8]\big)=`] [____]{$g3->D->eval(x=>$x3_max-2.8)->cmp(tolType   => 'absolute',tolerance => .05)}
-* When [`x=[$x3_max-1.8]`] the slope is [`g'\big([$x3_max-1.8]\big)=`] [____]{$g3->D->eval(x=>$x3_max-1.8)->cmp(tolType   => 'absolute',tolerance => .01)}
+* When [`x=[$x3_max-3.6]`] the slope is [`g'\big([$x3_max-3.6]\big) \approx`] [____]{$g3->D->eval(x=>$x3_max-3.6)->cmp(tolType   => 'absolute',tolerance => .1)}
+* When [`x=[$x3_max-2.8]`] the slope is [`g'\big([$x3_max-2.8]\big) \approx`] [____]{$g3->D->eval(x=>$x3_max-2.8)->cmp(tolType   => 'absolute',tolerance => .05)}
+* When [`x=[$x3_max-1.8]`] the slope is [`g'\big([$x3_max-1.8]\big) \approx`] [____]{$g3->D->eval(x=>$x3_max-1.8)->cmp(tolType   => 'absolute',tolerance => .01)}
 
 As [`x`] increases (as we move from left to right):
 
@@ -282,11 +283,11 @@ BEGIN_PGML
 
 [@ $desmos_div4 @]*
 
-Using the slider for [`a`], estimate the slope of the tangent line when [`x=a`].
+Using the slider for [`a`], estimate the slope of the tangent line when [`x=a`].   Same hint -- the slopes are nice numbers, and the tolerance is [`0.1`]
 
-* When [`x=[$x4_min+1.8]`] the slope is [`g'\big([$x4_min+1.8]\big)=`] [____]{$g4->D->eval(x=>$x4_min+1.8)->cmp(tolType   => 'absolute',tolerance => .01)}
-* When [`x=[$x4_min+2.8]`] the slope is [`g'\big([$x4_min+2.8]\big)=`] [____]{$g4->D->eval(x=>$x4_min+2.8)->cmp(tolType   => 'absolute',tolerance => .05)}
-* When [`x=[$x4_min+3.6]`] the slope is [`g'\big([$x4_min+3.6]\big)=`] [____]{$g4->D->eval(x=>$x4_min+3.6)->cmp(tolType   => 'absolute',tolerance => .1)}
+* When [`x=[$x4_min+1.8]`] the slope is [`g'\big([$x4_min+1.8]\big)\approx`] [____]{$g4->D->eval(x=>$x4_min+1.8)->cmp(tolType   => 'absolute',tolerance => .01)}
+* When [`x=[$x4_min+2.8]`] the slope is [`g'\big([$x4_min+2.8]\big)\approx`] [____]{$g4->D->eval(x=>$x4_min+2.8)->cmp(tolType   => 'absolute',tolerance => .05)}
+* When [`x=[$x4_min+3.6]`] the slope is [`g'\big([$x4_min+3.6]\big)\approx`] [____]{$g4->D->eval(x=>$x4_min+3.6)->cmp(tolType   => 'absolute',tolerance => .1)}
 
 As [`x`] increases (as we move from left to right):
 
