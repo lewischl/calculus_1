@@ -1,5 +1,5 @@
 
 
-![uwec logo]($PATHTOMD2CANVASSTYLEFILE/and_uwec_sidebyside.png)
+![uwec logo]($PATHTOMD2CANVASSTYLEFILE/course_logo_canvas.png)
 
 ---
