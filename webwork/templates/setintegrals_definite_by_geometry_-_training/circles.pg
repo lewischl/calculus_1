@@ -138,7 +138,7 @@ This problem poses some definite integrals using the graph, which depicts some h
 
 
 [@ openDiv({ "class" => "promptOrInstruction" }) @]*
-1. Factor out the constant from the integrla
+1. Factor out the constant from the integral
 2. Determine the area being indicated using the lower and upper bounds
 3. Compute the areas of the pieces needed using the formula for the area of a circle
 4. Take into account sign, based on whether above or below the [`x`]-axis
