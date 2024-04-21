@@ -1,89 +1,173 @@
 [
-	{"name":"Limit.1",
+{
+	"name":"Limit.1",
 	"description":"I can calculate average rate of change of a function on a given interval and can explain its meaning in context.",
 	"value":1,
-	"num_demonstrations":2},
-	{"name":"Limit.2",
+	"num_demonstrations":2,
+	"book_reading":"* Section 2.1, pages 61-65.  \n* Section 3.1, pages 123-129.",
+	"book_problems":"§2.1, pages 65-66: Preliminary 1,2,3,4.  Exercises 5,6, 7,8, 22, 24, 25.\n\n§3.1, pages 129-132, Preliminary 2, 5.  Exercises 9, 10."
+},
+{
+	"name":"Limit.2",
 	"description":"I can use limit notation correctly and can evaluate a limit (at a point or at infinity) graphically, numerically, and using algebra.",
 	"value":2,
-	"num_demonstrations":2},
-	{"name":"Limit.3",
+	"num_demonstrations":2,
+	"book_reading":"* Section 2.2, pages 67-73.\n* Section 2.3, pages 76-78.\n* Section 2.4, pages 79-87.\n* Section 2.5, pages 90-94.\n* Section 2.6, pages 96-99.\n* Section 2.7, pages 101-105.",
+	"book_problems":"* §2.2, pages 73-75, Exercises 21-44, 47-54.\n* §2.3, Exercises 19-22, 28, 29-32, 35, 37-39.\n* §2.4, Exercises 75-88.\n* §2.5, Exercises 1-4, 9-25, 31, 35, 36, 37.\n* §2.7, Exercises 7-16, 27-34, 50."
+},
+{
+	"name":"Limit.3",
 	"description":"I can recognize points at which a function is and is not continuous, can classify discontinuities, and can use the language of limits to support my thinking.",
 	"value":1,
-	"num_demonstrations":2},
-	{"name":"Limit.4",
+	"num_demonstrations":2,
+	"book_reading":"* Section 2.4, pages 79-87.  Section 2.5, pages 90-94.",
+	"book_problems":"* §2.4, Exercises 2-4, 39-52.  57-60, 61, 63, 69, 71-74.\n* §2.5 Preliminary 1, 2, 3.  Exercises 1,4."
+},
+{
+	"name":"Limit.4",
 	"description":"I can explain the relationship between average and instantaneous rates of change and can support my thinking with the language of tangent lines, secant lines, limits, and derivatives.",
 	"value":2,
-	"num_demonstrations":2},
-	{"name":"Limit.5",
+	"num_demonstrations":2,
+	"book_reading":"* Section 2.1, pages 61-65.\n* Section 3.1, pages 123-129.",
+	"book_problems":"* §2.1, Exercises.\n* §3.1, Preliminary 4-7. Exercises 2, 3, 9, 10, 25, 26"
+},
+{
+	"name":"Limit.5",
 	"description":"I can write out the correct limit expression that would compute the derivative of a function (at a point or in general) and can evaluate the limit to compute a derivative without using shortcuts.",
 	"value":1,
-	"num_demonstrations":2},
+	"num_demonstrations":2,
+	"book_reading":"* Section 3.1, pages 123-129.\n* Also related, Section 2.1, pages 61-65.",
+	"book_problems":"* §3.1, Exercises 29-34, and 35-44 are more difficult examples that will stress your algebra skills.  Also, Exercises 57-62, 67."
+},
 
-	{"name":"Deriv.1",
+{
+	"name":"Deriv.1",
 	"description":"I can use derivative notation correctly and can compute derivatives for sums, constant multiples, and power functions.",
 	"value":1,
-	"num_demonstrations":2},
-	{"name":"Deriv.2",
+	"num_demonstrations":2,
+	"book_reading":"* Section 3.2, pages 132-141",
+	"book_problems":"* §3.2, Exercises 7-14, 21-28, 39-44, 50"
+},
+{
+	"name":"Deriv.2",
 	"description":"I can correctly differentiate basic functions including polynomials and power functions, exponential and logarithmic functions, and trigonometric functions.",
 	"value":1,
-	"num_demonstrations":2},
-	{"name":"Deriv.3",
+	"num_demonstrations":2,
+	"book_reading":"* Section 3.2, pages 132-141\n* Section 3.6\n* Section 3.9",
+	"book_problems":"* §3.2 Exercises 21-18, 37-38\n* §3.5 Exercises 1-10\n* §3.6, 5-24 28-34, 43, 44\n* §3.9 Exercises 21,22,25, 35."
+},
+{
+	"name":"Deriv.3",
 	"description":"I can differentiate combinations of basic functions using the product rule, quotient rule, and chain rule.",
 	"value":2,
-	"num_demonstrations":2},
-	{"name":"Deriv.4",
+	"num_demonstrations":2,
+	"book_reading":"* Section 3.3, pages 146-150\n* Section 3.7, pages 173-178",
+	"book_problems":"§3.7 Exercises 13-24, 31-44, 45-72.\n* §3.9 Exercises 4,5,9, 11-20, 29, 31."
+},
+{
+	"name":"Deriv.4",
 	"description":"I can apply two or more derivative rules to differentiate a single function.",
 	"value":1,
-	"num_demonstrations":2},
-	{"name":"Deriv.5",
+	"num_demonstrations":2,
+	"book_reading":"* Section 3.3, pages 146-150\n* Section 3.5, pages \n* Section 3.6, pages \n* Section 3.7, pages 173-178\n* Section 3.9, pages\n",
+	"book_problems":"* §3.3 Exercises 30, 37.\n* §3.5 Exercises 11-16\n* §3.7 Exercises 35, 47, 48, 50, 51, 53, 54, 56, 59, 61, 75, 65, 74\n* §3.9 Exercises 13-20, 27-34"
+},
+{
+	"name":"Deriv.5",
 	"description":"I can correctly compute the formulas and values of derivatives of functions with multiple variables using implicit differentiation.",
 	"value":2,
-	"num_demonstrations":2},
+	"num_demonstrations":2,
+	"book_reading":"* Section 3.8 pages 181-186",
+	"book_problems":"* §3.8 Exercises 11-28, 55-62, 63, 66, 68, 69, 72, 75, 76"
+},
 
-	{"name":"ApplDer.1",
+{
+	"name":"ApplDer.1",
 	"description":"I can justify the use of and correctly apply L'Hôpital's rule to evaluate limits.",
 	"value":1,
-	"num_demonstrations":2},
-	{"name":"ApplDer.2",
+	"num_demonstrations":2,
+	"book_reading":"* Section 4.5, pages 246-251",
+	"book_problems":"* §4.5, Preliminary 1-4, Exercises 1-10, 11-16, 17-44"
+},
+{
+	"name":"ApplDer.2",
 	"description":"I can set up and solve related rates problems completely and correctly.",
 	"value":2,
-	"num_demonstrations":2},
-	{"name":"ApplDer.3",
+	"num_demonstrations":2,
+	"book_reading":"* Section 3.10, pages 198-202",
+	"book_problems":"* §3.10, Exercises 1,2, 3,4, 5-9, 11-16, 17, 21"
+},
+{
+	"name":"ApplDer.3",
 	"description":"I can identify and classify local and absolute extrema of a function and can explain the difference between the two.",
 	"value":1,
-	"num_demonstrations":2},
-	{"name":"ApplDer.4",
+	"num_demonstrations":2,
+	"book_reading":"* Section 4.2, pages 220-225",
+	"book_problems":"* §4.2, Preliminary 1-4.  Exercises 3-20, 21, 22-24, 27-60."
+},
+{
+	"name":"ApplDer.4",
 	"description":"I can conduct first and second derivative tests and use that information to describe key behavior and important features of the original function, and I can use derivatives to sketch the original function",
 	"value":2,
-	"num_demonstrations":2},
-	{"name":"ApplDer.5",
+	"num_demonstrations":2,
+	"book_reading":"* Section 4.3, pages 232-236\n Section 4.4, pages 238-242",
+	"book_problems":"* §4.3, Preliminary 3-6.  Exercises 14-17, 27-58, 72, 73."
+},
+{
+	"name":"ApplDer.5",
 	"description":"I can use a function and its derivatives to describe the position, velocity, and acceleration of an object in motion.",
 	"value":1,
-	"num_demonstrations":2},
-	{"name":"ApplDer.6",
+	"num_demonstrations":2,
+	"book_reading":"* Section 3.4, pages 153-159.",
+	"book_problems":"* §3.4, Exercises 15, 21, 24, 27, 29, 30, 31, 32, 33, 34"
+},
+{
+	"name":"ApplDer.6",
 	"description":"I can set up and solve applied optimization problems completely and correctly.",
 	"value":2,
-	"num_demonstrations":2},
+	"num_demonstrations":2,
+	"book_reading":"* Section 4.7, pages 263-269",
+	"book_problems":"* §4.7, 1-16.  17.  21.  23.  28, 30.  Randomize the numbers for yourself to generate new problems.  It's not about the numbers, or even the answer, but about the solution method."
+},
 
-	{"name":"Int.1",
+{
+	"name":"Int.1",
 	"description":"I can use geometry to evaluate a definite integral exactly, and can use Riemann sums to estimate the value of a definite integral; I can explain the relative validity of estimations.",
 	"value":2,
-	"num_demonstrations":2},
-	{"name":"Int.2",
+	"num_demonstrations":2,
+	"book_reading":"* Sections 5.1, pages 285-294\n* 5.2, pages 298-307",
+	"book_problems":"* §5.1, Exercises 6, 9, 10, 11, 12, 13, 15-22.\n* §5.2, 1-9."
+},
+{
+	"name":"Int.2",
 	"description":"I can use integral notation correctly and can anti-differentiate combinations of basic functions.",
 	"value":1,
-	"num_demonstrations":2},
-	{"name":"Int.3",
+	"num_demonstrations":2,
+	"book_reading":"* Section 5.2, pages 300-306 (for notation)\n* Section 5.3 309-316",
+	"book_problems":"* §5.3, Exercises 10-21, 22-37."
+},
+{
+	"name":"Int.3",
 	"description":"I can describe the Fundamental Theorem of Calculus and can use both formulations of it to correctly integrate and differentiate functions.",
 	"value":2,
-	"num_demonstrations":2},
-	{"name":"Int.4",
+	"num_demonstrations":2,
+	"book_reading":"* Section 5.4, pages 318-323\n* 5.5, pages 325-330",
+	"book_problems":"* §5.4, Exercises 7-40.  Do them all.\n* §5.5, Exercises 13-22, 33-36, 30 (I really like this problem), 44, 45, 48."
+},
+{
+	"name":"Int.4",
 	"description":"I can use a rate of change function and integration to determine total and net change and explain their meanings in context.",
 	"value":1,
-	"num_demonstrations":2},
-	{"name":"Int.5",
+	"num_demonstrations":2,
+	"book_reading":"* Section 5.6, pages 333-336.  ",
+	"book_problems":"* §5.6, 1-8, 9-12, 13, 14, 15, 23"
+},
+{
+	"name":"Int.5",
 	"description":"I can recognize the need for and correctly use substitution to compute definite and indefinite integrals.",
 	"value":1,
-	"num_demonstrations":1}
+	"num_demonstrations":1,
+	"book_reading":"* Section 5.7",
+	"book_problems":"* §5.7, Exercises 29-47, 48-76, 85-98.  Do lots."
+}
 ]

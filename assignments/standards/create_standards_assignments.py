@@ -94,22 +94,27 @@ class StandardsMaker(mc.tool.Tool):
                 json.dump(meta_data, f, indent = 4)
 
 
-            description = (
-                f"## ⛳️ Learning standard {assignment_data['name']}\n\n"
-                f"### Description\n\n<div class=\"callout minimal info shadowed\" role=\"note\" markdown=\"1\">\n{assignment_data.description}\n</div>\n\n"
-                f"### Value\n\nThis standard is valued at {assignment_data.value} points per demonstration of mastery.\n\nYour target is to demonstrate mastery at this learning standard {assignment_data.num_demonstrations} times.\n\nThe total point value of this standard is therefore {assignment_data.value * assignment_data.num_demonstrations} points.\n\n"
-                f"### Supporting assignments:\n\n"
-                )   
-
-
             def make_due_date(canvas_obj):
 
                 due_at = canvas_obj.due_at_date.astimezone()
                 return f"{due_at.month}/{due_at.day}"
 
 
+            supporting_assignments = '\n'.join([f'* <a href="assignment:{n.name}">{n.name}</a>, due {make_due_date(n)}' for n in assignment_data.related_assignments]) + '\n\n'
 
-            description = description + '\n'.join([f'* <a href="assignment:{n.name}">{n.name}</a>, due {make_due_date(n)}' for n in assignment_data.related_assignments]) + '\n\n'
+
+            description = (
+                f"## ⛳️ Learning standard {assignment_data['name']}\n\n"
+                f"### Description\n\n<div class=\"callout minimal info shadowed\" role=\"note\" markdown=\"1\">\n{assignment_data.description}\n</div>\n\n"
+                f"### Value\n\nThis standard is valued at {assignment_data.value} points per demonstration of mastery.\n\nYour target is to demonstrate mastery at this learning standard {assignment_data.num_demonstrations} times.\n\nThe total point value of this standard is therefore {assignment_data.value * assignment_data.num_demonstrations} points.\n\n"
+                f"### Supporting assignments:\n\n{supporting_assignments}\n\n"
+                f"### Suggested book reading\n\n{assignment_data.book_reading}\n\n"
+                f"### Suggested book problems\n\n{assignment_data.book_problems}\n\n"
+                )   
+
+
+
+
 
             with open(join(dirname,'source.md'),'w') as f:
                 f.write(description)
