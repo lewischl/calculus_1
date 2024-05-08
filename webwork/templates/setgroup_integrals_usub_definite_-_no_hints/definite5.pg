@@ -58,6 +58,11 @@ $PAR
 
 END_TEXT
 
-ANS(Compute("$a")->cmp);
+$ans = Compute($a)->with(
+  tolType => 'absolute',
+  tolerance => .0001,
+);
+
+ANS($ans->cmp);
 
 ENDDOCUMENT();
