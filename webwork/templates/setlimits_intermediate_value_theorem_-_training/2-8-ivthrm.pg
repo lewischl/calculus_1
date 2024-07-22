@@ -47,10 +47,11 @@ $L = random($yb+1,$ya-1,1);
 $no = "No, the function value is outside the range f($a) to f($b)";
 $yes = "Yes, function continuous and $L is inside range f($a) to f($b)";
 
+
 $ans1 = PopUp(["?", 
       $no,
       $yes], 
-$yes);
+$no);
 
 TEXT(beginproblem());
 

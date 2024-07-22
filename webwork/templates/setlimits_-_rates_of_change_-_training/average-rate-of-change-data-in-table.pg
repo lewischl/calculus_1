@@ -127,7 +127,7 @@ We start with computing some average velocities.  The formula for average rate o
 
 
 [@ openDiv({ "class" => "promptOrInstruction" }) @]*
-Find the average velocity for the time period beginning when [`t=2`] and lasting the given duration.
+Find the average velocity for the time period beginning when [`t_0=2`] and lasting the given duration.
 [@ closeDiv() @]*
 
     - For duration three seconds, the time interval is from [`t_0 = `][___]{"2"} to [`t_1 = `][___]{"5"}, and the average velocity is [`V_{\text{avg}} =`] [_]{($y5-$y2)/3} feet per second

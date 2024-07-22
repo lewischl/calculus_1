@@ -79,15 +79,15 @@ $c[1] = ($r1+$r2)/2;
 $c[2] = $r2+0.5;
 
 $classification1 = PopUp(
-  ["local minimum","local maximum","fail to classify"],
+  ["choose one","local minimum","local maximum","fail to classify"],
   "fail to classify");
 
 $classification2 = PopUp(
-  ["local minimum","local maximum","fail to classify"],
+  ["choose one","local minimum","local maximum","fail to classify"],
   "local maximum");
   
 $classification3 = PopUp(
-  ["local minimum","local maximum","fail to classify"],
+  ["choose one","local minimum","local maximum","fail to classify"],
   "local minimum");
 
 # set the x limits for plotting
@@ -132,16 +132,17 @@ The second derivative test is a way to classify critical points of a function.  
 
 ---
 
-I've pre-computed the roots of [`f'`] for you -- we have neither [`f`] nor [`f'`] at-hand in this problem.
+I've pre-computed the critical points for you -- we have neither [`f`] nor [`f'`] at-hand in this problem.
 
 For each given critical point of [`f`], use the second derivative test to determine whether [`f`] has a local min, a local max, or indicate if the classification test fails.
 
-* At [`x = [$c[0]]`], [`f`] has a [_]{$classification1}
+* At [`x_{\textnormal{crit}} = [$c[0]]`], [`f`] has a [_]{$classification1}
 
-* At [`x = [$c[1]]`], [`f`] has a [_]{$classification2}
+* At [`x_{\textnormal{crit}} = [$c[1]]`], [`f`] has a [_]{$classification2}
 
-* At [`x = [$c[2]]`], [`f`] has a [_]{$classification3}
+* At [`x_{\textnormal{crit}} = [$c[2]]`], [`f`] has a [_]{$classification3}
 
+(Note that it's impossible to know the critical points from this graph, you must be given them)
 END_PGML
 
 ENDDOCUMENT();

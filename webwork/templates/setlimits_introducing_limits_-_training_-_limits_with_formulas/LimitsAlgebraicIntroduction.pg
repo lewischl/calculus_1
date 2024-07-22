@@ -291,7 +291,7 @@ Section::Begin("More examples");
 
 BEGIN_PGML
 
-Let [`g(x)=[$g]`]. Let's try to find [``\lim_{x\rightarrow[$d]}g(x)``]. Round each answer to as many decimal places as the number in the "rounding" column. (You can still type [`g(`]any number[`)`] in line 2 of the window on the right as a calculator.)
+Let [`g(x)=[$g]`]. Let's try to find [``\lim_{x\rightarrow[$d]}g(x)``]. Round each answer to as many decimal places (digits after the . ) as the number in the "rounding" column. (You can still type [`g(`]any number[`)`] in line 2 of the window on the right as a calculator.)
 
 END_PGML
 #[@ $desmos_div2 @]*
@@ -351,7 +351,7 @@ BEGIN_PGML
 
 --------
 
-Let [`h(x)=[$h]`]. Let's try to find [``\lim_{x\rightarrow0}h(x)``]. Again, round to as many decimal places as the number in the "rounding" column.
+Let [`h(x)=[$h]`]. Let's try to find [``\lim_{x\rightarrow0}h(x)``]. Again, round to as many decimal places (digits after the . ) as the number in the "rounding" column. 
 
 END_PGML
 

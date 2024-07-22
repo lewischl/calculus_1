@@ -132,13 +132,13 @@ When we "solve" an equation, we almost always mean these equivalent things:
 Complete the prompts.
 [@ closeDiv() @]*
 
-First, let's work with a trigonometric function.
+First, I'll have you play with a simple trigonometric function:
 
 [`f(x) = [$f]`]
 * The value of [`f([$x1])`] is [___]{$f->eval(x=>Compute($x1))}.
 * is [`[$x1]`] a root of [`f`]?  [_____]{classification($no)}
 
-Next, a quadratic polynomial (its graph is a parabola -- maybe a graphing calculator would be helpful 😉)
+Next, a quadratic polynomial (its graph is a parabola -- use your graphing calculator!)
 
 [`g(x) = [$g]`]
 * [`g([$x2_near])`] = [___]{$g_x2}
@@ -146,7 +146,7 @@ Next, a quadratic polynomial (its graph is a parabola -- maybe a graphing calcul
 * [`g([$x2])`] = [___]{$g->eval(x=>Compute($x2))}
 * For [`g`], is [`x = [$x2]`] a solution to [`g(x)=0`]?  [_____]{classification($yes)}
 
-Now let's work with an exponential.
+Now let's play with an exponential
 
 [`h(x) = [$h]`]
 * Is [`[$x3]`] a zero of [`h`]?  [_____]{classification($no)}

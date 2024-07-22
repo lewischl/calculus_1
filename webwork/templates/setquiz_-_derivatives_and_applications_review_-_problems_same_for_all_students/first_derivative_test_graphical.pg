@@ -73,15 +73,15 @@ $c3 = $c2 + $sep;
 
 
 $classification1 = PopUp(
-  ["local minimum","local maximum","neither (saddle point)"],
+  ["choose one","local minimum","local maximum","neither (saddle point)"],
   "local maximum");
 
 $classification2 = PopUp(
-  ["local minimum","local maximum","neither (saddle point)"],
+  ["choose one","local minimum","local maximum","neither (saddle point)"],
   "neither (saddle point)");
   
 $classification3 = PopUp(
-  ["local minimum","local maximum","neither (saddle point)"],
+  ["choose one","local minimum","local maximum","neither (saddle point)"],
   "local minimum");
 
 # set the x limits for plotting
@@ -133,11 +133,11 @@ The first derivative test is a way to classify critical points of a function.  T
 
 For each critical point of [`f`], use the first derivative test to classify whether [`f`] has a local min, local max, or neither at that point.
 
-* At [`x = [$c1]`], [`f`] has a [_]{$classification1}
+* At [`x_{\textnormal{crit}} = [$c1]`], [`f`] has a [_]{$classification1}
 
-* At [`x = [$c2]`], [`f`] has a [_]{$classification2}
+* At [`x_{\textnormal{crit}} = [$c2]`], [`f`] has a [_]{$classification2}
 
-* At [`x = [$c3]`], [`f`] has a [_]{$classification3}
+* At [`x_{\textnormal{crit}} = [$c3]`], [`f`] has a [_]{$classification3}
 
 END_PGML
 

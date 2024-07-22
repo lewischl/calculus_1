@@ -53,6 +53,12 @@ loadMacros(
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
+Context('Numeric');
+Context('Numeric')->flags->set(
+    tolerance => 0.0001,
+    tolType   => 'absolute',
+);
+
 $a1 = random(1,4,1);
 $b1 = random(6,10,1);
 $t1 = -$a1+$b1;
@@ -74,9 +80,8 @@ END_TEXT
 
 
 
-$ans = Compute(1/($a1 + $b1));
-ANS($ans->cmp(tolerance => 0.0001,
-    tolType   => 'absolute'));
+$ans = "1/($a1 + $b1)";
+ANS(Compute($ans)->cmp());
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.
 

@@ -68,7 +68,7 @@ while ($b12==$b10 or $b6+$b10==$b8+$b12 or $b6+$b12==$b8+$b10){
     $b12=random(2,10);
 }
 $b13=non_zero_random(-10,10);
-$b14=random(2,10);
+$b14=random(2,9);
 
 #THE LINES BELOW ARE REPEATED IN COMMENTS NEAR WHERE THEY ARE USED
 

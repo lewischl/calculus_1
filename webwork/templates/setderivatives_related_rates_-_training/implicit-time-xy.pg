@@ -78,7 +78,7 @@ loadMacros(
 
 
 TEXT(beginproblem());
-$showPartialCorrectAnswers = 0;
+$showPartialCorrectAnswers = 1;
 
 Context()->variables->add(
 dx=>"Real", dy=>"Real", y=>"Real", 

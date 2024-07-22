@@ -34,7 +34,7 @@ loadMacros("niceTables.pl", "parserFormulaUpToConstant.pl");
 
 Context("Numeric");
 
-Context()->variables->add(u=>"Real", dx=>"Real", du=>"Real");
+Context()->variables->add(u=>["Real", limits=>[0,1]], dx=>"Real", du=>"Real");
 
 Context()->noreduce('(-x)-y');
 
@@ -84,6 +84,12 @@ $g3=Formula("$b11*x^$b8+$b10*x^$b9")->reduce;
 $g3d=Formula("($b11*$b8)*x^($b8-1)+($b10*$b9)*x^($b9-1)")->reduce;
 
 SRAND($psvn);
+
+$ans_2_final = FormulaUpToConstant("e^(x^2)")->reduce;
+
+$ans_3a_f_before_canceling = Formula("x/sqrt(u)")->reduce;
+$ans_3a_dudx = Formula("2x")->reduce;
+$ans_3a_du = Formula("2x*dx")->reduce;
 
 $b7=non_zero_random(-10,10);
 $ans5 = Formula("sqrt(x^2+$b7)")->reduce;
@@ -143,10 +149,14 @@ align => 'r l l l',
 
 END_PGML
 
-ANS(Formula("e^u")->reduce->cmp());
-ANS( Compute("e^u")->reduce->cmp() );
-ANS( Compute("x^2")->reduce->cmp() );
-ANS( Compute("2x")->reduce->cmp() );
+Context()->normalStrings;
+
+ANS( Formula("e^u")->reduce->cmp );
+ANS( Formula("e^u")->reduce->cmp );
+ANS( Formula("x^2")->reduce->cmp );
+ANS( Formula("2x")->reduce->cmp );
+
+Context()->texStrings;
 
 BEGIN_PGML
 
@@ -163,6 +173,8 @@ Section::End();
 
 
 Section::Begin("Part 2: Complete example of 'undoing the Chain Rule'");
+
+Context()->texStrings();
 
 BEGIN_PGML
 
@@ -227,12 +239,21 @@ kalturaShull("1_g908rb6q")
 
 🎯 Retype the final answer here:
 
-[``\int2xe^{x^2}\,dx=``][_]{FormulaUpToConstant("e^(x^2)")->reduce}
+[``\int2xe^{x^2}\,dx=``] [@  ans_rule(10) @]*
 
 END_PGML
+
+
+Context()->normalStrings;
+ANS($ans_2_final->cmp);
+
 Section::End();
 
+
+
 Section::Begin("Part 3a: Change variable to \(u\)");
+
+Context()->texStrings;
 
 BEGIN_PGML
 
@@ -244,23 +265,33 @@ Let's solve this integral:
 If one function looks like it's "inside" another, that inside function is often a good choice for [`u`].
 [@ closeDiv() @]*
 
-In this case, let's choose [`u=x^2+[$b7]`]. 🎯 Replace [`x^2+[$b7]`] with [`u`] in the integral:
+In this case, let's choose [`u=x^2+[$b7]`]. 
 
->>[``\int\frac x{\sqrt{x^2+[$b7]}}\,dx=\int``][_]{Formula("x/sqrt(u)")->reduce}[``dx``]<<
+🎯 Replace [`x^2+[$b7]`] with [`u`] in the integral:
+
+
+>>[``\int\frac x{\sqrt{x^2+[$b7]}}\,dx= \int``][@ ans_rule(10) @]*[``dx``]<<
 
 🎯 Find the derivative of [`u`]:
 
->>[``\frac{du}{dx}=``][_]{Formula("2x")->reduce}<<
+>>[``\frac{du}{dx}= ``][@ ans_rule(10) @]*[`\quad`]<<
 
 🎯 Multiply both sides by [`dx`]:
 
->>[``du=``][_]{Formula("2x*dx")->reduce}<<
+>>[``du= ``] [@ ans_rule(10) @]*<<
 
 END_PGML
+
+ANS($ans_3a_f_before_canceling->cmp);
+ANS($ans_3a_dudx->cmp);
+ANS($ans_3a_du->cmp);
+
 Section::End();
 
 
 Section::Begin("Part 3b: Integrate simpler function");
+
+Context()->texStrings;
 
 BEGIN_PGML
 

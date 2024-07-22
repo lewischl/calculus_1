@@ -59,6 +59,8 @@ loadMacros(
   "PGcourse.pl"
 );
 
+COMMENT("todo: randomize this problem");
+
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
@@ -85,6 +87,9 @@ BEGIN_TEXT
 Let \(f\) be defined by
 $displayedfunc
 $PAR
+
+For this first part, we set up the equation we use to solve \(m\).
+
 (a) Find (in terms of \(m\)) \(\displaystyle{\lim_{x\rightarrow -1^{+}}
  f(x)}\)
 $BR

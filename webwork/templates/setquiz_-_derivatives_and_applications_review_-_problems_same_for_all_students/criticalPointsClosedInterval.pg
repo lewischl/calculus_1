@@ -115,21 +115,21 @@ Consider the function [`f(x)=[$f]`] on the interval [`[[$a],[$b]]`].
 
 ---
 
-1) Find the [`x`]-coordinate(s) of the critical point(s) for [`f(x)`].
+Find the [`x`]-coordinate(s) of the critical point(s) for [`f(x)`].
 
 [_____]{$crits} 
 
 ---
 
-2) Find the [`x`]-coordinate(s) of the absolute maximum(s) of [`f(x)`] over this interval.
+Find the [`x`]-coordinate(s) of the absolute minimum(s) of [`f(x)`] over this interval.
 
-[_____]{$maxX}
+[_____]{$minX}
 
 ---
 
-3) Find the [`x`]-coordinate(s) of the absolute minimum(s) of [`f(x)`] over this interval.
+Find the [`x`]-coordinate(s) of the absolute maximum(s) of [`f(x)`] over this interval.
 
-[_____]{$minX}
+[_____]{$maxX}
 END_PGML
 
 ENDDOCUMENT();

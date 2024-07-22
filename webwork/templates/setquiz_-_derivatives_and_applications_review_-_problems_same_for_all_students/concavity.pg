@@ -2,12 +2,12 @@
 ##  Determine concavity and inflection points given a function
 ##ENDDESCRIPTION
 
-##KEYWORDS('applications of derivatives', 'second derivative test', 'graphical')
+##KEYWORDS('applications of derivatives', 'second derivative', 'inflection point', 'concavity', 'algebraic')
 
 ## DBsubject('Calculus')
 ## DBchapter('Applications of Derivatives')
 ## DBsection('Concavity')
-## Date('')
+## Date('Fall 2023')
 ## Author('silviana amethyst')
 ## Institution('uwec')
 
@@ -69,15 +69,15 @@ SRAND($team_exam2_seed);
 $setseed = "set.seed($team_exam2_seed); $team_exam2_seed";
 
 $r1 = random(2,4,1);
-
+$infl = random(2,9,1);
 
 $scale = random(3,6,1);
 
-$f2 = Formula("$scale*x/(x^2+$r1^3)")->reduce; 
+$f2 = Formula("$scale*(x-$infl)/(x^2+$r1^3)")->reduce; 
 
-$concave_down = "(-inf,0)";
-$concave_up = "(0,inf)";
-$inflection1 = 0;
+$concave_down = "(-inf,$infl)";
+$concave_up = "($infl,inf)";
+$inflection1 = $infl;
 
 ##############################################################
 #

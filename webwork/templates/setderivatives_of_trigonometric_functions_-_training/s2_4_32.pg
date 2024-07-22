@@ -55,7 +55,7 @@ In all tangent lines, the slope [`m`] is determined by the derivative of the fun
 * we call this slope [`f'(a)`], and 
 * the point of tangency is always [`(a,f(a))`].  
 
-And, we don't probably don't have the intercept readily-at-hand.  So, we have to find the intercept [`b`] by first invoking point-slope form, and then doing a bit of algebraic manipulation to change into slope-intercept form.  
+And, we probably don't have the intercept readily-at-hand.  So, we have to find the intercept [`b`] by first invoking point-slope form, and then doing a bit of algebraic manipulation to change into slope-intercept form.  
 
 [@ closeDiv() @]*
 

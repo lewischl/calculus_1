@@ -89,21 +89,17 @@ $loc_attained = 8/27*$r**3;
 
 BEGIN_PGML
 
-The mean value theorem guarantees that a differentiable function attains its average rate of change.  This problem has you find a point of attainment.
+Let a particle move with position function
 
----
+[``s(t) = [$a]t^{2/3} + [$b]``]
 
-Consider the function
-
-[``f(x) = [$a]x^{2/3} + [$b]``]
-
-over the interval [`[0,[$r**3]]`].
+over the interval [`[0,[$r**3]]`].  The units of [`s`] and [`t`] are meters and seconds, respectively.
 
 Some questions:
 * Is the function continuous over the closed interval [`[0,[$r**3]]`]?
 * Is the function differentiable over the open interval [`(0,[$r**3])`]?
-* What is the average rate of change of [`f`] over [`[0,[$r**3]]`]? 
-* At what [`x`] value is that average rate attained?
+* What is the average velocity of the particle over the duration [`[0,[$r**3]]`]? 
+* At what time [`t^\ast`] is that average rate attained?
 
 ---
 
@@ -111,9 +107,9 @@ Some questions:
 
 [`f`] [___]{$diff_statement} on [`(0,[$r**3])`].    (select the option)
 
-Average rate of change = [______]{$aroc}
+Average velocity = [______]{$aroc} meters per second
 
-The average rate of change is attained inside the interval at [`x = `] [___]{$loc_attained}
+The average velocity is attained inside the interval at [`t^\ast = `] [___]{$loc_attained} seconds
 END_PGML
 
 ENDDOCUMENT();

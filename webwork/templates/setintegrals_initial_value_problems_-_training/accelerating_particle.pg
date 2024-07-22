@@ -149,7 +149,7 @@ $PAR
 
 First, 🎯 find the general solution for the velocity function, with unknown constant of integration:
 $BR
-\( v_\textnormal{gen} = \) \{ans_rule(30) \}
+\( v_\textnormal{gen} = \) \{ans_rule(30) \} \({\rm m}/ {\rm s}\)
 $PAR
 Next, 🎯 use the given known-velocity at a known-time to find the particular velocity function. $BR
 \( v(t) = \) \{ans_rule(30) \} \({\rm m}/ {\rm s}\)
@@ -158,7 +158,7 @@ Next, 🎯 use the given known-velocity at a known-time to find the particular v
 $BR$PAR
 
 Now do the same steps, integrating and finding the constant of integration, to 🎯 find the general and particular position functions. $BR
-\( s_\textnormal{gen}(t) = \) \{ans_rule(30) \} $BR
+\( s_\textnormal{gen}(t) = \) \{ans_rule(30) \} \({\rm m} \) $BR
 \( s(t) = \) \{ans_rule(30) \} \({\rm m} \)
 $PAR
 

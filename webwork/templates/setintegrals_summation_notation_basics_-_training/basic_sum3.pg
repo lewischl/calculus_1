@@ -155,7 +155,7 @@ How many total points define the \($N\) intervals, including both left and right
 There are \{ans_rule(40) \} total points.  
 $PAR
 What are the values of the points?  Use a comma separated list.$BR
-\(x = \) \{ ans_rule\}
+\(x_j = \) \{ ans_rule\}
 $PAR
 What's the width of one sub-interval?  Call it \(\Delta x\). $BR
 \(\Delta x\) = \{ans_rule(40) \} $PAR

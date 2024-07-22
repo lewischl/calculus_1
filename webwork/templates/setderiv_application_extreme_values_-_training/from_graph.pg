@@ -86,7 +86,7 @@ So, we can ask you about either the [`x`]-coordinates or the [`y`]-coordinates o
 END_PGML
 BEGIN_TEXT
 Let \(f(x)\) be the function shown in the graph below. $BR
-\{ image("s4_1_5.gif", width=>250) \}  
+\{ image("graph_identify_local_abs_min_max.png", width=>300) \}  
 $BR$BR
 
 Determine the absolute minimum of the function shown in the graph. $BR

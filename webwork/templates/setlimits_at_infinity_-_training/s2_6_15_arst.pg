@@ -134,7 +134,7 @@ ANS(Infinity->cmp);
 
 # limits at negative inf
 ANS(num_cmp(0));
-ANS(Real(1)->cmp);
+ANS(Real(-1)->cmp);
 ANS((-Infinity)->cmp);
 
 

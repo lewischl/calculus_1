@@ -122,7 +122,7 @@ This property is really reasoning about intervals on the [`x`]-axis.  Here are t
 
 [@  
 LayoutTable([
-[ "Merge adjacent", "`[a,b] + [b,c] = [a,b]`"],
+[ "Merge adjacent", "`[a,b] + [b,c] = [a,c]`"],
 [ "Remove from left", "`[a,b] - [a,c] = [c,b]`" ],
 [ "Remove from right", "`[a,b] - [c,b] = [a,c]`" ],
 ])

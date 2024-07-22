@@ -114,7 +114,7 @@ The graph below is the function [`f(x)=[$f]`]
 
 >>[@ image(insertGraph($graph1), width => 300, tex_size=>300) @]*<<
 
-Use Newton's Method to find the first 3 approximations of the real root of [`f`] with an intial value of [`x_0 =[$x[0]]`]. (Use lots of decimal places or exact expressions.)
+Use Newton's Method to find the first 3 approximations of the real root of [`f`] with an initial value of [`x_0 =[$x[0]]`]. (Use lots of decimal places or exact expressions.)
 
 [`x_1=`] [____]{$x[1]}
 

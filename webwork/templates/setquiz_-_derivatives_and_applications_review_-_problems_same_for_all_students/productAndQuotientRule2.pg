@@ -88,7 +88,7 @@ $ans = Compute("(($df[0]*$f[1]+$f[0]*$df[1])*$f[2] - $f[0]*$f[1]*$df[2])/($f[2])
 
 BEGIN_PGML
 
-Consider the following composite function [`h`]:
+Consider the following function [`h`]:
 
 >>[``h(x) = \frac{f(x)g(x)}{k(x)}``]<<
 

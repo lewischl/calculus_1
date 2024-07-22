@@ -125,7 +125,7 @@ And it works for any expression that's going to [`0`]:
 [@ openDiv({ "class" => "promptOrInstruction" }) @]*
 For the following problem, use the steps to algebraically find the value of the limit:
 
-1. Split the numerator and denominator into separate fractions.  [``\frac{a}{a} = \frac{a}{1} \frac{1}{a} ``].
+1. Split the numerator and denominator into separate fractions.  [``\frac{a}{b} = \frac{a}{1} \frac{1}{b} ``].
 2. Multiply by [`t/t`]
 3. Multiply by [`[$a]/[$a]`], and [`[$b]/[$b]`].  
 4. Massage so that you can use the special limit identities

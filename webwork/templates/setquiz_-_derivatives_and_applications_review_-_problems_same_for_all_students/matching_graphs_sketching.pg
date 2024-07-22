@@ -16,29 +16,6 @@
 ########################################################################
 
 
-
-########################################
-# this file automatically moved
-#	from setExam_2-Team/matching_graphs_sketching.pg 
-#	to setderivatives_and_applications_review_quiz/matching_graphs_sketching.pg 
-#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
-# if this problem uses static images, they should also have been moved from that location to here.
-# if not, look in the source directory for images that didn't make it.
-########################################
-
-
-
-
-########################################
-# this file automatically moved
-#	from setderivatives_and_applications_review_quiz/matching_graphs_sketching.pg 
-#	to setquiz_-_derivatives_and_applications_review_-_problems_same_for_all_students/matching_graphs_sketching.pg 
-#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
-# if this problem uses static images, they should also have been moved from that location to here.
-# if not, look in the source directory for images that didn't make it.
-########################################
-
-
 DOCUMENT();
 
 loadMacros(
@@ -135,6 +112,7 @@ $graph4 = GraphWithTikZ(function => [[$D,dmin => $xlim[0],dmax => -$a,label=>"D"
 $w=300;
 
 BEGIN_PGML
+This problem is a proxy for a problem where you are given a description of a function and you sketch it.  Since I don't know how to have you sketch in Webwork, instead I'm having you select from a short list of options.  I really want you to sketch it, not select from pre-drawn options.
 
 #### Graphs
 

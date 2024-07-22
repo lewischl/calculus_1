@@ -127,7 +127,7 @@ When does the particle reach a velocity of [`[$x]`] [`\text{m}/\text{s}`]?
 To start, it would be nice to have a name for this time.  It's a special time, so let's call it [`t^\ast`].
 We're asking you to solve an equation, [`v(t^\ast) = [$x]`].  
 
-🎯 Determine [`v(t)`] by differentiating, and solve for [`t^\ast`].  If you find a negative time, disregard it due to the domain restriction.
+🎯 Determine [`v(t)`] by differentiating.  Then set [`v(t^\ast) = [$x]`], and solve for [`t^\ast`].  If you find a negative time, disregard it due to the domain restriction.
 END_PGML
 
 BEGIN_TEXT

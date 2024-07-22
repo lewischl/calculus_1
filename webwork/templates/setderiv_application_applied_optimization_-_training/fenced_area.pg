@@ -191,9 +191,9 @@ Observe, if we know [`x`], then we know [`y`].  🎯 Solve the constraint for [`
 
 ##### 5. Identify an interval of validity
 
-In this problem [`x`] is a physical quantity.  🎯 Identify the interval of validity for [`x`], using interval notation:
+In this problem [`x`] is a physical quantity.  🎯 Identify the interval of validity for [`x`], using interval notation.  Note that [`x=0`] isn't in the domain!
 
-[`x \in `] [__]{Interval("[0,inf)")}  
+[`x \in `] [__]{Interval("(0,inf)")}  
 
 
 ##### 6. Optimize [`\Omega`]
@@ -202,9 +202,9 @@ In this problem [`x`] is a physical quantity.  🎯 Identify the interval of val
 
 [`\Omega'(x)`] = [_]{$Omega->D}
 
-🎯 Compute the critical numbers.  Enter a comma separated list.
+🎯 Compute the critical number(s).  Enter a comma separated list.
 
-The critical numbers are [`x = `] [_]{$crit}.  These are the possible values for the length of the horizontal segments.
+The critical number(s) are [`x = `] [_]{$crit}.  These are the possible value(s) for the length of the horizontal segments.
 
 🎯 Plug those numbers into the single-variable [`\Omega(x)`], along with the boundaries of the interval of validity (Do they mean anything?).  Compare.  Which is the minimum?
 
@@ -227,7 +227,7 @@ To summarize:
 2. Single variable objective function
 3. Optimize
 
-The steps are compilicated, and different problems feel really different.  It's the pattern of tactic I'm trying to teach you here.  As you move forward, find the pattern.  And always name it [`\Omega`].
+The steps are complicated, and different problems feel really different.  It's the pattern of tactic I'm trying to teach you here.  As you move forward, find the pattern.  And always name it [`\Omega`].
 
 END_PGML
 

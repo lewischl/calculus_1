@@ -195,7 +195,7 @@ BEGIN_PGML
 
 
 [@ openDiv({ "class" => "promptOrInstruction" }) @]*
-Find the average velocity for the time period beginning at [` t_0 = [$t0] `] and lasting for a duration of [`0.5`] seconds.
+Find the average velocity for the time period beginning at [` t_0 = [$t0] `] and lasting for a duration of [`0.5`] seconds.  The height function is the same for this entire problem: [`y(t) = [$y]`].
 [@ closeDiv() @]*
 
 We follow the above steps:

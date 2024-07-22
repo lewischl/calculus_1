@@ -70,8 +70,7 @@ Context()->texStrings;
 BEGIN_TEXT
 The top and bottom margins of a poster are \($a\) \({\rm cm}\) and the side margins
 are each \($b\) \({\rm cm}\).  If the area of printed material on the poster is
-fixed at \($c\) \({\rm cm}^2\), find the dimensions of the poster with
-the smallest area.
+fixed at \($c\) \({\rm cm}^2\), find the overall dimensions of the poster with the smallest area.  (that is, your answer should include the margins)
 $BR
 $BR
 \[
