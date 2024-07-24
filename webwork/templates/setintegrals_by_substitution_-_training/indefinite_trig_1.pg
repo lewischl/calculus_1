@@ -100,7 +100,7 @@ I also want to talk in this problem about a way to deal with differentials in su
 1. Choose or try a [`u`].  Substitute.
 2. Compute [`dx = \frac{du}{u'(x)}`].  (This is just [`\frac{du}{dx} = u'`] re-written.)
 3. Substitute the differential [`dx = \frac{du}{u'}`] into the integral for [`dx`]
-4. Cancel and simplify.
+4. Simplify.
 5. Integrate.
 
 [@ closeDiv() @]*
@@ -110,7 +110,7 @@ For example, let's solve [`\int x e^{x^2} dx`] using this technique.
 1. [`u(x)`] = [`x^2`] (the inside thing!)
 2. [``dx = \frac{du}{u'} = \frac{du}{2x}``]
 3. [``\int x e^{x^2} dx = \int x e^u \, \frac{du}{2x}``], after substituting [`u`] and [`dx`] away
-4. [``\int x e^u \, \frac{du}{2x} = \int \frac{1}{2} e^u \, du``] after simplifying.  ℹ️ All the [`x`]'s *will* cancel
+4. [``\int x e^u \, \frac{du}{2x} = \int \frac{1}{2} e^u \, du``] after simplifying.  ℹ️ All the [`x`]'s *will* cancel.
 5. [``\int \frac{1}{2} e^u \, du = \frac{e^{u}}{2}  + C = \frac{e^{x^2}}{2}  + C``] after integrating.
 
 ---
