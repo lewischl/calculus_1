@@ -71,37 +71,30 @@ Context()->texStrings;
 BEGIN_PGML
 
 [@ openDiv({ "class" => "problemPurpose" }) @]*
-We can put as many functions inside the next as we want -- that's part of why it's called chaining.  This problem offers training and advice for tactics when the chain involves more than one level of composition.
+This problem offers training and advice for tactics when the chain involves more than one level of composition.
 [@ closeDiv() @]*
 
 
 [@ openDiv({ "class" => "importantFormula" }) @]*
 To differentiate a long chain of functions using the chain rule, go one step at a time.
 
-* Look at the basic form of the outermost function.  Differentiate it, and leave the inside alone.
-* To the inside, take its derivative.  Differentiate, leaving the inside alone.  
-
-Do one level at a time.  
+* I use the alphabet to help me: a(b), b(c), c(d), etc.
 
 [@ closeDiv() @]*
 
 For example,  I might see
 
-[`` f = ( \sin(x^2+1)  )^3``]
+[`` f(x) = ( \sin(x^2+1)  )^3``]
 
-* The outermost operation is "to the third".  So we use the power rule on the outside and chain out.    
-    So far, we have [`f' = 3 ( \sin(x^2+1) )^2 \cdot  (\sin(x^2+1))'`]
-    
-* Next we have to deal with  [`(\sin(x^2+1))'`].    
-    Then [`f' = 3 ( \sin(x^2+1) )^2 \cdot  \cos(x^2+1) \cdot (x^2+1)'`]
-    
-* Finally we deal with  [`(x^2+1)'`].    
-    our final derivative is [`f' = 3 ( \sin(x^2+1) )^2 \cdot  \cos(x^2+1) \cdot (2x)`]
-    
-    
----
+Decomposed as ...
 
-I just used "prime placeholder notation" so that I wouldn't have to do the entire thing at once.  I get to do it one level at a time.
+[`` a(b) = b^3 ``]  
+[`` b(c) = \sin(c) ``]  
+[`` c(x) = x^2 + 1 ``]
+
+A quick check. If I compose the function above, do I get back to function [` f(x) `]?  
+    
+    
 
 ---
 
