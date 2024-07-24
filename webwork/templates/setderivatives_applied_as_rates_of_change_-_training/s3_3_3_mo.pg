@@ -104,7 +104,7 @@ $PAR
 Find the velocity at any time \(t\). $BR
 The velocity is \{ans_rule(30) \} fps$BR$BR
 
-What is the velocity after \(3\) seconds? $BR
+What is the velocity at \(3\) seconds? $BR
 The velocity at this specific time is \{ans_rule(30) \} fps$BR$BR
 
 When is the particle at rest?  $BR $SPACE (Enter your answer

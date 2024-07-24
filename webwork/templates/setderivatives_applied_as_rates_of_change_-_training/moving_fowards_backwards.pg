@@ -112,8 +112,8 @@ BEGIN_PGML
 ##### Forward and backward
 
 The velocity (first derivative) includes sign information -- it can be positive or negative.  Remember:
-* "increasing [`f`]" is the same is "positive [`f'`]"
-* "decreasing [`f`]" is the same is "negative [`f'`]"
+* increasing [`f`], is when [`f'`] is positive
+* decreasing [`f`], is when [`f'`] is negative
 
 What does increasing mean when [`f`] is a position function?  It means that the object is moving forward along the linear path, with respect to a reference position.   Similarly, decreasing position function means that the object is moving backwards along the path.  And if the velocity is zero, the object is, at least momentarily, not moving.
 
