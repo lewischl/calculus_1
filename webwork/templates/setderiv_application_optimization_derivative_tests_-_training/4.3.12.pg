@@ -148,16 +148,16 @@ $PAR
 \{ image(insertGraph($graph), width=>300,tex_size=>800 ) \}
 
 $PAR
-Here is a graph of \(\frac{df}{dx}\) for a function \(f\) we know not.  Based just on this, determine the intervals on which \(f\) is increasing or decreasing.  
+Here is a graph of \(\frac{df}{dx}\) for a function \(f\) for which we don't have the formula.  Based just on this, determine the intervals on which \(f\) is increasing or decreasing.
 
 
 
 $PAR
-On the leftmost interval \{ans_rule()\}, \(f\) is \{pop_up_list([@label_increase_decrease]) \}.
+On the leftmost interval of \{ans_rule()\}, \(f\) is \{pop_up_list([@label_increase_decrease]) \}.
 $PAR
-On the middle interval \{ans_rule()\}, \(f\) is \{pop_up_list([@label_increase_decrease]) \}.
+On the middle interval of \{ans_rule()\}, \(f\) is \{pop_up_list([@label_increase_decrease]) \}.
 $PAR
-On the rightmost interval \{ans_rule()\}, \(f\) is \{pop_up_list([@label_increase_decrease]) \}.
+On the rightmost interval of \{ans_rule()\}, \(f\) is \{pop_up_list([@label_increase_decrease]) \}.
 
 
 $PAR $HR $PAR
