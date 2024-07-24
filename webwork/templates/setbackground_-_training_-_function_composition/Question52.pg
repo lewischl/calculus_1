@@ -121,7 +121,7 @@ BEGIN_TEXT
 
 \{ openDiv({ "class" => "problemPurpose" }) \}
 
-This is a kind of problem you probably encountered in precalc.  It's just an algebra problem, when you get down to it.  We're simplifying "the difference quotient" for a simple function.
+This is a kind of problem you probably encountered in precalc. We're simplifying "the difference quotient" for a  function.
 \{ closeDiv() \}
 
 
@@ -146,7 +146,7 @@ Use function composition and algebra to simplify the expressions as much as poss
 $PAR
 
 \{ openDiv({ "class" => "inProblemHint" }) \}
-The \(h\) in the denominator *will* cancel.  Your answer will be an expression in \(h\) and \(x\).
+The \(h\) in the denominator *will* factor out to be a "one".  Your answer will be an expression in \(h\) and \(x\).
 
 $PAR
 $HR
