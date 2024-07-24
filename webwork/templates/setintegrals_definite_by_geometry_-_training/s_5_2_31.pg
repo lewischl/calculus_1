@@ -60,12 +60,14 @@ $b = random(-1,1,1);
 $an1 = Compute("2+($a+$b-2)*2");
 $an2 = Compute("2+($a+$b-2)*2+$a+$b+$a+2*$b");
 $an3 = Compute("2*$b-$a");
-$an4 = Compute("2+($a+$b-2)*2+$a+$b+$a+2*$b+2*$b-$a+2*$b-2*$a+1");
+$an4 = Compute("2+($a+$b-2)*2+$a+$b+$a+2*$b+2*$b-$a");
+$an5 = Compute("2+($a+$b-2)*2+$a+$b+$a+2*$b+2*$b-$a+2*$b-2*$a+1");
 
 $ans1 = Compute("$an1");
 $ans2 = Compute("$an2");
 $ans3 = Compute("$an3");
 $ans4 = Compute("$an4");
+$ans5 = Compute("$an5");
 
 #####################################################################
 
@@ -118,6 +120,7 @@ $PAR
 \(\displaystyle \int_0^2 \! f(x) \, dx = \) \{ans_rule(30)\} $PAR
 \(\displaystyle \int_0^5 \! f(x) \, dx = \) \{ans_rule(30)\} $PAR
 \(\displaystyle \int_5^7 \! f(x) \, dx = \) \{ans_rule(30)\} $PAR
+\(\displaystyle \int_0^7 \! f(x) \, dx = \) \{ans_rule(30)\} $PAR
 \(\displaystyle \int_0^9 \! f(x) \, dx = \) \{ans_rule(30)\}
 END_TEXT
 
@@ -127,5 +130,6 @@ ANS(($ans1)->cmp(tolType=>'absolute', tolerance=>0.1));
 ANS(($ans2)->cmp(tolType=>'absolute', tolerance=>0.1));
 ANS(($ans3)->cmp(tolType=>'absolute', tolerance=>0.1));
 ANS(($ans4)->cmp(tolType=>'absolute', tolerance=>0.1));
+ANS(($ans5)->cmp(tolType=>'absolute', tolerance=>0.1));
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.
