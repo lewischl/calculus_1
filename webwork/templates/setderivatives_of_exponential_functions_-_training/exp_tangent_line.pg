@@ -96,12 +96,12 @@ END_PGML
 
 $a = random(2,5,1);
 $f = Compute("$a**(x**2 - 2*x)")->reduce;
-
+$decimal = sprintf("%0.3f", ln($a)); # for printing what we DON'T want them to do
 
 
 BEGIN_TEXT
 Find the equations of the tangent lines to the function at the given points.$BR
-Use exact coefficients, don't use floating point numbers.  Enter it in slope-intercept form.
+Note: Use exact values instead of decimals, e.g., \( \ln($a) \) instead of \( $decimal \).
 $BR$BR
 \(f(x) = $f\)
 $BR$BR
