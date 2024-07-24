@@ -155,7 +155,7 @@ Follow these  steps to find the derivative of this reciprocal function:
     * The constant terms in the numerator will additively cancel.  
     * Every term in the numerator will have an [`h`] in it.
 5. Instead of dividing by [`h`], multiply by [`\frac{1}{h}`]
-    * When doing a derivative, the [`h`] in the denominator will always cancel! 
+    * When doing a derivative, the [`h`] in the denominator will always cancel with something from the numerator!
 4. Simplify.
 5. Take the limit as [`h \to 0`] to get [`f'([$x1])`].
 
