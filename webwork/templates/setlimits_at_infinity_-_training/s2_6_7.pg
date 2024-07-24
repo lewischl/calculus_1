@@ -149,8 +149,8 @@ $popup2 = PopUp(@options, "vertical");
 
 BEGIN_TEXT
 
-Finite values of limits at infinity go with \{ $popup1->menu() \} asymptotes, while $BR
-limits at finite points with value infinity go with \{ $popup2->menu() \} asymptotes.
+Finite limits (with the input going to infinity) identify \{ $popup1->menu() \} asymptotes, $BR
+while infinite limits (with the input going to a finite value) identify \{ $popup2->menu() \} asymptotes.
 
 END_TEXT
 
