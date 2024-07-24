@@ -282,20 +282,9 @@ END_PGML
 
 Section::End();
 
-Section::Begin("Part 4: Passcode");
-
-BEGIN_PGML
-
-The passcode for this question is [$passcode1].
-
-Enter it here: [_]{$passcode1}
-
-END_PGML
 Context()->normalStrings;
 
 $showPartialCorrectAnswers = 1;
-
-Section::End();
 
   Scaffold::End();
 
