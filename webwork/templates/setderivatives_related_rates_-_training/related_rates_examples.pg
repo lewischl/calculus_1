@@ -54,13 +54,11 @@ BEGIN_PGML
 Here are some related rates examples! *This first video explains how related rates use the same rules as implicit differentiation:*
 
 
-To make this problem have an answer spot, what's the slope of a horizontal line?  [__]{Compute(0)}.
-
 [@
 kalturaShull("1_aewjtaot")
 @]*
 
-You can find more examples below.
+You can find more examples below. Again, I recommend watching 1-2 videos, then coming back as needed.
 
 END_PGML
 
@@ -209,6 +207,13 @@ Section::End();
 Context()->normalStrings;
 
 $showPartialCorrectAnswers = 1;
+
+BEGIN_PGML
+   
+   
+   
+To make this problem have an answer spot, what's the slope of a horizontal line?  [__]{Compute(0)}.
+END_PGML
 
   Scaffold::End();
 

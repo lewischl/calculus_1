@@ -159,6 +159,8 @@ so when we differentiate with respect to time, we get
 
 [_____]{$lhs5} [`=`] [_____]{$rhs5}
 
+(Did you remember to use a product rule for the right-hand side? If not, 🤦)
+
 END_PGML
 
 ENDDOCUMENT();

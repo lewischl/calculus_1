@@ -127,17 +127,6 @@ The water level is increasing at \{ans_rule(20) \} \( \text{ft/min}\).
 
 END_TEXT
 
-BEGIN_PGML
-
----
-
-[@ openDiv({ "class" => "inProblemHint" }) @]*
-Neither the height of the tank nor the depth of the water is relevant, because the cross-sectional area is constant throughout the tank.  Compare to a vase of water.  It fills slowly at the bottom, but in the next the level changes really quickly!
-[@ closeDiv() @]*
-
-
-END_PGML
-
 
 ###################################
 # Answers

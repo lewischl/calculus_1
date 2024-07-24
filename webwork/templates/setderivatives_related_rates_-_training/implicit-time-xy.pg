@@ -149,8 +149,9 @@ BEGIN_TEXT
 $PAR $HR $PAR
 
 To find \( \frac { dx }{ dt }  \) when  \( x = $c1 \):$BR
+• Use the \( x = $c1 \) to compute \( y \)$BR
 • Substitute known quantities$BR
-• Use algebra to solve for \( \frac { dx }{ dt }\).
+• Use algebra to solve for \( \frac { dx }{ dt }\)
 
 $PAR
 \( \displaystyle{\frac { dx }{ dt } } \) = \{ans_rule(20) \}
