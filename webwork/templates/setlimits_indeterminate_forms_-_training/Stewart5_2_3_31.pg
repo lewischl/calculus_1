@@ -1,4 +1,3 @@
-
 ########################################
 # this file automatically moved
 #	from local/Library/UCSB/Stewart5_2_3/Stewart5_2_3_31.pg 
@@ -63,7 +62,7 @@ Follow the steps:
 1. Try plugging in.  Get indeterminate form.
 2. Multiply by conjugate.
 3. Distribute, but only the top/bottom with [`\sqrt{}`].
-4. Cancel
+4. Cancel the common factor (or "identify a one")
 5. Try to plug in again.
 
 [@ closeDiv() @]*

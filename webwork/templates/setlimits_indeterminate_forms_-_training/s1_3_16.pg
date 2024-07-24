@@ -74,7 +74,7 @@ Factor-and-cancel to find a limit:
 1. First, verify the method is a good candidate:    
     * Try to plug in point of interest.  Get an indeterminate form
     * Function is a rational function of things like polynomials
-2. Factor the numerator and denominator
+2. Factor the numerator and/or denominator
 3. Cancel common factors
 4. Try to plug in point of interest again.
 [@ closeDiv() @]*
