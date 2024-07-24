@@ -145,8 +145,6 @@ Here's a Desmos graph of the integral function [`F`]:
 
 🎯 Play with the slider for [`x`] and observe how the area changes.
 
-In the interval [`x \in [-1,2]`], at what point is the area changing the fastest? At [`x = `] [_]{Real(2)}
-
 ---
 
 ##### Rates of area accumulation
