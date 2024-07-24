@@ -211,8 +211,8 @@ $PAR
 \{ openDiv({"class" => "nothing"}) \}
 \( \displaystyle 
 \lim_{x \to 0} \frac{$f}{$g} = 
-\)
-\{ ans_fraction() \} \( = \) \{ ans_fraction() \}
+\lim_{x \to 0} \) \{ ans_fraction() \} \( = \) 
+\{ ans_fraction() \}
 \{ closeDiv() \}
 
 $PAR $BR
