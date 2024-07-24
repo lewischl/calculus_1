@@ -81,6 +81,8 @@ $e1 = 6*$a1*$b1;
 
 $position = Formula("2t^3 - $d1 t^2 + $e1 t");
 $velocity = $position->D;
+$vel_ans = Formula("$velocity");
+
 
 $v_positive = Interval("[0,$a1)U($b1,infinity)");
 $v_negative = Interval("($a1,$b1)");
@@ -96,136 +98,33 @@ $v_neg_increasing = Interval("($v_crit_pt,$b1)");
 
 Context()->texStrings;
 
-BEGIN_PGML
-
-[@ openDiv({ "class" => "problemPurpose" }) @]*
-Training on modeling motion along a line:
-* moving forward / backward
-* speeding up / slowing down
-[@ closeDiv() @]*
-
-
-The first derivative answers the super-important question "how fast?".  From this arises a question a related to our human ways of talking about change:
-
-* Is it speeding up or slowing down?
-
----
-
-END_PGML
-
-
 
 BEGIN_PGML
-
-
-
-##### Speeding up and slowing down
-
-Speeding up, two scenarios:
-
-1. Think about being in a car, starting moving from a red light.  You're speeding up!  Your speed is increasing.  And, your velocity is positive, too.
-
-2. Now, think about being in a car, backing out of a driveway.  The driver puts the car in reverse, and then they take their foot off the brake.  The car start moving backward.  As it does so, the car's speed is increasing!  But, your velocity is negative!!!
-
-[@ openDiv({ "class" => "importantFormula" }) @]*
-*Speeding up* is characterized by *increasing speed*
-[@ closeDiv() @]*
-
-Slowing down, two scenarios:
-
-1. The car is moving, and a light turns red in front of you.  You need to come to a stop -- to slow down.  Your speed decreases, and your velocity is positive.
-
-2. At the end of the driveway, when you're done backing out, the driver needs to come to a stop -- to slow down.  Your speed decreases, but your velocity is negative.
-
-[@ openDiv({ "class" => "importantFormula" }) @]*
-*Slowing down* is characterized by *decreasing speed*
-[@ closeDiv() @]*
-
----
-
-ℹ️ Speed is not velocity!
-
-The situation for determining whether an object is speeding up or slowing down is complicated: 
-* speeding up can happen for velocities of either sign, positive or negative.
-* slowing down can happen for either sign of velocity, too.
-
-It's not the sign of the velocity that determines speeding up or slowing down.  It's whether the speed is increasing or decreasing.
-
-[@ openDiv({ "class" => "importantFormula" }) @]*
-Speed is absolute value of velocity
-
-* Speeding up:
-    * [`\textnormal{speed}`] is increasing
-    * [`\frac{d}{dt} (\textnormal{speed})`] is positive
-* Slowing down:
-    * [`\textnormal{speed}`] is decreasing
-    * [`\frac{d}{dt} (\textnormal{speed})`] is negative
-[@ closeDiv() @]*
-
-We need to figure out how to deal with the derivative of the absolute value of a velocity.  That's what this problem is aimed at training.
-
----
-
-Problem scenario:
-
-END_PGML
-
-
-BEGIN_TEXT
-\{ openDiv({ "class" => "promptOrInstruction" }) \}
-A particle moves along a straight line and its position at time \(t\)
-is given by \[ s(t)= $position, \quad t \geq 0 \] where \( s \) is measured in feet and
-\( t \) in seconds.  
-\{ closeDiv() \}
-
-$PAR
-END_TEXT
-
-BEGIN_PGML
-
-We'll start by finding where velocity is positive and negative, to help us deal with the absolute value part of speed.
-
-🎯 What is the formula for the *velocity*?
-
-[`v(t) = `] [_]{$velocity}
-
-🎯 For [`t\geq 0`]...  
-* [`v(t)`] is positive on [_]{$v_positive}  (Use interval notation)
-* [`v(t)`] is negative on [_]{$v_negative}  (Use interval notation)
-* [`v(t)`] is zero at [`t =`] [_]{$v_zero}  (Use a comma-separated list)
-
-
-[@ openDiv({ "class" => "importantFormula" }) @]*
-Speed is absolute value of velocity
-[@ closeDiv() @]*
-
-🧠 Think about the way absolute value works:
-* [`|f| = f`] if [`f`] is positive
-* [`|f| = -f`] if [`f`] is negative
-
-We're trying to ask: *when is speed increasing*, to answer *when is speeding up?*  We have to think about the derivative of the absolute value of velocity, and it's complicated because of the piecewise nature of the absolute value function.  
 
 Here's a summary of the classification for speeding up and slowing down:
 [@ openDiv({ "class" => "importantFormula" }) @]*
-Speeding up is same as:
-* speed increasing, which can occur one of two ways:
-    * [`v(t)`] positive and [`v'(t)`] positive
-    * [`v(t)`] negative and [`v'(t)`] negative
+Speeding up (or speed increasing) is same as:
+* [`v(t)`] positive and [`v'(t)`] positive
+* [`v(t)`] negative and [`v'(t)`] negative
 
-Slowing down is same as:
-* speed decreasing, which can occur one of two ways:
-    * [`v(t)`] positive and [`v'(t)`] negative
-    * [`v(t)`] negative and [`v'(t)`] positive
+Slowing down (or speed decreasing) is same as:
+* [`v(t)`] positive and [`v'(t)`] negative
+* [`v(t)`] negative and [`v'(t)`] positive
 [@ closeDiv() @]*
 
 Speeding up is velocity moving away from 0.  Slowing down is velocity moving towards 0.  
 
-🎯 Determine the intervals, and use interval notation.  I suggest you use a plot of [`v(t)`] to help you.
-* Of the intervals on which [`v(t)`] is positive, [`v'(t)`] is __positive__ (and [`v`] is increasing) on [_]{$v_pos_increasing}
-* Of the intervals on which [`v(t)`] is positive, [`v'(t)`] is __negative__ (and [`v`] is decreasing) on [_]{$v_pos_decreasing}
 
-* Of the intervals on which [`v(t)`] is negative, [`v'(t)`] is positive (and [`v`] is increasing) on [_]{$v_neg_increasing}
-* Of the intervals on which [`v(t)`] is negative, [`v'(t)`] is negative (and [`v`] is decreasing) on [_]{$v_neg_decreasing}
+Let [` s(t) = 2 t^3 - [$d1]t^2 + [$e1]t `] for [` t \ge 0 `].
+
+What is the velocity? [_]{$vel_ans}
+
+🎯 Determine the intervals below using interval notation. A plot of [`v(t) = s'(t)`] may be helpful.
+* When is [`v(t)`] positive and [`v'(t)`] positive (i.e., when is [`v`] positive and increasing)? [_]{$v_pos_increasing}
+* When is [`v(t)`] positive and [`v'(t)`] negative (i.e., when is [`v`] positive and decreasing)? [_]{$v_pos_decreasing}
+
+* When is [`v(t)`] negative and [`v'(t)`] positive (i.e., when is [`v`] negative and  increasing) on [_]{$v_neg_increasing}
+* When is [`v(t)`] negative and [`v'(t)`] negative (i.e., when is [`v`] negative and decreasing) on [_]{$v_neg_decreasing}
 
 ℹ️ Speeding up, [`v`] and [`v'`] have same sign.  Slowing down, [`v`] and [`v'`] have opposive sign.
 
