@@ -145,7 +145,7 @@ There are two triangles I'd like you to picture:
 
 * [`\textnormal{width} = `] [_]{$width_left} <--- positive
 * [`\textnormal{height} = `] [_]{$height_left}  <--- this is negative!!! evaluate [`f`] and get a negative number!
-* [`\textnormal{area} = `] [_]{$area_left}  <--- negative
+* [`\textnormal{area} = `] [_]{$area_left}  <--- negative, recall triangle area is [` \frac{1}{2} w \cdot h `]
 
 🎯 Compute the dimensions and __signed__ area of the right triangle:
 
