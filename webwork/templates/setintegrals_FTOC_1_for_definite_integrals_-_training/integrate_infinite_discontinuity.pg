@@ -80,7 +80,7 @@ The fundamental theorem of Calculus part 1 says:
 ```]
 
 ⚠️ But we need to be careful:
-* What if the area is potentiall infinite??? 
+* What if the area is potentially infinite??? 
 * What if the function isn't even defined at a value in [`[a,b]`]?
 
 [@ openDiv({ "class" => "importantFormula" }) @]*

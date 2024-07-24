@@ -134,7 +134,7 @@ END_PGML
 
 BEGIN_TEXT
 
-🎯 Use the merging / removing property to solve these problems:
+🎯 Use the merging or removing properties to solve these problems:
 $PAR 
 
 END_TEXT
@@ -208,17 +208,6 @@ $d = $b + random(2,4, 0.5); # to the right of b
 
 
 Context()->texStrings();
-BEGIN_TEXT
-Now we'll subtract from outside the original interval at the right end
-\{ openDiv({"class" => "nothing"}) \}
-\( \displaystyle \int_{$a}^{$b} f(x) \, dx - \int_{$c}^{$d} f(x)\, dx = \)  \{integral_ans_both_bounds\} \(\hspace{-4mm} f(x) \, dx - \) \{integral_ans_both_bounds\} \(\hspace{-4mm} f(x) \, dx\)
-\{ closeDiv() \}
-
-$PAR
-END_TEXT
-Context()->normalStrings;
-ANS(num_cmp($a), num_cmp($c));
-ANS(num_cmp($b), num_cmp($d));
 
 
 BEGIN_HINT

@@ -85,7 +85,7 @@ The Fundamental Theorem of Calculus Part 1 (FTOC1) says:
 A general process for finding values of definite integrals / signed areas / net change is:$PAR
 
 1. Find an antiderivative \(F\) $BR
-2. Evaluate that antiderivative at \(a\) and \(b\). $BR
+2. Evaluate that antiderivative at \(b\) and \(a\). $BR
 3. Subtract.
 
 $PAR
@@ -112,12 +112,12 @@ $PAR
 $SPACE \( F(x) = \int($f)\, dx = \) \{ans_rule(30)\} \( + C\)
 
 $PAR
-2. Evaluate the antiderivative. ℹ️ Since \(C\) will subtractively cancel in step 3, choose \(C=0\) to make your life easier. $BR
+2. Evaluate the antiderivative. ℹ️ Since \(C\) will subtract to zero in step 3, choose \(C=0\) to make your life easier. $BR
 $SPACE \( F(2) = \) \{ ans_rule(10) \} $BR
 $SPACE \( F(8) = \) \{ ans_rule(10) \}
 
 $PAR
-3. Subtract and conclude.  ⚠️ Beware double negatives! $BR
+3. Subtract and give result.  ⚠️ Beware double negatives! $BR
 $SPACE \(\displaystyle \int_{2}^{\,8}{($f)}\,dx = \) \{ans_rule(30)\}
 $PAR$HR$PAR
 
@@ -127,7 +127,7 @@ Be careful to use parenthesis to group numbers together.  An explicit way of wri
 \[
 \int_a^b f(x)\, dx = (F(b))-(F(a))
 \]
-See the extra \(()\) I added?  One of the most common mistakes is to forget to distribute the (-) across \((F(a))\).
+See the extra \(()\) I added?  One of the most common mistakes is to forget to distribute the (-) across all terms of \((F(a))\).
 \{ closeDiv() \}
 
 END_TEXT
