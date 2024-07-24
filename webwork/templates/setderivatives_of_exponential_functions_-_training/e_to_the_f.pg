@@ -82,7 +82,7 @@ Context()->texStrings;
 BEGIN_PGML
 
 [@ openDiv({ "class" => "problemPurpose" }) @]*
-Training on composition of functions into [`\exp`].
+Training on composition of functions involving the special constant [`e`].
 [@ closeDiv() @]*
 
 ---

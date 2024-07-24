@@ -85,7 +85,7 @@ Context()->texStrings;
 BEGIN_PGML
 
 [@ openDiv({ "class" => "problemPurpose" }) @]*
-We're still learning about tangent lines.  The derivative is the slope of the tangent line, and the tangent line is the best possible linear approximation to the function.
+We're still learning about tangent lines.  The derivative is slope the tangent line, and a tangent line is the best possible linear approximation to the function.
 [@ closeDiv() @]*
 
 END_PGML
@@ -147,7 +147,7 @@ $BR$BR
 \( y = \) \{ ans_rule(50) \}
 
 \{ openDiv({ "class" => "inProblemHint" }) \}
-Consider using a graph to help you identify what the slope should be, if you're doubting yourself.
+Consider using a graph to check your answer.
 \{ closeDiv() \}
 
 END_TEXT

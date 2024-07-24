@@ -73,9 +73,9 @@ Follow these  steps to find the derivative of this quadratic by definition:
     * Expand out collect like terms, both for [`x`] and [`h`].  
     * Be careful when foiling out [`(x+h)^2`] to multiply all terms by [`[$a1]`]. Same with the linear term -- it's easy to forget to distribute the [`[$b1]`].
 2. Subtract: [`f(x+h) - f(x)`].
-    * All the constants will cancel!!!
+    * All the constants will additively cancel!!!
 3. Divide by [`h`]: [`\frac{f(x+h) - f(x)}{h}`].
-    * When doing a derivative, the [`h`] in the denominator will always cancel! 
+    * When doing a derivative, the [`h`] in the denominator will always cancel with something from the numerator!
 4. Simplify.
 5. Take the limit as [`h \to 0`]: [`\lim_{h \to 0} \frac{f(x+h) - f(x)}{h}`]
 

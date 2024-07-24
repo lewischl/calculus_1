@@ -53,18 +53,18 @@ The trig function derivatives:
 
 * [`\frac{d}{dx} \sin x = \cos x`]
 
-* [`\frac{d}{dx} \cos x = -\sin x \hspace{1cm}`]   --- 👀 fn starts with letter [`c`], get a [`-`].
+* [`\frac{d}{dx} \cos x = -\sin x \hspace{1cm}`]
 
 * [`\frac{d}{dx} \tan x = \sec^2 x`]
 
 * [`\frac{d}{dx} \sec x = \sec x \tan x`]
 
-* [`\frac{d}{dx} \csc x = -\csc x \cot x \hspace{1cm}`]   ---  👀 fn starts with letter [`c`], get a [`-`].
+* [`\frac{d}{dx} \csc x = -\csc x \cot x \hspace{1cm}`]
 
-* [`\frac{d}{dx} \cot x = -\csc^2 x \hspace{1cm}`]   ---  👀 fn starts with letter [`c`], get a [`-`].
+* [`\frac{d}{dx} \cot x = -\csc^2 x \hspace{1cm}`]
 
 
-⚠️ This ignores what happens if a function is inside the trig.  We must use the chain rule to differentiate functions-inside-of-functions.
+⚠️ Did you notice that when a trig function starts with the letter [`c`], its deriative gets a negative [`(-)`]?
 [@ closeDiv() @]*
 
 ---
