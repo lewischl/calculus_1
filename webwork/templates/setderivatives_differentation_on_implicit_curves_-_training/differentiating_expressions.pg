@@ -97,7 +97,7 @@ Observe how we differentiate [`y^2`] with respect to [`x`]:
 
 We can similarly differentiate [`\sqrt{y}`] *with respect to x*:
 
-[`` \begin{aligned} \frac{d}{dx} \sqrt{y} &= \frac{d}{dx}\sqrt{y(x)} \\ &= \frac{1}{2 \sqrt{y(x)}} \frac{dy}{dx}  \\ &= \frac{1}{2 \sqrt y} \frac{dy}{dx} \end{aligned} ``]
+[`` \begin{aligned} \frac{d}{dx} \sqrt{y} &= \frac{d}{dx}\sqrt{y(x)} = \frac{d}{dx} (y(x))^{\frac{1}{2}} \\ &= \frac{1}{2 \sqrt{y(x)}} \frac{dy}{dx}  \\ &= \frac{1}{2 \sqrt y} \frac{dy}{dx} \end{aligned} ``]
 
 The trailing [`\frac{dy}{dx}`] *has to be there*.  We don't have a formula for it, but the chain rule demands it be there.
 ---
