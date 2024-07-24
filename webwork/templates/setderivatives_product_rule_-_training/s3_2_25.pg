@@ -46,13 +46,16 @@ DOCUMENT();        # This should be the first executable line in the problem.
 
 loadMacros(
   "PGstandard.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "MathObjects.pl"
 );
 
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 
+Context('Numeric');
 $a1 = random(2,15,1);
+$tangent_line = Formula("$a1*x")->reduce;
 
 BEGIN_PGML
 
@@ -65,18 +68,13 @@ The tangent line is the best possible linear approxiation of a function.  And no
 END_PGML
 
 
-BEGIN_TEXT
+BEGIN_PGML
 Find the equation of the tangent line to the curve
- \( y =    $a1 x e^x  \) at the point \( ( 0 , 0 ) \).
-The equation of this tangent line can be written in the form \( y = mx+b \).
-Find \(m\) and \(b\). $BR$BR
+ [` y =    [$a1] x e^x  `] at the point [` ( 0 , 0 ) `].
 
- \( m =\) \{ans_rule(30)\} $BR
- \( b =\) \{ans_rule(30)\}
+ [` y = `] [_]{$tangent_line}
 
-END_TEXT
+END_PGML
 
-ANS(num_cmp($a1));
-ANS(num_cmp(0));
 
 ENDDOCUMENT();        # This should be the last executable line in the problem.
