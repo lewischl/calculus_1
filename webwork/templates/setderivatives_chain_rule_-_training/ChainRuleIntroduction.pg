@@ -103,49 +103,34 @@ Scaffold::Begin(
     is_open => "first_incorrect"
 );
 ###########################################
-Section::Begin("Passcode");
+
 
 Context()->texStrings;
 BEGIN_PGML
 
-How do we take a derivative of something like [`[$ans5]`] ? None of the rules we know so far are enough to find this derivative.
+How do we take a derivative of something like [`[$ans5]`] ? 
 
-Enter the passcode from the previous question: [_]{$passcode1}
+None of the rules we know so far are enough to find this derivative so we would have to use the limit definition.
 
-END_PGML
-Section::End();
+[``` \frac{d}{dx} [$ans5] = \displaystyle \lim_{h \to 0} \frac{\sqrt{(x+h)^2 + [$b7]} - \sqrt{x^2 + [$b7]}}{h} ```]
 
-Section::Begin("Introducing the Chain Rule!");
 
-BEGIN_PGML
+...  or we can use the Chain Rule!
 
-We know we can write it as a composition [`f(g(x))`]. In this case, [`u=g(x)=x^2+[$b7]`] and [`f(g(x))=f(u)=\sqrt u=u^{1/2}`].
-
-Here are a couple videos introducing the Chain Rule! I recommend watching all of the first one...
-
-[@
-kalturaShull("1_ro5sw2il")
-@]*
-
-...and I recommend watching this next one from about 8:40 to 14:35.
-
-[@ youtube("YG15m2VwSjA?start=521"); @]*
+We know we can write [`[$ans5]`] as a composition [`f(g(x))`]. In this case, [`u=g(x)=x^2+[$b7]`] and [`f(g(x))=f(u)=\sqrt u=u^{1/2}`].
 
 [@ openDiv({ "class" => "importantFormula" }) @]*
 Chain Rule:
 
 If [`f`] and [`g`] are differentiable functions, then
 
-[```\frac d{dx}[f(g(x))]=f'(g(x))*g'(x)```]
+[```\frac d{dx}[f(g(x))]=f'(g(x)) \cdot g'(x)```] or 
+[```\frac d{dx}[f(g(x))]=f'(u) \cdot g'(x)```] when [`u=g(x)`]
 [@ closeDiv() @]*
-
-Or, if [`u=g(x)`], then
-
-[```\frac d{dx}[f(g(x))]=f'(u)*g'(x)```]
 
 Let's find the derivative of [`\sqrt{x^2+[$b7]}`] using the Chain Rule!
 
-First we write down the outside and inside function:
+First we write down the outside and inside functions:
 
 [``f(u)=\sqrt u=u^{1/2}``]
 
@@ -162,26 +147,24 @@ Then we put it all together!
 [```
 \begin{eqnarray*}
 \frac d{dx}[f(g(x))]
-&=&f'(u)*g'(x)\\
-&=&\frac12 u^{-1/2}*2x\\
-&=&x*u^{-1/2}\\
+&=&f'(u) \cdot g'(x)\\
+&=&\frac12 u^{-1/2} \cdot 2x\\
+&=&x \cdot u^{-1/2}\\
 \end{eqnarray*}
 ```]
 
 Since the problem was given with only [`x`], we can't leave [`u`] in our final answer. So we continue...
 
-[```\frac d{dx}[f(g(x))]=\dots=x*u^{-1/2}=x*(x^2+[$b7])^{-1/2}```]
-
-And in case we need to simplify more...
-
-[```\frac d{dx}[f(g(x))]=\dots=x*(x^2+[$b7])^{-1/2}=\frac x{(x^2+[$b7])^{1/2}}=\frac x{\sqrt{x^2+[$b7]}}```]
-
-Retype that final answer here:
-
-[``\frac d{dx}[f(g(x))]=``][_]{$ans5d}
+[```
+\begin{eqnarray*}
+\frac d{dx}[f(g(x))] 
+&=& x \cdot u^{-1/2} \\
+&=& x \cdot (x^2+[$b7])^{-1/2} \\
+&=& \frac{x}{\sqrt{x^2+[$b7]}} \\
+\end{eqnarray*}
+```]
 
 END_PGML
-Section::End();
 
 Section::Begin("Chain Rule practice");
 
@@ -211,12 +194,12 @@ $qwfp = Formula("cos([$g3])*[$g3d]");
 Context()->texStrings;
 BEGIN_PGML
 
-[`f'(u)g'(x)=`][_]{$arst} ## HERE
+[`f'(u)g'(x)=`][_]{$arst}
 
 
 Now replace [`u`] with [`g(x)`]:
 
-[`f'(g(x))*g'(x)=`][_]{$qwfp}  ##HERE
+[`f'(g(x)) \cdot g'(x)=`][_]{$qwfp}
 
 We are finished! This is the derivative of [`\sin([$g3])`].
 
@@ -292,7 +275,7 @@ BEGIN_PGML
 
 Suppose we want the derivative of [`([$b0]x+[$b1])^2`]. Let's find this derivative a few different ways:
 
-First, FOIL the expression out:
+First, let's use the distirbutive property:
 
 >>[_]{Formula("[$b0]^2")->reduce}[`x^2+`][_]{Formula("2*[$b0]*[$b1]")->reduce}[`x+`][_]{Formula("[$b1]^2")->reduce}<<
 
@@ -323,19 +306,24 @@ BEGIN_PGML
 
 [`f'(u)\cdot g'(x)=`][_]{Formula("(2*[$b0])u")->reduce}
 
-END_PGML
-Section::End();
-
-Section::Begin("...");
-
-BEGIN_PGML
-
-
 [`f'(g(x))\cdot g'(x)=[$ans15]\Big(`][_]{Formula("[$b0]x+[$b1]")->reduce}[`\Big)`]
 
 Now simplify this!
 
 [`f'(g(x))\cdot g'(x)=`][_]{Formula("2*[$b0]^2")->reduce}[`x+`][_]{Formula("2*[$b0]*[$b1]")->reduce} 
+
+END_PGML
+
+Section::End();
+
+
+Section::Begin("Video");
+
+BEGIN_PGML
+
+This video provides another way to understand the Chain Rule.
+
+[@ youtube("YG15m2VwSjA?start=521"); @]*
 
 END_PGML
 
