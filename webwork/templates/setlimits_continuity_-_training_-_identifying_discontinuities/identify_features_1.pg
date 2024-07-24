@@ -202,8 +202,6 @@ Context()->texStrings;
 $tf -> qa (
 "\(f\) has a removable discontinuity",
 "Yes",
-"\(f\) has an essential discontinuity",
-"No",
 "\(f\) is continuous at \(x=0\)",
 "Yes",
 "The limit of \(f\) as \(x\) approaches \($x_jump\) is \($y_jump_right\)",
@@ -221,7 +219,7 @@ $tf -> qa (
 Context()->normalStrings;
 
 # How many questions to use
-$tf->choose(8);
+$tf->choose(7);
 
 
 ##############################################################
