@@ -68,15 +68,6 @@ Context("Numeric");
 #
 #
 
-$tab = DataTable([
-[["Precedence",headerrow=>1], "name", "symbols"],
-["first","Parentheses", "\(()\)"],
-["","Powers", "\(\hat{}\)"],
-["","Multiplication / division", "\(\times \div\)"],
-["","SUMMATION 🆕", "\(\Sigma\)"],
-["last","Addition / subtraction", "\(\pm\)"],
-]);
-
 
 
 Context()->texStrings;
@@ -84,17 +75,6 @@ BEGIN_PGML
 [@ openDiv({ "class" => "problemPurpose" }) @]*
 In this problem, I want to drive home the necessity of using parentheses carefully when using summation notation.
 [@ closeDiv() @]*
-
-
-[@ openDiv({ "class" => "importantFormula" }) @]*
-PPMDAS --- order of operations matters!
-
-[@ $tab @]***
-
-
-[@ closeDiv() @]*
-
-ℹ️ Summation notation is HIGHER in precedence than regular addition.
 
 END_PGML
 
@@ -107,13 +87,19 @@ With no parentheses, summands are NOT in a sum.
 
 $PAR
 
+\( \displaystyle \sum_{i=1}^5 i^2 + 1  \ne \displaystyle \sum_{i=1}^5 \left( i^2 + 1 \right) \)
+
+$PAR
+Instead ...
+$PAR
+
 \( \displaystyle \sum_{i=1}^5 i^2 + 1  = \displaystyle 1 + \sum_{i=1}^5 i^2\)
 
 $PAR
 In contrast, using parentheses guarantees that stuff you want inside a sum really is inside.
 $PAR
 
-\( \displaystyle \sum_{i=1}^5 (i^2 + 1)  = \displaystyle \sum_{i=1}^5 (1+i^2) =  \sum_{i=1}^5 i^2 + 5 \)
+\( \displaystyle \sum_{i=1}^5 (i^2 + 1)  = \displaystyle \sum_{i=1}^5 (1+i^2) =  5 + \sum_{i=1}^5 i^2 \)
 
 $PAR
 $HR
