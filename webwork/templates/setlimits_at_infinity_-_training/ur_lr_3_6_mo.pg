@@ -131,8 +131,8 @@ LayoutTable(
 BEGIN_PGML
 
 [@ openDiv({ "class" => "problemPurpose" }) @]*
-This problem touches on limits at infinity of rationals of exponentials.
-* [``\exp(x)``] 
+This problem touches on limits at infinity of rationals of exponentials, e.g., 
+* [``e^x``] 
 [@ closeDiv() @]*
 
 
