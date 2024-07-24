@@ -97,9 +97,9 @@ For the function [`f`] in the graph, determine the truth of the statements.
 
 [` f'(1) `] does not exist   [_]{make_popup($true)}
 
-[` f'(x)<0 `] where [`|x|<1`]  [_]{make_popup($true)}
+[` f'(x)<0 `] where [`-1 < x < 1`]  [_]{make_popup($true)}
 
-[` f'(x)>0 `] where [`|x|>1`]   [_]{make_popup($true)}
+[` f'(x)>0 `] where [`x < -1 \text{ or } x > 1`]   [_]{make_popup($true)}
 
 
 
