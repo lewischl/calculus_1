@@ -206,7 +206,8 @@ ANS($delta->D->cmp);
 BEGIN_PGML
 
 
-Now use the product rule to compute the derivative of [`g`].
+Now use the product rule to compute the derivative of [`g`].  
+(Note: Given the number of terms in both factors of [`g`], simplification is not necessary on this problem.)
 
 >>[`g'(x) = `] [___]{ $g->D}<<
 
