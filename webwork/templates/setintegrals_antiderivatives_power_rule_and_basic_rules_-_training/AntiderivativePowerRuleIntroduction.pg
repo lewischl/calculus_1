@@ -7,8 +7,6 @@
 ## DBsubject('Calculus')
 ## DBchapter('Derivatives')
 ## DBsection('Power Rule')
-## Date('07/20/2024')
-## Author('W. Shull')
 ## Institution('UWEC')
 ## TitleText1('')
 ## EditionText1('')
@@ -70,23 +68,23 @@ Context()->noreduce('(-x)-y');
 Context()->noreduce('(-x)+y');
 Context()->variables->add(u=>"Real", h=>"Real", n=>"Real", k=>"Real", f=>"Real", g=>"Real");
 
-$a1=random(2,4);
-$a2=non_zero_random(-4,4);
-$a3=non_zero_random(-4,4);
-$a4=non_zero_random(-4,4);
-$a5=random(2,6);
-$a6=non_zero_random(-10,10);
-$a7=non_zero_random(-10,10);
-while($a7==$a6){$a7=non_zero_random(-10,10);}
+$a  = random(2, 4);
+$a1 = non_zero_random(-10, -1);
+$a2 = non_zero_random(100, 200);
+$a3 = non_zero_random(-5, 5);
+$a4 = non_zero_random(7, 15);
 
-$f1=Formula("$a1*x^4+$a2*x^2")->reduce;
-$f1d=Formula("4*$a1*x^3+2*$a2*x")->reduce;
-$f2=Formula("$a3*x^5+$a4*x")->reduce;
-$f2d=Formula("5*$a3*x^4+$a4")->reduce;
-$f3=FormulaUpToConstant("$a5*x^3")->reduce;
-$f3d=Formula("3*$a5*x^2")->reduce;
-$f4=Formula("$a5*x^3+$a6")->reduce;
-$f5=Formula("$a5*x^3+$a7")->reduce;
+$f  = FormulaUpToConstant("$a*x^3")->reduce;
+$f1 = Formula("$a*x^3 + $a1")->reduce;
+$f2 = Formula("$a2 + $a*x^3")->reduce;
+$f3 = Formula("$a*x^3 + $a3*pi")->reduce;
+$f4 = Formula("cos(pi/$a4) + $a*x^3")->reduce;
+$fdx= Formula("3*$a*x^2")->reduce;
+
+$f5 = FormulaUpToConstant("1/3*x^3")->reduce;
+$f5d= Formula("x^2")->reduce;
+$f6 = FormulaUpToConstant("1/4*x^4")->reduce;
+$f6d= Formula("x^3")->reduce;
 
 $power3=FormulaUpToConstant("(x^4)/4");
 #$y1=non_zero_random(-10,10);
@@ -111,17 +109,15 @@ BEGIN_PGML
 
 We have lots of practice taking derivatives. Given [`f(x)=x^3`], for example, we know that [`f'(x)=3x^2`].
 
-But if we were given [`f'(x)=3x^2`] and not told [`f(x)`], could we have figured it out?
-
 Let's take a few more derivatives for practice:
 
-[`\frac d{dx}\left([$f1]\right)=`] [_]{$f1d}
+[`\frac d{dx}\left([$f1]\right)=`] [_]{$fdx}
 
-[`\frac d{dx}\left([$f2]\right)=`] [_]{$f2d}
+[`\frac d{dx}\left([$f2]\right)=`] [_]{$fdx}
 
-[`\frac d{dx}\left([$f4]\right)=`] [_]{$f3d}
+[`\frac d{dx}\left([$f3]\right)=`] [_]{$fdx}
 
-[`\frac d{dx}\left([$f5]\right)=`] [_]{$f3d}
+[`\frac d{dx}\left([$f4]\right)=`] [_]{$fdx}
 
 END_PGML
 Section::End();
@@ -130,15 +126,14 @@ Section::Begin("Antiderivatives");
 
 BEGIN_PGML
 
-Notice that the last two functions we looked at had the same derivative! So if we are told that [`f'(x)=[$f3d]`], there is more than one possibility for [`f(x)`].
+Notice that functions we looked at all had the same derivative! So if we are told that [`f'(x)=[$fdx]`], there is more than one possibility for [`f(x)`].
 
-In fact there are infinitely many possibilities! Any function of the form [`f(x)=[$f3]`], where [`C`] is any real number, has this derivative (since the derivative of [`C`] is 0). So we can say [`[$f4]`] is _an_ antiderivative of [`[$f3d]`], but not _the_ antiderivative.
+In fact there are infinitely many possibilities! Any function of the form [`f(x)=[$f]`], where [`C`] is any real number, has the derivative [`[$fdx]`] (since the derivative of [`C`] is 0). So we can say [`[$f4]`] is _an_ antiderivative of [`[$fdx]`], but not _the_ antiderivative.
 
-The full family of antiderivatives, [`[$f3]`], is often called the *general antiderivative*. You can write it by taking any antiderivative and simply adding [`+C`] to the end.
+The full family of antiderivatives, [`[$f]`], is often called the *general antiderivative*. You can write it by taking any antiderivative and simply adding [`+C`] to the end.
 
-Find the general antiderivative of [`[$f1d]`]: [_]{FormulaUpToConstant("$f1")->reduce}
 
-Find the general antiderivative of [`[$f2d]`]: [_]{FormulaUpToConstant("$f2")->reduce}
+Review: What is the general antiderivative of [`[$fdx]`]? [_]{$f}
 
 END_PGML
 Section::End();
@@ -151,33 +146,15 @@ Let's revisit [`f'(x)=3x^2`] and [`f(x)=x^3`]. In other words
 
 [``\frac d{dx}\big(x^3\big)=3x^2``]
 
-Let's divide both sides by 3:
+Let's multiply both sides by [` \frac{1}{3} `]
 
-[``\frac13\cdot\frac d{dx}\Big(``][_]{Formula("x^3")}[``\Big)=``] [_]{Formula("x^2")}
-
-END_PGML
-Section::End();
-
-Section::Begin("Slight rearrangement");
-
-BEGIN_PGML
+[``\frac{1}{3} \cdot \frac d{dx}\Big(``][_]{Formula("x^3")}[``\Big)=``] [_]{Formula("x^2")}
 
 Now let's rewrite the left side slightly:
 
-[``\frac13\cdot\frac d{dx}\big(x^3\big)=x^2``]
-
 [``\frac d{dx}\Big(``][_]{Formula("(x^3)/3")}[``\Big)=x^2``]
 
-END_PGML
-Section::End();
-
-Section::Begin("Another exponent");
-
-BEGIN_PGML
-
-Let's do something similar with some other exponents. First, a derivative:
-
-[``\frac d{dx}\big(x^4\big)=``] [_]{Formula("4*(x^3)")}
+Based on this work, what is the general antiderivative of [`[$f5d]`]? [_]{$f5}
 
 END_PGML
 Section::End();
@@ -186,9 +163,19 @@ Section::Begin("Another antiderivative");
 
 BEGIN_PGML
 
+Let's do something similar with some other exponents. First, a derivative:
+
+[``\frac d{dx}\big(x^4\big)=``] [_]{Formula("4*(x^3)")}
+
+Multiply both sides ...
+
 [_]{1/4}[``\cdot\frac d{dx}\big(x^4\big)=x^3``]
 
+Rewrite ...
+
 [``\frac d{dx}\bigg(``][_]{Formula("(x^4)/4")}[``\bigg)=x^3``]
+
+Based on this work, what is the general antiderivative of [`[$f6d]`]? [_]{$f6}
 
 END_PGML
 Section::End();
@@ -197,30 +184,12 @@ Section::Begin("Continuing the pattern");
 
 BEGIN_PGML
 
-Do the same for the next few exponents:
-
-[``\frac d{dx}\bigg(``][_]{Formula("(x^5)/5")}[``\bigg)=x^4``]
-
-[``\frac d{dx}\bigg(``][_]{Formula("(x^6)/6")}[``\bigg)=x^5``]
-
-[``\frac d{dx}\bigg(``][_]{Formula("(x^7)/7")}[``\bigg)=x^6``]
-
-[``\frac d{dx}\bigg(``][_]{Formula("(x^8)/8")}[``\bigg)=x^7``]
-
-END_PGML
-Section::End();
-
-Section::Begin("General antiderivatives");
-
-BEGIN_PGML
-
-Don't forget: Each function has an infinite family of antiderivatives, not just one. Enter the general antiderivatives of each function in the table below.
+Based on the pattern from the examples ablove, what are general antiderivatives for:
 
 [@
 DataTable(
 [
     ["function","general antiderivative"],
-    ['\(x^3\)',ans_rule(10)],
     ['\(x^4\)',ans_rule(10)],
     ['\(x^5\)',ans_rule(10)],
     ['\(x^6\)',ans_rule(10)],
@@ -234,7 +203,6 @@ tablecss => " border-spacing:0px 0px; border-radius: 5px; border-collapse:separa
 
 END_PGML
 
-ANS(FormulaUpToConstant("(x^4)/4")->cmp);
 ANS(FormulaUpToConstant("(x^5)/5")->cmp);
 ANS(FormulaUpToConstant("(x^6)/6")->cmp);
 ANS(FormulaUpToConstant("(x^7)/7")->cmp);
@@ -242,19 +210,11 @@ ANS(FormulaUpToConstant("(x^8)/8")->cmp);
 
 Section::End();
 
-Section::Begin("Pattern in terms of \(n\)");
+Section::Begin("Indefinite integral notation");
 
 BEGIN_PGML
 
 Based on the pattern, the general antiderivative of [`x^n`] is [_]{FormulaUpToConstant("(x^(n+1))/(n+1)")}
-
-END_PGML
-
-Section::End();
-
-Section::Begin("Indefinite integral notation");
-
-BEGIN_PGML
 
 We have a notation for the general antiderivative of any function [`f(x)`]. It looks like this:
 
@@ -264,7 +224,7 @@ The [``\int``] is called the *integral* symbol, and an expression like this over
 
 So if [`F(x)`] is one of the antiderivatives of [`f(x)`] (in other words, if [`F'(x)=f(x)`]), then
 
-[```\int f(x)dx=F(x)+C```]
+[```\int f(x)\,dx = F(x) + C```]
 
 We now have everything we need for the...
 
@@ -275,44 +235,12 @@ For any constant exponent [`n`]:
 
 >>[``\int x^n dx=``] [_]{FormulaUpToConstant("x^(n+1)/(n+1)")}<<
 
-as long as [`n\ne`] [_]{-1}
+as long as [`n \ne -1`]
+
+Thought question: When [`n = -1`] what is the antiderivative of [`x^n`]?
 
 [@ closeDiv() @]*
 
-
-END_PGML
-
-Section::End();
-
-Section::Begin("Basic antiderivative rules");
-
-BEGIN_PGML
-
-Here are some more basic rules, besides the power rule:
-
-[@ openDiv({ "class" => "importantFormula" }) @]*
-Sum and Difference Rules:
-
->>[``\int\big(f(x)+g(x)\big)dx=\int f(x)dx+\int g(x)dx``]<<
-
->>[``\int\big(f(x)-g(x)\big)dx=\int f(x)dx-\int g(x)dx``]<<
-
-[@ closeDiv() @]*
-
-[@ openDiv({ "class" => "importantFormula" }) @]*
-
-Constant Multiple Rule:
-
->>[``\int k\cdot f(x)dx=k\int f(x)dx``]<<
-
-[@ closeDiv() @]*
-
-[@ openDiv({ "class" => "importantFormula" }) @]*
-Exponential Rule:
-
->>[``\int e^xdx=e^x+C``]<<
-
-[@ closeDiv() @]*
 
 END_PGML
 
