@@ -1,4 +1,3 @@
-
 ########################################
 # this file automatically moved
 #	from local/chapter3/chain-rule-v2.pg 
@@ -52,7 +51,7 @@ Powers of trig functions are a common source of mistakes.  This problem offers t
 To take a derivative of a function that looks like [`\textnormal{trig}^n(x)`], follow these steps:
 
 1. rewrite in a pattern which helps more readily recognize as a composition with a power function.  [`\textnormal{trig}^n(x) = (\textnormal{trig}(x))^n`]
-2. Use the chain rule version of the power rule, [` (\Box^n)'  = n \Box^{n-1}\cdot  \Box'`].
+2. Use the chain rule version of the power rule, [` \frac{d}{dx} \Box^n  = n \Box^{n-1}\cdot  \Box'`].
 [@ closeDiv() @]*
 
 ---
