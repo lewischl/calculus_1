@@ -124,6 +124,11 @@ $PAR
 \{$popup3->menu\} $BBOLD 3. $EBOLD  What type of discontinuity does \(f\) have at \(x=3\)?
 END_TEXT
 
+BEGIN_HINT
+This \{ htmlLink("https://www.desmos.com/calculator/6gcwm6mkru", "Desmos graph", "TARGET='_blank'") \} may be helpful, though the specific values will need to be updated based on your WeBWorK values.
+ 
+END_HINT
+
 Context()->normalStrings;
 
 #####################################################################
