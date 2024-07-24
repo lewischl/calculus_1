@@ -67,29 +67,29 @@ $PAR
 
 
 \{ openDiv({ "class" => "promptOrInstruction" }) \}
-Evaluate the following expressions, finding the integers for the numerators and denominators.
+Evaluate the following expressions, finding the integers for the numerators and denominators. Please simplify answers.
 \{ closeDiv() \}
 
 $PAR
-\(\frac{2}{7} + \frac{4}{21} = \)  \{ ans_rule(5) \} \(/\)
+\(\displaystyle \frac{2}{7} + \frac{4}{21} = \)  \{ ans_rule(5) \} \(/\)
   \{ ans_rule(5) \}.
 $PAR
-\(\frac{2}{7} - \frac{4}{21} = \)  \{ ans_rule(5) \} \(/\)
-  \{ ans_rule(5) \}.
-
-$PAR
-\(\frac{2}{7} \times \frac{4}{21} = \)  \{ ans_rule(5) \} \(/\)
+\(\displaystyle \frac{2}{7} - \frac{4}{21} = \)  \{ ans_rule(5) \} \(/\)
   \{ ans_rule(5) \}.
 
 $PAR
+\(\displaystyle \frac{2}{7} \times \frac{4}{21} = \)  \{ ans_rule(5) \} \(/\)
+  \{ ans_rule(5) \}.
 
-\(\frac{2}{7} \div \frac{4}{21} = \)  \{ ans_rule(5) \} \(/\)
+$PAR
+
+\(\displaystyle \frac{2}{7} \div \frac{4}{21} = \)  \{ ans_rule(5) \} \(/\)
   \{ ans_rule(5) \}.
 
 
 $PAR
 
-\(\frac{\frac{4}{3}- \frac{1}{2}}{\frac{2}{5}+ \frac{1}{3}} = \)
+\(\dfrac{\dfrac{4}{3}- \dfrac{1}{2}}{\dfrac{2}{5}+ \dfrac{1}{3}} = \)
 \{ ans_rule(5) \} \(/\)
   \{ ans_rule(5) \}.
 
