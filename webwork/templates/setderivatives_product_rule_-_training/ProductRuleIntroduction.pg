@@ -53,16 +53,16 @@ $b1=non_zero_random(-10,10);
 $b2=random(3,9);
 $b3=random(2,10);
 $b4=random(2,10);
-$b5=non_zero_random(-10,10);
+$b5=non_zero_random(-5,5);
 $b6=random(2,10);
-$b7=non_zero_random(-10,10);
+$b7=non_zero_random(-5,5);
 $b8=random(2,10);
 while ($b8==$b6){
     $b8=random(2,10);
 }
-$b9=non_zero_random(-10,10);
+$b9=non_zero_random(-5,5);
 $b10=random(2,10);
-$b11=non_zero_random(-10,10);
+$b11=non_zero_random(-5,5);
 $b12=random(2,10);
 while ($b12==$b10 or $b6+$b10==$b8+$b12 or $b6+$b12==$b8+$b10){
     $b12=random(2,10);
@@ -107,9 +107,9 @@ BEGIN_PGML
 
 Let's review how to take derivatives when two or more functions are added or subtracted!
 
-Let [`f(x)=[$b1]*x^[$b2]-[$b3]\sin x+[$b4]e^x`]. Then
+Let [`f(x)=[$b1]*x^[$b2] - [$b3] + [$b4]e^x`]. Then
 
->>[``f'(x)=``] [_]{Formula("[$b2]*[$b1]*x^([$b2]-1)-[$b3]*cos(x)+[$b4]*e^x")->reduce}<<
+>>[``f'(x)=``] [_]{Formula("[$b2]*[$b1]*x^([$b2]-1) + [$b4]*e^x")->reduce}<<
 
 END_PGML
 Section::End();
@@ -131,7 +131,7 @@ $gp=Formula("[$b9]*[$b10]*x^([$b10]-1)+$b11*$b12*x^([$b12]-1)")->reduce;
 
 BEGIN_PGML
 
-Let [`f(x)=[$f]`] and [`g(x)=[$g]`]. Let's try multiplying their derivatives:
+Let [`f(x)=[$f]`] and [`g(x)=[$g]`]. What are their derivatives?
 
 >>[``f'(x)=``] [_]{$fp}<<
 
@@ -141,15 +141,15 @@ Let [`f(x)=[$f]`] and [`g(x)=[$g]`]. Let's try multiplying their derivatives:
 
 [`\$b9=[$b9],\$b10=[$b10],\$b11=[$b11],\$b12=[$b12]`]%]
 
-Retype these two answers in the parentheses (in order), and then FOIL them out (in order).
+Let's try multiplying these derivatives. Retype these two answers in the parentheses (in order), then use the distributive property.
 
->>[``f'(x)*g'(x)=\Big(``][_]{Formula("[$b5]*[$b6]*x^([$b6]-1)+[$b7]*[$b8]*x^([$b8]-1)")->reduce}[``\Big)\Big(``][_]{Formula("[$b9]*[$b10]*x^([$b10]-1)+[$b11]*[$b12]*x^([$b12]-1)")->reduce}[``\Big)
-=``] [_]{Formula("[$b5]*[$b6]*x^([$b6]-1)*[$b9]*[$b10]*x^([$b10]-1)")->reduce} [``
-+``] [_]{Formula("[$b5]*[$b6]*x^([$b6]-1)*[$b11]*[$b12]*x^([$b12]-1)")->reduce} [``
-+``] [_]{Formula("[$b7]*[$b8]*x^([$b8]-1)*[$b9]*[$b10]*x^([$b10]-1)")->reduce} [``
-+``] [_]{Formula("[$b7]*[$b8]*x^([$b8]-1)*[$b11]*[$b12]*x^([$b12]-1)")->reduce}<<
+>>[``f'(x) \cdot g'(x)=\Big(``][_]{Formula("[$b5]*[$b6]*x^([$b6]-1)+[$b7]*[$b8]*x^([$b8]-1)")->reduce}[``\Big)\Big(``][_]{Formula("[$b9]*[$b10]*x^([$b10]-1)+[$b11]*[$b12]*x^([$b12]-1)")->reduce}[``\Big)``]  
+[``=``] [_]{Formula("[$b5]*[$b6]*x^([$b6]-1)*[$b9]*[$b10]*x^([$b10]-1) 
++ [$b5]*[$b6]*x^([$b6]-1)*[$b11]*[$b12]*x^([$b12]-1) 
++ [$b7]*[$b8]*x^([$b8]-1)*[$b9]*[$b10]*x^([$b10]-1) 
++ [$b7]*[$b8]*x^([$b8]-1)*[$b11]*[$b12]*x^([$b12]-1)")->reduce}<<
 
-Is that the derivative of [`f(x)*g(x)`]? Let's find out!
+Is that the derivative of [`f(x) \cdot g(x)`]? Let's find out!
 
 END_PGML
 Section::End();
@@ -158,13 +158,13 @@ Section::Begin("Multiplying out the product");
 
 BEGIN_PGML
 
-As before, [`f(x)=[$f]`] and [`g(x)=[$g]`]. Let's multiply them and FOIL them out! Make sure to keep everything in order as before.
+As before, [`f(x)=[$f]`] and [`g(x)=[$g]`]. Let's rewrite them, them multiply them using the distributive property.
 
->>[``f(x)*g(x)=\Big(``][_]{Formula("[$b5]*x^[$b6]+[$b7]*x^[$b8]")->reduce} [``\Big)\Big(``][_]{Formula("[$b9]*x^[$b10]+[$b11]*x^[$b12]")->reduce}[``\Big)
-=``] [_]{Formula("[$b5]*x^[$b6]*[$b9]*x^[$b10]")->reduce} [``
-+``] [_]{Formula("[$b5]*x^[$b6]*[$b11]*x^[$b12]")->reduce} [``
-+``] [_]{Formula("[$b7]*x^[$b8]*[$b9]*x^[$b10]")->reduce} [``
-+``] [_]{Formula("[$b7]*x^[$b8]*[$b11]*x^[$b12]")->reduce}<<
+>>[``f(x) \cdot g(x)=\Big(``][_]{Formula("[$b5]*x^[$b6]+[$b7]*x^[$b8]")->reduce} [``\Big)\Big(``][_]{Formula("[$b9]*x^[$b10]+[$b11]*x^[$b12]")->reduce}[``\Big)``]  
+[``=``] [_]{Formula("[$b5]*x^[$b6]*[$b9]*x^[$b10] 
++ [$b5]*x^[$b6]*[$b11]*x^[$b12]
++ [$b7]*x^[$b8]*[$b9]*x^[$b10]
++ [$b7]*x^[$b8]*[$b11]*x^[$b12]")->reduce}<<
 
 >>[``\frac d{dx}[f(x)g(x)]=``] [_]{Formula("[$b5]*[$b9]*([$b6]+[$b10])*x^([$b6]+[$b10]-1)
 +
@@ -175,7 +175,7 @@ As before, [`f(x)=[$f]`] and [`g(x)=[$g]`]. Let's multiply them and FOIL them ou
 [$b7]*[$b11]*([$b8]+[$b12])*x^([$b8]+[$b12]-1)
 ")->reduce}<<
 
-Is this the same answer as [`f'(x)*g'(x)`]? [_]{$productmatches}
+Is this the same answer as [`f'(x) \cdot g'(x)`] from the previous section? [_]{$productmatches}
 
 END_PGML
 Section::End();
@@ -190,9 +190,12 @@ As we just saw, those two answers are NOT the same. So the derivative of a produ
 
 So...how do we find it?
 
+[% REMOVED BECAUSE D/DX SIN X NOT YET DONE
+
 Here is a video describing the product rule visually (watch from 4:12 to 8:40):
 
 [@ youtube("YG15m2VwSjA?start=252"); @]*
+%]
 
 [@ openDiv({ "class" => "importantFormula" }) @]*
 Product Rule:
@@ -250,138 +253,25 @@ END_PGML
 
 BEGIN_PGML
 
-Now FOIL out both pairs of factors (in order)
+Now use the distributive properity on both pairs of factors (in order)
 
->>[``(fg)'(x)=\dots=\bigg( ``]
-[_]{$term1}
-[``+``]
-[_]{$term2}
-[``+``]
-[_]{$term3}
-[``+``]
-[_]{$term4}
+>>[``(fg)'(x) = \bigg( ``]
+[_]{$term1 + $term2 + $term3 + $term4}
 [``\bigg)+\bigg( ``]
-[_]{$term5}
-[``+``]
-[_]{$term6}
-[``+``]
-[_]{$term7}
-[``+``]
-[_]{$term8}
+[_]{$term5 + $term6 + $term7 + $term8}
 [``\bigg)``]
 <<
-
-
-END_PGML
-Section::End();
-
-Section::Begin("Simplify");
-
-BEGIN_PGML
-
-Simplify your previous answer.
-
->>[``(fg)'(x)=``][_]{$fp*$g+$gp*$f}<<
 
 Does this match your answer from the "Multiplying out the product" part? [_]{$productrulematches}
 
 END_PGML
 Section::End();
 
-Section::Begin("More practice");
 
-BEGIN_PGML
-
-Let's find the derivative of [`e^x\sin x`]
-
-[@
-DataTable(
-[
-    ['\( f(x) = \) ' . ans_rule(10),'\(f\'(x)=\)' . ans_rule(10)],
-    ['\( g(x) = \) ' . ans_rule(10),'\(g\'(x)=\)' . ans_rule(100)]
-],
-align => 'l l',
-tablecss => "border:solid 1px; border-spacing:50px 5px; border-radius: 5px; border-collapse:separate;"
-);
-@]***
-
-END_PGML
-
-ANS(Formula("e^x")->cmp());
-ANS(Formula("e^x")->cmp());
-ANS(Formula("sin(x)")->cmp());
-ANS(Formula("cos(x)")->cmp());
-
-#$fgp=Formula("e^x*(sin(x)+cos(x))")->reduce
-
-BEGIN_PGML
-
->>[``(fg)'(x)=f'(x)g(x)+g'(x)f(x)=``][_]{$fgp}<<
-
-----
-
-Let's find the derivative of [`(x^3+[$b13])\cos x`]
-
-[@
-DataTable(
-[
-    ['\( f(x) = \) ' . ans_rule(10),'\(f\'(x)=\)' . ans_rule(10)],
-    ['\( g(x) = \) ' . ans_rule(10),'\(g\'(x)=\)' . ans_rule(100)]
-],
-align => 'l l',
-tablecss => "border:solid 1px; border-spacing:50px 5px; border-radius: 5px; border-collapse:separate;"
-);
-@]***
-
-END_PGML
-
-#$new_f=Formula("x^3+$b13")->cmp();
-ANS($new_f);
-ANS(Formula("3x^2")->cmp());
-ANS(Formula("cos(x)")->cmp());
-ANS(Formula("-sin(x)")->cmp());
-
-#$newfgp=Formula("3x^2*cos(x)-(x^3+$b13)*sin(x)")->reduce;
-
-BEGIN_PGML
-
->>[``(fg)'(x)=f'(x)g(x)+g'(x)f(x)=``][_]{$newfgp}<<
-
------
-
-Find [`\frac d{dx}\left(x^{[$b14]}e^x\right)`]
-
-[@
-DataTable(
-[
-    ['\( f = \) ' . ans_rule(10),'\(f\'=\)' . ans_rule(10)],
-    ['\( g = \) ' . ans_rule(10),'\(g\'=\)' . ans_rule(100)]
-],
-align => 'l l',
-tablecss => "border:solid 1px; border-spacing:50px 5px; border-radius: 5px; border-collapse:separate;"
-);
-@]***
-
-END_PGML
-
-#$new_gp=Formula("$b14*x^($b14-1)")->cmp();
-ANS(Formula("x^{$b14}")->cmp());
-ANS($new_gp);
-ANS(Formula("e^x")->cmp());
-ANS(Formula("e^x")->cmp());
-
-#$new_fgp=Formula("[$b14]*x^[$b14-1]*e^x+e^x*x^[$b14]")->reduce;
-
-BEGIN_PGML
-
->>[``(fg)'(x)=``][_]{$new_fgp}<<
-
-END_PGML
 Context()->normalStrings;
 
 $showPartialCorrectAnswers = 1;
 
-Section::End();
 
   Scaffold::End();
 
