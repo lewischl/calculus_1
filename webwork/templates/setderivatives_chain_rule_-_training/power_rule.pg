@@ -91,10 +91,10 @@ The chain rule tells us that when we take a derivative of one function inside th
 [@ openDiv({ "class" => "importantFormula" }) @]*
 Applying the chain rule to the power rule,
 
-* [`` ( (f(x))^n )' = n \cdot (f(x))^{n-1} \cdot f'(x) ``]
+* [`` \frac{d}{dx} (f(x))^n = n \cdot (f(x))^{n-1} \cdot f'(x) ``]
 
 Using box notation, this becomes
-* [`` (\Box^n )' = n \, \Box^{n-1} \cdot \Box' ``]
+* [`` \frac{d}{dx} \Box^n  = n \, \Box^{n-1} \cdot \Box' ``]
 
 [@ closeDiv() @]*
 
