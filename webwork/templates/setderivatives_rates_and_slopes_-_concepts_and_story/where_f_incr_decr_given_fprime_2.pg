@@ -87,7 +87,7 @@ $ylim[1] = max($f_prime->eval(x=>8), $f_prime->eval(x=>0))    +$padding;
 $xtick = 1;
 $ytick = 4;
 
-$graph1 = GraphWithTikZ(function => [[$f_prime,dmin => $xlim[0],dmax => $xlim[1],label=>"f'(x) (NOT f!!!)"]],
+$graph1 = GraphWithTikZ(function => [[$f_prime,dmin => $xlim[0],dmax => $xlim[1],label=>"f'(x)"]],
                         xmin => $xlim[0],xmax => $xlim[1],ymin => $ylim[0],ymax =>$ylim[1],smooth=>'smooth',ytick => $ytick,xtick => $xtick,useLegend=>1);
                         
 

@@ -148,4 +148,8 @@ At [`x = `] [_____]{$x_der_zero}.
 
 END_PGML
 
+BEGIN_PGML_HINT
+If there are two or more intervals, please use the union [`\cup`] symbol between them, e.g., [`(-\infty, 0) \cup (0, \infty)`].
+END_PGML_HINT
+
 ENDDOCUMENT();

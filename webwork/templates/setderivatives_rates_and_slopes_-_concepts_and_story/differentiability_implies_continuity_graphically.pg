@@ -246,14 +246,14 @@ We have a function [`f`] graphed below:
 
 
 
-On what intervals is [`f`] continuous?   Use interval notation.  If there are none, enter "none".
+On what intervals is [`f`] continuous?   Use interval notation (recall that [`\cup`] is used between multiple intervals).  If there are none, enter "none".
 
 [_____]{interval_cmp("(-inf,$x_infinite)U($x_infinite,$x_jump)U($x_jump, $x_removable)U($x_removable,inf)", strings=>["none"])}
 
 ---
 
 
-At which points does [`f'`] not exist?  Use a comma-separated list of points.
+At which x-values does [`f'`] not exist?  Please identify x-values below, separated by commas.
 
 
 [____]{List(@discontinuities)}
