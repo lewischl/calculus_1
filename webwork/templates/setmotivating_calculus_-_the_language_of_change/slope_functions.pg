@@ -1,13 +1,16 @@
 ##DESCRIPTION
-##  Arithemetic problem: give the value of pi
+##  Use what you know about slopes of lines to identify whether
+##  the slope of the tangent line is positive/negative/0
+##  at points, and then identify the "slope function" from a set of
+##  four choices.
 ##ENDDESCRIPTION
 
 ##KEYWORDS('rates of change', 'slope', 'slope function')
 
 ## DBsubject('calculus')
 ## DBchapter('rates of change')
-## DBsection('rates of change')
-## Date('summer 2023')
+## DBsection('slope functions')
+## Date('summer 2023, summer 2024')
 ## Author('silviana amethyst')
 ## Institution('uwec')
 
@@ -24,31 +27,30 @@ loadMacros(
    "customCSS.pl",
   "PGuwecTikZutils.pl", #Custom TikZ code
   "parserPopUp.pl",   # <--------------------------------------NEEDED FOR DROPDOWN MENUS
-  'PGchoicemacros.pl', "desmos.pl",,
+  'PGchoicemacros.pl', 
+  "desmos_experimental.pl",
 );
 
 loadMacros("niceTables.pl");
 
 
 
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
 
 # some stuff for enabling desmos
 $unique_div_id = "programmatically_constructed_desmos";
 $width = 400;
 $height = 300;
 
-desmos_enable_construct_new();
-
-$desmos_graph = MODES(
-    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Desmos graph best viewed online'
-);
+desmos_enable();
+desmos_enable_value_in_text();
 
 
+$desmos_graph = desmos_make_div_calculator(id=>$unique_div_id, width=>$width, height=>$height);
+$x_init = 0;
 
 
-# Print problem number and point value (weight) for the problem
-TEXT(beginproblem());
 
 # Show which answers are correct and which ones are incorrect
 $showPartialCorrectAnswers = 1;
@@ -60,9 +62,6 @@ $showPartialCorrectAnswers = 1;
 #
 Context("Numeric");
 Context()->normalStrings;
-
-$pi = Real("pi");
-
 
 $a = random(-4,0,1);
 $b = $a + random(1,3,0.5);
@@ -167,7 +166,7 @@ for my $i (0..3){
     points => [],
         xmin => $xlim[0],xmax => $xlim[1],ymin =>$ymin,ymax =>$ymax, # axis limits.  these should be computed, as in this example
         smooth=>'smooth', #smooth, not cornery
-        ytick => $ytick,xtick => $xtick,useLegend=>1); # where to mark the axis.  xtick, ytick is the distance between marks.  they do not have to be the same.
+        ytick => 100,xtick => $xtick,useLegend=>1); # where to mark the axis.  xtick, ytick is the distance between marks.  they do not have to be the same.
 
 } # loop for graphs
 
@@ -200,6 +199,7 @@ $tab = LayoutTable(
     
     Context()->texStrings;
     
+    
 BEGIN_PGML
 
 [@ openDiv({ "class" => "problemPurpose" }) @]*
@@ -208,7 +208,7 @@ Calculus is the language of change, and this means studying relationships betwee
 
 ---
 
-Consider the following graph of a function [`f`] (I'm not giving you the formula or axes because they're not important).
+Consider the following graph of a function [`f`] (I'm not giving you the formula or vertical scale because they're not important).
 
 >> [@ $desmos_graph @]* <<
 
@@ -256,7 +256,7 @@ BEGIN_PGML
 
 [@ $tab @]*
 
-Based on the above observations, select the one of the following graphs that could be a "slope function", which tells is the slope of the given function at the corresponding [`x`]-value.  Remember, 
+Based on the above observations, select the one above graph that could be a "slope function", which tells is the slope of the given function at the corresponding [`x`]-value.  Remember, 
 * if the original function is increasing at a point, the slope function should be positive at that same point.
 * if the original function is decreasing at a point, the slope function should be negative at that same point.
 
@@ -279,11 +279,17 @@ END_PGML
 
 Context()->normalStrings;
 
+
+
 $d = '$';
 
 TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 <script>
+    if (sessionStorage.getItem('x_curr')===null){
+        sessionStorage.setItem('x_curr',$x_init);
+    }
 
+    
     var arstarst = document.getElementById("$unique_div_id");
 
     var my_calculator = Desmos.Calculator(arstarst, {
@@ -291,16 +297,18 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         expressions: false, 
         settingsMenu: true, 
         expressionsTopbar: false,
-        zoomButtons: false, lockViewport: false,
+        zoomButtons: false, lockViewport: true,
         showGrid: true,
         showXAxis: true, showYAxis: false,
     });
+
+
 
     my_calculator.setExpressions([
         { id: 'f', latex: 'f(x)=$f_as_string', secret:false, color:Desmos.Colors.BLUE},
         { id: 'slope', latex: 'p=f\'(a)', secret:false},
         { id: 'ycoord', latex: 'b=f(a)', secret: false},
-        { id: 'slider', latex: 'a=0', sliderBounds: {min: $xmin, max: $xmax, step: 0.01}, secret:false},
+        { id: 'slider', latex: 'a='+sessionStorage['x_curr'], sliderBounds: {min: $xmin, max: $xmax, step: 0.01}, secret:false},
         { id: 'base_point', latex: '(a, b)', label: 'slope of f: $d\{p\}', showLabel: true, secret:false, color:Desmos.Colors.RED},
         { id: 'base_point2', latex: '(a, $ymin+4)', label: 'x=$d\{a\}', showLabel: true, secret:false, color:Desmos.Colors.RED, hidden:true},
         { id: 'tangent_line', latex: 'y = f\'(a)*(x-a) + f(a)', label: 'tangent line', secret:false, color:Desmos.Colors.GREEN, lineStyle:Desmos.Styles.DASHED},
@@ -316,6 +324,13 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
     });
     
     my_calculator.updateSettings({ fontSize: Desmos.FontSizes.SMALL });
+    
+
+    // create an observer to update the value in sessionStorage
+    var x_curr = my_calculator.HelperExpression({ latex: 'a' });
+    x_curr.observe('numericValue', function() {
+        sessionStorage.setItem('x_curr',x_curr.numericValue);
+    });
     
     var state = my_calculator.getState();
 </script>
