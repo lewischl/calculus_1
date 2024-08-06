@@ -7,8 +7,8 @@
 ## DBsubject('Calculus')
 ## DBchapter('Limits, Derivatives')
 ## DBsection('Curve Sketching')
-## Date('7/23/2023')
-## Author('Warren Shull') # also modified by silviana amethyst
+## Date('7/23/2023, Summer 2024')
+## Author('Warren Shull, silviana amethyst')
 ## Institution('UWEC')
 
 ########################################################################
@@ -78,23 +78,7 @@ $maximum = PopUp(
 # Show which answers are correct and which ones are incorrect
 $showPartialCorrectAnswers = 1;
 
-################################
-#  Desmos setup
-#
-#  In html mode, load the Desmos api script and create the <div> to attach the Desmos graph to.
-#  In tex mode, print a message to direct the student to the html version.
-#  Desmos API reference: https://www.desmos.com/api/v1.7/docs/index.html
 
-$unique_div_id = "increasing_concave_up";
-$width = 700;
-$height = 400;
-
-desmos_enable_construct_new();
-
-$desmos_div = MODES(
-    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
 
 ##############################################################
 #
@@ -208,21 +192,13 @@ In this problem we label a partitioned number line with the sign of the first de
 
 END_PGML
 
-Section::Begin("🔑 Segue from previous problem");
+Section::Begin("Compute the critical numbers");
 
 BEGIN_PGML
 
 Recall that a *critical number* is an [`x`]-value, commonly called [`c`], where either [`f'(c)=0`] or [`f'(c)`] does not exist.
 
 In this problem, we will see what happens _in-between_ the critical numbers.
-
-Enter the passcode from the previous question: [_]{$passcode1}
-
-END_PGML
-Section::End();
-Section::Begin("Compute the critical numbers");
-
-BEGIN_PGML
 
 As we have seen, when [`f'`] is positive, it means [`f`] is increasing, and when [`f'`] is negative, it means [`f`] is decreasing.
 
@@ -361,7 +337,7 @@ Section::End();
 
 
 
-Section::Begin("The first derivative test 🔑");
+Section::Begin("The first derivative test");
 
 BEGIN_PGML
 
@@ -377,8 +353,6 @@ Let [`c`] be a critical point of [`f`].
 
 We can also use the second derivative to classify a critical point as local min or max.  That's the next problem.
 
-The passcode for the next question is [`[$passcode2]`]. 🎯  Enter it here: [_]{$passcode2}.
-
 END_PGML
 Section::End();
 
@@ -386,47 +360,5 @@ Scaffold::End();
 
 Context()->normalStrings;
 
-##################################
-#  Desmos graph (via the API)
-#  Execute this only after the $desmos_div object has been put on the html page.
-
-#$right1 = $x1_max + 2;
-#$top1 = $g1_max + 2;
-#$left1 = $x1_min - 2;
-#$bottom1 = $g1_min - 2;
-
-TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
-<script>
-
-    var arstarst = document.getElementById("$unique_div_id");
-
-    var my_calculator = Desmos.Calculator(arstarst, {
-        keypad: false, 
-        //expressions: false, 
-        expressions: true,
-        settingsMenu: true, 
-        expressionsTopbar: true
-    });
-
-    my_calculator.setExpressions([
-        { id: 'slider', latex: 'y=x', sliderBounds: {min: 1, max: ,4 step: 0.1}},
-        { id: 'base_point', latex: '(a, g(a))'},
-        { id: 'tangent_line', latex: 'y = 3x-5', label: 'tangent line'},
-        { latex: ' '},{ latex: ' '},{ latex: ' '},{ latex: ' '},{ latex: ' '},
-        { id: 'g_curve', latex: 'g(x)=x^2 \\left\\{1\\leq x\\leq4\\right\\}'},
-    ]);
-    
-    my_calculator.setMathBounds({
-      left: $left1,
-      right: $right1,
-      bottom: $bottom1,
-      top: $top1
-    });
-    
-    my_calculator.updateSettings({ fontSize: Desmos.FontSizes.SMALL });
-    
-    var state = my_calculator.getState();
-</script>
-END_SCRIPT
 
 ENDDOCUMENT();
