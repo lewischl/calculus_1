@@ -7,8 +7,8 @@
 ## DBsubject('Calculus')
 ## DBchapter('Limits, Derivatives')
 ## DBsection('Rates of change')
-## Date('Summer 2023')
-## Author('Warren Shull')
+## Date('Summer 2023, Summer 2024')
+## Author('Warren Shull, silviana amethyst')
 ## Institution('UWEC')
 
 ########################################################################
@@ -58,35 +58,26 @@ $showPartialCorrectAnswers = 1;
 #  Desmos API reference: https://www.desmos.com/api/v1.7/docs/index.html
 
 
-$unique_div_id = "increasing_concave_up";
+
+
+
+
+desmos_enable();
+
 $width = 700;
 $height = 400;
 
-
-desmos_enable_construct_new();
-
-$desmos_div = MODES(
-    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
-
+$unique_div_id = "increasing_concave_up";
 $unique_div_id2 = "increasing_concave_down";
-$desmos_div2 = MODES(
-    HTML=>qq(<div id="$unique_div_id2" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
-
 $unique_div_id3 = "decreasing_concave_up";
-$desmos_div3 = MODES(
-    HTML=>qq(<div id="$unique_div_id3" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
-
 $unique_div_id4 = "decreasing_concave_down";
-$desmos_div4 = MODES(
-    HTML=>qq(<div id="$unique_div_id4" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+
+$desmos_div = desmos_make_div_calculator(id=>$unique_div_id, width=>$width, height=>$height);
+$desmos_div2 = desmos_make_div_calculator(id=>$unique_div_id2, width=>$width, height=>$height);
+$desmos_div3 = desmos_make_div_calculator(id=>$unique_div_id3, width=>$width, height=>$height);
+$desmos_div4 = desmos_make_div_calculator(id=>$unique_div_id4, width=>$width, height=>$height);
+
+
 
 ##############################################################
 #
@@ -350,41 +341,52 @@ $bottom4 = $g4_min - 2;
 
 TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 <script>
-
+    if (sessionStorage.getItem('sliderval1')===null){
+        sessionStorage.setItem('sliderval1',$x1_mid);
+    }
     var arstarst = document.getElementById("$unique_div_id");
 
-    var my_calculator = Desmos.Calculator(arstarst, {
+    var my_calculator1 = Desmos.Calculator(arstarst, {
         keypad: false, 
         //expressions: false, 
         expressions: true,
         settingsMenu: true, 
-        expressionsTopbar: true
+        expressionsTopbar: true,
+        lockViewport: true
     });
 
-    my_calculator.setExpressions([
-        { id: 'slider', latex: 'a=$x1_mid', sliderBounds: {min: $x1_min, max: $x1_max, step: 0.1}},
+    my_calculator1.setExpressions([
+        { id: 'slider', latex: 'a='+sessionStorage.getItem('sliderval1'), sliderBounds: {min: $x1_min, max: $x1_max, step: 0.1}},
         { id: 'base_point', latex: '(a, g(a))', label: '(a,g(a))', showLabel: 'true', secret:'true'},
         { id: 'tangent_line', latex: 'y = g\'(a)*(x-a) + g(a)', label: 'tangent line', secret:'true'},
         { id: 'slope', latex: 'g\'(a)'},
         { id: 'g_curve', latex: 'g(x)=$y1-\\sqrt{16-(x-$x1_min)^2} \\left\\{$x1_min\\leq x\\leq$x1_max\\right\\}', secret:'true'},
     ]);
     
-    my_calculator.setMathBounds({
+    my_calculator1.setMathBounds({
       left: $left1,
       right: $right1,
       bottom: $bottom1,
       top: $top1
     });
     
-    my_calculator.updateSettings({ fontSize: Desmos.FontSizes.SMALL });
+    my_calculator1.updateSettings({ fontSize: Desmos.FontSizes.SMALL });
+
+    // create an observer to update the value in sessionStorage
+    var sliderval1 = my_calculator1.HelperExpression({ latex: 'a' });
+    sliderval1.observe('numericValue', function() {
+        sessionStorage.setItem('sliderval1',sliderval1.numericValue);
+    });
     
-    var state = my_calculator.getState();
+    var state = my_calculator1.getState();
 </script>
 END_SCRIPT
 
 TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 <script>
-
+    if (sessionStorage.getItem('sliderval2')===null){
+        sessionStorage.setItem('sliderval2',$x2_mid);
+    }
     var arstarst2 = document.getElementById("$unique_div_id2");
 
     var my_calculator2 = Desmos.Calculator(arstarst2, {
@@ -392,11 +394,12 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         //expressions: false, 
         expressions: true,
         settingsMenu: true, 
-        expressionsTopbar: true
+        expressionsTopbar: true,
+        lockViewport: true
     });
 
     my_calculator2.setExpressions([
-        { id: 'slider', latex: 'a=$x2_mid', sliderBounds: {min: $x2_min, max: $x2_max, step: 0.1}},
+        { id: 'slider', latex: 'a='+sessionStorage.getItem('sliderval2'), sliderBounds: {min: $x2_min, max: $x2_max, step: 0.1}},
         { id: 'base_point', latex: '(a, g(a))', secret:'true', label: 'point of tangency', showLabel:'true'},
         { id: 'tangent_line', latex: 'y = g\'(a)*(x-a) + g(a)', label: 'tangent line', secret:'true'},
         { id: 'slope', latex: 'g\'(a)'},
@@ -412,13 +415,21 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 
     my_calculator2.updateSettings({ fontSize: Desmos.FontSizes.SMALL });
 
+    // create an observer to update the value in sessionStorage
+    var sliderval2 = my_calculator2.HelperExpression({ latex: 'a' });
+    sliderval2.observe('numericValue', function() {
+        sessionStorage.setItem('sliderval2',sliderval2.numericValue);
+    });
+    
     var state = my_calculator2.getState();
 </script>
 END_SCRIPT
 
 TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 <script>
-
+    if (sessionStorage.getItem('sliderval3')===null){
+        sessionStorage.setItem('sliderval3',$x3_mid);
+    }
     var arstarst3 = document.getElementById("$unique_div_id3");
 
     var my_calculator3 = Desmos.Calculator(arstarst3, {
@@ -426,11 +437,12 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         //expressions: false, 
         expressions: true,
         settingsMenu: true, 
-        expressionsTopbar: true
+        expressionsTopbar: true,
+        lockViewport: true
     });
 
     my_calculator3.setExpressions([
-        { id: 'slider', latex: 'a=$x3_mid', sliderBounds: {min: $x3_min, max: $x3_max, step: 0.1}},
+        { id: 'slider', latex: 'a='+sessionStorage.getItem('sliderval3'), sliderBounds: {min: $x3_min, max: $x3_max, step: 0.1}},
         { id: 'base_point', latex: '(a, g(a))', secret:'true', label:'is the slope here increasing or decreasing?', showLabel:'true'},
         { id: 'tangent_line', latex: 'y = g\'(a)*(x-a) + g(a)', label: 'tangent line', secret:'true'},
         { id: 'slope', latex: 'g\'(a)'},
@@ -444,6 +456,12 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
       top: $top3
     });
 
+    // create an observer to update the value in sessionStorage
+    var sliderval3 = my_calculator3.HelperExpression({ latex: 'a' });
+    sliderval3.observe('numericValue', function() {
+        sessionStorage.setItem('sliderval3',sliderval3.numericValue);
+    });
+    
     my_calculator3.updateSettings({ fontSize: Desmos.FontSizes.SMALL });
 
     var state = my_calculator3.getState();
@@ -452,7 +470,10 @@ END_SCRIPT
 
 TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 <script>
-
+    if (sessionStorage.getItem('sliderval4')===null){
+        sessionStorage.setItem('sliderval4',$x4_mid);
+    }
+    
     var arstarst4 = document.getElementById("$unique_div_id4");
 
     var my_calculator4 = Desmos.Calculator(arstarst4, {
@@ -460,11 +481,12 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         //expressions: false, 
         expressions: true,
         settingsMenu: true, 
-        expressionsTopbar: true
+        expressionsTopbar: true,
+        lockViewport: true
     });
 
     my_calculator4.setExpressions([
-        { id: 'slider', latex: 'a=$x4_mid', sliderBounds: {min: $x4_min, max: $x4_max, step: 0.1}},
+        { id: 'slider', latex: 'a='+sessionStorage.getItem('sliderval4'), sliderBounds: {min: $x4_min, max: $x4_max, step: 0.1}},
         { id: 'base_point', latex: '(a, g(a))', secret:'true',label: 'move left to right. slope increase or decrease?'},
         { id: 'tangent_line', latex: 'y = g\'(a)*(x-a) + g(a)', label: 'tangent line', secret:'true'},
         { id: 'slope', latex: 'g\'(a)'},
@@ -479,7 +501,13 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
     });
 
     my_calculator4.updateSettings({ fontSize: Desmos.FontSizes.SMALL });
-
+    
+    // create an observer to update the value in sessionStorage
+    var sliderval4 = my_calculator4.HelperExpression({ latex: 'a' });
+    sliderval4.observe('numericValue', function() {
+        sessionStorage.setItem('sliderval4',sliderval4.numericValue);
+    });
+    
     var state = my_calculator4.getState();
 </script>
 END_SCRIPT
