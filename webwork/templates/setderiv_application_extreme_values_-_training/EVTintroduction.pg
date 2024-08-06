@@ -1,14 +1,14 @@
 ##DESCRIPTION
-##  Training problem on the relationship between rates of change and slopes of lines
+##  mins and maxes are at critical points; fermat's theorem
 ##ENDDESCRIPTION
 
-##KEYWORDS('secant line', 'tangent line', 'slope', 'average rate of change', 'instantaneous rate of change')
+##KEYWORDS('secant line', 'extreme value theorem', 'fermats theorem', 'optimization', )
 
 ## DBsubject('Calculus')
-## DBchapter('Limits, Derivatives')
-## DBsection('Rates of change')
-## Date('Summer 2023')
-## Author('Warren Shull')
+## DBchapter('Applications of Derivatives')
+## DBsection('Extreme values')
+## Date('Summer 2023, Summer 2024')
+## Author('Warren Shull, silviana amethyst')
 ## Institution('UWEC')
 
 ########################################################################
@@ -46,41 +46,16 @@ $unique_div_id2 = "parabola_restricted";
 $unique_div_id3 = "fifth_restricted";
 $unique_div_id4 = "fifth_unrestricted";
 $unique_div_id5 = "fifth_unrestricted_tangent_line";
-$unique_div_id6 = "tangent_line_with_dragable_point";
 $width = 400;
 $height = 400;
 
-desmos_enable_construct_new();
+desmos_enable();
 
-$desmos_div = MODES(
-    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
-
-$desmos_div2 = MODES(
-    HTML=>qq(<div id="$unique_div_id2" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
-
-$desmos_div3 = MODES(
-    HTML=>qq(<div id="$unique_div_id3" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
-
-$desmos_div4 = MODES(
-    HTML=>qq(<div id="$unique_div_id4" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
-
-$desmos_div5 = MODES(
-    HTML=>qq(<div id="$unique_div_id5" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
-
-$desmos_div6 = MODES(
-    HTML=>qq(<div id="$unique_div_id6" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+$desmos_div = desmos_make_div_calculator(id=>$unique_div_id, width=>$width, height=>$height);
+$desmos_div2 = desmos_make_div_calculator(id=>$unique_div_id2, width=>$width, height=>$height);
+$desmos_div3 = desmos_make_div_calculator(id=>$unique_div_id3, width=>$width, height=>$height);
+$desmos_div4 = desmos_make_div_calculator(id=>$unique_div_id4, width=>$width, height=>$height);
+$desmos_div5 = desmos_make_div_calculator(id=>$unique_div_id5, width=>$width, height=>$height);
 
 
 ##############################################################
@@ -248,7 +223,7 @@ What is the slope of the tangent line at the local maximum? [_]{0} What about at
 END_PGML
 Section::End();
 
-Section::Begin("One more tangent line, then the passcode");
+Section::Begin("Conclusion: Fermat's Theorem");
 
 BEGIN_PGML
 
@@ -264,9 +239,6 @@ However, the reverse is NOT true. Sometimes [`f'(c)=0`] even when [`(c,f(c))`] i
 
 There's one such point on the graph above: [`\big(`][_]{$x2}[`,`][_]{$y2}[`\big)`]
 
-The passcode for the next question is [`[$passcode1]`].
-
-Enter it here: [_]{$passcode1}
 
 END_PGML
 Section::End();
@@ -298,7 +270,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         keypad: false, 
         expressions: false, 
         settingsMenu: true, 
-        expressionsTopbar: true
+        expressionsTopbar: true, lockViewport: true,
     });
     
     my_calculator.setExpressions([
@@ -328,7 +300,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         keypad: false, 
         expressions: false,
         settingsMenu: true, 
-        expressionsTopbar: true
+        expressionsTopbar: true, lockViewport: true,
     });
     
     my_calculator.setExpressions([
@@ -359,7 +331,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         keypad: false, 
         expressions: false,
         settingsMenu: true, 
-        expressionsTopbar: true
+        expressionsTopbar: true, lockViewport: true,
     });
     
     my_calculator.setExpressions([
@@ -390,7 +362,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         keypad: false, 
         expressions: false,
         settingsMenu: true, 
-        expressionsTopbar: true
+        expressionsTopbar: true, lockViewport: true,
     });
     
     my_calculator.setExpressions([
@@ -417,6 +389,9 @@ END_SCRIPT
 
 TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 <script>
+    if (sessionStorage.getItem('sliderval')===null){
+        sessionStorage.setItem('sliderval',$x2_start);
+    }
 
     var arstarst = document.getElementById("$unique_div_id5");
 
@@ -424,11 +399,11 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         keypad: false, 
         expressions: false,
         settingsMenu: true, 
-        expressionsTopbar: true
+        expressionsTopbar: true, lockViewport: true,
     });
     
     my_calculator.setExpressions([
-        { id: 'slider', latex: 'a=$x2_start', sliderBounds: {min: $x2_left-2, max: $x2_right+2, secret:'true', step: 0.1}},
+        { id: 'slider', latex: 'a='+sessionStorage.getItem('sliderval'), sliderBounds: {min: $x2_left-2, max: $x2_right+2, secret:'true', step: 0.1}},
         { id: 'function', latex: 'f(x) = $f2_str', color: Desmos.Colors.GREEN},
         { id: 'local_max', latex: '($x2_top,$y2_top)', color: Desmos.Colors.RED},
         { id: 'local_min', latex: '($x2_bottom,$y2_bottom)', color: Desmos.Colors.BLUE},
@@ -444,6 +419,12 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
     });
     
     my_calculator.updateSettings({ fontSize: Desmos.FontSizes.SMALL });
+    
+    // create an observer to update the value in sessionStorage
+    var sliderval = my_calculator.HelperExpression({ latex: 'a' });
+    sliderval.observe('numericValue', function() {
+        sessionStorage.setItem('sliderval',sliderval.numericValue);
+    });
     
     var state = my_calculator.getState();
 </script>
