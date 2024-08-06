@@ -1,5 +1,5 @@
 ##DESCRIPTION
-##  Training problem on the relationship between rates of change and slopes of lines
+##  Training problem on finding critical numbers and relating them to extreme values
 ##ENDDESCRIPTION
 
 ##KEYWORDS('secant line', 'tangent line', 'slope', 'average rate of change', 'instantaneous rate of change')
@@ -7,8 +7,8 @@
 ## DBsubject('Calculus')
 ## DBchapter('Limits, Derivatives')
 ## DBsection('Rates of change')
-## Date('Summer 2023')
-## Author('Warren Shull')
+## Date('Summer 2023, Summer 2024')
+## Author('Warren Shull, silviana amethyst')
 ## Institution('UWEC')
 
 ########################################################################
@@ -23,7 +23,7 @@ loadMacros(
    "PGcourse.pl",      # Customization file for the course
    "scaffold.pl",
    "parserPopUp.pl",   # <--------------------------------------NEEDED FOR DROPDOWN MENUS
-   "contextFraction.pl",
+   "contextFraction.pl"
 );
 
 loadMacros("customCSS.pl");
@@ -34,23 +34,6 @@ TEXT(beginproblem());
 # Show which answers are correct and which ones are incorrect
 $showPartialCorrectAnswers = 1;
 
-################################
-#  Desmos setup
-#
-#  In html mode, load the Desmos api script and create the <div> to attach the Desmos graph to.
-#  In tex mode, print a message to direct the student to the html version.
-#  Desmos API reference: https://www.desmos.com/api/v1.7/docs/index.html
-
-
-HEADER_TEXT(MODES(
-    HTML=>'<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
-    TeX=>''
-));
-
-$desmos_div = MODES(
-    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
 
 ##############################################################
 #
@@ -131,7 +114,7 @@ Scaffold::Begin(
       is_open  => "first_incorrect"
 );
 
-Section::Begin("Passcode");
+Section::Begin("Reminder of previous problem",is_open=>"always");
 
 BEGIN_PGML
 
@@ -143,14 +126,12 @@ At the end of the previous problem, we saw...
 If a function [`f`] is continuous on a closed interval [`[a,b]`], then [`f`] has both an absolute minimum and an absolute maximum on [`[a,b]`].
 [@ closeDiv() @]*
 
-Enter the passcode from the previous problem: [_]{$passcode2}
-
 So far, we have been finding the absolute maximum and minimum from graphs. How do we find them from an algebraic expression?
 
 END_PGML
 Section::End();
 
-Section::Begin("Closed Interval Method");
+Section::Begin("Closed Interval Method",is_open=>"always");
 
 BEGIN_PGML
 
@@ -163,8 +144,6 @@ If [`(c,f(c))`] is a local maximum or minimum, then either [`f'(c)=0`] or [`f'(c
 If [`f'(c)=0`] or [`f'(c)`] does not exist, we call the point [`(c,f(c))`] a _critical point_ (or [`c`] a _critical number_). The absolute maximum of [`f`] on a closed interval [`[a,b]`] can be [`a`], or [`b`], or one of the critical points. Anywhere else, the tangent line would slope up or down, so there would be nearby points both above and below (see "Why is Fermat's Theorem true?" in the previous problem).
 
 If we can find the [`x`]-values for these points, we can plug them in and get the [`y`]-values. One will be the highest, and one will be the lowest!
-
-Enter the passcode again: [_]{$passcode2}
 
 END_PGML
 Section::End();
@@ -286,8 +265,5 @@ Scaffold::End();
 
 Context()->normalStrings;
 
-##################################
-#  Desmos graph (via the API)
-#  Execute this only after the $desmos_div object has been put on the html page.
 
 ENDDOCUMENT();
