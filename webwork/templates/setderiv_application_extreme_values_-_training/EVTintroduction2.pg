@@ -1,5 +1,5 @@
 ##DESCRIPTION
-##  Training problem on the relationship between rates of change and slopes of lines
+##  Training problem on the relationship between local optima and critical points
 ##ENDDESCRIPTION
 
 ##KEYWORDS('secant line', 'tangent line', 'slope', 'average rate of change', 'instantaneous rate of change')
@@ -7,8 +7,8 @@
 ## DBsubject('Calculus')
 ## DBchapter('Limits, Derivatives')
 ## DBsection('Rates of change')
-## Date('Summer 2023')
-## Author('Warren Shull')
+## Date('Summer 2023, Summer 2024')
+## Author('Warren Shull, silviana amethyst')
 ## Institution('UWEC')
 
 ########################################################################
@@ -27,6 +27,8 @@ loadMacros(
 );
 
 loadMacros("customCSS.pl");
+
+COMMENT("This problem has an accessibility issue WRT colorblindness");
 
 # Print problem number and point value (weight) for the problem
 TEXT(beginproblem());
