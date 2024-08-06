@@ -7,8 +7,8 @@
 ## DBsubject('Calculus')
 ## DBchapter('Limits, Derivatives')
 ## DBsection('Curve Sketching')
-## Date('7/23/2023')
-## Author('Warren Shull')
+## Date('7/23/2023, summer 2024')
+## Author('Warren Shull, silviana amethyst')
 ## Institution('UWEC')
 
 ########################################################################
@@ -96,15 +96,7 @@ $decreasing_concave_down = PopUp(
 # Show which answers are correct and which ones are incorrect
 $showPartialCorrectAnswers = 1;
 
-################################
-#  Desmos setup
-#
-#  In html mode, load the Desmos api script and create the <div> to attach the Desmos graph to.
-#  In tex mode, print a message to direct the student to the html version.
-#  Desmos API reference: https://www.desmos.com/api/v1.7/docs/index.html
 
-$width = 300;
-$height = 300;
 
 
 $x1_mid = non_zero_random(-10,10); #middle, where $a begins
@@ -163,37 +155,33 @@ if ($g4_max<$g4_min){ #swap if they're in the wrong order
     $g4_min=$g4_temp;
 }
 
-desmos_enable_construct_new();
+
+################################
+#  Desmos setup
+#
+#  In html mode, load the Desmos api script and create the <div> to attach the Desmos graph to.
+#  In tex mode, print a message to direct the student to the html version.
+#  Desmos API reference: https://www.desmos.com/api/v1.7/docs/index.html
+
+$width = 300;
+$height = 300;
+
+
+desmos_enable();
 
 $unique_div_id = "increasing_concave_up";
-$desmos_div = MODES(
-    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
-
 $unique_div_id2 = "increasing_concave_down";
-$desmos_div2 = MODES(
-    HTML=>qq(<div id="$unique_div_id2" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
-
 $unique_div_id3 = "decreasing_concave_up";
-$desmos_div3 = MODES(
-    HTML=>qq(<div id="$unique_div_id3" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
-
 $unique_div_id4 = "decreasing_concave_down";
-$desmos_div4 = MODES(
-    HTML=>qq(<div id="$unique_div_id4" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+
+$desmos_div = desmos_make_div_calculator(id=>$unique_div_id, width=>$width, height=>$height);
+$desmos_div2 = desmos_make_div_calculator(id=>$unique_div_id2, width=>$width, height=>$height);
+$desmos_div3 = desmos_make_div_calculator(id=>$unique_div_id3, width=>$width, height=>$height);
+$desmos_div4 = desmos_make_div_calculator(id=>$unique_div_id4, width=>$width, height=>$height);
 
 $unique_div_id5 = "function_graph";
-$desmos_div5 = MODES(
-    HTML=>qq(<div id="$unique_div_id5" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+$desmos_div5 = desmos_make_div_calculator(id=>$unique_div_id5, width=>$width, height=>$height);
+
 
 ##############################################################
 #
@@ -316,24 +304,14 @@ In this problem, we will build tools to know how each part of a graph is shaped,
 [@ closeDiv() @]*
 END_PGML
 
-Section::Begin("Passcode");
+
+Section::Begin("Second derivative");
 
 BEGIN_PGML
 
 In this problem, we will focus on the same function from the previous problem:
 
 [`f(x)=[$f]`]
-
-🎯🔑 Enter the passcode from the previous question: [_]{$passcode2}
-
-END_PGML
-Section::End();
-
-
-
-Section::Begin("Second derivative");
-
-BEGIN_PGML
 
 🎯 Begin by finding the first and second derivative.
 
@@ -568,7 +546,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         expressions: false, 
         settingsMenu: true, 
         expressionsTopbar: true,
-        zoomButtons: false
+        zoomButtons: false, lockViewport: true,
     });
 
     my_calculator.setExpressions([
@@ -602,7 +580,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         expressions: false, 
         settingsMenu: true, 
         expressionsTopbar: true,
-        zoomButtons: false
+        zoomButtons: false, lockViewport: true,
     });
 
     my_calculator2.setExpressions([
@@ -636,7 +614,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         expressions: false, 
         settingsMenu: true, 
         expressionsTopbar: false,
-        zoomButtons: false
+        zoomButtons: false, lockViewport: true,
     });
 
     my_calculator3.setExpressions([
@@ -670,7 +648,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         expressions: false, 
         settingsMenu: true, 
         expressionsTopbar: true,
-        zoomButtons: false
+        zoomButtons: false, lockViewport: true,
     });
 
     my_calculator4.setExpressions([
@@ -704,7 +682,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         expressions: false, 
         settingsMenu: true, 
         expressionsTopbar: true,
-        zoomButtons: false
+        zoomButtons: false, lockViewport: true,
     });
 
     my_calculator5.setExpressions([
