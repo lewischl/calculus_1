@@ -306,8 +306,6 @@ We know that increasing functions have positive derivatives, and decreasing func
 
 Keep those questions in mind as we go forward. 
 
-🔑 The passcode for the next question is [`[$passcode1]`].  Enter it here: [_]{$passcode1}
-
 END_PGML
 Section::End();
 
