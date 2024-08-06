@@ -23,6 +23,7 @@ loadMacros(
    "PGcourse.pl",      # Customization file for the course
    "scaffold.pl",
    "parserPopUp.pl",   # <--------------------------------------NEEDED FOR DROPDOWN MENUS
+   "desmos.pl",
 );
 
 loadMacros("customCSS.pl");
@@ -46,25 +47,12 @@ $unique_div_id3 = "absolute_yes_or_no";
 $width = 700;
 $height = 400;
 
-HEADER_TEXT(MODES(
-    HTML=>'<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
-    TeX=>''
-));
+desmos_enable();
 
-$desmos_div = MODES(
-    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+$desmos_div = desmos_make_div_calculator(id=>$unique_div_id, width=>$width, height=>$height);
+$desmos_div2 = desmos_make_div_calculator(id=>$unique_div_id2, width=>$width, height=>$height);
+$desmos_div3 = desmos_make_div_calculator(id=>$unique_div_id3, width=>$width, height=>$height);
 
-$desmos_div2 = MODES(
-    HTML=>qq(<div id="$unique_div_id2" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
-
-$desmos_div3 = MODES(
-    HTML=>qq(<div id="$unique_div_id3" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
 
 ##############################################################
 #
@@ -133,7 +121,7 @@ Scaffold::Begin(
       is_open  => "first_incorrect"
 );
 
-Section::Begin("Passcode");
+Section::Begin("Derivatives that don't exist???");
 
 BEGIN_PGML
 
@@ -145,16 +133,6 @@ At the end of the previous problem, we saw...
 If [`(c,f(c))`] is a local maximum or minimum, then either [`f'(c)=0`] or [`f'(c)`] does not exist.
 [@ closeDiv() @]*
 
-Enter the passcode from the previous question:
-
-[_]{$passcode1}
-
-END_PGML
-Section::End();
-
-Section::Begin("Derivatives that don't exist???");
-
-BEGIN_PGML
 
 On the graph below, there are no points with horizontal tangent lines.
 
@@ -215,7 +193,7 @@ Only one of these has both an absolute maximum and minimum. Which one? [_]{$colo
 END_PGML
 Section::End();
 
-Section::Begin("When MUST absolute extrema exist?");
+Section::Begin("Conclusion: When MUST absolute extrema exist?");
 
 BEGIN_PGML
 
@@ -225,7 +203,6 @@ BEGIN_PGML
 If a function [`f`] is continuous on a closed interval [`[a,b]`], then [`f`] has both an absolute minimum and an absolute maximum on [`[a,b]`].
 [@ closeDiv() @]*
 
-The passcode for the next question is [`[$passcode2]`]. Enter it here: [_]{$passcode2}
 
 END_PGML
 Section::End();
@@ -257,7 +234,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         keypad: false, 
         expressions: false, 
         settingsMenu: true, 
-        expressionsTopbar: true
+        expressionsTopbar: true, lockViewport: true
     });
     
     my_calculator.setExpressions([
@@ -324,7 +301,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         keypad: false,
         expressions: false,
         settingsMenu: true,
-        expressionsTopbar: true
+        expressionsTopbar: true, lockViewport: true
     });
     
     my_calculator.setExpressions([
