@@ -7,34 +7,11 @@
 ## DBsubject('Calculus')
 ## DBchapter('Derivatives')
 ## DBsection('Implicit differentiation')
-## Date('')
+## Date('Summer 2023, Summer 2024')
 ## Author('silviana amethyst')
 ## Institution('UWEC')
 
 ########################################################################
-
-
-
-########################################
-# this file automatically moved
-#	from set3.8_implicit_diff/differentiating_expressions.pg 
-#	to setderivatives_differentation_on_implicit_curves/differentiating_expressions.pg 
-#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
-# if this problem uses static images, they should also have been moved from that location to here.
-# if not, look in the source directory for images that didn't make it.
-########################################
-
-
-
-
-########################################
-# this file automatically moved
-#	from setderivatives_differentation_on_implicit_curves/differentiating_expressions.pg 
-#	to setderivatives_differentation_on_implicit_curves_-_training/differentiating_expressions.pg 
-#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
-# if this problem uses static images, they should also have been moved from that location to here.
-# if not, look in the source directory for images that didn't make it.
-########################################
 
 
 DOCUMENT();
@@ -66,12 +43,11 @@ $unique_div_id = "desmos_graph_embedded_in_webwork";
 $width = 400;
 $height = 400;
 
-desmos_enable_construct_new();
+desmos_enable();
 
-$desmos_div = MODES(
-    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+$desmos_div = desmos_make_div_calculator(id=>$unique_div_id, width=>$width, height=>$height);
+
+
 
 
 Context("Numeric");
@@ -255,7 +231,7 @@ $nd = "not differentiable";
 
 sub isit{
 my $choice = shift @_;
-return PopUp(["?", $inc, $dec,  $neither, $nd], $choice);
+return PopUp(["choose one", $inc, $dec,  $neither, $nd], $choice);
 };
 
 
@@ -317,7 +293,8 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         expressions: false,
         settingsMenu: false, 
         expressionsTopbar: false,
-        zoomButtons: false
+        zoomButtons: false,
+        lockViewport: true
     });
 
     calculator.setExpressions([
