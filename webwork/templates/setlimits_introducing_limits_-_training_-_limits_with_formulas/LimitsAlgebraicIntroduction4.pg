@@ -18,9 +18,9 @@ loadMacros("PG.pl",
            "scaffold.pl",
            "PGauxiliaryFunctions.pl",
            "PGgraphmacros.pl",
-		   "freemanMacros.pl",
-  	       "AnswerFormatHelp.pl",
-           "Parser.pl", "desmos.pl",);
+           "freemanMacros.pl",
+           "AnswerFormatHelp.pl",
+           "Parser.pl", );
 
 loadMacros("niceTables.pl");
 
@@ -42,6 +42,7 @@ loadMacros(
 "answerHints.pl",
   "PGcourse.pl",           # Customization file for the course
    "customCSS.pl", # <---- MAKES BOXES PURPLE
+   "desmos.pl",
 );
 
 Context("Numeric");
@@ -71,34 +72,25 @@ $dne = String("DNE");
 
 #a,b,c,d available
 
-$width = 200;
+$width = 400;
 $height = 200;
 
-desmos_enable_construct_new();
+desmos_enable();
 
 $unique_div_id = "evaluating_h_5_left";
-$desmos_div = MODES(
-    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+$desmos_div = desmos_make_div_calculator(id=>$unique_div_id, width=>$width, height=>$height);
+
 
 $unique_div_id2 = "evaluating_h_5_right";
-$desmos_div2 = MODES(
-    HTML=>qq(<div id="$unique_div_id2" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+$desmos_div2 = desmos_make_div_calculator(id=>$unique_div_id2, width=>$width, height=>$height);
 
 $unique_div_id3 = "evaluating_h_inf";
-$desmos_div3 = MODES(
-    HTML=>qq(<div id="$unique_div_id3" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+$desmos_div3 = desmos_make_div_calculator(id=>$unique_div_id3, width=>$width, height=>$height);
+
 
 $unique_div_id4 = "evaluating_h_neg_inf";
-$desmos_div4 = MODES(
-    HTML=>qq(<div id="$unique_div_id4" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+$desmos_div4 = desmos_make_div_calculator(id=>$unique_div_id4, width=>$width, height=>$height);
+
 
 $p1=-1;
 $p2=-.2;
@@ -232,7 +224,7 @@ Context()->texStrings;
 
 Scaffold::Begin(can_open => "when_previous_correct", is_open  => "first_incorrect");
 ###########################################
-Section::Begin("Passcode");
+Section::Begin("Previous problem's function", is_open=>"always");
 
 BEGIN_PGML
 
@@ -246,8 +238,6 @@ In the previous problem, we looked at
 [$h3]&x>[$j-2]\\
 \end{cases}```]
 
-Enter the passcode from the previous problem: [_]{$passcode3}
-
 END_PGML
 
 Section::End();
@@ -256,7 +246,9 @@ Section::Begin("One more limit...");
 
 BEGIN_PGML
 
-Let's see what happens when [`x`] is close to [`[$j]`]. We will start with [`x`] values slightly _less_ than [`[$j]`]:
+Let's see what happens when [`x`] is close to [`[$j]`]. We will start with [`x`] values slightly _less_ than [`[$j]`].
+
+The blank Desmos calculator is available to help you evaluate.  Enter the branch you're working with, then evaluate it.
 
 END_PGML
 
@@ -443,6 +435,8 @@ END_PGML
 Section::End();
   Scaffold::End();
 
+Context()->texStrings();
+
 TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 <script>
 
@@ -457,6 +451,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         expressionsTopbar: true
     });
     
+        
     my_calculator.setMathBounds({
       left: -101,
       right: -99,

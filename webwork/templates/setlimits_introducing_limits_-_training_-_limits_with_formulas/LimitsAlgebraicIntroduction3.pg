@@ -18,8 +18,8 @@ loadMacros("PG.pl",
            "scaffold.pl",
            "PGauxiliaryFunctions.pl",
            "PGgraphmacros.pl",
-		   "freemanMacros.pl",
-  	       "AnswerFormatHelp.pl",
+           "freemanMacros.pl",
+           "AnswerFormatHelp.pl",
            "Parser.pl", "desmos.pl",);
 
 loadMacros("niceTables.pl");
@@ -42,6 +42,7 @@ loadMacros(
 "answerHints.pl",
   "PGcourse.pl",           # Customization file for the course
    "customCSS.pl", # <---- MAKES BOXES PURPLE
+   "desmos.pl",
 );
 
 Context("Numeric");
@@ -59,18 +60,14 @@ $dne = String("DNE");
 $width = 200;
 $height = 350;
 
-desmos_enable_construct_new();
+desmos_enable();
 $unique_div_id = "evaluating_f";
-$desmos_div = MODES(
-    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+$desmos_div = desmos_make_div_calculator(id=>$unique_div_id, width=>$width, height=>$height);
+
 
 $unique_div_id2 = "evaluating_h";
-$desmos_div2 = MODES(
-    HTML=>qq(<div id="$unique_div_id2" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+$desmos_div2 = desmos_make_div_calculator(id=>$unique_div_id2, width=>$width, height=>$height);
+
 
 #$contin = String('continuous');
 
@@ -215,7 +212,7 @@ Context()->texStrings;
 
 Scaffold::Begin(can_open => "when_previous_correct", is_open  => "first_incorrect");
 ###########################################
-Section::Begin("Passcode");
+Section::Begin("Intro", is_open=>"always");
 
 BEGIN_PGML
 
@@ -223,7 +220,6 @@ In the previous problem, we looked at
 
 [```g(x)=[$g]```]
 
-Enter the passcode from the previous problem: [_]{$passcode2}
 
 END_PGML
 
@@ -514,13 +510,13 @@ END_PGML
 
 Section::End();
 
-Section::Begin("Continuity & passcode");
+Section::Begin("Continuity & segue");
 
 BEGIN_PGML
 
 As you just saw, one of the two-sided limits in the previous part _did_ exist, and one did not. But what about continuity? Based on what we know so far, [`h(x)`] is continuous at [_]{$cts_neither}.
 
-The passcode for the next question is [`[$passcode3]`]. Enter it here: [_]{$passcode3}
+
 
 END_PGML
 
