@@ -27,9 +27,9 @@
 
 ########################################
 # this file automatically moved
-#	from local/Library/Rochester/setIntegrals4FTC/sc5_4_12.pg 
-#	to setintegrals_FTOC_2_for_derivatives_of_integral_functions/sc5_4_12.pg 
-#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+#   from local/Library/Rochester/setIntegrals4FTC/sc5_4_12.pg 
+#   to setintegrals_FTOC_2_for_derivatives_of_integral_functions/sc5_4_12.pg 
+#   on 2023-05-26 12:01:24.489989 by silviana amethyst.
 # if this problem uses static images, they should also have been moved from that location to here.
 # if not, look in the source directory for images that didn't make it.
 ########################################
@@ -39,9 +39,9 @@
 
 ########################################
 # this file automatically moved
-#	from setintegrals_FTOC_2_for_derivatives_of_integral_functions/sc5_4_12.pg 
-#	to setintegrals_FTOC_2_for_derivatives_of_integral_functions_-_training/sc5_4_12.pg 
-#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+#   from setintegrals_FTOC_2_for_derivatives_of_integral_functions/sc5_4_12.pg 
+#   to setintegrals_FTOC_2_for_derivatives_of_integral_functions_-_training/sc5_4_12.pg 
+#   on 2023-07-01 15:08:39.906823 by silviana amethyst.
 # if this problem uses static images, they should also have been moved from that location to here.
 # if not, look in the source directory for images that didn't make it.
 ########################################
@@ -59,7 +59,7 @@ loadMacros(
 
 
 
-desmos_enable_modify_existing();
+desmos_enable();
 
 
 $desmos_width= 800;
@@ -68,10 +68,7 @@ $desmos_height=400;
 sub make_desmos_graph{
 
     my $div_id = shift(@_);
-    my $desmos_graph = MODES(
-        HTML=>qq(<div id="$div_id" style="width: ${desmos_width}px; height: ${desmos_height}px;"></div>), 
-        TeX=>'Interactive graph best viewed online'
-    );
+    my $desmos_graph = desmos_make_div_calculator(id=>$div_id, height=>$desmos_height, width=>$desmos_width);
 
     return $desmos_graph;
 }
@@ -266,7 +263,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
             expressions: true,
             settingsMenu: false, 
             expressionsTopbar: false,
-            zoomButtons: false,
+            zoomButtons: false,lockViewport: true,
         });
 
 
