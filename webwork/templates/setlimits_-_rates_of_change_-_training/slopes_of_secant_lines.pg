@@ -18,9 +18,9 @@
 
 ########################################
 # this file automatically moved
-#	from local/Library/ma122DB/set1/s1_1_4.pg 
-#	to setlimits_average_rates_of_change/s1_1_4.pg 
-#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+#   from local/Library/ma122DB/set1/s1_1_4.pg 
+#   to setlimits_average_rates_of_change/s1_1_4.pg 
+#   on 2023-05-26 12:01:24.489989 by silviana amethyst.
 # if this problem uses static images, they should also have been moved from that location to here.
 # if not, look in the source directory for images that didn't make it.
 ########################################
@@ -30,9 +30,9 @@
 
 ########################################
 # this file automatically moved
-#	from setlimits_average_rates_of_change/slopes_of_secant_lines.pg 
-#	to setlimits_-_rates_of_change_-_training/slopes_of_secant_lines.pg 
-#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+#   from setlimits_average_rates_of_change/slopes_of_secant_lines.pg 
+#   to setlimits_-_rates_of_change_-_training/slopes_of_secant_lines.pg 
+#   on 2023-07-01 15:08:39.906823 by silviana amethyst.
 # if this problem uses static images, they should also have been moved from that location to here.
 # if not, look in the source directory for images that didn't make it.
 ########################################
@@ -78,12 +78,9 @@ $unique_div_id = "secant_line_graph";
 $width = 700;
 $height = 400;
 
-desmos_enable_construct_new();
+desmos_enable();
 
-$desmos_div = MODES(
-    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+$desmos_div = desmos_make_div_calculator(id=>"$unique_div_id", width=>$width,  height=>$height);
 
 
 
@@ -218,24 +215,29 @@ tex_size=>700, extra_html_tags=>'alt="A graph of the function 6/x, with two mark
 END_HINT
 
 
+$top = max(15, $a1/$x0 + 2);
 
 TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 <script>
-
+    if (sessionStorage.getItem('x1')===null){
+        sessionStorage.setItem('x1',$x1);
+    }
+    
+    
     var arstarst = document.getElementById("$unique_div_id");
 
     var my_calculator = Desmos.Calculator(arstarst, {
         keypad: false, 
         expressions: true,
         settingsMenu: true, 
-        expressionsTopbar: true
+        expressionsTopbar: true, lockViewport: true,
     });
 
     my_calculator.setExpressions([
         { id: 'y', latex: 'f(x)=$a1/x'},
-        { id: 'base_point', latex: '($x0, f($x0))', label: 'point of interest'},
-        { id: 'x1', latex: 'x_1 = $x1'},
-        { id: 'moving_point', latex: '(x_1, f(x_1))', label: 'moving point'},
+        { id: 'base_point', latex: '($x0, f($x0))', label: 'point of interest',showLabel:true},
+        { id: 'x1', latex: 'x_1 = ' + sessionStorage.getItem('x1'), sliderBounds:{ min: 0, max: 10, step: 0.1 }},
+        { id: 'moving_point', latex: '(x_1, f(x_1))', label: 'moving point',showLabel:true},
         { id: 'secant_line', latex: 'y = (f(x_1)-f($x0))/(x_1-$x0)*(x-$x0) + f($x0)', label: 'secant line'},
     ]);
     
@@ -243,10 +245,16 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
       left: -2,
       right: 10,
       bottom: -2,
-      top: 15
+      top: $top
     });
     
     my_calculator.updateSettings({ fontSize: Desmos.FontSizes.SMALL });
+    
+        // create an observer to update the value in sessionStorage
+    var x1 = my_calculator.HelperExpression({ latex: 'x_1' });
+    x1.observe('numericValue', function() {
+        sessionStorage.setItem('x1',x1.numericValue);
+    });
     
     var state = my_calculator.getState();
 </script>
