@@ -29,7 +29,9 @@ $unique_div_id = "desmos_calculator";
 $width = 800;
 $height = 400;
 
-desmos_enable_modify_existing(); # this call replaces the below lines.  the call is into "desmos.pl", use `loadMacros()` with it.
+desmos_enable(); 
+# this call replaces the below lines.  the call is into "desmos.pl", use `loadMacros()` with it.
+
 ## HEADER_TEXT(MODES(
 ##     HTML=>'<script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 ##     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.js"></script>
@@ -39,10 +41,7 @@ desmos_enable_modify_existing(); # this call replaces the below lines.  the call
 ##     TeX=>''
 ## ));
 
-$desmos_div = MODES(
-    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+$desmos_div = desmos_make_div_calculator(id=>$unique_div_id, width=>$width, $height=>$height);
 
 
 ################################

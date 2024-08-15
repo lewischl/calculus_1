@@ -28,12 +28,10 @@ $unique_div_id = "desmos_calculator";
 $width = 600;
 $height = 400;
 
-desmos_enable_modify_existing();
+desmos_enable();
 
-$desmos_div = MODES(
-    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+$desmos_div = desmos_make_div_calculator(id=>$unique_div_id, width=>$width, $height=>$height);
+
 
 
 ################################
