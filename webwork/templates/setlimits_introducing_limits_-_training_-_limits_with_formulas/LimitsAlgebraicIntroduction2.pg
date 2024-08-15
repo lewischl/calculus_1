@@ -19,8 +19,8 @@ loadMacros("PG.pl",
            "scaffold.pl",
            "PGauxiliaryFunctions.pl",
            "PGgraphmacros.pl",
-		   "freemanMacros.pl",
-  	       "AnswerFormatHelp.pl",
+           "freemanMacros.pl",
+           "AnswerFormatHelp.pl",
            "Parser.pl");
 
 loadMacros("niceTables.pl");
@@ -43,6 +43,7 @@ loadMacros(
 "answerHints.pl",
   "PGcourse.pl",           # Customization file for the course
    "customCSS.pl", # <---- MAKES BOXES PURPLE
+   "desmos.pl",
 );
 
 Context("Numeric");
@@ -151,16 +152,11 @@ $gp6 = $g->eval(x=>$p6);
 $width = 200;
 $height = 200;
 
-HEADER_TEXT(MODES(
-    HTML=>'<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
-    TeX=>''
-));
+desmos_enable();
 
 $unique_div_id = "evaluating_f";
-$desmos_div = MODES(
-    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+$desmos_div = desmos_make_div_calculator(id=>$unique_div_id, width=>$width, height=>$height);
+
 
 
 TEXT(beginproblem());
@@ -168,13 +164,11 @@ Context()->texStrings;
 
 Scaffold::Begin(can_open => "when_previous_correct", is_open  => "first_incorrect");
 ###########################################
-Section::Begin("New function!");
+Section::Begin("New function!",is_open  => "always");
 
 BEGIN_PGML
 
 The next function we will look at is [``f(x)=\cos\left(\frac\pi x\right)``].
-
-Enter the passcode from the previous problem: [_]{$passcode1}
 
 END_PGML
 
@@ -462,13 +456,13 @@ END_PGML
 
 Section::End();
 
-Section::Begin("Passcode");
+Section::Begin("Conclusion, and segue to next problem",is_open  => "always");
 
 BEGIN_PGML
 
 In this problem, we saw two nonexistent limits! In both cases, they did not exist because the function approached _more than one number_. But you may notice some differences between them. We will explore that in the next problem.
 
-The passcode for the next problem is [`[$passcode2]`]. Enter it here: [_]{$passcode2}
+
 
 END_PGML
 
