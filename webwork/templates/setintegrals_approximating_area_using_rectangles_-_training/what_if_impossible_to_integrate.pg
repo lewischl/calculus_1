@@ -29,21 +29,21 @@ Context("Numeric");
 
 
 
-
+desmos_enable();
 
 $unique_div_id = "desmos_graph";
-desmos_enable_modify_existing();
+
 $desmos_width= 800;
 $desmos_height=400;
-$desmos_graph = MODES(
-    HTML=>qq(<div id="$unique_div_id" style="width: ${desmos_width}px; height: ${desmos_height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+
+$desmos_div = desmos_make_div_calculator(id=>$unique_div_id, width=>$desmos_width, height=>$desmos_height);
+
 
 
 Context("Fraction");
 
 $f = Formula("1/(sqrt(2 pi)) e^(-1/2 * x^2)");
+$n_init = 10;
 ##############################################################
 #
 #  Text
@@ -97,7 +97,7 @@ The answer to the conundrum is approximation.  We satisfy ourselves with a numbe
 
 This is an interactive graph showing approximation of [`` \int_{-2}^2 [$f] \, dx ``], using a variable number of rectangles [`n`], where the heights of the rectangles are determined by their left endpoints.  
 
-[@ $desmos_graph @]*
+[@ $desmos_div @]*
 
 🎯 Use the Desmos graph to answer the questions.
 
@@ -133,7 +133,7 @@ END_PGML
 
 
 
-
+Context()->normalStrings;
 
 #################
 #
@@ -149,6 +149,7 @@ $graphUrl = "https://www.desmos.com/calculator/2bbgikmpwx"; # the URL of the gra
 TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );  
 <script>
 <!-- //
+    
     
     var elt = document.getElementById("$unique_div_id");
 
@@ -169,13 +170,13 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         for (let ii = 1; ii < exprlist.length; ii++) {
           state.expressions.list[ii].secret = true;
         } 
-
      calc.setState(state);
     
     
     }
 
     $d.getJSON("$graphUrl", modifyExistingState);
+    
 
 
 // -->
