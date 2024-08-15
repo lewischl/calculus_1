@@ -19,8 +19,8 @@ loadMacros("PG.pl",
            "scaffold.pl",
            "PGauxiliaryFunctions.pl",
            "PGgraphmacros.pl",
-		   "freemanMacros.pl",
-  	       "AnswerFormatHelp.pl",
+           "freemanMacros.pl",
+           "AnswerFormatHelp.pl",
            "Parser.pl");
 
 loadMacros("niceTables.pl");
@@ -402,13 +402,12 @@ END_PGML
 
 Section::End();
 
-Section::Begin("Passcode");
+Section::Begin("Conclusion and segue to next problem");
 
 BEGIN_PGML
 
 In the examples you just saw, [``\lim_{x\rightarrow a}f(x)``] always existed even though [`f(a)`] did not. Not all limits exist, however! In the next problem, you will see some limits that do not exist, and some problems where [`f(a)`] and [``\lim_{x\rightarrow a}f(x)``] are two different numbers!
 
-The passcode for the next problem is [`[$passcode1]`]. Enter it here: [_]{$passcode1}
 
 END_PGML
 
