@@ -22,9 +22,9 @@
 
 ########################################
 # this file automatically moved
-#	from local/Library/ma122DB/set11/s5_2_31.pg 
-#	to setintegrals_definite_by_geometry/s5_2_31.pg 
-#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+#   from local/Library/ma122DB/set11/s5_2_31.pg 
+#   to setintegrals_definite_by_geometry/s5_2_31.pg 
+#   on 2023-05-26 12:01:24.489989 by silviana amethyst.
 # if this problem uses static images, they should also have been moved from that location to here.
 # if not, look in the source directory for images that didn't make it.
 ########################################
@@ -34,9 +34,9 @@
 
 ########################################
 # this file automatically moved
-#	from setintegrals_definite_by_geometry/s5_2_31.pg 
-#	to setintegrals_definite_by_geometry_-_training/s5_2_31.pg 
-#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+#   from setintegrals_definite_by_geometry/s5_2_31.pg 
+#   to setintegrals_definite_by_geometry_-_training/s5_2_31.pg 
+#   on 2023-07-01 15:08:39.906823 by silviana amethyst.
 # if this problem uses static images, they should also have been moved from that location to here.
 # if not, look in the source directory for images that didn't make it.
 ########################################
@@ -82,13 +82,11 @@ $net_area = $area_left + $area_right;
 $area = $F->eval(x=>$b) - $F->eval(x=>$a);
 
 $unique_div_id = "desmos_graph";
-desmos_enable_modify_existing();
+desmos_enable();
 $width= 500;
 $height=300;
-$desmos_div = MODES(
-    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+$desmos_div = desmos_make_div_calculator(id=>$unique_div_id, height=>$height, width=>$width);
+
 
 
 
@@ -219,7 +217,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         keypad: false, 
         expressions: false,
         settingsMenu: false, 
-        expressionsTopbar: false
+        expressionsTopbar: false,lockViewport: true,
     });
     
     
