@@ -30,7 +30,7 @@ $height = 400;
 
 desmos_enable();
 
-$desmos_div = desmos_make_div_calculator(id=>$unique_div_id, width=>$width, $height=>$height);
+$desmos_div = desmos_make_div_calculator(id=>$unique_div_id, width=>$width, height=>$height);
 
 
 
