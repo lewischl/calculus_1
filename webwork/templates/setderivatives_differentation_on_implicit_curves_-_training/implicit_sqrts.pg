@@ -1,8 +1,8 @@
 ## DESCRIPTION
-##   Implicit Differentiation
+##   Implicit Differentiation -- find the slope approximately from a graph, then exactly using implicit differentiation
 ## ENDDESCRIPTION
 
-## updated 2023 by silviana amethyst
+## updated 2023, 2024 by silviana amethyst
 
 ## Tagged by nhamblet
 
@@ -41,9 +41,9 @@
 
 ########################################
 # this file automatically moved
-#	from myproblems/set3.8_implicit_diff/implicit_sqrts.pg 
-#	to setderivatives_differentation_on_implicit_curves/implicit_sqrts.pg 
-#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+#   from myproblems/set3.8_implicit_diff/implicit_sqrts.pg 
+#   to setderivatives_differentation_on_implicit_curves/implicit_sqrts.pg 
+#   on 2023-05-26 12:01:24.489989 by silviana amethyst.
 # if this problem uses static images, they should also have been moved from that location to here.
 # if not, look in the source directory for images that didn't make it.
 ########################################
@@ -53,9 +53,9 @@
 
 ########################################
 # this file automatically moved
-#	from setderivatives_differentation_on_implicit_curves/implicit_sqrts.pg 
-#	to setderivatives_differentation_on_implicit_curves_-_training/implicit_sqrts.pg 
-#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+#   from setderivatives_differentation_on_implicit_curves/implicit_sqrts.pg 
+#   to setderivatives_differentation_on_implicit_curves_-_training/implicit_sqrts.pg 
+#   on 2023-07-01 15:08:39.906823 by silviana amethyst.
 # if this problem uses static images, they should also have been moved from that location to here.
 # if not, look in the source directory for images that didn't make it.
 ########################################
@@ -93,12 +93,25 @@ $unique_div_id = "desmos_graph_embedded_in_webwork";
 $width = 600;
 $height = 400;
 
-desmos_enable_construct_new();
+desmos_enable();
 
-$desmos_div = MODES(
-    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+# if need a custom name for the css style, can provide as string via argument named `style_name`
+desmos_enable_value_in_text(background_color=>"lightblue");
+
+
+$desmos_div = desmos_make_div_calculator(id=>$unique_div_id, width=>$width, height=>$height);
+
+
+
+#Restore previously submitted values, with defaults
+$m_old = get_prev_with_default(m_ans, 0);
+
+#Creates the display element that will show the vertical scaling "a" slider value in context
+# use this in PMGL by putting a single * after the [] around the div object.  so `[$a_div]*` .
+$m_div = desmos_make_div_autoupdated_variable("m_text", $m_old, "desmoslinkedvalue");
+
+
+
 
 
 
@@ -144,15 +157,19 @@ $PAR
 
 In the Desmos graph, we've called the slope \(m\), and it has a slider you can play with.  Slide it to find an approximate value of \(m\) that makes the line tangent.
 
-The slope \(m \approx \) \{ans_rule(10) \}
+The slope \(m \approx \) $m_div
 
 
 
     
 END_TEXT
 
-ANS(Real($deriv)->cmp(tolType   => 'absolute',
-                tolerance => .3));
+#The answer is read from the value of the NAMED_HIDDEN_ANS_RULE
+#Create the html for those values.  If the blanks aren't hidden, the display won't match the blank
+TEXT(NAMED_HIDDEN_ANS_RULE('m_ans', 30)); # the `30` here is irrelevant
+NAMED_ANS('m_ans'=>Real($deriv)->cmp(tolType   => 'absolute',
+                tolerance => .3)); # provide the checker / comparison method for the answer.
+
 
 
     
@@ -200,7 +217,10 @@ $upper_bound = 2*$y1; # centers the point vertically
 
 TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 <script>
-
+    if (sessionStorage.getItem('m_curr')===null){
+        sessionStorage.setItem('m_curr',0.0);
+    }
+    
     var elt = document.getElementById("$unique_div_id");
 
     var calculator = Desmos.Calculator(elt, {
@@ -214,7 +234,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
     calculator.setExpressions([
         { id: 'implicitcurve', latex: '\\sqrt{x} + \\sqrt{y} = $a1', color: Desmos.Colors.BLUE },
         { id: 'pointoftangency', latex: '($x2,$y1)', color: Desmos.Colors.RED },
-        { id: 'slopeslider', latex: 'm=0', sliderBounds: {min: -3, max: 3, step: 0.1}},
+        { id: 'slopeslider', latex: 'm='+sessionStorage['m_curr'], sliderBounds: {min: -3, max: 3, step: 0.1}},
         { id: 'tangentline', latex: 'y-$y1=m(x-$x2)', color: Desmos.Colors.MAGENTA }
     ]);
     
@@ -225,7 +245,17 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
       top: $upper_bound
     });
 
-
+    
+    // create an observer to update the value in sessionStorage
+    var m_curr = calculator.HelperExpression({ latex: 'm' });
+    m_curr.observe('numericValue', function() {
+        sessionStorage.setItem('m_curr',m_curr.numericValue);
+        document.getElementById('m_text').innerHTML=m_curr.numericValue;
+        document.getElementById('m_ans').value=m_curr.numericValue;
+        document.getElementById('m_ans').innerHTML=m_curr.numericValue;
+    });
+    
+    
 </script>
 END_SCRIPT
 
