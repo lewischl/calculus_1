@@ -158,7 +158,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         expressions: true,
         settingsMenu: false, 
         expressionsTopbar: false,
-        zoomButtons: false,
+        zoomButtons: false,lockViewport: true,
     });
     
     
