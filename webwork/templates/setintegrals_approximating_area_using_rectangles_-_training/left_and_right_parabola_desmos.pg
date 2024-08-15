@@ -19,9 +19,9 @@
 
 ########################################
 # this file automatically moved
-#	from local/Library/Rochester/setIntegrals0Theory/sc5_2_3_mo.pg 
-#	to setintegrals_approximating_area_using_rectangles/sc5_2_3_mo.pg 
-#	on 2023-05-26 12:01:24.489989 by silviana amethyst.
+#   from local/Library/Rochester/setIntegrals0Theory/sc5_2_3_mo.pg 
+#   to setintegrals_approximating_area_using_rectangles/sc5_2_3_mo.pg 
+#   on 2023-05-26 12:01:24.489989 by silviana amethyst.
 # if this problem uses static images, they should also have been moved from that location to here.
 # if not, look in the source directory for images that didn't make it.
 ########################################
@@ -31,9 +31,9 @@
 
 ########################################
 # this file automatically moved
-#	from setintegrals_approximating_area_using_rectangles/sc5_2_3_mo.pg 
-#	to setintegrals_approximating_area_using_rectangles_-_training/sc5_2_3_mo.pg 
-#	on 2023-07-01 15:08:39.906823 by silviana amethyst.
+#   from setintegrals_approximating_area_using_rectangles/sc5_2_3_mo.pg 
+#   to setintegrals_approximating_area_using_rectangles_-_training/sc5_2_3_mo.pg 
+#   on 2023-07-01 15:08:39.906823 by silviana amethyst.
 # if this problem uses static images, they should also have been moved from that location to here.
 # if not, look in the source directory for images that didn't make it.
 ########################################
@@ -42,7 +42,7 @@
 DOCUMENT();        # This should be the first executable line in the problem.
 loadMacros(
 "PGstandard.pl",
-"MathObjects.pl",   					
+"MathObjects.pl",                       
   "PGgraphmacros.pl",
 "PGcourse.pl",         # Customization file for the course
 "desmos.pl",
@@ -62,7 +62,7 @@ Context()->normalStrings;
 
 
 
-desmos_enable_modify_existing();
+desmos_enable();
 
 
 $desmos_width= 400;
@@ -71,10 +71,7 @@ $desmos_height=300;
 sub make_desmos_graph{
 
     my $div_id = shift(@_);
-    my $desmos_graph = MODES(
-        HTML=>qq(<div id="$div_id" style="width: ${desmos_width}px; height: ${desmos_height}px;"></div>), 
-        TeX=>'Interactive graph best viewed online'
-    );
+    my $desmos_graph = desmos_make_div_calculator(id=>"$div_id", width=>$desmos_width,  height=>$desmos_height);
 
     return $desmos_graph;
 }
@@ -426,7 +423,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
             expressions: false,
             settingsMenu: false, 
             expressionsTopbar: false,
-            zoomButtons: false,
+            zoomButtons: false,lockViewport: true,
         });
 
 
@@ -436,6 +433,8 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
             var exprlist = state.expressions.list;
 
             state.expressions.list[3].latex = 'f(x) = $f';
+            
+            // the following is not necessary because I turned off the expressions menu above.
             // for (let ii = 1; ii < exprlist.length; ii++) {
             //   state.expressions.list[ii].secret = true;
             // } 
