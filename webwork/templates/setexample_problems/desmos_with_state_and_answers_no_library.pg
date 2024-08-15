@@ -1,0 +1,160 @@
+## DESCRIPTION
+##  Algebra - Transformation of Graphs
+## ENDDESCRIPTION
+
+## DBsubject(Algebra)
+## DBchapter(Transformations of functions and graphs)
+## DBsection(Shifts: vertical and horizontal)
+## Date(Spring 2024)
+## Institution(UWEC)
+## Author(Andy Swanson)
+## Level(2)
+## KEYWORDS('Algebra','Transformtions','Graphs','transformations of functions')
+
+#
+# First comes some stuff that appears at the beginning of every problem
+#
+
+DOCUMENT();    # This should be the first executable line in the problem.
+
+loadMacros(
+    "PGstandard.pl",  "MathObjects.pl",
+    "answerHints.pl", "PGML.pl",
+    "PGtikz.pl",      "PGuwecTikZutils.pl",
+    "PGcourse.pl",
+);
+
+COMMENT("Example of: a Desmos graph that carries state through pushing Submit, plus reads answer values from the Desmos graph.  This example does NOT use a library setup, but the entire code is in this problem's source code.");
+
+TEXT(beginproblem());
+$refreshCachedImages = 1;
+################################
+#  Desmos setup
+#
+#  In html mode, load the Desmos api script and create the <div> to attach the Desmos graph to.
+#  In tex mode, print a message to direct the student to the html version.
+#  Desmos API reference: https://www.desmos.com/api/v1.8/docs/index.html
+
+#Set upstyle for values copied from sliders and tell javascript where to find DESMOS
+HEADER_TEXT(MODES(
+    HTML =>
+        '<style>.slider{border-radius:5px;background-color:lightblue;padding:2px}
+        </style>
+        <script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
+    TeX => ''
+));
+
+# This will display the desmos calculator in PGML
+$desmos_div = MODES(
+    HTML =>
+        '<div id="calculator" style="width: 800px; height: 400px;"></div>',
+    TeX => 'Interactive graph best viewed online'
+);
+
+#standard PG setup of variables
+#Graph the standard function
+$a     = non_zero_random(2, 8);
+do { $b = non_zero_random(2, 5) } until abs($b) != abs($a);
+$c = -$a;
+
+#Restore previously submitted values
+#Get the previous vscale answer or supply default 0.5 in this case
+$a_old=($inputs_ref->{vscale_ans})?$inputs_ref->{vscale_ans}:0.5;
+
+#Creates the display element that will show the vertcial scaling "a" slider value in context
+$a_div =  MODES(
+    HTML =>
+        '<span id="vscale_text" class="slider">$a_old</span>',
+    TeX => '1'
+);
+
+#Get the previous hscale answer or supply default
+$b_old=($inputs_ref->{hscale_ans})?$inputs_ref->{hscale_ans}:0.5;
+
+#Creates the display element that will show the horizontal scaling "b" slider value in context
+$b_div =  MODES(
+    HTML =>
+        '<span id="hscale_text" class="slider">$b_old</span>',
+    TeX => '1'
+);
+
+BEGIN_PGML
+The graph of [` y= f(x) `] is given in thick solid black:  
+
+Use the sliders to move the thin solid orange curve around.  
+Make sure the reference point *matches* the reference point on the desired curve.  
+Then answer these questions:  
+The blue dashed graph is [`y=`][$a_div]* [`f(x)`]  
+The red dotted graph is [`y=f(`][$b_div]* [`x)`]  
+[$desmos_div]*
+
+END_PGML
+#The answer is read from the value of the NAMED_HIDDEN_ANS_RULE
+#Create the html for those values.  If the blanks aren't hidden, the display won't match the blank
+#TEXT(NAMED_ANS_RULE('vscale_ans', 30));
+#TEXT(NAMED_ANS_RULE('hscale_ans', 30));
+TEXT(NAMED_HIDDEN_ANS_RULE('vscale_ans', 30));
+TEXT(NAMED_HIDDEN_ANS_RULE('hscale_ans', 30));
+
+
+NAMED_ANS('vscale_ans'=>Compute($a)->cmp);
+NAMED_ANS('hscale_ans'=>Compute($b)->cmp);
+
+TEXT(MODES(TeX => '', HTML => <<END_SCRIPT ));
+<script>
+<!-- //
+// where does the calculator go? (in what html element)
+var elt = document.getElementById('calculator');
+// create the calculator and tell it what it is attached to
+var calculator = Desmos.GraphingCalculator(elt,{zoomFit:true});
+
+// create a basic displayed function that the students don't see the expression for
+calculator.setExpression({latex: 'f(x) =\\left|x\\right|',secret:'true',color:Desmos.Colors.BLACK,lineWidth:4});
+
+// create a reference point on that function (don't show it in expression list, but label it)
+calculator.setExpression({latex: '(1,f(1))',secret:'true',color:Desmos.Colors.BLACK,showLabel:'true'});
+
+// create a vertically scaled version of the function with a reference point
+calculator.setExpression({latex: 'y=a f( x)',color:Desmos.Colors.BLUE,lineWidth:1});
+calculator.setExpression({latex: '(1,a f(1))',secret:'true',color:Desmos.Colors.BLUE,showLabel:'true'});
+
+// create a horizontally scaled version of the function with a reference point
+calculator.setExpression({latex: 'y= f(b x)',color:Desmos.Colors.RED,lineWidth:1});
+calculator.setExpression({latex: '(1/b, f(1))',secret:'true',color:Desmos.Colors.RED,showLabel:'true'});
+
+// create the sliders that modify the scaled functions
+calculator.setExpression({id: 'a',latex: 'a=$a_old',sliderBounds:{min:0.5,max:8,step:0.5}});
+calculator.setExpression({id:'b',latex: 'b=$b_old',sliderBounds:{min:0.5,max:8,step:0.5}});
+
+// bounds of the graph
+calculator.setMathBounds({bottom:-1,top:9,left:-5,right:5})
+
+// Match this function with vertical scaling
+calculator.setExpression({latex: "y=$a f(x)",secret:'true',lineStyle: Desmos.Styles.DASHED,color:Desmos.Colors.BLUE});
+calculator.setExpression({latex: '(1,$a f(1))',secret:'true',color:Desmos.Colors.BLUE,showLabel:'true'});
+
+// Match this function with horizontal scaling
+calculator.setExpression({latex: "y=f($b x)",secret:'true',lineStyle: Desmos.Styles.DOTTED,color:Desmos.Colors.RED});
+calculator.setExpression({latex: '(1/$b,f(1))',secret:'true',color:Desmos.Colors.RED,showLabel:'true'});
+
+// create the objects that monitor the sliders
+var b = calculator.HelperExpression({ latex: 'b' });
+var a = calculator.HelperExpression({ latex: 'a' });
+
+// The horizontal scaling slider has moved
+b.observe('numericValue', function() {
+    document.getElementById('hscale_text').innerHTML=b.numericValue;  //update the display
+    document.getElementById('hscale_ans').value=b.numericValue;  //update the submitted answer
+    });
+
+// The vertical scaling slider has moved
+a.observe('numericValue', function() {
+    document.getElementById('vscale_text').innerHTML=a.numericValue;
+    document.getElementById('vscale_ans').value=a.numericValue;
+    document.getElementById('vscale_ans').innerHTML=a.numericValue;
+    });
+// -->
+</script>
+END_SCRIPT
+ENDDOCUMENT();    # This should be the last executable line in the problem.
+
