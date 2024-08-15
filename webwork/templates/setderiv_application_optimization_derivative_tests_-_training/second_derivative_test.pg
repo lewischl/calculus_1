@@ -24,7 +24,7 @@ loadMacros(
    "scaffold.pl",
    "unionTables.pl",
    "parserPopUp.pl",   # <--------------------------------------NEEDED FOR DROPDOWN MENUS
-   "PGtikz.pl",
+   "PGtikz.pl",'desmos.pl',
 );
 
 loadMacros("customCSS.pl");
@@ -167,10 +167,7 @@ if ($g4_max<$g4_min){ #swap if they're in the wrong order
     $g4_min=$g4_temp;
 }
 
-HEADER_TEXT(MODES(
-    HTML=>'<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
-    TeX=>''
-));
+desmos_enable();
 
 $unique_div_id = "increasing_concave_up";
 $desmos_div = MODES(
@@ -328,15 +325,13 @@ In this problem, we will build tools to know how each part of a graph is shaped,
 [@ closeDiv() @]*
 END_PGML
 
-Section::Begin("Passcode");
+Section::Begin("Segue", is_open=>"always");
 
 BEGIN_PGML
 
 In this problem, we will focus on the same function from the previous problem:
 
 [`f(x)=[$f]`]
-
-🎯🔑 Enter the passcode from the previous question: [_]{$passcode2}
 
 END_PGML
 Section::End();

@@ -24,6 +24,7 @@ loadMacros(
    "scaffold.pl",
    "parserPopUp.pl",   # <--------------------------------------NEEDED FOR DROPDOWN MENUS
    "PGtikz.pl",
+   "desmos.pl",
 );
 
 loadMacros("customCSS.pl");
@@ -88,10 +89,8 @@ $unique_div_id = "increasing_concave_up";
 $width = 700;
 $height = 400;
 
-HEADER_TEXT(MODES(
-    HTML=>'<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
-    TeX=>''
-));
+desmos_enable();
+
 
 $desmos_div = MODES(
     HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
@@ -210,7 +209,7 @@ In this problem we label a partitioned number line with the sign of the first de
 
 END_PGML
 
-Section::Begin("🔑 Segue from previous problem");
+Section::Begin("Segue from previous problem", is_open=>"always");
 
 BEGIN_PGML
 
@@ -218,7 +217,6 @@ Recall that a *critical number* is an [`x`]-value, commonly called [`c`], where 
 
 In this problem, we will see what happens _in-between_ the critical numbers.
 
-Enter the passcode from the previous question: [_]{$passcode1}
 
 END_PGML
 Section::End();
@@ -363,7 +361,7 @@ Section::End();
 
 
 
-Section::Begin("The first derivative test 🔑");
+Section::Begin("The first derivative test", is_open=>"always");
 
 BEGIN_PGML
 
@@ -378,8 +376,6 @@ Let [`c`] be a critical point of [`f`].
 [@ closeDiv() @]*
 
 We can also use the second derivative to classify a critical point as local min or max.  That's the next problem.
-
-The passcode for the next question is [`[$passcode2]`]. 🎯  Enter it here: [_]{$passcode2}.
 
 END_PGML
 Section::End();

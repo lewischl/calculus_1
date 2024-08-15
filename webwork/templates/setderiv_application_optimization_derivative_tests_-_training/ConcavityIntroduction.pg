@@ -23,6 +23,7 @@ loadMacros(
    "PGcourse.pl",      # Customization file for the course
    "scaffold.pl",
    "parserPopUp.pl",   # <--------------------------------------NEEDED FOR DROPDOWN MENUS
+   "desmos.pl",
 );
 
 loadMacros("customCSS.pl");
@@ -54,41 +55,31 @@ $showPartialCorrectAnswers = 1;
 #
 #  In html mode, load the Desmos api script and create the <div> to attach the Desmos graph to.
 #  In tex mode, print a message to direct the student to the html version.
-#  Desmos API reference: https://www.desmos.com/api/v1.7/docs/index.html
+#  Desmos API reference: https://www.desmos.com/api/v1.9/docs/index.html
 
 
-$unique_div_id = "increasing_concave_up";
+
 $width = 700;
 $height = 400;
 
+desmos_enable();
 
-HEADER_TEXT(MODES(
-    HTML=>'<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>',
-    TeX=>''
-));
+$unique_div_id = "increasing_concave_up";
+$desmos_div = desmos_make_div_calculator(id=>$unique_div_id, width=>$width, height=>$height);
 
-$desmos_div = MODES(
-    HTML=>qq(<div id="$unique_div_id" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+
 
 $unique_div_id2 = "increasing_concave_down";
-$desmos_div2 = MODES(
-    HTML=>qq(<div id="$unique_div_id2" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+$desmos_div2 = desmos_make_div_calculator(id=>$unique_div_id2, width=>$width, height=>$height);
+
 
 $unique_div_id3 = "decreasing_concave_up";
-$desmos_div3 = MODES(
-    HTML=>qq(<div id="$unique_div_id3" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+$desmos_div3 = desmos_make_div_calculator(id=>$unique_div_id3, width=>$width, height=>$height);
+
 
 $unique_div_id4 = "decreasing_concave_down";
-$desmos_div4 = MODES(
-    HTML=>qq(<div id="$unique_div_id4" style="width: ${width}px; height: ${height}px;"></div>), 
-    TeX=>'Interactive graph best viewed online'
-);
+$desmos_div4 = desmos_make_div_calculator(id=>$unique_div_id4, width=>$width, height=>$height);
+
 
 ##############################################################
 #
@@ -308,8 +299,6 @@ We know that increasing functions have positive derivatives, and decreasing func
 
 Keep those questions in mind as we go forward. 
 
-🔑 The passcode for the next question is [`[$passcode1]`].  Enter it here: [_]{$passcode1}
-
 END_PGML
 Section::End();
 
@@ -351,7 +340,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         //expressions: false, 
         expressions: true,
         settingsMenu: true, 
-        expressionsTopbar: true
+        expressionsTopbar: true, lockViewport: true,
     });
 
     my_calculator.setExpressions([
@@ -385,7 +374,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         //expressions: false, 
         expressions: true,
         settingsMenu: true, 
-        expressionsTopbar: true
+        expressionsTopbar: true, lockViewport: true,
     });
 
     my_calculator2.setExpressions([
@@ -419,7 +408,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         //expressions: false, 
         expressions: true,
         settingsMenu: true, 
-        expressionsTopbar: true
+        expressionsTopbar: true, lockViewport: true,
     });
 
     my_calculator3.setExpressions([
@@ -453,7 +442,7 @@ TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
         //expressions: false, 
         expressions: true,
         settingsMenu: true, 
-        expressionsTopbar: true
+        expressionsTopbar: true, lockViewport: true,
     });
 
     my_calculator4.setExpressions([
